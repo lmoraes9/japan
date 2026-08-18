@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import type { Stop, StopKind } from '@/data/types';
 import { Rich } from './Rich';
+import { EatBlocks } from './EatBlocks';
 import { navigateUrl, photosUrl } from '@/lib/mapsLinks';
 import { useSyncStore } from '@/lib/store';
 
@@ -54,7 +55,9 @@ export function StopCard({
   const setNote = useSyncStore((s) => s.setNote);
 
   const nav = navigateUrl(stop);
-  const photos = photosUrl(stop);
+  // parada que é só escolha de refeição não tem "fotos do lugar" — cada item tem as suas
+  const isPlace = stop.kind !== 'food' || !!stop.jp;
+  const photos = isPlace ? photosUrl(stop) : undefined;
   const extraLinks = stop.links?.filter((l) => l.label !== 'fotos');
   const Icon = KIND_ICON[stop.kind] ?? Landmark;
 
@@ -134,28 +137,9 @@ export function StopCard({
             </div>
           )}
 
-          {stop.eat?.map((block, i) => (
-            <div key={i} className="mt-3 rounded-xl bg-surface-2 p-3">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-gold mb-2">
-                {block.label}
-              </p>
-              <ul className="space-y-2">
-                {block.items.map((item, j) => (
-                  <li key={j} className="text-[13px] leading-snug">
-                    <span className="font-semibold">{item.name}</span>
-                    {item.specialty && (
-                      <span className="ml-1.5 inline-block align-middle rounded-full bg-accent/15 text-accent text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5">
-                        ⭐ especialidade local
-                      </span>
-                    )}
-                    <span className="block text-[12px] text-muted mt-0.5">
-                      <Rich text={item.note} />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {stop.eat && (
+            <EatBlocks blocks={stop.eat} stopId={stop.id} dayId={dayId} />
+          )}
 
           <div className="flex flex-wrap items-center gap-2 mt-3">
             {nav && (

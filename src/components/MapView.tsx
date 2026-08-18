@@ -15,6 +15,7 @@ import type { Day, Stop } from '@/data/types';
 import { itineraryDate } from '@/lib/now';
 import { navigateUrl, photosUrl } from '@/lib/mapsLinks';
 import { Rich } from './Rich';
+import { EatBlocks } from './EatBlocks';
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? '';
 const MAP_ID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID ?? 'DEMO_MAP_ID';
@@ -75,11 +76,19 @@ function FitBounds({ stops, focus }: { stops: Stop[]; focus?: Stop }) {
   return null;
 }
 
-function StopSheet({ stop, onClose }: { stop: Stop; onClose: () => void }) {
+function StopSheet({
+  stop,
+  dayId,
+  onClose,
+}: {
+  stop: Stop;
+  dayId: string;
+  onClose: () => void;
+}) {
   const nav = navigateUrl(stop);
-  const photos = photosUrl(stop);
+  const photos = stop.kind !== 'food' || stop.jp ? photosUrl(stop) : undefined;
   return (
-    <div className="absolute bottom-0 inset-x-0 z-10 rounded-t-3xl bg-surface border-t border-hairline p-4 shadow-2xl">
+    <div className="absolute bottom-0 inset-x-0 z-10 rounded-t-3xl bg-surface border-t border-hairline p-4 shadow-2xl max-h-[70%] overflow-y-auto">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="font-mono text-[12px] text-accent font-semibold">
@@ -104,6 +113,12 @@ function StopSheet({ stop, onClose }: { stop: Stop; onClose: () => void }) {
           <Rich text={stop.facts} />
         </p>
       )}
+      {stop.paragraphs?.[0] && (
+        <p className="text-[13px] leading-relaxed mt-2 text-foreground/90">
+          <Rich text={stop.paragraphs[0]} />
+        </p>
+      )}
+      {stop.eat && <EatBlocks blocks={stop.eat} stopId={stop.id} dayId={dayId} />}
       <div className="mt-3 flex gap-2">
         {nav && (
           <a
@@ -269,7 +284,11 @@ export function MapScreen() {
             </GoogleMap>
           </APIProvider>
           {selectedStop && (
-            <StopSheet stop={selectedStop} onClose={() => setSelectedStop(null)} />
+            <StopSheet
+              stop={selectedStop}
+              dayId={day.id}
+              onClose={() => setSelectedStop(null)}
+            />
           )}
         </div>
       ) : (
