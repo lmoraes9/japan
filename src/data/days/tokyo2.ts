@@ -70,10 +70,12 @@ export const tokyo2Days: Day[] = [
             items: [
               {
                 name: 'Nihonbashi Tamai',
+                specialty: true,
                 note: '11:00–22:00 · *anago* (enguia-do-mar), a versão de Tóquio. Mais leve que o unagi, e muito bom.',
               },
               {
                 name: 'Taimeiken',
+                specialty: true,
                 note: '11:00–21:00 · *yōshoku*, a cozinha ocidental adaptada da era Meiji. O omurice daqui é o famoso do filme "Tampopo".',
               },
             ],
@@ -130,6 +132,7 @@ export const tokyo2Days: Day[] = [
             items: [
               {
                 name: 'Umegaoka Sushi no Midori Ginza',
+                specialty: true,
                 note: '11:00–21:00 · o melhor custo-benefício de Ginza, ~¥3.000. Peguem senha cedo pelo painel eletrônico.',
               },
               {

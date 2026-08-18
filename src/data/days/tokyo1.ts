@@ -8,6 +8,13 @@ export const tokyo1Days: Day[] = [
     title: 'Chegada · pouso 17:15 em Haneda',
     subtitle: 'Sem programa. Suica, hotel, uma tigela de ramen e dormir.',
     chips: ['chegada', 'ramen'],
+    notes: [
+      {
+        label: 'Chegando sem roupa',
+        tone: 'info',
+        text: 'Se precisarem de qualquer coisa ainda hoje (camiseta, meia, escova), o **Don Quijote de Shinjuku é 24h** e tem de tudo. UNIQLO e GU fecham às 21:00 — as compras de roupa de verdade estão programadas para amanhã, no caminho do roteiro.',
+      },
+    ],
     stops: [
       {
         id: 'd18-haneda',
@@ -71,7 +78,14 @@ export const tokyo1Days: Day[] = [
     stageId: 'tokyo1',
     title: 'Edo antigo: Asakusa → Kappabashi → Ueno → Akihabara',
     subtitle: 'O jet lag joga a favor. Acordar às 5h30 e chegar no templo mais antigo da cidade vazio.',
-    chips: ['história', 'facas', 'ramen', 'museu'],
+    chips: ['história', 'facas', 'ramen', 'museu', 'compras do dia 1'],
+    notes: [
+      {
+        label: 'Compras dos primeiros dias — resolve tudo hoje',
+        tone: 'ok',
+        text: 'O trajeto de hoje passa exatamente onde se resolve o kit de chegada:\n\n**Camisetas** — UNIQLO Okachimachi ou GU Ueno (a irmã barata da Uniqlo, camiseta a ¥590–990), coladas na Ameyoko (parada das 15:30).\n\n**Tênis** — na própria Ameyoko: **London Sports** (preço), **Mita Sneakers** (a loja de sneaker mais respeitada de Tóquio, no prédio central) e **ABC-Mart** (rede, tem tudo). Tamanho japonês é em **centímetros** — peçam para medir.\n\n**Óculos de grau** — o lugar "que mede o grau e faz na hora" dos reels é uma das redes **JINS, Zoff ou OWNDAYS**: exame de vista **grátis na loja** (~10 min, sem receita), armação + lentes a partir de **¥5.900–8.000** (≈ R$210–290), óculos pronto em **30–60 minutos**. Tem em Shinjuku (perto do hotel, abertas até ~21h), Ginza e Akihabara — dá para deixar o exame feito e jantar enquanto o óculos fica pronto. Detalhes na seção Compras.',
+      },
+    ],
     stops: [
       {
         id: 'd19-sensoji',
@@ -114,6 +128,7 @@ export const tokyo1Days: Day[] = [
               },
               {
                 name: 'Kagetsudō',
+                specialty: true,
                 note: '09:00–16:00 · o melonpan gigante de Asakusa, ¥250, para comer na hora',
               },
             ],
@@ -213,6 +228,32 @@ export const tokyo1Days: Day[] = [
             'Nasceu como **mercado negro** nos escombros de 1945, embaixo da linha de trem. O nome tem duas explicações concorrentes e ninguém decidiu qual é a verdadeira: "Ameya" de *ame*, o doce que se vendia quando açúcar era racionado, ou de "América", pelos produtos desviados das bases militares. Continua sendo o lugar mais barulhento e menos japonês de Tóquio.',
           ],
         },
+        eat: [
+          {
+            label: 'Tênis e roupa — o kit de chegada sai daqui',
+            items: [
+              {
+                name: 'London Sports',
+                note: 'no meio da Ameyoko · pilhas de tênis de marca com desconto de verdade — o lugar de achado. Tamanho japonês é em cm.',
+              },
+              {
+                name: 'Mita Sneakers',
+                note: 'prédio Ameyoko Center · a loja de sneaker mais respeitada de Tóquio, colabs e edições que não existem no Brasil. Vale entrar mesmo só para ver.',
+              },
+              {
+                name: 'ABC-Mart',
+                note: 'rede, várias na região · o arroz-com-feijão bem-feito: Onitsuka Tiger, New Balance, Asics por preço justo. Acima de 28,5 cm o estoque encolhe.',
+              },
+              {
+                name: 'UNIQLO Okachimachi / GU',
+                note: 'a um quarteirão · camisetas para os primeiros dias (GU a ¥590–990). A compra grande de Muji/Uniqlo continua sendo sábado em Ginza.',
+              },
+            ],
+          },
+        ],
+        paragraphs: [
+          'Se sobrar pernas: a 15 min a pé (ou 1 estação até Nippori), **Yanaka Ginza** é a rua de comércio antiga que sobreviveu — croquete de menchi-katsu na mão, quase nenhum turista, o "shitamachi" de verdade. Fecha cedo (~18h).',
+        ],
         mapQuery: 'Ameya Yokocho Ueno',
       },
       {
@@ -421,7 +462,8 @@ export const tokyo1Days: Day[] = [
             items: [
               {
                 name: 'Fuunji',
-                note: '17:00–21:00, fecha dom · agora dá: tsukemen de caldo grosso de peixe e frango. Fila de 20–40 min. Vale.',
+                specialty: true,
+                note: '17:00–21:00, fecha dom · agora dá: tsukemen (invenção de Tóquio) de caldo grosso de peixe e frango. Fila de 20–40 min. Vale.',
               },
               {
                 name: 'Omoide Yokochō',
@@ -468,6 +510,7 @@ export const tokyo1Days: Day[] = [
             items: [
               {
                 name: 'Marutake',
+                specialty: true,
                 note: 'tamagoyaki no espeto, ¥150 — o doce, quente, feito na hora',
               },
               {
@@ -526,7 +569,8 @@ export const tokyo1Days: Day[] = [
               },
               {
                 name: 'Kyūbey',
-                note: '11:30–14:00 / 17:00–22:00, fecha dom · sushi de balcão clássico desde 1935. Almoço a partir de ~¥8.000, jantar bem mais. Reserva obrigatória.',
+                specialty: true,
+                note: '11:30–14:00 / 17:00–22:00, fecha dom · sushi de balcão clássico desde 1935 — o nigiri Edomae nasceu em Tóquio. Almoço a partir de ~¥8.000, jantar bem mais. Reserva obrigatória.',
               },
             ],
           },
@@ -604,6 +648,7 @@ export const tokyo1Days: Day[] = [
             items: [
               {
                 name: 'Tokyo Ramen Street — B1',
+                specialty: true,
                 note: '11:00–23:00 · oito casas selecionadas. **Rokurinsha** é o tsukemen mais famoso do Japão (fila de 40 min); **Soranoiro** faz uma versão vegetal excelente.',
               },
               {
@@ -712,8 +757,20 @@ export const tokyo1Days: Day[] = [
         jp: '神宮外苑いちょう並木',
         facts: '**24h · grátis** · Aoyama-itchōme Stn · **pico: fim de novembro**',
         paragraphs: [
-          '146 ginkgos em quatro fileiras, plantados em 1923, podados há um século no formato de cone para que a perspectiva pareça mais longa do que é. No fim de novembro a rua inteira fica dourada e o chão vira um tapete amarelo. Normalmente há um festival de comida de rua ao longo da alameda nessas semanas.',
+          '146 ginkgos em quatro fileiras, plantados em 1923, podados há um século no formato de cone para que a perspectiva pareça mais longa do que é. No fim de novembro a rua inteira fica dourada e o chão vira um tapete amarelo.',
           'É o cartão-postal de outono de Tóquio, e vocês estão exatamente na semana certa.',
+        ],
+        eat: [
+          {
+            label: 'Icho Matsuri — o festival do ginkgo',
+            items: [
+              {
+                name: 'Barracas do festival',
+                specialty: true,
+                note: 'de meados de nov a início de dez, a alameda ganha um festival de comida de rua: yakisoba, jaga-batā (batata na manteiga), karaage, frango grelhado, amazake quente. É feira japonesa de verdade, no meio do cartão-postal — almocem leve e comam aqui. Confirmem as datas de 2026 na chegada.',
+              },
+            ],
+          },
         ],
         mapQuery: 'Meiji Jingu Gaien Ginkgo Avenue',
       },
@@ -759,6 +816,7 @@ export const tokyo1Days: Day[] = [
             items: [
               {
                 name: 'Sushi no Midori Umegaoka (Shibuya Mark City)',
+                specialty: true,
                 note: '11:00–21:00 · o melhor custo-benefício de sushi de balcão de Tóquio. Peguem senha eletrônica e voltem depois — a espera pode passar de 1h.',
               },
               {

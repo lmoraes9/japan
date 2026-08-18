@@ -140,6 +140,11 @@ export function StopCard({
                 {block.items.map((item, j) => (
                   <li key={j} className="text-[13px] leading-snug">
                     <span className="font-semibold">{item.name}</span>
+                    {item.specialty && (
+                      <span className="ml-1.5 inline-block align-middle rounded-full bg-accent/15 text-accent text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5">
+                        ⭐ especialidade local
+                      </span>
+                    )}
                     <span className="block text-[12px] text-muted mt-0.5">
                       <Rich text={item.note} />
                     </span>

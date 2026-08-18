@@ -76,7 +76,12 @@ export interface HistoryBlock {
 
 export interface EatBlock {
   label: string;
-  items: { name: string; note: string }[];
+  items: {
+    name: string;
+    note: string;
+    /** especialidade típica desta cidade/região */
+    specialty?: boolean;
+  }[];
 }
 
 export interface ChecklistItem {

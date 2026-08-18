@@ -68,6 +68,7 @@ export const osakaDays: Day[] = [
             items: [
               {
                 name: 'Kamoi',
+                specialty: true,
                 note: '11:00–17:00 · sushi dentro de um armazém convertido, de frente para o canal. Peçam o *mamakari-zushi* — a sardinha local que, diz a lenda, é tão boa que você pede arroz emprestado ao vizinho.',
               },
               {
@@ -135,14 +136,17 @@ export const osakaDays: Day[] = [
             items: [
               {
                 name: 'Kushikatsu Daruma',
+                specialty: true,
                 note: '11:00–22:30 · espetinhos empanados. **Regra sagrada: não molhar duas vezes no molho comunitário.** A placa está em toda parede.',
               },
               {
                 name: 'Takoyaki Wanaka ou Hanadako',
+                specialty: true,
                 note: '10:00–23:00 · bolinho de polvo. Deixem esfriar 30 segundos ou vocês queimam o céu da boca — todo mundo queima.',
               },
               {
                 name: 'Okonomiyaki Mizuno',
+                specialty: true,
                 note: '11:00–22:00, fecha seg · Bib Gourmand do Michelin. Versão de Osaka, tudo misturado na massa. Fila.',
               },
               {

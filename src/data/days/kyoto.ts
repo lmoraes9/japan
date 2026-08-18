@@ -48,6 +48,7 @@ export const kyotoDays: Day[] = [
             items: [
               {
                 name: 'Honke Daiichi-Asahi',
+                specialty: true,
                 note: '06:00–02:00, fecha qui · ao lado da estação, desde 1947. Shoyu escuro com gordura de porco por cima — o estilo Kyoto, muito mais pesado do que as pessoas esperam de Kyoto. Fila permanente.',
               },
               {
@@ -210,6 +211,7 @@ export const kyotoDays: Day[] = [
               },
               {
                 name: 'Yudōfu',
+                specialty: true,
                 note: 'tofu fervido em caldo de kombu, a especialidade dos templos de Nanzen-ji. **Okutan** (11:00–16:00, fecha qui) faz desde 1635.',
               },
             ],
@@ -268,6 +270,7 @@ export const kyotoDays: Day[] = [
             items: [
               {
                 name: 'Izuju (em frente ao santuário Yasaka)',
+                specialty: true,
                 note: '10:30–19:00, fecha qua · sushi **de Kyoto**, que é outra coisa: *saba-zushi* (cavala curada, prensada) e *hako-zushi*. Cidade sem mar, então o peixe é curado — foi assim por mil anos. Desde 1912.',
               },
               {
@@ -381,6 +384,7 @@ export const kyotoDays: Day[] = [
               },
               {
                 name: 'Shigetsu (dentro do Tenryū-ji)',
+                specialty: true,
                 note: '11:00–14:00 · *shōjin ryōri*, a cozinha vegetariana budista de monastério, servida por monges. A partir de ¥3.800. Reserva recomendada.',
               },
             ],
@@ -534,10 +538,12 @@ export const kyotoDays: Day[] = [
             items: [
               {
                 name: 'Kakinoha-zushi',
+                specialty: true,
                 note: 'sushi de cavala ou salmão curado, embrulhado em **folha de caqui**. Nasceu porque Nara não tem mar: o peixe vinha salgado das montanhas e a folha de caqui é antibacteriana. É comida de conservação virada em iguaria.',
               },
               {
                 name: 'Nakatanidō (Sanjō-dōri)',
+                specialty: true,
                 note: '10:00–19:00 · fazem *mochi* na rua com dois homens batendo em ritmo absurdo, várias vezes por hora. É um espetáculo e o mochi de artemísia sai quente por ¥150.',
               },
               {

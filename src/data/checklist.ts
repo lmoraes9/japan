@@ -1,6 +1,19 @@
 import type { ChecklistItem } from './types';
 
 export const CHECKLIST: ChecklistItem[] = [
+  // ── Compras dos primeiros dias ──
+  {
+    id: 'tenis',
+    group: 'compras',
+    title: 'Tênis',
+    subtitle: 'Ameyoko (London Sports, Mita Sneakers) ou ABC-Mart · tamanho em cm',
+  },
+  {
+    id: 'oculos',
+    group: 'compras',
+    title: 'Óculos de grau',
+    subtitle: 'JINS / Zoff / OWNDAYS · exame grátis na loja, pronto em ~30–60 min, desde ~¥5.900',
+  },
   // ── Compras (keys originais do roteiro) ──
   {
     id: 'tshirt',

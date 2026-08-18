@@ -89,14 +89,17 @@ export const hiroshimaDays: Day[] = [
             items: [
               {
                 name: 'Nagataya',
+                specialty: true,
                 note: '11:00–20:00, fecha qua · ao lado do Parque da Paz, qualidade acima da média turística. ~¥1.300.',
               },
               {
                 name: 'Okonomimura',
+                specialty: true,
                 note: '11:00–23:00 · três andares e 24 bancas numa "vila" de okonomiyaki. Caótico e divertido; escolham a banca com mais gente local.',
               },
               {
                 name: 'Hassei',
+                specialty: true,
                 note: '11:00–20:30, fecha ter · a que os moradores citam. Fila.',
               },
             ],
@@ -207,14 +210,17 @@ export const hiroshimaDays: Day[] = [
             items: [
               {
                 name: 'Anago-meshi — enguia-do-mar sobre arroz',
+                specialty: true,
                 note: '**Ueno** (em Miyajimaguchi, ao lado da estação) 10:00–19:00, fecha qua · inventaram o prato em 1901 como bentô de trem. **Anagomeshi Wakana** na ilha também é ótimo.',
               },
               {
                 name: 'Ostras grelhadas',
+                specialty: true,
                 note: '**Yakigaki no Hayashi** 10:30–17:00, fecha qua · Hiroshima produz ~60% das ostras do Japão e novembro é o começo da temporada. Duas na casca, na brasa, com limão.',
               },
               {
                 name: 'Momiji manjū',
+                specialty: true,
                 note: 'bolinho em forma de folha de bordo, recheado de feijão doce, criado aqui por volta de 1906. **Yamada-ya** e **Kimura-ya** fazem os melhores; a versão frita (*age-momiji*) da **Momiji-dō** é outro nível.',
               },
             ],
@@ -246,6 +252,7 @@ export const hiroshimaDays: Day[] = [
             items: [
               {
                 name: 'Bakudan-ya',
+                specialty: true,
                 note: '11:00–02:00 · *tsukemen* estilo Hiroshima: macarrão gelado, molho apimentado, repolho e pepino. Você escolhe de 0 a 20 no picante — 2 já arde. Nada a ver com o tsukemen de Tóquio.',
               },
               {
