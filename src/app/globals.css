@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f6f5f2;
+  --surface: #ffffff;
+  --surface-2: #efede8;
+  --foreground: #1c1c1e;
+  --muted: #71717a;
+  --hairline: #e4e4e7;
+  --accent: #c2402a;
+  --accent-soft: #fbe9e5;
+  --gold: #b9861a;
+  --matcha: #4f6349;
+  --rail: #16324a;
+}
+
+.dark {
+  --background: #101014;
+  --surface: #1b1b20;
+  --surface-2: #242429;
+  --foreground: #f2f2f4;
+  --muted: #9d9da6;
+  --hairline: #2c2c33;
+  --accent: #e05a41;
+  --accent-soft: #3a1f1a;
+  --gold: #d8a53a;
+  --matcha: #7d9a74;
+  --rail: #7fa8c9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-hairline: var(--hairline);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-gold: var(--gold);
+  --color-matcha: var(--matcha);
+  --color-rail: var(--rail);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-jp: var(--font-noto-serif-jp);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overscroll-behavior-y: none;
+}
+
+.font-jp {
+  font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", serif;
+}
+
+/* esconder scrollbar em strips horizontais */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
