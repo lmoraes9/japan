@@ -14,3 +14,9 @@ export function navigateUrl(stop: Stop): string | undefined {
 export function searchUrl(query: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
+
+/** Galeria de fotos do lugar (Google Imagens) */
+export function photosUrl(stop: Stop): string | undefined {
+  if (!stop.mapQuery) return undefined;
+  return `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(stop.mapQuery)}`;
+}

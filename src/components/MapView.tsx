@@ -8,12 +8,12 @@ import {
   AdvancedMarker,
   useMap,
 } from '@vis.gl/react-google-maps';
-import { Navigation, X, WifiOff } from 'lucide-react';
+import { Navigation, X, WifiOff, Image as ImageIcon } from 'lucide-react';
 import { ALL_DAYS } from '@/data/days';
 import { STAGES } from '@/data/trip';
 import type { Day, Stop } from '@/data/types';
 import { itineraryDate } from '@/lib/now';
-import { navigateUrl } from '@/lib/mapsLinks';
+import { navigateUrl, photosUrl } from '@/lib/mapsLinks';
 import { Rich } from './Rich';
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? '';
@@ -77,6 +77,7 @@ function FitBounds({ stops, focus }: { stops: Stop[]; focus?: Stop }) {
 
 function StopSheet({ stop, onClose }: { stop: Stop; onClose: () => void }) {
   const nav = navigateUrl(stop);
+  const photos = photosUrl(stop);
   return (
     <div className="absolute bottom-0 inset-x-0 z-10 rounded-t-3xl bg-surface border-t border-hairline p-4 shadow-2xl">
       <div className="flex items-start justify-between gap-3">
@@ -103,17 +104,30 @@ function StopSheet({ stop, onClose }: { stop: Stop; onClose: () => void }) {
           <Rich text={stop.facts} />
         </p>
       )}
-      {nav && (
-        <a
-          href={nav}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-accent text-white text-[13px] font-medium px-4 py-2"
-        >
-          <Navigation size={14} />
-          Navegar até aqui
-        </a>
-      )}
+      <div className="mt-3 flex gap-2">
+        {nav && (
+          <a
+            href={nav}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-accent text-white text-[13px] font-medium px-4 py-2"
+          >
+            <Navigation size={14} />
+            Navegar até aqui
+          </a>
+        )}
+        {photos && (
+          <a
+            href={photos}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-hairline text-[13px] font-medium px-4 py-2 text-foreground/80"
+          >
+            <ImageIcon size={14} />
+            Fotos
+          </a>
+        )}
+      </div>
     </div>
   );
 }

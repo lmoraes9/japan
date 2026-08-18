@@ -18,10 +18,11 @@ import {
   Eye,
   Camera,
   BedDouble,
+  Image as ImageIcon,
 } from 'lucide-react';
 import type { Stop, StopKind } from '@/data/types';
 import { Rich } from './Rich';
-import { navigateUrl } from '@/lib/mapsLinks';
+import { navigateUrl, photosUrl } from '@/lib/mapsLinks';
 import { useSyncStore } from '@/lib/store';
 
 const KIND_ICON: Record<StopKind, typeof Landmark> = {
@@ -53,6 +54,8 @@ export function StopCard({
   const setNote = useSyncStore((s) => s.setNote);
 
   const nav = navigateUrl(stop);
+  const photos = photosUrl(stop);
+  const extraLinks = stop.links?.filter((l) => l.label !== 'fotos');
   const Icon = KIND_ICON[stop.kind] ?? Landmark;
 
   return (
@@ -175,7 +178,18 @@ export function StopCard({
                 Ver no mapa
               </Link>
             )}
-            {stop.links?.map((l) => (
+            {photos && (
+              <a
+                href={photos}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-hairline text-[12px] font-medium px-3 py-1.5 text-foreground/80"
+              >
+                <ImageIcon size={13} />
+                Fotos
+              </a>
+            )}
+            {extraLinks?.map((l) => (
               <a
                 key={l.url}
                 href={l.url}
