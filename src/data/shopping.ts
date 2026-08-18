@@ -44,7 +44,7 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
           paragraphs: [
             'O que você viu no Instagram é quase certamente uma destas três redes, que fazem exatamente isso: **JINS**, **Zoff** e **OWNDAYS**. O processo é igual nas três: exame de vista **grátis na própria loja** (~10 minutos, não precisa de receita — mas levar o óculos atual ajuda a calibrar), armação escolhida na hora com **lentes já incluídas no preço**, e o óculos sai pronto em **30 a 60 minutos** na maioria dos graus.',
             '**Preço:** a partir de ¥5.900 (JINS/Zoff) a ¥8.000 (OWNDAYS) — de fato uns R$210–290. Grau muito alto pode pedir lente fina (custo extra) ou alguns dias de espera; nesse caso façam logo no dia 19 que sobra viagem inteira para retirar.',
-            '**Onde:** as três têm lojas em Shinjuku (perto do hotel, abertas até ~21h — dá para fazer o exame e jantar enquanto fica pronto), Shibuya, Ginza e Akihabara. A OWNDAYS costuma ter o melhor atendimento em inglês. E vale tax-free.',
+            '**Onde e quando:** já está no roteiro — **dia 19 às 17:45, em Akihabara** (JINS no Atré, colado na estação; OWNDAYS na Chūō-dōri): exame, lojas de Magic enquanto fica pronto, retirada antes do jantar no Kikanbō. Plano B: as três redes têm lojas em Shinjuku (perto do hotel, até ~21h), Shibuya e Ginza. A OWNDAYS costuma ter o melhor atendimento em inglês. E vale tax-free.',
           ],
         },
       },

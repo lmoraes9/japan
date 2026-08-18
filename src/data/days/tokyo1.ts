@@ -83,7 +83,7 @@ export const tokyo1Days: Day[] = [
       {
         label: 'Compras dos primeiros dias — resolve tudo hoje',
         tone: 'ok',
-        text: 'O trajeto de hoje passa exatamente onde se resolve o kit de chegada:\n\n**Camisetas** — UNIQLO Okachimachi ou GU Ueno (a irmã barata da Uniqlo, camiseta a ¥590–990), coladas na Ameyoko (parada das 15:30).\n\n**Tênis** — na própria Ameyoko: **London Sports** (preço), **Mita Sneakers** (a loja de sneaker mais respeitada de Tóquio, no prédio central) e **ABC-Mart** (rede, tem tudo). Tamanho japonês é em **centímetros** — peçam para medir.\n\n**Óculos de grau** — o lugar "que mede o grau e faz na hora" dos reels é uma das redes **JINS, Zoff ou OWNDAYS**: exame de vista **grátis na loja** (~10 min, sem receita), armação + lentes a partir de **¥5.900–8.000** (≈ R$210–290), óculos pronto em **30–60 minutos**. Tem em Shinjuku (perto do hotel, abertas até ~21h), Ginza e Akihabara — dá para deixar o exame feito e jantar enquanto o óculos fica pronto. Detalhes na seção Compras.',
+        text: 'O trajeto de hoje passa exatamente onde se resolve o kit de chegada, cada coisa no seu horário:\n\n**15:30 · Camisetas e tênis** — na parada da Ameyoko: London Sports, Mita Sneakers e ABC-Mart para tênis; UNIQLO Okachimachi / GU a um quarteirão para as camisetas da semana.\n\n**17:45 · Óculos de grau** — parada própria em Akihabara: exame grátis na hora, óculos pronto enquanto vocês fecham as lojas de Magic, retirada antes do jantar. Detalhes lá embaixo e na seção Compras.',
       },
     ],
     stops: [
@@ -287,6 +287,20 @@ export const tokyo1Days: Day[] = [
           },
         ],
         mapQuery: 'Akihabara Electric Town',
+      },
+      {
+        id: 'd19-oculos',
+        time: '17:45',
+        timeLabel: 'óculos',
+        kind: 'shopping',
+        name: 'Óculos de grau — exame agora, retirada antes do jantar',
+        facts: 'Exame **grátis, ~10 min, sem receita** · armação + lentes desde **¥5.900–8.000** (≈ R$210–290) · pronto em **30–60 min** · tax-free',
+        paragraphs: [
+          'O "lugar que mede o grau e faz na hora" é isto: as redes **JINS, Zoff e OWNDAYS** fazem exatamente esse serviço, e há loja aqui em Akihabara — a **JINS fica no Atré, colado na saída da estação**, e a **OWNDAYS na Chūō-dōri**. Levem o óculos atual para calibrar.',
+          'A jogada: façam o exame **agora**, escolham a armação, e deixem fazendo enquanto vocês terminam Super Potato e as lojas de Magic. Retirem ~18:45 e sigam para o jantar de óculos novo.',
+          'Grau muito alto pode pedir lente fina (custo extra) ou uns dias de espera — por isso este stop está no dia 19: sobra viagem inteira para retirar. **Plano B:** as três redes têm lojas em Shinjuku, perto do hotel, abertas até ~21h — o botão Navegar acha a mais próxima de onde estiverem.',
+        ],
+        mapQuery: 'JINS Atre Akihabara',
       },
       {
         id: 'd19-jantar',

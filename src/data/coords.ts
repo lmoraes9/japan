@@ -13,6 +13,8 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd19-almoco-ueno': { lat: 35.7126, lng: 139.7731 }, // Innsyōtei, Ueno Park
   'd19-ameyoko': { lat: 35.7104, lng: 139.7745 },
   'd19-akihabara': { lat: 35.7022, lng: 139.7741 },
+  'd19-oculos': { lat: 35.6984, lng: 139.7731 }, // JINS Atré Akihabara
+
   'd19-jantar': { lat: 35.6936, lng: 139.7705 }, // Kikanbō, Kanda
   'd20-engakuji': { lat: 35.3378, lng: 139.5482 },
   'd20-kenchoji': { lat: 35.3312, lng: 139.5539 },
