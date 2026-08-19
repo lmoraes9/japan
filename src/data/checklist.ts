@@ -14,6 +14,18 @@ export const CHECKLIST: ChecklistItem[] = [
     title: 'Óculos de grau',
     subtitle: 'JINS / Zoff / OWNDAYS · exame grátis na loja, pronto em ~30–60 min, desde ~¥5.900',
   },
+  {
+    id: 'dock',
+    group: 'compras',
+    title: 'Dock station Dell (usada)',
+    subtitle: 'Janpara Akihabara (2ª loja, periféricos) · dia 2/12 · conferir modelo e fonte',
+  },
+  {
+    id: 'miso',
+    group: 'compras',
+    title: 'Missô artesanal (p/ Priscila)',
+    subtitle: 'Kuradai Miso (perto do Nishiki, dia 29) · Honda Miso (Kyoto, fecha dom) · Sano Miso (Tóquio/Kameido, tem orgânico)',
+  },
   // ── Compras (keys originais do roteiro) ──
   {
     id: 'tshirt',

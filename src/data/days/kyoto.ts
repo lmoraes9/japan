@@ -674,6 +674,20 @@ export const kyotoDays: Day[] = [
           'Hoje é o dia de **fechar as compras grandes** — MacBook, iPhone, robô aspirador — e não amanhã. Se der algum problema de estoque ou de configuração, vocês ainda têm um dia inteiro de margem.',
         ],
       },
+      {
+        id: 'd01-gachapon-ikebukuro',
+        time: '18:45',
+        timeLabel: 'gachapon',
+        kind: 'sight',
+        name: 'Gashapon Department Store — Ikebukuro',
+        jp: 'ガシャポンのデパート',
+        facts: '**~3.000 máquinas — a maior loja de gachapon do mundo** · Sunshine City, World Import Mart 3F · normalmente até 21h/22h — confirmem no site do Sunshine City · de Ginza: linha Marunouchi direto, ~25 min',
+        paragraphs: [
+          'A noite de hoje está livre, e as compras grandes fecham lá pelas 18h — então este é o momento do gachapon: um andar inteiro com cerca de **3.000 máquinas de cápsula**, de franquia de anime a miniaturas absurdas de utensílio de cozinha. Levem moedas de ¥100 (tem trocador na loja).',
+          'A volta para Ginza é direta pela mesma linha. Se estiverem mortos das compras, pulem sem culpa — é diversão, não obrigação.',
+        ],
+        mapQuery: 'Gashapon Department Store Ikebukuro Sunshine City',
+      },
     ],
   },
 ];

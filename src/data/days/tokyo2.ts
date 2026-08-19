@@ -5,9 +5,9 @@ export const tokyo2Days: Day[] = [
     id: 'd2026-12-02',
     date: '2026-12-02',
     stageId: 'tokyo2',
-    title: 'Palácio Imperial, Nihonbashi, compras finais e jantar de despedida',
-    subtitle: 'O último dia inteiro. Fechar tudo e separar os recibos.',
-    chips: ['história', 'compras', 'sushi'],
+    title: 'Palácio Imperial, curry de Jimbōchō, Akihabara e jantar de despedida',
+    subtitle: 'O último dia inteiro. Fechar tudo, separar os recibos, e as missões de Akihabara.',
+    chips: ['história', 'curry', 'akihabara', 'compras', 'sushi'],
     stops: [
       {
         id: 'd02-jardim-imperial',
@@ -30,8 +30,38 @@ export const tokyo2Days: Day[] = [
         mapQuery: 'Imperial Palace East Gardens Tokyo',
       },
       {
+        id: 'd02-jimbocho',
+        time: '11:20',
+        timeLabel: 'almoço',
+        kind: 'food',
+        name: 'Curry em Jimbōchō — o bairro do curry',
+        jp: '神保町',
+        facts: '15 min a pé do Jardim Leste · 400+ casas de curry no bairro · cheguem na abertura (11:00) para furar a fila',
+        paragraphs: [
+          'Jimbōchō é o bairro dos sebos e livrarias — e virou, ninguém sabe bem por quê, a capital do curry de Tóquio. Saindo do Palácio pelo lado oeste, vocês chegam a pé. A jogada é almoçar **cedo**: às 12h30 as filas dobram.',
+        ],
+        eat: [
+          {
+            label: 'As duas lendas — escolham uma',
+            items: [
+              {
+                name: 'Bondy (honten)',
+                specialty: true,
+                note: '11:00–22:00 · desde 1973, o original do "curry europeu" de Jimbōchō: molho escuro de técnica francesa, arroz na manteiga **coberto de queijo derretido** e batatas quentes com manteiga à parte. ~¥1.700. A entrada é escondida: atravessa-se a livraria Yagi até o fundo, 2º andar. Fila de ~45 min no pico.',
+              },
+              {
+                name: 'Kyōeidō',
+                specialty: true,
+                note: '11:00–19:45, fecha dom (quarta está aberto) · desde 1924: curry "Sumatra" quase preto, 20+ especiarias torradas, sem farinha. No outono tem a famosa maçã assada de sobremesa — exatamente a época de vocês.',
+              },
+            ],
+          },
+        ],
+        mapQuery: 'Bondy curry Jimbocho',
+      },
+      {
         id: 'd02-nihonbashi',
-        time: '11:00',
+        time: '13:00',
         timeLabel: 'bairro',
         kind: 'sight',
         name: 'Nihonbashi',
@@ -55,18 +85,8 @@ export const tokyo2Days: Day[] = [
               },
             ],
           },
-        ],
-        mapQuery: 'Nihonbashi Bridge Tokyo',
-      },
-      {
-        id: 'd02-almoco-nihonbashi',
-        time: '12:30',
-        timeLabel: 'almoço',
-        kind: 'food',
-        name: 'Almoço em Nihonbashi',
-        eat: [
           {
-            label: 'Clássicos de Edo',
+            label: 'Se preferirem os clássicos de Edo ao curry',
             items: [
               {
                 name: 'Nihonbashi Tamai',
@@ -81,18 +101,39 @@ export const tokyo2Days: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Nihonbashi Bridge Tokyo',
       },
       {
-        id: 'd02-compras-finais',
-        time: '14:00',
+        id: 'd02-akihabara-missoes',
+        time: '14:30',
         timeLabel: 'compras',
         kind: 'shopping',
-        name: 'Compras finais',
-        facts: 'Ginza **11:00–21:00** · Bic Camera Yūrakuchō **10:00–22:00**',
+        name: 'Akihabara — as três missões',
+        jp: '秋葉原',
+        facts: 'De Mitsukoshimae: JR/metrô **~5 min** · tudo num raio de 400 m da estação',
         paragraphs: [
-          'Última varredura: o que faltou de Muji e Uniqlo, o robô aspirador (se ainda não fecharam), presentes, doces do depachika. O **Bic Camera Yūrakuchō** fica a dois minutos de Ginza e tem os andares de eletrodoméstico com modelos de exportação.',
+          'A volta a Akihabara com lista na mão. As três paradas abaixo, na ordem, cabem em ~1h30 — saiam até 16:10 para pegar a última vista no horário.',
         ],
-        mapQuery: 'Bic Camera Yurakucho',
+        eat: [
+          {
+            label: 'A ordem das missões',
+            items: [
+              {
+                name: 'Yodobashi-Akiba',
+                note: '09:30–22:00, todo dia · colado na estação (saída Showa-dōri). 9 andares; se o robô aspirador ainda não foi fechado, é AQUI e AGORA — balcão tax-free, modelos de exportação. Também é o plano B para qualquer eletrônico que tenha ficado para trás.',
+              },
+              {
+                name: 'Janpara (2ª loja — periféricos)',
+                note: '~11:00–20:00 · a rede de usados de informática de Akihabara, com garantia em usados. É onde se acha **dock station Dell** usada por fração do preço — confiram modelo (WD19/WD22TB4 etc.) e a fonte. Várias filiais em Sotokanda; a 2ª loja é a de peças e periféricos.',
+              },
+              {
+                name: 'Mandarake Complex',
+                note: '12:00–20:00 · 8 andares de usados. Para action figures de anime usadas, é a única loja que vocês precisam: estado classificado na etiqueta, preços 30–60% abaixo do varejo, e o andar de toys é um museu que vende. Vão direto ao andar de figures para não se perderem nos outros sete.',
+              },
+            ],
+          },
+        ],
+        mapQuery: 'Yodobashi Akiba',
       },
       {
         id: 'd02-ultima-vista',
@@ -106,7 +147,7 @@ export const tokyo2Days: Day[] = [
             items: [
               {
                 name: 'Tokyo Skytree',
-                note: '10:00–22:00 · ¥2.400 (Tembo Deck) · 634 m, o mais alto. A altura foi escolhida porque 6-3-4 se lê "mu-sa-shi", o nome antigo desta planície.',
+                note: '10:00–22:00 · ¥2.400 (Tembo Deck) · 634 m, o mais alto — e o mais perto de Akihabara (~15 min direto). A altura foi escolhida porque 6-3-4 se lê "mu-sa-shi", o nome antigo desta planície.',
               },
               {
                 name: 'Tokyo Tower',
@@ -121,8 +162,20 @@ export const tokyo2Days: Day[] = [
         ],
       },
       {
+        id: 'd02-compras-finais',
+        time: '18:00',
+        timeLabel: 'compras',
+        kind: 'shopping',
+        name: 'Última varredura em Ginza',
+        facts: 'Ginza **11:00–21:00** · Bic Camera Yūrakuchō **10:00–22:00**',
+        paragraphs: [
+          'O que faltou de Muji e Uniqlo, presentes, doces do depachika — e o **missô artesanal**, se ficou para a última hora (balcões do depachika do Mitsukoshi). O **Bic Camera Yūrakuchō** fica a dois minutos de Ginza e tem os andares de eletrodoméstico com modelos de exportação, caso algo tenha escapado em Akihabara.',
+        ],
+        mapQuery: 'Bic Camera Yurakucho',
+      },
+      {
         id: 'd02-jantar-despedida',
-        time: '19:00',
+        time: '19:30',
         timeLabel: 'jantar',
         kind: 'food',
         name: 'Jantar de despedida',

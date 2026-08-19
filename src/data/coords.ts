@@ -14,6 +14,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd19-ameyoko': { lat: 35.7104, lng: 139.7745 },
   'd19-akihabara': { lat: 35.7022, lng: 139.7741 },
   'd19-oculos': { lat: 35.6984, lng: 139.7731 }, // JINS Atré Akihabara
+  'd19-hanabusa': { lat: 35.7005, lng: 139.7714 }, // Hanabusa Inari, Sotokanda 4-4
 
   'd19-jantar': { lat: 35.6936, lng: 139.7705 }, // Kikanbō, Kanda
   'd20-engakuji': { lat: 35.3378, lng: 139.5482 },
@@ -85,9 +86,12 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd01-tofukuji': { lat: 34.9764, lng: 135.774 },
   'd01-sanjusangendo': { lat: 34.988, lng: 135.7715 },
   'd01-checkin-compras': { lat: 35.6712, lng: 139.764 }, // Ginza
+  'd01-gachapon-ikebukuro': { lat: 35.729, lng: 139.719 }, // Sunshine City World Import Mart
 
   // ── Tóquio II ──
   'd02-jardim-imperial': { lat: 35.6863, lng: 139.7573 },
+  'd02-jimbocho': { lat: 35.6958, lng: 139.7576 }, // Bondy, Jimbōchō
+  'd02-akihabara-missoes': { lat: 35.6987, lng: 139.7745 }, // Yodobashi-Akiba
   'd02-nihonbashi': { lat: 35.684, lng: 139.7745 },
   'd02-compras-finais': { lat: 35.6749, lng: 139.7628 }, // Bic Camera Yūrakuchō
   'd03-haneda': { lat: 35.5494, lng: 139.7798 },

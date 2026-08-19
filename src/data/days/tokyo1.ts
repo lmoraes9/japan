@@ -289,6 +289,20 @@ export const tokyo1Days: Day[] = [
         mapQuery: 'Akihabara Electric Town',
       },
       {
+        id: 'd19-hanabusa',
+        time: '17:25',
+        timeLabel: 'santuário',
+        kind: 'temple',
+        name: 'Hanabusa Inari — o santuário escondido',
+        jp: '花房稲荷神社',
+        facts: '**Grátis · sempre aberto** · Sotokanda 4-4, atrás do quarteirão do Don Quijote · 10 min bastam',
+        paragraphs: [
+          'Um santuário Inari completo — torii vermelho, raposas de pedra — **espremido entre prédios, invisível de qualquer rua**. O acesso é por um beco onde só passa uma pessoa de cada vez. Existe desde o período Edo (reconstruído no pós-guerra), e a crença popular era de que curava tosse: os devotos curados deixavam panos vermelhos e brancos de agradecimento.',
+          'É a coisa mais escondida que vocês vão ver em Tóquio, no meio do bairro mais barulhento. Entrem, respirem, saiam — o óculos é logo ali.',
+        ],
+        mapQuery: 'Hanabusa Inari Shrine Akihabara',
+      },
+      {
         id: 'd19-oculos',
         time: '17:45',
         timeLabel: 'óculos',
@@ -310,8 +324,13 @@ export const tokyo1Days: Day[] = [
         name: 'Jantar',
         eat: [
           {
-            label: 'Ramen e sushi perto de Akihabara',
+            label: 'Perto de Akihabara — do tonkatsu lendário ao ramen',
             items: [
+              {
+                name: 'Tonkatsu Marugo',
+                specialty: true,
+                note: '17:00–20:00 (última entrada; pode esgotar antes), **fecha seg** · Sotokanda 1-8-14, a 5 min da estação. Top-100 do Tabelog em tonkatsu: fritura lenta em baixa temperatura, corte rosado, ~¥2.000–3.000. Fila de 20–30 min — se o horário do óculos apertar, fica para o plano ramen.',
+              },
               {
                 name: 'Kikanbō (Kanda)',
                 note: '11:00–21:30 · miso *karashibi*: você escolhe o nível de picante (kara) e o de dormência da pimenta sichuan (shibi). Comecem em "futsū/futsū". Um dos ramens mais marcantes de Tóquio. 12 min a pé.',
