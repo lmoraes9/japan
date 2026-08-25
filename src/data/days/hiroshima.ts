@@ -28,8 +28,22 @@ export const hiroshimaDays: Day[] = [
         ],
       },
       {
+        id: 'd23-pokemon-center',
+        time: '11:05',
+        timeLabel: 'pokémon',
+        kind: 'shopping',
+        name: 'Pokémon Center Hiroshima — na própria estação',
+        jp: 'ポケモンセンターヒロシマ',
+        facts: '**ekie 2º andar, saída norte da estação** · ~10:00–20:00 · mudou para cá em abril/2025 (não é mais no Sogo)',
+        paragraphs: [
+          'Vocês desembarcam do Shinkansen e a loja está no mesmo prédio — desçam antes de pegar o bonde. A entrada tem um **Gyarados vermelho shiny em tamanho real** (referência ao lago de Kaminari, para quem jogou Gold/Silver).',
+          'A missão: o **Pikachu mascote com momiji manjū** (~¥1.650), exclusivo daqui — e a linha regional com okonomiyaki e limão de Setouchi. 20–30 min resolvem; guardem fome e pernas para o resto do dia.',
+        ],
+        mapQuery: 'Pokemon Center Hiroshima ekie',
+      },
+      {
         id: 'd23-chegada',
-        time: '11:00',
+        time: '11:45',
         timeLabel: 'chegada',
         kind: 'hotel',
         name: 'Hiroshima · check-in e almoço',

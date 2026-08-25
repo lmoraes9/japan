@@ -38,6 +38,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd22-jantar': { lat: 35.658, lng: 139.6994 }, // Shibuya Mark City
 
   // ── Hiroshima ──
+  'd23-pokemon-center': { lat: 34.3982, lng: 132.4747 }, // ekie 2F, saída norte
   'd23-chegada': { lat: 34.3978, lng: 132.4754 }, // Estação de Hiroshima
   'd23-museu-paz': { lat: 34.3917, lng: 132.4525 },
   'd23-parque-domo': { lat: 34.3955, lng: 132.4536 },

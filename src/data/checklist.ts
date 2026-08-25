@@ -21,6 +21,12 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: 'Janpara Akihabara (2ª loja, periféricos) · dia 2/12 · conferir modelo e fonte',
   },
   {
+    id: 'pikachu',
+    group: 'compras',
+    title: 'Pikachu momiji manjū (exclusivo de Hiroshima)',
+    subtitle: 'Pokémon Center no ekie, 2º andar da estação · dia 23, na chegada · ~¥1.650',
+  },
+  {
     id: 'miso',
     group: 'compras',
     title: 'Missô artesanal (p/ Priscila)',
