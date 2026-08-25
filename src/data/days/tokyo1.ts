@@ -289,6 +289,20 @@ export const tokyo1Days: Day[] = [
         mapQuery: 'Akihabara Electric Town',
       },
       {
+        id: 'd19-radio-kaikan',
+        time: '17:05',
+        timeLabel: 'steins;gate',
+        kind: 'sight',
+        name: 'Radio Kaikan — o prédio do Steins;Gate',
+        jp: 'ラジオ会館',
+        facts: '**10:00–20:00** · Sotokanda 1-15-16, na saída Electric Town · 10 andares de lojas de hobby',
+        paragraphs: [
+          'É aqui que tudo começa: no primeiro episódio de Steins;Gate, a "máquina do tempo" aparece **cravada no topo deste prédio** — e o Radio Kaikan virou o ponto de peregrinação da série. O prédio original era de 1962, o berço da cultura eletrônica/otaku de Akihabara; foi reconstruído e reaberto em 2014, mas continua sendo O marco do bairro. Tirem a foto da fachada olhando para o topo. El Psy Kongroo.',
+          'Por dentro são 10 andares de lojas de figure e hobby — **AmiAmi** (preço de loja online para figures novas), Kaiyodo, K-Books, Yellow Submarine (cartas). Vale uma volta rápida de reconhecimento; a missão de figures usadas continua sendo o Mandarake no dia 2/12.',
+        ],
+        mapQuery: 'Akihabara Radio Kaikan',
+      },
+      {
         id: 'd19-hanabusa',
         time: '17:25',
         timeLabel: 'santuário',

@@ -14,6 +14,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd19-ameyoko': { lat: 35.7104, lng: 139.7745 },
   'd19-akihabara': { lat: 35.7022, lng: 139.7741 },
   'd19-oculos': { lat: 35.6984, lng: 139.7731 }, // JINS Atré Akihabara
+  'd19-radio-kaikan': { lat: 35.6985, lng: 139.7714 }, // saída Electric Town
   'd19-hanabusa': { lat: 35.7005, lng: 139.7714 }, // Hanabusa Inari, Sotokanda 4-4
 
   'd19-jantar': { lat: 35.6936, lng: 139.7705 }, // Kikanbō, Kanda
