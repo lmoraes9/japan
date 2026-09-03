@@ -215,7 +215,7 @@ export const tokyo2Days: Day[] = [
     stageId: 'tokyo2',
     title: 'Manhã livre e Haneda',
     subtitle: 'Voo às 20:25. Estejam no aeroporto às 17:00 — o reembolso do imposto leva tempo.',
-    chips: ['partida', 'tax refund'],
+    chips: ['partida', 'tax refund', 'duty free'],
     stops: [
       {
         id: 'd03-ultima-manha',
@@ -262,9 +262,23 @@ export const tokyo2Days: Day[] = [
           '1. **Reembolso do imposto primeiro**, antes do check-in — os quiosques ficam antes da imigração e a alfândega pode querer ver as mercadorias. Passaporte + recibos + produtos.',
           '2. **Check-in e despacho** — só depois de liberadas as mercadorias inspecionadas.',
           '3. **Imigração e segurança.**',
-          '4. **Última compra** na área livre de impostos, se sobrar tempo e apetite.',
+          "4. **Última compra** na área livre de impostos — é aí que entra o Royce' Nama Chocolate, logo abaixo.",
         ],
         mapQuery: 'Haneda Airport Terminal 3',
+      },
+      {
+        id: 'd03-duty-free',
+        time: '18:30',
+        timeLabel: 'duty free',
+        kind: 'shopping',
+        name: "Royce' — Nama Chocolate no duty free",
+        facts: "Royce' fica na **área após a imigração** do T3 · caixa de 20 pedaços ~¥800–1.000 · sabores: Au Lait, Bitter, Matcha, Champagne",
+        paragraphs: [
+          'O nama chocolate ("chocolate cru") é uma ganache de chocolate e creme de leite fresco de Hokkaidō, cortada em cubos e coberta de cacau em pó. Derrete na boca porque tem **muito mais creme que chocolate** — e é exatamente por isso que ele exige cuidado na volta.',
+          '**Deixem para a última hora**, depois da imigração e da segurança, já com o embarque aberto. Peçam o **saco térmico com gelo** (保冷剤, *hoereizai*) no balcão — costuma ser grátis ou custar poucos ienes, e a loja informa por quantas horas ele segura.',
+          '**Vai na bagagem de mão**, nunca na despachada. Comprem **2 ou 3 caixas** (Au Lait é o clássico; Matcha e Champagne não existem no Brasil) e, chegando em casa, direto para a geladeira. O ideal é comer em poucos dias.',
+        ],
+        mapQuery: "Royce' Haneda Airport Terminal 3 duty free",
       },
       {
         id: 'd03-voo',

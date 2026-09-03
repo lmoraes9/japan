@@ -249,6 +249,7 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
           '**Retrogame e material de referência** — Super Potato e Mandarake, em Akihabara. Cartucho, caixa, manual e guia de sprite art de GBA — literalmente material de pesquisa para o STREETMON.',
           '**Papelaria da Itōya** — Ginza, 12 andares, desde 1904. Papel washi por folha, cadernos, canetas.',
           '**Chá** — matcha de Uji e sencha de boa procedência custam uma fração do preço brasileiro. **Ippodo** (Kyoto, desde 1717) e **Jugetsudo** (Ginza).',
+          "**Royce' Nama Chocolate** — a compra da **volta**, no duty free de Haneda (depois da imigração, dia 3/12): ganache de creme fresco de Hokkaidō, ~¥800–1.000 a caixa. Pedir o saco térmico com gelo, levar na bagagem de mão e guardar na geladeira ao chegar.",
           '**Cerâmica** — tigela de arroz e xícara de chá boas saem por ¥1.500–4.000. Kappabashi, Nishiki, e as feiras de templo (a de Tōji, em Kyoto, acontece dia 21 de cada mês).',
         ],
       },

@@ -32,6 +32,12 @@ export const CHECKLIST: ChecklistItem[] = [
     title: 'Missô artesanal (p/ Priscila)',
     subtitle: 'Kuradai Miso (perto do Nishiki, dia 29) · Honda Miso (Kyoto, fecha dom) · Sano Miso (Tóquio/Kameido, tem orgânico)',
   },
+  {
+    id: 'royce',
+    group: 'compras',
+    title: "Royce' Nama Chocolate (duty free da volta)",
+    subtitle: 'Haneda T3, depois da imigração · dia 3/12 · pedir o saco térmico e levar na bagagem de mão',
+  },
   // ── Compras (keys originais do roteiro) ──
   {
     id: 'tshirt',
