@@ -1,13 +1,31 @@
 {
-  "_comment": "Busca usada no Wikimedia Commons por ponto do mapa. Chave: <mapId>/<hotspotId>. Edite à vontade e rode npm run fotos novamente com --force para trocar a imagem.",
+  "_comment": "Busca no Wikimedia Commons por ponto do mapa. Chave: <mapId>/<hotspotId>. O valor pode ser uma frase ou uma lista de frases tentadas em ordem (japonês costuma achar melhor os pontos pequenos). Edite e rode npm run fotos -- --force para trocar a imagem.",
   "fushimi-inari/estacao": "Inari Station Kyoto JR building",
-  "fushimi-inari/barracas": "Fushimi Inari approach street shops omotesando",
+  "fushimi-inari/barracas": [
+    "伏見稲荷 参道",
+    "Fushimi Inari sando shops",
+    "Fushimi Inari street food"
+  ],
   "fushimi-inari/romon": "Fushimi Inari Taisha romon gate",
   "fushimi-inari/kitsune": "Fushimi Inari fox statue kitsune key",
-  "fushimi-inari/honden": "Fushimi Inari Taisha honden main hall",
+  "fushimi-inari/honden": [
+    "伏見稲荷大社 本殿",
+    "Fushimi Inari honden"
+  ],
   "fushimi-inari/senbon": "Senbon Torii Fushimi Inari",
-  "fushimi-inari/omokaru": "Fushimi Inari Okusha Hohaisho omokaru ishi",
-  "fushimi-inari/shinike": "Fushimi Inari Shin-ike pond Kumataka",
+  "fushimi-inari/omokaru": [
+    "おもかる石",
+    "伏見稲荷 奥社奉拝所",
+    "Fushimi Inari Okusha"
+  ],
+  "fushimi-inari/shinike": [
+    "伏見稲荷 新池",
+    "Fushimi Inari pond"
+  ],
   "fushimi-inari/yotsutsuji": "Fushimi Inari Yotsutsuji view Kyoto",
-  "fushimi-inari/cume": "Fushimi Inari Ichinomine summit shrine"
+  "fushimi-inari/cume": [
+    "伏見稲荷 一ノ峰",
+    "Fushimi Inari Ichinomine",
+    "Fushimi Inari summit"
+  ]
 }

@@ -52,12 +52,27 @@ async function search(query) {
   if (!res.ok) throw new Error(`Commons respondeu ${res.status}`);
   const json = await res.json();
   const pages = Object.values(json.query?.pages ?? {});
-  // ordem da busca é a relevância do Commons; filtramos o que não serve
-  return pages
+  const candidates = pages
     .map((p) => ({ title: p.title, info: p.imageinfo?.[0] }))
-    .filter(({ info }) => info && /image\/(jpeg|png)/.test(info.mime))
+    .filter(({ info }) => info && /image\/(jpeg|png)/.test(info.mime));
+
+  // ordem da busca é a relevância do Commons; primeiro tentamos o que é bonito
+  // numa tela larga, e só depois aceitamos qualquer coisa que preste
+  const bom = candidates
     .filter(({ info }) => info.width >= 1000 && info.width >= info.height * 0.6)
     .filter(({ title }) => !/(map|diagram|plan|logo|icon|stamp)/i.test(title));
+  const aceitavel = candidates.filter(({ info }) => info.width >= 700);
+  return bom.length ? bom : aceitavel;
+}
+
+/** tenta cada frase de busca até uma trazer resultado */
+async function searchAny(queries) {
+  for (const q of queries) {
+    const hits = await search(q);
+    if (hits.length) return { hit: hits[0], usedQuery: q };
+    await new Promise((r) => setTimeout(r, 250));
+  }
+  return null;
 }
 
 async function download(url, dest) {
@@ -95,12 +110,14 @@ for (const [key, query] of entries) {
     continue;
   }
 
+  const tentativas = Array.isArray(query) ? query : [query];
   try {
-    const [best] = await search(query);
-    if (!best) {
-      console.warn(`! ${key} — nada encontrado para "${query}"`);
+    const found = await searchAny(tentativas);
+    if (!found) {
+      console.warn(`! ${key} — nada encontrado para ${tentativas.map((q) => `"${q}"`).join(' / ')}`);
       continue;
     }
+    const best = found.hit;
     const meta = best.info.extmetadata ?? {};
     await download(best.info.thumburl, dest);
     current[key] = {
