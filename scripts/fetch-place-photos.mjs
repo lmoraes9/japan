@@ -48,7 +48,7 @@ async function search(query, width) {
     generator: 'search',
     gsrsearch: query,
     gsrnamespace: '6', // File:
-    gsrlimit: '12',
+    gsrlimit: '8',
     prop: 'imageinfo',
     iiprop: 'url|size|mime|extmetadata',
     iiurlwidth: String(width),
@@ -162,7 +162,7 @@ for (const [key, query] of entries) {
   } catch (err) {
     console.warn(`! ${key} — ${err.message}`);
   }
-  await new Promise((r) => setTimeout(r, 400)); // gentileza com a API
+  await new Promise((r) => setTimeout(r, 150)); // gentileza com a API
 }
 
 const sorted = Object.fromEntries(Object.entries(current).sort(([a], [b]) => a.localeCompare(b)));

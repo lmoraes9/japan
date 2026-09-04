@@ -37,13 +37,18 @@ jobs:
         with:
           node-version: 22
 
+      # se estourar o tempo, o que já baixou ainda é commitado no passo seguinte
+      # e o próximo run continua de onde este parou
       - name: Baixar as fotos do Wikimedia Commons
+        timeout-minutes: 16
+        continue-on-error: true
         run: |
           node scripts/fetch-place-photos.mjs \
             ${{ (github.event_name == 'workflow_dispatch' && inputs.force) && '--force' || '' }} \
             ${{ (github.event_name == 'workflow_dispatch' && inputs.only != '') && format('--only {0}', inputs.only) || '' }}
 
       - name: Commitar o que mudou
+        if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -56,6 +61,7 @@ jobs:
           git push origin HEAD:${{ github.ref_name }}
 
       - name: Resumo
+        if: always()
         run: |
           echo '### Fotos baixadas' >> $GITHUB_STEP_SUMMARY
           echo '' >> $GITHUB_STEP_SUMMARY
