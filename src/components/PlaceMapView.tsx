@@ -21,6 +21,7 @@ import { Rich } from './Rich';
 
 const KIND_ICON: Record<HotspotKind, typeof Landmark> = {
   gate: DoorOpen,
+  temple: Landmark,
   hall: Landmark,
   fox: PawPrint,
   torii: Torus,
@@ -65,7 +66,7 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
 
           {map.hotspots.map((h) => {
             const active = h.id === selectedId;
-            const labelX = h.side === 'right' ? h.x + 19 : h.x - 19;
+            const labelX = h.side === 'right' ? h.x + 21 : h.x - 21;
             return (
               <g
                 key={h.id}

@@ -170,6 +170,7 @@ export const hiroshimaDays: Day[] = [
       },
       {
         id: 'd24-itsukushima',
+        placeMapId: 'miyajima',
         time: '08:45',
         timeLabel: 'santuário',
         kind: 'temple',

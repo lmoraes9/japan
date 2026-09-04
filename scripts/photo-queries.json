@@ -1,32 +1,238 @@
 {
   "_comment": "Busca no Wikimedia Commons por ponto do mapa. Chave: <mapId>/<hotspotId>. O valor pode ser uma frase ou uma lista de frases tentadas em ordem (japonês costuma achar melhor os pontos pequenos). Edite e rode npm run fotos -- --force para trocar a imagem.",
-  "fushimi-inari/estacao": "Inari Station Kyoto JR building",
   "fushimi-inari/barracas": [
     "すずめの丸焼き",
     "伏見稲荷 門前町",
     "Fushimi Inari shops street",
     "Inari sushi shop Kyoto"
   ],
-  "fushimi-inari/romon": "Fushimi Inari Taisha romon gate",
-  "fushimi-inari/kitsune": "Fushimi Inari fox statue kitsune key",
+  "fushimi-inari/cume": [
+    "伏見稲荷 一ノ峰",
+    "Fushimi Inari Ichinomine",
+    "Fushimi Inari summit"
+  ],
+  "fushimi-inari/estacao": "Inari Station Kyoto JR building",
   "fushimi-inari/honden": [
     "伏見稲荷大社 本殿",
     "Fushimi Inari honden"
   ],
-  "fushimi-inari/senbon": "Senbon Torii Fushimi Inari",
+  "fushimi-inari/kitsune": "Fushimi Inari fox statue kitsune key",
   "fushimi-inari/omokaru": [
     "おもかる石",
     "伏見稲荷 奥社奉拝所",
     "Fushimi Inari Okusha"
   ],
+  "fushimi-inari/romon": "Fushimi Inari Taisha romon gate",
+  "fushimi-inari/senbon": "Senbon Torii Fushimi Inari",
   "fushimi-inari/shinike": [
     "伏見稲荷 新池",
     "Fushimi Inari pond"
   ],
   "fushimi-inari/yotsutsuji": "Fushimi Inari Yotsutsuji view Kyoto",
-  "fushimi-inari/cume": [
-    "伏見稲荷 一ノ峰",
-    "Fushimi Inari Ichinomine",
-    "Fushimi Inari summit"
-  ]
+  "miyajima/balsa": [
+    "宮島フェリー",
+    "Miyajima ferry"
+  ],
+  "miyajima/cervos": [
+    "宮島 鹿",
+    "Miyajima deer"
+  ],
+  "miyajima/daishoin": [
+    "大聖院 宮島",
+    "Daishoin Miyajima"
+  ],
+  "miyajima/itsukushima": [
+    "厳島神社 回廊",
+    "Itsukushima Shrine corridor"
+  ],
+  "miyajima/misen": [
+    "弥山 山頂",
+    "Mount Misen summit"
+  ],
+  "miyajima/momijidani": [
+    "紅葉谷公園 宮島",
+    "Momijidani Park Miyajima"
+  ],
+  "miyajima/omotesando": [
+    "宮島 表参道商店街",
+    "Miyajima shopping street"
+  ],
+  "miyajima/otorii": [
+    "厳島神社 大鳥居",
+    "Itsukushima torii"
+  ],
+  "miyajima/senjokaku": [
+    "千畳閣",
+    "Senjokaku Miyajima"
+  ],
+  "miyajima/teleferico": [
+    "宮島ロープウエー",
+    "Miyajima ropeway"
+  ],
+  "nara/cervos": [
+    "奈良公園 鹿",
+    "Nara park deer"
+  ],
+  "nara/daibutsu": [
+    "奈良の大仏",
+    "Todaiji Great Buddha"
+  ],
+  "nara/daibutsuden": [
+    "東大寺 大仏殿",
+    "Todaiji Daibutsuden"
+  ],
+  "nara/estacao": [
+    "近鉄奈良駅",
+    "Kintetsu Nara Station"
+  ],
+  "nara/kasuga": [
+    "春日大社 灯籠",
+    "Kasuga Taisha lantern"
+  ],
+  "nara/kofukuji": [
+    "興福寺 五重塔",
+    "Kofukuji pagoda"
+  ],
+  "nara/nandaimon": [
+    "東大寺 南大門",
+    "Todaiji Nandaimon"
+  ],
+  "nara/naramachi": [
+    "ならまち",
+    "Naramachi Nara"
+  ],
+  "nara/nigatsudo": [
+    "二月堂",
+    "Nigatsudo Nara"
+  ],
+  "nara/sarusawa": [
+    "猿沢池",
+    "Sarusawa pond Nara"
+  ],
+  "sensoji/asakusa-jinja": [
+    "浅草神社",
+    "Asakusa Shrine"
+  ],
+  "sensoji/hondo": [
+    "浅草寺 本堂",
+    "Sensoji main hall"
+  ],
+  "sensoji/hoppy": [
+    "ホッピー通り",
+    "Hoppy Street Asakusa"
+  ],
+  "sensoji/hozomon": [
+    "宝蔵門 浅草寺",
+    "Hozomon Sensoji"
+  ],
+  "sensoji/jokoro": [
+    "浅草寺 常香炉",
+    "Sensoji incense burner"
+  ],
+  "sensoji/kaminarimon": [
+    "雷門",
+    "Kaminarimon Asakusa"
+  ],
+  "sensoji/nakamise": [
+    "仲見世通り",
+    "Nakamise dori Asakusa"
+  ],
+  "sensoji/nitenmon": [
+    "二天門 浅草寺",
+    "Nitenmon Sensoji"
+  ],
+  "sensoji/omikuji": [
+    "おみくじ 浅草寺",
+    "omikuji Sensoji"
+  ],
+  "sensoji/pagode": [
+    "浅草寺 五重塔",
+    "Sensoji five-storied pagoda"
+  ],
+  "stops/d01-gachapon-ikebukuro": "Gashapon Department Store Ikebukuro Sunshine City",
+  "stops/d01-sanjusangendo": "Sanjusangendo Kyoto",
+  "stops/d01-tofukuji": "Tofuku-ji Kyoto",
+  "stops/d02-akihabara-missoes": "Yodobashi Akiba",
+  "stops/d02-compras-finais": "Bic Camera Yurakucho",
+  "stops/d02-jardim-imperial": "Imperial Palace East Gardens Tokyo",
+  "stops/d02-jimbocho": "Bondy curry Jimbocho",
+  "stops/d02-konbini": "7-Eleven Ginza",
+  "stops/d02-nihonbashi": "Nihonbashi Bridge Tokyo",
+  "stops/d03-haneda": "Haneda Airport Terminal 3",
+  "stops/d18-haneda": "Haneda Airport Terminal 3",
+  "stops/d18-konbini": "7-Eleven Shinjuku",
+  "stops/d18-ramen": "Omoide Yokocho Shinjuku",
+  "stops/d19-akihabara": "Akihabara Electric Town",
+  "stops/d19-almoco-ueno": "Innsyotei Ueno Park",
+  "stops/d19-ameyoko": "Ameya Yokocho Ueno",
+  "stops/d19-hanabusa": "Hanabusa Inari Shrine Akihabara",
+  "stops/d19-jantar": "Kikanbo Ramen Kanda",
+  "stops/d19-kappabashi": "Kappabashi Street Tokyo",
+  "stops/d19-kuramae": "Pelican Cafe Kuramae Tokyo",
+  "stops/d19-museu-nacional": "Tokyo National Museum",
+  "stops/d19-oculos": "JINS Atre Akihabara",
+  "stops/d19-radio-kaikan": "Akihabara Radio Kaikan",
+  "stops/d19-sensoji": "Sensoji Temple Asakusa",
+  "stops/d20-daibutsu": "Kotokuin Great Buddha Kamakura",
+  "stops/d20-engakuji": "Engakuji Temple Kamakura",
+  "stops/d20-hachimangu": "Tsurugaoka Hachimangu Kamakura",
+  "stops/d20-hasedera": "Hasedera Temple Kamakura",
+  "stops/d20-kenchoji": "Kenchoji Temple Kamakura",
+  "stops/d20-komachi": "Komachi-dori Kamakura",
+  "stops/d21-almoco-ginza": "Ginza Kagari ramen",
+  "stops/d21-ginza": "Ginza Tokyo",
+  "stops/d21-hamarikyu": "Hamarikyu Gardens Tokyo",
+  "stops/d21-jantar-estacao": "Tokyo Ramen Street Tokyo Station",
+  "stops/d21-kitte": "KITTE Marunouchi rooftop garden",
+  "stops/d21-tsukiji": "Tsukiji Outer Market",
+  "stops/d22-almoco": "Afuri Harajuku",
+  "stops/d22-cruzamento": "Shibuya Crossing Hachiko",
+  "stops/d22-gaien": "Meiji Jingu Gaien Ginkgo Avenue",
+  "stops/d22-jantar": "Shibuya Mark City",
+  "stops/d22-meiji-jingu": "Meiji Jingu Shrine Tokyo",
+  "stops/d22-omotesando": "Omotesando Tokyo",
+  "stops/d22-shibuya-sky": "Shibuya Sky",
+  "stops/d23-konbini": "7-Eleven Tokyo Station",
+  "stops/d23-museu-paz": "Peace Memorial Museum Hiroshima",
+  "stops/d23-okonomiyaki": "Nagataya Okonomiyaki Hiroshima",
+  "stops/d23-parque-domo": "Atomic Bomb Dome Hiroshima",
+  "stops/d23-pokemon-center": "Pokemon Center Hiroshima ekie",
+  "stops/d24-daishoin": "Daisho-in Temple Miyajima",
+  "stops/d24-itsukushima": "Itsukushima Shrine Miyajima",
+  "stops/d24-misen": "Miyajima Ropeway",
+  "stops/d24-momijidani": "Momijidani Park Miyajima",
+  "stops/d24-shukkeien": "Shukkeien Garden Hiroshima",
+  "stops/d25-bikan": "Kurashiki Bikan Historical Quarter",
+  "stops/d25-dotonbori": "Dotonbori Osaka",
+  "stops/d25-himeji": "Himeji Castle",
+  "stops/d25-ohara": "Ohara Museum of Art Kurashiki",
+  "stops/d26-castelo-osaka": "Osaka Castle",
+  "stops/d26-kuromon": "Kuromon Ichiba Market Osaka",
+  "stops/d26-shinsekai": "Shinsekai Osaka",
+  "stops/d26-shitennoji": "Shitennoji Temple Osaka",
+  "stops/d26-umeda": "Umeda Sky Building",
+  "stops/d27-fushimi-inari": "Fushimi Inari Taisha",
+  "stops/d27-sumiyoshi": "Sumiyoshi Taisha Osaka",
+  "stops/d28-eikando": "Eikando Zenrinji Kyoto",
+  "stops/d28-filosofo": "Philosopher\\",
+  "stops/d28-ginkakuji": "Ginkaku-ji Kyoto",
+  "stops/d28-gion": "Gion Kyoto",
+  "stops/d28-kiyomizu": "Kiyomizu-dera Kyoto",
+  "stops/d28-kodaiji": "Kodaiji Temple Kyoto",
+  "stops/d28-nanzenji": "Nanzenji Temple Kyoto",
+  "stops/d28-sannenzaka": "Sannenzaka Kyoto",
+  "stops/d29-bambu": "Arashiyama Bamboo Grove",
+  "stops/d29-kinkakuji": "Kinkaku-ji",
+  "stops/d29-konbini": "7-Eleven Kyoto Station",
+  "stops/d29-nishiki": "Nishiki Market Kyoto",
+  "stops/d29-okochi-sanso": "Okochi Sanso Villa Arashiyama",
+  "stops/d29-ryoanji": "Ryoanji Temple Kyoto",
+  "stops/d29-tenryuji": "Tenryuji Temple Kyoto",
+  "stops/d29-togetsukyo": "Togetsukyo Bridge Arashiyama",
+  "stops/d30-kasuga-taisha": "Kasuga Taisha Nara",
+  "stops/d30-kofukuji": "Kofukuji Nara",
+  "stops/d30-naramachi": "Naramachi Nara",
+  "stops/d30-nigatsudo": "Nigatsudo Nara",
+  "stops/d30-parque-nara": "Nara Park",
+  "stops/d30-todaiji": "Todai-ji Nara"
 }

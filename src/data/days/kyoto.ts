@@ -480,6 +480,7 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd30-parque-nara',
+        placeMapId: 'nara',
         time: '09:00',
         timeLabel: 'parque',
         kind: 'sight',

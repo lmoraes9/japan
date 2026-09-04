@@ -25,6 +25,7 @@ import type { Stop, StopKind } from '@/data/types';
 import { Rich } from './Rich';
 import { EatBlocks } from './EatBlocks';
 import { navigateUrl, photosUrl } from '@/lib/mapsLinks';
+import { PLACE_PHOTOS } from '@/data/placePhotos.generated';
 import { useSyncStore } from '@/lib/store';
 
 const KIND_ICON: Record<StopKind, typeof Landmark> = {
@@ -58,7 +59,9 @@ export function StopCard({
   const nav = navigateUrl(stop);
   // parada que é só escolha de refeição não tem "fotos do lugar" — cada item tem as suas
   const isPlace = stop.kind !== 'food' || !!stop.jp;
-  const photos = isPlace ? photosUrl(stop) : undefined;
+  // foto local do lugar; havendo uma, ela substitui o botão que abria o Google Fotos
+  const photo = PLACE_PHOTOS[`stops/${stop.id}`];
+  const photos = isPlace && !photo ? photosUrl(stop) : undefined;
   const extraLinks = stop.links?.filter((l) => l.label !== 'fotos');
   const Icon = KIND_ICON[stop.kind] ?? Landmark;
 
@@ -108,6 +111,28 @@ export function StopCard({
             <p className="font-mono text-[11px] text-muted leading-relaxed mt-1">
               <Rich text={stop.facts} />
             </p>
+          )}
+
+          {photo && (
+            <figure className="mt-2.5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photo.src}
+                alt={stop.name}
+                loading="lazy"
+                className="aspect-[16/10] w-full rounded-xl border border-hairline bg-surface-2 object-cover"
+              />
+              <figcaption className="mt-1 text-[10px] leading-snug text-muted">
+                <a
+                  href={photo.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-hairline underline-offset-2"
+                >
+                  {photo.credit} · {photo.license} · Wikimedia Commons
+                </a>
+              </figcaption>
+            </figure>
           )}
 
           {stop.paragraphs?.map((p, i) => (

@@ -102,6 +102,7 @@ export const tokyo1Days: Day[] = [
     stops: [
       {
         id: 'd19-sensoji',
+        placeMapId: 'sensoji',
         time: '06:30',
         timeLabel: 'templo',
         kind: 'temple',

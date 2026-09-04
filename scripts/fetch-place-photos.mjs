@@ -20,7 +20,9 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_TS = join(ROOT, 'src/data/placePhotos.generated.ts');
 const API = 'https://commons.wikimedia.org/w/api.php';
 const UA = 'japao2026-trip-app/1.0 (uso pessoal; contato via repositório)';
-const WIDTH = 1200;
+/** largura do thumb: os mapas ganham foto maior; as paradas do roteiro, menor */
+const WIDTH_MAPA = 1200;
+const WIDTH_PARADA = 800;
 
 const args = process.argv.slice(2);
 const force = args.includes('--force');
@@ -34,7 +36,7 @@ const stripTags = (html) =>
     .replace(/\s+/g, ' ')
     .trim();
 
-async function search(query) {
+async function search(query, width) {
   const url = new URL(API);
   url.search = new URLSearchParams({
     action: 'query',
@@ -45,7 +47,7 @@ async function search(query) {
     gsrlimit: '12',
     prop: 'imageinfo',
     iiprop: 'url|size|mime|extmetadata',
-    iiurlwidth: String(WIDTH),
+    iiurlwidth: String(width),
   }).toString();
 
   const res = await fetch(url, { headers: { 'User-Agent': UA } });
@@ -66,10 +68,10 @@ async function search(query) {
 }
 
 /** tenta cada frase de busca até uma trazer resultado ainda não usado */
-async function searchAny(queries, usados) {
+async function searchAny(queries, usados, width) {
   let repetido = null;
   for (const q of queries) {
-    const hits = await search(q);
+    const hits = await search(q, width);
     const novo = hits.find((h) => !usados.has(h.title));
     if (novo) return { hit: novo, usedQuery: q };
     if (!repetido && hits.length) repetido = { hit: hits[0], usedQuery: q };
@@ -87,8 +89,12 @@ async function download(url, dest) {
   await writeFile(dest, Buffer.from(await res.arrayBuffer()));
 }
 
-/** títulos já usados, para não repetir a mesma foto em dois pontos */
-const usados = new Set();
+/** títulos já usados por grupo (um mapa, ou as paradas do roteiro) */
+const usadosPor = new Map();
+const usadosDe = (grupo) => {
+  if (!usadosPor.has(grupo)) usadosPor.set(grupo, new Set());
+  return usadosPor.get(grupo);
+};
 
 const queries = JSON.parse(await readFile(join(ROOT, 'scripts/photo-queries.json'), 'utf8'));
 const entries = Object.entries(queries).filter(([k]) => !k.startsWith('_'));
@@ -108,10 +114,12 @@ if (await exists(OUT_TS)) {
 }
 
 for (const [key, query] of entries) {
-  const [mapId, hotspotId] = key.split('/');
-  if (only && mapId !== only) continue;
+  const [grupo, itemId] = key.split('/');
+  if (only && grupo !== only) continue;
+  const usados = usadosDe(grupo);
+  const width = grupo === 'stops' ? WIDTH_PARADA : WIDTH_MAPA;
 
-  const rel = `lugares/${mapId}/${hotspotId}.jpg`;
+  const rel = `lugares/${grupo}/${itemId}.jpg`;
   const dest = join(ROOT, 'public', rel);
   if (!force && current[key] && (await exists(dest))) {
     usados.add(current[key].title);
@@ -121,9 +129,9 @@ for (const [key, query] of entries) {
 
   const tentativas = Array.isArray(query) ? query : [query];
   try {
-    const found = await searchAny(tentativas, usados);
+    const found = await searchAny(tentativas, usados, width);
     if (found?.duplicada) {
-      console.warn(`! ${key} — só achou fotos já usadas em outro ponto; melhore a busca`);
+      console.warn(`! ${key} — só achou fotos já usadas neste grupo; melhore a busca`);
       continue;
     }
     if (!found) {
