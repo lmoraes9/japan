@@ -22,8 +22,31 @@ const API = 'https://commons.wikimedia.org/w/api.php';
 const UA = 'japao2026-trip-app/1.0 (uso pessoal; contato via repositório)';
 /** conexão pendurada trava o script inteiro — nenhuma requisição espera além disso */
 const TIMEOUT = 20_000;
-const buscar = (url) =>
-  fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(TIMEOUT) });
+/** o Commons devolve 429 se apertarmos: um pedido por vez, ~1 por segundo */
+const INTERVALO = 1100;
+const espera = (ms) => new Promise((r) => setTimeout(r, ms));
+
+let ultima = 0;
+async function buscar(url, tentativa = 0) {
+  const desde = Date.now() - ultima;
+  if (desde < INTERVALO) await espera(INTERVALO - desde);
+  ultima = Date.now();
+
+  const res = await fetch(url, {
+    headers: { 'User-Agent': UA },
+    signal: AbortSignal.timeout(TIMEOUT),
+  });
+
+  // 429 (limite de requisições) e 503 (servidor ocupado) pedem paciência, não desistência
+  if ((res.status === 429 || res.status === 503) && tentativa < 4) {
+    const sugerido = Number(res.headers.get('retry-after')) * 1000;
+    const pausa = Number.isFinite(sugerido) && sugerido > 0 ? sugerido : 2000 * 2 ** tentativa;
+    console.log(`  (${res.status} do Commons; esperando ${Math.round(pausa / 1000)}s)`);
+    await espera(pausa);
+    return buscar(url, tentativa + 1);
+  }
+  return res;
+}
 /** largura do thumb: os mapas ganham foto maior; as paradas do roteiro, menor */
 const WIDTH_MAPA = 1200;
 const WIDTH_PARADA = 800;
@@ -84,7 +107,6 @@ async function searchAny(queries, usados, width) {
     const novo = hits.find((h) => !usados.has(h.title));
     if (novo) return { hit: novo, usedQuery: q };
     if (!repetido && hits.length) repetido = { hit: hits[0], usedQuery: q };
-    await new Promise((r) => setTimeout(r, 250));
   }
   // se todas as buscas só trouxeram fotos já usadas, é melhor ponto sem foto
   // do que a mesma imagem aparecendo duas vezes no mesmo mapa
@@ -162,7 +184,6 @@ for (const [key, query] of entries) {
   } catch (err) {
     console.warn(`! ${key} — ${err.message}`);
   }
-  await new Promise((r) => setTimeout(r, 150)); // gentileza com a API
 }
 
 const sorted = Object.fromEntries(Object.entries(current).sort(([a], [b]) => a.localeCompare(b)));

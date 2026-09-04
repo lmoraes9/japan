@@ -29,7 +29,7 @@ concurrency:
 jobs:
   fotos:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
 
@@ -40,7 +40,7 @@ jobs:
       # se estourar o tempo, o que já baixou ainda é commitado no passo seguinte
       # e o próximo run continua de onde este parou
       - name: Baixar as fotos do Wikimedia Commons
-        timeout-minutes: 16
+        timeout-minutes: 42
         continue-on-error: true
         run: |
           node scripts/fetch-place-photos.mjs \
