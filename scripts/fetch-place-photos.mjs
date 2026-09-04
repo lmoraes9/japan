@@ -12,7 +12,7 @@
  * própria, é só salvar por cima de public/lugares/<mapa>/<ponto>.jpg e apagar
  * a linha correspondente do arquivo gerado (aí ela fica sem crédito).
  */
-import { mkdir, writeFile, readFile, access } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, access, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -63,7 +63,41 @@ const stripTags = (html) =>
     .replace(/\s+/g, ' ')
     .trim();
 
-async function search(query, width) {
+/**
+ * Palavras que não identificam lugar nenhum: se a régua aceitasse "buddha" ou
+ * "temple", o Commons devolveria um Buda coreano para "o Grande Buda de Nara".
+ */
+const GENERICAS = new Set(
+  ('shrine temple park station street great buddha pond gate statue summit shop shops ' +
+   'tower museum garden market hall main mount view city japan japanese kyoto tokyo osaka ' +
+   'grand sando dori building house street food ropeway ferry deer lantern fox key').split(' '),
+);
+
+const normalizar = (t) =>
+  t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[-_,.()]/g, ' ');
+
+/** termos que identificam o lugar: nomes próprios em latim e bigramas de kanji/kana */
+function termosDe(queries) {
+  const termos = new Set();
+  for (const q of queries) {
+    for (const bloco of q.match(/[\u3040-\u30ff\u4e00-\u9fff]{2,}/g) ?? []) {
+      for (let i = 0; i + 2 <= bloco.length; i++) termos.add(bloco.slice(i, i + 2));
+    }
+    for (const palavra of normalizar(q).match(/[a-z][a-z']{3,}/g) ?? []) {
+      if (!GENERICAS.has(palavra)) termos.add(palavra);
+    }
+  }
+  return [...termos];
+}
+
+/** o título do arquivo precisa citar o lugar de alguma forma */
+const combina = (titulo, termos) => {
+  if (!termos.length) return true;
+  const t = normalizar(titulo);
+  return termos.some((termo) => t.includes(normalizar(termo)));
+};
+
+async function search(query, width, termos) {
   const url = new URL(API);
   url.search = new URLSearchParams({
     action: 'query',
@@ -87,20 +121,24 @@ async function search(query, width) {
 
   // ordem da busca é a relevância do Commons; primeiro tentamos o que é bonito
   // numa tela larga, e só depois aceitamos qualquer coisa que preste
-  const bom = candidates
+  // foto errada é pior que ponto sem foto
+  const doLugar = candidates.filter(({ title }) => combina(title, termos));
+
+  const bom = doLugar
     .filter(({ info }) => info.width >= 1000 && info.width >= info.height * 0.6)
     .filter(({ title }) => !/(map|diagram|plan|logo|icon|stamp)/i.test(title));
-  const aceitavel = candidates.filter(({ info }) => info.width >= 700);
+  const aceitavel = doLugar.filter(({ info }) => info.width >= 700);
   return bom.length ? bom : aceitavel;
 }
 
 /** tenta cada frase de busca até uma trazer resultado ainda não usado */
 async function searchAny(queries, usados, width) {
+  const termos = termosDe(queries);
   let repetido = null;
   for (const q of queries) {
     let hits = [];
     try {
-      hits = await search(q, width);
+      hits = await search(q, width, termos);
     } catch (err) {
       console.warn(`  (busca "${q}" falhou: ${err.message})`);
     }
@@ -120,6 +158,18 @@ async function download(url, dest) {
   await writeFile(dest, Buffer.from(await res.arrayBuffer()));
 }
 
+async function escreverGerado(mapa) {
+  const sorted = Object.fromEntries(Object.entries(mapa).sort(([a], [b]) => a.localeCompare(b)));
+  await writeFile(
+    OUT_TS,
+    `// GERADO por scripts/fetch-place-photos.mjs — não editar à mão.\n` +
+      `// Fotos do Wikimedia Commons; o crédito e a licença aparecem embaixo de cada foto no app.\n` +
+      `import type { PlacePhoto } from './placeMaps';\n\n` +
+      `export const PLACE_PHOTOS: Record<string, PlacePhoto> = ${JSON.stringify(sorted, null, 2)};\n`,
+    'utf8',
+  );
+}
+
 /** títulos já usados por grupo (um mapa, ou as paradas do roteiro) */
 const usadosPor = new Map();
 const usadosDe = (grupo) => {
@@ -129,6 +179,7 @@ const usadosDe = (grupo) => {
 
 const queries = JSON.parse(await readFile(join(ROOT, 'scripts/photo-queries.json'), 'utf8'));
 const entries = Object.entries(queries).filter(([k]) => !k.startsWith('_'));
+const validar = args.includes('--validar');
 
 /** carrega os créditos já existentes para não perder o que não vamos rebaixar */
 let current = {};
@@ -142,6 +193,24 @@ if (await exists(OUT_TS)) {
       current = {};
     }
   }
+}
+
+if (validar) {
+  // revê o que já está baixado com a régua de relevância, sem tocar na rede
+  let removidas = 0;
+  for (const [key, query] of entries) {
+    const atual = current[key];
+    if (!atual) continue;
+    const termos = termosDe(Array.isArray(query) ? query : [query]);
+    if (combina(atual.title, termos)) continue;
+    console.log(`✗ ${key} — "${atual.title}" não parece ser do lugar; removida`);
+    delete current[key];
+    await rm(join(ROOT, 'public', `lugares/${key.split('/')[0]}/${key.split('/')[1]}.jpg`), { force: true });
+    removidas++;
+  }
+  await escreverGerado(current);
+  console.log(`\n${removidas} foto(s) removida(s). Rode sem --validar para rebaixar.`);
+  process.exit(0);
 }
 
 for (const [key, query] of entries) {
@@ -186,13 +255,5 @@ for (const [key, query] of entries) {
   }
 }
 
-const sorted = Object.fromEntries(Object.entries(current).sort(([a], [b]) => a.localeCompare(b)));
-await writeFile(
-  OUT_TS,
-  `// GERADO por scripts/fetch-place-photos.mjs — não editar à mão.\n` +
-    `// Fotos do Wikimedia Commons; o crédito e a licença aparecem embaixo de cada foto no app.\n` +
-    `import type { PlacePhoto } from './placeMaps';\n\n` +
-    `export const PLACE_PHOTOS: Record<string, PlacePhoto> = ${JSON.stringify(sorted, null, 2)};\n`,
-  'utf8',
-);
-console.log(`\nEscrito ${OUT_TS} com ${Object.keys(sorted).length} foto(s).`);
+await escreverGerado(current);
+console.log(`\nEscrito ${OUT_TS} com ${Object.keys(current).length} foto(s).`);

@@ -20,13 +20,14 @@ const QUERIES = join(ROOT, 'scripts/photo-queries.json');
 /** pares (id da parada, mapQuery) na ordem em que aparecem no arquivo */
 function extrair(src) {
   const pares = [];
-  const re = /\bid: '([^']+)'|\bmapQuery: '([^']+)'|\bname: '((?:[^'\\]|\\.)*)'/g;
+  const re = /\bid: '([^']+)'|\bmapQuery: '([^']+)'|\bjp: '([^']+)'/g;
   let atual = null;
   for (const m of src.matchAll(re)) {
-    if (m[1]) atual = { id: m[1], name: null };
-    else if (m[3] && atual && !atual.name) atual.name = m[3];
+    if (m[1]) atual = { id: m[1], jp: null };
+    else if (m[3] && atual) atual.jp = m[3];
     else if (m[2] && atual) {
-      pares.push({ id: atual.id, query: m[2], name: atual.name });
+      // o nome em japonês costuma bater melhor com o título do arquivo no Commons
+      pares.push({ id: atual.id, query: atual.jp ? [atual.jp, m[2]] : m[2] });
       atual = null;
     }
   }
