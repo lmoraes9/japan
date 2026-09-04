@@ -20,6 +20,10 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_TS = join(ROOT, 'src/data/placePhotos.generated.ts');
 const API = 'https://commons.wikimedia.org/w/api.php';
 const UA = 'japao2026-trip-app/1.0 (uso pessoal; contato via repositório)';
+/** conexão pendurada trava o script inteiro — nenhuma requisição espera além disso */
+const TIMEOUT = 20_000;
+const buscar = (url) =>
+  fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(TIMEOUT) });
 /** largura do thumb: os mapas ganham foto maior; as paradas do roteiro, menor */
 const WIDTH_MAPA = 1200;
 const WIDTH_PARADA = 800;
@@ -50,7 +54,7 @@ async function search(query, width) {
     iiurlwidth: String(width),
   }).toString();
 
-  const res = await fetch(url, { headers: { 'User-Agent': UA } });
+  const res = await buscar(url);
   if (!res.ok) throw new Error(`Commons respondeu ${res.status}`);
   const json = await res.json();
   const pages = Object.values(json.query?.pages ?? {});
@@ -71,7 +75,12 @@ async function search(query, width) {
 async function searchAny(queries, usados, width) {
   let repetido = null;
   for (const q of queries) {
-    const hits = await search(q, width);
+    let hits = [];
+    try {
+      hits = await search(q, width);
+    } catch (err) {
+      console.warn(`  (busca "${q}" falhou: ${err.message})`);
+    }
     const novo = hits.find((h) => !usados.has(h.title));
     if (novo) return { hit: novo, usedQuery: q };
     if (!repetido && hits.length) repetido = { hit: hits[0], usedQuery: q };
@@ -83,7 +92,7 @@ async function searchAny(queries, usados, width) {
 }
 
 async function download(url, dest) {
-  const res = await fetch(url, { headers: { 'User-Agent': UA } });
+  const res = await buscar(url);
   if (!res.ok) throw new Error(`download ${res.status}`);
   await mkdir(dirname(dest), { recursive: true });
   await writeFile(dest, Buffer.from(await res.arrayBuffer()));
