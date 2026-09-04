@@ -72,6 +72,10 @@ Sem computador à mão, o mesmo script roda no GitHub: **aba Actions → "Baixar
 
 O script salva as imagens em `public/lugares/<mapa>/<ponto>.jpg` e escreve os créditos em `src/data/placePhotos.generated.ts`. **Commitem os dois** — é isso que vai para a Vercel.
 
+Para trocar **uma** foto que não agradou sem mexer nas outras: edite a busca daquele ponto em `scripts/photo-queries.json` e rode o workflow com `force` marcado e `only` igual à chave, por exemplo `stops/d02-jimbocho` ou `nara/kasuga`.
+
+O script recusa foto cujo nome de arquivo não cite o lugar — é o que evita "um Buda dourado qualquer" no ponto do Grande Buda. Por isso algumas paradas (restaurantes, konbini, ótica) ficam sem foto: não existe foto delas no Commons, e ponto sem foto é melhor que foto errada. `node scripts/fetch-place-photos.mjs --validar` revê o que já está baixado com essa régua.
+
 As frases de busca ficam em `scripts/photo-queries.json`: se a foto escolhida para um ponto não agradar, edite a busca daquele ponto e rode de novo com `--force`. Para usar foto própria, basta salvar por cima do arquivo em `public/lugares/...` (aí o crédito continua sendo o da foto anterior — apague a entrada no arquivo gerado se quiser sem crédito).
 
 Sem rodar o script o app funciona igual, só não mostra foto nenhuma. As fotos entram no cache offline depois que a página é aberta uma vez com internet.

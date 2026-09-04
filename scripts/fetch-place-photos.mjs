@@ -6,6 +6,7 @@
  *   node scripts/fetch-place-photos.mjs                 # só o que falta
  *   node scripts/fetch-place-photos.mjs --force         # rebaixa tudo
  *   node scripts/fetch-place-photos.mjs --only fushimi-inari
+ *   node scripts/fetch-place-photos.mjs --force --only stops/d02-jimbocho
  *
  * As buscas ficam em scripts/photo-queries.json — troque a frase de busca e
  * rode de novo com --force se a foto escolhida não agradar. Para usar uma foto
@@ -215,7 +216,8 @@ if (validar) {
 
 for (const [key, query] of entries) {
   const [grupo, itemId] = key.split('/');
-  if (only && grupo !== only) continue;
+  // --only aceita um grupo inteiro ('nara') ou um ponto só ('stops/d02-jimbocho')
+  if (only && only !== grupo && only !== key) continue;
   const usados = usadosDe(grupo);
   const width = grupo === 'stops' ? WIDTH_PARADA : WIDTH_MAPA;
 
