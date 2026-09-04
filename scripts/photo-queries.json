@@ -1,0 +1,13 @@
+{
+  "_comment": "Busca usada no Wikimedia Commons por ponto do mapa. Chave: <mapId>/<hotspotId>. Edite à vontade e rode npm run fotos novamente com --force para trocar a imagem.",
+  "fushimi-inari/estacao": "Inari Station Kyoto JR building",
+  "fushimi-inari/barracas": "Fushimi Inari approach street shops omotesando",
+  "fushimi-inari/romon": "Fushimi Inari Taisha romon gate",
+  "fushimi-inari/kitsune": "Fushimi Inari fox statue kitsune key",
+  "fushimi-inari/honden": "Fushimi Inari Taisha honden main hall",
+  "fushimi-inari/senbon": "Senbon Torii Fushimi Inari",
+  "fushimi-inari/omokaru": "Fushimi Inari Okusha Hohaisho omokaru ishi",
+  "fushimi-inari/shinike": "Fushimi Inari Shin-ike pond Kumataka",
+  "fushimi-inari/yotsutsuji": "Fushimi Inari Yotsutsuji view Kyoto",
+  "fushimi-inari/cume": "Fushimi Inari Ichinomine summit shrine"
+}

@@ -15,6 +15,17 @@ export type HotspotKind =
   | 'station'
   | 'food';
 
+/** foto de licença livre baixada por scripts/fetch-place-photos.mjs */
+export interface PlacePhoto {
+  /** caminho em /public */
+  src: string;
+  credit: string;
+  license: string;
+  /** página do arquivo no Wikimedia Commons */
+  source: string;
+  title: string;
+}
+
 export interface PlaceHotspot {
   id: string;
   /** número mostrado no marcador */
@@ -30,6 +41,8 @@ export interface PlaceHotspot {
   jp?: string;
   facts?: string;
   paragraphs: string[];
+  /** legenda da foto, quando ela existir */
+  photoCaption?: string;
 }
 
 export interface SceneryShape {
@@ -129,6 +142,30 @@ const fushimiInari: PlaceMap = {
       fill: MAP_COLORS.water,
       opacity: 0.3,
     },
+    // torii de entrada, desenhado
+    {
+      d: 'M104 606 L104 578 M148 606 L148 578 M94 580 L158 580 M98 570 C114 566 138 566 154 570 L154 574 C138 570 114 570 98 574 Z',
+      stroke: MAP_COLORS.vermilion,
+      width: 3.5,
+      opacity: 0.9,
+      round: true,
+    },
+    // telhado do salão principal
+    {
+      d: 'M96 502 L124 490 L152 502 M102 502 L102 518 L146 518 L146 502',
+      stroke: MAP_COLORS.ink,
+      width: 2.5,
+      opacity: 0.45,
+      round: true,
+    },
+    // lanterna de pedra do okusha
+    {
+      d: 'M104 430 l6 -6 6 6 M106 430 l0 8 l8 0 l0 -8 M110 438 l0 8 M104 446 l12 0',
+      stroke: MAP_COLORS.ink,
+      width: 2,
+      opacity: 0.45,
+      round: true,
+    },
     // árvores
     {
       d: 'M64 470 l9 22 h-18 Z M92 508 l8 20 h-16 Z M52 546 l10 24 h-20 Z M290 500 l9 22 h-18 Z M312 552 l8 20 h-16 Z M268 592 l10 24 h-20 Z M96 380 l9 22 h-18 Z M286 402 l9 22 h-18 Z M74 240 l9 22 h-18 Z M282 210 l9 22 h-18 Z',
@@ -139,6 +176,7 @@ const fushimiInari: PlaceMap = {
   hotspots: [
     {
       id: 'estacao',
+      photoCaption: 'A estação, em vermelho de santuário, do outro lado da rua do primeiro torii.',
       n: 1,
       x: 180,
       y: 648,
@@ -155,6 +193,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'barracas',
+      photoCaption: 'A alameda de barracas entre a estação e o portão.',
       n: 2,
       x: 258,
       y: 612,
@@ -170,6 +209,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'romon',
+      photoCaption: 'O Rōmon de 1589, doado por Hideyoshi.',
       n: 3,
       x: 172,
       y: 588,
@@ -186,6 +226,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'kitsune',
+      photoCaption: 'Reparem no que a raposa segura na boca.',
       n: 4,
       x: 150,
       y: 546,
@@ -203,6 +244,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'honden',
+      photoCaption: 'O salão principal, reconstruído em 1499.',
       n: 5,
       x: 178,
       y: 505,
@@ -220,6 +262,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'senbon',
+      photoCaption: 'O corredor duplo do Senbon Torii, logo atrás do salão.',
       n: 6,
       x: 208,
       y: 464,
@@ -237,6 +280,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'omokaru',
+      photoCaption: 'A omokaru-ishi: a esfera de pedra no topo da lanterna.',
       n: 7,
       x: 158,
       y: 404,
@@ -253,6 +297,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'shinike',
+      photoCaption: 'A lagoa do eco, no meio da subida.',
       n: 8,
       x: 200,
       y: 292,
@@ -269,6 +314,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'yotsutsuji',
+      photoCaption: 'A vista de Kyoto do Yotsutsuji, no fim da tarde.',
       n: 9,
       x: 148,
       y: 226,
@@ -285,6 +331,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'cume',
+      photoCaption: 'O cume: uma clareira de mini-torii, sem vista.',
       n: 10,
       x: 166,
       y: 90,
@@ -308,6 +355,9 @@ export const PLACE_MAPS: PlaceMap[] = [fushimiInari];
 
 export const placeMapById = (id: string): PlaceMap | undefined =>
   PLACE_MAPS.find((m) => m.id === id);
+
+/** chave da foto no arquivo gerado: '<mapa>/<ponto>' */
+export const photoKey = (mapId: string, hotspotId: string) => `${mapId}/${hotspotId}`;
 
 export const placeMapByStopId = (stopId: string): PlaceMap | undefined =>
   PLACE_MAPS.find((m) => m.stopId === stopId);

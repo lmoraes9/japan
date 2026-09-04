@@ -58,6 +58,22 @@ Sem a chave o app inteiro funciona — só o mapa embutido é substituído pela 
 2. **Compartilhar → Adicionar à Tela de Início** (nos dois iPhones).
 3. Em **Mais → Ajustes**, confiram que o código da viagem é o mesmo nos dois aparelhos e marquem quem é quem (P/L).
 
+## Fotos dos mapas de lugares
+
+Os mapas ilustrados (`/lugar/fushimi-inari`) mostram uma foto em cada ponto. As fotos **não estão no repositório**: elas são baixadas do Wikimedia Commons (licença livre, crédito exibido no app) por um script:
+
+```bash
+npm run fotos                 # baixa o que falta
+npm run fotos -- --force      # rebaixa tudo
+npm run fotos -- --only fushimi-inari
+```
+
+O script salva as imagens em `public/lugares/<mapa>/<ponto>.jpg` e escreve os créditos em `src/data/placePhotos.generated.ts`. **Commitem os dois** — é isso que vai para a Vercel.
+
+As frases de busca ficam em `scripts/photo-queries.json`: se a foto escolhida para um ponto não agradar, edite a busca daquele ponto e rode de novo com `--force`. Para usar foto própria, basta salvar por cima do arquivo em `public/lugares/...` (aí o crédito continua sendo o da foto anterior — apague a entrada no arquivo gerado se quiser sem crédito).
+
+Sem rodar o script o app funciona igual, só não mostra foto nenhuma. As fotos entram no cache offline depois que a página é aberta uma vez com internet.
+
 ## Estrutura
 
 - `src/data/` — todo o conteúdo do roteiro em TypeScript (dias, paradas, coordenadas, compras, logística, frases). Para ajustar o roteiro, edite esses arquivos.

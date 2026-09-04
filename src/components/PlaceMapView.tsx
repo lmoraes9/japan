@@ -15,7 +15,8 @@ import {
   X,
 } from 'lucide-react';
 import type { HotspotKind, PlaceMap } from '@/data/placeMaps';
-import { MAP_COLORS } from '@/data/placeMaps';
+import { MAP_COLORS, photoKey } from '@/data/placeMaps';
+import { PLACE_PHOTOS } from '@/data/placePhotos.generated';
 import { Rich } from './Rich';
 
 const KIND_ICON: Record<HotspotKind, typeof Landmark> = {
@@ -35,6 +36,7 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = map.hotspots.find((h) => h.id === selectedId) ?? null;
   const Icon = selected ? KIND_ICON[selected.kind] : Landmark;
+  const photo = selected ? PLACE_PHOTOS[photoKey(map.id, selected.id)] : undefined;
 
   return (
     <div className={`space-y-3 ${selected ? 'pb-[46svh]' : ''}`}>
@@ -161,6 +163,32 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
                 <X size={18} />
               </button>
             </div>
+            {photo && (
+              <figure className="mt-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo.src}
+                  alt={selected.photoCaption ?? selected.title}
+                  loading="lazy"
+                  className="max-h-[34svh] w-full rounded-xl border border-hairline bg-surface-2 object-cover"
+                />
+                <figcaption className="mt-1.5 text-[11px] leading-snug text-muted">
+                  {selected.photoCaption && (
+                    <span className="block text-foreground/80">
+                      {selected.photoCaption}
+                    </span>
+                  )}
+                  <a
+                    href={photo.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-hairline underline-offset-2"
+                  >
+                    {photo.credit} · {photo.license} · Wikimedia Commons
+                  </a>
+                </figcaption>
+              </figure>
+            )}
             {selected.paragraphs.map((p, i) => (
               <p
                 key={i}
