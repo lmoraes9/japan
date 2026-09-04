@@ -3,6 +3,13 @@
 import type { PlacePhoto } from './placeMaps';
 
 export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
+  "fushimi-inari/barracas": {
+    "src": "/lugares/fushimi-inari/barracas.jpg",
+    "credit": "z tanuki",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fushimi_Inari_shrine_,_%E4%BC%8F%E8%A6%8B%E7%A8%B2%E8%8D%B7%E5%A4%A7%E7%A4%BE_-_panoramio_(27).jpg",
+    "title": "Fushimi Inari shrine , 伏見稲荷大社 - panoramio (27).jpg"
+  },
   "fushimi-inari/cume": {
     "src": "/lugares/fushimi-inari/cume.jpg",
     "credit": "Guilhem Vellut from Annecy, France",
