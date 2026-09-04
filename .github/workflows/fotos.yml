@@ -1,0 +1,61 @@
+name: Baixar fotos dos mapas
+
+# Roda sozinho quando o script ou as buscas mudam, e pode ser disparado à mão
+# pelo app do GitHub (aba Actions → este workflow → Run workflow).
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Rebaixar todas as fotos (mesmo as que já existem)'
+        type: boolean
+        default: false
+      only:
+        description: 'Só um mapa (ex.: fushimi-inari) — vazio = todos'
+        type: string
+        default: ''
+  push:
+    paths:
+      - 'scripts/fetch-place-photos.mjs'
+      - 'scripts/photo-queries.json'
+      - '.github/workflows/fotos.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fotos-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fotos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Baixar as fotos do Wikimedia Commons
+        run: |
+          node scripts/fetch-place-photos.mjs \
+            ${{ (github.event_name == 'workflow_dispatch' && inputs.force) && '--force' || '' }} \
+            ${{ (github.event_name == 'workflow_dispatch' && inputs.only != '') && format('--only {0}', inputs.only) || '' }}
+
+      - name: Commitar o que mudou
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/lugares src/data/placePhotos.generated.ts
+          if git diff --cached --quiet; then
+            echo 'Nada mudou — nenhuma foto nova.'
+            exit 0
+          fi
+          git commit -m 'Fotos dos mapas de lugares (Wikimedia Commons, baixadas pelo CI)'
+          git push origin HEAD:${{ github.ref_name }}
+
+      - name: Resumo
+        run: |
+          echo '### Fotos baixadas' >> $GITHUB_STEP_SUMMARY
+          echo '' >> $GITHUB_STEP_SUMMARY
+          ls -la public/lugares/*/ 2>/dev/null >> $GITHUB_STEP_SUMMARY || echo 'nenhuma' >> $GITHUB_STEP_SUMMARY

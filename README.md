@@ -68,6 +68,8 @@ npm run fotos -- --force      # rebaixa tudo
 npm run fotos -- --only fushimi-inari
 ```
 
+Sem computador à mão, o mesmo script roda no GitHub: **aba Actions → "Baixar fotos dos mapas" → Run workflow**. Ele baixa, commita as fotos na branch e a Vercel redeploya sozinha. `force` rebaixa tudo; `only` limita a um mapa.
+
 O script salva as imagens em `public/lugares/<mapa>/<ponto>.jpg` e escreve os créditos em `src/data/placePhotos.generated.ts`. **Commitem os dois** — é isso que vai para a Vercel.
 
 As frases de busca ficam em `scripts/photo-queries.json`: se a foto escolhida para um ponto não agradar, edite a busca daquele ponto e rode de novo com `--force`. Para usar foto própria, basta salvar por cima do arquivo em `public/lugares/...` (aí o crédito continua sendo o da foto anterior — apague a entrada no arquivo gerado se quiser sem crédito).
