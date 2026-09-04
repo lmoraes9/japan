@@ -65,14 +65,19 @@ async function search(query) {
   return bom.length ? bom : aceitavel;
 }
 
-/** tenta cada frase de busca até uma trazer resultado */
-async function searchAny(queries) {
+/** tenta cada frase de busca até uma trazer resultado ainda não usado */
+async function searchAny(queries, usados) {
+  let repetido = null;
   for (const q of queries) {
     const hits = await search(q);
-    if (hits.length) return { hit: hits[0], usedQuery: q };
+    const novo = hits.find((h) => !usados.has(h.title));
+    if (novo) return { hit: novo, usedQuery: q };
+    if (!repetido && hits.length) repetido = { hit: hits[0], usedQuery: q };
     await new Promise((r) => setTimeout(r, 250));
   }
-  return null;
+  // se todas as buscas só trouxeram fotos já usadas, é melhor ponto sem foto
+  // do que a mesma imagem aparecendo duas vezes no mesmo mapa
+  return repetido ? { ...repetido, duplicada: true } : null;
 }
 
 async function download(url, dest) {
@@ -81,6 +86,9 @@ async function download(url, dest) {
   await mkdir(dirname(dest), { recursive: true });
   await writeFile(dest, Buffer.from(await res.arrayBuffer()));
 }
+
+/** títulos já usados, para não repetir a mesma foto em dois pontos */
+const usados = new Set();
 
 const queries = JSON.parse(await readFile(join(ROOT, 'scripts/photo-queries.json'), 'utf8'));
 const entries = Object.entries(queries).filter(([k]) => !k.startsWith('_'));
@@ -106,13 +114,18 @@ for (const [key, query] of entries) {
   const rel = `lugares/${mapId}/${hotspotId}.jpg`;
   const dest = join(ROOT, 'public', rel);
   if (!force && current[key] && (await exists(dest))) {
+    usados.add(current[key].title);
     console.log(`· ${key} — já tem, pulando`);
     continue;
   }
 
   const tentativas = Array.isArray(query) ? query : [query];
   try {
-    const found = await searchAny(tentativas);
+    const found = await searchAny(tentativas, usados);
+    if (found?.duplicada) {
+      console.warn(`! ${key} — só achou fotos já usadas em outro ponto; melhore a busca`);
+      continue;
+    }
     if (!found) {
       console.warn(`! ${key} — nada encontrado para ${tentativas.map((q) => `"${q}"`).join(' / ')}`);
       continue;
@@ -127,6 +140,7 @@ for (const [key, query] of entries) {
       source: best.info.descriptionurl,
       title: best.title.replace(/^File:/, ''),
     };
+    usados.add(current[key].title);
     console.log(`✓ ${key} — ${current[key].title}`);
   } catch (err) {
     console.warn(`! ${key} — ${err.message}`);

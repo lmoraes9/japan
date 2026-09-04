@@ -3,13 +3,6 @@
 import type { PlacePhoto } from './placeMaps';
 
 export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
-  "fushimi-inari/barracas": {
-    "src": "/lugares/fushimi-inari/barracas.jpg",
-    "credit": "ot0rip 604 from Japan",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Senbon_Torii_at_Fushimi_Inari_Taisha,_Kyoto;_September_2014.jpg",
-    "title": "Senbon Torii at Fushimi Inari Taisha, Kyoto; September 2014.jpg"
-  },
   "fushimi-inari/cume": {
     "src": "/lugares/fushimi-inari/cume.jpg",
     "credit": "Guilhem Vellut from Annecy, France",

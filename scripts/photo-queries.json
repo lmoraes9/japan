@@ -2,9 +2,10 @@
   "_comment": "Busca no Wikimedia Commons por ponto do mapa. Chave: <mapId>/<hotspotId>. O valor pode ser uma frase ou uma lista de frases tentadas em ordem (japonês costuma achar melhor os pontos pequenos). Edite e rode npm run fotos -- --force para trocar a imagem.",
   "fushimi-inari/estacao": "Inari Station Kyoto JR building",
   "fushimi-inari/barracas": [
-    "伏見稲荷 参道",
-    "Fushimi Inari sando shops",
-    "Fushimi Inari street food"
+    "すずめの丸焼き",
+    "伏見稲荷 門前町",
+    "Fushimi Inari shops street",
+    "Inari sushi shop Kyoto"
   ],
   "fushimi-inari/romon": "Fushimi Inari Taisha romon gate",
   "fushimi-inari/kitsune": "Fushimi Inari fox statue kitsune key",
