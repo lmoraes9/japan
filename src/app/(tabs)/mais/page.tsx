@@ -4,6 +4,7 @@ import {
   MessageSquareText,
   Plane,
   MapPinPlus,
+  Sandwich,
   Settings,
   ChevronRight,
   Star,
@@ -15,6 +16,12 @@ const ITEMS = [
     icon: ShoppingBag,
     title: 'Compras',
     subtitle: 'Checklist sincronizada + guias de compra e tax-free',
+  },
+  {
+    href: '/mais/konbini',
+    icon: Sandwich,
+    title: 'Konbini',
+    subtitle: 'Os oito itens do 7-Eleven, com checklist e plano por dia',
   },
   {
     href: '/mais/frases',

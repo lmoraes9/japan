@@ -17,6 +17,19 @@ export const hiroshimaDays: Day[] = [
     ],
     stops: [
       {
+        id: 'd23-konbini',
+        time: '06:30',
+        timeLabel: 'konbini',
+        kind: 'food',
+        name: '7-Eleven da estação — parada 2 de 4',
+        facts: 'Dentro da Estação de Tóquio e em toda a área da plataforma · aberto desde cedo',
+        paragraphs: [
+          'Comida de trem antes do Nozomi. Hoje a missão é **melon bread** e **sanduíche de morango com creme** — o morango japonês entra na estação agora, em novembro, e este é o auge dele.',
+          'O ekiben da plataforma continua valendo para o almoço de verdade; o konbini é o café da manhã e a sobremesa. Comprem também garrafa de chá gelado: dentro do Shinkansen tudo custa o dobro.',
+        ],
+        mapQuery: '7-Eleven Tokyo Station',
+      },
+      {
         id: 'd23-trem-hiroshima',
         time: '07:00',
         timeLabel: 'trem',

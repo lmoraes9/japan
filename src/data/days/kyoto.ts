@@ -79,6 +79,7 @@ export const kyotoDays: Day[] = [
           ],
         },
         mapQuery: 'Fushimi Inari Taisha',
+        placeMapId: 'fushimi-inari',
       },
       {
         id: 'd27-jantar',
@@ -299,6 +300,19 @@ export const kyotoDays: Day[] = [
     subtitle: 'Bambuzal às 7h, o Pavilhão Dourado, o jardim de pedras, e o mercado de 400 anos.',
     chips: ['história', 'unesco', 'mercado', 'jardim'],
     stops: [
+      {
+        id: 'd29-konbini',
+        time: '06:30',
+        timeLabel: 'konbini',
+        kind: 'food',
+        name: '7-Eleven a caminho de Arashiyama — parada 3 de 4',
+        facts: 'Estação de Kyoto e Saga-Arashiyama têm lojas 24h',
+        paragraphs: [
+          'Saindo às 6h30 nada está aberto, e é exatamente para isso que o konbini existe. Hoje: **café da máquina** — pega-se o copo vazio no caixa (o gelado já vem lacrado com gelo na geladeira), paga, e só então põe na máquina, botão R ou L.',
+          'E, se a loja tiver a máquina branca de **smoothie** ao lado do caixa, é a hora: copo de fruta congelada do freezer, tira o lacre, encaixa, 40 segundos. Nem toda loja tem — se não achar, fica para a repescagem do dia 2.',
+        ],
+        mapQuery: '7-Eleven Kyoto Station',
+      },
       {
         id: 'd29-bambu',
         time: '07:00',

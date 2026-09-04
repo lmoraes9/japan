@@ -149,7 +149,57 @@ export const CHECKLIST: ChecklistItem[] = [
     title: 'Conferir visto B1/B2 válido',
     subtitle: 'A conexão em JFK e DFW exige entrada nos EUA mesmo só em trânsito',
   },
+  // ── Caça ao tesouro de konbini ──
+  {
+    id: 'konbini-onigiri',
+    group: 'konbini',
+    title: 'Onigiri',
+    subtitle: 'Atum com maionese é o clássico · abrir pelos números 1-2-3 da embalagem',
+  },
+  {
+    id: 'konbini-tamago-sando',
+    group: 'konbini',
+    title: 'Sanduíche de ovo',
+    subtitle: 'Shokupan sem casca + maionese Kewpie · o do Bourdain',
+  },
+  {
+    id: 'konbini-pudding',
+    group: 'konbini',
+    title: 'Pudding',
+    subtitle: 'Geladeira de sobremesas · 7 Premium nameraka purin',
+  },
+  {
+    id: 'konbini-seven-cafe',
+    group: 'konbini',
+    title: 'Café — comprar o copo e fazer na máquina',
+    subtitle: 'Copo no caixa (gelado vem lacrado com gelo) · botões R e L',
+  },
+  {
+    id: 'konbini-ichigo-sando',
+    group: 'konbini',
+    title: 'Sanduíche de morango com creme',
+    subtitle: 'Estação do morango começa em novembro — vocês pegam o auge',
+  },
+  {
+    id: 'konbini-melon-pan',
+    group: 'konbini',
+    title: 'Melon bread',
+    subtitle: 'Prateleira de pães · versão definitiva na Kagetsudō, Asakusa (dia 19)',
+  },
+  {
+    id: 'konbini-mochi-ice',
+    group: 'konbini',
+    title: 'Sorvete de mochi',
+    subtitle: 'Yukimi Daifuku, no freezer · foi criado como sorvete de inverno',
+  },
+  {
+    id: 'konbini-smoothie',
+    group: 'konbini',
+    title: 'Smoothie de fruta congelada',
+    subtitle: 'Copo no freezer + máquina ao lado do caixa · nem toda loja tem',
+  },
 ];
 
 export const COMPRAS_ITEMS = CHECKLIST.filter((c) => c.group === 'compras');
+export const KONBINI_CHECKLIST = CHECKLIST.filter((c) => c.group === 'konbini');
 export const PRETRIP_ITEMS = CHECKLIST.filter((c) => c.group === 'pretrip');

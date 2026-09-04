@@ -66,6 +66,8 @@ export interface Stop {
   links?: { label: string; url: string }[];
   /** query original para Google Maps */
   mapQuery?: string;
+  /** id de um mapa ilustrado interativo em src/data/placeMaps.ts */
+  placeMapId?: string;
   coords?: { lat: number; lng: number };
 }
 
@@ -86,7 +88,7 @@ export interface EatBlock {
 
 export interface ChecklistItem {
   id: string;
-  group: 'compras' | 'pretrip';
+  group: 'compras' | 'pretrip' | 'konbini';
   title: string;
   subtitle: string;
 }

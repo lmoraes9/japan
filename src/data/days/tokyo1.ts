@@ -70,6 +70,19 @@ export const tokyo1Days: Day[] = [
         ],
         mapQuery: 'Omoide Yokocho Shinjuku',
       },
+      {
+        id: 'd18-konbini',
+        time: '22:00',
+        timeLabel: 'konbini',
+        kind: 'food',
+        name: '7-Eleven antes de dormir — parada 1 de 4',
+        facts: 'Tem um a cada duas quadras em Shinjuku · **24h** · caixa eletrônico aceita cartão brasileiro',
+        paragraphs: [
+          'Primeira das quatro paradas de konbini da viagem — a lista completa, com checklist, está em **Mais → Konbini**. Hoje é o trio básico: **onigiri** (atum com maionese), **sanduíche de ovo** e **pudding**.',
+          'Levem também água e um café gelado para amanhã cedo. E reparem no balcão quente ao lado do caixa: em novembro já tem **oden** e *nikuman* no vapor — comida de inverno japonesa por ¥150.',
+        ],
+        mapQuery: '7-Eleven Shinjuku',
+      },
     ],
   },
   {

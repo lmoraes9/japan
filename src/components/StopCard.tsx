@@ -19,6 +19,7 @@ import {
   Camera,
   BedDouble,
   Image as ImageIcon,
+  Compass,
 } from 'lucide-react';
 import type { Stop, StopKind } from '@/data/types';
 import { Rich } from './Rich';
@@ -160,6 +161,15 @@ export function StopCard({
               >
                 <MapPin size={13} />
                 Ver no mapa
+              </Link>
+            )}
+            {stop.placeMapId && (
+              <Link
+                href={`/lugar/${stop.placeMapId}`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-accent text-[12px] font-medium px-3 py-1.5 text-accent"
+              >
+                <Compass size={13} />
+                Mapa do lugar
               </Link>
             )}
             {photos && (
