@@ -295,6 +295,10 @@ export const kyotoDays: Day[] = [
   },
   {
     id: 'd2026-11-29',
+    lastReturn: [
+      { label: 'Torokko Kameoka → Saga — último trem', time: '16:32', from: 'Torokko Kameoka', note: 'aprox. · em novembro há extras; confirmar no bilhete', critical: true },
+      { label: 'JR Sagano Line Saga-Arashiyama → Kyoto', time: '23:35', from: 'Estação Saga-Arashiyama', note: 'aprox.' },
+    ],
     date: '2026-11-29',
     stageId: 'kyoto',
     title: 'Arashiyama de manhã cedo → Kinkaku-ji → Ryōan-ji → Nishiki',
@@ -459,6 +463,9 @@ export const kyotoDays: Day[] = [
   },
   {
     id: 'd2026-11-30',
+    lastReturn: [
+      { label: 'Kintetsu Nara → Kyoto (expresso)', time: '22:45', from: 'Estação Kintetsu Nara', note: 'aprox. · locais até ~23:20, com baldeação' },
+    ],
     date: '2026-11-30',
     stageId: 'kyoto',
     title: 'Nara — a capital antes da capital',

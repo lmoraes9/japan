@@ -24,6 +24,7 @@ import { useSettings, effectiveRate, fmtBrl, fmtJpy } from '@/lib/settings';
 import { navigateUrl } from '@/lib/mapsLinks';
 import { DayConditions } from '@/components/DayConditions';
 import { DayReservas } from '@/components/DayReservas';
+import { LastReturn } from '@/components/LastReturn';
 import { dayCover } from '@/lib/covers';
 import { placeMapByStopId } from '@/data/placeMaps';
 import { Compass, Sunrise } from 'lucide-react';
@@ -220,6 +221,10 @@ function DuringTrip({ pos }: { pos: TripPosition }) {
 
       <DayConditions date={pos.day.date} stageId={pos.day.stageId} />
       <DayReservas date={pos.day.date} />
+
+      {pos.day.lastReturn && (pos.jst.hour >= 14 || pos.day.lastReturn.some((r) => r.critical)) && !eveningMode && (
+        <LastReturn items={pos.day.lastReturn} nowMin={pos.jst.hour * 60 + pos.jst.minute} />
+      )}
 
       {eveningMode && tomorrow && (
         <section className="space-y-2">

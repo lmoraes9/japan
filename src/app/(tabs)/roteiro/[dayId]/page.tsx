@@ -8,6 +8,8 @@ import { Rich } from '@/components/Rich';
 import { dayCover } from '@/lib/covers';
 import { DayConditions } from '@/components/DayConditions';
 import { DayReservas } from '@/components/DayReservas';
+import { LastReturn } from '@/components/LastReturn';
+import { Footprints } from 'lucide-react';
 
 export function generateStaticParams() {
   return ALL_DAYS.map((d) => ({ dayId: d.id }));
@@ -74,8 +76,17 @@ export default async function DayPage({
         </div>
       </header>
 
+      <Link
+        href={`/rua?day=${day.id}`}
+        className="tappable flex items-center justify-center gap-2 rounded-2xl bg-accent py-3 text-[14px] font-semibold text-white shadow-md"
+      >
+        <Footprints size={17} />
+        Modo rua — uma parada por vez, em letra grande
+      </Link>
+
       <DayConditions date={day.date} stageId={day.stageId} />
       <DayReservas date={day.date} />
+      {day.lastReturn && <LastReturn items={day.lastReturn} />}
 
       {day.notes?.map((n, i) => (
         <div

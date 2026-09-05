@@ -376,6 +376,10 @@ export const tokyo1Days: Day[] = [
   },
   {
     id: 'd2026-11-20',
+    lastReturn: [
+      { label: 'Enoden Hase → Kamakura', time: '23:07', from: 'Estação Hase', note: 'aprox. · a cada 12 min até ~22h, depois rareia' },
+      { label: 'JR Yokosuka Line Kamakura → Tóquio', time: '23:11', from: 'Estação Kamakura', note: 'aprox. · último direto; até 22:30 tem a cada 15 min' },
+    ],
     date: '2026-11-20',
     stageId: 'tokyo1',
     title: 'Kamakura — a primeira capital dos samurais',

@@ -3,6 +3,9 @@ import type { Day } from '../types';
 export const osakaDays: Day[] = [
   {
     id: 'd2026-11-25',
+    lastReturn: [
+      { label: 'Shinkansen Himeji → Shin-Osaka', time: '23:05', from: 'Estação Himeji', note: 'aprox. · Kodama/Sakura; JR Special Rapid comum até ~23h também' },
+    ],
     date: '2026-11-25',
     stageId: 'osaka',
     title: 'Kurashiki + Castelo de Himeji, a caminho de Osaka',

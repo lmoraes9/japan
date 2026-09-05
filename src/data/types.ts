@@ -27,7 +27,22 @@ export interface Day {
   chips: string[];
   /** aviso no topo do dia (ex.: takuhaibin, maré) */
   notes?: DayNote[];
+  /** a última conexão que traz vocês de volta (bate-voltas) — aparece na tela Agora à tarde */
+  lastReturn?: LastReturn[];
   stops: Stop[];
+}
+
+export interface LastReturn {
+  /** 'Balsa JR Miyajima → Miyajimaguchi' */
+  label: string;
+  /** 'HH:mm' JST, último horário */
+  time: string;
+  /** de onde sai */
+  from: string;
+  /** 'aprox.' quando é o horário típico, a confirmar na estação */
+  note?: string;
+  /** peso: o que perder é grave (teleférico) vs. o que só é a última opção do dia */
+  critical?: boolean;
 }
 
 export interface DayNote {

@@ -145,6 +145,10 @@ export const hiroshimaDays: Day[] = [
   },
   {
     id: 'd2026-11-24',
+    lastReturn: [
+      { label: 'Teleférico do Misen — última descida', time: '17:00', from: 'Estação Shishiiwa (topo)', note: 'quem perde desce 1h a pé no escuro', critical: true },
+      { label: 'Balsa JR Miyajima → Miyajimaguchi', time: '22:14', from: 'Cais de Miyajima', note: 'aprox. · a cada 15 min até 20h, depois a cada 30' },
+    ],
     date: '2026-11-24',
     stageId: 'hiroshima',
     title: 'Miyajima o dia inteiro + Shukkei-en na volta',
