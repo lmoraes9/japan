@@ -73,6 +73,62 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:%E3%83%88%E3%83%AD%E3%83%83%E3%82%B3%E5%B5%AF%E5%B3%A8%E2%86%92%E3%83%88%E3%83%AD%E3%83%83%E3%82%B3%E4%BA%80%E5%B2%A1_%E5%B5%AF%E5%B3%A8%E9%87%8E13%E5%8F%B7.jpg",
     "title": "トロッコ嵯峨→トロッコ亀岡 嵯峨野13号.jpg"
   },
+  "castelo-osaka/aoyamon": {
+    "src": "/lugares/castelo-osaka/aoyamon.jpg",
+    "credit": "Marcel Montes",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Aoyamon.JPG",
+    "title": "Aoyamon.JPG"
+  },
+  "castelo-osaka/estacao": {
+    "src": "/lugares/castelo-osaka/estacao.jpg",
+    "credit": "C.L. Kao (eddie5150)",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:JR%E5%A4%A7%E9%98%AA%E5%9F%8E%E5%85%AC%E5%9C%92%E9%A7%85_-_panoramio.jpg",
+    "title": "JR大阪城公園駅 - panoramio.jpg"
+  },
+  "castelo-osaka/gokurakubashi": {
+    "src": "/lugares/castelo-osaka/gokurakubashi.jpg",
+    "credit": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_Gokurakubashi.jpg",
+    "title": "Osaka Castle Gokurakubashi.jpg"
+  },
+  "castelo-osaka/hokoku": {
+    "src": "/lugares/castelo-osaka/hokoku.jpg",
+    "credit": "そらみみ (Soramimi)",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sanshuden_Hall_of_Hokoku_Shrine_in_Osaka_Castle.JPG",
+    "title": "Sanshuden Hall of Hokoku Shrine in Osaka Castle.JPG"
+  },
+  "castelo-osaka/nishinomaru": {
+    "src": "/lugares/castelo-osaka/nishinomaru.jpg",
+    "credit": "autor não identificado",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_Nishinomaru_Garden_April_2005.JPG",
+    "title": "Osaka Castle Nishinomaru Garden April 2005.JPG"
+  },
+  "castelo-osaka/otemon": {
+    "src": "/lugares/castelo-osaka/otemon.jpg",
+    "credit": "KENPEI",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_Otemon1.jpg",
+    "title": "Osaka Castle Otemon1.jpg"
+  },
+  "castelo-osaka/sakuramon": {
+    "src": "/lugares/castelo-osaka/sakuramon.jpg",
+    "credit": "autor não identificado",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Batu_Gurita_Takoishi_2005-06-26.JPG",
+    "title": "Batu Gurita Takoishi 2005-06-26.JPG"
+  },
+  "castelo-osaka/tenshu": {
+    "src": "/lugares/castelo-osaka/tenshu.jpg",
+    "credit": "autor não identificado",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_Nishinomaru_Garden_April_2005.JPG",
+    "title": "Osaka Castle Nishinomaru Garden April 2005.JPG"
+  },
   "extras/kobe": {
     "src": "/lugares/extras/kobe.jpg",
     "credit": "珈琲牛乳",
@@ -388,6 +444,48 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Zeniarai_Benten_shrine.jpg",
     "title": "Zeniarai Benten shrine.jpg"
   },
+  "kinkakuji/kinukake": {
+    "src": "/lugares/kinkakuji/kinukake.jpg",
+    "credit": "At by At",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kyoto_Kinukake_Road_2013-08.JPG",
+    "title": "Kyoto Kinukake Road 2013-08.JPG"
+  },
+  "kinkakuji/lago": {
+    "src": "/lugares/kinkakuji/lago.jpg",
+    "credit": "Manish Prabhune",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kinkakuji_Pond_Frozen.jpg",
+    "title": "Kinkakuji Pond Frozen.jpg"
+  },
+  "kinkakuji/pavilhao": {
+    "src": "/lugares/kinkakuji/pavilhao.jpg",
+    "credit": "Jaycangel",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kinkaku-ji_the_Golden_Temple_in_Kyoto_overlooking_the_lake_-_high_rez.JPG",
+    "title": "Kinkaku-ji the Golden Temple in Kyoto overlooking the lake - high rez.JPG"
+  },
+  "kinkakuji/pedras": {
+    "src": "/lugares/kinkakuji/pedras.jpg",
+    "credit": "Jxh1",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%BE%8D%E5%AE%89%E5%AF%BA_%E7%9F%B3%E5%BA%AD.jpg",
+    "title": "龍安寺 石庭.jpg"
+  },
+  "kinkakuji/ryoanji-lago": {
+    "src": "/lugares/kinkakuji/ryoanji-lago.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kyoyochi_Pond_of_Ryoanji_Temple.jpg",
+    "title": "Kyoyochi Pond of Ryoanji Temple.jpg"
+  },
+  "kinkakuji/tsukubai": {
+    "src": "/lugares/kinkakuji/tsukubai.jpg",
+    "credit": "Peter 111",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Tsukubai.JPG",
+    "title": "Tsukubai.JPG"
+  },
   "konbini/konbini-melon-pan": {
     "src": "/lugares/konbini/konbini-melon-pan.jpg",
     "credit": "Sakurai Midori",
@@ -429,6 +527,55 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E3%81%9F%E3%81%BE%E3%81%94%E5%A5%BD%E3%81%8D%E3%81%AE%E7%82%BA%E3%81%AE%E3%81%9F%E3%81%BE%E3%81%94%E3%82%B5%E3%83%B3%E3%83%89_%E3%81%8B%E3%82%89%E3%81%97%E9%A1%9E%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%8A%E3%82%8A%E3%81%BE%E3%81%99_(35981071536).jpg",
     "title": "たまご好きの為のたまごサンド からし類を使用しております (35981071536).jpg"
+  },
+  "kurashiki/achi": {
+    "src": "/lugares/kurashiki/achi.jpg",
+    "credit": "Miyuki Meinaka",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Achi_Shrine_in_Kurashiki.jpg",
+    "title": "Achi Shrine in Kurashiki.jpg"
+  },
+  "kurashiki/estacao": {
+    "src": "/lugares/kurashiki/estacao.jpg",
+    "credit": "tatushin",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Kurashiki_station_square.JPG",
+    "title": "Kurashiki station square.JPG"
+  },
+  "kurashiki/honmachi": {
+    "src": "/lugares/kurashiki/honmachi.jpg",
+    "credit": "ajari",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%80%89%E6%95%B7%E5%B8%82%E6%9C%AC%E7%94%BA%E9%80%9A%E3%82%8A_%E6%9C%AC%E7%94%BA10%E3%81%A8%E6%9C%AC%E7%94%BA11%E3%81%AE%E9%96%93_Jul_15,_2014.jpg",
+    "title": "倉敷市本町通り 本町10と本町11の間 Jul 15, 2014.jpg"
+  },
+  "kurashiki/ivy": {
+    "src": "/lugares/kurashiki/ivy.jpg",
+    "credit": "tatushin",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:The_front_entrance_of_kurashiki_ivy_square.JPG",
+    "title": "The front entrance of kurashiki ivy square.JPG"
+  },
+  "kurashiki/nakabashi": {
+    "src": "/lugares/kurashiki/nakabashi.jpg",
+    "credit": "Tatushin",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Kurashiki_bikatiku_naka-bashi.JPG",
+    "title": "Kurashiki bikatiku naka-bashi.JPG"
+  },
+  "kurashiki/ohara": {
+    "src": "/lugares/kurashiki/ohara.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Kurashiki_Ohara_Art_Museum02nt3200.jpg",
+    "title": "Kurashiki Ohara Art Museum02nt3200.jpg"
+  },
+  "kurashiki/yurinso": {
+    "src": "/lugares/kurashiki/yurinso.jpg",
+    "credit": "Nankou Oronain (as36…",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%9C%89%E9%9A%A3%E8%8D%98_%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA%E3%81%AB%E3%81%A6_2009.08.24_-_panoramio.jpg",
+    "title": "有隣荘 倉敷美観地区にて 2009.08.24 - panoramio.jpg"
   },
   "meiji-jingu/barris": {
     "src": "/lugares/meiji-jingu/barris.jpg",
@@ -772,6 +919,62 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E6%B5%85%E8%8D%89%E5%AF%BA%E4%BA%94%E9%87%8D%E5%A1%94_-_panoramio.jpg",
     "title": "浅草寺五重塔 - panoramio.jpg"
+  },
+  "shibuya/centergai": {
+    "src": "/lugares/shibuya/centergai.jpg",
+    "credit": "ITA-ATU",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Center-gai_at_night_201704.jpg",
+    "title": "Shibuya Center-gai at night 201704.jpg"
+  },
+  "shibuya/cento-e-nove": {
+    "src": "/lugares/shibuya/cento-e-nove.jpg",
+    "credit": "autor não identificado",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_109_Building_Tokyo_January_2006.jpg",
+    "title": "Shibuya 109 Building Tokyo January 2006.jpg"
+  },
+  "shibuya/cruzamento": {
+    "src": "/lugares/shibuya/cruzamento.jpg",
+    "credit": "片割れ靴下 (unpaired sock)",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%B8%8B%E8%B0%B7%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%B3%E3%83%96%E3%83%AB%E4%BA%A4%E5%B7%AE%E7%82%B920200419.jpg",
+    "title": "渋谷スクランブル交差点20200419.jpg"
+  },
+  "shibuya/estacao": {
+    "src": "/lugares/shibuya/estacao.jpg",
+    "credit": "Nesnad",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:JR_Shibuya_Station_Hachiko_ticket_gates_-_Oct_28_2019_3pm.jpeg",
+    "title": "JR Shibuya Station Hachiko ticket gates - Oct 28 2019 3pm.jpeg"
+  },
+  "shibuya/hachiko": {
+    "src": "/lugares/shibuya/hachiko.jpg",
+    "credit": "Pablo",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya,_Tokio,_Jap%C3%B3n_2016-12_(32046064901).jpg",
+    "title": "Shibuya, Tokio, Japón 2016-12 (32046064901).jpg"
+  },
+  "shibuya/miyashita": {
+    "src": "/lugares/shibuya/miyashita.jpg",
+    "credit": "Syced",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sake_event_at_Miyashita_Park.jpg",
+    "title": "Sake event at Miyashita Park.jpg"
+  },
+  "shibuya/nonbei": {
+    "src": "/lugares/shibuya/nonbei.jpg",
+    "credit": "経済特区",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%A6%E6%9C%A8(%E3%81%AE%E3%82%93%E3%81%B9%E3%81%84%E6%A8%AA%E4%B8%81)_IMG_20220929_195547_HDR_03.jpg",
+    "title": "並木(のんべい横丁) IMG 20220929 195547 HDR 03.jpg"
+  },
+  "shibuya/sky": {
+    "src": "/lugares/shibuya/sky.jpg",
+    "credit": "Kakidai",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Square_-_SHIBUYA_SKY_10.jpg",
+    "title": "Shibuya Scramble Square - SHIBUYA SKY 10.jpg"
   },
   "stops/d01-sanjusangendo": {
     "src": "/lugares/stops/d01-sanjusangendo.jpg",
@@ -1318,5 +1521,96 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_hdsr_IMG_3845.jpg",
     "title": "Tōdai-ji hdsr IMG 3845.jpg"
+  },
+  "sumiyoshi/bonde": {
+    "src": "/lugares/sumiyoshi/bonde.jpg",
+    "credit": "屋根裏の提督",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%98%AA%E5%A0%BA%E9%9B%BB%E6%B0%97%E8%BB%8C%E9%81%93%EF%BC%91%E5%BD%A2%EF%BC%94%E5%8F%B7.jpg",
+    "title": "阪堺電気軌道１形４号.jpg"
+  },
+  "sumiyoshi/estacao": {
+    "src": "/lugares/sumiyoshi/estacao.jpg",
+    "credit": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:SumiyoshiTaisha-st1.jpg",
+    "title": "SumiyoshiTaisha-st1.jpg"
+  },
+  "sumiyoshi/goshogozen": {
+    "src": "/lugares/sumiyoshi/goshogozen.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gosho-Gozen_and_Wakamiya_Hachiman_Shrine_in_Sumiyoshi_Grand_Shrine.jpg",
+    "title": "Gosho-Gozen and Wakamiya Hachiman Shrine in Sumiyoshi Grand Shrine.jpg"
+  },
+  "sumiyoshi/honden": {
+    "src": "/lugares/sumiyoshi/honden.jpg",
+    "credit": "Yanajin33",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sumiyoshi_Taisha_Honden_no_haimen.jpg",
+    "title": "Sumiyoshi Taisha Honden no haimen.jpg"
+  },
+  "sumiyoshi/nankun": {
+    "src": "/lugares/sumiyoshi/nankun.jpg",
+    "credit": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sumiyoshi-nankunsha11.jpg",
+    "title": "Sumiyoshi-nankunsha11.jpg"
+  },
+  "sumiyoshi/sorihashi": {
+    "src": "/lugares/sumiyoshi/sorihashi.jpg",
+    "credit": "Nankou Oronain (as36…",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E4%BD%8F%E5%90%89%E5%A4%A7%E7%A4%BE%E3%81%AB%E3%81%A6_%E5%8F%8D%E6%A9%8B_Sori-hashi_2012.10.13_-_panoramio.jpg",
+    "title": "住吉大社にて 反橋 Sori-hashi 2012.10.13 - panoramio.jpg"
+  },
+  "sumiyoshi/torii": {
+    "src": "/lugares/sumiyoshi/torii.jpg",
+    "credit": "Saigen Jiro",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sumiyoshi-taisha,_Kaku-torii.jpg",
+    "title": "Sumiyoshi-taisha, Kaku-torii.jpg"
+  },
+  "tofukuji/engetsukyo": {
+    "src": "/lugares/tofukuji/engetsukyo.jpg",
+    "credit": "アラツク",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Engetsukyo-bridge.JPG",
+    "title": "Engetsukyo-bridge.JPG"
+  },
+  "tofukuji/estacao": {
+    "src": "/lugares/tofukuji/estacao.jpg",
+    "credit": "Original uploader was ↑ＰＯＮ at ja.wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Keihan_Tofukuji_station_entrance.jpg",
+    "title": "Keihan Tofukuji station entrance.jpg"
+  },
+  "tofukuji/gaunkyo": {
+    "src": "/lugares/tofukuji/gaunkyo.jpg",
+    "credit": "Mti",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tofukuji_05.JPG",
+    "title": "Tofukuji 05.JPG"
+  },
+  "tofukuji/kaisando": {
+    "src": "/lugares/tofukuji/kaisando.jpg",
+    "credit": "PlusMinus",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:TofukujiKaisando.jpg",
+    "title": "TofukujiKaisando.jpg"
+  },
+  "tofukuji/sanmon": {
+    "src": "/lugares/tofukuji/sanmon.jpg",
+    "credit": "Fg2",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Tofukuji-Sanmon-M9589.jpg",
+    "title": "Tofukuji-Sanmon-M9589.jpg"
+  },
+  "tofukuji/tsutenkyo": {
+    "src": "/lugares/tofukuji/tsutenkyo.jpg",
+    "credit": "＋－",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:TofukujiTsutenkyo_Koyou.jpg",
+    "title": "TofukujiTsutenkyo Koyou.jpg"
   }
 };
