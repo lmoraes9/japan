@@ -444,6 +444,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Zeniarai_Benten_shrine.jpg",
     "title": "Zeniarai Benten shrine.jpg"
   },
+  "kinkakuji/entrada": {
+    "src": "/lugares/kinkakuji/entrada.jpg",
+    "credit": "Christian Córdova",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kuromon_gate,_Kinkaku-ji_temple,_Kyoto_-_Aug_6,_2024.jpg",
+    "title": "Kuromon gate, Kinkaku-ji temple, Kyoto - Aug 6, 2024.jpg"
+  },
   "kinkakuji/kinukake": {
     "src": "/lugares/kinkakuji/kinukake.jpg",
     "credit": "At by At",
@@ -478,6 +485,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Kyoyochi_Pond_of_Ryoanji_Temple.jpg",
     "title": "Kyoyochi Pond of Ryoanji Temple.jpg"
+  },
+  "kinkakuji/sekkatei": {
+    "src": "/lugares/kinkakuji/sekkatei.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:View_of_Shariden_in_front_of_Sekkatei.jpg",
+    "title": "View of Shariden in front of Sekkatei.jpg"
   },
   "kinkakuji/tsukubai": {
     "src": "/lugares/kinkakuji/tsukubai.jpg",
@@ -934,12 +948,33 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Shibuya_109_Building_Tokyo_January_2006.jpg",
     "title": "Shibuya 109 Building Tokyo January 2006.jpg"
   },
+  "shibuya/cruzamento": {
+    "src": "/lugares/shibuya/cruzamento.jpg",
+    "credit": "Poppy",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Crowd_Tokyo.jpg",
+    "title": "Crowd Tokyo.jpg"
+  },
   "shibuya/estacao": {
     "src": "/lugares/shibuya/estacao.jpg",
     "credit": "Nesnad",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:JR_Shibuya_Station_Hachiko_ticket_gates_-_Oct_28_2019_3pm.jpeg",
     "title": "JR Shibuya Station Hachiko ticket gates - Oct 28 2019 3pm.jpeg"
+  },
+  "shibuya/hachiko": {
+    "src": "/lugares/shibuya/hachiko.jpg",
+    "credit": "Pablo",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya,_Tokio,_Jap%C3%B3n_2016-12_(32046064901).jpg",
+    "title": "Shibuya, Tokio, Japón 2016-12 (32046064901).jpg"
+  },
+  "shibuya/miyashita": {
+    "src": "/lugares/shibuya/miyashita.jpg",
+    "credit": "Bject",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Miyashita_Park_lawn_and_Fujiko_F._Fujio_object_IMG_3280.jpg",
+    "title": "Miyashita Park lawn and Fujiko F. Fujio object IMG 3280.jpg"
   },
   "shibuya/nonbei": {
     "src": "/lugares/shibuya/nonbei.jpg",
@@ -1536,6 +1571,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Sumiyoshi-nankunsha11.jpg",
     "title": "Sumiyoshi-nankunsha11.jpg"
   },
+  "sumiyoshi/omokaru": {
+    "src": "/lugares/sumiyoshi/omokaru.jpg",
+    "credit": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sumiyoshi_Taisha_Otoshi_jinja_Oitoboshisya1.jpg",
+    "title": "Sumiyoshi Taisha Otoshi jinja Oitoboshisya1.jpg"
+  },
   "sumiyoshi/sorihashi": {
     "src": "/lugares/sumiyoshi/sorihashi.jpg",
     "credit": "Nankou Oronain (as36…",
@@ -1570,6 +1612,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Tofukuji_05.JPG",
     "title": "Tofukuji 05.JPG"
+  },
+  "tofukuji/hojo": {
+    "src": "/lugares/tofukuji/hojo.jpg",
+    "credit": "Cheng-en Cheng",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Honbo_Garden,_Tofukuji.jpg",
+    "title": "Honbo Garden, Tofukuji.jpg"
   },
   "tofukuji/kaisando": {
     "src": "/lugares/tofukuji/kaisando.jpg",
