@@ -48,11 +48,11 @@ function tileTexture() {
   tileTex.colorSpace = THREE.SRGBColorSpace;
   return tileTex;
 }
-function tileMat(rx: number, rz: number) {
-  const t = tileTexture().clone();
-  t.needsUpdate = true;
-  t.repeat.set(rx, rz);
-  return new THREE.MeshStandardMaterial({ map: t, color: 0xbfc3cc, roughness: 0.75, metalness: 0.05, side: THREE.DoubleSide });
+let tileMatShared: THREE.MeshStandardMaterial | null = null;
+/** um material de telha só, para todos os telhados: a repetição vai no UV de cada geometria */
+function tileMat() {
+  if (!tileMatShared) tileMatShared = new THREE.MeshStandardMaterial({ map: tileTexture(), color: 0xbfc3cc, roughness: 0.75, metalness: 0.05, side: THREE.DoubleSide });
+  return tileMatShared;
 }
 
 export let meshCount = 0;
@@ -107,6 +107,7 @@ function hipRoofGeometry(W: number, D: number, H: number, L: number, lift: numbe
   face((u, v) => [-(L / 2 + v * (W / 2 - L / 2)), yOf(u, v), (u * v * D) / 2], false);
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  for (let i = 0; i < uv.length; i += 2) { uv[i] *= W / 1.1; uv[i + 1] *= D / 1.1; }
   g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
   g.setIndex(idx);
   g.computeVertexNormals();
@@ -131,7 +132,7 @@ export function roof(parent: THREE.Object3D, o: RoofOpts) {
   const { W, D, H, L, lift, y } = o;
   const th = o.thickness ?? 0.28;
   const g = hipRoofGeometry(W, D, H, L, lift);
-  add(parent, g, tileMat(W / 1.1, D / 1.1), 0, y, 0);
+  add(parent, g, tileMat(), 0, y, 0);
   const under = add(parent, g, MAT.roofUnder, 0, y - th, 0, false);
   under.scale.set(0.995, 1, 0.995);
   const curve = new THREE.CatmullRomCurve3(eavePoints(W, D, lift, y - th / 2), true, 'catmullrom', 0.2);
@@ -249,7 +250,8 @@ export function toriiGeometry(w = 4, h = 6, r = 0.32) {
 }
 
 /** árvore: cedro (cones) ou copa redonda, geometria única com cores */
-export function treeGeometry(kind: 'cedar' | 'broad' | 'maple') {
+export type TreeKind = 'cedar' | 'broad' | 'maple' | 'pine' | 'cherry' | 'willow';
+export function treeGeometry(kind: TreeKind) {
   const parts: THREE.BufferGeometry[] = [];
   const paint = (g: THREE.BufferGeometry, c: THREE.Color, jitter = 0.06) => {
     const n = g.getAttribute('position').count;
@@ -269,9 +271,20 @@ export function treeGeometry(kind: 'cedar' | 'broad' | 'maple') {
     parts.push(paint(new THREE.ConeGeometry(2.3, 4.2, 6).translate(0, 4.2, 0), c));
     parts.push(paint(new THREE.ConeGeometry(1.7, 3.6, 6).translate(0, 6.6, 0), c));
     parts.push(paint(new THREE.ConeGeometry(1.0, 3.0, 6).translate(0, 8.8, 0), c));
+  } else if (kind === 'pine') {
+    parts.push(paint(new THREE.CylinderGeometry(0.22, 0.36, 4.5, 6).translate(0, 2.2, 0), trunk));
+    const c = new THREE.Color(0x35583a);
+    for (const [dx, dy, dz, r] of [[0, 5.2, 0, 2.2], [1.6, 4.4, 0.4, 1.5], [-1.4, 4.8, -0.6, 1.4], [0.3, 6.3, 0.8, 1.2]]) {
+      const s = new THREE.SphereGeometry(r, 7, 4).translate(dx, dy, dz); s.scale(1, 0.45, 1); parts.push(paint(s, c, 0.1));
+    }
+  } else if (kind === 'willow') {
+    parts.push(paint(new THREE.CylinderGeometry(0.25, 0.4, 4.0, 6).translate(0, 2, 0), trunk));
+    const c = new THREE.Color(0x7d9a4a);
+    const s = new THREE.SphereGeometry(2.6, 8, 6).translate(0, 5.2, 0); s.scale(1, 1.15, 1); parts.push(paint(s, c, 0.12));
+    for (let k = 0; k < 6; k++) { const a = (k / 6) * Math.PI * 2; parts.push(paint(new THREE.ConeGeometry(0.5, 3.2, 5).translate(Math.cos(a) * 2.2, 3.4, Math.sin(a) * 2.2), c, 0.1)); }
   } else {
     parts.push(paint(new THREE.CylinderGeometry(0.2, 0.3, 3.0, 6).translate(0, 1.5, 0), trunk));
-    const c = new THREE.Color(kind === 'maple' ? 0xc2401f : 0x4c6f33);
+    const c = new THREE.Color(kind === 'maple' ? 0xc2401f : kind === 'cherry' ? 0xe8b4c6 : 0x4c6f33);
     const crown = new THREE.SphereGeometry(2.4, 7, 5).translate(0, 4.6, 0);
     crown.scale(1, 0.8, 1);
     parts.push(paint(crown, c, 0.12));

@@ -95,8 +95,8 @@ export default async function PlaceMapPage({
             <Box size={20} />
           </span>
           <span className="min-w-0 flex-1">
-            <span className="block text-[14px] font-semibold leading-tight">Ver a montanha em 3D</span>
-            <span className="block text-[12px] leading-snug text-muted">Experimento: o mapa inteiro em 3D, girável, com os mesmos {map.hotspots.length} pontos. Carrega uns 200 KB a mais na primeira vez.</span>
+            <span className="block text-[14px] font-semibold leading-tight">Ver em 3D</span>
+            <span className="block text-[12px] leading-snug text-muted">O mapa inteiro em 3D, girável, com os mesmos {map.hotspots.length} pontos. Carrega uns 200 KB a mais na primeira vez.</span>
           </span>
         </Link>
       )}

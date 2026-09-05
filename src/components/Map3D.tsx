@@ -11,6 +11,11 @@ import { Rich } from './Rich';
 
 type Quality = 'alta' | 'leve';
 
+/** céu por lugar (o canvas é transparente por cima disto) */
+const SKY: Record<string, string> = {
+  shibuya: 'linear-gradient(180deg, #1c2340 0%, #3a3b5c 60%, #6b4a52 100%)',
+};
+
 interface Engine {
   flyTo: (id: string | null) => void;
   setRotate: (on: boolean) => void;
@@ -55,13 +60,16 @@ export function Map3D({ map }: { map: PlaceMap }) {
 
     (async () => {
       const t0 = performance.now();
-      const [THREE, { OrbitControls }, { buildFushimi }, { numberSprite }] = await Promise.all([
+      const [THREE, { OrbitControls }, { buildScene }, { numberSprite }, { loadScene }] = await Promise.all([
         import('three'),
         import('three/examples/jsm/controls/OrbitControls.js'),
-        import('@/lib/three/fushimi'),
+        import('@/lib/three/engine'),
         import('@/lib/three/parts'),
+        import('@/lib/three/scenes'),
       ]);
+      const spec = await loadScene(map.id);
       if (!alive) return;
+      if (!spec) throw new Error('sem cena 3D para ' + map.id);
 
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: quality === 'alta', alpha: true, powerPreference: 'high-performance' });
       renderer.setPixelRatio(quality === 'alta' ? Math.min(devicePixelRatio, 2) : 1);
@@ -71,7 +79,7 @@ export function Map3D({ map }: { map: PlaceMap }) {
       renderer.toneMappingExposure = 1.05;
 
       const scene = new THREE.Scene();
-      scene.fog = new THREE.Fog(0xd9dfe6, 500, 1400);
+      scene.fog = spec.fog ? new THREE.Fog(spec.fog.color, spec.fog.near, spec.fog.far) : new THREE.Fog(0xd9dfe6, 500, 1400);
       const camera = new THREE.PerspectiveCamera(42, 1, 1, 3000);
       const controls = new OrbitControls(camera, canvas);
       controls.enableDamping = true;
@@ -91,7 +99,7 @@ export function Map3D({ map }: { map: PlaceMap }) {
       sun.shadow.bias = -0.0006;
       scene.add(sun);
 
-      const built = buildFushimi(scene, map, quality);
+      const built = buildScene(scene, map, spec, quality);
       camera.position.copy(built.cameraStart.pos);
       controls.target.copy(built.cameraStart.target);
 
@@ -104,13 +112,14 @@ export function Map3D({ map }: { map: PlaceMap }) {
         const p = built.markers[h.id];
         if (!p) continue;
         const sp = numberSprite(h.n, accent);
-        sp.position.set(p.x, p.y + 16, p.z);
+        sp.position.set(p.x, p.y + (spec.markerLift ?? 16), p.z);
         sp.scale.set(11, 11, 1);
         sp.userData.id = h.id;
         markerGroup.add(sp);
         sprites.push({ sprite: sp, id: h.id });
-        const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 12, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.7 }));
-        stem.position.set(p.x, p.y + 6.5, p.z);
+        const lift = spec.markerLift ?? 16;
+        const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, lift - 4, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.7 }));
+        stem.position.set(p.x, p.y + (lift - 4) / 2 + 0.5, p.z);
         markerGroup.add(stem);
       }
 
@@ -244,9 +253,10 @@ export function Map3D({ map }: { map: PlaceMap }) {
   };
 
   const selectedPhoto = selected ? PLACE_PHOTOS[photoKey(map.id, selected.id)] : undefined;
+  const sky = SKY[map.id] ?? 'linear-gradient(180deg, #a9bcd3 0%, #d9dfe6 55%, #cfd3cf 100%)';
 
   return (
-    <div className="relative h-[100svh] w-full overflow-hidden" style={{ background: 'linear-gradient(180deg, #a9bcd3 0%, #d9dfe6 55%, #cfd3cf 100%)' }}>
+    <div className="relative h-[100svh] w-full overflow-hidden" style={{ background: sky }}>
       <canvas ref={canvasRef} className="block h-full w-full touch-none" />
 
       {status !== 'pronto' && (
