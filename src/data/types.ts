@@ -86,6 +86,24 @@ export interface Stop {
   coords?: { lat: number; lng: number };
 }
 
+export type LegMode = 'walk' | 'train' | 'metro' | 'shinkansen' | 'bus' | 'tram' | 'ferry' | 'taxi' | 'cable' | 'plane';
+
+/** um trecho do deslocamento entre uma parada e a próxima */
+export interface Leg {
+  mode: LegMode;
+  /** 'JR Yamanote', 'Ginza Line', 'ônibus 205' */
+  line?: string;
+  /** onde embarcar: estação ou parada, com a saída/plataforma quando importa */
+  board?: string;
+  /** onde descer */
+  alight?: string;
+  /** sentido/destino como aparece no painel */
+  direction?: string;
+  minutes: number;
+  cost?: string;
+  note?: string;
+}
+
 export interface HistoryBlock {
   label?: string;
   paragraphs: string[];

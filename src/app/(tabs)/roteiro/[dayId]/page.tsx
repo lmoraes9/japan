@@ -9,6 +9,8 @@ import { dayCover } from '@/lib/covers';
 import { DayConditions } from '@/components/DayConditions';
 import { DayReservas } from '@/components/DayReservas';
 import { LastReturn } from '@/components/LastReturn';
+import { LegsConnector } from '@/components/LegsConnector';
+import { legsFrom, legsToFirst } from '@/data/legs';
 import { Footprints } from 'lucide-react';
 
 export function generateStaticParams() {
@@ -111,9 +113,17 @@ export default async function DayPage({
       ))}
 
       <div className="space-y-3">
-        {day.stops.map((stop) => (
-          <StopCard key={stop.id} stop={stop} dayId={day.id} />
-        ))}
+        {legsToFirst(day.id) && <LegsConnector legs={legsToFirst(day.id)!} title="Do hotel até a primeira parada" />}
+        {day.stops.map((stop, i) => {
+          const legs = legsFrom(stop.id);
+          const next = day.stops[i + 1];
+          return (
+            <div key={stop.id} className="space-y-3">
+              <StopCard stop={stop} dayId={day.id} />
+              {legs && <LegsConnector legs={legs} title={next ? `Até ${next.name}` : 'De volta ao hotel'} />}
+            </div>
+          );
+        })}
       </div>
 
       <nav className="flex justify-between pt-2 pb-4 text-[13px] font-medium">

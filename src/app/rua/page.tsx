@@ -11,6 +11,8 @@ import { navigateUrl } from '@/lib/mapsLinks';
 import { stopPhoto } from '@/lib/covers';
 import { Rich } from '@/components/Rich';
 import { LastReturn } from '@/components/LastReturn';
+import { Legs } from '@/components/Legs';
+import { legsFrom, legsToFirst, legsMinutes } from '@/data/legs';
 
 const KIND_LABEL: Record<string, string> = {
   sight: 'lugar',
@@ -23,6 +25,13 @@ const KIND_LABEL: Record<string, string> = {
   view: 'vista',
   note: 'nota',
 };
+
+/** 'HH:mm' menos N minutos */
+function minusMin(t: string, n: number) {
+  const m = toMin(t) - n;
+  const h = Math.floor(((m % 1440) + 1440) % 1440 / 60), mm = ((m % 60) + 60) % 60;
+  return `${String(h).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+}
 
 function toMin(t: string) {
   const [h, m] = t.split(':').map(Number);
@@ -86,6 +95,8 @@ function Rua() {
   const map = placeMapByStopId(stop.id);
   const photo = stopPhoto(stop);
   const eat = stop.eat?.[0]?.items.slice(0, 3);
+  const toNext = legsFrom(stop.id);
+  const fromHotel = i === 0 ? legsToFirst(day.id) : undefined;
 
   return (
     <div
@@ -125,8 +136,8 @@ function Rua() {
           )}
         </div>
 
-        <h1 className="mt-3 text-[30px] font-bold leading-[1.1] tracking-tight">{stop.name}</h1>
-        {stop.jp && <p className="mt-1.5 font-jp text-[28px] leading-snug text-foreground/85">{stop.jp}</p>}
+        {stop.jp && <p className="mt-4 font-jp text-[44px] leading-[1.15] tracking-wide">{stop.jp}</p>}
+        <h1 className={`${stop.jp ? 'mt-1' : 'mt-3'} text-[26px] font-bold leading-[1.1] tracking-tight`}>{stop.name}</h1>
 
         {stop.facts && (
           <p className="mt-3 font-mono text-[14px] leading-relaxed text-foreground/80">
@@ -163,10 +174,25 @@ function Rua() {
           )}
         </div>
 
+        {fromHotel && (
+          <div className="mt-5">
+            <Legs legs={fromHotel} title="Do hotel até aqui" big />
+          </div>
+        )}
+
         {next && (
-          <p className="mt-5 text-[14px] text-muted">
-            Depois: <strong className="text-foreground">{next.time}</strong> · {next.name}
-          </p>
+          <div className="mt-5">
+            <p className="mb-2 text-[14px] text-muted">
+              Depois: <strong className="text-foreground">{next.time}</strong> · {next.name}
+              {toNext && <span> · saia daqui até <strong className="text-foreground">{minusMin(next.time, legsMinutes(toNext))}</strong></span>}
+            </p>
+            {toNext && <Legs legs={toNext} title={`Daqui até ${next.name}`} big />}
+          </div>
+        )}
+        {!next && toNext && (
+          <div className="mt-5">
+            <Legs legs={toNext} title="Daqui de volta ao hotel" big />
+          </div>
         )}
 
         {isToday && day.lastReturn && now.jst.hour >= 14 && (
