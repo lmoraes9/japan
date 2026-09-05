@@ -3,6 +3,41 @@
 import type { PlacePhoto } from './placeMaps';
 
 export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
+  "extras/kobe": {
+    "src": "/lugares/extras/kobe.jpg",
+    "credit": "珈琲牛乳",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E6%88%B8%E5%8C%97%E9%87%8E%E7%95%B0%E4%BA%BA%E9%A4%A8%E8%A1%97_-_panoramio.jpg",
+    "title": "神戸北野異人館街 - panoramio.jpg"
+  },
+  "extras/koyasan": {
+    "src": "/lugares/extras/koyasan.jpg",
+    "credit": "Blue Lotus",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Okunoin_Cemetery_218332908_e5a047dded_o.jpg",
+    "title": "Okunoin Cemetery 218332908 e5a047dded o.jpg"
+  },
+  "extras/nikko": {
+    "src": "/lugares/extras/nikko.jpg",
+    "credit": "Cristian O. Arone",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nikko,_Y%C5%8Dmeimon_Gate_of_T%C5%8Dsh%C5%8D-g%C5%AB_(detail).JPG",
+    "title": "Nikko, Yōmeimon Gate of Tōshō-gū (detail).JPG"
+  },
+  "extras/shimanami": {
+    "src": "/lugares/extras/shimanami.jpg",
+    "credit": "Junichi Nishimura",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E3%81%97%E3%81%BE%E3%81%AA%E3%81%BF%E6%B5%B7%E9%81%93%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%89%E6%A8%99%E8%AD%98.jpg",
+    "title": "しまなみ海道サイクリングロード標識.jpg"
+  },
+  "extras/uji": {
+    "src": "/lugares/extras/uji.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Byodoin_Phoenix_Hall_Uji_2009.jpg",
+    "title": "Byodoin Phoenix Hall Uji 2009.jpg"
+  },
   "fushimi-inari/barracas": {
     "src": "/lugares/fushimi-inari/barracas.jpg",
     "credit": "z tanuki",
@@ -87,12 +122,26 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Yukimi_Daifuku_sliced.jpg",
     "title": "Yukimi Daifuku sliced.jpg"
   },
+  "konbini/konbini-onigiri": {
+    "src": "/lugares/konbini/konbini-onigiri.jpg",
+    "credit": "円周率３パーセント",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E9%BB%92%E5%A4%A9%E7%89%A9%E7%94%A3_%E5%A4%A7%E9%BB%92%E6%A7%98%E3%81%AE%E3%81%8A%E3%81%AB%E3%81%8E%E3%82%8A%EF%BC%88%E3%83%84%E3%83%8A%E3%83%9E%E3%83%A8%EF%BC%89_c20250526b.jpg",
+    "title": "大黒天物産 大黒様のおにぎり（ツナマヨ） c20250526b.jpg"
+  },
   "konbini/konbini-pudding": {
     "src": "/lugares/konbini/konbini-pudding.jpg",
     "credit": "Myself",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Purin_L_002.jpg",
     "title": "Purin L 002.jpg"
+  },
+  "konbini/konbini-seven-cafe": {
+    "src": "/lugares/konbini/konbini-seven-cafe.jpg",
+    "credit": "Tzuhsun Hsu from Taipei, Taiwan",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Koffiezetapparaat_in_een_7-Eleven_winkel_in_Takezakich%C5%8D_4-ch%C5%8Dme,_Shimonoseki,_-1_februari_2019.jpg",
+    "title": "Koffiezetapparaat in een 7-Eleven winkel in Takezakichō 4-chōme, Shimonoseki, -1 februari 2019.jpg"
   },
   "konbini/konbini-tamago-sando": {
     "src": "/lugares/konbini/konbini-tamago-sando.jpg",
@@ -121,6 +170,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Miyajima,_daisho-in,_05.jpg",
     "title": "Miyajima, daisho-in, 05.jpg"
+  },
+  "miyajima/itsukushima": {
+    "src": "/lugares/miyajima/itsukushima.jpg",
+    "credit": "さかおり",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kagamino-Ike._Itsukushima_Shinto_Shrine.jpg",
+    "title": "Kagamino-Ike. Itsukushima Shinto Shrine.jpg"
   },
   "miyajima/misen": {
     "src": "/lugares/miyajima/misen.jpg",
@@ -590,6 +646,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E8%81%96%E9%99%A2_-_panoramio.jpg",
     "title": "大聖院 - panoramio.jpg"
+  },
+  "stops/d24-itsukushima": {
+    "src": "/lugares/stops/d24-itsukushima.jpg",
+    "credit": "JordyMeow",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Itsukushima_Gate.jpg",
+    "title": "Itsukushima Gate.jpg"
   },
   "stops/d24-misen": {
     "src": "/lugares/stops/d24-misen.jpg",
