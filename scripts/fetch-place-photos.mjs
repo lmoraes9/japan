@@ -75,6 +75,9 @@ const GENERICAS = new Set(
 );
 
 /** gravuras, pinturas e mapas de museu não servem como foto do lugar */
+/** fotografia histórica (uma data de 1800–1949 no título) não mostra o lugar como está */
+const HISTORICA = /\b(18\d\d|19[0-4]\d)\b/;
+
 const NAO_E_FOTO =
   /(map|diagram|plan|logo|icon|stamp|hiroshige|hokusai|ukiyo|woodblock|print|painting|drawing|engraving|titel op object|AK-MAK|RP-P-|浮世絵|錦絵|版画|絵図|五十三次|三十六景|名所|之図|の図|広重|北斎|画|views of|from the series|MET DP|Rijksmuseum|collection of the)/i;
 
@@ -162,7 +165,9 @@ async function search(query, width, termos, cidades) {
   // ordem da busca é a relevância do Commons; primeiro tentamos o que é bonito
   // numa tela larga, e só depois aceitamos qualquer coisa que preste
   // foto errada é pior que ponto sem foto
-  const doLugar = candidates.filter(({ title }) => combina(title, termos) && cidadeBate(title, cidades));
+  const doLugar = candidates.filter(
+    ({ title }) => combina(title, termos) && cidadeBate(title, cidades) && !HISTORICA.test(title),
+  );
 
   const bom = doLugar
     .filter(({ info }) => info.width >= 1000 && info.width >= info.height * 0.6)
@@ -242,7 +247,7 @@ if (validar) {
     const atual = current[key];
     if (!atual) continue;
     const termos = termosDe(Array.isArray(query) ? query : [query]);
-    if (combina(atual.title, termos) && !NAO_E_FOTO.test(atual.title) && cidadeBate(atual.title, cidadesDe(key))) continue;
+    if (combina(atual.title, termos) && !NAO_E_FOTO.test(atual.title) && cidadeBate(atual.title, cidadesDe(key)) && !HISTORICA.test(atual.title)) continue;
     console.log(`✗ ${key} — "${atual.title}" não parece ser do lugar; removida`);
     delete current[key];
     await rm(join(ROOT, 'public', `lugares/${key.split('/')[0]}/${key.split('/')[1]}.jpg`), { force: true });
