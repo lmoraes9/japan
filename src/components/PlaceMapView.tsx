@@ -20,6 +20,7 @@ import {
   Maximize2,
   Navigation,
   Footprints,
+  LocateFixed,
 } from 'lucide-react';
 import type { HotspotKind, PlaceHotspot, PlaceMap } from '@/data/placeMaps';
 import { MAP_COLORS, photoKey, thumbOf } from '@/data/placeMaps';
@@ -52,8 +53,56 @@ interface View {
   ty: number;
 }
 
+/** distância em metros entre duas coordenadas (haversine) */
+function distanceM(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
+  const R = 6371000;
+  const dLat = ((b.lat - a.lat) * Math.PI) / 180;
+  const dLng = ((b.lng - a.lng) * Math.PI) / 180;
+  const s =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((a.lat * Math.PI) / 180) * Math.cos((b.lat * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(s));
+}
+
+const fmtDist = (m: number) => (m < 950 ? `${Math.round(m / 10) * 10} m` : `${(m / 1000).toFixed(1)} km`);
+
 export function PlaceMapView({ map }: { map: PlaceMap }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  // ── GPS: "você está perto do ponto X" ─────────────────────────────────
+  const [geo, setGeo] = useState<{ status: 'off' | 'wait' | 'on' | 'err'; pos?: { lat: number; lng: number }; msg?: string }>({ status: 'off' });
+  const watchId = useRef<number | null>(null);
+  const toggleGeo = () => {
+    if (geo.status === 'on' || geo.status === 'wait') {
+      if (watchId.current !== null) navigator.geolocation.clearWatch(watchId.current);
+      watchId.current = null;
+      setGeo({ status: 'off' });
+      return;
+    }
+    if (!('geolocation' in navigator)) {
+      setGeo({ status: 'err', msg: 'Este navegador não dá acesso à localização.' });
+      return;
+    }
+    setGeo({ status: 'wait' });
+    watchId.current = navigator.geolocation.watchPosition(
+      (p) => setGeo({ status: 'on', pos: { lat: p.coords.latitude, lng: p.coords.longitude } }),
+      (e) => setGeo({ status: 'err', msg: e.code === 1 ? 'Permissão de localização negada.' : 'Sem sinal de GPS agora.' }),
+      { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 },
+    );
+  };
+  useEffect(() => () => { if (watchId.current !== null) navigator.geolocation.clearWatch(watchId.current); }, []);
+
+  const nearest = useMemo(() => {
+    if (geo.status !== 'on' || !geo.pos) return null;
+    let best: { h: PlaceHotspot; d: number } | null = null;
+    for (const h of map.hotspots) {
+      if (!h.coords) continue;
+      const d = distanceM(geo.pos, h.coords);
+      if (!best || d < best.d) best = { h, d };
+    }
+    return best;
+  }, [geo, map.hotspots]);
+  const nearId = nearest && nearest.d <= 150 ? nearest.h.id : null;
   const [view, setView] = useState<View>({ k: 1, tx: 0, ty: 0 });
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -375,6 +424,9 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
                       transition: 'transform 200ms ease-out',
                     }}
                   >
+                    {h.id === nearId && !active && (
+                      <circle r={R + 5} fill="none" stroke={MAP_COLORS.forest} strokeWidth={3} opacity={0.9} />
+                    )}
                     {active && (
                       <circle r={R + 4} fill="none" stroke={MAP_COLORS.vermilion} strokeWidth={2} opacity={0.6}>
                         <animate attributeName="r" values={`${R + 4};${R + 14};${R + 4}`} dur="1.8s" repeatCount="indefinite" />
@@ -438,7 +490,28 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
           <button onClick={reset} aria-label="Ver o mapa inteiro" className={`flex h-9 w-9 items-center justify-center border-t border-hairline active:bg-surface-2 ${zoomed ? 'text-accent' : 'text-muted'}`}>
             <Maximize2 size={15} />
           </button>
+          <button onClick={toggleGeo} aria-label="Onde estou?" className={`flex h-9 w-9 items-center justify-center border-t border-hairline active:bg-surface-2 ${geo.status === 'on' ? 'text-matcha' : geo.status === 'wait' ? 'animate-pulse text-muted' : 'text-muted'}`}>
+            <LocateFixed size={15} />
+          </button>
         </div>
+
+        {geo.status !== 'off' && (
+          <div className={`mx-3 mt-1 rounded-xl px-3 py-2 text-[12px] leading-snug ${nearId ? 'bg-matcha/15 text-foreground' : 'bg-surface-2 text-muted'}`}>
+            {geo.status === 'wait' && 'Procurando o GPS…'}
+            {geo.status === 'err' && geo.msg}
+            {geo.status === 'on' && nearest && (
+              nearest.d <= 150 ? (
+                <button onClick={() => select(nearest.h)} className="text-left">
+                  <strong>Vocês estão no ponto {nearest.h.n}</strong> · {nearest.h.title.split(' — ')[0]} · a {fmtDist(nearest.d)}. Toque para abrir.
+                </button>
+              ) : nearest.d <= 3000 ? (
+                <>Ponto mais perto: <strong>{nearest.h.n} · {nearest.h.title.split(' — ')[0]}</strong>, a {fmtDist(nearest.d)}.</>
+              ) : (
+                <>Vocês estão a {fmtDist(nearest.d)} deste lugar — o mapa vale quando chegarem.</>
+              )
+            )}
+          </div>
+        )}
 
         <p className="px-3.5 pb-2.5 pt-2 text-[10px] leading-snug text-muted">
           {map.legend}

@@ -402,6 +402,7 @@ export const tokyo1Days: Day[] = [
       },
       {
         id: 'd20-engakuji',
+        placeMapId: 'kamakura',
         time: '08:45',
         timeLabel: 'templo',
         kind: 'temple',
@@ -733,6 +734,7 @@ export const tokyo1Days: Day[] = [
     stops: [
       {
         id: 'd22-meiji-jingu',
+        placeMapId: 'meiji-jingu',
         time: '08:00',
         timeLabel: 'santuário',
         kind: 'temple',

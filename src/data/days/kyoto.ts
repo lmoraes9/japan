@@ -115,6 +115,7 @@ export const kyotoDays: Day[] = [
     stops: [
       {
         id: 'd28-kiyomizu',
+        placeMapId: 'higashiyama',
         time: '06:00',
         timeLabel: 'templo',
         kind: 'temple',
@@ -315,6 +316,7 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd29-bambu',
+        placeMapId: 'arashiyama',
         time: '07:00',
         timeLabel: 'bambu',
         kind: 'sight',

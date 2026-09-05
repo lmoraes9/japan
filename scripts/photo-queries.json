@@ -1,5 +1,45 @@
 {
   "_comment": "Busca no Wikimedia Commons por ponto do mapa. Chave: <mapId>/<hotspotId>. O valor pode ser uma frase ou uma lista de frases tentadas em ordem (japonês costuma achar melhor os pontos pequenos). Edite e rode npm run fotos -- --force para trocar a imagem.",
+  "arashiyama/bambu": [
+    "嵐山 竹林の小径",
+    "Arashiyama bamboo grove path"
+  ],
+  "arashiyama/estacao": [
+    "嵯峨嵐山駅",
+    "Saga-Arashiyama Station"
+  ],
+  "arashiyama/jojakkoji": [
+    "常寂光寺 多宝塔 紅葉",
+    "Jojakkoji Kyoto autumn"
+  ],
+  "arashiyama/macacos": [
+    "嵐山モンキーパーク",
+    "Iwatayama Monkey Park"
+  ],
+  "arashiyama/nonomiya": [
+    "野宮神社 黒木鳥居",
+    "Nonomiya Shrine torii"
+  ],
+  "arashiyama/okochi": [
+    "大河内山荘 庭園",
+    "Okochi Sanso garden"
+  ],
+  "arashiyama/rua": [
+    "嵐山 商店街",
+    "Arashiyama main street"
+  ],
+  "arashiyama/tenryuji": [
+    "天龍寺 曹源池庭園",
+    "Tenryuji Sogenchi garden"
+  ],
+  "arashiyama/togetsukyo": [
+    "渡月橋 紅葉",
+    "Togetsukyo bridge autumn"
+  ],
+  "arashiyama/torokko": [
+    "嵯峨野トロッコ列車 紅葉",
+    "Sagano Romantic Train autumn"
+  ],
   "extras/kobe": [
     "神戸 北野異人館",
     "Kitano Kobe"
@@ -53,6 +93,129 @@
     "Fushimi Inari pond"
   ],
   "fushimi-inari/yotsutsuji": "Fushimi Inari Yotsutsuji view Kyoto",
+  "higashiyama/filosofo": [
+    "哲学の道 紅葉",
+    "Philosopher's Path Kyoto autumn"
+  ],
+  "higashiyama/ginkakuji": [
+    "銀閣寺 観音殿",
+    "Ginkakuji silver pavilion"
+  ],
+  "higashiyama/gion": [
+    "祇園 花見小路",
+    "Hanamikoji Gion"
+  ],
+  "higashiyama/jishu": [
+    "地主神社 恋占いの石",
+    "Jishu Shrine love stone"
+  ],
+  "higashiyama/kiyomizu": [
+    "清水寺 本堂 舞台",
+    "Kiyomizu-dera stage"
+  ],
+  "higashiyama/kodaiji": [
+    "高台寺 庭園",
+    "Kodaiji garden Kyoto"
+  ],
+  "higashiyama/nanzenji": [
+    "南禅寺 水路閣",
+    "Nanzenji aqueduct"
+  ],
+  "higashiyama/sannenzaka": [
+    "産寧坂",
+    "三年坂 京都",
+    "Sannenzaka Kyoto"
+  ],
+  "higashiyama/yasaka-jinja": [
+    "八坂神社 西楼門",
+    "Yasaka Shrine Kyoto gate"
+  ],
+  "higashiyama/yasaka-pagoda": [
+    "八坂の塔 法観寺",
+    "Yasaka Pagoda Hokanji"
+  ],
+  "himeji/almoco": [
+    "姫路おでん",
+    "Himeji oden"
+  ],
+  "himeji/espiral": [
+    "姫路城 にの門",
+    "姫路城 はの門",
+    "Himeji castle gate passage"
+  ],
+  "himeji/hishinomon": [
+    "姫路城 菱の門",
+    "Himeji castle Hishi-no-mon"
+  ],
+  "himeji/kokoen": [
+    "好古園",
+    "Kokoen garden Himeji"
+  ],
+  "himeji/nishinomaru": [
+    "姫路城 百間廊下",
+    "Himeji castle Nishinomaru corridor"
+  ],
+  "himeji/okiku": [
+    "姫路城 お菊井戸",
+    "Okiku well Himeji"
+  ],
+  "himeji/osakabe": [
+    "姫路城 刑部神社",
+    "姫路城 天守 最上階",
+    "Himeji castle top floor view"
+  ],
+  "himeji/otemae": [
+    "大手前通り 姫路城",
+    "Otemae-dori Himeji castle view"
+  ],
+  "himeji/otemon": [
+    "姫路城 大手門",
+    "Himeji castle Otemon gate"
+  ],
+  "himeji/tenshu": [
+    "姫路城 大天守",
+    "Himeji castle main keep"
+  ],
+  "kamakura/daibutsu": [
+    "鎌倉大仏 高徳院",
+    "Kamakura Daibutsu Kotokuin"
+  ],
+  "kamakura/engakuji": [
+    "円覚寺 山門",
+    "Engakuji Kamakura gate"
+  ],
+  "kamakura/estacao": [
+    "江ノ島電鉄 鎌倉駅",
+    "Enoden Kamakura station"
+  ],
+  "kamakura/hachimangu": [
+    "鶴岡八幡宮 本宮",
+    "Tsurugaoka Hachimangu"
+  ],
+  "kamakura/hasedera": [
+    "長谷寺 鎌倉 見晴台",
+    "Hasedera Kamakura view"
+  ],
+  "kamakura/kenchoji": [
+    "建長寺 仏殿",
+    "Kenchoji Kamakura"
+  ],
+  "kamakura/kita-kamakura": [
+    "北鎌倉駅",
+    "Kita-Kamakura Station"
+  ],
+  "kamakura/komachi": [
+    "小町通り 鎌倉",
+    "Komachi-dori Kamakura"
+  ],
+  "kamakura/yuigahama": [
+    "由比ヶ浜 夕日",
+    "Yuigahama beach Kamakura"
+  ],
+  "kamakura/zeniarai": [
+    "銭洗弁財天宇賀福神社",
+    "Zeniarai Benten Kamakura"
+  ],
   "konbini/konbini-ichigo-sando": [
     "フルーツサンド いちご",
     "fruit sando strawberry sandwich"
@@ -86,6 +249,46 @@
   "konbini/konbini-tamago-sando": [
     "たまごサンド",
     "tamago sando egg sandwich Japan"
+  ],
+  "meiji-jingu/barris": [
+    "明治神宮 奉納酒樽",
+    "Meiji Jingu sake barrels"
+  ],
+  "meiji-jingu/floresta": [
+    "明治神宮 参道 森",
+    "Meiji Jingu forest path"
+  ],
+  "meiji-jingu/harajuku": [
+    "原宿駅 西口",
+    "Harajuku Station"
+  ],
+  "meiji-jingu/honden": [
+    "明治神宮 御社殿",
+    "Meiji Jingu main shrine"
+  ],
+  "meiji-jingu/kiyomasa": [
+    "清正井",
+    "Kiyomasa well Meiji Jingu"
+  ],
+  "meiji-jingu/meoto": [
+    "明治神宮 夫婦楠",
+    "Meiji Jingu camphor trees"
+  ],
+  "meiji-jingu/museu": [
+    "明治神宮ミュージアム",
+    "Meiji Jingu Museum Kengo Kuma"
+  ],
+  "meiji-jingu/otorii": [
+    "明治神宮 大鳥居",
+    "Meiji Jingu torii"
+  ],
+  "meiji-jingu/takeshita": [
+    "竹下通り",
+    "Takeshita Street Harajuku"
+  ],
+  "meiji-jingu/temizuya": [
+    "明治神宮 手水舎",
+    "Meiji Jingu temizuya"
   ],
   "miyajima/balsa": [
     "宮島フェリー",
@@ -171,6 +374,46 @@
   "nara/sarusawa": [
     "猿沢池",
     "Sarusawa pond Nara"
+  ],
+  "parque-da-paz/aioi": [
+    "相生橋 広島",
+    "Aioi Bridge Hiroshima"
+  ],
+  "parque-da-paz/cenotafio": [
+    "原爆死没者慰霊碑",
+    "Hiroshima Cenotaph"
+  ],
+  "parque-da-paz/chama": [
+    "平和の灯 広島",
+    "Peace Flame Hiroshima"
+  ],
+  "parque-da-paz/criancas": [
+    "原爆の子の像",
+    "Children's Peace Monument Hiroshima"
+  ],
+  "parque-da-paz/domo": [
+    "原爆ドーム",
+    "Atomic Bomb Dome"
+  ],
+  "parque-da-paz/monte": [
+    "原爆供養塔",
+    "Atomic Bomb Memorial Mound Hiroshima"
+  ],
+  "parque-da-paz/museu": [
+    "広島平和記念資料館 本館",
+    "Hiroshima Peace Memorial Museum building"
+  ],
+  "parque-da-paz/okonomimura": [
+    "お好み村",
+    "Okonomimura Hiroshima"
+  ],
+  "parque-da-paz/rest-house": [
+    "平和記念公園 レストハウス",
+    "Hiroshima Rest House"
+  ],
+  "parque-da-paz/sino": [
+    "平和の鐘 広島",
+    "Peace Bell Hiroshima"
   ],
   "sensoji/asakusa-jinja": [
     "浅草神社",

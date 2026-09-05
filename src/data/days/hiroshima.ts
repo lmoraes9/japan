@@ -86,6 +86,7 @@ export const hiroshimaDays: Day[] = [
       },
       {
         id: 'd23-parque-domo',
+        placeMapId: 'parque-da-paz',
         time: '15:30',
         timeLabel: 'memorial',
         kind: 'sight',

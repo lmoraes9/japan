@@ -89,6 +89,7 @@ export const osakaDays: Day[] = [
       },
       {
         id: 'd25-himeji',
+        placeMapId: 'himeji',
         time: '13:55',
         timeLabel: 'castelo',
         kind: 'sight',
