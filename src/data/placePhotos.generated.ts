@@ -24,13 +24,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Nikko,_Y%C5%8Dmeimon_Gate_of_T%C5%8Dsh%C5%8D-g%C5%AB_(detail).JPG",
     "title": "Nikko, Yōmeimon Gate of Tōshō-gū (detail).JPG"
   },
-  "extras/shimanami": {
-    "src": "/lugares/extras/shimanami.jpg",
-    "credit": "Junichi Nishimura",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:%E3%81%97%E3%81%BE%E3%81%AA%E3%81%BF%E6%B5%B7%E9%81%93%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%89%E6%A8%99%E8%AD%98.jpg",
-    "title": "しまなみ海道サイクリングロード標識.jpg"
-  },
   "extras/uji": {
     "src": "/lugares/extras/uji.jpg",
     "credit": "663highland",
@@ -401,13 +394,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Jimbocho-Sta-A3.JPG",
     "title": "Jimbocho-Sta-A3.JPG"
-  },
-  "stops/d02-nihonbashi": {
-    "src": "/lugares/stops/d02-nihonbashi.jpg",
-    "credit": "Utagawa Hiroshige",
-    "license": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E6%B5%B7%E9%81%93%E4%BA%94%E5%8D%81%E4%B8%89%E6%AC%A1%E4%B9%8B%E5%86%85_%E6%97%A5%E6%9C%AC%E6%A9%8B_%E6%9B%99%E6%97%85%E7%AB%8B%E3%81%AE%E5%9B%B3.jpg",
-    "title": "東海道五十三次之内 日本橋 曙旅立の図.jpg"
   },
   "stops/d03-haneda": {
     "src": "/lugares/stops/d03-haneda.jpg",
