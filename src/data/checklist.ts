@@ -198,8 +198,142 @@ export const CHECKLIST: ChecklistItem[] = [
     title: 'Smoothie de fruta congelada',
     subtitle: 'Copo no freezer + máquina ao lado do caixa · nem toda loja tem',
   },
+  // ── Mala ──
+  {
+    id: 'mala-passaporte',
+    group: 'mala',
+    title: 'Passaporte (validade > 6 meses) + cópia no celular',
+    subtitle: 'Foto das páginas em Mais → Emergência',
+  },
+  {
+    id: 'mala-visto-eua',
+    group: 'mala',
+    title: 'Visto/ESTA dos EUA e cartão de crédito internacional',
+    subtitle: 'As duas conexões (JFK e DFW) exigem entrar nos EUA',
+  },
+  {
+    id: 'mala-seguro',
+    group: 'mala',
+    title: 'Seguro-viagem: apólice e telefone anotados',
+    subtitle: 'Campo em Mais → Emergência',
+  },
+  {
+    id: 'mala-cartoes',
+    group: 'mala',
+    title: '2 cartões de bandeiras diferentes + Wise/Nomad',
+    subtitle: 'Japão aceita cartão bem, mas templos e barracas são em dinheiro',
+  },
+  {
+    id: 'mala-dinheiro',
+    group: 'mala',
+    title: '¥30.000–50.000 em espécie para os primeiros dias',
+    subtitle: 'Depois: caixa eletrônico do 7-Eleven aceita cartão brasileiro',
+  },
+  {
+    id: 'mala-esim',
+    group: 'mala',
+    title: 'eSIM ativado ou chip pronto para ligar no pouso',
+    subtitle: 'Ubigi, Airalo ou Mobal; testar antes de sair',
+  },
+  {
+    id: 'mala-adaptador',
+    group: 'mala',
+    title: 'Adaptador tipo A (2 pinos chatos) + carregador USB-C forte',
+    subtitle: '100V: o carregador do celular funciona; secador brasileiro, não',
+  },
+  {
+    id: 'mala-powerbank',
+    group: 'mala',
+    title: 'Power bank (até 100 Wh, na bagagem de mão)',
+    subtitle: 'Dia inteiro de mapa e foto acaba qualquer bateria',
+  },
+  {
+    id: 'mala-casaco',
+    group: 'mala',
+    title: 'Casaco quente de verdade + camada leve por baixo',
+    subtitle: 'Manhãs de 5–8 °C em Kyoto; tarde de 15 °C em Tóquio',
+  },
+  {
+    id: 'mala-tenis',
+    group: 'mala',
+    title: 'Tênis já amaciado (vai comprar outro lá, mas chega calçado)',
+    subtitle: 'Fushimi, Miyajima e Nara são 15–20 km de caminhada por dia',
+  },
+  {
+    id: 'mala-meias',
+    group: 'mala',
+    title: 'Meias grossas e sem furo',
+    subtitle: 'Templos são de meia: tira o sapato em todo lugar',
+  },
+  {
+    id: 'mala-cachecol',
+    group: 'mala',
+    title: 'Cachecol, gorro e luvas finas',
+    subtitle: 'Miyajima no teleférico e o anoitecer em Fushimi gelam',
+  },
+  {
+    id: 'mala-guarda-chuva',
+    group: 'mala',
+    title: 'Guarda-chuva compacto',
+    subtitle: 'Novembro é seco, mas um dia de chuva é provável',
+  },
+  {
+    id: 'mala-roupa-min',
+    group: 'mala',
+    title: 'Roupa para 4–5 dias, não para 16',
+    subtitle: 'Lavanderia no hotel + UNIQLO/GU no dia 19; a mala tem que voltar vazia',
+  },
+  {
+    id: 'mala-remedios',
+    group: 'mala',
+    title: 'Farmacinha: analgésico, antialérgico, estômago, band-aid',
+    subtitle: 'Remédio controlado precisa da receita traduzida',
+  },
+  {
+    id: 'mala-oculos',
+    group: 'mala',
+    title: 'Óculos atual (para calibrar o novo na JINS) e lente de reserva',
+    subtitle: 'Dia 19 em Akihabara',
+  },
+  {
+    id: 'mala-medidas',
+    group: 'mala',
+    title: 'Medidas do colchão e do edredom, em cm, anotadas',
+    subtitle: 'Para a roupa de cama da MUJI',
+  },
+  {
+    id: 'mala-mala-vazia',
+    group: 'mala',
+    title: 'Uma mala grande vazia dentro da outra (ou comprar lá)',
+    subtitle: 'MacBook, robô, roupa de cama e presentes não cabem na de ida',
+  },
+  {
+    id: 'mala-sacola',
+    group: 'mala',
+    title: 'Sacola dobrável de compras',
+    subtitle: 'Sacolinha é paga nas lojas; os depachika enchem a mão',
+  },
+  {
+    id: 'mala-lenco',
+    group: 'mala',
+    title: 'Lencinho umedecido e toalhinha de mão',
+    subtitle: 'Banheiros públicos não têm papel para secar a mão',
+  },
+  {
+    id: 'mala-caneta',
+    group: 'mala',
+    title: 'Caneta para os formulários de imigração',
+    subtitle: 'Ainda pedem em papel em alguns voos',
+  },
+  {
+    id: 'mala-fotos-docs',
+    group: 'mala',
+    title: 'Fotos dos documentos e da reserva dos hotéis no celular',
+    subtitle: 'Offline, em Mais → Reservas',
+  },
 ];
 
 export const COMPRAS_ITEMS = CHECKLIST.filter((c) => c.group === 'compras');
 export const KONBINI_CHECKLIST = CHECKLIST.filter((c) => c.group === 'konbini');
+export const MALA_ITEMS = CHECKLIST.filter((c) => c.group === 'mala');
 export const PRETRIP_ITEMS = CHECKLIST.filter((c) => c.group === 'pretrip');

@@ -8,6 +8,7 @@ import { STAGES } from '@/data/trip';
 import { Rich } from '@/components/Rich';
 import { itineraryDate } from '@/lib/now';
 import { dayCover, stageCover } from '@/lib/covers';
+import { SearchBox } from '@/components/SearchBox';
 import { placeMapByStopId } from '@/data/placeMaps';
 
 function DayRow({ dayId }: { dayId: string }) {
@@ -114,6 +115,8 @@ export default function RoteiroPage() {
           18 nov – 3 dez · 15 noites · 5 etapas
         </p>
       </header>
+
+      <SearchBox />
 
       {STAGES.map((stage) => {
         const days = ALL_DAYS.filter((d) => d.stageId === stage.id);

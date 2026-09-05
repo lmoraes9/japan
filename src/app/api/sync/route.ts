@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
   }
 
   const state = await loadState(redis, trip);
-  const sections = ['checklist', 'favorites', 'notes', 'expenses'] as const;
+  const sections = ['checklist', 'favorites', 'notes', 'expenses', 'reservas', 'docs'] as const;
 
   for (const m of mutations) {
     if (!m?.path || typeof m.path !== 'string') continue;

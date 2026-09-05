@@ -88,7 +88,7 @@ export interface EatBlock {
 
 export interface ChecklistItem {
   id: string;
-  group: 'compras' | 'pretrip' | 'konbini';
+  group: 'compras' | 'pretrip' | 'konbini' | 'mala';
   title: string;
   subtitle: string;
 }
@@ -117,8 +117,11 @@ export interface Expense {
 export type PhraseSituation =
   | 'restaurante'
   | 'trem'
+  | 'taxi'
   | 'compras'
+  | 'taxfree'
   | 'hotel'
+  | 'saude'
   | 'emergencia';
 
 export interface Phrase {
@@ -140,12 +143,48 @@ export interface TripEvent {
   detail?: string;
 }
 
+export type ReservaKind = 'voo' | 'hotel' | 'trem' | 'ingresso' | 'restaurante' | 'outro';
+
+/** Uma reserva editável no app (hotel, trem, ingresso…), sincronizada */
+export interface Reserva {
+  id: string;
+  kind: ReservaKind;
+  /** nome do hotel / trecho / atração */
+  title: string;
+  /** '2026-11-18' — primeiro dia em que vale */
+  date: string;
+  /** '2026-11-23' — só hotéis (check-out) */
+  dateEnd?: string;
+  /** horário ou faixa: '15:00', 'check-in 15:00 · check-out 11:00' */
+  time?: string;
+  /** endereço em alfabeto latino */
+  address?: string;
+  /** endereço em japonês, para mostrar ao taxista */
+  addressJp?: string;
+  /** código/localizador da reserva */
+  code?: string;
+  phone?: string;
+  notes?: string;
+  /** já confirmada/comprada? */
+  done?: boolean;
+  updatedAt: number;
+  deleted?: boolean;
+}
+
+/** Campo livre de documento (passaporte, seguro, contato), sincronizado */
+export interface DocField {
+  text: string;
+  updatedAt: number;
+}
+
 /** Documento sincronizado (valor no Redis + espelho local) */
 export interface SyncedState {
   checklist: Record<string, { checked: boolean; updatedAt: number }>;
   favorites: Record<string, { fav: boolean; updatedAt: number }>;
-  notes: Record<string, { text: string; updatedAt: number }>;
+  notes: Record<string, { text: string; who?: string; updatedAt: number }>;
   expenses: Record<string, Expense>;
+  reservas: Record<string, Reserva>;
+  docs: Record<string, DocField>;
 }
 
 export const emptySyncedState = (): SyncedState => ({
@@ -153,4 +192,6 @@ export const emptySyncedState = (): SyncedState => ({
   favorites: {},
   notes: {},
   expenses: {},
+  reservas: {},
+  docs: {},
 });

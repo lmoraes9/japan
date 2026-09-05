@@ -17,7 +17,7 @@ export default function FavoritosPage() {
 
   const noteEntries = Object.entries(notes)
     .filter(([, v]) => v.text.trim())
-    .map(([key, v]) => ({ key, text: v.text, found: stopById(key) }));
+    .map(([key, v]) => ({ key, text: v.text, who: v.who, at: v.updatedAt, found: stopById(key) }));
 
   return (
     <div className="space-y-4">
@@ -56,7 +56,7 @@ export default function FavoritosPage() {
             Nenhuma nota ainda — use o botão &quot;Anotar&quot; nas paradas.
           </p>
         )}
-        {noteEntries.map(({ key, text, found }) => (
+        {noteEntries.map(({ key, text, who, at, found }) => (
           <Link
             key={key}
             href={found ? `/roteiro/${found.day.id}#${key}` : '/roteiro'}
@@ -66,6 +66,11 @@ export default function FavoritosPage() {
               {found ? `${found.stop.name} · ${formatDayLabel(found.day.date)}` : key}
             </p>
             <p className="text-[13px] mt-0.5 whitespace-pre-wrap">{text}</p>
+            <p className="mt-1 font-mono text-[10px] text-muted">
+              {who === 'P' ? 'Priscila' : who === 'L' ? 'Leonardo' : ''}
+              {who ? ' · ' : ''}
+              {new Date(at).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}
+            </p>
           </Link>
         ))}
       </section>

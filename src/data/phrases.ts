@@ -297,12 +297,42 @@ export const PHRASES: Phrase[] = [
     romaji: 'michi ni mayoimashita. koko ni ikitai desu.',
     showable: true,
   },
+  // ── táxi ──
+  { id: 'taxi-endereco', situation: 'taxi', pt: 'Por favor, me leve a este endereço.', jp: 'この住所までお願いします。', romaji: 'Kono jūsho made onegai shimasu.', showable: true },
+  { id: 'taxi-hotel', situation: 'taxi', pt: 'Até este hotel, por favor.', jp: 'このホテルまでお願いします。', romaji: 'Kono hoteru made onegai shimasu.', showable: true },
+  { id: 'taxi-estacao', situation: 'taxi', pt: 'Até a estação, por favor.', jp: '駅までお願いします。', romaji: 'Eki made onegai shimasu.' },
+  { id: 'taxi-aqui', situation: 'taxi', pt: 'Pode parar aqui.', jp: 'ここで止めてください。', romaji: 'Koko de tomete kudasai.' },
+  { id: 'taxi-cartao', situation: 'taxi', pt: 'Posso pagar com cartão?', jp: 'カードで払えますか？', romaji: 'Kādo de haraemasu ka?' },
+  { id: 'taxi-quanto', situation: 'taxi', pt: 'Quanto fica, mais ou menos?', jp: 'だいたいいくらですか？', romaji: 'Daitai ikura desu ka?' },
+  { id: 'taxi-porta', situation: 'taxi', pt: '(A porta abre e fecha sozinha — não puxe nem bata.)', jp: 'ドアは自動です', romaji: 'Doa wa jidō desu' },
+
+  // ── tax-free e alfândega ──
+  { id: 'tf-taxfree', situation: 'taxfree', pt: 'Tax-free, por favor. Aqui está o passaporte.', jp: '免税でお願いします。パスポートです。', romaji: 'Menzei de onegai shimasu. Pasupōto desu.', showable: true },
+  { id: 'tf-minimo', situation: 'taxfree', pt: 'Passa dos ¥5.000? Dá para juntar tudo numa compra só?', jp: '五千円以上になりますか？まとめて一回で買えますか？', romaji: 'Gosen-en ijō ni narimasu ka? Matomete ikkai de kaemasu ka?' },
+  { id: 'tf-recibo', situation: 'taxfree', pt: 'Preciso do recibo com o QR do tax-free.', jp: '免税のQRコード付きのレシートをください。', romaji: 'Menzei no QR kōdo tsuki no reshīto o kudasai.', showable: true },
+  { id: 'tf-export', situation: 'taxfree', pt: 'Vocês têm o modelo de exportação (voltagem universal, manual em inglês)?', jp: '海外向けモデル（海外対応の電圧、英語の説明書）はありますか？', romaji: 'Kaigai-muke moderu wa arimasu ka?', showable: true },
+  { id: 'tf-entrega', situation: 'taxfree', pt: 'Podem entregar no hotel? Este é o endereço.', jp: 'ホテルに配送できますか？住所はこちらです。', romaji: 'Hoteru ni haisō dekimasu ka? Jūsho wa kochira desu.', showable: true },
+  { id: 'tf-alfandega', situation: 'taxfree', pt: 'Onde é o balcão do reembolso do imposto / da alfândega?', jp: '免税手続きのカウンター（税関）はどこですか？', romaji: 'Menzei tetsuzuki no kauntā wa doko desu ka?' },
+  { id: 'tf-mostrar', situation: 'taxfree', pt: 'Os produtos estão aqui, na mala de mão.', jp: '商品はこの手荷物の中にあります。', romaji: 'Shōhin wa kono tenimotsu no naka ni arimasu.' },
+
+  // ── farmácia e saúde ──
+  { id: 'sd-farmacia', situation: 'saude', pt: 'Onde tem uma farmácia?', jp: '薬局はどこですか？', romaji: 'Yakkyoku wa doko desu ka?' },
+  { id: 'sd-dor-cabeca', situation: 'saude', pt: 'Preciso de um remédio para dor de cabeça / febre.', jp: '頭痛（熱）の薬がほしいです。', romaji: 'Zutsū (netsu) no kusuri ga hoshii desu.', showable: true },
+  { id: 'sd-estomago', situation: 'saude', pt: 'Remédio para dor de estômago / enjoo, por favor.', jp: '胃痛（吐き気）の薬をください。', romaji: 'Itsū (hakike) no kusuri o kudasai.', showable: true },
+  { id: 'sd-alergia', situation: 'saude', pt: 'Tenho alergia a ___.', jp: '私は___アレルギーがあります。', romaji: 'Watashi wa ___ arerugī ga arimasu.', showable: true },
+  { id: 'sd-resfriado', situation: 'saude', pt: 'Remédio para resfriado / garganta.', jp: '風邪薬（のどの薬）をください。', romaji: 'Kazegusuri (nodo no kusuri) o kudasai.' },
+  { id: 'sd-band', situation: 'saude', pt: 'Band-aid e algo para bolha no pé, por favor.', jp: '絆創膏と靴ずれの薬をください。', romaji: 'Bansōkō to kutsuzure no kusuri o kudasai.', showable: true },
+  { id: 'sd-medico', situation: 'saude', pt: 'Preciso de um médico que fale inglês.', jp: '英語が話せる医者に診てもらいたいです。', romaji: 'Eigo ga hanaseru isha ni mite moraitai desu.', showable: true },
+  { id: 'sd-seguro', situation: 'saude', pt: 'Tenho seguro-viagem. Preciso do recibo detalhado para o reembolso.', jp: '海外旅行保険に入っています。保険請求用の明細付き領収書をください。', romaji: 'Kaigai ryokō hoken ni haitte imasu. Meisai tsuki ryōshūsho o kudasai.', showable: true },
 ];
 
 export const SITUATIONS: { id: Phrase['situation']; label: string; emoji: string }[] = [
   { id: 'restaurante', label: 'Restaurante', emoji: '🍜' },
   { id: 'trem', label: 'Trem', emoji: '🚄' },
+  { id: 'taxi', label: 'Táxi', emoji: '🚕' },
   { id: 'compras', label: 'Compras', emoji: '🛍️' },
+  { id: 'taxfree', label: 'Tax-free', emoji: '🧾' },
   { id: 'hotel', label: 'Hotel', emoji: '🏨' },
+  { id: 'saude', label: 'Saúde', emoji: '💊' },
   { id: 'emergencia', label: 'Emergência', emoji: '🆘' },
 ];

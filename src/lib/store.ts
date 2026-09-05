@@ -2,7 +2,7 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { Expense, SyncedState } from '@/data/types';
+import type { Expense, Reserva, SyncedState } from '@/data/types';
 import { emptySyncedState } from '@/data/types';
 
 export interface Mutation {
@@ -21,9 +21,12 @@ interface SyncStore {
 
   toggleChecklist: (id: string) => void;
   toggleFavorite: (stopId: string) => void;
-  setNote: (key: string, text: string) => void;
+  setNote: (key: string, text: string, who?: string) => void;
   upsertExpense: (e: Expense) => void;
   removeExpense: (id: string) => void;
+  upsertReserva: (r: Reserva) => void;
+  removeReserva: (id: string) => void;
+  setDoc: (key: string, text: string) => void;
 
   /** aplica doc vindo do servidor com LWW; preserva locais mais novos */
   mergeServer: (server: SyncedState) => void;
@@ -36,6 +39,8 @@ type Section = keyof SyncedState;
 
 function mergeDoc(local: SyncedState, server: SyncedState): SyncedState {
   const out = emptySyncedState();
+  local = { ...emptySyncedState(), ...local };
+  server = { ...emptySyncedState(), ...server };
   (Object.keys(out) as Section[]).forEach((section) => {
     const keys = new Set([
       ...Object.keys(local[section] ?? {}),
@@ -104,8 +109,8 @@ export const useSyncStore = create<SyncStore>()(
           }));
         },
 
-        setNote: (key, text) => {
-          const value = { text, updatedAt: 0 };
+        setNote: (key, text, who) => {
+          const value = { text, who, updatedAt: 0 };
           value.updatedAt = push(`notes.${key}`, value);
           set((st) => ({
             state: { ...st.state, notes: { ...st.state.notes, [key]: value } },
@@ -136,6 +141,32 @@ export const useSyncStore = create<SyncStore>()(
           }));
         },
 
+        upsertReserva: (r) => {
+          const value = { ...r, updatedAt: 0 };
+          value.updatedAt = push(`reservas.${r.id}`, value);
+          set((st) => ({
+            state: { ...st.state, reservas: { ...st.state.reservas, [r.id]: value } },
+          }));
+        },
+
+        removeReserva: (id) => {
+          const cur = get().state.reservas[id];
+          if (!cur) return;
+          const value = { ...cur, deleted: true, updatedAt: 0 };
+          value.updatedAt = push(`reservas.${id}`, value);
+          set((st) => ({
+            state: { ...st.state, reservas: { ...st.state.reservas, [id]: value } },
+          }));
+        },
+
+        setDoc: (key, text) => {
+          const value = { text, updatedAt: 0 };
+          value.updatedAt = push(`docs.${key}`, value);
+          set((st) => ({
+            state: { ...st.state, docs: { ...st.state.docs, [key]: value } },
+          }));
+        },
+
         mergeServer: (server) =>
           set((st) => ({ state: mergeDoc(st.state, server) })),
 
@@ -148,6 +179,11 @@ export const useSyncStore = create<SyncStore>()(
     },
     {
       name: 'japao2026:synced',
+      // estado gravado por versões antigas do app não tem as seções novas
+      merge: (persisted, current) => {
+        const p = (persisted ?? {}) as Partial<SyncStore>;
+        return { ...current, ...p, state: { ...emptySyncedState(), ...(p.state ?? {}) } };
+      },
       partialize: (st) => ({
         state: st.state,
         pending: st.pending,

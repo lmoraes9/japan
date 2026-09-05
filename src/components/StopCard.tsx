@@ -27,6 +27,7 @@ import { EatBlocks } from './EatBlocks';
 import { navigateUrl, photosUrl } from '@/lib/mapsLinks';
 import { PLACE_PHOTOS } from '@/data/placePhotos.generated';
 import { useSyncStore } from '@/lib/store';
+import { useSettings } from '@/lib/settings';
 
 const KIND_ICON: Record<StopKind, typeof Landmark> = {
   sight: Camera,
@@ -55,6 +56,7 @@ export function StopCard({
   const toggleFavorite = useSyncStore((s) => s.toggleFavorite);
   const note = useSyncStore((s) => s.state.notes[stop.id]?.text ?? '');
   const setNote = useSyncStore((s) => s.setNote);
+  const who = useSettings((s) => s.who);
 
   const nav = navigateUrl(stop);
   // parada que é só escolha de refeição não tem "fotos do lugar" — cada item tem as suas
@@ -238,7 +240,7 @@ export function StopCard({
             <textarea
               defaultValue={note}
               onBlur={(e) => {
-                if (e.target.value !== note) setNote(stop.id, e.target.value);
+                if (e.target.value !== note) setNote(stop.id, e.target.value, who);
               }}
               placeholder="Sua anotação (sincroniza entre os dois celulares)"
               rows={2}
