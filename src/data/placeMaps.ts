@@ -1123,9 +1123,9 @@ const higashiyama: PlaceMap = {
     // pagode Yasaka
     { d: 'M108 480 l0 -16 M96 464 l24 0 M100 452 l16 0 M96 440 l24 0 M100 428 l16 0 M108 428 l0 -12', stroke: MAP_COLORS.vermilion, width: 2.5, opacity: 0.7, round: true },
     // Sanmon de Nanzen-ji
-    { d: 'M166 300 L166 278 M214 300 L214 278 M158 280 L222 280 M162 270 C178 266 202 266 218 270 L218 274 C202 270 178 270 162 274 Z', stroke: MAP_COLORS.ink, width: 3, opacity: 0.5, round: true },
+    { d: 'M236 300 L236 278 M284 300 L284 278 M228 280 L292 280 M232 270 C248 266 272 266 288 270 L288 274 C272 270 248 270 232 274 Z', stroke: MAP_COLORS.ink, width: 3, opacity: 0.5, round: true },
     // telhado do Pavilhão de Prata
-    { d: 'M190 100 C204 82 236 82 250 100 M196 100 L196 118 L244 118 L244 100', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.5, round: true },
+    { d: 'M252 100 C266 82 298 82 312 100 M258 100 L258 118 L306 118 L306 100', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.5, round: true },
   ],
   trees: [
     { x: 60, y: 640, s: 22 }, { x: 300, y: 610, s: 20 }, { x: 70, y: 380, s: 22 }, { x: 310, y: 330, s: 22 },
@@ -1203,7 +1203,7 @@ const higashiyama: PlaceMap = {
     {
       id: 'yasaka-jinja',
       photoCaption: 'O portão vermelho de Yasaka-jinja no fim da Shijō-dōri.',
-      n: 6, x: 176, y: 380, kind: 'torii', label: 'Yasaka-jinja', side: 'left', walk: '8 min',
+      n: 6, x: 180, y: 392, kind: 'torii', label: 'Yasaka-jinja', side: 'left', walk: '8 min',
       coords: { lat: 35.0037, lng: 135.7787 },
       title: 'Yasaka-jinja e o parque Maruyama',
       jp: '八坂神社',
@@ -1216,7 +1216,7 @@ const higashiyama: PlaceMap = {
     {
       id: 'gion',
       photoCaption: 'Hanamikōji, a rua das casas de chá de Gion.',
-      n: 7, x: 166, y: 342, kind: 'food', label: 'Gion', side: 'left', walk: '5 min',
+      n: 7, x: 150, y: 336, kind: 'food', label: 'Gion', side: 'left', walk: '5 min',
       coords: { lat: 35.0031, lng: 135.7752 },
       title: 'Gion — Hanamikōji e as gueixas',
       jp: '祇園 花見小路',
@@ -1292,13 +1292,13 @@ const arashiyama: PlaceMap = {
     { d: 'M-2000 2600 L2360 2600 L2360 540 C300 528 240 552 180 540 C120 528 60 552 -2000 540 Z', fill: MAP_COLORS.water, opacity: 0.22 },
     { d: 'M20 570 C80 562 140 578 200 570 C260 562 300 578 340 570', stroke: MAP_COLORS.water, width: 1.5, opacity: 0.35 },
     // ponte Togetsukyō
-    { d: 'M130 540 L250 540 M140 540 L140 552 M170 540 L170 552 M200 540 L200 552 M230 540 L230 552', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.55, round: true },
+    { d: 'M90 540 L176 540 M100 540 L100 552 M126 540 L126 552 M152 540 L152 552 M172 540 L172 552', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.55, round: true },
     // caminho: estação → bambu → templos → rio
     { d: 'M300 470 C260 470 236 440 232 400 C228 360 200 340 176 310 C150 276 150 236 176 200 C196 172 236 176 252 210 C266 240 232 280 232 330 C232 380 256 420 250 470 C246 500 210 512 190 540', stroke: MAP_COLORS.muted, width: 13, opacity: 0.3, round: true },
     // o bambuzal: hastes
     { d: 'M150 300 L150 240 M162 296 L162 236 M174 292 L174 232 M138 304 L138 244 M186 290 L186 230', stroke: MAP_COLORS.forest, width: 3, opacity: 0.8, round: true },
     // telhado de Tenryū-ji
-    { d: 'M212 350 C226 332 252 332 266 350 M218 350 L218 366 L260 366 L260 350', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.5, round: true },
+    { d: 'M264 350 C278 332 304 332 318 350 M270 350 L270 366 L312 366 L312 350', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.5, round: true },
     // trilho do Torokko (a noroeste)
     { d: 'M60 150 L200 110', stroke: MAP_COLORS.ink, width: 1.5, dash: '5 5', opacity: 0.45 },
   ],
@@ -1310,7 +1310,7 @@ const arashiyama: PlaceMap = {
     {
       id: 'estacao',
       photoCaption: 'A estação JR Saga-Arashiyama, a 15 minutos de Kyoto.',
-      n: 1, x: 300, y: 470, kind: 'station', label: 'Saga-Arashiyama', side: 'left',
+      n: 1, x: 300, y: 430, kind: 'station', label: 'Saga-Arashiyama', side: 'left',
       coords: { lat: 35.0187, lng: 135.6813 },
       title: 'Estação JR Saga-Arashiyama',
       jp: '嵯峨嵐山駅',
@@ -1336,7 +1336,7 @@ const arashiyama: PlaceMap = {
     {
       id: 'nonomiya',
       photoCaption: 'O torii de madeira crua de Nonomiya, dentro do bambuzal.',
-      n: 3, x: 176, y: 310, kind: 'torii', label: 'Nonomiya-jinja', side: 'right', walk: '2 min',
+      n: 3, x: 200, y: 318, kind: 'torii', label: 'Nonomiya-jinja', side: 'right', walk: '2 min',
       coords: { lat: 35.0165, lng: 135.6737 },
       title: 'Nonomiya-jinja — o torii de tronco cru',
       jp: '野宮神社',
@@ -1349,7 +1349,7 @@ const arashiyama: PlaceMap = {
     {
       id: 'tenryuji',
       photoCaption: 'O jardim de Tenryū-ji, com a montanha "emprestada" ao fundo.',
-      n: 4, x: 240, y: 350, kind: 'temple', label: 'Tenryū-ji', side: 'right', walk: '3 min',
+      n: 4, x: 232, y: 352, kind: 'temple', label: 'Tenryū-ji', side: 'left', walk: '3 min',
       coords: { lat: 35.0157, lng: 135.6737 },
       title: 'Tenryū-ji — o jardim que nunca mudou',
       jp: '天龍寺',
@@ -1389,7 +1389,7 @@ const arashiyama: PlaceMap = {
     {
       id: 'togetsukyo',
       photoCaption: 'A ponte Togetsukyō sobre o rio Katsura.',
-      n: 7, x: 190, y: 540, kind: 'water', label: 'Togetsukyō', side: 'right', walk: '15 min',
+      n: 7, x: 204, y: 540, kind: 'water', label: 'Togetsukyō', side: 'right', walk: '15 min',
       coords: { lat: 35.0128, lng: 135.6777 },
       title: 'Togetsukyō — a ponte que a lua atravessa',
       jp: '渡月橋',
@@ -1415,7 +1415,7 @@ const arashiyama: PlaceMap = {
     {
       id: 'rua',
       photoCaption: 'A rua principal de Arashiyama, entre a ponte e a estação.',
-      n: 9, x: 250, y: 470, kind: 'food', label: 'Rua principal', side: 'left', walk: '5 min',
+      n: 9, x: 270, y: 500, kind: 'food', label: 'Rua principal', side: 'left', walk: '5 min',
       coords: { lat: 35.0152, lng: 135.6780 },
       title: 'A rua principal — o que comer',
       jp: '嵐山メインストリート',
@@ -1469,7 +1469,7 @@ const parqueDaPaz: PlaceMap = {
     // caminho
     { d: 'M188 610 C188 560 150 540 150 500 C150 460 188 440 188 400 C188 360 150 340 150 300 C150 260 188 240 188 200', stroke: MAP_COLORS.muted, width: 13, opacity: 0.3, round: true },
     // o Domo, desenhado: paredes e a cúpula de ferro
-    { d: 'M166 118 L166 92 L210 92 L210 118 M172 92 C176 70 200 70 204 92 M176 84 L200 84 M188 70 L188 92', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.6, round: true },
+    { d: 'M232 118 L232 92 L276 92 L276 118 M238 92 C242 70 266 70 270 92 M242 84 L266 84 M254 70 L254 92', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.6, round: true },
     // cenotáfio, o arco
     { d: 'M170 420 C176 396 200 396 206 420', stroke: MAP_COLORS.ink, width: 3, opacity: 0.55, round: true },
     // museu, o bloco sobre pilotis
@@ -1536,7 +1536,7 @@ const parqueDaPaz: PlaceMap = {
     {
       id: 'sino',
       photoCaption: 'O Sino da Paz, com o mapa-múndi sem fronteiras.',
-      n: 5, x: 150, y: 250, kind: 'stone', label: 'Sino da Paz', side: 'right', walk: '2 min',
+      n: 5, x: 112, y: 250, kind: 'stone', label: 'Sino da Paz', side: 'right', walk: '2 min',
       coords: { lat: 34.3962, lng: 132.4520 },
       title: 'O Sino da Paz',
       jp: '平和の鐘',
@@ -1548,7 +1548,7 @@ const parqueDaPaz: PlaceMap = {
     {
       id: 'monte',
       photoCaption: 'O monte memorial: 70 mil pessoas sem nome, embaixo da grama.',
-      n: 6, x: 230, y: 250, kind: 'stone', label: 'Monte memorial', side: 'left', walk: '1 min',
+      n: 6, x: 256, y: 250, kind: 'stone', label: 'Monte memorial', side: 'right', walk: '1 min',
       coords: { lat: 34.3960, lng: 132.4535 },
       title: 'O monte memorial — os sem nome',
       jp: '原爆供養塔',
@@ -1561,7 +1561,7 @@ const parqueDaPaz: PlaceMap = {
     {
       id: 'rest-house',
       photoCaption: 'O Rest House: o prédio que estava a 170 m do hipocentro.',
-      n: 7, x: 230, y: 330, kind: 'hall', label: 'Rest House', side: 'left', walk: '2 min',
+      n: 7, x: 262, y: 330, kind: 'hall', label: 'Rest House', side: 'right', walk: '2 min',
       coords: { lat: 34.3950, lng: 132.4538 },
       title: 'Rest House — o sobrevivente do porão',
       jp: 'レストハウス',
@@ -1587,7 +1587,7 @@ const parqueDaPaz: PlaceMap = {
     {
       id: 'domo',
       photoCaption: 'O Domo da Bomba Atômica, mantido como ficou em 1945.',
-      n: 9, x: 188, y: 100, kind: 'hall', label: 'Domo', side: 'right', walk: '2 min',
+      n: 9, x: 188, y: 100, kind: 'hall', label: 'Domo', side: 'left', walk: '2 min',
       coords: { lat: 34.3955, lng: 132.4536 },
       title: 'O Domo da Bomba Atômica',
       jp: '原爆ドーム',
@@ -1677,7 +1677,7 @@ const himeji: PlaceMap = {
     {
       id: 'hishinomon',
       photoCaption: 'Hishi-no-mon, o maior portão, com o brasão de losango.',
-      n: 3, x: 250, y: 500, kind: 'gate', label: 'Hishi-no-mon', side: 'left', walk: '5 min',
+      n: 3, x: 250, y: 500, kind: 'gate', label: 'Hishi-no-mon', side: 'right', walk: '5 min',
       coords: { lat: 34.8383, lng: 134.6928 },
       title: 'Hishi-no-mon — o portão do losango',
       jp: '菱の門',
@@ -1730,7 +1730,7 @@ const himeji: PlaceMap = {
     {
       id: 'osakabe',
       photoCaption: 'O topo: o pequeno santuário e Himeji inteira embaixo.',
-      n: 7, x: 214, y: 350, kind: 'view', label: 'Topo · Osakabe', side: 'left', walk: '6 andares',
+      n: 7, x: 214, y: 350, kind: 'view', label: 'Topo · Osakabe', side: 'right', walk: '6 andares',
       coords: { lat: 34.8395, lng: 134.6940 },
       title: 'O último andar e o santuário Osakabe',
       jp: '刑部神社',
@@ -1743,7 +1743,7 @@ const himeji: PlaceMap = {
     {
       id: 'nishinomaru',
       photoCaption: 'O corredor de 300 metros do Nishi-no-maru.',
-      n: 8, x: 104, y: 290, kind: 'hall', label: 'Nishi-no-maru', side: 'right', walk: '10 min (descendo)',
+      n: 8, x: 104, y: 290, kind: 'hall', label: 'Nishi-no-maru', side: 'left', walk: '10 min (descendo)',
       coords: { lat: 34.8386, lng: 134.6912 },
       title: 'Nishi-no-maru — o corredor da princesa',
       jp: '西の丸 百間廊下',
@@ -1808,7 +1808,7 @@ const meijiJingu: PlaceMap = {
     // o grande torii
     { d: 'M96 430 L96 396 M136 430 L136 396 M86 398 L146 398 M90 388 C104 384 128 384 142 388 L142 393 C128 389 104 389 90 393 Z', stroke: MAP_COLORS.ink, width: 3.5, opacity: 0.6, round: true },
     // barris de saquê (fileira)
-    { d: 'M214 470 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M236 470 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M258 470 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M225 452 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M247 452 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0', stroke: MAP_COLORS.gold, width: 2, opacity: 0.6 },
+    { d: 'M254 470 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M276 470 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M298 470 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M265 452 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M287 452 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0', stroke: MAP_COLORS.gold, width: 2, opacity: 0.6 },
     // salão principal
     { d: 'M150 200 C164 180 196 180 210 200 M156 200 L156 220 L204 220 L204 200', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.55, round: true },
     // lago do jardim interno
@@ -1835,7 +1835,7 @@ const meijiJingu: PlaceMap = {
     {
       id: 'otorii',
       photoCaption: 'O grande torii, de uma cânfora de 1.500 anos.',
-      n: 2, x: 116, y: 430, kind: 'torii', label: 'O grande torii', side: 'right', walk: '5 min',
+      n: 2, x: 116, y: 452, kind: 'torii', label: 'O grande torii', side: 'right', walk: '5 min',
       coords: { lat: 35.6738, lng: 139.6993 },
       title: 'O grande torii — a cânfora de Taiwan',
       jp: '大鳥居',
@@ -1848,7 +1848,7 @@ const meijiJingu: PlaceMap = {
     {
       id: 'barris',
       photoCaption: 'A parede de barris de saquê, e do outro lado os de vinho da Borgonha.',
-      n: 3, x: 240, y: 470, kind: 'stone', label: 'Barris de saquê', side: 'left', walk: '3 min',
+      n: 3, x: 226, y: 470, kind: 'stone', label: 'Barris de saquê', side: 'left', walk: '3 min',
       coords: { lat: 35.6752, lng: 139.7005 },
       title: 'Os barris — saquê de um lado, Borgonha do outro',
       jp: '奉納酒樽',
@@ -1900,7 +1900,7 @@ const meijiJingu: PlaceMap = {
     {
       id: 'honden',
       photoCaption: 'O pátio do salão principal, onde passam os cortejos de casamento.',
-      n: 7, x: 180, y: 200, kind: 'hall', label: 'Salão principal', side: 'right', walk: '1 min',
+      n: 7, x: 180, y: 200, kind: 'hall', label: 'Salão principal', side: 'left', walk: '1 min',
       coords: { lat: 35.6764, lng: 139.6993 },
       title: 'O salão principal — e os casamentos de domingo',
       jp: '御社殿',
@@ -1913,7 +1913,7 @@ const meijiJingu: PlaceMap = {
     {
       id: 'meoto',
       photoCaption: 'As duas cânforas casadas, unidas pela corda sagrada.',
-      n: 8, x: 226, y: 218, kind: 'fox', label: 'Meoto kusu', side: 'left', walk: '1 min',
+      n: 8, x: 250, y: 226, kind: 'fox', label: 'Meoto kusu', side: 'right', walk: '1 min',
       coords: { lat: 35.6762, lng: 139.6997 },
       title: 'Meoto kusu — as cânforas casadas',
       jp: '夫婦楠',
@@ -1980,9 +1980,9 @@ const kamakura: PlaceMap = {
     // Enoden (bondinho) da estação para oeste
     { d: 'M180 420 C140 420 110 440 90 470 C70 500 60 540 70 580', stroke: MAP_COLORS.ink, width: 2, dash: '5 5', opacity: 0.5 },
     // torii do Hachimangū
-    { d: 'M158 262 L158 240 M202 262 L202 240 M150 242 L210 242 M154 232 C170 228 190 228 206 232 L206 237 C190 233 170 233 154 237 Z', stroke: MAP_COLORS.vermilion, width: 3, opacity: 0.85, round: true },
+    { d: 'M158 236 L158 214 M202 236 L202 214 M150 216 L210 216 M154 206 C170 202 190 202 206 206 L206 211 C190 207 170 207 154 211 Z', stroke: MAP_COLORS.vermilion, width: 3, opacity: 0.85, round: true },
     // o Grande Buda (silhueta sentada)
-    { d: 'M76 512 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0 M64 560 C64 536 112 536 112 560 Z', fill: MAP_COLORS.ink, opacity: 0.35 },
+    { d: 'M40 512 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0 M28 560 C28 536 76 536 76 560 Z', fill: MAP_COLORS.ink, opacity: 0.35 },
   ],
   trees: [
     { x: 120, y: 100, s: 22 }, { x: 240, y: 110, s: 22 }, { x: 110, y: 190, s: 20 }, { x: 250, y: 200, s: 22 },
