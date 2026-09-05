@@ -70,7 +70,14 @@ jobs:
             exit 0
           fi
           git commit -m 'Fotos dos mapas de lugares (Wikimedia Commons, baixadas pelo CI)'
-          git push origin HEAD:${{ github.ref_name }}
+          # alguém pode ter pushado na branch enquanto as fotos baixavam:
+          # rebaseia o commit das fotos por cima e tenta de novo, até 3 vezes
+          for tentativa in 1 2 3; do
+            git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            echo "push rejeitado (tentativa $tentativa); rebaseando de novo…"
+            sleep 5
+          done
+          exit 1
 
       - name: Resumo
         if: always()
