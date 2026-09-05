@@ -1,29 +1,14 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Pencil, Check, X, Plus, Trash2, Car, Copy, Navigation } from 'lucide-react';
 import { SubpageHeader } from '@/components/SubpageHeader';
 import { RESERVA_SEEDS, RESERVA_KIND_LABEL, RESERVA_KINDS } from '@/data/reservas';
 import type { Reserva, ReservaKind } from '@/data/types';
 import { useSyncStore } from '@/lib/store';
+import { useReservas } from '@/lib/reservas';
 import { formatDayLabel } from '@/lib/now';
 import { searchUrl } from '@/lib/mapsLinks';
-
-/** modelo + edições sincronizadas = a reserva como ela está hoje */
-function useReservas(): Reserva[] {
-  const synced = useSyncStore((s) => s.state.reservas);
-  return useMemo(() => {
-    const byId = new Map<string, Reserva>();
-    for (const seed of RESERVA_SEEDS) byId.set(seed.id, { ...seed, updatedAt: 0 });
-    for (const r of Object.values(synced)) {
-      const base = byId.get(r.id);
-      byId.set(r.id, { ...(base ?? {}), ...r } as Reserva);
-    }
-    return [...byId.values()]
-      .filter((r) => !r.deleted)
-      .sort((a, b) => (a.date === b.date ? (a.time ?? '').localeCompare(b.time ?? '') : a.date.localeCompare(b.date)));
-  }, [synced]);
-}
 
 const FIELDS: { key: keyof Reserva; label: string; placeholder: string; multiline?: boolean; jp?: boolean }[] = [
   { key: 'title', label: 'Nome', placeholder: 'ex.: Hotel Gracery Shinjuku' },

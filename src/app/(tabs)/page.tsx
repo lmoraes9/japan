@@ -22,6 +22,14 @@ import { SyncBadge } from '@/components/SyncBadge';
 import { useSyncStore, activeExpenses } from '@/lib/store';
 import { useSettings, effectiveRate, fmtBrl, fmtJpy } from '@/lib/settings';
 import { navigateUrl } from '@/lib/mapsLinks';
+import { DayConditions } from '@/components/DayConditions';
+import { DayReservas } from '@/components/DayReservas';
+import { dayCover } from '@/lib/covers';
+import { placeMapByStopId } from '@/data/placeMaps';
+import { Compass, Sunrise } from 'lucide-react';
+import { sunFor } from '@/lib/sun';
+
+const sunriseOf = (date: string, stageId: Parameters<typeof sunFor>[1]) => sunFor(date, stageId).sunrise;
 
 function useTripPosition(): TripPosition | null {
   const [pos, setPos] = useState<TripPosition | null>(null);
@@ -181,6 +189,14 @@ function DuringTrip({ pos }: { pos: TripPosition }) {
     ) + 1;
   const nav = pos.nextStop ? navigateUrl(pos.nextStop) : undefined;
   const dayNum = (pos.dayIndex ?? 0) + 1;
+  const tomorrow = ALL_DAYS[(pos.dayIndex ?? 0) + 1];
+  // depois das 20h (e sem próxima parada) a tela vira "amanhã"
+  const eveningMode = pos.jst.hour >= 20 && !pos.nextStop && !!tomorrow;
+  const tomorrowFirst = tomorrow
+    ? [...tomorrow.stops].sort((a, b) => a.time.localeCompare(b.time))[0]
+    : undefined;
+  const tomorrowMap = tomorrow?.stops.map((s) => placeMapByStopId(s.id)).find(Boolean);
+  const tomorrowCover = tomorrow ? dayCover(tomorrow) : undefined;
 
   return (
     <>
@@ -201,6 +217,55 @@ function DuringTrip({ pos }: { pos: TripPosition }) {
       </div>
 
       <EventCountdown pos={pos} />
+
+      <DayConditions date={pos.day.date} stageId={pos.day.stageId} />
+      <DayReservas date={pos.day.date} />
+
+      {eveningMode && tomorrow && (
+        <section className="space-y-2">
+          <h2 className="text-[13px] font-semibold uppercase tracking-wider text-accent">Amanhã</h2>
+          <Link
+            href={`/roteiro/${tomorrow.id}`}
+            className="tappable relative block overflow-hidden rounded-3xl bg-surface-2 text-white"
+            style={{ minHeight: 170 }}
+          >
+            {tomorrowCover && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={tomorrowCover.src} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+            <div className="relative flex h-full min-h-[170px] flex-col justify-end p-4">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-white/75">
+                {new Intl.DateTimeFormat('pt-BR', { timeZone: 'Asia/Tokyo', weekday: 'long', day: 'numeric' }).format(new Date(`${tomorrow.date}T12:00:00+09:00`))}
+              </p>
+              <p className="text-[18px] font-bold leading-tight drop-shadow">{tomorrow.title}</p>
+              <p className="mt-1 text-[12.5px] text-white/85">{tomorrow.subtitle}</p>
+              <div className="mt-2.5 flex flex-wrap gap-2 font-mono text-[11px]">
+                {tomorrowFirst && (
+                  <span className="rounded-full bg-white/15 px-2.5 py-1">
+                    primeira parada {tomorrowFirst.time} · {tomorrowFirst.name}
+                  </span>
+                )}
+                <span className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2.5 py-1">
+                  <Sunrise size={11} /> sol {sunriseOf(tomorrow.date, tomorrow.stageId)}
+                </span>
+                {tomorrowMap && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-accent/80 px-2.5 py-1">
+                    <Compass size={11} /> mapa ilustrado: {tomorrowMap.title}
+                  </span>
+                )}
+              </div>
+            </div>
+          </Link>
+          {tomorrow.notes?.map((n, i) => (
+            <div key={i} className="rounded-2xl border border-hairline bg-surface-2 p-3.5 text-[13px] leading-relaxed">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-muted">{n.label}</p>
+              <Rich text={n.text.split('\n\n')[0]} />
+            </div>
+          ))}
+          <DayReservas date={tomorrow.date} prevDate={pos.day.date} />
+        </section>
+      )}
 
       {pos.nextStop && (
         <section className="space-y-2">

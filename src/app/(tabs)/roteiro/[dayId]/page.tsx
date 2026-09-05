@@ -6,6 +6,8 @@ import { STAGES } from '@/data/trip';
 import { StopCard } from '@/components/StopCard';
 import { Rich } from '@/components/Rich';
 import { dayCover } from '@/lib/covers';
+import { DayConditions } from '@/components/DayConditions';
+import { DayReservas } from '@/components/DayReservas';
 
 export function generateStaticParams() {
   return ALL_DAYS.map((d) => ({ dayId: d.id }));
@@ -71,6 +73,9 @@ export default async function DayPage({
           <p className="mt-1.5 text-[13px] leading-snug text-white/85">{day.subtitle}</p>
         </div>
       </header>
+
+      <DayConditions date={day.date} stageId={day.stageId} />
+      <DayReservas date={day.date} />
 
       {day.notes?.map((n, i) => (
         <div
