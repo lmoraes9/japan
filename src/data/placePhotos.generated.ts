@@ -73,6 +73,48 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Inariyamakanyuchi,_Fushimi_Ward,_Kyoto,_Kyoto_Prefecture_612-0804,_Japan_-_panoramio_(13).jpg",
     "title": "Inariyamakanyuchi, Fushimi Ward, Kyoto, Kyoto Prefecture 612-0804, Japan - panoramio (13).jpg"
   },
+  "konbini/konbini-melon-pan": {
+    "src": "/lugares/konbini/konbini-melon-pan.jpg",
+    "credit": "Sakurai Midori",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Melonpan.jpg",
+    "title": "Melonpan.jpg"
+  },
+  "konbini/konbini-mochi-ice": {
+    "src": "/lugares/konbini/konbini-mochi-ice.jpg",
+    "credit": "Autopilot",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yukimi_Daifuku_sliced.jpg",
+    "title": "Yukimi Daifuku sliced.jpg"
+  },
+  "konbini/konbini-onigiri": {
+    "src": "/lugares/konbini/konbini-onigiri.jpg",
+    "credit": "Nori Norisa from 熊谷市, Japan",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E5%BE%8C%E3%80%81%E4%B8%80%E6%B0%97%E3%81%AB%E3%81%8A%E3%81%AB%E3%81%8E%E3%82%8A%E3%82%84%E3%83%91%E3%83%B3%E3%81%AA%E3%81%A9%E3%81%8C%E7%84%A1%E3%81%8F%E3%81%AA%E3%82%8B%E9%AB%98%E5%B0%BE%E5%B1%B1%E5%8F%A3%E9%A7%85%E3%81%AB%E3%81%82%E3%82%8B%E3%82%BB%E3%83%96%E3%83%B3%E3%82%A4%E3%83%AC%E3%83%96%E3%83%B3%E4%BA%AC%E7%8E%8B%E9%AB%98%E5%B0%BE%E6%A5%93kaede%E5%BA%97%E3%81%A8%E9%A7%85%E5%89%8D%E6%B8%A9%E6%B3%89_(54853519645).jpg",
+    "title": "オープン後、一気におにぎりやパンなどが無くなる高尾山口駅にあるセブンイレブン京王高尾楓kaede店と駅前温泉 (54853519645).jpg"
+  },
+  "konbini/konbini-pudding": {
+    "src": "/lugares/konbini/konbini-pudding.jpg",
+    "credit": "Myself",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Purin_L_002.jpg",
+    "title": "Purin L 002.jpg"
+  },
+  "konbini/konbini-seven-cafe": {
+    "src": "/lugares/konbini/konbini-seven-cafe.jpg",
+    "credit": "Asacyan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Seven_cafe_car_01.jpg",
+    "title": "Seven cafe car 01.jpg"
+  },
+  "konbini/konbini-tamago-sando": {
+    "src": "/lugares/konbini/konbini-tamago-sando.jpg",
+    "credit": "Toshiyuki IMAI",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E3%81%9F%E3%81%BE%E3%81%94%E5%A5%BD%E3%81%8D%E3%81%AE%E7%82%BA%E3%81%AE%E3%81%9F%E3%81%BE%E3%81%94%E3%82%B5%E3%83%B3%E3%83%89_%E3%81%8B%E3%82%89%E3%81%97%E9%A1%9E%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%8A%E3%82%8A%E3%81%BE%E3%81%99_(35981071536).jpg",
+    "title": "たまご好きの為のたまごサンド からし類を使用しております (35981071536).jpg"
+  },
   "miyajima/balsa": {
     "src": "/lugares/miyajima/balsa.jpg",
     "credit": "そらみみ",
@@ -325,6 +367,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Jimbocho-Sta-A3.JPG",
     "title": "Jimbocho-Sta-A3.JPG"
   },
+  "stops/d02-nihonbashi": {
+    "src": "/lugares/stops/d02-nihonbashi.jpg",
+    "credit": "Utagawa Hiroshige",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E6%B5%B7%E9%81%93%E4%BA%94%E5%8D%81%E4%B8%89%E6%AC%A1%E4%B9%8B%E5%86%85_%E6%97%A5%E6%9C%AC%E6%A9%8B_%E6%9B%99%E6%97%85%E7%AB%8B%E3%81%AE%E5%9B%B3.jpg",
+    "title": "東海道五十三次之内 日本橋 曙旅立の図.jpg"
+  },
   "stops/d03-haneda": {
     "src": "/lugares/stops/d03-haneda.jpg",
     "credit": "AD Train",
@@ -394,6 +443,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:AKIHABARA_New_Radio_Kaikan.jpg",
     "title": "AKIHABARA New Radio Kaikan.jpg"
+  },
+  "stops/d19-sensoji": {
+    "src": "/lugares/stops/d19-sensoji.jpg",
+    "credit": "Akonnchiroll",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sensoji_2023.jpg",
+    "title": "Sensoji 2023.jpg"
   },
   "stops/d20-daibutsu": {
     "src": "/lugares/stops/d20-daibutsu.jpg",
