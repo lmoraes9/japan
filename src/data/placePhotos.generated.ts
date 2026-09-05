@@ -486,6 +486,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Kyoyochi_Pond_of_Ryoanji_Temple.jpg",
     "title": "Kyoyochi Pond of Ryoanji Temple.jpg"
   },
+  "kinkakuji/sekkatei": {
+    "src": "/lugares/kinkakuji/sekkatei.jpg",
+    "credit": "PlusMinus",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rokuonji_Sekkatei.jpg",
+    "title": "Rokuonji Sekkatei.jpg"
+  },
   "kinkakuji/tsukubai": {
     "src": "/lugares/kinkakuji/tsukubai.jpg",
     "credit": "Peter 111",
@@ -541,6 +548,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Achi_Shrine_in_Kurashiki.jpg",
     "title": "Achi Shrine in Kurashiki.jpg"
+  },
+  "kurashiki/canal": {
+    "src": "/lugares/kurashiki/canal.jpg",
+    "credit": "lienyuan lee",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%80%89%E6%95%B7%E7%BE%8E%E8%A7%80%E5%9C%B0%E5%8D%80_Kurashiki_Bikan_Historical_Quarter_-_panoramio.jpg",
+    "title": "倉敷美觀地區 Kurashiki Bikan Historical Quarter - panoramio.jpg"
   },
   "kurashiki/estacao": {
     "src": "/lugares/kurashiki/estacao.jpg",
@@ -954,6 +968,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:JR_Shibuya_Station_Hachiko_ticket_gates_-_Oct_28_2019_3pm.jpeg",
     "title": "JR Shibuya Station Hachiko ticket gates - Oct 28 2019 3pm.jpeg"
+  },
+  "shibuya/hachiko": {
+    "src": "/lugares/shibuya/hachiko.jpg",
+    "credit": "Pablo",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya,_Tokio,_Jap%C3%B3n_2016-12_(32046064901).jpg",
+    "title": "Shibuya, Tokio, Japón 2016-12 (32046064901).jpg"
   },
   "shibuya/miyashita": {
     "src": "/lugares/shibuya/miyashita.jpg",
@@ -1612,6 +1633,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:TofukujiKaisando.jpg",
     "title": "TofukujiKaisando.jpg"
+  },
+  "tofukuji/komyoin": {
+    "src": "/lugares/tofukuji/komyoin.jpg",
+    "credit": "Kamigata0",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Seiwa_Tenno_Kaso-zuka_in_Konkai-komyo-ji,_Kyoto,_Japan.JPG",
+    "title": "Seiwa Tenno Kaso-zuka in Konkai-komyo-ji, Kyoto, Japan.JPG"
   },
   "tofukuji/sanmon": {
     "src": "/lugares/tofukuji/sanmon.jpg",
