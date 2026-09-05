@@ -3,6 +3,69 @@
 import type { PlacePhoto } from './placeMaps';
 
 export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
+  "arashiyama/bambu": {
+    "src": "/lugares/arashiyama/bambu.jpg",
+    "credit": "ketou-daisuki from Kyoto, japansko",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%B5%90%E5%B1%B1%E8%8A%B1%E7%81%AF%E8%B7%AF%EF%BC%A0%E7%AB%B9%E6%9E%97%E3%81%AE%E5%B0%8F%E5%BE%84_(2099612293).jpg",
+    "title": "嵐山花灯路＠竹林の小径 (2099612293).jpg"
+  },
+  "arashiyama/estacao": {
+    "src": "/lugares/arashiyama/estacao.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Saga-Arashiyama_Station_at_night_20131217.JPG",
+    "title": "Saga-Arashiyama Station at night 20131217.JPG"
+  },
+  "arashiyama/jojakkoji": {
+    "src": "/lugares/arashiyama/jojakkoji.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Jojakkoji_Kyoto01s3s4592.jpg",
+    "title": "Jojakkoji Kyoto01s3s4592.jpg"
+  },
+  "arashiyama/macacos": {
+    "src": "/lugares/arashiyama/macacos.jpg",
+    "credit": "E2eamon",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Iwatayama_Monkey_Park_baby_monkey.JPG",
+    "title": "Iwatayama Monkey Park baby monkey.JPG"
+  },
+  "arashiyama/nonomiya": {
+    "src": "/lugares/arashiyama/nonomiya.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Black-wood_Torii_of_Nonomiya_Shrine.jpg",
+    "title": "Black-wood Torii of Nonomiya Shrine.jpg"
+  },
+  "arashiyama/okochi": {
+    "src": "/lugares/arashiyama/okochi.jpg",
+    "credit": "KimonBerlin",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Okochi_Sanso_Villa_(3670797334).jpg",
+    "title": "Okochi Sanso Villa (3670797334).jpg"
+  },
+  "arashiyama/rua": {
+    "src": "/lugares/arashiyama/rua.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Katabiranotsuji_Station_Sign_(Randen_Arashiyama_Main_Line).jpg",
+    "title": "Katabiranotsuji Station Sign (Randen Arashiyama Main Line).jpg"
+  },
+  "arashiyama/tenryuji": {
+    "src": "/lugares/arashiyama/tenryuji.jpg",
+    "credit": "Ray Swi-hymn from Sijhih-Taipei, Taiwan",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20160402_Tenryuji-Sogen_1728_(26613750992).jpg",
+    "title": "20160402 Tenryuji-Sogen 1728 (26613750992).jpg"
+  },
+  "arashiyama/togetsukyo": {
+    "src": "/lugares/arashiyama/togetsukyo.jpg",
+    "credit": "くろふね",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%B8%A1%E6%9C%88%E6%A9%8B%E3%81%AE%E7%B4%85%E8%91%89.jpg",
+    "title": "渡月橋の紅葉.jpg"
+  },
   "extras/kobe": {
     "src": "/lugares/extras/kobe.jpg",
     "credit": "珈琲牛乳",
@@ -108,6 +171,209 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Inariyamakanyuchi,_Fushimi_Ward,_Kyoto,_Kyoto_Prefecture_612-0804,_Japan_-_panoramio_(13).jpg",
     "title": "Inariyamakanyuchi, Fushimi Ward, Kyoto, Kyoto Prefecture 612-0804, Japan - panoramio (13).jpg"
   },
+  "higashiyama/ginkakuji": {
+    "src": "/lugares/higashiyama/ginkakuji.jpg",
+    "credit": "iloverjoa",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%8A%80%E9%96%A3%E5%AF%BA_%E8%A6%B3%E9%9F%B3%E6%AE%BF_Ginkakuji_Temple_Kannon-den_-_panoramio.jpg",
+    "title": "銀閣寺 観音殿 Ginkakuji Temple Kannon-den - panoramio.jpg"
+  },
+  "higashiyama/gion": {
+    "src": "/lugares/higashiyama/gion.jpg",
+    "credit": "Francesco_G from Gion, Kyoto",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gion_restaurant_by_Francesco_G_in_Kyoto.jpg",
+    "title": "Gion restaurant by Francesco G in Kyoto.jpg"
+  },
+  "higashiyama/jishu": {
+    "src": "/lugares/higashiyama/jishu.jpg",
+    "credit": "Mark Potocnjak",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Love_Stone_at_the_Jishu_Shrine.jpg",
+    "title": "Love Stone at the Jishu Shrine.jpg"
+  },
+  "higashiyama/kiyomizu": {
+    "src": "/lugares/higashiyama/kiyomizu.jpg",
+    "credit": "Mti",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Main_Hall,_Kiyomizu-dera_in_2013-5-2_No,4.JPG",
+    "title": "Main Hall, Kiyomizu-dera in 2013-5-2 No,4.JPG"
+  },
+  "higashiyama/kodaiji": {
+    "src": "/lugares/higashiyama/kodaiji.jpg",
+    "credit": "Qwert1234",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Kodaiji_Garden.JPG",
+    "title": "Kodaiji Garden.JPG"
+  },
+  "higashiyama/nanzenji": {
+    "src": "/lugares/higashiyama/nanzenji.jpg",
+    "credit": "くろふね",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E7%A6%85%E5%AF%BA%E6%B0%B4%E8%B7%AF%E9%96%A3_-_panoramio.jpg",
+    "title": "南禅寺水路閣 - panoramio.jpg"
+  },
+  "higashiyama/sannenzaka": {
+    "src": "/lugares/higashiyama/sannenzaka.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sanneizaka_(Sannenzaka)_near_Kiyomizudera_Temple_5.JPG",
+    "title": "Sanneizaka (Sannenzaka) near Kiyomizudera Temple 5.JPG"
+  },
+  "higashiyama/yasaka-jinja": {
+    "src": "/lugares/higashiyama/yasaka-jinja.jpg",
+    "credit": "廉",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yasaka_Shrine_02.jpg",
+    "title": "Yasaka Shrine 02.jpg"
+  },
+  "higashiyama/yasaka-pagoda": {
+    "src": "/lugares/higashiyama/yasaka-pagoda.jpg",
+    "credit": "くろふね",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%B3%95%E8%A6%B3%E5%AF%BA%E5%85%AB%E5%9D%82%E3%81%AE%E5%A1%94_-_panoramio.jpg",
+    "title": "法観寺八坂の塔 - panoramio.jpg"
+  },
+  "himeji/almoco": {
+    "src": "/lugares/himeji/almoco.jpg",
+    "credit": "Corpse Reviver",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Himejijo_Kangetsukai_Oct09_002.JPG",
+    "title": "Himejijo Kangetsukai Oct09 002.JPG"
+  },
+  "himeji/espiral": {
+    "src": "/lugares/himeji/espiral.jpg",
+    "credit": "by ja:User:Reggaeman",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_Aburakabe.jpg",
+    "title": "Himeji Castle Aburakabe.jpg"
+  },
+  "himeji/hishinomon": {
+    "src": "/lugares/himeji/hishinomon.jpg",
+    "credit": "Corpse Reviver",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_No09_006.jpg",
+    "title": "Himeji Castle No09 006.jpg"
+  },
+  "himeji/kokoen": {
+    "src": "/lugares/himeji/kokoen.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Koukoen32n4592.jpg",
+    "title": "Himeji Koukoen32n4592.jpg"
+  },
+  "himeji/nishinomaru": {
+    "src": "/lugares/himeji/nishinomaru.jpg",
+    "credit": "Drivephotographer",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_Hyakken_Gallery.jpg",
+    "title": "Himeji Castle Hyakken Gallery.jpg"
+  },
+  "himeji/okiku": {
+    "src": "/lugares/himeji/okiku.jpg",
+    "credit": "Corpse Reviver",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_No09_171.jpg",
+    "title": "Himeji Castle No09 171.jpg"
+  },
+  "himeji/osakabe": {
+    "src": "/lugares/himeji/osakabe.jpg",
+    "credit": "Corpse Reviver",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_No09_136.jpg",
+    "title": "Himeji Castle No09 136.jpg"
+  },
+  "himeji/otemae": {
+    "src": "/lugares/himeji/otemae.jpg",
+    "credit": "Corpse Reviver",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Oshiro_Matsuri_August09_090.jpg",
+    "title": "Himeji Oshiro Matsuri August09 090.jpg"
+  },
+  "himeji/otemon": {
+    "src": "/lugares/himeji/otemon.jpg",
+    "credit": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_castle-Otemon.jpg",
+    "title": "Himeji castle-Otemon.jpg"
+  },
+  "himeji/tenshu": {
+    "src": "/lugares/himeji/tenshu.jpg",
+    "credit": "Corpse Reviver",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_No09_151.jpg",
+    "title": "Himeji Castle No09 151.jpg"
+  },
+  "kamakura/daibutsu": {
+    "src": "/lugares/kamakura/daibutsu.jpg",
+    "credit": "Dirk Beyer",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura_Budda_Daibutsu_front_1885.jpg",
+    "title": "Kamakura Budda Daibutsu front 1885.jpg"
+  },
+  "kamakura/engakuji": {
+    "src": "/lugares/kamakura/engakuji.jpg",
+    "credit": "Fg2",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Engakuji-Gate-M9092.jpg",
+    "title": "Engakuji-Gate-M9092.jpg"
+  },
+  "kamakura/estacao": {
+    "src": "/lugares/kamakura/estacao.jpg",
+    "credit": "Mister0124",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:JR_Yokosuka-Line_Kamakura_Station_Platform.jpg",
+    "title": "JR Yokosuka-Line Kamakura Station Platform.jpg"
+  },
+  "kamakura/hachimangu": {
+    "src": "/lugares/kamakura/hachimangu.jpg",
+    "credit": "Ocdp",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tsurugaoka_Hachimangu_001.jpg",
+    "title": "Tsurugaoka Hachimangu 001.jpg"
+  },
+  "kamakura/hasedera": {
+    "src": "/lugares/kamakura/hasedera.jpg",
+    "credit": "Junichi",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura_Hasedera_Kannondou.jpg",
+    "title": "Kamakura Hasedera Kannondou.jpg"
+  },
+  "kamakura/kenchoji": {
+    "src": "/lugares/kamakura/kenchoji.jpg",
+    "credit": "KENPEI",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kenchoji-butsuden.jpg",
+    "title": "Kenchoji-butsuden.jpg"
+  },
+  "kamakura/kita-kamakura": {
+    "src": "/lugares/kamakura/kita-kamakura.jpg",
+    "credit": "Urashimataro",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Kita-Kamakura_Station.jpg",
+    "title": "Kita-Kamakura Station.jpg"
+  },
+  "kamakura/komachi": {
+    "src": "/lugares/kamakura/komachi.jpg",
+    "credit": "Σ64",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Komachi_Street,_Kanagawa_01.jpg",
+    "title": "Komachi Street, Kanagawa 01.jpg"
+  },
+  "kamakura/yuigahama": {
+    "src": "/lugares/kamakura/yuigahama.jpg",
+    "credit": "Urashimataro",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura,-Feb-7,-2003.jpg",
+    "title": "Kamakura,-Feb-7,-2003.jpg"
+  },
+  "kamakura/zeniarai": {
+    "src": "/lugares/kamakura/zeniarai.jpg",
+    "credit": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zeniarai_Benten_shrine.jpg",
+    "title": "Zeniarai Benten shrine.jpg"
+  },
   "konbini/konbini-melon-pan": {
     "src": "/lugares/konbini/konbini-melon-pan.jpg",
     "credit": "Sakurai Midori",
@@ -149,6 +415,69 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E3%81%9F%E3%81%BE%E3%81%94%E5%A5%BD%E3%81%8D%E3%81%AE%E7%82%BA%E3%81%AE%E3%81%9F%E3%81%BE%E3%81%94%E3%82%B5%E3%83%B3%E3%83%89_%E3%81%8B%E3%82%89%E3%81%97%E9%A1%9E%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%8A%E3%82%8A%E3%81%BE%E3%81%99_(35981071536).jpg",
     "title": "たまご好きの為のたまごサンド からし類を使用しております (35981071536).jpg"
+  },
+  "meiji-jingu/barris": {
+    "src": "/lugares/meiji-jingu/barris.jpg",
+    "credit": "auntmasako from Yokosuka, Japan",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wall_of_sake_daru,_dedicated_for_Meiji-jingu,_Tokyo_(2007-01-31_by_auntmasako_@Pixabay_1665217).jpg",
+    "title": "Wall of sake daru, dedicated for Meiji-jingu, Tokyo (2007-01-31 by auntmasako @Pixabay 1665217).jpg"
+  },
+  "meiji-jingu/harajuku": {
+    "src": "/lugares/meiji-jingu/harajuku.jpg",
+    "credit": "Chris 73",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Harajuku_Station_Tokyo.jpg",
+    "title": "Harajuku Station Tokyo.jpg"
+  },
+  "meiji-jingu/honden": {
+    "src": "/lugares/meiji-jingu/honden.jpg",
+    "credit": "Kakidai",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2018_Meiji_Shrine.jpg",
+    "title": "2018 Meiji Shrine.jpg"
+  },
+  "meiji-jingu/kiyomasa": {
+    "src": "/lugares/meiji-jingu/kiyomasa.jpg",
+    "credit": "珈琲牛乳",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%B8%85%E6%AD%A3%E4%BA%95_-_panoramio.jpg",
+    "title": "清正井 - panoramio.jpg"
+  },
+  "meiji-jingu/meoto": {
+    "src": "/lugares/meiji-jingu/meoto.jpg",
+    "credit": "Ocdp",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Meiji_Jingu_004.jpg",
+    "title": "Meiji Jingu 004.jpg"
+  },
+  "meiji-jingu/museu": {
+    "src": "/lugares/meiji-jingu/museu.jpg",
+    "credit": "経済特区",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AEIMG_20220129_04.jpg",
+    "title": "明治神宮IMG 20220129 04.jpg"
+  },
+  "meiji-jingu/otorii": {
+    "src": "/lugares/meiji-jingu/otorii.jpg",
+    "credit": "江戸村のとくぞう (Edomura no Tokuzo)",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E3%83%BC%EF%BC%91.JPG",
+    "title": "明治神宮ー１.JPG"
+  },
+  "meiji-jingu/takeshita": {
+    "src": "/lugares/meiji-jingu/takeshita.jpg",
+    "credit": "Syced",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Takeshita_Street_entrance_on_Meiji_Avenue_side.jpg",
+    "title": "Takeshita Street entrance on Meiji Avenue side.jpg"
+  },
+  "meiji-jingu/temizuya": {
+    "src": "/lugares/meiji-jingu/temizuya.jpg",
+    "credit": "No machine-readable author provided. Volfgang assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Meiji_shrine_chozuya.jpg",
+    "title": "Meiji shrine chozuya.jpg"
   },
   "miyajima/balsa": {
     "src": "/lugares/miyajima/balsa.jpg",
@@ -289,6 +618,76 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Sarusawa-ike,%E7%8C%BF%E6%B2%A2%E6%B1%A0_-_panoramio.jpg",
     "title": "Sarusawa-ike,猿沢池 - panoramio.jpg"
+  },
+  "parque-da-paz/aioi": {
+    "src": "/lugares/parque-da-paz/aioi.jpg",
+    "credit": "Taisyo",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E7%9B%B8%E7%94%9F%E6%A9%8B01.jpg",
+    "title": "相生橋01.jpg"
+  },
+  "parque-da-paz/cenotafio": {
+    "src": "/lugares/parque-da-paz/cenotafio.jpg",
+    "credit": "Laika ac from USA",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Laika_ac_Cenotaph_for_the_A-Bomb_Victims_(8629480185).jpg",
+    "title": "Laika ac Cenotaph for the A-Bomb Victims (8629480185).jpg"
+  },
+  "parque-da-paz/chama": {
+    "src": "/lugares/parque-da-paz/chama.jpg",
+    "credit": "Taisyo",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Peace_Flame_Hiroshima_20120128.JPG",
+    "title": "Peace Flame Hiroshima 20120128.JPG"
+  },
+  "parque-da-paz/criancas": {
+    "src": "/lugares/parque-da-paz/criancas.jpg",
+    "credit": "Sarah Stierch",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:White_paper_cranes_at_the_Children%27s_Peace_Monument_-_Hiroshima,_Japan_-_Stierch.jpg",
+    "title": "White paper cranes at the Children's Peace Monument - Hiroshima, Japan - Stierch.jpg"
+  },
+  "parque-da-paz/domo": {
+    "src": "/lugares/parque-da-paz/domo.jpg",
+    "credit": "Dan Smith",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:A-Bomb_Dome.jpg",
+    "title": "A-Bomb Dome.jpg"
+  },
+  "parque-da-paz/monte": {
+    "src": "/lugares/parque-da-paz/monte.jpg",
+    "credit": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:HiroshimaGembakuKuyoTo7093.jpg",
+    "title": "HiroshimaGembakuKuyoTo7093.jpg"
+  },
+  "parque-da-paz/museu": {
+    "src": "/lugares/parque-da-paz/museu.jpg",
+    "credit": "Unknown photographer",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_Museum_(1952).jpg",
+    "title": "Hiroshima Peace Memorial Museum (1952).jpg"
+  },
+  "parque-da-paz/okonomimura": {
+    "src": "/lugares/parque-da-paz/okonomimura.jpg",
+    "credit": "Taisyo; Uploaded to Commons by Nihonjoe",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E3%81%8A%E5%A5%BD%E3%81%BF%E6%9D%911.jpg",
+    "title": "お好み村1.jpg"
+  },
+  "parque-da-paz/rest-house": {
+    "src": "/lugares/parque-da-paz/rest-house.jpg",
+    "credit": "長岡外史",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rest_House_of_Hiroshima_Peace_Park_20121120.jpg",
+    "title": "Rest House of Hiroshima Peace Park 20121120.jpg"
+  },
+  "parque-da-paz/sino": {
+    "src": "/lugares/parque-da-paz/sino.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Bell_in_a_rainy_day.jpg",
+    "title": "Hiroshima Peace Bell in a rainy day.jpg"
   },
   "sensoji/asakusa-jinja": {
     "src": "/lugares/sensoji/asakusa-jinja.jpg",
