@@ -969,13 +969,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:JR_Shibuya_Station_Hachiko_ticket_gates_-_Oct_28_2019_3pm.jpeg",
     "title": "JR Shibuya Station Hachiko ticket gates - Oct 28 2019 3pm.jpeg"
   },
-  "shibuya/hachiko": {
-    "src": "/lugares/shibuya/hachiko.jpg",
-    "credit": "Pablo",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Shibuya,_Tokio,_Jap%C3%B3n_2016-12_(32046064901).jpg",
-    "title": "Shibuya, Tokio, Japón 2016-12 (32046064901).jpg"
-  },
   "shibuya/miyashita": {
     "src": "/lugares/shibuya/miyashita.jpg",
     "credit": "Bject",
@@ -1633,13 +1626,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:TofukujiKaisando.jpg",
     "title": "TofukujiKaisando.jpg"
-  },
-  "tofukuji/komyoin": {
-    "src": "/lugares/tofukuji/komyoin.jpg",
-    "credit": "Kamigata0",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Seiwa_Tenno_Kaso-zuka_in_Konkai-komyo-ji,_Kyoto,_Japan.JPG",
-    "title": "Seiwa Tenno Kaso-zuka in Konkai-komyo-ji, Kyoto, Japan.JPG"
   },
   "tofukuji/sanmon": {
     "src": "/lugares/tofukuji/sanmon.jpg",
