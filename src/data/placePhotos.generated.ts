@@ -402,6 +402,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Jimbocho-Sta-A3.JPG",
     "title": "Jimbocho-Sta-A3.JPG"
   },
+  "stops/d02-nihonbashi": {
+    "src": "/lugares/stops/d02-nihonbashi.jpg",
+    "credit": "Lombroso",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yoroi_Bridge,_at_Nihonbashi-Kabutocho,_Chuo,_Tokyo_(2019-01-02).jpg",
+    "title": "Yoroi Bridge, at Nihonbashi-Kabutocho, Chuo, Tokyo (2019-01-02).jpg"
+  },
   "stops/d03-haneda": {
     "src": "/lugares/stops/d03-haneda.jpg",
     "credit": "AD Train",
