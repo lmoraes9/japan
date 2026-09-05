@@ -7,6 +7,8 @@ import { mapCover } from '@/lib/covers';
 import { PlaceMapView } from '@/components/PlaceMapView';
 import { Rich } from '@/components/Rich';
 import { searchUrl } from '@/lib/mapsLinks';
+import { has3D } from '@/lib/three/available';
+import { Box } from 'lucide-react';
 
 export function generateStaticParams() {
   return PLACE_MAPS.map((m) => ({ placeId: m.id }));
@@ -83,6 +85,21 @@ export default async function PlaceMapPage({
           </p>
         ))}
       </div>
+
+      {has3D(map.id) && (
+        <Link
+          href={`/3d/${map.id}`}
+          className="tappable flex items-center gap-3 rounded-2xl border border-accent/40 bg-accent-soft px-4 py-3"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-white">
+            <Box size={20} />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[14px] font-semibold leading-tight">Ver a montanha em 3D</span>
+            <span className="block text-[12px] leading-snug text-muted">Experimento: o mapa inteiro em 3D, girável, com os mesmos {map.hotspots.length} pontos. Carrega uns 200 KB a mais na primeira vez.</span>
+          </span>
+        </Link>
+      )}
 
       <PlaceMapView map={map} />
 
