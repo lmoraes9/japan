@@ -14,6 +14,10 @@ on:
         type: string
         default: ''
   push:
+    # na main o push é o merge de uma branch onde este job já rodou;
+    # rodar de novo só gera um segundo commit idêntico
+    branches-ignore:
+      - main
     paths:
       - 'scripts/fetch-place-photos.mjs'
       - 'scripts/optimize-photos.mjs'
