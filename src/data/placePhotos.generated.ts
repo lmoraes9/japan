@@ -24,6 +24,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Nikko,_Y%C5%8Dmeimon_Gate_of_T%C5%8Dsh%C5%8D-g%C5%AB_(detail).JPG",
     "title": "Nikko, Yōmeimon Gate of Tōshō-gū (detail).JPG"
   },
+  "extras/shimanami": {
+    "src": "/lugares/extras/shimanami.jpg",
+    "credit": "トカゲ",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kurushima_Kaikyo_Bridge-2.jpg",
+    "title": "Kurushima Kaikyo Bridge-2.jpg"
+  },
   "extras/uji": {
     "src": "/lugares/extras/uji.jpg",
     "credit": "663highland",
@@ -394,6 +401,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Jimbocho-Sta-A3.JPG",
     "title": "Jimbocho-Sta-A3.JPG"
+  },
+  "stops/d02-nihonbashi": {
+    "src": "/lugares/stops/d02-nihonbashi.jpg",
+    "credit": "Katsushika Hokusai",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%86%A8%E5%B6%BD%E4%B8%89%E5%8D%81%E5%85%AD%E6%99%AF_%E6%B1%9F%E6%88%B8%E6%97%A5%E6%9C%AC%E6%A9%8B-Nihonbashi_in_Edo_(Edo_Nihonbashi),_from_the_series_Thirty-six_Views_of_Mount_Fuji_(Fugaku_sanj%C5%ABrokkei)_MET_DP141003.jpg",
+    "title": "冨嶽三十六景 江戸日本橋-Nihonbashi in Edo (Edo Nihonbashi), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei) MET DP141003.jpg"
   },
   "stops/d03-haneda": {
     "src": "/lugares/stops/d03-haneda.jpg",
