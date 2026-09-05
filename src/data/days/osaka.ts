@@ -29,6 +29,7 @@ export const osakaDays: Day[] = [
       },
       {
         id: 'd25-bikan',
+        placeMapId: 'kurashiki',
         time: '09:45',
         timeLabel: 'cidade',
         kind: 'sight',
@@ -179,6 +180,7 @@ export const osakaDays: Day[] = [
     stops: [
       {
         id: 'd26-castelo-osaka',
+        placeMapId: 'castelo-osaka',
         time: '08:45',
         timeLabel: 'castelo',
         kind: 'sight',

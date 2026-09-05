@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Landmark,
+  Building2,
   DoorOpen,
   Torus,
   PawPrint,
@@ -40,6 +41,7 @@ const KIND_ICON: Record<HotspotKind, typeof Landmark> = {
   peak: Mountain,
   station: Train,
   food: UtensilsCrossed,
+  sight: Building2,
 };
 
 /** raio do marcador com foto, em unidades do viewBox */

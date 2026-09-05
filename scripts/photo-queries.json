@@ -742,5 +742,198 @@
   "stops/d30-todaiji": [
     "東大寺",
     "Todai-ji Nara"
+  ],
+  "tofukuji/estacao": [
+    "東福寺駅",
+    "Tofukuji Station"
+  ],
+  "tofukuji/gaunkyo": [
+    "東福寺 臥雲橋",
+    "Tofukuji Gaunkyo bridge"
+  ],
+  "tofukuji/sanmon": [
+    "東福寺 三門",
+    "Tofukuji Sanmon gate"
+  ],
+  "tofukuji/hojo": [
+    "東福寺 方丈庭園 市松",
+    "Tofukuji Hojo garden checkerboard"
+  ],
+  "tofukuji/tsutenkyo": [
+    "東福寺 通天橋 紅葉",
+    "Tofukuji Tsutenkyo autumn"
+  ],
+  "tofukuji/kaisando": [
+    "東福寺 開山堂",
+    "Tofukuji Kaisando"
+  ],
+  "tofukuji/engetsukyo": [
+    "東福寺 偃月橋",
+    "Tofukuji Engetsukyo"
+  ],
+  "tofukuji/komyoin": [
+    "光明院 波心庭",
+    "Komyoin Kyoto garden"
+  ],
+  "kinkakuji/entrada": [
+    "金閣寺 総門",
+    "Kinkakuji entrance gate"
+  ],
+  "kinkakuji/pavilhao": [
+    "金閣寺 舎利殿",
+    "Kinkaku-ji Golden Pavilion"
+  ],
+  "kinkakuji/lago": [
+    "金閣寺 鏡湖池",
+    "Kinkakuji Kyokochi pond"
+  ],
+  "kinkakuji/sekkatei": [
+    "金閣寺 夕佳亭",
+    "Kinkakuji Sekkatei teahouse"
+  ],
+  "kinkakuji/kinukake": [
+    "きぬかけの路",
+    "Kinukake no michi Kyoto"
+  ],
+  "kinkakuji/ryoanji-lago": [
+    "龍安寺 鏡容池",
+    "Ryoanji Kyoyochi pond"
+  ],
+  "kinkakuji/pedras": [
+    "龍安寺 石庭",
+    "Ryoanji rock garden"
+  ],
+  "kinkakuji/tsukubai": [
+    "龍安寺 蹲踞 吾唯足知",
+    "Ryoanji tsukubai"
+  ],
+  "sumiyoshi/estacao": [
+    "住吉大社駅",
+    "Sumiyoshitaisha Station Nankai"
+  ],
+  "sumiyoshi/bonde": [
+    "阪堺電車 住吉鳥居前",
+    "Hankai tramway Sumiyoshi"
+  ],
+  "sumiyoshi/sorihashi": [
+    "住吉大社 反橋",
+    "Sumiyoshi Taisha Sorihashi bridge"
+  ],
+  "sumiyoshi/torii": [
+    "住吉大社 角鳥居",
+    "Sumiyoshi Taisha torii"
+  ],
+  "sumiyoshi/honden": [
+    "住吉大社 本殿 住吉造",
+    "Sumiyoshi Taisha honden"
+  ],
+  "sumiyoshi/goshogozen": [
+    "住吉大社 五所御前",
+    "Sumiyoshi Taisha Goshogozen"
+  ],
+  "sumiyoshi/nankun": [
+    "住吉大社 楠珺社",
+    "Sumiyoshi Taisha Nankunsha"
+  ],
+  "sumiyoshi/omokaru": [
+    "住吉大社 おもかる石",
+    "Sumiyoshi Taisha omokaru ishi"
+  ],
+  "castelo-osaka/otemon": [
+    "大阪城 大手門",
+    "Osaka Castle Otemon gate"
+  ],
+  "castelo-osaka/nishinomaru": [
+    "大阪城 西の丸庭園",
+    "Osaka Castle Nishinomaru garden"
+  ],
+  "castelo-osaka/sakuramon": [
+    "大阪城 蛸石",
+    "大阪城 桜門",
+    "Osaka Castle Takoishi"
+  ],
+  "castelo-osaka/tenshu": [
+    "大阪城 天守閣",
+    "Osaka Castle main tower"
+  ],
+  "castelo-osaka/hokoku": [
+    "大阪城 豊國神社",
+    "Hokoku Shrine Osaka"
+  ],
+  "castelo-osaka/gokurakubashi": [
+    "大阪城 極楽橋",
+    "Osaka Castle Gokurakubashi"
+  ],
+  "castelo-osaka/aoyamon": [
+    "大阪城 青屋門",
+    "Osaka Castle Aoyamon"
+  ],
+  "castelo-osaka/estacao": [
+    "大阪城公園駅",
+    "Osakajokoen Station"
+  ],
+  "kurashiki/estacao": [
+    "倉敷駅",
+    "Kurashiki Station"
+  ],
+  "kurashiki/achi": [
+    "阿智神社 倉敷",
+    "Achi Shrine Kurashiki"
+  ],
+  "kurashiki/ohara": [
+    "大原美術館",
+    "Ohara Museum of Art"
+  ],
+  "kurashiki/yurinso": [
+    "有隣荘 倉敷",
+    "Yurinso Kurashiki"
+  ],
+  "kurashiki/canal": [
+    "倉敷川 川舟",
+    "Kurashiki canal boat"
+  ],
+  "kurashiki/nakabashi": [
+    "倉敷 中橋",
+    "Kurashiki Nakabashi bridge"
+  ],
+  "kurashiki/ivy": [
+    "倉敷アイビースクエア",
+    "Kurashiki Ivy Square"
+  ],
+  "kurashiki/honmachi": [
+    "倉敷 本町通り",
+    "Kurashiki Honmachi street"
+  ],
+  "shibuya/sky": [
+    "渋谷スカイ",
+    "Shibuya Sky rooftop"
+  ],
+  "shibuya/estacao": [
+    "渋谷駅 ハチ公口",
+    "Shibuya Station Hachiko exit"
+  ],
+  "shibuya/hachiko": [
+    "ハチ公像 渋谷",
+    "Hachiko statue Shibuya"
+  ],
+  "shibuya/cruzamento": [
+    "渋谷スクランブル交差点 夜",
+    "Shibuya crossing night"
+  ],
+  "shibuya/cento-e-nove": [
+    "渋谷109",
+    "Shibuya 109 building"
+  ],
+  "shibuya/centergai": [
+    "渋谷センター街 夜",
+    "Shibuya Center-gai night"
+  ],
+  "shibuya/nonbei": [
+    "のんべい横丁",
+    "Nonbei Yokocho Shibuya"
+  ],
+  "shibuya/miyashita": [
+    "宮下パーク",
+    "Miyashita Park Shibuya"
   ]
 }

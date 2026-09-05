@@ -11,6 +11,7 @@ export const kyotoDays: Day[] = [
     stops: [
       {
         id: 'd27-sumiyoshi',
+        placeMapId: 'sumiyoshi',
         time: '08:30',
         timeLabel: 'santuário',
         kind: 'temple',
@@ -413,6 +414,7 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd29-kinkakuji',
+        placeMapId: 'kinkakuji',
         time: '13:45',
         timeLabel: 'templo',
         kind: 'temple',
@@ -625,6 +627,7 @@ export const kyotoDays: Day[] = [
     stops: [
       {
         id: 'd01-tofukuji',
+        placeMapId: 'tofukuji',
         time: '08:00',
         timeLabel: 'momiji',
         kind: 'temple',

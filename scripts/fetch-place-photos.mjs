@@ -94,10 +94,10 @@ const CIDADES = {
 };
 const cidadesDe = (key) => {
   const [grupo, item] = key.split('/');
-  if (grupo === 'sensoji' || grupo === 'meiji-jingu' || grupo === 'kamakura') return CIDADES.tokyo;
+  if (grupo === 'sensoji' || grupo === 'meiji-jingu' || grupo === 'kamakura' || grupo === 'shibuya') return CIDADES.tokyo;
   if (grupo === 'miyajima' || grupo === 'parque-da-paz') return CIDADES.hiroshima;
-  if (grupo === 'himeji') return CIDADES.osaka;
-  if (grupo === 'nara' || grupo === 'fushimi-inari' || grupo === 'higashiyama' || grupo === 'arashiyama') return CIDADES.kyoto;
+  if (grupo === 'himeji' || grupo === 'sumiyoshi' || grupo === 'castelo-osaka' || grupo === 'kurashiki') return CIDADES.osaka;
+  if (grupo === 'nara' || grupo === 'fushimi-inari' || grupo === 'higashiyama' || grupo === 'arashiyama' || grupo === 'tofukuji' || grupo === 'kinkakuji') return CIDADES.kyoto;
   if (grupo === 'stops') {
     const dia = Number(item.match(/^d(\d\d)/)?.[1]);
     if (dia >= 18 && dia <= 22) return CIDADES.tokyo;

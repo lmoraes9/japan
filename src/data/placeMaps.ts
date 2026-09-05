@@ -14,7 +14,8 @@ export type HotspotKind =
   | 'view'
   | 'peak'
   | 'station'
-  | 'food';
+  | 'food'
+  | 'sight';
 
 /** foto de licença livre baixada por scripts/fetch-place-photos.mjs */
 export interface PlacePhoto {
@@ -2124,7 +2125,893 @@ const kamakura: PlaceMap = {
   legend: 'Verde = as montanhas do anfiteatro · azul = a baía de Sagami · tracejado vermelho = a avenida do santuário ao mar · pontilhado = o Enoden',
 };
 
-export const PLACE_MAPS: PlaceMap[] = [kamakura, meijiJingu, parqueDaPaz, himeji, fushimiInari, higashiyama, arashiyama, nara, sensoji, miyajima];
+const tofukuji: PlaceMap = {
+  id: 'tofukuji',
+  coverHotspotId: 'tsutenkyo',
+  stopId: 'd01-tofukuji',
+  dayId: 'd2026-12-01',
+  title: 'Tōfuku-ji',
+  jp: '東福寺',
+  subtitle: 'O vale de bordos e a ponte coberta, na abertura, antes do Shinkansen',
+  intro: [
+    'Tōfuku-ji é o lugar de outono mais famoso de Kyoto por uma razão geográfica: o templo é cortado por um **vale estreito, o Sengyokukan, com 2.000 bordos no fundo**, e três pontes cobertas passam por cima dele. De cima da ponte se vê um mar de folhas vermelhas; de baixo, um teto.',
+    'Vocês entram na **abertura, às 8h30**, e é a única jogada possível: às 10h a ponte Tsūten-kyō tem fila para entrar e proíbe fotos para a multidão andar. Depois do vale, o jardim de pedras moderno do Hōjō é o contraponto, e a estação fica a 10 minutos a pé para o Shinkansen das 13h20.',
+  ],
+  viewBox: '0 0 360 620',
+  scenery: [
+    { d: 'M20 40 L340 40 L340 610 L20 610 Z', fill: MAP_COLORS.forest, opacity: 0.07 },
+    // o vale de bordos, atravessando o recinto
+    { d: 'M20 330 C80 300 140 320 200 300 C260 280 300 300 340 280 L340 340 C300 360 260 340 200 360 C140 380 80 360 20 390 Z', fill: MAP_COLORS.vermilion, opacity: 0.18 },
+    // riacho no fundo do vale
+    { d: 'M20 360 C80 340 140 350 200 335 C260 320 300 330 340 310', stroke: MAP_COLORS.water, width: 3, opacity: 0.4, round: true },
+    // caminho: estação → Gaunkyō → Sanmon → Hōjō → Tsūten-kyō → Kaisandō
+    { d: 'M60 590 C90 560 130 540 160 520 C190 500 190 450 180 410 C172 380 176 340 190 320 C204 300 236 300 246 270 C254 246 240 220 232 200', stroke: MAP_COLORS.muted, width: 13, opacity: 0.3, round: true },
+    // pontes cobertas sobre o vale
+    { d: 'M96 322 L96 372 M104 322 L104 372 M92 322 L108 322', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.5, round: true },
+    { d: 'M176 312 L176 368 M186 312 L186 368 M172 312 L190 312', stroke: MAP_COLORS.ink, width: 3, opacity: 0.6, round: true },
+    { d: 'M290 292 L290 342 M298 292 L298 342 M286 292 L302 292', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.5, round: true },
+    // Sanmon, o portão
+    { d: 'M150 470 L150 448 M210 470 L210 448 M142 450 L218 450 M146 440 C164 436 196 436 214 440 L214 445 C196 441 164 441 146 445 Z', stroke: MAP_COLORS.ink, width: 3, opacity: 0.5, round: true },
+    // Hōjō e o jardim de pedras (quadrícula)
+    { d: 'M100 400 L150 400 L150 440 L100 440 Z M110 410 L120 410 M130 410 L140 410 M110 420 L120 420 M130 420 L140 420 M110 430 L120 430 M130 430 L140 430', stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.4 },
+  ],
+  trees: [
+    { x: 60, y: 480, s: 20 }, { x: 300, y: 500, s: 22 }, { x: 290, y: 420, s: 20 }, { x: 60, y: 240, s: 22 },
+    { x: 300, y: 200, s: 20 }, { x: 120, y: 200, s: 20 }, { x: 60, y: 120, s: 22 }, { x: 280, y: 110, s: 20 },
+  ],
+  hotspots: [
+    {
+      id: 'estacao',
+      photoCaption: 'A estação Tōfukuji, JR e Keihan, a 10 minutos do portão.',
+      n: 1, x: 60, y: 590, kind: 'station', label: 'Estação Tōfukuji', side: 'right',
+      coords: { lat: 34.9791, lng: 135.7715 },
+      title: 'Estação Tōfukuji',
+      jp: '東福寺駅',
+      facts: 'JR Nara Line, **2 min** da Estação de Kyoto · também Keihan',
+      paragraphs: [
+        'Uma parada depois de Kyoto pela JR. Saindo, siga a multidão para o sul: é 10 minutos de caminhada por ruas de bairro até a ponte de entrada. Na volta, o mesmo trem deixa vocês na Estação de Kyoto com a mala e o Shinkansen.',
+      ],
+    },
+    {
+      id: 'gaunkyo',
+      photoCaption: 'Gaun-kyō: a primeira ponte, de onde se vê a Tsūten-kyō sobre o vale.',
+      n: 2, x: 96, y: 352, kind: 'view', label: 'Gaun-kyō', side: 'left', walk: '12 min',
+      coords: { lat: 34.9774, lng: 135.7729 },
+      title: 'Gaun-kyō — a ponte que olha a outra',
+      jp: '臥雲橋',
+      facts: 'Grátis, é rua pública · proibido parar para foto no pico (há placa e guarda)',
+      paragraphs: [
+        'A primeira das três pontes cobertas sobre o vale, e a única que é rua pública: passa-se por ela a caminho do templo. De dentro, olhando para a esquerda, está **a vista mais fotografada de Tōfuku-ji**: a ponte Tsūten-kyō suspensa sobre o vale vermelho, com o telhado do Kaisandō atrás.',
+        'Em novembro o templo proíbe parar aqui para fotografar (a ponte é de madeira e não aguenta a multidão parada). Às 8h30 não há guarda e não há multidão.',
+      ],
+    },
+    {
+      id: 'sanmon',
+      photoCaption: 'O Sanmon de 1425, o portão zen mais antigo do Japão.',
+      n: 3, x: 180, y: 462, kind: 'gate', label: 'Sanmon', side: 'right', walk: '4 min',
+      coords: { lat: 34.9764, lng: 135.7737 },
+      title: 'Sanmon — o portão mais antigo do zen',
+      jp: '三門',
+      facts: 'De **1425** · Tesouro Nacional · 22 m · só se sobe em datas especiais',
+      paragraphs: [
+        'O templo foi fundado em **1236** pelo regente Kujō Michiie, que quis um templo em Kyoto do tamanho dos dois grandes de Nara: o nome é uma sílaba de cada um (**Tō**-daiji + Kō-**fuku**-ji). Queimou várias vezes; o Sanmon, de 1425, é o **portão de templo zen mais antigo do país** e o único prédio deste tamanho que sobrou do período Muromachi.',
+        'Ao lado, o **Zendō** (salão de meditação) de 1347, o maior e mais antigo do Japão, onde ainda hoje monges em treinamento sentam por horas; e o banheiro medieval, o **Tōsu**, do século XIV, que era comunitário e tinha regras rígidas — o zen levava o cotidiano a sério.',
+      ],
+    },
+    {
+      id: 'hojo',
+      photoCaption: 'O jardim de pedras do Hōjō, de 1939: o xadrez de musgo.',
+      n: 4, x: 128, y: 420, kind: 'temple', label: 'Hōjō', side: 'left', walk: '3 min',
+      coords: { lat: 34.9760, lng: 135.7745 },
+      title: 'Hōjō — o jardim de xadrez',
+      jp: '方丈庭園',
+      facts: '**08:30–16:00** (nov) · ¥500 · quatro jardins em volta do salão do abade',
+      paragraphs: [
+        'Os jardins são de **1939**, do paisagista **Mirei Shigemori**, e foram um escândalo: ele usou as pedras de fundação de prédios demolidos, fez um jardim de pedras com **sete cilindros** representando a Ursa Maior, e no lado norte um **tabuleiro de xadrez de musgo e lajota** que some gradualmente na vegetação. Era o jardim zen entrando no século XX, e hoje é o mais citado do modernismo japonês.',
+        'Deem a volta completa: sul (o oceano de cascalho e as pedras), oeste (o campo de arbustos em quadrados), norte (o xadrez, com o vale de bordos logo atrás da varanda) e leste (a Ursa Maior).',
+      ],
+    },
+    {
+      id: 'tsutenkyo',
+      photoCaption: 'A ponte Tsūten-kyō, o teto de bordos sob os pés.',
+      n: 5, x: 181, y: 340, kind: 'view', label: 'Tsūten-kyō', side: 'right', walk: '2 min',
+      coords: { lat: 34.9769, lng: 135.7742 },
+      title: 'Tsūten-kyō — a ponte para o céu',
+      jp: '通天橋',
+      facts: 'Ingresso do vale **¥1.000** em novembro (¥600 no resto do ano) · 100 m de comprimento',
+      paragraphs: [
+        'A ponte coberta que atravessa o vale a 12 metros de altura, construída em **1380** para os monges irem ao salão do fundador sem descer e subir a ravina. Do meio dela, o vale inteiro fica embaixo: 2.000 bordos, em novembro um tapete vermelho e laranja que parece ter chão.',
+        'Os bordos daqui são em parte de uma variedade trazida da China no século XIV, a **tōkaede**, de folha pequena e três pontas, que amarela em vez de avermelhar — é a mistura de cores que faz a fama do vale. Uma escada no meio da ponte desce ao fundo: caminhem entre as árvores, é a parte silenciosa.',
+      ],
+    },
+    {
+      id: 'kaisando',
+      photoCaption: 'O Kaisandō e seu jardim dividido ao meio.',
+      n: 6, x: 236, y: 220, kind: 'hall', label: 'Kaisandō', side: 'right', walk: '5 min',
+      coords: { lat: 34.9773, lng: 135.7755 },
+      title: 'Kaisandō — o salão do fundador',
+      jp: '開山堂',
+      facts: 'Fim da ponte · o jardim tem dois estilos, um em cada metade',
+      paragraphs: [
+        'O salão que guarda a estátua de **Enni Ben\'en**, o monge fundador, que estudou na China e voltou em 1241 trazendo, além do zen, as sementes de chá que deram origem às plantações de Shizuoka — e a receita do udon, dizem em Fukuoka.',
+        'O jardim na frente é **dividido ao meio**: metade cascalho rastelado em xadrez, metade lago com pedras e vegetação. Não é indecisão: é o Muromachi (o lago) e o Edo (o cascalho) lado a lado, um jardim que mostra dois séculos de ideia sobre o que é um jardim.',
+      ],
+    },
+    {
+      id: 'engetsukyo',
+      photoCaption: 'A Engetsu-kyō, a terceira ponte, do lado de fora do ingresso.',
+      n: 7, x: 300, y: 296, kind: 'view', label: 'Engetsu-kyō', side: 'left', walk: '6 min',
+      coords: { lat: 34.9760, lng: 135.7768 },
+      title: 'Engetsu-kyō — a ponte esquecida',
+      jp: '偃月橋',
+      facts: 'Bem Cultural Importante, de **1603** · grátis · quase ninguém vai',
+      paragraphs: [
+        'A terceira ponte coberta, a mais antiga das três (a Tsūten-kyō é uma reconstrução de 1961), a leste do recinto, fora do circuito pago. Leva ao subtemplo Sokushū-in e a nada mais, e por isso fica vazia enquanto as outras duas estão cheias.',
+        'É a ponte para tirar a foto **da** ponte: com telhado de telha, corrimão de madeira escura e o vale embaixo, sem ninguém. Dez minutos de desvio que valem o dia.',
+      ],
+    },
+    {
+      id: 'komyoin',
+      photoCaption: 'Kōmyō-in, o jardim de pedras e musgo onde nunca tem gente.',
+      n: 8, x: 60, y: 200, kind: 'temple', label: 'Kōmyō-in', side: 'right', walk: '8 min',
+      coords: { lat: 34.9748, lng: 135.7720 },
+      title: 'Kōmyō-in — o outro jardim de Shigemori',
+      jp: '光明院',
+      facts: '**07:00–17:00** · ¥500 (caixa de contribuição) · subtemplo ao sul',
+      paragraphs: [
+        'Um subtemplo minúsculo com um jardim do mesmo Mirei Shigemori (1939): **musgo, cascalho e pedras em pé** apontando para o mesmo lugar, como raios de luz saindo de uma fonte — o nome é "templo da luz brilhante". Senta-se no tatame da varanda e não há mais nada a fazer.',
+        'Está a 8 minutos a pé do templo principal, na direção da estação, e não entra em nenhum roteiro de ônibus. Se sobrar meia hora antes do trem, é a meia hora certa.',
+      ],
+    },
+  ],
+  legend: 'Vermelho = o vale de bordos · azul = o riacho no fundo · traços pretos = as três pontes cobertas · faixa cinza = o percurso',
+};
+
+const kinkakuji: PlaceMap = {
+  id: 'kinkakuji',
+  coverHotspotId: 'pavilhao',
+  stopId: 'd29-kinkakuji',
+  dayId: 'd2026-11-29',
+  title: 'Kinkaku-ji e Ryōan-ji',
+  jp: '金閣寺 · 龍安寺',
+  subtitle: 'O Pavilhão Dourado e o jardim de quinze pedras, a 20 minutos um do outro',
+  intro: [
+    'Dois lugares que se fazem em sequência, no noroeste de Kyoto, depois de Arashiyama: o **Pavilhão Dourado**, que é uma volta de 30 minutos num circuito de mão única em torno do lago, e **Ryōan-ji**, o jardim de pedras mais famoso do mundo, onde a coisa a fazer é sentar.',
+    'Entre os dois são 20 minutos a pé pela **Kinukake-no-michi**, a "estrada da seda", ou 5 minutos de ônibus 59. Se estiverem sem pernas, ônibus; se estiver bonito, a pé.',
+  ],
+  viewBox: '0 0 360 640',
+  scenery: [
+    { d: 'M20 40 L340 40 L340 630 L20 630 Z', fill: MAP_COLORS.forest, opacity: 0.08 },
+    // o lago-espelho de Kinkaku-ji
+    { d: 'M110 130 C170 110 260 120 280 160 C300 200 260 240 200 236 C140 232 90 200 110 130 Z', fill: MAP_COLORS.water, opacity: 0.3 },
+    // ilhas do lago
+    { d: 'M170 170 a8 6 0 1 0 16 0 a8 6 0 1 0 -16 0 M210 200 a6 4 0 1 0 12 0 a6 4 0 1 0 -12 0', fill: MAP_COLORS.forest, opacity: 0.5 },
+    // o pavilhão, na margem (dourado)
+    { d: 'M116 168 L152 168 L152 148 L120 148 Z M120 148 L148 148 L145 134 L123 134 Z M124 134 L144 134 L134 120 Z', fill: MAP_COLORS.gold, opacity: 0.85, stroke: MAP_COLORS.ink, width: 1, round: true },
+    // circuito de mão única em volta do lago
+    { d: 'M90 260 C60 200 90 110 160 96 C230 84 310 120 300 190 C292 240 240 270 190 268', stroke: MAP_COLORS.muted, width: 11, opacity: 0.3, round: true },
+    // Kinukake-no-michi, a ligação
+    { d: 'M190 268 C190 330 150 380 140 440', stroke: MAP_COLORS.muted, width: 9, dash: '10 8', opacity: 0.3, round: true },
+    // Ryōan-ji: lago Kyōyōchi e o retângulo do jardim de pedras
+    { d: 'M40 560 C70 520 150 520 190 550 C220 575 190 610 130 606 C80 602 30 590 40 560 Z', fill: MAP_COLORS.water, opacity: 0.3 },
+    { d: 'M210 470 L320 470 L320 520 L210 520 Z', fill: MAP_COLORS.paper, stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.8 },
+    { d: 'M228 486 a5 4 0 1 0 10 0 a5 4 0 1 0 -10 0 M262 496 a4 3 0 1 0 8 0 a4 3 0 1 0 -8 0 M296 484 a4 3 0 1 0 8 0 a4 3 0 1 0 -8 0 M244 508 a3 2 0 1 0 6 0 a3 2 0 1 0 -6 0 M290 506 a3 2 0 1 0 6 0 a3 2 0 1 0 -6 0', fill: MAP_COLORS.ink, opacity: 0.55 },
+  ],
+  trees: [
+    { x: 60, y: 90, s: 22 }, { x: 320, y: 90, s: 20 }, { x: 320, y: 260, s: 22 }, { x: 60, y: 320, s: 20 },
+    { x: 260, y: 340, s: 22 }, { x: 80, y: 420, s: 20 }, { x: 250, y: 420, s: 18 }, { x: 40, y: 500, s: 20 }, { x: 310, y: 580, s: 22 },
+  ],
+  hotspots: [
+    {
+      id: 'entrada',
+      photoCaption: 'O portão de Kinkaku-ji, com a fila de ônibus de excursão na frente.',
+      n: 1, x: 90, y: 262, kind: 'gate', label: 'Entrada', side: 'right',
+      coords: { lat: 35.0389, lng: 135.7285 },
+      title: 'A entrada de Kinkaku-ji — e o ingresso que é um amuleto',
+      jp: '金閣寺 総門',
+      facts: '**09:00–17:00** · ¥500 · o ingresso é um **ofuda** caligrafado, guardem',
+      paragraphs: [
+        'O ingresso é uma tira de papel com caligrafia a pincel: é um **ofuda**, amuleto de proteção da casa, não um bilhete. Dobrem com cuidado, ele vai para a parede de casa. O nome oficial do templo é **Rokuon-ji**, "templo do jardim dos cervos"; Kinkaku-ji é o apelido pelo pavilhão.',
+        'O circuito é de **mão única** e dura uns 30 minutos: lago, pavilhão de três ângulos, jardim, casa de chá, saída pelas lojas. Não dá para voltar, então a foto é na primeira curva.',
+      ],
+    },
+    {
+      id: 'pavilhao',
+      photoCaption: 'O Pavilhão Dourado refletido no Kyōko-chi, o lago-espelho.',
+      n: 2, x: 134, y: 100, kind: 'hall', label: 'Pavilhão Dourado', side: 'left', walk: '3 min',
+      coords: { lat: 35.0394, lng: 135.7292 },
+      title: 'O Pavilhão Dourado — a reconstrução de 1955',
+      jp: '金閣',
+      facts: 'Ouro em folha em dois dos três andares · Patrimônio Mundial · o original queimou em **1950**',
+      paragraphs: [
+        'Foi a vila de aposentadoria do xogum **Ashikaga Yoshimitsu**, construída em **1397** — o homem que unificou as duas cortes imperiais, negociou com a China e mandou construir a Kyoto do teatro nō e do chá. Virou templo quando ele morreu, em 1408. Cada andar é de um estilo: o térreo é palácio Heian, o meio é casa de samurai, o alto é templo zen chinês. Uma biografia em três pisos.',
+        'Em **1950 um noviço de 21 anos incendiou o pavilhão** e tentou se matar em seguida. O caso virou o romance *O Pavilhão Dourado*, de Yukio Mishima. O prédio atual é de 1955, e em 1987 recebeu uma camada de ouro **cinco vezes mais grossa** que a original, com 20 kg de folha, para não descascar mais. A fênix de bronze no topo é a única peça que sobreviveu ao fogo — estava fora para restauro.',
+        'O reflexo no **Kyōko-chi**, o lago-espelho, é a imagem. De manhã cedo, com o sol batendo do leste, o pavilhão dourado dobra na água; à tarde a luz vem de trás e ele vira silhueta.',
+      ],
+    },
+    {
+      id: 'lago',
+      photoCaption: 'As ilhas e pedras do lago, cada uma doada por um senhor feudal.',
+      n: 3, x: 250, y: 100, kind: 'water', label: 'O lago', side: 'left', walk: '2 min',
+      coords: { lat: 35.0393, lng: 135.7297 },
+      title: 'Kyōko-chi — o lago com as pedras dos senhores',
+      jp: '鏡湖池',
+      facts: 'Dez ilhas · as pedras têm nome e doador',
+      paragraphs: [
+        'O lago é um mapa do mundo budista em miniatura, com a **ilha maior representando o Japão** e as menores as ilhas dos imortais. As pedras isoladas foram **presentes de senhores feudais** ao xogum, e cada uma tem o nome do doador: a de Hosokawa, a de Akamatsu. Dar uma pedra bonita era política.',
+        'Da margem oposta ao pavilhão, o ângulo com as ilhas na frente é o que os japoneses consideram a vista correta: a paisagem foi composta para ser vista dali, com o Monte Kinugasa "emprestado" ao fundo.',
+      ],
+    },
+    {
+      id: 'sekkatei',
+      photoCaption: 'A casa de chá Sekkatei, no alto do jardim.',
+      n: 4, x: 290, y: 200, kind: 'view', label: 'Sekkatei', side: 'left', walk: '8 min',
+      coords: { lat: 35.0399, lng: 135.7305 },
+      title: 'Sekkatei — a casa de chá e a vista de cima',
+      jp: '夕佳亭',
+      facts: 'No alto do circuito · matcha na casa ao lado, ¥500',
+      paragraphs: [
+        'O circuito sobe a encosta e chega a uma casa de chá do século XVII, a **Sekkatei**, "pavilhão do belo pôr do sol": foi construída para ver o pavilhão dourado com a luz da tarde, de cima. Tem um pilar de nandina, arbusto que raramente cresce até virar tronco.',
+        'Na casa ao lado servem **matcha com um doce em forma de pavilhão**, sentados de frente para o jardim. Cinco minutos que o ônibus de excursão não tem.',
+      ],
+    },
+    {
+      id: 'kinukake',
+      photoCaption: 'A Kinukake-no-michi, a estrada entre os três templos.',
+      n: 5, x: 165, y: 350, kind: 'view', label: 'Kinukake-no-michi', side: 'right', walk: '5 min',
+      coords: { lat: 35.0360, lng: 135.7240 },
+      title: 'Kinukake-no-michi — a estrada da seda',
+      jp: 'きぬかけの路',
+      facts: '**20 min a pé** até Ryōan-ji, ou ônibus 59 (5 min) · Ninna-ji fica mais 10 min adiante',
+      paragraphs: [
+        'O nome vem de um imperador do século IX que, querendo ver neve no verão, mandou **cobrir a montanha Kinugasa de seda branca**. A estrada margeia essa montanha e liga três Patrimônios Mundiais em fila: Kinkaku-ji, Ryōan-ji e Ninna-ji.',
+        'A pé são 20 minutos de calçada sem graça e com bordos; de ônibus, 5. Se sobrar tempo depois de Ryōan-ji, **Ninna-ji** (mais 10 min) tem um portão enorme e um pomar de cerejeiras anãs, e é sempre vazio.',
+      ],
+    },
+    {
+      id: 'ryoanji-lago',
+      photoCaption: 'O lago Kyōyōchi de Ryōan-ji, com os bordos de novembro.',
+      n: 6, x: 110, y: 560, kind: 'water', label: 'Lago de Ryōan-ji', side: 'right', walk: '20 min',
+      coords: { lat: 35.0338, lng: 135.7186 },
+      title: 'Ryōan-ji — o lago que veio antes do jardim',
+      jp: '龍安寺 鏡容池',
+      facts: '**08:00–17:00** · ¥600 · Patrimônio Mundial',
+      paragraphs: [
+        'Antes de ser templo zen, isto era a vila de um aristocrata, e o lago **Kyōyōchi** é do século XII — bem mais velho que o jardim famoso. Patos-mandarim, lótus no verão, bordos agora. A maioria passa reto, correndo para as pedras; a volta pelo lago é a parte bonita e vazia.',
+        'O templo foi fundado em **1450** por Hosokawa Katsumoto, o general de um dos lados da Guerra Ōnin, que queimou o lugar oito anos depois. O jardim de pedras é de logo depois da reconstrução, por volta de 1500, e ninguém sabe quem o fez.',
+      ],
+    },
+    {
+      id: 'pedras',
+      photoCaption: 'O jardim de pedras: quinze, e de nenhum lugar se veem todas.',
+      n: 7, x: 265, y: 496, kind: 'stone', label: 'As quinze pedras', side: 'left', walk: '3 min',
+      coords: { lat: 35.0345, lng: 135.7183 },
+      title: 'O jardim de pedras — quinze, e nunca todas',
+      jp: '石庭',
+      facts: '25 m × 10 m · 15 pedras em 5 grupos · cascalho rastelado toda manhã',
+      paragraphs: [
+        'Um retângulo de cascalho branco, cinco grupos de pedras com musgo em volta, um muro de barro e nada mais. Não há árvore, água, nem explicação: o templo nunca disse o que o jardim representa, e essa recusa é parte do jardim. Tigres atravessando um rio, ilhas num oceano, montanhas na neblina — cada visitante traz a sua.',
+        'O detalhe verificável: **de qualquer ponto da varanda só se veem 14 pedras**. Uma sempre fica escondida atrás de outra. A tradição diz que só quem atingiu a iluminação vê as quinze. O muro de barro, misturado com óleo de colza, escureceu de forma irregular em 500 anos e é considerado tão parte da obra quanto as pedras.',
+        'O que fazer: sentar na varanda de madeira, no fim, onde a multidão rareia, e ficar 10 minutos. Não é para entender. Às 15h de um domingo de novembro vai ter gente; ainda assim, funciona.',
+      ],
+    },
+    {
+      id: 'tsukubai',
+      photoCaption: 'A tsukubai de Ryōan-ji: "só sei que tenho o bastante".',
+      n: 8, x: 320, y: 560, kind: 'stone', label: 'Tsukubai', side: 'left', walk: '2 min',
+      coords: { lat: 35.0348, lng: 135.7188 },
+      title: 'A tsukubai — a bacia que ensina a ler',
+      jp: '知足の蹲踞',
+      facts: 'Atrás do salão do abade, no caminho da saída · a original está guardada; esta é réplica',
+      paragraphs: [
+        'Uma bacia de pedra redonda com um quadrado escavado no centro, cheio de água. Em volta do quadrado, quatro caracteres: 五, 隹, 疋, 矢. Sozinhos não dizem nada. Mas se o quadrado do centro (que é o caractere 口, "boca") for lido como parte de cada um, viram **吾唯足知**: "só sei que tenho o bastante".',
+        'É um trocadilho zen esculpido em pedra, e a frase é o templo inteiro resumido: o jardim não tem árvore, a bacia não tem enfeite, e é o suficiente. Foi doação de Tokugawa Mitsukuni, o senhor feudal que virou personagem de TV.',
+      ],
+    },
+  ],
+  legend: 'Azul = o lago-espelho e o lago de Ryōan-ji · dourado = o pavilhão · faixa cinza = o circuito de mão única · tracejado = a Kinukake-no-michi',
+};
+
+const sumiyoshi: PlaceMap = {
+  id: 'sumiyoshi',
+  coverHotspotId: 'sorihashi',
+  stopId: 'd27-sumiyoshi',
+  dayId: 'd2026-11-27',
+  title: 'Sumiyoshi Taisha',
+  jp: '住吉大社',
+  subtitle: 'O santuário de antes do budismo, a ponte arqueada e as pedras da sorte',
+  intro: [
+    'Sumiyoshi é o santuário mais antigo de Osaka (**ano 211**, diz a tradição) e o mais estranho: os quatro salões principais são de um estilo **anterior à chegada do budismo**, sem curva no telhado, sem pintura chinesa, e olham para o oeste, para o mar que já não está ali. Entra-se pelo oeste, cruzando a ponte arqueada, e vai-se andando para dentro.',
+    'É de manhã cedo, vazio e de graça: 40 minutos bem gastos. Toquem nos pontos para saber o que é cada coisa e não deixem de procurar as **três pedrinhas** no cascalho do Goshogozen.',
+  ],
+  viewBox: '0 0 360 620',
+  scenery: [
+    { d: 'M20 40 L340 40 L340 610 L20 610 Z', fill: MAP_COLORS.forest, opacity: 0.07 },
+    // linha do bonde Hankai, ao longo da rua do oeste
+    { d: 'M78 60 L78 600', stroke: MAP_COLORS.water, width: 3, dash: '10 6', opacity: 0.45 },
+    // lago da ponte arqueada
+    { d: 'M108 260 C130 250 160 250 182 260 C190 290 190 320 182 350 C160 360 130 360 108 350 C100 320 100 290 108 260 Z', fill: MAP_COLORS.water, opacity: 0.3 },
+    // a ponte arqueada, em vermelho
+    { d: 'M112 306 C130 268 160 268 178 306', stroke: MAP_COLORS.vermilion, width: 5, opacity: 0.8, round: true },
+    // sandō: estação → ponte → torii → salões
+    { d: 'M40 400 L40 306 L108 306 M182 306 L300 306', stroke: MAP_COLORS.muted, width: 14, opacity: 0.28, round: true },
+    // caminho para o sul: Goshogozen, Nankun-sha, Ōtoshi-sha
+    { d: 'M250 320 C250 380 220 420 200 460 C186 490 190 530 200 570', stroke: MAP_COLORS.muted, width: 10, opacity: 0.25, round: true },
+    // torii de pedra (pilares quadrados)
+    { d: 'M204 290 L204 322 M216 290 L216 322 M198 292 L222 292 M200 300 L220 300', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.6, round: true },
+    // os quatro salões: três em fila (oeste-leste) e um ao lado
+    { d: 'M272 292 L296 292 L296 320 L272 320 Z', fill: MAP_COLORS.paper, stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.85 },
+    { d: 'M302 292 L326 292 L326 320 L302 320 Z', fill: MAP_COLORS.paper, stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.85 },
+    { d: 'M242 292 L266 292 L266 320 L242 320 Z', fill: MAP_COLORS.paper, stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.85 },
+    { d: 'M242 328 L266 328 L266 356 L242 356 Z', fill: MAP_COLORS.paper, stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.85 },
+    // telhados retos, chifres em X
+    { d: 'M270 290 L282 282 L298 290 M300 290 L312 282 L328 290 M240 290 L252 282 L268 290 M240 326 L252 318 L268 326', stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.6, round: true },
+    // cerca do Goshogozen
+    { d: 'M228 396 L272 396 L272 432 L228 432 Z', stroke: MAP_COLORS.ink, width: 1.5, dash: '3 3', opacity: 0.5 },
+  ],
+  trees: [
+    { x: 300, y: 100, s: 24 }, { x: 250, y: 140, s: 20 }, { x: 310, y: 200, s: 20 }, { x: 130, y: 180, s: 22 },
+    { x: 130, y: 420, s: 22 }, { x: 300, y: 420, s: 20 }, { x: 310, y: 520, s: 22 }, { x: 120, y: 540, s: 20 },
+  ],
+  hotspots: [
+    {
+      id: 'estacao',
+      photoCaption: 'A estação Sumiyoshitaisha da Nankai, a um quarteirão do torii.',
+      n: 1, x: 40, y: 400, kind: 'station', label: 'Est. Sumiyoshitaisha', side: 'right',
+      coords: { lat: 34.6121, lng: 135.4914 },
+      title: 'Estação Sumiyoshitaisha',
+      jp: '住吉大社駅',
+      facts: 'Nankai Main Line, **10 min** de Namba (trem local) · saída leste',
+      paragraphs: [
+        'De Namba, qualquer trem local ou semi-expresso da Nankai para aqui; os expressos não. Saindo pela leste, o torii está a 3 minutos: é só atravessar a rua do bonde.',
+        'Guardem a mala nos armários de Namba antes de vir, ou façam a visita com ela: o santuário é plano e de cascalho fino, e a manhã inteira tem 2 km de andança.',
+      ],
+    },
+    {
+      id: 'bonde',
+      photoCaption: 'O bonde Hankai passando na frente do santuário.',
+      n: 2, x: 78, y: 220, kind: 'station', label: 'Bonde Hankai', side: 'right', walk: '2 min',
+      coords: { lat: 34.6126, lng: 135.4928 },
+      title: 'O bonde Hankai — o último de Osaka',
+      jp: '阪堺電車 · 住吉鳥居前',
+      facts: 'Desde **1911** · ¥230 fixo · parada Sumiyoshi-toriimae, na porta do torii',
+      paragraphs: [
+        'A única linha de bonde que sobrou em Osaka, com carros dos anos 1950 e 60 ainda em serviço e alguns pintados com propaganda antiga. Passa rente ao torii principal, o que rende **a foto clássica do santuário**: bonde verde, torii de pedra, telhado reto atrás.',
+        'Se sobrar tempo: o bonde vai até Tennōji em 25 minutos, sacolejando por bairros de casa baixa. É Osaka de outra época por ¥230.',
+      ],
+    },
+    {
+      id: 'sorihashi',
+      photoCaption: 'A Sorihashi, a ponte arqueada que se atravessa para purificar.',
+      n: 3, x: 145, y: 280, kind: 'water', label: 'Sorihashi', side: 'left', walk: '3 min',
+      coords: { lat: 34.6127, lng: 135.4936 },
+      title: 'Sorihashi — a ponte-arco',
+      jp: '反橋 · 太鼓橋',
+      facts: '20 m de vão, **inclinação de 48°** no ponto mais íngreme · laca vermelha · há corrimão',
+      paragraphs: [
+        'A "ponte de tambor" sobre o lago da entrada. Atravessá-la é considerado purificação antes de chegar aos deuses, e a forma é o motivo: a subida é tão íngreme que obriga a andar curvado, olhando os degraus, e a descida obriga a ir devagar. Quem chega ao outro lado chegou humilde.',
+        'A atual é uma reconstrução em concreto de 1981 com a forma do original; a lenda diz que a primeira foi doada por **Yodo-dono**, a viúva de Hideyoshi, no início do século XVII. Vale a pena voltar e olhá-la de fora, do lado do lago: o arco refletido na água fecha um círculo.',
+      ],
+    },
+    {
+      id: 'torii',
+      photoCaption: 'O torii de pilares quadrados, o "Sumiyoshi-torii".',
+      n: 4, x: 210, y: 306, kind: 'torii', label: 'Torii', side: 'left', walk: '1 min',
+      coords: { lat: 34.6126, lng: 135.4943 },
+      title: 'O torii de pilares quadrados',
+      jp: '住吉鳥居 · 角鳥居',
+      facts: 'Estilo **sumiyoshi-torii**: pilares de seção quadrada, não redonda · pedra',
+      paragraphs: [
+        'Os torii do Japão inteiro têm pilares redondos. Estes são **quadrados**, e o estilo leva o nome do santuário. Não há explicação certa; a mais aceita é que seja simplesmente mais antigo, de quando ninguém tinha decidido ainda como se faz um torii.',
+        'Dele em diante está-se dentro do recinto sagrado: os quatro salões ficam logo atrás, cada um dentro da própria cerca.',
+      ],
+    },
+    {
+      id: 'honden',
+      photoCaption: 'Os salões em sumiyoshi-zukuri: telhado reto, madeira crua, chifres em X.',
+      n: 5, x: 284, y: 344, kind: 'hall', label: 'Os 4 salões', side: 'left', walk: '2 min',
+      coords: { lat: 34.6122, lng: 135.4948 },
+      title: 'Os quatro salões — o Japão de antes',
+      jp: '本宮 · 住吉造',
+      facts: 'Tesouro Nacional · reconstruídos em **1810** · três em fila e um ao lado, todos olhando para o mar',
+      paragraphs: [
+        'O estilo se chama **sumiyoshi-zukuri** e é, com o de Ise e o de Izumo, um dos três mais antigos do país, de antes de o budismo chegar da China no século VI: **telhado reto** de casca de cipreste, nada de curva, paredes de madeira crua com faixas de laca vermelha, e os "chifres" cruzados (*chigi*) na cumeeira. Nada de dourado, nada de escultura: é um celeiro de arroz elevado à condição de casa de deus.',
+        'São quatro, porque são quatro deuses: os três **Sumiyoshi**, protetores dos marinheiros e dos poetas, em fila, um atrás do outro como barcos numa frota; e a **Imperatriz Jingū**, a fundadora lendária, ao lado. Todos olham para o oeste, para o mar: o santuário ficava na praia quando foi construído, e Osaka aterrou 5 km entre ele e a água.',
+        'Os prédios eram refeitos a cada 20 anos, como em Ise; os atuais são de 1810 e foram os últimos, o que os torna os salões desse estilo mais antigos que existem.',
+      ],
+    },
+    {
+      id: 'goshogozen',
+      photoCaption: 'O Goshogozen: entre o cascalho há pedrinhas com um caractere escrito.',
+      n: 6, x: 250, y: 414, kind: 'stone', label: 'Goshogozen', side: 'left', walk: '3 min',
+      coords: { lat: 34.6116, lng: 135.4947 },
+      title: 'Goshogozen — as pedras dos cinco poderes',
+      jp: '五所御前 · 五大力',
+      facts: 'Um cercado de pedra com cascalho · procurar **三 pedrinhas**: 五, 大 e 力',
+      paragraphs: [
+        'É o lugar onde, conta-se, os deuses desceram e o santuário foi fundado: um cercado de pedra com uma pedra em pé e cascalho em volta. E dentro do cascalho há pedrinhas com **um caractere pintado**: 五 (cinco), 大 (grande) e 力 (força). Quem acha as três e as guarda juntas num saquinho (¥300 no escritório do santuário) tem os "cinco grandes poderes": saúde, sabedoria, sorte, fortuna e longevidade.',
+        'É uma caça ao tesouro real, agachados, e de manhã cedo é mais fácil porque ninguém revirou o cascalho ainda. Quando o desejo se realiza, a regra é devolver as três, com mais três novas, escritas por vocês: por isso sempre há pedrinhas.',
+      ],
+    },
+    {
+      id: 'nankun',
+      photoCaption: 'Nankun-sha, o subsantuário dos gatos que acenam.',
+      n: 7, x: 200, y: 472, kind: 'temple', label: 'Nankun-sha', side: 'right', walk: '3 min',
+      coords: { lat: 34.6108, lng: 135.4938 },
+      title: 'Nankun-sha — os gatos dos comerciantes',
+      jp: '楠珺社',
+      facts: 'Subsantuário em volta de um cânfora de **1.000 anos** · gatinhos de cerâmica, ¥500',
+      paragraphs: [
+        'Um santuário em torno de uma árvore de cânfora de mil anos, dedicado à prosperidade nos negócios. Os comerciantes de Osaka vêm no início de cada mês comprar um **gato de cerâmica** que acena: a pata esquerda levantada atrai clientes, a direita atrai dinheiro. A cada mês compra-se um gato pequeno; depois de 48 meses, os 48 gatos são trocados por um grande. Osaka é a cidade dos comerciantes, e as prateleiras daqui são a prova.',
+        'É um dos lugares mais fotogênicos do recinto, com centenas de gatinhos enfileirados nas prateleiras de madeira.',
+      ],
+    },
+    {
+      id: 'omokaru',
+      photoCaption: 'A omokaru-ishi, a pedra que fica leve ou pesada conforme o desejo.',
+      n: 8, x: 200, y: 570, kind: 'stone', label: 'Omokaru-ishi', side: 'right', walk: '4 min',
+      coords: { lat: 34.6096, lng: 135.4936 },
+      title: 'Omokaru-ishi — a pedra que pesa o desejo',
+      jp: 'おもかる石 · 大歳社',
+      facts: 'No subsantuário Ōtoshi-sha, fora do recinto, ao sul · grátis',
+      paragraphs: [
+        'Três pedras redondas sobre um pedestal, no pequeno Ōtoshi-sha, do outro lado da rua ao sul. O ritual: levante uma pedra e sinta o peso; ponha de volta, faça o pedido, passe a mão nela e levante de novo. Se estiver **mais leve** que da primeira vez, o desejo se realiza; se estiver mais pesada, vai dar trabalho.',
+        'É o mesmo ritual da pedra de Fushimi Inari, que vocês vão ver à tarde — mas aqui não tem fila. Dali, voltar à estação são 8 minutos pela rua do bonde.',
+      ],
+    },
+  ],
+  legend: 'Azul tracejado = o bonde Hankai · vermelho = a ponte arqueada · caixas = os quatro salões · faixa cinza = o percurso',
+};
+
+const casteloOsaka: PlaceMap = {
+  id: 'castelo-osaka',
+  coverHotspotId: 'tenshu',
+  stopId: 'd26-castelo-osaka',
+  dayId: 'd2026-11-26',
+  title: 'Castelo de Osaka',
+  jp: '大阪城',
+  subtitle: 'Dois fossos, muralhas de 30 metros e uma pedra de 108 toneladas, na ordem de quem entra pelo oeste',
+  intro: [
+    'O castelo é um **alvo dentro de um alvo**: fosso externo, muralha, fosso interno, muralha, torreão. Tudo de pedra é do século XVII (o castelo Tokugawa, construído por cima do de Hideyoshi); o torreão é de 1931 e tem elevador. Entra-se pelo portão Ōtemon, a oeste, e o percurso natural sobe em espiral.',
+    'A ordem sugerida: **Ōtemon → Nishinomaru (vista) → Sakuramon e a pedra-polvo → torreão → Hōkoku-jinja**, saindo pelo leste para a estação ou por Aoyamon. É uma manhã inteira caminhando; 2 h bastam para fazer tudo com calma.',
+  ],
+  viewBox: '0 0 360 640',
+  scenery: [
+    { d: 'M20 40 L340 40 L340 630 L20 630 Z', fill: MAP_COLORS.forest, opacity: 0.07 },
+    // fosso externo
+    { d: 'M40 120 L320 120 L320 600 L40 600 Z', stroke: MAP_COLORS.water, width: 16, opacity: 0.32, fill: 'none' },
+    // fosso interno
+    { d: 'M120 200 L300 200 L300 460 L120 460 Z', stroke: MAP_COLORS.water, width: 14, opacity: 0.32, fill: 'none' },
+    // muralhas (linha escura logo dentro dos fossos)
+    { d: 'M52 132 L308 132 L308 588 L52 588 Z', stroke: MAP_COLORS.ink, width: 2, opacity: 0.35, fill: 'none' },
+    { d: 'M130 210 L290 210 L290 450 L130 450 Z', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.45, fill: 'none' },
+    // Nishinomaru, o gramado a oeste
+    { d: 'M60 260 L110 260 L110 440 L60 440 Z', fill: MAP_COLORS.forest, opacity: 0.2 },
+    // o torreão (base branca, telhados verdes, topo dourado)
+    { d: 'M190 296 L230 296 L230 330 L190 330 Z', fill: MAP_COLORS.paper, stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.9 },
+    { d: 'M186 296 L234 296 L226 288 L194 288 Z M192 288 L228 288 L222 278 L198 278 Z M198 278 L222 278 L216 268 L204 268 Z', fill: MAP_COLORS.forest, stroke: MAP_COLORS.ink, width: 1, opacity: 0.75, round: true },
+    { d: 'M206 268 L214 268 L210 258 Z', fill: MAP_COLORS.gold, opacity: 0.95 },
+    // percurso: Ōtemon → Nishinomaru → Sakuramon → torreão → Hōkoku → leste
+    { d: 'M40 500 L86 500 C100 480 100 360 90 330 C120 330 170 340 200 380 L210 410 L210 340 M210 380 L260 380 C290 380 300 300 300 264 L320 264', stroke: MAP_COLORS.muted, width: 10, opacity: 0.28, round: true },
+    // pontes sobre os fossos
+    { d: 'M32 500 L58 500', stroke: MAP_COLORS.gold, width: 5, opacity: 0.7, round: true },
+    { d: 'M210 452 L210 470', stroke: MAP_COLORS.gold, width: 5, opacity: 0.7, round: true },
+    { d: 'M210 194 L210 212', stroke: MAP_COLORS.gold, width: 5, opacity: 0.7, round: true },
+    { d: 'M292 264 L318 264', stroke: MAP_COLORS.gold, width: 5, opacity: 0.7, round: true },
+    // linha do trem, a leste
+    { d: 'M296 64 L340 110 L340 640', stroke: MAP_COLORS.water, width: 3, dash: '10 6', opacity: 0.45 },
+  ],
+  trees: [
+    { x: 80, y: 180, s: 20 }, { x: 260, y: 170, s: 20 }, { x: 150, y: 560, s: 22 }, { x: 250, y: 560, s: 22 },
+    { x: 80, y: 300, s: 18 }, { x: 80, y: 400, s: 18 }, { x: 150, y: 250, s: 16 }, { x: 270, y: 430, s: 16 },
+  ],
+  hotspots: [
+    {
+      id: 'otemon',
+      photoCaption: 'Ōtemon, o portão principal de 1628, sobre o fosso externo.',
+      n: 1, x: 44, y: 500, kind: 'gate', label: 'Ōtemon', side: 'right',
+      coords: { lat: 34.6851, lng: 135.5222 },
+      title: 'Ōtemon — o portão de 1628',
+      jp: '大手門',
+      facts: 'Bem Cultural Importante · o mais antigo do castelo · 12 min do metrô Tanimachi 4-chōme',
+      paragraphs: [
+        'O portão principal, de **1628**, com um segundo portão em ângulo reto logo atrás (a "caixa" *masugata*): quem entrasse à força ficava preso num pátio, alvejado de três lados. Todo castelo japonês tem essa entrada dobrada; esta é uma das que sobreviveram intactas.',
+        'Reparem no pilar do portão interno: há um remendo de carpintaria em **encaixe impossível**, uma emenda de madeira sem prego que ninguém consegue explicar como foi feita — um enigma de carpinteiro de 1848.',
+      ],
+    },
+    {
+      id: 'nishinomaru',
+      photoCaption: 'O torreão visto do jardim Nishinomaru, o ângulo clássico.',
+      n: 2, x: 86, y: 350, kind: 'view', label: 'Nishinomaru', side: 'right', walk: '4 min',
+      coords: { lat: 34.6858, lng: 135.5237 },
+      title: 'Nishinomaru — a vista do torreão',
+      jp: '西の丸庭園',
+      facts: '**09:00–17:00** · ¥200 · gramado de 6,5 ha, bordo e ginkgo em novembro',
+      paragraphs: [
+        'O jardim ocidental, onde ficava a residência de **Nene**, a viúva de Hideyoshi. Hoje é um gramado enorme com o torreão inteiro à vista por cima do fosso interno e da muralha, sem prédio na frente: **a foto do castelo é daqui**. Em novembro os ginkgos ao redor ficam amarelos.',
+        'Vale os ¥200 pelos 15 minutos de vista limpa; os 600 cerejeiras daqui são o motivo de o parque lotar em abril.',
+      ],
+    },
+    {
+      id: 'sakuramon',
+      photoCaption: 'A Tako-ishi, a pedra-polvo de 108 toneladas, no portão Sakuramon.',
+      n: 3, x: 210, y: 470, kind: 'stone', label: 'Sakuramon · Tako-ishi', side: 'right', walk: '6 min',
+      coords: { lat: 34.6863, lng: 135.5256 },
+      title: 'Sakuramon e a pedra-polvo',
+      jp: '桜門 · 蛸石',
+      facts: 'A maior pedra do castelo: **108 toneladas**, 5,5 × 11,7 m · veio da ilha de Shōdoshima',
+      paragraphs: [
+        'Passando o portão Sakuramon, na parede do pátio interno, está a **Tako-ishi**, "pedra-polvo", pelo desenho de mancha que parece um polvo no canto esquerdo. São 108 toneladas de granito, 60 m² de face, trazidas de barco de uma ilha a 100 km e arrastadas morro acima com troncos e cordas por milhares de homens.',
+        'Cada daimyō do Japão foi obrigado a mandar pedras e homens para a reconstrução Tokugawa (1620–29). Era de propósito: gastar o dinheiro dos senhores feudais para que não sobrasse para exércitos. Os brasões gravados nas pedras das muralhas são as "assinaturas" de cada clã que entregou a sua cota.',
+      ],
+    },
+    {
+      id: 'tenshu',
+      photoCaption: 'O torreão de 1931, cinco andares de concreto com tigres dourados.',
+      n: 4, x: 210, y: 314, kind: 'hall', label: 'Torreão', side: 'right', walk: '3 min',
+      coords: { lat: 34.6873, lng: 135.5262 },
+      title: 'Tenshu — o torreão do povo',
+      jp: '天守閣',
+      facts: '**09:00–17:00** · ¥600 · 8 andares, **elevador até o 5º** · vista de 360° no 8º',
+      paragraphs: [
+        'O terceiro torreão neste lugar. O de Hideyoshi (1585) queimou no cerco de 1615; o Tokugawa (1626) foi atingido por um raio em 1665 e nunca reconstruído; este é de **1931**, de concreto armado, pago por doações da população de Osaka em plena crise mundial: 1,5 milhão de ienes arrecadados em seis meses. Sobreviveu aos bombardeios de 1945 que destruíram tudo em volta.',
+        'É museu: por dentro, os andares contam a vida de Hideyoshi e o cerco de Osaka com um diorama de bonecos e uma reprodução do biombo da batalha. Suba de elevador, veja a vista no 8º (a cidade inteira, o rio Yodo, os prédios de Umeda) e desça pela escada, andar a andar.',
+        'Os **tigres e as carpas douradas** dos telhados são do estilo de Hideyoshi, que gostava de ouro: o telhado dele era de telha dourada e, dizem, o interior tinha uma sala de chá inteira de ouro.',
+      ],
+    },
+    {
+      id: 'hokoku',
+      photoCaption: 'Hōkoku-jinja, o santuário de Hideyoshi, com a estátua dele na frente.',
+      n: 5, x: 262, y: 396, kind: 'temple', label: 'Hōkoku-jinja', side: 'left', walk: '4 min',
+      coords: { lat: 34.6856, lng: 135.5268 },
+      title: 'Hōkoku-jinja — Hideyoshi virou deus',
+      jp: '豊國神社',
+      facts: 'Santuário de **1879**, aqui desde 1961 · grátis · estátua de bronze na entrada',
+      paragraphs: [
+        'Hideyoshi foi deificado logo depois de morrer (1598), com o nome **Hōkoku Daimyōjin**; os Tokugawa, quando destruíram a família dele, proibiram o culto e fecharam o santuário. Só em 1868, com o fim do xogunato, o imperador Meiji o "reabilitou", e Osaka ganhou este santuário em 1879. É a cidade cuidando do fundador.',
+        'A estátua na frente é dele com o leque de general. Como era **filho de camponês** e virou o homem mais poderoso do país, é o santuário da promoção no trabalho: os comerciantes de Osaka vêm pedir carreira.',
+      ],
+    },
+    {
+      id: 'gokurakubashi',
+      photoCaption: 'A ponte Gokuraku-bashi sobre o fosso interno, ao norte do torreão.',
+      n: 6, x: 210, y: 190, kind: 'water', label: 'Gokuraku-bashi', side: 'right', walk: '5 min',
+      coords: { lat: 34.6887, lng: 135.5263 },
+      title: 'Gokuraku-bashi — a ponte do paraíso',
+      jp: '極楽橋',
+      facts: 'Sobre o fosso interno · o torreão inteiro refletido na água · barco do fosso sai daqui',
+      paragraphs: [
+        'A ponte norte, o outro ângulo clássico: o torreão visto de perto por cima do fosso interno, com a muralha de **30 metros** de altura caindo reta na água. O fosso tem 6 m de profundidade e 90 m de largura no ponto mais largo; ninguém nunca atravessou.',
+        'Saindo por ela, chega-se ao jardim de ameixeiras (floridas em fevereiro) e, à direita, à estação Ōsakajō-kōen da JR em 12 minutos: é a saída natural para continuar o dia.',
+      ],
+    },
+    {
+      id: 'aoyamon',
+      photoCaption: 'A muralha do fosso interno, do lado leste, vista do portão Aoyamon.',
+      n: 7, x: 318, y: 264, kind: 'gate', label: 'Aoyamon', side: 'left', walk: '3 min',
+      coords: { lat: 34.6867, lng: 135.5289 },
+      title: 'Aoyamon — a saída leste',
+      jp: '青屋門',
+      facts: 'Reconstruído em 1969 · caminho para Morinomiya e Ōsakajō-kōen',
+      paragraphs: [
+        'O portão leste, pelo qual se sai em direção às estações. Passando-o, olhem para trás: é o trecho onde a muralha do fosso interno é mais alta e mais reta, uma parede de pedra polida que dobra em curva perfeita, sem argamassa, há 400 anos.',
+        'À frente, o parque do castelo: 106 hectares, ginkgos amarelos na avenida e, ao longe, o ginásio redondo do Osaka-jō Hall.',
+      ],
+    },
+    {
+      id: 'estacao',
+      photoCaption: 'A estação Ōsakajō-kōen, na Loop Line da JR.',
+      n: 8, x: 296, y: 64, kind: 'station', label: 'Est. Ōsakajō-kōen', side: 'left', walk: '12 min',
+      coords: { lat: 34.6906, lng: 135.5342 },
+      title: 'Estação Ōsakajō-kōen',
+      jp: '大阪城公園駅',
+      facts: 'JR Osaka Loop Line · **Osaka/Umeda em 10 min**, Tennōji em 12',
+      paragraphs: [
+        'A estação do parque, na linha circular da JR. Para chegar de manhã, o metrô **Tanimachi 4-chōme** (saída 1-B) deixa vocês mais perto do Ōtemon; para sair, esta ou **Morinomiya** (ao sul) são as mais práticas, ambas na Loop Line.',
+      ],
+    },
+  ],
+  legend: 'Azul = os dois fossos · linhas pretas = as muralhas · dourado = as pontes · verde = o torreão e o Nishinomaru · faixa cinza = o percurso',
+};
+
+const kurashiki: PlaceMap = {
+  id: 'kurashiki',
+  coverHotspotId: 'canal',
+  stopId: 'd25-bikan',
+  dayId: 'd2026-11-25',
+  title: 'Kurashiki',
+  jp: '倉敷美観地区',
+  subtitle: 'O canal dos armazéns, o museu grego e a fiação de tijolo, em três horas a pé',
+  intro: [
+    'O Bairro Bikan é um **canal de 500 metros** com salgueiros, armazéns brancos de telha preta e um museu com fachada de templo grego no meio. Tudo cabe numa manhã e se faz a pé, do norte para o sul, descendo o canal.',
+    'A ordem: **estação → subida ao Achi-jinja (vista) → museu Ōhara → o canal e os barcos → Ivy Square**, e de volta à estação pela rua coberta. Toquem nos pontos para ver o que é cada prédio.',
+  ],
+  viewBox: '0 0 360 620',
+  scenery: [
+    { d: 'M20 40 L340 40 L340 610 L20 610 Z', fill: MAP_COLORS.forest, opacity: 0.07 },
+    // o morro Tsurugata, com o santuário em cima
+    { d: 'M160 240 C200 150 300 150 330 240 Z', fill: MAP_COLORS.forest, opacity: 0.2 },
+    // o canal
+    { d: 'M150 262 C150 320 160 380 170 430 C176 460 178 490 180 520', stroke: MAP_COLORS.water, width: 16, opacity: 0.4, round: true },
+    // salgueiros: traços verdes caindo na água
+    { d: 'M138 300 c-4 10 -2 18 2 22 M162 340 c4 10 2 18 -2 22 M154 400 c-4 10 -2 18 2 22 M186 460 c4 10 2 18 -2 22', stroke: MAP_COLORS.forest, width: 2, opacity: 0.6, round: true },
+    // percurso: estação → rua coberta → Achi → Ōhara → canal → Ivy Square
+    { d: 'M60 70 C60 130 110 170 120 210 C150 200 220 190 250 200 M120 210 L130 270 C140 300 140 330 150 360 C160 400 170 440 200 470 C230 490 260 500 280 510', stroke: MAP_COLORS.muted, width: 10, opacity: 0.28, round: true },
+    // armazéns brancos ao longo do canal (quadradinhos)
+    { d: 'M116 290 L138 290 L138 314 L116 314 Z M166 300 L190 300 L190 324 L166 324 Z M124 350 L146 350 L146 374 L124 374 Z M176 372 L200 372 L200 396 L176 396 Z M138 420 L160 420 L160 444 L138 444 Z M196 430 L220 430 L220 454 L196 454 Z', fill: MAP_COLORS.paper, stroke: MAP_COLORS.ink, width: 1.2, opacity: 0.85 },
+    // museu Ōhara: colunas
+    { d: 'M100 258 L136 258 L136 284 L100 284 Z M106 262 L106 284 M114 262 L114 284 M122 262 L122 284 M130 262 L130 284 M98 258 L118 246 L138 258', stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.6, fill: 'none' },
+    // Ivy Square: bloco de tijolo
+    { d: 'M250 480 L320 480 L320 540 L250 540 Z', fill: MAP_COLORS.vermilion, opacity: 0.22, stroke: MAP_COLORS.ink, width: 1.2 },
+    // ponte de pedra Nakabashi
+    { d: 'M156 402 L184 396', stroke: MAP_COLORS.ink, width: 4, opacity: 0.6, round: true },
+    // linha do trem, no topo
+    { d: 'M20 56 L340 56', stroke: MAP_COLORS.water, width: 3, dash: '10 6', opacity: 0.45 },
+  ],
+  trees: [
+    { x: 240, y: 200, s: 18 }, { x: 280, y: 210, s: 16 }, { x: 60, y: 400, s: 22 }, { x: 60, y: 500, s: 20 },
+    { x: 300, y: 380, s: 20 }, { x: 250, y: 300, s: 18 }, { x: 300, y: 590, s: 20 }, { x: 120, y: 580, s: 22 },
+  ],
+  hotspots: [
+    {
+      id: 'estacao',
+      photoCaption: 'A estação de Kurashiki, JR Sanyō Line.',
+      n: 1, x: 60, y: 70, kind: 'station', label: 'Estação Kurashiki', side: 'right',
+      coords: { lat: 34.5989, lng: 133.7620 },
+      title: 'Estação Kurashiki',
+      jp: '倉敷駅',
+      facts: 'JR Sanyō Line, **17 min** de Okayama · armários na saída sul · 12 min a pé até o canal',
+      paragraphs: [
+        'Saída sul, e o caminho é a **rua coberta Kurashiki Chūō-dōri** ou a galeria comercial paralela, reta até o bairro. Guardem a mochila no armário aqui: a manhã é toda a pé.',
+        'Na volta, o Shinkansen sai de Okayama, não daqui; contem 17 minutos de trem local mais a troca.',
+      ],
+    },
+    {
+      id: 'achi',
+      photoCaption: 'O Achi-jinja no alto do morro, com o bairro aos pés.',
+      n: 2, x: 250, y: 200, kind: 'view', label: 'Achi-jinja', side: 'left', walk: '15 min',
+      coords: { lat: 34.5964, lng: 133.7713 },
+      title: 'Achi-jinja — a vista de cima',
+      jp: '阿智神社',
+      facts: 'No morro Tsurugata, **88 degraus** · grátis · vista dos telhados pretos',
+      paragraphs: [
+        'O santuário do bairro, no único morro da cidade, era **uma ilha**: até o século XVII tudo em volta era mar raso, e Kurashiki nasceu do aterro. As divindades daqui são as três deusas do mar, e a glicínia do pátio tem mais de 300 anos.',
+        'Sobe-se pela escada de 88 degraus (o número da sorte para a velhice) e, do alto, vê-se o bairro inteiro: os telhados de telha preta em xadrez, o canal e a chaminé de tijolo da fiação. Dez minutos que organizam o resto da manhã.',
+      ],
+    },
+    {
+      id: 'ohara',
+      photoCaption: 'O museu Ōhara, de 1930, o primeiro museu de arte ocidental do Japão.',
+      n: 3, x: 118, y: 270, kind: 'hall', label: 'Museu Ōhara', side: 'right', walk: '8 min',
+      coords: { lat: 34.5956, lng: 133.7714 },
+      title: 'Museu Ōhara — El Greco entre os armazéns',
+      jp: '大原美術館',
+      facts: '**09:00–17:00**, fecha 2ª · ¥2.000 · Monet, Gauguin, El Greco, Picasso, Pollock',
+      paragraphs: [
+        'Um templo grego entre armazéns japoneses. **Magosaburō Ōhara**, herdeiro da fiação, mandou o pintor amigo Torajirō Kojima à Europa nos anos 1920 com dinheiro para comprar o que quisesse; Kojima voltou com um **El Greco** (a Anunciação, comprada em Paris em 1922 numa loja), Monet, Gauguin e Matisse. O museu abriu em **1930**, o primeiro do Japão dedicado a arte ocidental, numa cidade de 30 mil habitantes.',
+        'É o museu que vocês veem no roteiro logo a seguir: o salão principal (os europeus), o anexo (arte japonesa moderna) e a ala de artesanato nos armazéns. A Anunciação de El Greco fica numa sala só dela.',
+      ],
+    },
+    {
+      id: 'yurinso',
+      photoCaption: 'Yūrinsō, a villa de telhas verdes da família Ōhara, na margem do canal.',
+      n: 4, x: 216, y: 312, kind: 'sight', label: 'Yūrinsō', side: 'right', walk: '2 min',
+      coords: { lat: 34.5955, lng: 133.7721 },
+      title: 'Yūrinsō — a casa das telhas verdes',
+      jp: '有隣荘',
+      facts: 'Villa de **1928** da família Ōhara · aberta só duas vezes por ano · vê-se de fora',
+      paragraphs: [
+        'Do outro lado do canal, em frente ao museu, a casa de telhas **verdes vitrificadas** que Magosaburō Ōhara construiu para a mulher, doente, em 1928. As telhas foram feitas sob encomenda em Kyoto e mudam de cor com a luz; a casa mistura sala japonesa, salão ocidental e jardim de um dos grandes paisagistas da época.',
+        'Só abre em duas semanas do ano, na primavera e no outono, com exposições do museu. Em novembro pode calhar: se o portão estiver aberto, entrem.',
+      ],
+    },
+    {
+      id: 'canal',
+      photoCaption: 'O canal de Kurashiki, com os barcos de fundo chato e os salgueiros.',
+      n: 5, x: 150, y: 350, kind: 'water', label: 'O canal', side: 'left', walk: '2 min',
+      coords: { lat: 34.5950, lng: 133.7716 },
+      title: 'O canal e os barcos',
+      jp: '倉敷川 · 川舟流し',
+      facts: 'Passeio de barco **20 min, ¥700**, saída do posto de turismo · fecha às 2ª de dez a fev',
+      paragraphs: [
+        'O canal era a **estrada do arroz**: os barcos de fundo chato desciam carregados dos armazéns até o rio e o Mar Interior. Os armazéns brancos, com as paredes de telha preta em losango e reboco branco (o *namako-kabe*, "parede de pepino-do-mar", pelo relevo), guardavam arroz, algodão e óleo — a riqueza de um bairro que não pagava a nenhum daimyō.',
+        'O passeio de barco de 20 minutos, com barqueiro de chapéu de palha, é a maneira mais preguiçosa de ver tudo e a melhor foto. Compra-se o bilhete no posto de turismo ao lado da ponte Nakabashi; de manhã cedo não tem fila.',
+      ],
+    },
+    {
+      id: 'nakabashi',
+      photoCaption: 'A ponte de pedra Nakabashi e o antigo posto da polícia.',
+      n: 6, x: 170, y: 410, kind: 'stone', label: 'Nakabashi', side: 'right', walk: '3 min',
+      coords: { lat: 34.5948, lng: 133.7718 },
+      title: 'Nakabashi — a ponte de uma pedra',
+      jp: '中橋',
+      facts: 'De **1877** · duas lajes de granito arqueadas · o prédio ao lado é de 1917',
+      paragraphs: [
+        'A ponte de pedra do meio do canal, feita de duas lajes de granito de uma peça só, curvadas para deixar os barcos passarem por baixo. É o centro do bairro: de um lado o Kurashiki-kan, o prédio europeu branco de **1917** que foi a prefeitura e hoje é o posto de turismo; do outro, a fileira de armazéns mais fotografada.',
+        'Aqui os barcos param para embarcar. Ao lado, o **Museu de Arqueologia** num armazém, e as lojas de denim e de artesanato *Kurashiki-hanpu* (lona de algodão, herdeira da fiação).',
+      ],
+    },
+    {
+      id: 'ivy',
+      photoCaption: 'Ivy Square, a fiação de 1889 coberta de hera.',
+      n: 7, x: 285, y: 510, kind: 'sight', label: 'Ivy Square', side: 'left', walk: '5 min',
+      coords: { lat: 34.5940, lng: 133.7728 },
+      title: 'Ivy Square — a fiação de tijolo',
+      jp: '倉敷アイビースクエア',
+      facts: 'Fábrica da **Kurabō, 1889** · hoje hotel, restaurantes e ateliês · pátio grátis',
+      paragraphs: [
+        'A fábrica de fiação de algodão que fez a fortuna dos Ōhara, em tijolo vermelho inglês, coberta de hera desde os anos 1920 (para refrescar os galpões no verão). Fechou em 1973 e virou um complexo com hotel, restaurante e um museu da própria fábrica; no pátio central, com as chaminés e a hera, quase não há gente.',
+        'A hera fica **vermelha em novembro**. É o lugar do café da manhã tardio ou de um chá antes de voltar; dali à estação são 15 minutos pela rua principal.',
+      ],
+    },
+    {
+      id: 'honmachi',
+      photoCaption: 'A rua Honmachi, a antiga estrada de casas de mercadores.',
+      n: 8, x: 244, y: 460, kind: 'sight', label: 'Rua Honmachi', side: 'right', walk: '4 min',
+      coords: { lat: 34.5957, lng: 133.7731 },
+      title: 'Honmachi e Higashimachi — a rua dos mercadores',
+      jp: '本町 · 東町',
+      facts: 'A rua paralela ao canal, a leste · casas de 200 anos, hoje lojas e cafés',
+      paragraphs: [
+        'A rua por onde passava a estrada antes do canal, com casas de mercador de dois andares, grades de madeira e o telhado baixo do período Edo. Está a um quarteirão do canal e tem um décimo das pessoas: é onde ficam a cervejaria local, a loja de doces de 1856 e os cafés em casas antigas.',
+        'Percorram-na de volta, do Ivy Square para o norte, em vez de refazer o canal: fecha o circuito sem repetir nada.',
+      ],
+    },
+  ],
+  legend: 'Azul = o canal (verde caindo = salgueiros) · caixas brancas = armazéns · colunas = o museu Ōhara · vermelho = a fiação de tijolo · faixa cinza = o percurso',
+};
+
+const shibuya: PlaceMap = {
+  id: 'shibuya',
+  coverHotspotId: 'cruzamento',
+  stopId: 'd22-shibuya-sky',
+  dayId: 'd2026-11-22',
+  title: 'Shibuya à noite',
+  jp: '渋谷の夜',
+  subtitle: 'Do rooftop ao cruzamento, e depois às ruelas, quando a cidade acende',
+  intro: [
+    'Shibuya é um vale: a estação fica no fundo e as ruas sobem em todas as direções. O plano é ver a cidade **de cima, ao pôr do sol** (Shibuya Sky, reserva das 15h30), descer para o cruzamento já com os letreiros acesos, e terminar nas ruelas de bar de dois metros de largura ao lado dos trilhos.',
+    'Tudo aqui é a 5 minutos a pé de tudo. Toquem nos pontos para saber o que é cada coisa; a legenda de neon é do próprio lugar.',
+  ],
+  viewBox: '0 0 360 620',
+  scenery: [
+    { d: 'M20 40 L340 40 L340 610 L20 610 Z', fill: MAP_COLORS.ink, opacity: 0.06 },
+    // trilhos da JR Yamanote, cortando de norte a sul
+    { d: 'M230 40 L220 200 L200 400 L190 610', stroke: MAP_COLORS.water, width: 4, dash: '12 6', opacity: 0.45 },
+    // ruas principais em Y a partir do cruzamento
+    { d: 'M130 320 L40 260 M130 320 L110 200 M130 320 L60 420 M130 320 L200 320', stroke: MAP_COLORS.muted, width: 12, opacity: 0.22, round: true },
+    // Meiji-dōri e a rua até Miyashita
+    { d: 'M200 320 L240 240 L300 150', stroke: MAP_COLORS.muted, width: 10, opacity: 0.22, round: true },
+    // o cruzamento em diagonal (as faixas de pedestre)
+    { d: 'M110 300 L150 340 M110 340 L150 300 M100 320 L160 320 M130 290 L130 350', stroke: MAP_COLORS.paper, width: 6, opacity: 0.9, round: true },
+    { d: 'M110 300 L150 340 M110 340 L150 300 M100 320 L160 320 M130 290 L130 350', stroke: MAP_COLORS.ink, width: 1.5, dash: '4 4', opacity: 0.5, round: true },
+    // a estação (bloco) e o Scramble Square (torre)
+    { d: 'M150 380 L230 380 L230 440 L150 440 Z', fill: MAP_COLORS.paper, stroke: MAP_COLORS.ink, width: 1.5, opacity: 0.85 },
+    { d: 'M205 440 L245 440 L245 520 L205 520 Z', fill: MAP_COLORS.gold, opacity: 0.55, stroke: MAP_COLORS.ink, width: 1.5 },
+    { d: 'M212 452 L238 452 M212 466 L238 466 M212 480 L238 480 M212 494 L238 494 M212 508 L238 508', stroke: MAP_COLORS.ink, width: 1, opacity: 0.35 },
+    // prédios com telões: retângulos vermelhos ao redor do cruzamento
+    { d: 'M78 256 L118 256 L118 292 L78 292 Z', fill: MAP_COLORS.vermilion, opacity: 0.35 },
+    { d: 'M150 250 L200 250 L200 296 L150 296 Z', fill: MAP_COLORS.vermilion, opacity: 0.25 },
+    { d: 'M40 290 L74 290 L74 340 L40 340 Z', fill: MAP_COLORS.vermilion, opacity: 0.3 },
+    // Miyashita Park: laje verde comprida ao longo dos trilhos
+    { d: 'M250 60 L300 60 L300 170 L250 170 Z', fill: MAP_COLORS.forest, opacity: 0.3 },
+    // Nonbei Yokochō: fileira de barzinhos rente ao trilho
+    { d: 'M236 200 L256 200 L256 250 L236 250 Z M240 206 L252 206 M240 214 L252 214 M240 222 L252 222 M240 230 L252 230 M240 238 L252 238', stroke: MAP_COLORS.gold, width: 1.5, opacity: 0.8, fill: 'none' },
+    // Center-gai, a rua de pedestre subindo
+    { d: 'M110 200 L96 100', stroke: MAP_COLORS.gold, width: 8, dash: '6 5', opacity: 0.5, round: true },
+  ],
+  hotspots: [
+    {
+      id: 'sky',
+      photoCaption: 'O rooftop do Shibuya Sky, a 230 m, sem vidro.',
+      n: 1, x: 225, y: 480, kind: 'view', label: 'Shibuya Sky', side: 'left',
+      coords: { lat: 35.6584, lng: 139.7022 },
+      title: 'Shibuya Sky — o rooftop sem vidro',
+      jp: '渋谷スカイ',
+      facts: '**10:00–22:30** · ¥2.500 (reservado) · 46º andar, **229 m** · entrada pelo 14º do Scramble Square',
+      paragraphs: [
+        'O topo da torre construída em cima da estação (2019): um rooftop aberto, sem vidro, só com uma parede transparente baixa e a cidade em volta a 360°. Vê-se o cruzamento lá embaixo como um formigueiro, a Tokyo Tower, a Skytree, o Shinjuku de arranha-céus, e, com o ar seco de novembro, o **Fuji** no horizonte a oeste, exatamente onde o sol se põe.',
+        'A entrada das 15h30 pega tudo: cidade de dia, o sol descendo atrás do Fuji (~16h28), o azul e depois os letreiros acendendo. Fiquem os 60–90 minutos. Casaco: lá em cima venta. Bolsas vão para o armário (obrigatório), celular preso na mão.',
+        'A saída passa por um andar fechado, o Sky Gallery, com vista para o norte e um bar. Não tem pressa: o cruzamento não vai a lugar nenhum.',
+      ],
+    },
+    {
+      id: 'estacao',
+      photoCaption: 'A saída Hachikō da estação de Shibuya.',
+      n: 2, x: 190, y: 410, kind: 'station', label: 'Estação · saída Hachikō', side: 'left', walk: '5 min',
+      coords: { lat: 35.6590, lng: 139.7010 },
+      title: 'Estação de Shibuya — saída Hachikō',
+      jp: '渋谷駅 ハチ公口',
+      facts: '**3,3 milhões** de passageiros por dia · 9 linhas · procurem sempre "Hachikō Exit"',
+      paragraphs: [
+        'Uma das estações mais confusas do mundo, em obra permanente desde 2012. A regra: **saída Hachikō**, sempre, para tudo que vocês querem. As placas em inglês são boas; sigam-nas e ignorem o resto.',
+        'Do Scramble Square, dá para descer pelo próprio prédio até o andar da rua e sair na praça do Hachikō em 5 minutos.',
+      ],
+    },
+    {
+      id: 'hachiko',
+      photoCaption: 'A estátua do Hachikō, o ponto de encontro de Tóquio.',
+      n: 3, x: 150, y: 358, kind: 'stone', label: 'Hachikō', side: 'right', walk: '1 min',
+      coords: { lat: 35.6590, lng: 139.7006 },
+      title: 'Hachikō — o cão que esperou',
+      jp: 'ハチ公像',
+      facts: 'Estátua de **1948** (a original de 1934 virou munição na guerra) · ponto de encontro da cidade',
+      paragraphs: [
+        'O akita que esperou o dono nesta saída todo dia, por nove anos e nove meses, depois de o professor Ueno morrer no trabalho em 1925. Um jornal contou a história em 1932, o país inteiro adotou o cachorro, e a estátua foi inaugurada em 1934 **com o próprio Hachikō presente**. Ele morreu em 1935, e está empalhado no Museu Nacional de Ciência, em Ueno.',
+        'A estátua original foi derretida em 1944 para fazer munição; esta é de 1948, do filho do escultor. É *o* ponto de encontro de Tóquio: "no Hachikō" basta. Há sempre fila para a foto e, ao lado, um bonde verde antigo virado posto de turismo.',
+      ],
+    },
+    {
+      id: 'cruzamento',
+      photoCaption: 'O cruzamento de Shibuya, com os telões acesos.',
+      n: 4, x: 130, y: 320, kind: 'view', label: 'O cruzamento', side: 'right', walk: '1 min',
+      coords: { lat: 35.6595, lng: 139.7004 },
+      title: 'O cruzamento — 3.000 pessoas por sinal',
+      jp: 'スクランブル交差点',
+      facts: 'Sinal fecha para os carros **a cada 2 min**, todas as direções ao mesmo tempo · até 3.000 pessoas por vez',
+      paragraphs: [
+        'O cruzamento "scramble" mais movimentado do mundo: quando o sinal abre, todas as faixas abrem juntas, inclusive as diagonais, e a praça inteira atravessa em todas as direções, durante 47 segundos, sem esbarrar em ninguém. É um balé involuntário e o motivo de metade das cenas de Tóquio no cinema (*Lost in Translation*, *Velozes e Furiosos*).',
+        'O jeito: **atravessem duas ou três vezes**, em diagonal, filmando, e depois subam para ver de cima. Os lugares de cima: a passarela da estação (grátis, para o lado do Hachikō), o **Starbucks do Tsutaya** (na esquina, o mais famoso, comprem um café e fiquem na janela do 2º andar), e o mirante gratuito no 8º do prédio Mag\'s Park, no Magnet by Shibuya 109.',
+        'Os cinco telões gigantes tocam propaganda em sincronia. À noite, com a chuva fina refletindo tudo no chão, é ainda melhor.',
+      ],
+    },
+    {
+      id: 'cento-e-nove',
+      photoCaption: 'O prédio cilíndrico do Shibuya 109, o marco da esquina.',
+      n: 5, x: 66, y: 262, kind: 'sight', label: 'Shibuya 109', side: 'right', walk: '2 min',
+      coords: { lat: 35.6596, lng: 139.6987 },
+      title: 'Shibuya 109 — o cilindro prateado',
+      jp: '渋谷109',
+      facts: 'De **1979** · 10 andares de lojas de moda jovem · o nome é um trocadilho: tō (10) + kyū (9) = Tōkyū',
+      paragraphs: [
+        'O prédio cilíndrico de alumínio na bifurcação das duas avenidas, o marco visual do cruzamento e o quartel-general da moda *gyaru* dos anos 1990–2000: bronzeado artificial, cabelo descolorido, salto de 15 cm. Hoje é mais comportado, mas ainda são 10 andares de lojinhas de roupa para meninas de 17 anos, e a fachada é a mais fotografada de Shibuya depois do cruzamento.',
+        'O nome vem da dona, a ferrovia **Tōkyū**: 10 (tō) e 9 (kyū). Também abre até 21h, se alguém quiser ver.',
+      ],
+    },
+    {
+      id: 'centergai',
+      photoCaption: 'A Center-gai, a rua de pedestres que sobe do cruzamento.',
+      n: 6, x: 104, y: 150, kind: 'food', label: 'Center-gai', side: 'right', walk: '3 min',
+      coords: { lat: 35.6605, lng: 139.6995 },
+      title: 'Center-gai — a rua de neon',
+      jp: 'センター街',
+      facts: 'Rua de pedestres de 400 m · lojas, karaokê, ramen, izakaya · lotada até a meia-noite',
+      paragraphs: [
+        'A rua que sai do cruzamento para o norte, entre o 109 e o Tsutaya, fechada para carros: é o **corredor de neon** que aparece nas fotos, com letreiros até o quinto andar, som de karaokê e lojas de tudo. Foi o centro da cultura jovem de Tóquio dos anos 80 até hoje; oficialmente se chama "Basketball Street" desde 2011, mas ninguém usa.',
+        'Para comer: nas travessas há ramen (o Ichiran de Shibuya fica aqui perto, 24 h), izakaya de cadeia e a rua de restaurantes que sobe pela esquerda, a Dōgenzaka. É mais barulho que gastronomia: entrem por um bloco, depois virem à direita para a Nonbei.',
+      ],
+    },
+    {
+      id: 'nonbei',
+      photoCaption: 'Nonbei Yokochō, a viela de bares de 1950 rente aos trilhos.',
+      n: 7, x: 246, y: 225, kind: 'food', label: 'Nonbei Yokochō', side: 'left', walk: '5 min',
+      coords: { lat: 35.6600, lng: 139.7032 },
+      title: 'Nonbei Yokochō — o beco dos bêbados',
+      jp: 'のんべい横丁',
+      facts: 'Desde **1950** · ~40 bares de 5 a 8 lugares · a partir das 18h · alguns cobram *otōshi* (couvert, ¥500)',
+      paragraphs: [
+        'Duas vielas de dois metros de largura, espremidas entre os trilhos da Yamanote e a avenida, com uns 40 bares de madeira de dois andares onde cabem 6 pessoas no balcão e a escada é uma escada de mão. É o que sobrou do mercado negro do pós-guerra: os barracos viraram bares em 1950 e nunca mudaram de tamanho. Fica a 5 minutos do cruzamento e é outro planeta.',
+        'A regra: entrem no que tiver lugar e cara simpática; peçam um *highball* ou um *nihonshu* e o que a dona sugerir. Alguns bares só aceitam clientes habituais, e a placa "members only" é para levar a sério. Dá para jantar aqui de petisco em petisco, ou beber um e ir para o jantar de verdade.',
+      ],
+    },
+    {
+      id: 'miyashita',
+      photoCaption: 'Miyashita Park: o parque na cobertura, ao longo dos trilhos.',
+      n: 8, x: 275, y: 115, kind: 'view', label: 'Miyashita Park', side: 'left', walk: '4 min',
+      coords: { lat: 35.6615, lng: 139.7026 },
+      title: 'Miyashita Park — o parque no telhado',
+      jp: '宮下パーク',
+      facts: 'Parque de **330 m** na cobertura de um shopping (2020) · grátis · até 23h · Shibuya Yokochō no térreo',
+      paragraphs: [
+        'Um parque de 330 metros de comprimento **no telhado** de um shopping de quatro andares, rente aos trilhos: gramado, skatepark, parede de escalada, e a vista dos trens da Yamanote passando ao lado. À noite vira um lugar de gente sentada na grama com cerveja de konbini olhando os prédios.',
+        'No térreo, o **Shibuya Yokochō**, uma rua coberta de barraquinhas de comida regional (um balcão por província, de Hokkaidō a Okinawa), aberta até tarde e barulhenta como um festival. Se a Nonbei estiver cheia, é o plano B do jantar, e o mais fácil para ficar sentado.',
+      ],
+    },
+  ],
+  legend: 'Vermelho = prédios com telão · dourado = a torre do Sky, a Center-gai e a Nonbei · tracejado azul = os trilhos da Yamanote · verde = o parque no telhado · faixa cinza = as ruas',
+};
+
+export const PLACE_MAPS: PlaceMap[] = [kamakura, meijiJingu, parqueDaPaz, himeji, fushimiInari, higashiyama, arashiyama, nara, sensoji, miyajima, tofukuji, kinkakuji, sumiyoshi, casteloOsaka, kurashiki, shibuya];
 
 export const placeMapById = (id: string): PlaceMap | undefined =>
   PLACE_MAPS.find((m) => m.id === id);

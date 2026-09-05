@@ -843,6 +843,7 @@ export const tokyo1Days: Day[] = [
       },
       {
         id: 'd22-shibuya-sky',
+        placeMapId: 'shibuya',
         time: '16:00',
         timeLabel: 'vista',
         kind: 'view',
