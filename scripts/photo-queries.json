@@ -37,8 +37,9 @@
     "Togetsukyo bridge autumn"
   ],
   "arashiyama/torokko": [
-    "嵯峨野トロッコ列車 紅葉",
-    "Sagano Romantic Train autumn"
+    "嵯峨野観光鉄道",
+    "トロッコ列車",
+    "Sagano Scenic Railway"
   ],
   "extras/kobe": [
     "神戸 北野異人館",
@@ -94,8 +95,9 @@
   ],
   "fushimi-inari/yotsutsuji": "Fushimi Inari Yotsutsuji view Kyoto",
   "higashiyama/filosofo": [
-    "哲学の道 紅葉",
-    "Philosopher's Path Kyoto autumn"
+    "哲学の道",
+    "哲学の道 秋",
+    "Tetsugaku no michi"
   ],
   "higashiyama/ginkakuji": [
     "銀閣寺 観音殿",
@@ -177,8 +179,9 @@
     "Himeji castle main keep"
   ],
   "kamakura/daibutsu": [
-    "鎌倉大仏 高徳院",
-    "Kamakura Daibutsu Kotokuin"
+    "鎌倉大仏",
+    "高徳院 大仏",
+    "Kotoku-in Great Buddha Kamakura"
   ],
   "kamakura/engakuji": [
     "円覚寺 山門",
@@ -255,8 +258,11 @@
     "Meiji Jingu sake barrels"
   ],
   "meiji-jingu/floresta": [
-    "明治神宮 参道 森",
-    "Meiji Jingu forest path"
+    [
+      "明治神宮 参道",
+      "明治神宮 南参道",
+      "Meiji Shrine approach"
+    ]
   ],
   "meiji-jingu/harajuku": [
     "原宿駅 西口",
@@ -400,8 +406,8 @@
     "Atomic Bomb Memorial Mound Hiroshima"
   ],
   "parque-da-paz/museu": [
-    "広島平和記念資料館 本館",
-    "Hiroshima Peace Memorial Museum building"
+    "広島平和記念資料館",
+    "Hiroshima Peace Memorial Museum"
   ],
   "parque-da-paz/okonomimura": [
     "お好み村",

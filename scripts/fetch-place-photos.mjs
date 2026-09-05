@@ -76,7 +76,7 @@ const GENERICAS = new Set(
 
 /** gravuras, pinturas e mapas de museu não servem como foto do lugar */
 const NAO_E_FOTO =
-  /(map|diagram|plan|logo|icon|stamp|hiroshige|hokusai|ukiyo|woodblock|print|painting|drawing|engraving|titel op object|AK-MAK|RP-P-|浮世絵|錦絵|版画|絵図|五十三次|三十六景|名所|之図|の図|広重|北斎|画|views of|from the series|MET DP|Rijksmuseum|museum)/i;
+  /(map|diagram|plan|logo|icon|stamp|hiroshige|hokusai|ukiyo|woodblock|print|painting|drawing|engraving|titel op object|AK-MAK|RP-P-|浮世絵|錦絵|版画|絵図|五十三次|三十六景|名所|之図|の図|広重|北斎|画|views of|from the series|MET DP|Rijksmuseum|collection of the)/i;
 
 /**
  * Muitos santuários têm xarás pelo país (há um 厳島神社 em Kushiro, Hokkaidō).
