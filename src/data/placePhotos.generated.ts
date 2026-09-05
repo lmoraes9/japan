@@ -66,6 +66,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:%E6%B8%A1%E6%9C%88%E6%A9%8B%E3%81%AE%E7%B4%85%E8%91%89.jpg",
     "title": "渡月橋の紅葉.jpg"
   },
+  "arashiyama/torokko": {
+    "src": "/lugares/arashiyama/torokko.jpg",
+    "credit": "Gamy-Gamy-Gamy",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:%E3%83%88%E3%83%AD%E3%83%83%E3%82%B3%E5%B5%AF%E5%B3%A8%E2%86%92%E3%83%88%E3%83%AD%E3%83%83%E3%82%B3%E4%BA%80%E5%B2%A1_%E5%B5%AF%E5%B3%A8%E9%87%8E13%E5%8F%B7.jpg",
+    "title": "トロッコ嵯峨→トロッコ亀岡 嵯峨野13号.jpg"
+  },
   "extras/kobe": {
     "src": "/lugares/extras/kobe.jpg",
     "credit": "珈琲牛乳",
@@ -170,6 +177,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Inariyamakanyuchi,_Fushimi_Ward,_Kyoto,_Kyoto_Prefecture_612-0804,_Japan_-_panoramio_(13).jpg",
     "title": "Inariyamakanyuchi, Fushimi Ward, Kyoto, Kyoto Prefecture 612-0804, Japan - panoramio (13).jpg"
+  },
+  "higashiyama/filosofo": {
+    "src": "/lugares/higashiyama/filosofo.jpg",
+    "credit": "Reggaeman",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tetsugaku_no_Michi_01.JPG",
+    "title": "Tetsugaku no Michi 01.JPG"
   },
   "higashiyama/ginkakuji": {
     "src": "/lugares/higashiyama/ginkakuji.jpg",
@@ -303,6 +317,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_No09_151.jpg",
     "title": "Himeji Castle No09 151.jpg"
+  },
+  "kamakura/daibutsu": {
+    "src": "/lugares/kamakura/daibutsu.jpg",
+    "credit": "Dirk Beyer",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura_Budda_Daibutsu_front_1885.jpg",
+    "title": "Kamakura Budda Daibutsu front 1885.jpg"
   },
   "kamakura/engakuji": {
     "src": "/lugares/kamakura/engakuji.jpg",
@@ -654,6 +675,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:HiroshimaGembakuKuyoTo7093.jpg",
     "title": "HiroshimaGembakuKuyoTo7093.jpg"
   },
+  "parque-da-paz/museu": {
+    "src": "/lugares/parque-da-paz/museu.jpg",
+    "credit": "Taisyo",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_Museum_2008_01.JPG",
+    "title": "Hiroshima Peace Memorial Museum 2008 01.JPG"
+  },
   "parque-da-paz/okonomimura": {
     "src": "/lugares/parque-da-paz/okonomimura.jpg",
     "credit": "Taisyo; Uploaded to Commons by Nihonjoe",
@@ -850,6 +878,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Red_coffee_cup-shaped_balcony,_Niimi_Tableware,_Kappabashi_Dougu_Street,_Tokyo,_Japan.jpg",
     "title": "Red coffee cup-shaped balcony, Niimi Tableware, Kappabashi Dougu Street, Tokyo, Japan.jpg"
   },
+  "stops/d19-museu-nacional": {
+    "src": "/lugares/stops/d19-museu-nacional.jpg",
+    "credit": "Wiiii",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo_National_Museum,_Honkan_2010.jpg",
+    "title": "Tokyo National Museum, Honkan 2010.jpg"
+  },
   "stops/d19-radio-kaikan": {
     "src": "/lugares/stops/d19-radio-kaikan.jpg",
     "credit": "Yuukokusya",
@@ -997,6 +1032,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:7-Eleven_Toshimaen-ekimae_in_Nerima_4-ch%C5%8Dme,_-16_augustus_2026_12%EF%BC%9A40.jpg",
     "title": "7-Eleven Toshimaen-ekimae in Nerima 4-chōme, -16 augustus 2026 12：40.jpg"
   },
+  "stops/d23-museu-paz": {
+    "src": "/lugares/stops/d23-museu-paz.jpg",
+    "credit": "Taisyo",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_Museum_2008_01.JPG",
+    "title": "Hiroshima Peace Memorial Museum 2008 01.JPG"
+  },
   "stops/d23-parque-domo": {
     "src": "/lugares/stops/d23-parque-domo.jpg",
     "credit": "Dan Smith",
@@ -1066,6 +1108,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_0804_1.jpg",
     "title": "Himeji Castle 0804 1.jpg"
+  },
+  "stops/d25-ohara": {
+    "src": "/lugares/stops/d25-ohara.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Kurashiki_Ohara_Art_Museum02nt3200.jpg",
+    "title": "Kurashiki Ohara Art Museum02nt3200.jpg"
   },
   "stops/d26-castelo-osaka": {
     "src": "/lugares/stops/d26-castelo-osaka.jpg",
