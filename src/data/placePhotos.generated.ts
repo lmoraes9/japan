@@ -87,26 +87,12 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Yukimi_Daifuku_sliced.jpg",
     "title": "Yukimi Daifuku sliced.jpg"
   },
-  "konbini/konbini-onigiri": {
-    "src": "/lugares/konbini/konbini-onigiri.jpg",
-    "credit": "Nori Norisa from 熊谷市, Japan",
-    "license": "CC BY 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E5%BE%8C%E3%80%81%E4%B8%80%E6%B0%97%E3%81%AB%E3%81%8A%E3%81%AB%E3%81%8E%E3%82%8A%E3%82%84%E3%83%91%E3%83%B3%E3%81%AA%E3%81%A9%E3%81%8C%E7%84%A1%E3%81%8F%E3%81%AA%E3%82%8B%E9%AB%98%E5%B0%BE%E5%B1%B1%E5%8F%A3%E9%A7%85%E3%81%AB%E3%81%82%E3%82%8B%E3%82%BB%E3%83%96%E3%83%B3%E3%82%A4%E3%83%AC%E3%83%96%E3%83%B3%E4%BA%AC%E7%8E%8B%E9%AB%98%E5%B0%BE%E6%A5%93kaede%E5%BA%97%E3%81%A8%E9%A7%85%E5%89%8D%E6%B8%A9%E6%B3%89_(54853519645).jpg",
-    "title": "オープン後、一気におにぎりやパンなどが無くなる高尾山口駅にあるセブンイレブン京王高尾楓kaede店と駅前温泉 (54853519645).jpg"
-  },
   "konbini/konbini-pudding": {
     "src": "/lugares/konbini/konbini-pudding.jpg",
     "credit": "Myself",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Purin_L_002.jpg",
     "title": "Purin L 002.jpg"
-  },
-  "konbini/konbini-seven-cafe": {
-    "src": "/lugares/konbini/konbini-seven-cafe.jpg",
-    "credit": "Asacyan",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Seven_cafe_car_01.jpg",
-    "title": "Seven cafe car 01.jpg"
   },
   "konbini/konbini-tamago-sando": {
     "src": "/lugares/konbini/konbini-tamago-sando.jpg",
