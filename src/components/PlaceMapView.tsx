@@ -19,6 +19,7 @@ import {
   Minus,
   Maximize2,
   Navigation,
+  Footprints,
 } from 'lucide-react';
 import type { HotspotKind, PlaceHotspot, PlaceMap } from '@/data/placeMaps';
 import { MAP_COLORS, photoKey, thumbOf } from '@/data/placeMaps';
@@ -459,6 +460,9 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
               </button>
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted">
                 {index + 1} de {map.hotspots.length}
+                {selected.walk && (
+                  <span className="ml-2 normal-case tracking-normal text-foreground/60">· {selected.walk} a pé do anterior</span>
+                )}
               </span>
               <div className="flex items-center">
                 <button onClick={() => step(1)} aria-label="Próximo ponto" className="flex h-9 w-9 items-center justify-center rounded-full text-foreground/70 active:bg-surface-2">
@@ -547,10 +551,16 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
           const photo = photoOf(h);
           const active = h.id === selectedId;
           return (
+            <div key={h.id}>
+              {h.walk && (
+                <div className="flex items-center gap-1.5 border-b border-hairline bg-surface-2/50 px-4 py-1 font-mono text-[10px] uppercase tracking-wider text-muted">
+                  <Footprints size={11} />
+                  {h.walk} a pé
+                </div>
+              )}
             <button
-              key={h.id}
               onClick={() => select(active ? null : h)}
-              className={`flex w-full items-center gap-3 border-b border-hairline px-3 py-2 text-left last:border-b-0 active:bg-surface-2 ${
+              className={`flex w-full items-center gap-3 border-b border-hairline px-3 py-2 text-left active:bg-surface-2 ${
                 active ? 'bg-accent-soft/60' : ''
               }`}
             >
@@ -569,6 +579,7 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
               </span>
               <ChevronRight size={16} className="shrink-0 text-muted" />
             </button>
+            </div>
           );
         })}
       </div>

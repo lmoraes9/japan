@@ -78,6 +78,40 @@ const GENERICAS = new Set(
 const NAO_E_FOTO =
   /(map|diagram|plan|logo|icon|stamp|hiroshige|hokusai|ukiyo|woodblock|print|painting|drawing|engraving|titel op object|AK-MAK|RP-P-|浮世絵|錦絵|版画|絵図)/i;
 
+/**
+ * Muitos santuários têm xarás pelo país (há um 厳島神社 em Kushiro, Hokkaidō).
+ * Quando o título traz a cidade entre parênteses — "(釧路市)" — ela precisa
+ * ser uma cidade do roteiro daquele grupo/dia; senão é outro lugar.
+ */
+const CIDADES = {
+  tokyo: ['東京', '台東', '墨田', '千代田', '中央区', '港区', '新宿', '渋谷', '鎌倉', '江東', 'tokyo', 'kamakura', 'asakusa'],
+  hiroshima: ['広島', '廿日市', '宮島', 'hiroshima', 'miyajima', 'hatsukaichi'],
+  osaka: ['大阪', '姫路', '倉敷', 'osaka', 'himeji', 'kurashiki'],
+  kyoto: ['京都', '奈良', '伏見', '宇治', 'kyoto', 'nara', 'fushimi'],
+};
+const cidadesDe = (key) => {
+  const [grupo, item] = key.split('/');
+  if (grupo === 'sensoji') return CIDADES.tokyo;
+  if (grupo === 'miyajima') return CIDADES.hiroshima;
+  if (grupo === 'nara' || grupo === 'fushimi-inari') return CIDADES.kyoto;
+  if (grupo === 'stops') {
+    const dia = Number(item.match(/^d(\d\d)/)?.[1]);
+    if (dia >= 18 && dia <= 22) return CIDADES.tokyo;
+    if (dia === 23 || dia === 24) return CIDADES.hiroshima;
+    if (dia === 25 || dia === 26) return CIDADES.osaka;
+    if (dia >= 27 || dia === 1) return CIDADES.kyoto;
+    return CIDADES.tokyo; // 2 e 3 de dezembro
+  }
+  return null; // konbini, extras: sem restrição
+};
+const cidadeBate = (titulo, cidades) => {
+  if (!cidades) return true;
+  const m = titulo.match(/[（(]([^()（）]*?[市区町村])[)）]/);
+  if (!m) return true;
+  const t = m[1].toLowerCase();
+  return cidades.some((c) => t.includes(c.toLowerCase()));
+};
+
 const normalizar = (t) =>
   t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[-_,.()]/g, ' ');
 
@@ -102,7 +136,7 @@ const combina = (titulo, termos) => {
   return termos.some((termo) => t.includes(normalizar(termo)));
 };
 
-async function search(query, width, termos) {
+async function search(query, width, termos, cidades) {
   const url = new URL(API);
   url.search = new URLSearchParams({
     action: 'query',
@@ -127,7 +161,7 @@ async function search(query, width, termos) {
   // ordem da busca é a relevância do Commons; primeiro tentamos o que é bonito
   // numa tela larga, e só depois aceitamos qualquer coisa que preste
   // foto errada é pior que ponto sem foto
-  const doLugar = candidates.filter(({ title }) => combina(title, termos));
+  const doLugar = candidates.filter(({ title }) => combina(title, termos) && cidadeBate(title, cidades));
 
   const bom = doLugar
     .filter(({ info }) => info.width >= 1000 && info.width >= info.height * 0.6)
@@ -137,13 +171,13 @@ async function search(query, width, termos) {
 }
 
 /** tenta cada frase de busca até uma trazer resultado ainda não usado */
-async function searchAny(queries, usados, width) {
+async function searchAny(queries, usados, width, cidades) {
   const termos = termosDe(queries);
   let repetido = null;
   for (const q of queries) {
     let hits = [];
     try {
-      hits = await search(q, width, termos);
+      hits = await search(q, width, termos, cidades);
     } catch (err) {
       console.warn(`  (busca "${q}" falhou: ${err.message})`);
     }
@@ -207,7 +241,7 @@ if (validar) {
     const atual = current[key];
     if (!atual) continue;
     const termos = termosDe(Array.isArray(query) ? query : [query]);
-    if (combina(atual.title, termos) && !NAO_E_FOTO.test(atual.title)) continue;
+    if (combina(atual.title, termos) && !NAO_E_FOTO.test(atual.title) && cidadeBate(atual.title, cidadesDe(key))) continue;
     console.log(`✗ ${key} — "${atual.title}" não parece ser do lugar; removida`);
     delete current[key];
     await rm(join(ROOT, 'public', `lugares/${key.split('/')[0]}/${key.split('/')[1]}.jpg`), { force: true });
@@ -235,7 +269,7 @@ for (const [key, query] of entries) {
 
   const tentativas = Array.isArray(query) ? query : [query];
   try {
-    const found = await searchAny(tentativas, usados, width);
+    const found = await searchAny(tentativas, usados, width, cidadesDe(key));
     if (found?.duplicada) {
       console.warn(`! ${key} — só achou fotos já usadas neste grupo; melhore a busca`);
       continue;

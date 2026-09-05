@@ -136,13 +136,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Miyajima,_daisho-in,_05.jpg",
     "title": "Miyajima, daisho-in, 05.jpg"
   },
-  "miyajima/itsukushima": {
-    "src": "/lugares/miyajima/itsukushima.jpg",
-    "credit": "さかおり",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Kagamino-Ike._Itsukushima_Shinto_Shrine.jpg",
-    "title": "Kagamino-Ike. Itsukushima Shinto Shrine.jpg"
-  },
   "miyajima/misen": {
     "src": "/lugares/miyajima/misen.jpg",
     "credit": "HKT3012",
@@ -611,13 +604,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E8%81%96%E9%99%A2_-_panoramio.jpg",
     "title": "大聖院 - panoramio.jpg"
-  },
-  "stops/d24-itsukushima": {
-    "src": "/lugares/stops/d24-itsukushima.jpg",
-    "credit": "Omiya benten",
-    "license": "CC BY-SA 3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE(%E9%87%A7%E8%B7%AF%E5%B8%82).jpg",
-    "title": "厳島神社(釧路市).jpg"
   },
   "stops/d24-misen": {
     "src": "/lugares/stops/d24-misen.jpg",

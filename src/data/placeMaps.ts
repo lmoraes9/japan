@@ -46,6 +46,8 @@ export interface PlaceHotspot {
   photoCaption?: string;
   /** busca no Google Maps para o botão Navegar; padrão: título + nome do lugar */
   mapQuery?: string;
+  /** caminhada desde o ponto anterior, ex.: '10 min' */
+  walk?: string;
 }
 
 export interface SceneryShape {
@@ -214,6 +216,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'barracas',
+      walk: '2 min',
       photoCaption: 'A alameda de barracas entre a estação e o portão.',
       n: 2,
       x: 258,
@@ -230,6 +233,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'romon',
+      walk: '3 min',
       photoCaption: 'O Rōmon de 1589, doado por Hideyoshi.',
       n: 3,
       x: 172,
@@ -247,6 +251,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'kitsune',
+      walk: '1 min',
       photoCaption: 'Reparem no que a raposa segura na boca.',
       n: 4,
       x: 150,
@@ -265,6 +270,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'honden',
+      walk: '2 min',
       photoCaption: 'O salão principal, reconstruído em 1499.',
       n: 5,
       x: 178,
@@ -283,6 +289,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'senbon',
+      walk: '3 min',
       photoCaption: 'O corredor duplo do Senbon Torii, logo atrás do salão.',
       n: 6,
       x: 208,
@@ -301,6 +308,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'omokaru',
+      walk: '10 min',
       photoCaption: 'A omokaru-ishi: a esfera de pedra no topo da lanterna.',
       n: 7,
       x: 158,
@@ -318,6 +326,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'shinike',
+      walk: '15 min',
       photoCaption: 'A lagoa do eco, no meio da subida.',
       n: 8,
       x: 200,
@@ -335,6 +344,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'yotsutsuji',
+      walk: '15 min',
       photoCaption: 'A vista de Kyoto do Yotsutsuji, no fim da tarde.',
       n: 9,
       x: 148,
@@ -352,6 +362,7 @@ const fushimiInari: PlaceMap = {
     },
     {
       id: 'cume',
+      walk: '25 min',
       photoCaption: 'O cume: uma clareira de mini-torii, sem vista.',
       n: 10,
       x: 166,
@@ -429,6 +440,7 @@ const sensoji: PlaceMap = {
     },
     {
       id: 'nakamise',
+      walk: '1 min',
       photoCaption: 'A Nakamise-dōri, 250 metros de lojas até o segundo portão.',
       n: 2,
       x: 180,
@@ -447,6 +459,7 @@ const sensoji: PlaceMap = {
     },
     {
       id: 'hozomon',
+      walk: '4 min',
       photoCaption: 'O Hōzōmon e as sandálias de palha penduradas atrás.',
       n: 3,
       x: 180,
@@ -464,6 +477,7 @@ const sensoji: PlaceMap = {
     },
     {
       id: 'pagode',
+      walk: '1 min',
       photoCaption: 'O pagode de cinco andares, à esquerda de quem sobe.',
       n: 4,
       x: 100,
@@ -481,6 +495,7 @@ const sensoji: PlaceMap = {
     },
     {
       id: 'jokoro',
+      walk: '1 min',
       photoCaption: 'O incensário: a fumaça vai para onde dói.',
       n: 5,
       x: 180,
@@ -498,6 +513,7 @@ const sensoji: PlaceMap = {
     },
     {
       id: 'omikuji',
+      walk: '1 min',
       photoCaption: 'As gavetinhas do omikuji e a grade onde se amarra o azar.',
       n: 6,
       x: 272,
@@ -515,6 +531,7 @@ const sensoji: PlaceMap = {
     },
     {
       id: 'hondo',
+      walk: '1 min',
       photoCaption: 'O salão principal; o teto tem dragões pintados.',
       n: 7,
       x: 180,
@@ -533,6 +550,7 @@ const sensoji: PlaceMap = {
     },
     {
       id: 'asakusa-jinja',
+      walk: '2 min',
       photoCaption: 'O santuário xintoísta ao lado, de 1649 — este sobreviveu à guerra.',
       n: 8,
       x: 272,
@@ -550,6 +568,7 @@ const sensoji: PlaceMap = {
     },
     {
       id: 'nitenmon',
+      walk: '2 min',
       photoCaption: 'O Nitenmon, de 1618, à direita do recinto.',
       n: 9,
       x: 272,
@@ -567,6 +586,7 @@ const sensoji: PlaceMap = {
     },
     {
       id: 'hoppy',
+      walk: '6 min',
       photoCaption: 'Hoppy Street: mesas na calçada e panela de cozido o dia inteiro.',
       n: 10,
       x: 86,
@@ -601,7 +621,7 @@ const miyajima: PlaceMap = {
   viewBox: '0 160 360 480',
   scenery: [
     // mar
-    { d: 'M0 640 L360 640 L360 470 L0 470 Z', fill: MAP_COLORS.water, opacity: 0.22 },
+    { d: 'M-2000 2600 L2360 2600 L2360 470 L-2000 470 Z', fill: MAP_COLORS.water, opacity: 0.22 },
     { d: 'M0 520 C60 512 120 528 180 520 C240 512 300 528 360 520', stroke: MAP_COLORS.water, width: 1.5, opacity: 0.35 },
     { d: 'M0 600 C60 592 120 608 180 600 C240 592 300 608 360 600', stroke: MAP_COLORS.water, width: 1.5, opacity: 0.3 },
     // montanha
@@ -643,6 +663,7 @@ const miyajima: PlaceMap = {
     },
     {
       id: 'otorii',
+      walk: '10 min',
       photoCaption: 'O grande torii: com maré alta parece flutuar.',
       n: 2,
       x: 150,
@@ -661,6 +682,7 @@ const miyajima: PlaceMap = {
     },
     {
       id: 'itsukushima',
+      walk: '3 min',
       photoCaption: 'Os corredores do santuário, construídos sobre a água.',
       n: 3,
       x: 250,
@@ -679,6 +701,7 @@ const miyajima: PlaceMap = {
     },
     {
       id: 'senjokaku',
+      walk: '3 min',
       photoCaption: 'O salão inacabado de Hideyoshi e o pagode de cinco andares.',
       n: 4,
       x: 280,
@@ -712,6 +735,7 @@ const miyajima: PlaceMap = {
     },
     {
       id: 'daishoin',
+      walk: '10 min',
       photoCaption: 'A escadaria do Daishō-in, com os cilindros de sutra no corrimão.',
       n: 6,
       x: 250,
@@ -730,6 +754,7 @@ const miyajima: PlaceMap = {
     },
     {
       id: 'momijidani',
+      walk: '8 min',
       photoCaption: 'O vale dos bordos, no caminho do teleférico.',
       n: 7,
       x: 200,
@@ -747,6 +772,7 @@ const miyajima: PlaceMap = {
     },
     {
       id: 'teleferico',
+      walk: '10 min',
       photoCaption: 'O teleférico sobre a floresta primária.',
       n: 8,
       x: 240,
@@ -764,6 +790,7 @@ const miyajima: PlaceMap = {
     },
     {
       id: 'misen',
+      walk: '30 min',
       photoCaption: 'O cume do Misen, com vista das ilhas do Mar Interior.',
       n: 9,
       x: 190,
@@ -781,6 +808,7 @@ const miyajima: PlaceMap = {
     },
     {
       id: 'omotesando',
+      walk: '15 min',
       photoCaption: 'A rua de comércio da ilha, entre o cais e o santuário.',
       n: 10,
       x: 310,
@@ -860,6 +888,7 @@ const nara: PlaceMap = {
     },
     {
       id: 'kofukuji',
+      walk: '5 min',
       photoCaption: 'O pagode de cinco andares do Kōfuku-ji, refletido no lago.',
       n: 2,
       x: 110,
@@ -878,6 +907,7 @@ const nara: PlaceMap = {
     },
     {
       id: 'sarusawa',
+      walk: '2 min',
       photoCaption: 'O lago Sarusawa, com o pagode ao fundo.',
       n: 3,
       x: 190,
@@ -913,6 +943,7 @@ const nara: PlaceMap = {
     },
     {
       id: 'nandaimon',
+      walk: '12 min',
       photoCaption: 'O Nandaimon e os guardiões Niō de 8,4 metros.',
       n: 5,
       x: 210,
@@ -930,6 +961,7 @@ const nara: PlaceMap = {
     },
     {
       id: 'daibutsuden',
+      walk: '3 min',
       photoCaption: 'O Daibutsuden: mesmo reduzido, é imenso.',
       n: 6,
       x: 200,
@@ -947,6 +979,7 @@ const nara: PlaceMap = {
     },
     {
       id: 'daibutsu',
+      walk: '1 min',
       photoCaption: 'O Grande Buda de bronze, de 743.',
       n: 7,
       x: 252,
@@ -965,6 +998,7 @@ const nara: PlaceMap = {
     },
     {
       id: 'nigatsudo',
+      walk: '8 min',
       photoCaption: 'O terraço do Nigatsu-dō, com Nara inteira embaixo.',
       n: 8,
       x: 290,
@@ -982,6 +1016,7 @@ const nara: PlaceMap = {
     },
     {
       id: 'kasuga',
+      walk: '15 min',
       photoCaption: 'As lanternas de pedra ao longo do caminho de Kasuga.',
       n: 9,
       x: 228,
@@ -1000,6 +1035,7 @@ const nara: PlaceMap = {
     },
     {
       id: 'naramachi',
+      walk: '25 min',
       photoCaption: 'Naramachi e o mochi socado na marreta da Nakatanidō.',
       n: 10,
       x: 300,

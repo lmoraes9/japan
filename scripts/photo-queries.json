@@ -1,5 +1,25 @@
 {
   "_comment": "Busca no Wikimedia Commons por ponto do mapa. Chave: <mapId>/<hotspotId>. O valor pode ser uma frase ou uma lista de frases tentadas em ordem (japonês costuma achar melhor os pontos pequenos). Edite e rode npm run fotos -- --force para trocar a imagem.",
+  "extras/kobe": [
+    "神戸 北野異人館",
+    "Kitano Kobe"
+  ],
+  "extras/koyasan": [
+    "高野山 奥之院",
+    "Okunoin Koyasan"
+  ],
+  "extras/nikko": [
+    "日光東照宮 陽明門",
+    "Toshogu Nikko Yomeimon"
+  ],
+  "extras/shimanami": [
+    "しまなみ海道",
+    "Shimanami Kaido bridge"
+  ],
+  "extras/uji": [
+    "平等院 鳳凰堂",
+    "Byodoin Phoenix Hall"
+  ],
   "fushimi-inari/barracas": [
     "すずめの丸焼き",
     "伏見稲荷 門前町",
@@ -79,7 +99,9 @@
   ],
   "miyajima/itsukushima": [
     "厳島神社 回廊",
-    "Itsukushima Shrine corridor"
+    "厳島神社 廻廊",
+    "Itsukushima Shrine corridor",
+    "Itsukushima Shrine high tide"
   ],
   "miyajima/misen": [
     "弥山 山頂",
