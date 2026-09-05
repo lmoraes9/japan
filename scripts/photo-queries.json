@@ -756,8 +756,10 @@
     "Tofukuji Sanmon gate"
   ],
   "tofukuji/hojo": [
-    "東福寺 方丈庭園 市松",
-    "Tofukuji Hojo garden checkerboard"
+    "東福寺 方丈 北庭",
+    "東福寺 本坊庭園",
+    "Tofukuji Hojo garden",
+    "Tofukuji checkerboard moss garden"
   ],
   "tofukuji/tsutenkyo": [
     "東福寺 通天橋 紅葉",
@@ -772,12 +774,15 @@
     "Tofukuji Engetsukyo"
   ],
   "tofukuji/komyoin": [
-    "光明院 波心庭",
-    "Komyoin Kyoto garden"
+    "光明院 東福寺",
+    "Komyo-in Tofukuji",
+    "Komyoin Kyoto"
   ],
   "kinkakuji/entrada": [
-    "金閣寺 総門",
-    "Kinkakuji entrance gate"
+    "金閣寺 黒門",
+    "金閣寺 参道",
+    "Kinkakuji Somon gate",
+    "Kinkaku-ji entrance path"
   ],
   "kinkakuji/pavilhao": [
     "金閣寺 舎利殿",
@@ -788,8 +793,9 @@
     "Kinkakuji Kyokochi pond"
   ],
   "kinkakuji/sekkatei": [
-    "金閣寺 夕佳亭",
-    "Kinkakuji Sekkatei teahouse"
+    "夕佳亭",
+    "Sekkatei Kinkakuji",
+    "Sekka-tei tea house Kinkaku-ji"
   ],
   "kinkakuji/kinukake": [
     "きぬかけの路",
@@ -836,8 +842,10 @@
     "Sumiyoshi Taisha Nankunsha"
   ],
   "sumiyoshi/omokaru": [
-    "住吉大社 おもかる石",
-    "Sumiyoshi Taisha omokaru ishi"
+    "住吉大社 大歳社",
+    "おもかる石 住吉",
+    "Otoshi-sha Sumiyoshi",
+    "Sumiyoshi Taisha Ōtoshi shrine"
   ],
   "castelo-osaka/otemon": [
     "大阪城 大手門",
@@ -889,8 +897,10 @@
     "Yurinso Kurashiki"
   ],
   "kurashiki/canal": [
-    "倉敷川 川舟",
-    "Kurashiki canal boat"
+    "倉敷美観地区 川舟",
+    "倉敷川 柳",
+    "Kurashiki Bikan canal boat",
+    "Kurashiki river boat willow"
   ],
   "kurashiki/nakabashi": [
     "倉敷 中橋",
@@ -913,12 +923,14 @@
     "Shibuya Station Hachiko exit"
   ],
   "shibuya/hachiko": [
-    "ハチ公像 渋谷",
-    "Hachiko statue Shibuya"
+    "忠犬ハチ公像",
+    "Hachiko statue Shibuya station",
+    "Hachikō statue"
   ],
   "shibuya/cruzamento": [
-    "渋谷スクランブル交差点 夜",
-    "Shibuya crossing night"
+    "渋谷スクランブル交差点 夜景",
+    "Shibuya Crossing night crowd",
+    "Shibuya scramble crossing at night"
   ],
   "shibuya/cento-e-nove": [
     "渋谷109",
@@ -933,7 +945,8 @@
     "Nonbei Yokocho Shibuya"
   ],
   "shibuya/miyashita": [
-    "宮下パーク",
-    "Miyashita Park Shibuya"
+    "MIYASHITA PARK 屋上",
+    "Miyashita Park rooftop Shibuya",
+    "Rayard Miyashita Park"
   ]
 }

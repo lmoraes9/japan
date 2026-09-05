@@ -934,33 +934,12 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Shibuya_109_Building_Tokyo_January_2006.jpg",
     "title": "Shibuya 109 Building Tokyo January 2006.jpg"
   },
-  "shibuya/cruzamento": {
-    "src": "/lugares/shibuya/cruzamento.jpg",
-    "credit": "片割れ靴下 (unpaired sock)",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:%E6%B8%8B%E8%B0%B7%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%B3%E3%83%96%E3%83%AB%E4%BA%A4%E5%B7%AE%E7%82%B920200419.jpg",
-    "title": "渋谷スクランブル交差点20200419.jpg"
-  },
   "shibuya/estacao": {
     "src": "/lugares/shibuya/estacao.jpg",
     "credit": "Nesnad",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:JR_Shibuya_Station_Hachiko_ticket_gates_-_Oct_28_2019_3pm.jpeg",
     "title": "JR Shibuya Station Hachiko ticket gates - Oct 28 2019 3pm.jpeg"
-  },
-  "shibuya/hachiko": {
-    "src": "/lugares/shibuya/hachiko.jpg",
-    "credit": "Pablo",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Shibuya,_Tokio,_Jap%C3%B3n_2016-12_(32046064901).jpg",
-    "title": "Shibuya, Tokio, Japón 2016-12 (32046064901).jpg"
-  },
-  "shibuya/miyashita": {
-    "src": "/lugares/shibuya/miyashita.jpg",
-    "credit": "Syced",
-    "license": "CC0",
-    "source": "https://commons.wikimedia.org/wiki/File:Sake_event_at_Miyashita_Park.jpg",
-    "title": "Sake event at Miyashita Park.jpg"
   },
   "shibuya/nonbei": {
     "src": "/lugares/shibuya/nonbei.jpg",
