@@ -325,13 +325,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Jimbocho-Sta-A3.JPG",
     "title": "Jimbocho-Sta-A3.JPG"
   },
-  "stops/d02-nihonbashi": {
-    "src": "/lugares/stops/d02-nihonbashi.jpg",
-    "credit": "Utagawa Hiroshige",
-    "license": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Hiroshige_le_pont_Nihonbashi_%C3%A0_l%27aube.jpg",
-    "title": "Hiroshige le pont Nihonbashi à l'aube.jpg"
-  },
   "stops/d03-haneda": {
     "src": "/lugares/stops/d03-haneda.jpg",
     "credit": "AD Train",
@@ -401,13 +394,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:AKIHABARA_New_Radio_Kaikan.jpg",
     "title": "AKIHABARA New Radio Kaikan.jpg"
-  },
-  "stops/d19-sensoji": {
-    "src": "/lugares/stops/d19-sensoji.jpg",
-    "credit": "Narazaki Eishō",
-    "license": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:In_de_Kannon_tempel_in_Asakusa_Asakusa_Kannon_no_naido_(titel_op_object),_AK-MAK-1630.jpg",
-    "title": "In de Kannon tempel in Asakusa Asakusa Kannon no naido (titel op object), AK-MAK-1630.jpg"
   },
   "stops/d20-daibutsu": {
     "src": "/lugares/stops/d20-daibutsu.jpg",

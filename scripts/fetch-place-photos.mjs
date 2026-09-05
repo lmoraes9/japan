@@ -74,6 +74,10 @@ const GENERICAS = new Set(
    'grand sando dori building house street food ropeway ferry deer lantern fox key').split(' '),
 );
 
+/** gravuras, pinturas e mapas de museu não servem como foto do lugar */
+const NAO_E_FOTO =
+  /(map|diagram|plan|logo|icon|stamp|hiroshige|hokusai|ukiyo|woodblock|print|painting|drawing|engraving|titel op object|AK-MAK|RP-P-|浮世絵|錦絵|版画|絵図)/i;
+
 const normalizar = (t) =>
   t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[-_,.()]/g, ' ');
 
@@ -127,8 +131,8 @@ async function search(query, width, termos) {
 
   const bom = doLugar
     .filter(({ info }) => info.width >= 1000 && info.width >= info.height * 0.6)
-    .filter(({ title }) => !/(map|diagram|plan|logo|icon|stamp)/i.test(title));
-  const aceitavel = doLugar.filter(({ info }) => info.width >= 700);
+    .filter(({ title }) => !NAO_E_FOTO.test(title));
+  const aceitavel = doLugar.filter(({ info }) => info.width >= 700 && !NAO_E_FOTO.test(info.title ?? ''));
   return bom.length ? bom : aceitavel;
 }
 
@@ -203,7 +207,7 @@ if (validar) {
     const atual = current[key];
     if (!atual) continue;
     const termos = termosDe(Array.isArray(query) ? query : [query]);
-    if (combina(atual.title, termos)) continue;
+    if (combina(atual.title, termos) && !NAO_E_FOTO.test(atual.title)) continue;
     console.log(`✗ ${key} — "${atual.title}" não parece ser do lugar; removida`);
     delete current[key];
     await rm(join(ROOT, 'public', `lugares/${key.split('/')[0]}/${key.split('/')[1]}.jpg`), { force: true });

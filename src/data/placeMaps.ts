@@ -44,6 +44,8 @@ export interface PlaceHotspot {
   paragraphs: string[];
   /** legenda da foto, quando ela existir */
   photoCaption?: string;
+  /** busca no Google Maps para o botão Navegar; padrão: título + nome do lugar */
+  mapQuery?: string;
 }
 
 export interface SceneryShape {
@@ -57,8 +59,17 @@ export interface SceneryShape {
   round?: boolean;
 }
 
+export interface Tree {
+  x: number;
+  y: number;
+  /** altura aproximada, em unidades do viewBox */
+  s: number;
+}
+
 export interface PlaceMap {
   id: string;
+  /** ponto cuja foto vira a capa do mapa (hero da página e card no hub) */
+  coverHotspotId: string;
   /** stop do roteiro a que este mapa pertence */
   stopId: string;
   dayId: string;
@@ -68,6 +79,8 @@ export interface PlaceMap {
   intro: string[];
   viewBox: string;
   scenery: SceneryShape[];
+  /** árvores desenhadas com o símbolo do componente (mais bonitas que triângulos) */
+  trees?: Tree[];
   hotspots: PlaceHotspot[];
   legend: string;
 }
@@ -85,6 +98,7 @@ export const MAP_COLORS = {
 
 const fushimiInari: PlaceMap = {
   id: 'fushimi-inari',
+  coverHotspotId: 'senbon',
   stopId: 'd27-fushimi-inari',
   dayId: 'd2026-11-27',
   title: 'Fushimi Inari Taisha',
@@ -167,12 +181,18 @@ const fushimiInari: PlaceMap = {
       opacity: 0.45,
       round: true,
     },
-    // árvores
-    {
-      d: 'M64 470 l9 22 h-18 Z M92 508 l8 20 h-16 Z M52 546 l10 24 h-20 Z M290 500 l9 22 h-18 Z M312 552 l8 20 h-16 Z M268 592 l10 24 h-20 Z M96 380 l9 22 h-18 Z M286 402 l9 22 h-18 Z M74 240 l9 22 h-18 Z M282 210 l9 22 h-18 Z',
-      fill: MAP_COLORS.forest,
-      opacity: 0.35,
-    },
+  ],
+  trees: [
+    { x: 64, y: 492, s: 22 },
+    { x: 92, y: 528, s: 20 },
+    { x: 52, y: 570, s: 24 },
+    { x: 290, y: 522, s: 22 },
+    { x: 312, y: 572, s: 20 },
+    { x: 268, y: 616, s: 24 },
+    { x: 96, y: 402, s: 22 },
+    { x: 286, y: 424, s: 22 },
+    { x: 74, y: 262, s: 22 },
+    { x: 282, y: 232, s: 22 },
   ],
   hotspots: [
     {
@@ -354,6 +374,7 @@ const fushimiInari: PlaceMap = {
 
 const sensoji: PlaceMap = {
   id: 'sensoji',
+  coverHotspotId: 'kaminarimon',
   stopId: 'd19-sensoji',
   dayId: 'd2026-11-19',
   title: 'Sensō-ji',
@@ -380,8 +401,13 @@ const sensoji: PlaceMap = {
     { d: 'M126 236 C150 208 210 208 234 236 M136 236 L136 274 L224 274 L224 236', stroke: MAP_COLORS.ink, width: 2.5, opacity: 0.45, round: true },
     // pagode de cinco andares
     { d: 'M100 340 l0 -16 M88 324 l24 0 M92 312 l16 0 M88 300 l24 0 M92 288 l16 0 M100 288 l0 -12', stroke: MAP_COLORS.vermilion, width: 2.5, opacity: 0.7, round: true },
-    // árvores
-    { d: 'M50 300 l9 22 h-18 Z M320 340 l9 22 h-18 Z M52 420 l8 20 h-16 Z M324 460 l8 20 h-16 Z M44 560 l8 20 h-16 Z', fill: MAP_COLORS.forest, opacity: 0.35 },
+  ],
+  trees: [
+    { x: 50, y: 322, s: 22 },
+    { x: 320, y: 362, s: 22 },
+    { x: 52, y: 440, s: 20 },
+    { x: 324, y: 480, s: 20 },
+    { x: 44, y: 580, s: 20 },
   ],
   hotspots: [
     {
@@ -562,6 +588,7 @@ const sensoji: PlaceMap = {
 
 const miyajima: PlaceMap = {
   id: 'miyajima',
+  coverHotspotId: 'otorii',
   stopId: 'd24-itsukushima',
   dayId: 'd2026-11-24',
   title: 'Miyajima',
@@ -587,8 +614,14 @@ const miyajima: PlaceMap = {
     { d: 'M126 566 L126 518 M174 566 L174 518 M114 522 L186 522 M118 506 C138 500 162 500 182 506 L182 512 C162 506 138 506 118 512 Z', stroke: MAP_COLORS.vermilion, width: 4, opacity: 0.95, round: true },
     // corredores do santuário sobre a água
     { d: 'M198 486 L292 486 M208 486 L208 502 M234 486 L234 502 M262 486 L262 502 M288 486 L288 502', stroke: MAP_COLORS.vermilion, width: 2.5, opacity: 0.7, round: true },
-    // árvores
-    { d: 'M56 430 l9 22 h-18 Z M96 448 l8 20 h-16 Z M312 424 l9 22 h-18 Z M116 330 l9 22 h-18 Z M296 340 l9 22 h-18 Z M60 260 l9 22 h-18 Z', fill: MAP_COLORS.forest, opacity: 0.4 },
+  ],
+  trees: [
+    { x: 56, y: 452, s: 22 },
+    { x: 96, y: 468, s: 20 },
+    { x: 312, y: 446, s: 22 },
+    { x: 116, y: 352, s: 22 },
+    { x: 296, y: 362, s: 22 },
+    { x: 60, y: 282, s: 22 },
   ],
   hotspots: [
     {
@@ -769,6 +802,7 @@ const miyajima: PlaceMap = {
 
 const nara: PlaceMap = {
   id: 'nara',
+  coverHotspotId: 'daibutsu',
   stopId: 'd30-parque-nara',
   dayId: 'd2026-11-30',
   title: 'Parque de Nara',
@@ -797,8 +831,14 @@ const nara: PlaceMap = {
     { d: 'M154 412 L154 392 M192 412 L192 392 M146 394 L200 394', stroke: MAP_COLORS.vermilion, width: 2.5, opacity: 0.6, round: true },
     // torii de Kasuga
     { d: 'M160 170 L160 142 M204 170 L204 142 M152 144 L212 144 M156 132 C172 128 192 128 208 132 L208 137 C192 133 172 133 156 137 Z', stroke: MAP_COLORS.vermilion, width: 3, opacity: 0.85, round: true },
-    // árvores
-    { d: 'M60 420 l9 22 h-18 Z M100 380 l8 20 h-16 Z M310 460 l9 22 h-18 Z M62 300 l9 22 h-18 Z M120 250 l9 22 h-18 Z M316 380 l8 20 h-16 Z', fill: MAP_COLORS.forest, opacity: 0.38 },
+  ],
+  trees: [
+    { x: 60, y: 442, s: 22 },
+    { x: 100, y: 400, s: 20 },
+    { x: 310, y: 482, s: 22 },
+    { x: 62, y: 322, s: 22 },
+    { x: 120, y: 272, s: 22 },
+    { x: 316, y: 400, s: 20 },
   ],
   hotspots: [
     {
@@ -983,6 +1023,9 @@ export const PLACE_MAPS: PlaceMap[] = [sensoji, miyajima, nara, fushimiInari];
 
 export const placeMapById = (id: string): PlaceMap | undefined =>
   PLACE_MAPS.find((m) => m.id === id);
+
+/** miniatura quadrada gerada por scripts/optimize-photos.mjs */
+export const thumbOf = (photo: PlacePhoto) => photo.src.replace(/\.jpg$/, '.thumb.jpg');
 
 /** chave da foto no arquivo gerado: '<mapa>/<ponto>' */
 export const photoKey = (mapId: string, hotspotId: string) => `${mapId}/${hotspotId}`;

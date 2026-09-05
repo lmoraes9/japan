@@ -120,7 +120,8 @@ export function StopCard({
                 src={photo.src}
                 alt={stop.name}
                 loading="lazy"
-                className="aspect-[16/10] w-full rounded-xl border border-hairline bg-surface-2 object-cover"
+                decoding="async"
+                className="photo-in aspect-[16/10] w-full rounded-xl border border-hairline bg-surface-2 object-cover"
               />
               <figcaption className="mt-1 text-[10px] leading-snug text-muted">
                 <a
@@ -191,10 +192,10 @@ export function StopCard({
             {stop.placeMapId && (
               <Link
                 href={`/lugar/${stop.placeMapId}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-accent text-[12px] font-medium px-3 py-1.5 text-accent"
+                className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft text-[12px] font-semibold px-3 py-1.5 text-accent ring-1 ring-accent/40"
               >
                 <Compass size={13} />
-                Mapa do lugar
+                Mapa ilustrado
               </Link>
             )}
             {photos && (

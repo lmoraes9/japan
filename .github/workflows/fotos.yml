@@ -16,6 +16,7 @@ on:
   push:
     paths:
       - 'scripts/fetch-place-photos.mjs'
+      - 'scripts/optimize-photos.mjs'
       - 'scripts/photo-queries.json'
       - '.github/workflows/fotos.yml'
 
@@ -36,6 +37,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+
+      - run: npm ci
 
       # se estourar o tempo, o que já baixou ainda é commitado no passo seguinte
       # e o próximo run continua de onde este parou
@@ -46,6 +50,10 @@ jobs:
           node scripts/fetch-place-photos.mjs \
             ${{ (github.event_name == 'workflow_dispatch' && inputs.force) && '--force' || '' }} \
             ${{ (github.event_name == 'workflow_dispatch' && inputs.only != '') && format('--only {0}', inputs.only) || '' }}
+
+      - name: Recomprimir e gerar miniaturas
+        if: always()
+        run: node scripts/optimize-photos.mjs
 
       - name: Commitar o que mudou
         if: always()

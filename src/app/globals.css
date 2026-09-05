@@ -76,3 +76,39 @@ body {
     transition: none !important;
   }
 }
+
+/* painel do ponto no mapa ilustrado: sobe do rodapé */
+@keyframes sheet-in {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.sheet-in {
+  animation: sheet-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* fotos entram suaves em vez de "pipocar" */
+@keyframes photo-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.photo-in {
+  animation: photo-in 320ms ease-out;
+}
+
+/* feedback de toque nos cards clicáveis */
+.tappable {
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+.tappable:active {
+  transform: scale(0.985);
+}

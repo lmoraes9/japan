@@ -5,12 +5,20 @@ import {
   Plane,
   MapPinPlus,
   Sandwich,
+  MapPinned,
   Settings,
   ChevronRight,
   Star,
 } from 'lucide-react';
 
 const ITEMS = [
+  {
+    href: '/mais/mapas',
+    icon: MapPinned,
+    title: 'Mapas ilustrados',
+    subtitle: 'Sensō-ji, Miyajima, Fushimi Inari e Nara, ponto a ponto, com foto e história',
+    highlight: true,
+  },
   {
     href: '/mais/compras',
     icon: ShoppingBag,
@@ -62,13 +70,17 @@ export default function MaisPage() {
         <h1 className="text-2xl font-bold">Mais</h1>
       </header>
       <div className="space-y-2.5">
-        {ITEMS.map(({ href, icon: Icon, title, subtitle }) => (
+        {ITEMS.map(({ href, icon: Icon, title, subtitle, highlight }) => (
           <Link
             key={href}
             href={href}
-            className="flex items-center gap-3.5 rounded-2xl border border-hairline bg-surface p-4"
+            className={`tappable flex items-center gap-3.5 rounded-2xl border bg-surface p-4 ${
+              highlight ? 'border-accent/40 bg-accent-soft/40' : 'border-hairline'
+            }`}
           >
-            <Icon size={22} className="text-accent shrink-0" strokeWidth={1.8} />
+            <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${highlight ? 'bg-accent text-white' : 'bg-surface-2 text-accent'}`}>
+              <Icon size={20} strokeWidth={1.8} />
+            </span>
             <div className="min-w-0 flex-1">
               <p className="text-[14.5px] font-semibold">{title}</p>
               <p className="text-[12px] text-muted leading-snug">{subtitle}</p>
