@@ -318,6 +318,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_No09_151.jpg",
     "title": "Himeji Castle No09 151.jpg"
   },
+  "kamakura/daibutsu": {
+    "src": "/lugares/kamakura/daibutsu.jpg",
+    "credit": "江戸村のとくぞう",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura_Daibutsu-2.jpg",
+    "title": "Kamakura Daibutsu-2.jpg"
+  },
   "kamakura/engakuji": {
     "src": "/lugares/kamakura/engakuji.jpg",
     "credit": "Fg2",
@@ -891,6 +898,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC0",
     "source": "https://commons.wikimedia.org/wiki/File:Sensoji_2023.jpg",
     "title": "Sensoji 2023.jpg"
+  },
+  "stops/d20-daibutsu": {
+    "src": "/lugares/stops/d20-daibutsu.jpg",
+    "credit": "江戸村のとくぞう",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura_Daibutsu-2.jpg",
+    "title": "Kamakura Daibutsu-2.jpg"
   },
   "stops/d20-engakuji": {
     "src": "/lugares/stops/d20-engakuji.jpg",
