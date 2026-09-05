@@ -486,13 +486,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Kyoyochi_Pond_of_Ryoanji_Temple.jpg",
     "title": "Kyoyochi Pond of Ryoanji Temple.jpg"
   },
-  "kinkakuji/sekkatei": {
-    "src": "/lugares/kinkakuji/sekkatei.jpg",
-    "credit": "そらみみ",
-    "license": "CC BY-SA 3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:View_of_Shariden_in_front_of_Sekkatei.jpg",
-    "title": "View of Shariden in front of Sekkatei.jpg"
-  },
   "kinkakuji/tsukubai": {
     "src": "/lugares/kinkakuji/tsukubai.jpg",
     "credit": "Peter 111",
@@ -961,13 +954,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:JR_Shibuya_Station_Hachiko_ticket_gates_-_Oct_28_2019_3pm.jpeg",
     "title": "JR Shibuya Station Hachiko ticket gates - Oct 28 2019 3pm.jpeg"
-  },
-  "shibuya/hachiko": {
-    "src": "/lugares/shibuya/hachiko.jpg",
-    "credit": "Pablo",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Shibuya,_Tokio,_Jap%C3%B3n_2016-12_(32046064901).jpg",
-    "title": "Shibuya, Tokio, Japón 2016-12 (32046064901).jpg"
   },
   "shibuya/miyashita": {
     "src": "/lugares/shibuya/miyashita.jpg",
