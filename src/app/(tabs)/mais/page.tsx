@@ -12,6 +12,9 @@ import {
   Settings,
   ChevronRight,
   Star,
+  BookOpen,
+  TicketCheck,
+  BedDouble,
 } from 'lucide-react';
 
 const ITEMS = [
@@ -21,6 +24,24 @@ const ITEMS = [
     title: 'Mapas ilustrados',
     subtitle: 'Sensō-ji, Miyajima, Fushimi Inari e Nara, ponto a ponto, com foto e história',
     highlight: true,
+  },
+  {
+    href: '/mais/historia',
+    icon: BookOpen,
+    title: 'História',
+    subtitle: 'O Japão em capítulos, as nove cidades e os lugares do roteiro em detalhe',
+  },
+  {
+    href: '/mais/ingressos',
+    icon: TicketCheck,
+    title: 'Ingressos e reservas necessárias',
+    subtitle: 'O que esgota (Shibuya Sky, Shinkansen), o que convém comprar antes e o que é só chegar',
+  },
+  {
+    href: '/mais/hoteis',
+    icon: BedDouble,
+    title: 'Hotéis sugeridos',
+    subtitle: 'Quatro por cidade, a pé da estação e dos programas, com preço de novembro',
   },
   {
     href: '/mais/reservas',

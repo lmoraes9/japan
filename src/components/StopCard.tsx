@@ -26,6 +26,7 @@ import { Rich } from './Rich';
 import { EatBlocks } from './EatBlocks';
 import { navigateUrl, photosUrl } from '@/lib/mapsLinks';
 import { PLACE_PHOTOS } from '@/data/placePhotos.generated';
+import { placeHistory } from '@/data/historia';
 import { useSyncStore } from '@/lib/store';
 import { useSettings } from '@/lib/settings';
 
@@ -198,6 +199,15 @@ export function StopCard({
               >
                 <Compass size={13} />
                 Mapa ilustrado
+              </Link>
+            )}
+            {placeHistory(stop.id) && (
+              <Link
+                href={`/mais/historia/${stop.id}`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-hairline text-[12px] font-medium px-3 py-1.5 text-foreground/80"
+              >
+                <BookOpen size={13} />
+                História completa
               </Link>
             )}
             {photos && (
