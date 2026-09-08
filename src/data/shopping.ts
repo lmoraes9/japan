@@ -255,4 +255,40 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
       },
     ],
   },
+  {
+    id: 'switch2',
+    title: '7 · Nintendo Switch 2, edição 40 anos de Zelda',
+    checklistItemId: 'switch2',
+    blocks: [
+      {
+        type: 'p',
+        text: 'Anunciada no Direct de 8 de setembro: **Nintendo Switch 2 ゼルダの伝説 40周年 アニバーサリーエディション**, à venda no Japão a partir de **29 de outubro de 2026**, três semanas antes de vocês chegarem. Trifórcia gravada nas costas do console, no dock e nos Joy-Con 2 verdes. **Não vem com jogo.** No mesmo dia saem o **Pro Controller** temático (¥12.980, com suporte) e a **capa de transporte** (¥3.980). Preço do console: **¥62.980** com imposto, uns ¥57.300 depois do tax-free.',
+      },
+      {
+        type: 'note',
+        note: {
+          label: 'Leia antes de comprar: é o modelo "japonês, uso no Japão"',
+          tone: 'warn',
+          paragraphs: [
+            'O nome oficial diz **日本語・国内専用** (japonês, uso doméstico). É a versão que o Japão vende nas lojas normais para segurar a diferença de preço para o exterior, e a edição Zelda **só existe nessa versão** por enquanto. O que isso muda:',
+          ],
+          bullets: [
+            '**Idioma do sistema travado em japonês.** Não há opção de trocar para inglês ou português nos menus do console.',
+            '**Só aceita conta Nintendo com país = Japão.** A conta brasileira de vocês não vincula. Dá para criar uma conta japonesa nova, mas o eShop passa a ser o japonês, pagando com cartão que ele aceite (nem todo cartão estrangeiro passa) ou com **cartão pré-pago comprado no konbini**.',
+            '**Cartucho físico de qualquer região roda** (o jogo aparece no idioma que o próprio jogo suportar, com vocês escolhendo no jogo). O que **não** funciona são os *game-key cards* e códigos de download de fora do Japão, que dependem do eShop.',
+            'Os jogos do Zelda em si (Breath of the Wild, Tears of the Kingdom, Ocarina) têm português ou inglês no cartucho, então jogar não é o problema. Configurar sistema, atualizações e loja em japonês é.',
+          ],
+        },
+      },
+      {
+        type: 'bullets',
+        items: [
+          '**Se a ideia é jogar em casa sem dor de cabeça**, a alternativa é a versão multilíngue comum (¥69.980, sem a arte do Zelda), vendida **só na Nintendo Store online do Japão** e na **Nintendo TOKYO** (Shibuya PARCO, 6º andar, no dia 22). Ou esperar a edição Zelda chegar aos outros países, o que a Nintendo ainda não datou nem precificou.',
+          '**Onde procurar a edição Zelda:** Bic Camera Yūrakuchō e Shinjuku, Yodobashi Akiba, **Nintendo TOKYO** em Shibuya (dia 22) e Nintendo OSAKA (Daimaru Umeda, 13º andar). Edição especial três semanas depois do lançamento pode estar esgotada: **reservem pela Amazon.co.jp ou Rakuten Books para entrega no hotel** se não quiserem depender de estoque. Amazon e Rakuten não dão tax-free; loja física dá.',
+          '**Alfândega brasileira:** console + Pro Controller + capa somam uns US$530, cabendo na cota de **US$1.000 por pessoa**. Só não somem com o MacBook na mesma cota. Guardem a caixa: é ela que faz a edição valer mais depois.',
+          '**Voltagem:** o carregador do Switch 2 é 100–240V, funciona no Brasil com adaptador de pino. O dock também.',
+        ],
+      },
+    ],
+  },
 ];
