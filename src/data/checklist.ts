@@ -38,12 +38,6 @@ export const CHECKLIST: ChecklistItem[] = [
     title: "Royce' Nama Chocolate (duty free da volta)",
     subtitle: 'Haneda T3, depois da imigração · dia 3/12 · pedir o saco térmico e levar na bagagem de mão',
   },
-  {
-    id: 'switch2',
-    group: 'compras',
-    title: 'Nintendo Switch 2 — edição 40 anos de Zelda',
-    subtitle: 'Só existe na versão "japonês · uso no Japão" (idioma travado, eShop só JP) · ¥62.980 · Bic Camera / Yodobashi / Nintendo Store Tokyo',
-  },
   // ── Compras (keys originais do roteiro) ──
   {
     id: 'tshirt',
