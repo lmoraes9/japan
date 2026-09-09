@@ -1,15 +1,40 @@
-import { Navigation, Star } from 'lucide-react';
+import { Navigation, Star, PiggyBank, Building2 } from 'lucide-react';
 import { SubpageHeader } from '@/components/SubpageHeader';
-import { HOTEIS } from '@/data/hoteis';
+import { Rich } from '@/components/Rich';
+import { HOTEIS, ECONOMIA, REDES } from '@/data/hoteis';
 import { searchUrl } from '@/lib/mapsLinks';
 
 export default function HoteisPage() {
   return (
     <div className="space-y-6">
-      <SubpageHeader title="Hotéis sugeridos" subtitle="Por etapa, pensando em andar pouco com mala e sair cedo. Preços de fim de novembro, quarto duplo" />
+      <SubpageHeader title="Hotéis sugeridos" subtitle="Rede econômica japonesa, sempre a pé da estação. Preços de fim de novembro, quarto duplo, por noite" />
       <div className="rounded-2xl border border-hairline bg-surface-2/70 p-3.5 text-[13px] leading-relaxed">
-        A regra que usei: <strong>menos de 10 minutos a pé da estação que vocês usam de manhã</strong>, e a pé dos jantares. A estrela marca a escolha por etapa. Novembro é pico em Kyoto: reservem primeiro lá.
+        Refeito para orçamento apertado: tudo aqui é <strong>business hotel de rede</strong>, entre ¥8.000 e ¥20.000 a diária do casal, sem perder a regra de <strong>menos de 10 minutos a pé da estação da manhã</strong>. As 15 noites saem por volta de <strong>¥190.000</strong>, contra uns ¥450.000 na lista anterior. A estrela marca a escolha por etapa. Novembro é pico em Kyoto: reservem primeiro lá.
       </div>
+
+      <section className="rounded-2xl border border-hairline bg-surface p-4">
+        <p className="mb-2.5 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-muted"><PiggyBank size={13} /> Onde o dinheiro é economizado</p>
+        <ul className="space-y-2.5">
+          {ECONOMIA.map((e) => (
+            <li key={e.title} className="text-[13px] leading-relaxed">
+              <strong className="block text-[13.5px]">{e.title}</strong>
+              <Rich text={e.text} />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="rounded-2xl border border-hairline bg-surface p-4">
+        <p className="mb-2.5 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-muted"><Building2 size={13} /> O que esperar de cada rede</p>
+        <ul className="space-y-2.5">
+          {REDES.map((r) => (
+            <li key={r.name} className="text-[13px] leading-relaxed">
+              <strong className="block text-[13.5px]">{r.name}</strong>
+              <Rich text={r.text} />
+            </li>
+          ))}
+        </ul>
+      </section>
       {HOTEIS.map((e) => (
         <section key={e.stageId}>
           <p className="font-mono text-[11px] uppercase tracking-widest text-muted">{e.nights}</p>
@@ -29,7 +54,7 @@ export default function HoteisPage() {
                   </div>
                   <span className="shrink-0 rounded-full bg-surface-2 px-2.5 py-1 font-mono text-[12px] font-semibold tabular-nums">{h.price}</span>
                 </div>
-                <p className="mt-2 text-[13.5px] leading-relaxed">{h.why}</p>
+                <p className="mt-2 text-[13.5px] leading-relaxed"><Rich text={h.why} /></p>
                 <p className="mt-1.5 text-[12px] leading-snug text-muted"><strong className="text-foreground/80">A pé:</strong> {h.mobility}</p>
                 {h.caveat && <p className="mt-1 text-[12px] leading-snug text-muted"><strong className="text-foreground/80">Contra:</strong> {h.caveat}</p>}
                 <a href={searchUrl(h.mapQuery)} target="_blank" rel="noopener noreferrer" className="mt-2.5 inline-flex items-center gap-1.5 rounded-full border border-hairline px-3 py-1.5 text-[12px] font-medium">
