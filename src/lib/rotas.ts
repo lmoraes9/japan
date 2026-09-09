@@ -22,6 +22,7 @@ const ESTATICAS = [
   '/mais/logistica',
   '/mais/mala',
   '/mais/mapas',
+  '/mapa-japao',
   '/mais/reservas',
 ];
 

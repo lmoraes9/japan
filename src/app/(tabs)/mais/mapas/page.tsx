@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Globe2 } from 'lucide-react';
 import { SubpageHeader } from '@/components/SubpageHeader';
 import { PLACE_MAPS, thumbOf } from '@/data/placeMaps';
 import { dayById } from '@/data/days';
@@ -17,6 +17,25 @@ export default function MapasPage() {
         title="Mapas ilustrados"
         subtitle="Toque num ponto do mapa e ele conta o que é e a história"
       />
+
+      <Link
+        href="/mapa-japao"
+        className="tappable block overflow-hidden rounded-3xl border border-accent/40 bg-accent-soft p-4"
+      >
+        <div className="flex items-center gap-3">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent text-white">
+            <Globe2 size={22} />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[15px] font-bold leading-snug">O Japão inteiro, em 3D</span>
+            <span className="mt-0.5 block text-[12.5px] leading-snug text-muted">
+              As nove cidades da viagem viram marcos no mapa: o torii de Miyajima, a garça de Himeji,
+              o pagode de Kyoto. A régua percorre os 16 dias.
+            </span>
+          </span>
+          <ChevronRight size={18} className="shrink-0 text-accent" />
+        </div>
+      </Link>
 
       <div className="space-y-3.5">
         {maps.map((map) => {
