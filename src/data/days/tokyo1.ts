@@ -297,6 +297,11 @@ export const tokyo1Days: Day[] = [
                 name: 'Mandarake Complex',
                 note: '8 andares, cada um um universo. Mais organizado que parece.',
               },
+              {
+                name: 'Niku no Mansei — o katsu sando clássico',
+                specialty: true,
+                note: '**~¥700**, na ponte Mansei, 5 min a pé daqui. A casa de carne serve esse sanduíche desde 1966 e ele é *o* katsu sando de Tóquio: lombo empanado fino, molho escuro adocicado, pão de leite sem casca, embrulhado em papel. Tem até máquina automática na rua, que funciona de madrugada. É a versão de ¥700 do sanduíche de ¥7.000 de Nakameguro — e muita gente prefere esta.',
+              },
             ],
           },
         ],
@@ -676,7 +681,12 @@ export const tokyo1Days: Day[] = [
               },
               {
                 name: 'Ginza Six / Mitsukoshi',
-                note: 'o *depachika* (subsolo de comida) do Mitsukoshi é um museu gratuito de comida japonesa. Vão nem que seja só olhar.',
+                note: 'o *depachika* (subsolo de comida) do Mitsukoshi é um museu gratuito de comida japonesa. Vão nem que seja só olhar. É aqui que se acha **gyūkatsu sando** de casa de carne por ¥1.500–3.000, a versão sensata do sanduíche de wagyu.',
+              },
+              {
+                name: 'Shima — o katsu sando de carne, para viagem',
+                specialty: true,
+                note: 'Casa antiga de yōshoku em Ginza que vende, no balcão da frente, um sanduíche de **carne wagyu empanada** entre duas fatias grossas de pão de leite, com mostarda e molho tonkatsu. Só para viagem, feito em quantidade limitada e **costuma acabar antes das 14h**. Se passarem antes, comprem e comam no terraço do KITTE às 17:00.',
               },
             ],
           },
@@ -809,6 +819,20 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Harajuku Gyōza Rō',
                 note: '11:30–22:30 · gyoza e cerveja, ¥350 o prato, fila rápida',
+              },
+            ],
+          },
+          {
+            label: 'O wagyu katsu sando, se quiserem fazer o desvio',
+            items: [
+              {
+                name: 'WAGYUMAFIA The Cutlet Sandwich — Nakameguro',
+                specialty: true,
+                note: 'É **este** o sanduíche dos vídeos: lombo de wagyu empanado por segundos, rosa por dentro, molho de três shoyus, pão tostado na manteiga, servido de pé num balcão de 4 lugares. Fica em Nakameguro, **2 paradas de Shibuya** pela Tōkyū Tōyoko: encaixa antes ou depois do Shibuya Sky. **O preço é o problema:** de **¥5.000** (Ozaki sirloin) a ¥35.000 (Kobe maturado) o sanduíche, para uma pessoa. Vale se for tratado como o programa do dia, não como almoço.',
+              },
+              {
+                name: 'A alternativa honesta — o gyūkatsu sando de depachika',
+                note: 'Todo subsolo de loja de departamento grande (Mitsukoshi Ginza, Isetan Shinjuku, Tōkyū Food Show em Shibuya, aqui do lado) tem vitrine de sanduíche de carne empanada por **¥1.500–3.000**, feito no dia por casa de carne tradicional. É o mesmo prazer por um quinto do preço, e vocês comem sentados no parque.',
               },
             ],
           },

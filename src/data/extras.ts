@@ -62,4 +62,16 @@ export const EXTRAS: ExtraPlace[] = [
     ],
     mapQuery: 'Shimanami Kaido Onomichi',
   },
+  {
+    id: 'yamadera',
+    title: 'Yamadera (Risshaku-ji)',
+    subtitle: 'Fora de mão de verdade · 3h de Tóquio, só de ida, e nenhum dia livre no roteiro',
+    paragraphs: [
+      'O templo das fotos: **Risshaku-ji**, fundado em 860, agarrado num paredão de rocha em Yamagata, no Tōhoku. São **1.015 degraus** de pedra subindo por uma floresta de cedros, entre rochas cheias de nichos e pequenos budas, até o mirante do **Godaidō**, suspenso sobre o vale. A subida leva de 40 minutos a 1 hora, a descida menos, e a entrada custa ¥500. Foi aqui que **Bashō** escreveu, em 1689, o haicai do silêncio: "quietude — penetrando na rocha, o canto das cigarras".',
+      '**A conta fria:** Yamadera fica a **3 horas de trem de Tóquio** (Shinkansen Yamagata até Yamagata, ~2h30, e mais 20 min de linha Senzan), a uns **¥11.000 por pessoa só de ida**. Ida, subida e volta consomem **um dia inteiro** e uns ¥45.000 a dois. O roteiro de vocês não tem dia livre em Tóquio: os cinco primeiros dias já estão cheios e as duas últimas noites são de compras. E o Tōhoku fica no sentido oposto de tudo o mais que vocês fazem, que é sul e oeste.',
+      '**A resposta honesta: é fora de mão, sim.** Para caber, teria que sair um dia inteiro do roteiro atual, e o candidato mais provável seria Kamakura (dia 20) ou o dia de Yokohama e Shibuya. Não vale a troca: Kamakura entrega templos, Buda gigante e folhagem a 1 hora de Tóquio, e Yamadera custaria seis horas de trem para uma subida de uma hora.',
+      '**O que fazer no lugar:** se o que atrai é *templo em penhasco, com escadaria e vista de vale*, vocês já têm duas doses disso no roteiro. O **Kiyomizu-dera** (dia 28) é um palco de madeira suspenso sobre a encosta, sem um prego. E o **Daishō-in** de Miyajima (dia 24) sobe a montanha em terraços cheios de estátuas, com os cilindros de oração ao longo dos degraus — é o parente próximo de Yamadera, na ilha. Se um dia voltarem para o Tōhoku, Yamadera combina com Ginzan Onsen numa viagem de dois dias, que é como ele deve ser feito.',
+    ],
+    mapQuery: 'Yamadera Risshakuji Temple Yamagata',
+  },
 ];
