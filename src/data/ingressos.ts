@@ -205,6 +205,7 @@ export const INGRESSOS: Ingresso[] = [
   {
     id: 'museu-paz',
     opensAt: '2026-08-25T00:00:00+09:00',
+    checklistItemId: 'reserva-museu-paz',
     title: 'Museu Memorial da Paz',
     jp: '広島平和記念資料館',
     status: 'recomendado',
@@ -247,6 +248,7 @@ export const INGRESSOS: Ingresso[] = [
   {
     id: 'himeji',
     opensAt: '2026-08-27T00:00:00+09:00',
+    checklistItemId: 'reserva-himeji',
     title: 'Castelo de Himeji',
     jp: '姫路城',
     status: 'recomendado',

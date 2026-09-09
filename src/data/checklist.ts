@@ -132,6 +132,20 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: '23/11 Tóquio→Hiroshima (feriado nacional!) e 1/12 Kyoto→Tóquio · app Smart EX aceita cartão estrangeiro',
   },
   {
+    id: 'reserva-museu-paz',
+    dueAt: '2026-11-15T23:59:00-03:00',
+    group: 'pretrip',
+    title: 'Ingresso do Museu Memorial da Paz',
+    subtitle: 'Hiroshima, 23/11 · a venda já está aberta · reserva obrigatória na primeira hora e nos últimos 90 min',
+  },
+  {
+    id: 'reserva-himeji',
+    dueAt: '2026-11-15T23:59:00-03:00',
+    group: 'pretrip',
+    title: 'Ingresso do Castelo de Himeji',
+    subtitle: 'Dia 25/11 · a venda já está aberta · QR online evita a fila da bilheteria',
+  },
+  {
     id: 'reserva-omakase',
     dueAt: '2026-10-18T23:59:00-03:00',
     group: 'pretrip',

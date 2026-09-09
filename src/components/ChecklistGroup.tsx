@@ -4,8 +4,11 @@ import type { ChecklistItem } from '@/data/types';
 import { useSyncStore } from '@/lib/store';
 import { faltam } from '@/lib/janelas';
 
+// todos estes prazos caem antes do embarque, então a data é a de Brasília
 const dataCurta = (iso: string) =>
-  new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit' }).format(new Date(iso));
+  new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit', month: '2-digit', timeZone: 'America/Sao_Paulo',
+  }).format(new Date(iso));
 
 /** 'até 23/10 · em 44 dias' ou 'passou do prazo (23/10)' */
 function Prazo({ iso, checked }: { iso: string; checked: boolean }) {

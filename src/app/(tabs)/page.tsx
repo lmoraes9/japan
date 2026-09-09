@@ -7,9 +7,9 @@ import {
   TrainFront,
   AlarmClock,
   ArrowRight,
-  Navigation,
   Wallet,
   ListChecks,
+  Footprints,
 } from 'lucide-react';
 import { resolvePosition, formatCountdown, type TripPosition } from '@/lib/now';
 import { TRIP, STAGES } from '@/data/trip';
@@ -21,9 +21,9 @@ import { Rich } from '@/components/Rich';
 import { SyncBadge } from '@/components/SyncBadge';
 import { useSyncStore, activeExpenses } from '@/lib/store';
 import { useSettings, effectiveRate, fmtBrl, fmtJpy } from '@/lib/settings';
-import { navigateUrl } from '@/lib/mapsLinks';
 import { DayConditions } from '@/components/DayConditions';
 import { Janelas } from '@/components/Janelas';
+import { ProximaParada } from '@/components/ProximaParada';
 import { DayReservas } from '@/components/DayReservas';
 import { LastReturn } from '@/components/LastReturn';
 import { dayCover } from '@/lib/covers';
@@ -191,7 +191,6 @@ function DuringTrip({ pos }: { pos: TripPosition }) {
       (new Date(pos.day.date).getTime() - new Date(stage.start).getTime()) /
         86_400_000,
     ) + 1;
-  const nav = pos.nextStop ? navigateUrl(pos.nextStop) : undefined;
   const dayNum = (pos.dayIndex ?? 0) + 1;
   const tomorrow = ALL_DAYS[(pos.dayIndex ?? 0) + 1];
   // depois das 20h (e sem próxima parada) a tela vira "amanhã"
@@ -218,6 +217,21 @@ function DuringTrip({ pos }: { pos: TripPosition }) {
           Dia {dayNum} de {ALL_DAYS.length} · noite {Math.min(nightNum, stage.nights)} de{' '}
           {stage.nights} · {pos.day.title}
         </p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2">
+        <Link
+          href={`/rua?day=${pos.day.id}`}
+          className="tappable flex items-center justify-center gap-1.5 rounded-2xl bg-rail py-3 text-[13.5px] font-semibold text-white dark:bg-surface dark:border dark:border-hairline dark:text-foreground"
+        >
+          <Footprints size={16} /> Modo rua
+        </Link>
+        <Link
+          href={`/roteiro/${pos.day.id}`}
+          className="tappable flex items-center justify-center gap-1.5 rounded-2xl border border-hairline bg-surface py-3 text-[13.5px] font-medium"
+        >
+          O dia inteiro <ArrowRight size={15} className="text-muted" />
+        </Link>
       </div>
 
       <EventCountdown pos={pos} />
@@ -277,25 +291,15 @@ function DuringTrip({ pos }: { pos: TripPosition }) {
 
       {pos.nextStop && (
         <section className="space-y-2">
-          <div className="flex items-center justify-between">
-            <h2 className="text-[13px] font-semibold uppercase tracking-wider text-accent">
-              Próxima parada{' '}
-              {pos.minutesToNext !== undefined &&
-                `· ${formatCountdown(pos.minutesToNext)}`}
-            </h2>
-            {nav && (
-              <a
-                href={nav}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[12px] font-medium text-accent"
-              >
-                <Navigation size={13} />
-                Navegar
-              </a>
-            )}
-          </div>
-          <StopCard stop={pos.nextStop} dayId={pos.day.id} highlight />
+          <h2 className="text-[13px] font-semibold uppercase tracking-wider text-accent">
+            Próxima parada
+          </h2>
+          <ProximaParada
+            stop={pos.nextStop}
+            dayId={pos.day.id}
+            fromStopId={pos.currentStop?.id}
+            minutesToNext={pos.minutesToNext}
+          />
         </section>
       )}
 
@@ -308,13 +312,6 @@ function DuringTrip({ pos }: { pos: TripPosition }) {
         </section>
       )}
 
-      <Link
-        href={`/roteiro/${pos.day.id}`}
-        className="flex items-center justify-center gap-1.5 rounded-2xl border border-hairline bg-surface py-3 text-[13px] font-medium"
-      >
-        Ver o dia completo
-        <ArrowRight size={15} />
-      </Link>
     </>
   );
 }

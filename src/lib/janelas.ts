@@ -50,13 +50,20 @@ export function janelas(
     .sort((a, b) => a.opensAt.getTime() - b.opensAt.getTime());
 }
 
-/** O que ainda exige ação: as abertas primeiro, depois as que vão abrir. */
+/**
+ * O que ainda exige ação, na ordem em que dá para agir: o que já abriu e é
+ * obrigatório, depois o que vai abrir (pela data), e por último o que já
+ * abriu mas é só recomendado — esse pode esperar sem risco.
+ */
 export function janelasPendentes(
   checklist: Record<string, { checked?: boolean } | undefined>,
   now: Date = new Date(),
 ): Janela[] {
   const todas = janelas(checklist, now).filter((j) => j.estado !== 'feito');
-  const abertas = todas.filter((j) => j.estado === 'aberto');
-  const futuras = todas.filter((j) => j.estado === 'futuro');
-  return [...abertas, ...futuras];
+  const abertaUrgente = (j: Janela) => j.estado === 'aberto' && j.ingresso.status === 'obrigatorio';
+  return [
+    ...todas.filter(abertaUrgente),
+    ...todas.filter((j) => j.estado === 'futuro'),
+    ...todas.filter((j) => j.estado === 'aberto' && !abertaUrgente(j)),
+  ];
 }
