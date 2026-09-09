@@ -39,6 +39,7 @@ export const tokyo1Days: Day[] = [
         paragraphs: [
           'Com mala grande e no fim do dia, o ônibus é mais humano — para na porta dos hotéis grandes e não tem escada.',
         ],
+        mapQuery: 'Haneda Airport Terminal 3 Station',
       },
       {
         id: 'd18-ramen',
@@ -408,6 +409,7 @@ export const tokyo1Days: Day[] = [
         paragraphs: [
           'A jogada é entrar por Kita-Kamakura, visitar os templos Zen de cima para baixo e chegar a pé na cidade — em vez de fazer o caminho inverso junto com todo mundo.',
         ],
+        mapQuery: 'Shinjuku Station JR South Exit',
       },
       {
         id: 'd20-engakuji',
@@ -490,6 +492,7 @@ export const tokyo1Days: Day[] = [
         name: 'Enoden até Hase',
         jp: '江ノ電',
         facts: '**¥200 · 5 min** · trenzinho de 1902 que passa entre quintais e depois beira o mar',
+        mapQuery: 'Hase Station Enoden Kamakura',
       },
       {
         id: 'd20-daibutsu',
@@ -547,6 +550,7 @@ export const tokyo1Days: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Kamakura Station',
       },
     ],
   },

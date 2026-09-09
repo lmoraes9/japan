@@ -26,6 +26,7 @@ export const osakaDays: Day[] = [
         kind: 'transit',
         name: 'Hiroshima → Okayama → Kurashiki',
         facts: 'Sanyo Shinkansen **35 min** + JR local **17 min** · ~¥8.000 · guardem a mochila nos armários da estação',
+        mapQuery: 'Hiroshima Station Shinkansen',
       },
       {
         id: 'd25-bikan',
@@ -82,6 +83,7 @@ export const osakaDays: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Kamoi Kurashiki Bikan',
       },
       {
         id: 'd25-trem-himeji',
@@ -90,6 +92,7 @@ export const osakaDays: Day[] = [
         kind: 'transit',
         name: 'Kurashiki → Okayama → Himeji',
         facts: 'Local **17 min** + Shinkansen **20 min** · ~¥3.900 · chegada ~13:45',
+        mapQuery: 'Kurashiki Station',
       },
       {
         id: 'd25-himeji',
@@ -126,6 +129,7 @@ export const osakaDays: Day[] = [
         kind: 'transit',
         name: 'Himeji → Osaka',
         facts: 'JR Special Rapid **60 min ¥1.520** (sem taxa de shinkansen) ou Shinkansen até Shin-Osaka **30 min**',
+        mapQuery: 'Himeji Station',
       },
       {
         id: 'd25-dotonbori',
@@ -237,6 +241,7 @@ export const osakaDays: Day[] = [
         paragraphs: [
           'Curiosidade: o sushi de Osaka **não** é o nigiri de Tóquio. O tradicional daqui é o *oshizushi*, prensado em caixa de madeira — o *battera* de cavala é o clássico. Vale provar um em qualquer depachika.',
         ],
+        mapQuery: 'Harukoma Sushi Tenjinbashisuji',
       },
       {
         id: 'd26-shitennoji',
@@ -329,6 +334,7 @@ export const osakaDays: Day[] = [
         paragraphs: [
           '**Se sobrar energia:** Nipponbashi Den-Den Town, a Akihabara de Osaka — mais lojas de Magic (BIG MAGIC Nipponbashi) e de retrogame, com preços em geral melhores que Tóquio.',
         ],
+        mapQuery: 'Ramen Jinsei JET Fukushima Osaka',
       },
     ],
   },

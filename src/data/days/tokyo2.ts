@@ -206,6 +206,7 @@ export const tokyo2Days: Day[] = [
         paragraphs: [
           '**Antes de dormir:** Juntem **todos os recibos** num envelope só, na ordem, e confiram que o registro no J-TaxRefund está completo. · Arrumem a mala deixando **MacBook, iPhone, robô e roupa de cama acessíveis** — a alfândega pode pedir para ver na inspeção. · **Facas vão na mala despachada**, nunca na de mão. · Confiram a etiqueta da bateria do robô: **até 100 Wh** pode ir despachado com o aparelho.',
         ],
+        mapQuery: 'Umegaoka Sushi no Midori Ginza',
       },
       {
         id: 'd02-konbini',
@@ -255,6 +256,7 @@ export const tokyo2Days: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Tsukiji Outer Market',
       },
       {
         id: 'd03-sair-hotel',
@@ -301,6 +303,7 @@ export const tokyo2Days: Day[] = [
         name: 'HND → DFW → GRU',
         facts: 'Conexão de **2h15** em Dallas · assentos na frente ajudam · ver a nota da seção de logística',
         paragraphs: ['Chegada em Guarulhos **4/12 às 08:30**.'],
+        mapQuery: 'Haneda Airport Terminal 3',
       },
     ],
   },

@@ -40,6 +40,7 @@ export const kyotoDays: Day[] = [
         kind: 'transit',
         name: 'Osaka → Kyoto e check-in',
         facts: 'JR Special Rapid **29 min ¥580** · as malas de Tóquio devem estar esperando no hotel',
+        mapQuery: 'Osaka Station',
       },
       {
         id: 'd27-almoco',
@@ -63,6 +64,7 @@ export const kyotoDays: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Honke Daiichi Asahi Kyoto',
       },
       {
         id: 'd27-fushimi-inari',
@@ -107,6 +109,7 @@ export const kyotoDays: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Fushimi sake district Kyoto',
       },
     ],
   },
@@ -229,6 +232,7 @@ export const kyotoDays: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Omen Ginkakuji Kyoto',
       },
       {
         id: 'd28-nanzenji',
@@ -420,6 +424,7 @@ export const kyotoDays: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Arashiyama Yoshimura',
       },
       {
         id: 'd29-kinkakuji',
@@ -497,6 +502,7 @@ export const kyotoDays: Day[] = [
         kind: 'transit',
         name: 'Kyoto → Nara',
         facts: 'Kintetsu Limited Express **35 min ¥1.280** (chega mais perto do parque) ou JR Nara Line **45 min ¥720**',
+        mapQuery: 'Kyoto Station Kintetsu',
       },
       {
         id: 'd30-parque-nara',
@@ -588,6 +594,7 @@ export const kyotoDays: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Nakatanidou Nara',
       },
       {
         id: 'd30-kofukuji',
@@ -689,6 +696,7 @@ export const kyotoDays: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Kyoto Ramen Koji Kyoto Station',
       },
       {
         id: 'd01-shinkansen',
@@ -697,6 +705,7 @@ export const kyotoDays: Day[] = [
         kind: 'transit',
         name: 'Kyoto → Tóquio',
         facts: 'Nozomi **2h15** · ¥14.200 reservado · **Fuji do lado esquerdo** nesse sentido, uns 40 min antes de chegar',
+        mapQuery: 'Kyoto Station Shinkansen',
       },
       {
         id: 'd01-checkin-compras',

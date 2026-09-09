@@ -39,6 +39,7 @@ export const hiroshimaDays: Day[] = [
         paragraphs: [
           'Comprem um **ekiben** na plataforma antes de embarcar — não é turismo, é o jeito certo de fazer. Do lado direito do trem, entre Odawara e Shizuoka (uns 40 min após a saída), o **Monte Fuji** aparece por cerca de 3 minutos. Em manhã seca de novembro, quase sempre limpo.',
         ],
+        mapQuery: 'Tokyo Station Tokaido Shinkansen',
       },
       {
         id: 'd23-pokemon-center',
@@ -172,6 +173,7 @@ export const hiroshimaDays: Day[] = [
         paragraphs: [
           'Peguem o **ferry da JR** (não o da Matsudai): ele faz um desvio proposital para passar perto do torii na ida.',
         ],
+        mapQuery: 'Miyajimaguchi Station',
       },
       {
         id: 'd24-itsukushima',
@@ -259,6 +261,7 @@ export const hiroshimaDays: Day[] = [
             ],
           },
         ],
+        mapQuery: 'Omotesando shopping street Miyajima',
       },
       {
         id: 'd24-shukkeien',
@@ -298,6 +301,7 @@ export const hiroshimaDays: Day[] = [
         paragraphs: [
           '**Castelo de Hiroshima:** reconstruído em concreto em 1958, com um museu de história local dentro. Confiram no site se o torreão está aberto — há um projeto em curso para fechá-lo e reconstruí-lo em madeira, e as datas mudam. Se estiver fechado, o parque e os fossos continuam abertos e valem a caminhada.',
         ],
+        mapQuery: 'Bakudan-ya Hiroshima',
       },
     ],
   },
