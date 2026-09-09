@@ -124,6 +124,8 @@ export interface ChecklistItem {
   group: 'compras' | 'pretrip' | 'konbini' | 'mala';
   title: string;
   subtitle: string;
+  /** prazo para resolver (ISO com fuso) — vira contagem na checklist */
+  dueAt?: string;
 }
 
 export type ExpenseCategory =

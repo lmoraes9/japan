@@ -90,6 +90,7 @@ export const CHECKLIST: ChecklistItem[] = [
   // ── Antes de embarcar ──
   {
     id: 'suica',
+    dueAt: '2026-11-10T23:59:00-03:00',
     group: 'pretrip',
     title: 'Suica no Apple Wallet',
     subtitle:
@@ -97,54 +98,63 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'esim',
+    dueAt: '2026-11-10T23:59:00-03:00',
     group: 'pretrip',
     title: 'eSIM contratado',
     subtitle: 'Ubigi, Airalo ou Sakura Mobile · 20 GB por ¥2.000–4.000 · ativar no avião',
   },
   {
     id: 'dinheiro',
+    dueAt: '2026-11-14T23:59:00-03:00',
     group: 'pretrip',
     title: 'Levar ¥30–50.000 em espécie',
     subtitle: 'ATMs da 7-Eleven e Correios aceitam cartão internacional; espécie para templos, mercados e izakaya',
   },
   {
     id: 'reserva-shibuya-sky',
+    dueAt: '2026-11-08T00:00:00+09:00',
     group: 'pretrip',
     title: 'Reservar Shibuya Sky',
     subtitle: 'Faixa 15:30–16:00 do dia 22/11 · esgota com antecedência',
   },
   {
     id: 'reserva-torokko',
+    dueAt: '2026-10-29T00:00:00+09:00',
     group: 'pretrip',
     title: 'Reservar trem panorâmico Sagano (Torokko)',
     subtitle: 'Arashiyama, dia 29/11 · assentos esgotam com semanas de antecedência em novembro',
   },
   {
     id: 'reserva-shinkansen',
+    dueAt: '2026-10-23T10:00:00+09:00',
     group: 'pretrip',
     title: 'Reservar assentos dos Shinkansen longos',
     subtitle: '23/11 Tóquio→Hiroshima (feriado nacional!) e 1/12 Kyoto→Tóquio · app Smart EX aceita cartão estrangeiro',
   },
   {
     id: 'reserva-omakase',
+    dueAt: '2026-10-18T23:59:00-03:00',
     group: 'pretrip',
     title: 'Reservar sushi omakase de balcão',
     subtitle: 'Kyūbey ou similar — reserva obrigatória com antecedência',
   },
   {
     id: 'adaptador',
+    dueAt: '2026-11-14T23:59:00-03:00',
     group: 'pretrip',
     title: 'Adaptador de tomada',
     subtitle: 'Japão é tipo A, 100V · levar adaptador também para usar os aparelhos novos na volta',
   },
   {
     id: 'medidas-cama',
+    dueAt: '2026-11-13T23:59:00-03:00',
     group: 'pretrip',
     title: 'Anotar as medidas do colchão em cm',
     subtitle: 'Antes de sair do Brasil — as medidas japonesas não batem com as brasileiras',
   },
   {
     id: 'visto-eua',
+    dueAt: '2026-09-30T23:59:00-03:00',
     group: 'pretrip',
     title: 'Conferir visto B1/B2 válido',
     subtitle: 'A conexão em JFK e DFW exige entrada nos EUA mesmo só em trânsito',

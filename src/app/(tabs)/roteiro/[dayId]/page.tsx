@@ -11,6 +11,7 @@ import { DayReservas } from '@/components/DayReservas';
 import { LastReturn } from '@/components/LastReturn';
 import { LegsConnector } from '@/components/LegsConnector';
 import { legsFrom, legsToFirst } from '@/data/legs';
+import { stopsEmOrdem } from '@/lib/now';
 import { BookOpen } from 'lucide-react';
 
 /** a cidade cuja história abre em cada dia */
@@ -125,9 +126,9 @@ export default async function DayPage({
 
       <div className="space-y-3">
         {legsToFirst(day.id) && <LegsConnector legs={legsToFirst(day.id)!} title="Do hotel até a primeira parada" />}
-        {day.stops.map((stop, i) => {
+        {stopsEmOrdem(day.stops).map((stop, i, ordenadas) => {
           const legs = legsFrom(stop.id);
-          const next = day.stops[i + 1];
+          const next = ordenadas[i + 1];
           return (
             <div key={stop.id} className="space-y-3">
               <StopCard stop={stop} dayId={day.id} />

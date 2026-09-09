@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { RefreshCw } from 'lucide-react';
 import { SubpageHeader } from '@/components/SubpageHeader';
+import { BaixarOffline } from '@/components/BaixarOffline';
 import { SyncBadge } from '@/components/SyncBadge';
 import { useSettings, effectiveRate, fmtBrl } from '@/lib/settings';
 import { useSyncStore } from '@/lib/store';
@@ -30,6 +31,8 @@ export default function AjustesPage() {
   return (
     <div className="space-y-3.5">
       <SubpageHeader title="Ajustes" />
+
+      <BaixarOffline />
 
       <Field label="Código da viagem (igual nos dois celulares)">
         <div className="flex gap-2">

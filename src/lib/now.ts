@@ -90,10 +90,15 @@ export interface TripPosition {
   nextEvent?: TripEvent & { minutesUntil: number };
 }
 
-function stopMinutes(stop: Stop): number {
+export function stopMinutes(stop: Stop): number {
   const [h, m] = stop.time.split(':').map(Number);
   // horários antes das 04:00 pertencem à madrugada do dia seguinte
   return h < 4 ? (h + 24) * 60 + m : h * 60 + m;
+}
+
+/** As paradas de um dia em ordem de horário, sempre — o array pode estar fora de ordem. */
+export function stopsEmOrdem(stops: Stop[]): Stop[] {
+  return [...stops].sort((a, b) => stopMinutes(a) - stopMinutes(b));
 }
 
 export function resolvePosition(now: Date = getNow()): TripPosition {

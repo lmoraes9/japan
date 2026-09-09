@@ -3,6 +3,10 @@ import type { Day } from '../types';
 export const kyotoDays: Day[] = [
   {
     id: 'd2026-11-27',
+    lastReturn: [
+      { label: 'JR Nara Line Inari → Kyoto', time: '23:00', from: 'Estação Inari (na porta do santuário)', note: 'aprox. e conservador · confirmar na placa da plataforma' },
+      { label: 'Keihan Fushimi-Inari → centro', time: '23:30', from: 'Estação Keihan Fushimi-Inari', note: 'aprox. · alternativa se perderem o JR' },
+    ],
     date: '2026-11-27',
     stageId: 'kyoto',
     title: 'Sumiyoshi Taisha, mudança para Kyoto, e Fushimi Inari ao anoitecer',
@@ -108,6 +112,10 @@ export const kyotoDays: Day[] = [
   },
   {
     id: 'd2026-11-28',
+    lastReturn: [
+      { label: 'Ônibus 206 Gion → Estação de Kyoto', time: '22:40', from: 'Ponto Gion, na Shijō-dōri', note: 'aprox. e conservador · é o ônibus que some primeiro; confirmar na placa do ponto', critical: true },
+      { label: 'Keihan Gion-Shijō → Tōfukuji (baldeação p/ Kyoto)', time: '23:40', from: 'Estação Keihan Gion-Shijō', note: 'aprox. · plano B quando o ônibus já passou' },
+    ],
     date: '2026-11-28',
     stageId: 'kyoto',
     title: 'Higashiyama de ponta a ponta, terminando na iluminação noturna',
@@ -150,20 +158,21 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd28-kodaiji',
-        time: '08:30',
+        time: '09:00',
         timeLabel: 'templo',
         kind: 'temple',
         name: 'Kōdai-ji',
         jp: '高台寺',
         facts: '**09:00–17:00** · ¥600 · **iluminação de outono até ~21:30** (ingresso à parte)',
         paragraphs: [
+          'O portão abre às 09:00 em ponto. Vocês chegam da Ninenzaka por volta de 08:30: usem esses 30 minutos no **Nene-no-Michi**, a alameda de pedra que passa na frente do templo, que a essa hora está vazia e é uma das ruas mais bonitas de Kyoto.',
           'Fundado em 1606 por **Nene**, viúva de Toyotomi Hideyoshi, que virou freira depois que os Tokugawa destruíram a família do marido — e que, curiosamente, foi financiada por Tokugawa Ieyasu, num gesto político. O jardim é de Kobori Enshū, e o bosque de bambu no fundo é menor e muito mais calmo que o de Arashiyama.',
         ],
         mapQuery: 'Kodaiji Temple Kyoto',
       },
       {
         id: 'd28-ginkakuji',
-        time: '10:00',
+        time: '10:15',
         timeLabel: 'templo',
         kind: 'temple',
         name: 'Ginkaku-ji, o Pavilhão de Prata',
@@ -297,8 +306,8 @@ export const kyotoDays: Day[] = [
   {
     id: 'd2026-11-29',
     lastReturn: [
-      { label: 'Torokko Kameoka → Saga — último trem', time: '16:32', from: 'Torokko Kameoka', note: 'aprox. · em novembro há extras; confirmar no bilhete', critical: true },
-      { label: 'JR Sagano Line Saga-Arashiyama → Kyoto', time: '23:35', from: 'Estação Saga-Arashiyama', note: 'aprox.' },
+      { label: 'Torokko Kameoka → Saga — último trem', time: '16:32', from: 'Torokko Kameoka', note: 'aprox. · só vale se acrescentarem o Torokko: ele não está no plano deste dia, que sai de Arashiyama às 12:15' },
+      { label: 'JR Sagano Line Saga-Arashiyama → Kyoto', time: '23:35', from: 'Estação Saga-Arashiyama', note: 'aprox. · rede de segurança se ficarem em Arashiyama' },
     ],
     date: '2026-11-29',
     stageId: 'kyoto',

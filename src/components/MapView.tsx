@@ -12,7 +12,7 @@ import { Navigation, X, WifiOff, Image as ImageIcon } from 'lucide-react';
 import { ALL_DAYS } from '@/data/days';
 import { STAGES } from '@/data/trip';
 import type { Day, Stop } from '@/data/types';
-import { itineraryDate } from '@/lib/now';
+import { itineraryDate, stopsEmOrdem } from '@/lib/now';
 import { navigateUrl, photosUrl } from '@/lib/mapsLinks';
 import { Rich } from './Rich';
 import { EatBlocks } from './EatBlocks';
@@ -155,7 +155,7 @@ function OfflineList({ day }: { day: Day }) {
         O mapa precisa de internet. Aqui está a lista do dia — os botões
         funcionam assim que a conexão voltar.
       </div>
-      {day.stops.map((s, i) => {
+      {stopsEmOrdem(day.stops).map((s, i) => {
         const nav = navigateUrl(s);
         return (
           <div

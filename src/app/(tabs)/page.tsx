@@ -23,6 +23,7 @@ import { useSyncStore, activeExpenses } from '@/lib/store';
 import { useSettings, effectiveRate, fmtBrl, fmtJpy } from '@/lib/settings';
 import { navigateUrl } from '@/lib/mapsLinks';
 import { DayConditions } from '@/components/DayConditions';
+import { Janelas } from '@/components/Janelas';
 import { DayReservas } from '@/components/DayReservas';
 import { LastReturn } from '@/components/LastReturn';
 import { dayCover } from '@/lib/covers';
@@ -116,12 +117,14 @@ function BeforeTrip({ pos }: { pos: TripPosition }) {
         <p className="font-jp text-[12px] tracking-[0.4em] opacity-70">紅葉の旅</p>
         <h1 className="text-2xl font-bold mt-1">Japão no fim do outono</h1>
         <p className="text-[13px] opacity-80 mt-1">
-          Embarque em {departure.toLocaleDateString('pt-BR')} às 22:50 —{' '}
+          Embarque em {departure.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' })} às 22:50 —{' '}
           <strong>{days > 0 ? `faltam ${days} dias` : 'é hoje!'}</strong>
         </p>
       </div>
 
       <EventCountdown pos={pos} />
+
+      <Janelas />
 
       <Link
         href="/mais/logistica"

@@ -15,8 +15,12 @@ export interface Ingresso {
   date: string;
   /** o que fazer, em uma frase */
   action: string;
-  /** quando abrir/comprar */
+  /** quando abrir/comprar, em texto */
   when?: string;
+  /** o instante exato em que a venda abre (ISO com fuso), para a contagem na tela Agora */
+  opensAt?: string;
+  /** item da checklist pré-viagem que marca isto como resolvido */
+  checklistItemId?: string;
   /** onde comprar (nome do site/app) */
   where?: string;
   url?: string;
@@ -36,6 +40,8 @@ export const INGRESSOS: Ingresso[] = [
   // ── transporte e logística ──
   {
     id: 'shinkansen-hiroshima',
+    opensAt: '2026-10-23T10:00:00+09:00',
+    checklistItemId: 'reserva-shinkansen',
     title: 'Shinkansen Tóquio → Hiroshima',
     jp: 'のぞみ',
     status: 'obrigatorio',
@@ -50,6 +56,8 @@ export const INGRESSOS: Ingresso[] = [
   },
   {
     id: 'shinkansen-tokyo',
+    opensAt: '2026-11-01T10:00:00+09:00',
+    checklistItemId: 'reserva-shinkansen',
     title: 'Shinkansen Kyoto → Tóquio',
     jp: 'のぞみ',
     status: 'obrigatorio',
@@ -63,6 +71,8 @@ export const INGRESSOS: Ingresso[] = [
   },
   {
     id: 'shinkansen-kansai',
+    opensAt: '2026-10-25T10:00:00+09:00',
+    checklistItemId: 'reserva-shinkansen',
     title: 'Hiroshima → Okayama → Himeji (dia 25)',
     status: 'recomendado',
     date: '2026-11-25',
@@ -105,6 +115,8 @@ export const INGRESSOS: Ingresso[] = [
   // ── Tóquio ──
   {
     id: 'shibuya-sky',
+    opensAt: '2026-11-08T00:00:00+09:00',
+    checklistItemId: 'reserva-shibuya-sky',
     title: 'Shibuya Sky',
     jp: '渋谷スカイ',
     status: 'obrigatorio',
@@ -192,6 +204,7 @@ export const INGRESSOS: Ingresso[] = [
   // ── Hiroshima e Miyajima ──
   {
     id: 'museu-paz',
+    opensAt: '2026-08-25T00:00:00+09:00',
     title: 'Museu Memorial da Paz',
     jp: '広島平和記念資料館',
     status: 'recomendado',
@@ -233,6 +246,7 @@ export const INGRESSOS: Ingresso[] = [
   },
   {
     id: 'himeji',
+    opensAt: '2026-08-27T00:00:00+09:00',
     title: 'Castelo de Himeji',
     jp: '姫路城',
     status: 'recomendado',
@@ -264,6 +278,8 @@ export const INGRESSOS: Ingresso[] = [
   // ── Kyoto e Nara ──
   {
     id: 'torokko',
+    opensAt: '2026-10-29T00:00:00+09:00',
+    checklistItemId: 'reserva-torokko',
     title: 'Trem Torokko (Sagano Romantic Train), se decidirem fazer',
     jp: '嵯峨野トロッコ列車',
     status: 'obrigatorio',

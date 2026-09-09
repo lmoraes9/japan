@@ -2,6 +2,31 @@
 
 import type { ChecklistItem } from '@/data/types';
 import { useSyncStore } from '@/lib/store';
+import { faltam } from '@/lib/janelas';
+
+const dataCurta = (iso: string) =>
+  new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit' }).format(new Date(iso));
+
+/** 'até 23/10 · em 44 dias' ou 'passou do prazo (23/10)' */
+function Prazo({ iso, checked }: { iso: string; checked: boolean }) {
+  const minutos = Math.round((new Date(iso).getTime() - Date.now()) / 60000);
+  if (checked) return null;
+  const atrasado = minutos <= 0;
+  const perto = !atrasado && minutos < 7 * 1440;
+  return (
+    <span
+      className={`mt-1 inline-block rounded-full px-2 py-0.5 font-mono text-[10.5px] font-semibold ${
+        atrasado
+          ? 'bg-accent text-white'
+          : perto
+            ? 'bg-accent-soft text-accent'
+            : 'bg-surface-2 text-muted'
+      }`}
+    >
+      {atrasado ? `prazo era ${dataCurta(iso)}` : `até ${dataCurta(iso)} · ${faltam(minutos)}`}
+    </span>
+  );
+}
 
 export function ChecklistGroup({
   items,
@@ -48,6 +73,7 @@ export function ChecklistGroup({
               <span className="block text-[12px] text-muted leading-snug mt-0.5">
                 {item.subtitle}
               </span>
+              {item.dueAt && <Prazo iso={item.dueAt} checked={checked} />}
             </span>
           </label>
         );

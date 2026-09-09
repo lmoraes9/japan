@@ -14,9 +14,9 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     kind: 'voo',
     title: 'GRU → JFK · JL5501',
     date: '2026-11-16',
-    time: '22:50 → 07:50 (17/11)',
-    notes: 'Terminal 3 · op. American · conexão de 6h no JFK, com imigração dos EUA',
-    hint: 'Localizador da JAL/American e assentos',
+    time: '22:50 → 06:40 (17/11)',
+    notes: 'GRU T3 → JFK T4 · op. Latam · 9h50 de voo · conexão de 6h no JFK, com imigração dos EUA',
+    hint: 'Localizador da JAL/Latam e assentos',
   },
   {
     id: 'voo-jfk-hnd',

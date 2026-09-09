@@ -181,13 +181,14 @@ export const osakaDays: Day[] = [
       {
         id: 'd26-castelo-osaka',
         placeMapId: 'castelo-osaka',
-        time: '08:45',
+        time: '09:00',
         timeLabel: 'castelo',
         kind: 'sight',
         name: 'Castelo de Osaka',
         jp: '大阪城',
         facts: '**09:00–17:00** (última entrada 16:30) · ¥600 · jardim Nishinomaru ¥200',
         paragraphs: [
+          'O horário aqui é o da **bilheteria do torreão, que abre às 09:00**. O parque, os fossos e as muralhas são abertos e de graça desde cedo: se chegarem às 08:30, deem a volta pelo fosso interno até a bilheteria abrir, que é a melhor luz do dia para as pedras.',
           'Sejamos honestos: o torreão atual é de **1931**, de concreto, com elevador. Mas as muralhas e os fossos são originais do século XVII, e há pedras de **mais de 100 toneladas** na base do portão Sakuramon, arrastadas de ilhas do Mar Interior por corda e tronco. O jardim Nishinomaru dá a melhor vista, e em novembro está com bordo.',
         ],
         history: {

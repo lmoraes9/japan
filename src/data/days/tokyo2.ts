@@ -174,19 +174,6 @@ export const tokyo2Days: Day[] = [
         mapQuery: 'Bic Camera Yurakucho',
       },
       {
-        id: 'd02-konbini',
-        time: '22:30',
-        timeLabel: 'konbini',
-        kind: 'food',
-        name: '7-Eleven da última noite — parada 4 de 4',
-        facts: 'Ginza e Yūrakuchō têm lojas 24h · última chance dos itens perecíveis',
-        paragraphs: [
-          'Sobremesa da última noite e repescagem do que faltou: o **sorvete de mochi** (Yukimi Daifuku, no freezer — foi lançado como sorvete de inverno, e vocês estão no inverno) e qualquer item que ainda esteja desmarcado na checklist de **Mais → Konbini**.',
-          'Nada disso vai para a mala — é perecível e a alfândega brasileira não quer saber. Doce industrializado lacrado (KitKat de matcha, Jagariko, Pocky regional) esse sim viaja bem, e é aqui que sai mais barato que no aeroporto.',
-        ],
-        mapQuery: '7-Eleven Ginza',
-      },
-      {
         id: 'd02-jantar-despedida',
         time: '19:30',
         timeLabel: 'jantar',
@@ -219,6 +206,19 @@ export const tokyo2Days: Day[] = [
         paragraphs: [
           '**Antes de dormir:** Juntem **todos os recibos** num envelope só, na ordem, e confiram que o registro no J-TaxRefund está completo. · Arrumem a mala deixando **MacBook, iPhone, robô e roupa de cama acessíveis** — a alfândega pode pedir para ver na inspeção. · **Facas vão na mala despachada**, nunca na de mão. · Confiram a etiqueta da bateria do robô: **até 100 Wh** pode ir despachado com o aparelho.',
         ],
+      },
+      {
+        id: 'd02-konbini',
+        time: '22:30',
+        timeLabel: 'konbini',
+        kind: 'food',
+        name: '7-Eleven da última noite — parada 4 de 4',
+        facts: 'Ginza e Yūrakuchō têm lojas 24h · última chance dos itens perecíveis',
+        paragraphs: [
+          'Sobremesa da última noite e repescagem do que faltou: o **sorvete de mochi** (Yukimi Daifuku, no freezer — foi lançado como sorvete de inverno, e vocês estão no inverno) e qualquer item que ainda esteja desmarcado na checklist de **Mais → Konbini**.',
+          'Nada disso vai para a mala — é perecível e a alfândega brasileira não quer saber. Doce industrializado lacrado (KitKat de matcha, Jagariko, Pocky regional) esse sim viaja bem, e é aqui que sai mais barato que no aeroporto.',
+        ],
+        mapQuery: '7-Eleven Ginza',
       },
     ],
   },
