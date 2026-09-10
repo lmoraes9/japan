@@ -1,8 +1,9 @@
 import * as THREE from 'three';
 import { ILHAS } from './costa';
-import { LUGARES, FUJI, passagensEntre, type LugarMapa, type Marco } from './lugares';
-import { MAT, add, box, cyl } from '../parts';
-import { group, castle, pagoda, buddha, domeRuin, kura, tower, bigTorii, hall, deerGeometry } from '../buildings';
+import { LUGARES, FUJI, BIWA, ROTULOS, passagensEntre, type LugarMapa, type Marco } from './lugares';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { MAT, add, box, cyl, toriiGeometry } from '../parts';
+import { group, castle, pagoda, buddha, domeRuin, kura, tower, bigTorii, hall, deerGeometry, gate2, stage, bridge, train } from '../buildings';
 
 /** graus por unidade da cena: o Japão inteiro cabe em ~700 unidades */
 const K = 55;
@@ -24,6 +25,8 @@ const MAT_MAR = new THREE.MeshStandardMaterial({ color: 0x2e4a66, roughness: 0.2
 const MAT_MONTE = new THREE.MeshStandardMaterial({ color: 0x6b7856, roughness: 1 });
 const MAT_NEVE = new THREE.MeshStandardMaterial({ color: 0xf2f4f7, roughness: 0.8 });
 const MAT_TELHADO = new THREE.MeshStandardMaterial({ color: 0x8f97a3, roughness: 0.75, side: THREE.DoubleSide });
+const MAT_BAMBU = new THREE.MeshStandardMaterial({ color: 0x7fa35a, roughness: 0.8 });
+const MAT_FIO = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.45 });
 const MAT_ROTA = new THREE.MeshBasicMaterial({ color: 0xc2402a });
 const MAT_ROTA_APAGADA = new THREE.MeshBasicMaterial({ color: 0xc2402a, transparent: true, opacity: 0.22 });
 
@@ -123,6 +126,183 @@ function montanhas(pai: THREE.Object3D, leve: boolean) {
   pai.add(neve);
 }
 
+/** Texto solto sobre o mar ou a montanha, sem balão, em itálico. */
+function rotulo(texto: string, sub?: string): THREE.Sprite {
+  const L = 640;
+  const A = sub ? 150 : 90;
+  const cv = document.createElement('canvas');
+  cv.width = L;
+  cv.height = A;
+  const c = cv.getContext('2d')!;
+  c.textAlign = 'center';
+  c.fillStyle = 'rgba(255,255,255,0.82)';
+  c.font = 'italic 600 46px Georgia, "Times New Roman", serif';
+  c.shadowColor = 'rgba(0,0,0,0.45)';
+  c.shadowBlur = 8;
+  c.fillText(texto, L / 2, 56);
+  if (sub) {
+    c.font = 'italic 30px Georgia, "Times New Roman", serif';
+    c.fillStyle = 'rgba(255,255,255,0.7)';
+    c.fillText(sub, L / 2, 112);
+  }
+  const tex = new THREE.CanvasTexture(cv);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthTest: false, transparent: true, opacity: 0.95 }));
+  sp.scale.set(64, sub ? 15 : 9, 1);
+  sp.renderOrder = 9;
+  return sp;
+}
+
+function paisagem(pai: THREE.Object3D) {
+  // o lago Biwa, que o contorno da costa não tem
+  const [bx, bz] = proj(BIWA.lng, BIWA.lat);
+  const lago = new THREE.Mesh(new THREE.CircleGeometry(1, 28), MAT_MAR);
+  lago.rotation.x = -Math.PI / 2;
+  lago.scale.set(BIWA.rx * COS0 * K, BIWA.rz * K, 1);
+  lago.position.set(bx, ESPESSURA + 0.15, bz);
+  pai.add(lago);
+
+  for (const r of ROTULOS) {
+    const [x, z] = proj(r.lng, r.lat);
+    const sp = rotulo(r.texto, r.sub);
+    const noFuji = r.texto.startsWith('Fuji');
+    sp.position.set(x, noFuji ? ESPESSURA + 40 : ESPESSURA + 4, z);
+    pai.add(sp);
+  }
+}
+
+/** Uma miniatura por mapa ilustrado: a mesma linguagem dos marcos, menor. */
+function miniatura(pai: THREE.Object3D, mapaId: string): THREE.Object3D {
+  const g = new THREE.Group();
+  pai.add(g);
+  switch (mapaId) {
+    case 'fushimi-inari': {
+      for (let i = 0; i < 4; i++) {
+        const t = new THREE.Mesh(toriiGeometry(5, 7, 0.45), MAT.vermilion);
+        t.position.set(0, 0, -i * 2.4);
+        g.add(t);
+      }
+      break;
+    }
+    case 'sensoji':
+      gate2(group(g, 0, 0, 3, 0), { w: 9, d: 3.5, lanternBig: true });
+      pagoda(group(g, 7, 0, -4, 0), 5, 4.5);
+      break;
+    case 'meiji-jingu':
+      bigTorii(g, 0, 0, 0, 0, 10, 12, MAT.wood);
+      break;
+    case 'shibuya':
+      tower(group(g, -4, 0, 0, 0), 5, 5, 16, { color: 0x6f7784, screen: true });
+      tower(group(g, 5, 0, 2, 0.3), 4, 4, 11, { color: 0x8a919c });
+      break;
+    case 'castelo-osaka':
+      castle(group(g, 0, 0, 0, 0), { tiers: 5, size: 9, base: 5 });
+      break;
+    case 'himeji':
+      castle(group(g, 0, 0, 0, 0), { tiers: 5, size: 9, base: 4, turrets: true });
+      break;
+    case 'sumiyoshi': {
+      bridge(g, new THREE.Vector3(-7, 0, 0), new THREE.Vector3(7, 0, 0), { kind: 'arch', width: 3.5 });
+      break;
+    }
+    case 'kinkakuji':
+      hall(group(g, 0, 0, 0, 0), { bays: 3, depthBays: 2, bay: 3, two: true, gold: true });
+      break;
+    case 'arashiyama': {
+      for (let i = 0; i < 14; i++) {
+        const a = (i / 14) * Math.PI * 2;
+        const r = 3 + (i % 3) * 1.6;
+        const h = 10 + (i % 4) * 2;
+        add(g, cyl(0.28, 0.34, h, 6), MAT_BAMBU, Math.cos(a) * r, h / 2, Math.sin(a) * r);
+      }
+      break;
+    }
+    case 'higashiyama':
+      stage(group(g, 0, 0, 0, 0), 16, 10, 9);
+      break;
+    case 'tofukuji':
+      bridge(g, new THREE.Vector3(-8, 4, 0), new THREE.Vector3(8, 4, 0), { kind: 'covered', width: 3 });
+      add(g, box(1.2, 4, 1.2), MAT.wood, -5, 2, 0);
+      add(g, box(1.2, 4, 1.2), MAT.wood, 5, 2, 0);
+      break;
+    case 'kamakura':
+      buddha(group(g, 0, 0, 0, 0), 1);
+      break;
+    case 'parque-da-paz':
+      domeRuin(group(g, 0, 0, 0, 0));
+      break;
+    case 'miyajima':
+      bigTorii(g, 0, 0, 0, 0, 10, 12);
+      break;
+    case 'kurashiki':
+      kura(group(g, 0, 0, 0, 0), { w: 7, d: 6, h: 7 });
+      break;
+    case 'nara': {
+      const v = new THREE.Mesh(deerGeometry(), MAT.woodLight);
+      v.scale.setScalar(2.4);
+      g.add(v);
+      hall(group(g, 0, 0, -6, 0), { bays: 3, depthBays: 2, bay: 2.6 });
+      break;
+    }
+    default:
+      add(g, box(4, 6, 4), MAT.stone, 0, 3, 0);
+  }
+  g.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh) return;
+    const troca = (mat: THREE.Material) => ((mat as THREE.MeshStandardMaterial).map ? MAT_TELHADO : mat);
+    m.material = Array.isArray(m.material) ? m.material.map(troca) : troca(m.material as THREE.Material);
+  });
+  compactar(g);
+  const caixa = new THREE.Box3().setFromObject(g);
+  const alto = Math.max(0.001, caixa.max.y - Math.min(0, caixa.min.y));
+  g.scale.setScalar(ALTURA_MINIATURA / alto);
+  return g;
+}
+
+const ALTURA_MINIATURA = 13;
+const RAIO_ANEL = 42;
+
+/**
+ * O anel de miniaturas de uma cidade: cada mapa ilustrado dela vira um
+ * modelo pequeno, disposto na direção real em que fica, com placa e uma
+ * linha até o centro. Começa invisível: a interface acende quando a
+ * câmera chega perto.
+ */
+function anelMiniaturas(pai: THREE.Object3D, l: LugarMapa, cx: number, cz: number, escala: number, coletaPlacas: THREE.Sprite[]): THREE.Group | null {
+  if (!l.mapas || l.mapas.length < 2) return null;
+  const anel = new THREE.Group();
+  anel.position.set(cx, ALTURA_TERRA, cz);
+  anel.visible = false;
+  anel.userData.lugarId = l.id;
+  const raio = RAIO_ANEL * escala;
+  for (const m of l.mapas) {
+    const a = ((90 - m.rumo) * Math.PI) / 180; // rumo 0 = norte = -z
+    const x = Math.cos(a) * raio;
+    const z = -Math.sin(a) * raio;
+    const mini = miniatura(anel, m.id);
+    mini.position.set(x, 0, z);
+    mini.rotation.y = -a + Math.PI / 2;
+    mini.userData.mapaId = m.id;
+    mini.userData.lugarId = l.id;
+    // fio até o centro
+    const fio = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, raio, 5), MAT_FIO);
+    fio.position.set(x / 2, 0.6, z / 2);
+    fio.rotation.z = Math.PI / 2;
+    fio.rotation.y = -Math.atan2(z, x);
+    anel.add(fio);
+    const sp = placa(m.nome, '', { pequena: true });
+    sp.position.set(x, ALTURA_MINIATURA + 7, z);
+    sp.scale.set(30, 7.5, 1);
+    sp.userData.mapaId = m.id;
+    sp.userData.lugarId = l.id;
+    anel.add(sp);
+    coletaPlacas.push(sp);
+  }
+  pai.add(anel);
+  return anel;
+}
+
 function mergeSimples(geos: THREE.BufferGeometry[]): THREE.BufferGeometry | null {
   if (!geos.length) return null;
   const pos: number[] = [];
@@ -217,6 +397,8 @@ function marco(pai: THREE.Object3D, tipo: Marco, escalaExtra: number) {
     m.material = Array.isArray(m.material) ? m.material.map(troca) : troca(m.material);
   });
 
+  compactar(g);
+
   // normaliza a altura para todos os marcos lerem no mesmo zoom
   const caixa = new THREE.Box3().setFromObject(g);
   const alto = Math.max(0.001, caixa.max.y - Math.min(0, caixa.min.y));
@@ -224,15 +406,59 @@ function marco(pai: THREE.Object3D, tipo: Marco, escalaExtra: number) {
   return g;
 }
 
+/**
+ * Funde as malhas de um grupo por material, num mesh por material. Cada
+ * marco e cada miniatura é montado com dezenas de peças; sem isto o mapa
+ * chegaria a 2.500 chamadas de desenho, que é o que trava celular.
+ */
+function compactar(g: THREE.Object3D) {
+  const porMaterial = new Map<THREE.Material, THREE.BufferGeometry[]>();
+  const remover: THREE.Mesh[] = [];
+  g.updateMatrixWorld(true);
+  const inverso = new THREE.Matrix4().copy(g.matrixWorld).invert();
+  g.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh || Array.isArray(m.material)) return;
+    const mat = m.material as THREE.Material;
+    const geo = m.geometry.clone().applyMatrix4(new THREE.Matrix4().multiplyMatrices(inverso, m.matrixWorld));
+    const semIndice = geo.index ? geo.toNonIndexed() : geo;
+    if (semIndice !== geo) geo.dispose();
+    // só posição, normal e uv: atributos diferentes impedem a fusão
+    const limpa = new THREE.BufferGeometry();
+    for (const nome of ['position', 'normal', 'uv']) {
+      const a = semIndice.getAttribute(nome);
+      if (a) limpa.setAttribute(nome, a);
+    }
+    if (!limpa.getAttribute('normal')) limpa.computeVertexNormals();
+    if (!limpa.getAttribute('uv')) {
+      const n = limpa.getAttribute('position').count;
+      limpa.setAttribute('uv', new THREE.Float32BufferAttribute(new Float32Array(n * 2), 2));
+    }
+    const lista = porMaterial.get(mat) ?? [];
+    lista.push(limpa);
+    porMaterial.set(mat, lista);
+    remover.push(m);
+  });
+  for (const m of remover) m.parent?.remove(m);
+  for (const [mat, geos] of porMaterial) {
+    const juntas = geos.length === 1 ? geos[0] : mergeGeometries(geos, false);
+    if (!juntas) continue;
+    const malha = new THREE.Mesh(juntas, mat);
+    malha.castShadow = true;
+    malha.receiveShadow = true;
+    g.add(malha);
+  }
+}
+
 /** Placa com o nome da cidade, sempre virada para a câmera. */
-function placa(nome: string, jp: string): THREE.Sprite {
+export function placa(nome: string, jp: string, o: { pequena?: boolean; cor?: string; texto?: string } = {}): THREE.Sprite {
   const L = 512;
-  const A = 160;
+  const A = o.pequena ? 128 : 160;
   const cv = document.createElement('canvas');
   cv.width = L;
   cv.height = A;
   const c = cv.getContext('2d')!;
-  c.fillStyle = 'rgba(255,255,255,0.92)';
+  c.fillStyle = o.cor ?? 'rgba(255,255,255,0.92)';
   const r = 30;
   c.beginPath();
   c.moveTo(r, 6);
@@ -249,13 +475,27 @@ function placa(nome: string, jp: string): THREE.Sprite {
   c.lineTo(L / 2, A - 4);
   c.closePath();
   c.fill();
-  c.fillStyle = '#1d2b3a';
-  c.font = 'bold 64px system-ui, -apple-system, sans-serif';
+  c.fillStyle = o.texto ?? '#1d2b3a';
   c.textAlign = 'center';
-  c.fillText(nome, L / 2, 74);
-  c.fillStyle = 'rgba(29,43,58,0.55)';
-  c.font = '34px system-ui, -apple-system, sans-serif';
-  c.fillText(jp, L / 2, 112);
+  // a fonte encolhe até o nome caber na placa
+  const caber = (base: number) => {
+    let px = base;
+    do {
+      c.font = `bold ${px}px system-ui, -apple-system, sans-serif`;
+      if (c.measureText(nome).width <= L - 48) break;
+      px -= 2;
+    } while (px > 22);
+  };
+  if (o.pequena) {
+    caber(50);
+    c.fillText(nome, L / 2, 66);
+  } else {
+    caber(64);
+    c.fillText(nome, L / 2, 74);
+    c.fillStyle = o.texto ? 'rgba(255,255,255,0.75)' : 'rgba(29,43,58,0.55)';
+    c.font = '34px system-ui, -apple-system, sans-serif';
+    c.fillText(jp, L / 2, 112);
+  }
   const tex = new THREE.CanvasTexture(cv);
   tex.colorSpace = THREE.SRGBColorSpace;
   const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthTest: false, transparent: true }));
@@ -267,7 +507,15 @@ export interface MapaJapaoConstruido {
   posicoes: Record<string, THREE.Vector3>;
   marcos: Record<string, THREE.Object3D>;
   placas: Record<string, THREE.Sprite>;
+  /** anel de miniaturas por cidade (só as que têm mais de um mapa) */
+  aneis: Record<string, THREE.Group>;
+  /** as placas das miniaturas, para a interface manter o tamanho na tela */
+  placasMini: THREE.Sprite[];
   rota: THREE.Object3D;
+  /** o tubo apagado, para achar em que trecho o dedo tocou */
+  tuboFundo: THREE.Mesh | null;
+  curva: THREE.CatmullRomCurve3 | null;
+  trem: THREE.Group;
   /** o tubo aceso: cortar o drawRange mostra só o trecho já percorrido */
   tuboPercorrido: THREE.Mesh | null;
   /** fração da curva (0–1) em cada ponto da rota */
@@ -294,10 +542,13 @@ export function construirMapaJapao(
 
   ilhas(raiz);
   montanhas(raiz, leve);
+  paisagem(raiz);
 
   const posicoes: Record<string, THREE.Vector3> = {};
   const marcos: Record<string, THREE.Object3D> = {};
   const placas: Record<string, THREE.Sprite> = {};
+  const aneis: Record<string, THREE.Group> = {};
+  const placasMini: THREE.Sprite[] = [];
   for (const l of LUGARES) {
     const [x, z] = proj(l.lng, l.lat);
     posicoes[l.id] = new THREE.Vector3(x, ALTURA_TERRA, z);
@@ -311,6 +562,8 @@ export function construirMapaJapao(
     sp.userData.lugarId = l.id;
     raiz.add(sp);
     placas[l.id] = sp;
+    const anel = anelMiniaturas(raiz, l, x, z, l.escala ?? 1, placasMini);
+    if (anel) aneis[l.id] = anel;
   }
 
   // a linha da viagem: um traço apagado com o caminho inteiro e, por cima,
@@ -332,27 +585,36 @@ export function construirMapaJapao(
   }
   const rota = new THREE.Group();
   let tuboPercorrido: THREE.Mesh | null = null;
+  let tuboFundo: THREE.Mesh | null = null;
+  let curva: THREE.CatmullRomCurve3 | null = null;
   const fracoes: number[] = [];
   const SEG = leve ? 200 : 480;
   const RAD = 6;
   if (pontos.length > 1) {
     const altos = pontos.map((p) => new THREE.Vector3(p.x, ALTURA_TERRA + 4, p.z));
-    const curva = new THREE.CatmullRomCurve3(altos, false, 'catmullrom', 0.12);
+    curva = new THREE.CatmullRomCurve3(altos, false, 'catmullrom', 0.12);
     const geo = new THREE.TubeGeometry(curva, SEG, 2.6, RAD, false);
-    const fundo = new THREE.Mesh(geo, MAT_ROTA_APAGADA);
-    rota.add(fundo);
+    tuboFundo = new THREE.Mesh(geo, MAT_ROTA_APAGADA);
+    rota.add(tuboFundo);
     tuboPercorrido = new THREE.Mesh(geo.clone(), MAT_ROTA);
     tuboPercorrido.renderOrder = 2;
     rota.add(tuboPercorrido);
 
-    // fração acumulada de comprimento até cada ponto
-    let total = 0;
-    const parciais = [0];
-    for (let i = 1; i < altos.length; i++) {
-      total += altos[i].distanceTo(altos[i - 1]);
-      parciais.push(total);
+    // Fração de COMPRIMENTO DE ARCO (u) de cada cidade sobre a curva. Tem de
+    // ser em arco, e não em corda, porque é assim que getPointAt caminha —
+    // senão o trem e o trecho tocado apontam para lugares diferentes.
+    const N = 1000;
+    const espacados = curva.getSpacedPoints(N);
+    for (const i of indiceDaCidade) {
+      const alvo = altos[i];
+      let melhor = 0;
+      let md = Infinity;
+      for (let k = 0; k <= N; k++) {
+        const dd = espacados[k].distanceToSquared(alvo);
+        if (dd < md) { md = dd; melhor = k; }
+      }
+      fracoes.push(melhor / N);
     }
-    fracoes.push(...indiceDaCidade.map((i) => (total ? parciais[i] / total : 0)));
 
     for (const i of indiceDaCidade) {
       const p = pontos[i];
@@ -364,12 +626,34 @@ export function construirMapaJapao(
   }
   raiz.add(rota);
 
+  // o Shinkansen, que a interface leva pela linha
+  const trem = new THREE.Group();
+  const carroceria = new THREE.Group();
+  train(carroceria, { cars: 3, color: 0xf7f8fa });
+  carroceria.scale.setScalar(0.36);
+  trem.add(carroceria);
+  const nariz = new THREE.Mesh(new THREE.ConeGeometry(0.62, 3, 10), new THREE.MeshStandardMaterial({ color: 0xf7f8fa, roughness: 0.5 }));
+  nariz.rotation.x = -Math.PI / 2;
+  nariz.position.set(0, 0.95, -11.5);
+  trem.add(nariz);
+  const faixa = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.3, 20), new THREE.MeshBasicMaterial({ color: 0x1c4f9c }));
+  faixa.position.set(0, 1.3, 0);
+  trem.add(faixa);
+  trem.traverse((o) => { (o as THREE.Mesh).castShadow = true; });
+  trem.visible = false;
+  raiz.add(trem);
+
   const caixa = new THREE.Box3().setFromObject(raiz);
   return {
     posicoes,
     marcos,
     placas,
+    aneis,
+    placasMini,
     rota,
+    tuboFundo,
+    curva,
+    trem,
     tuboPercorrido,
     fracoes,
     segmentosTubo: SEG,

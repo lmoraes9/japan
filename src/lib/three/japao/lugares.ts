@@ -31,11 +31,18 @@ export interface LugarMapa {
   escala?: number;
   /** empurra a placa para cima, para as cidades vizinhas não se cobrirem */
   placaOffset?: number;
+  /**
+   * Os mapas ilustrados desta cidade, com o rumo aproximado (graus, 0 = norte)
+   * em que cada lugar fica em relação ao centro: vira o anel de miniaturas
+   * que aparece quando a câmera chega perto.
+   */
+  mapas?: { id: string; nome: string; rumo: number }[];
 }
 
 export const LUGARES: LugarMapa[] = [
   {
     id: 'tokyo',
+    mapas: [{ id: 'sensoji', nome: 'Sensō-ji', rumo: 40 }, { id: 'meiji-jingu', nome: 'Meiji Jingū', rumo: 250 }, { id: 'shibuya', nome: 'Shibuya', rumo: 215 }],
     placaOffset: 26,
     nome: 'Tóquio',
     jp: '東京',
@@ -49,6 +56,7 @@ export const LUGARES: LugarMapa[] = [
   },
   {
     id: 'kamakura',
+    mapas: [{ id: 'kamakura', nome: 'Kamakura', rumo: 200 }],
     placaOffset: 0,
     nome: 'Kamakura',
     jp: '鎌倉',
@@ -61,6 +69,7 @@ export const LUGARES: LugarMapa[] = [
   },
   {
     id: 'hiroshima',
+    mapas: [{ id: 'parque-da-paz', nome: 'Parque da Paz', rumo: 270 }],
     placaOffset: 26,
     nome: 'Hiroshima',
     jp: '広島',
@@ -73,6 +82,7 @@ export const LUGARES: LugarMapa[] = [
   },
   {
     id: 'miyajima',
+    mapas: [{ id: 'miyajima', nome: 'Miyajima', rumo: 180 }],
     placaOffset: 0,
     nome: 'Miyajima',
     jp: '宮島',
@@ -85,6 +95,7 @@ export const LUGARES: LugarMapa[] = [
   },
   {
     id: 'kurashiki',
+    mapas: [{ id: 'kurashiki', nome: 'Bairro Bikan', rumo: 160 }],
     placaOffset: 26,
     nome: 'Kurashiki',
     jp: '倉敷',
@@ -97,6 +108,7 @@ export const LUGARES: LugarMapa[] = [
   },
   {
     id: 'himeji',
+    mapas: [{ id: 'himeji', nome: 'Castelo de Himeji', rumo: 0 }],
     placaOffset: 0,
     nome: 'Himeji',
     jp: '姫路',
@@ -109,6 +121,7 @@ export const LUGARES: LugarMapa[] = [
   },
   {
     id: 'osaka',
+    mapas: [{ id: 'castelo-osaka', nome: 'Castelo de Osaka', rumo: 30 }, { id: 'sumiyoshi', nome: 'Sumiyoshi Taisha', rumo: 190 }],
     placaOffset: 26,
     nome: 'Osaka',
     jp: '大阪',
@@ -121,6 +134,7 @@ export const LUGARES: LugarMapa[] = [
   },
   {
     id: 'kyoto',
+    mapas: [{ id: 'kinkakuji', nome: 'Kinkaku-ji', rumo: 320 }, { id: 'arashiyama', nome: 'Arashiyama', rumo: 265 }, { id: 'higashiyama', nome: 'Higashiyama', rumo: 85 }, { id: 'tofukuji', nome: 'Tōfuku-ji', rumo: 150 }, { id: 'fushimi-inari', nome: 'Fushimi Inari', rumo: 170 }],
     placaOffset: 52,
     nome: 'Kyoto',
     jp: '京都',
@@ -134,6 +148,7 @@ export const LUGARES: LugarMapa[] = [
   },
   {
     id: 'nara',
+    mapas: [{ id: 'nara', nome: 'Parque de Nara', rumo: 90 }],
     placaOffset: 0,
     nome: 'Nara',
     jp: '奈良',
@@ -206,6 +221,53 @@ export function passagensEntre(a: string, b: string): [number, number][] {
   const inversa = PASSAGENS[`${b}>${a}`];
   return inversa ? [...inversa].reverse() : [];
 }
+
+/** Como se vai de uma cidade à outra: aparece ao tocar na linha. */
+export interface Trecho {
+  de: string;
+  para: string;
+  trem: string;
+  duracao: string;
+  custo: string;
+  nota?: string;
+}
+
+export const TRECHOS: Trecho[] = [
+  { de: 'tokyo', para: 'kamakura', trem: 'JR Shōnan-Shinjuku Line', duracao: '~1h', custo: '¥950', nota: 'direto de Shinjuku; descer em Kita-Kamakura' },
+  { de: 'tokyo', para: 'hiroshima', trem: 'Nozomi (Tōkaidō + San\'yō Shinkansen)', duracao: '3h50', custo: '¥19.800', nota: 'assentos D/E, lado direito, para o Fuji · reservar em 23/10' },
+  { de: 'hiroshima', para: 'miyajima', trem: 'JR San\'yō Line + balsa JR', duracao: '~40 min', custo: '¥620', nota: 'trem até Miyajimaguchi, 27 min; balsa, 10 min' },
+  { de: 'hiroshima', para: 'kurashiki', trem: 'San\'yō Shinkansen + JR local', duracao: '~55 min', custo: '~¥8.000', nota: 'Shinkansen até Okayama, 35 min; local até Kurashiki, 17 min' },
+  { de: 'kurashiki', para: 'himeji', trem: 'JR local + San\'yō Shinkansen', duracao: '~40 min', custo: '~¥3.900', nota: 'local até Okayama; Shinkansen até Himeji, 20 min' },
+  { de: 'himeji', para: 'osaka', trem: 'JR Special Rapid', duracao: '60 min', custo: '¥1.520', nota: 'sem taxa de Shinkansen; sai a cada 15 min' },
+  { de: 'osaka', para: 'kyoto', trem: 'JR Special Rapid', duracao: '29 min', custo: '¥580', nota: 'de Osaka Station; o mais rápido e o mais barato' },
+  { de: 'kyoto', para: 'nara', trem: 'Kintetsu Limited Express', duracao: '35 min', custo: '¥1.280', nota: 'Kintetsu-Nara chega mais perto do parque que a JR' },
+  { de: 'kyoto', para: 'tokyo', trem: 'Nozomi (Tōkaidō Shinkansen)', duracao: '2h15', custo: '¥14.200', nota: 'assentos A/B, lado esquerdo, para o Fuji · reservar em 1/11' },
+];
+
+export function trechoEntre(a: string, b: string): Trecho | undefined {
+  return TRECHOS.find((t) => (t.de === a && t.para === b) || (t.de === b && t.para === a));
+}
+
+/** Rótulos da paisagem: o que vocês vão reconhecer pela janela. */
+export interface Rotulo {
+  texto: string;
+  sub?: string;
+  lng: number;
+  lat: number;
+}
+
+export const ROTULOS: Rotulo[] = [
+  { texto: 'Fuji-san', sub: '3.776 m · fileira E indo, A voltando', lng: 138.73, lat: 35.36 },
+  { texto: 'Mar Interior de Seto', sub: 'entre Hiroshima e Miyajima', lng: 133.4, lat: 34.05 },
+  { texto: 'Lago Biwa', sub: 'o maior do Japão, à direita antes de Kyoto', lng: 136.1, lat: 35.33 },
+  { texto: 'Baía de Osaka', lng: 135.2, lat: 34.5 },
+  { texto: 'Baía de Tóquio', lng: 139.85, lat: 35.45 },
+  { texto: 'Oceano Pacífico', lng: 137.6, lat: 33.4 },
+  { texto: 'Mar do Japão', lng: 135.6, lat: 37.3 },
+];
+
+/** O lago Biwa não está no contorno da costa: desenha-se à parte. */
+export const BIWA = { lng: 136.08, lat: 35.33, rx: 0.22, rz: 0.42 };
 
 /** O monte Fuji entra como cenário: é o que se vê do Shinkansen. */
 export const FUJI = { lat: 35.3606, lng: 138.7274 };
