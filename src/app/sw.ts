@@ -1,6 +1,6 @@
 import { defaultCache } from '@serwist/next/worker';
 import type { PrecacheEntry, SerwistGlobalConfig } from 'serwist';
-import { Serwist, NetworkFirst, StaleWhileRevalidate, ExpirationPlugin } from 'serwist';
+import { Serwist, NetworkFirst, ExpirationPlugin } from 'serwist';
 
 declare global {
   interface WorkerGlobalScope extends SerwistGlobalConfig {
@@ -38,19 +38,23 @@ const serwist = new Serwist({
       }),
     },
     {
-      // payload RSC das navegações internas do Next
+      // payload RSC das navegações internas do Next: rede primeiro, para o
+      // app nunca mostrar a versão de ontem quando há sinal
       matcher: ({ request, url }) => request.method === 'GET' && ehPagina(url) && request.headers.has('RSC'),
-      handler: new StaleWhileRevalidate({
+      handler: new NetworkFirst({
         cacheName: 'paginas-rsc',
+        networkTimeoutSeconds: 4,
         plugins: [new ExpirationPlugin({ maxEntries: 220, maxAgeSeconds: QUARENTA_E_CINCO_DIAS })],
       }),
     },
     {
-      // o HTML de todas as páginas: fica guardado por 45 dias, não 24 h,
-      // e cabe o app inteiro (são ~106 rotas), não 32 entradas
+      // O HTML de todas as páginas. Rede primeiro, com 4 s de paciência:
+      // com sinal, sempre a versão nova; sem sinal, o cache de 45 dias, que
+      // cabe o app inteiro (~130 rotas) em vez das 32 entradas do padrão.
       matcher: ({ request, url }) => request.method === 'GET' && ehPagina(url),
-      handler: new StaleWhileRevalidate({
+      handler: new NetworkFirst({
         cacheName: 'paginas',
+        networkTimeoutSeconds: 4,
         matchOptions: { ignoreVary: true },
         plugins: [new ExpirationPlugin({ maxEntries: 220, maxAgeSeconds: QUARENTA_E_CINCO_DIAS })],
       }),
