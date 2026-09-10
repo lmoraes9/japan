@@ -153,7 +153,7 @@ function rotulo(texto: string, sub?: string): THREE.Sprite {
   return sp;
 }
 
-function paisagem(pai: THREE.Object3D) {
+function paisagem(pai: THREE.Object3D, coleta: THREE.Sprite[]) {
   // o lago Biwa, que o contorno da costa não tem
   const [bx, bz] = proj(BIWA.lng, BIWA.lat);
   const lago = new THREE.Mesh(new THREE.CircleGeometry(1, 28), MAT_MAR);
@@ -168,6 +168,7 @@ function paisagem(pai: THREE.Object3D) {
     const noFuji = r.texto.startsWith('Fuji');
     sp.position.set(x, noFuji ? ESPESSURA + 40 : ESPESSURA + 4, z);
     pai.add(sp);
+    coleta.push(sp);
   }
 }
 
@@ -511,6 +512,8 @@ export interface MapaJapaoConstruido {
   aneis: Record<string, THREE.Group>;
   /** as placas das miniaturas, para a interface manter o tamanho na tela */
   placasMini: THREE.Sprite[];
+  /** Fuji, mares, lago: entram no mesmo cálculo de sobreposição */
+  rotulosPaisagem: THREE.Sprite[];
   rota: THREE.Object3D;
   /** o tubo apagado, para achar em que trecho o dedo tocou */
   tuboFundo: THREE.Mesh | null;
@@ -540,9 +543,10 @@ export function construirMapaJapao(
   mar.receiveShadow = true;
   scene.add(mar);
 
+  const rotulosPaisagem: THREE.Sprite[] = [];
   ilhas(raiz);
   montanhas(raiz, leve);
-  paisagem(raiz);
+  paisagem(raiz, rotulosPaisagem);
 
   const posicoes: Record<string, THREE.Vector3> = {};
   const marcos: Record<string, THREE.Object3D> = {};
@@ -557,7 +561,11 @@ export function construirMapaJapao(
     g.userData.lugarId = l.id;
     marcos[l.id] = g;
     const sp = placa(l.nome, l.jp);
-    sp.position.set(x, ALTURA_TERRA + ALTURA_MARCO[l.marco] * (l.escala ?? 1) + 11 + (l.placaOffset ?? 0), z);
+    // a altura de base e o desencontro ficam guardados: de perto o
+    // desencontro encolhe, senão a placa sobe para fora da tela
+    sp.userData.yBase = ALTURA_TERRA + ALTURA_MARCO[l.marco] * (l.escala ?? 1) + 11;
+    sp.userData.yOffset = l.placaOffset ?? 0;
+    sp.position.set(x, (sp.userData.yBase as number) + (sp.userData.yOffset as number), z);
     sp.scale.set(44, 13.8, 1);
     sp.userData.lugarId = l.id;
     raiz.add(sp);
@@ -650,6 +658,7 @@ export function construirMapaJapao(
     placas,
     aneis,
     placasMini,
+    rotulosPaisagem,
     rota,
     tuboFundo,
     curva,

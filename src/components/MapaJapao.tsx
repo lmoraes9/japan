@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { X, Map as MapIcon, Box, BookOpen, CalendarDays, Gauge, MapPin, TrainFront, Clock, Coins } from 'lucide-react';
+import { X, Map as MapIcon, Box, BookOpen, CalendarDays, Gauge, MapPin, TrainFront, Clock, Coins, Maximize2 } from 'lucide-react';
 import { LUGARES, DIA_LUGARES, rotaDaViagem, lugarPorId, trechoEntre, type Trecho } from '@/lib/three/japao/lugares';
 import { ALL_DAYS } from '@/data/days';
 import { TRIP } from '@/data/trip';
@@ -14,6 +14,8 @@ type Qualidade = 'alta' | 'leve';
 
 interface Motor {
   irPara: (lugarId: string | null, dist?: number) => void;
+  /** volta ao enquadramento inicial, com o arco inteiro na tela */
+  verTudo: () => void;
   /** acende o anel de miniaturas de uma cidade (só um por vez) */
   mostrarAnel: (lugarId: string | null) => void;
   /** acende a linha e leva o trem até este ponto da rota, animando */
@@ -62,6 +64,7 @@ export function MapaJapao() {
   const [qualidade, setQualidade] = useState<Qualidade>('alta');
   const [lugarSel, setLugarSel] = useState<string | null>(null);
   const [trechoSel, setTrechoSel] = useState<{ trecho: Trecho; de: string; para: string } | null>(null);
+  const lugarSelRef = useRef<string | null>(null);
   const router = useRouter();
   const [dia, setDia] = useState<number>(DIAS.length - 1);
   const [estado, setEstado] = useState<'carregando' | 'pronto' | 'erro'>('carregando');
@@ -101,7 +104,9 @@ export function MapaJapao() {
         const controls = new OrbitControls(camera, canvas);
         controls.enableDamping = true;
         controls.maxPolarAngle = Math.PI / 2 - 0.06;
-        controls.minDistance = 60;
+        // a banda útil de zoom: mais perto que isto vira close de maquete,
+        // e o anel de miniaturas da cidade deixa de caber na tela
+        controls.minDistance = 210;
         controls.maxDistance = 1500;
 
         scene.add(new THREE.HemisphereLight(0xdfe9f5, 0x54513f, 0.85));
@@ -267,16 +272,29 @@ export function MapaJapao() {
          * e não se confunde com a cidade vizinha.
          */
         let anelAtivo: string | null = null;
+        /** a cidade cujo anel está aceso agora, para o nome dela não sumir */
+        let cidadeEmFoco: string | null = null;
         const mostrarAnel = (id: string | null) => { anelAtivo = id; };
+        /**
+         * O anel aparece por zoom: aproximar de uma cidade revela os mapas
+         * ilustrados dela. Escolher a cidade na ficha também acende, mas o
+         * caminho normal é chegar perto — que é o que se espera de um mapa.
+         */
         const atualizarAneis = () => {
+          let escolhido = anelAtivo;
+          if (!escolhido) {
+            let melhorD = Infinity;
+            for (const id of Object.keys(mapa.aneis)) {
+              const d = camera.position.distanceTo(mapa.posicoes[id]);
+              const dAlvo = controls.target.distanceTo(mapa.posicoes[id]);
+              if (d < 420 && dAlvo < melhorD) { melhorD = dAlvo; escolhido = id; }
+            }
+          }
+          cidadeEmFoco = null;
           for (const [id, anel] of Object.entries(mapa.aneis)) {
-            if (id !== anelAtivo) { anel.visible = false; continue; }
-            const p = mapa.posicoes[id];
-            const d = camera.position.distanceTo(p);
-            // folgado de propósito: a câmera ainda está a caminho quando o
-            // anel precisa aparecer; só some de volta na visão geral
-            if (d > 700) { anel.visible = false; continue; }
-            anel.visible = true;
+            if (id !== escolhido) { anel.visible = false; continue; }
+            anel.visible = camera.position.distanceTo(mapa.posicoes[id]) < 700;
+            if (anel.visible) cidadeEmFoco = id;
           }
         };
 
@@ -296,7 +314,8 @@ export function MapaJapao() {
           // 1) miniatura de um mapa ilustrado: é o alvo mais específico
           const aneisVisiveis = Object.values(mapa.aneis).filter((a) => a.visible);
           if (aneisVisiveis.length) {
-            const hm = ray.intersectObjects(aneisVisiveis, true)[0];
+            const alvosMini = aneisVisiveis.flatMap((a) => a.children.filter((c) => !(c as import('three').Sprite).isSprite || visiveis.has(c as import('three').Sprite)));
+            const hm = ray.intersectObjects(alvosMini, true)[0];
             if (hm) {
               let o: import('three').Object3D | null = hm.object;
               while (o && !o.userData.mapaId) o = o.parent;
@@ -331,8 +350,10 @@ export function MapaJapao() {
             }
           }
 
-          // 3) o marco ou a placa da cidade
-          const alvos = [...Object.values(mapa.marcos), ...Object.values(mapa.placas)];
+          // 3) o marco ou a placa da cidade — placas escondidas pela
+          // sobreposição não recebem toque: só vale o que está na tela
+          const placasVisiveis = Object.values(mapa.placas).filter((sp) => visiveis.has(sp));
+          const alvos = [...Object.values(mapa.marcos), ...placasVisiveis];
           const hit = ray.intersectObjects(alvos, true)[0];
           if (!hit) return;
           let o: import('three').Object3D | null = hit.object;
@@ -355,31 +376,98 @@ export function MapaJapao() {
         const ro = new ResizeObserver(redimensionar);
         ro.observe(canvas);
 
-        // as placas ficam do mesmo tamanho na tela, perto ou longe
-        const placas = Object.values(mapa.placas);
-        const ASPECTO_PLACA = 512 / 160;
         /**
-         * As placas crescem conforme a câmera se aproxima: na visão geral
-         * são etiquetas pequenas, que não tapam o país; de perto ficam do
-         * tamanho de leitura e param de crescer.
+         * Rótulos com prioridade e sem sobreposição: a cada quadro cada placa
+         * vira um retângulo em pixels; quem chega primeiro na ordem de
+         * importância fica, quem colide some. É por isso que aproximar revela
+         * mais nomes: os retângulos afastam-se e param de brigar.
          */
-        const ajustarPlacas = () => {
+        const ASPECTO_PLACA = 512 / 160;
+        const IMPORTANCIA = ['tokyo', 'kyoto', 'hiroshima', 'osaka', 'nara', 'miyajima', 'himeji', 'kamakura', 'kurashiki'];
+        type Rot = { sp: import('three').Sprite; tipo: 'cidade' | 'mini' | 'paisagem'; id: string; prio: number; px: number };
+        const rotulos: Rot[] = [];
+        for (const [id, sp] of Object.entries(mapa.placas)) {
+          if (id === '__hoje') continue;
+          const i = IMPORTANCIA.indexOf(id);
+          rotulos.push({ sp, tipo: 'cidade', id, prio: 10 + (i < 0 ? 50 : i), px: 30 });
+        }
+        for (const sp of mapa.placasMini) {
+          rotulos.push({ sp, tipo: 'mini', id: (sp.userData.mapaId as string) ?? '', prio: 5, px: 20 });
+        }
+        for (const sp of mapa.rotulosPaisagem) {
+          rotulos.push({ sp, tipo: 'paisagem', id: '', prio: 200, px: 22 });
+        }
+        const balaoHoje = mapa.placas['__hoje'];
+
+        /** ids visíveis neste quadro: só eles respondem ao toque */
+        const visiveis = new Set<import('three').Sprite>();
+
+        const v3 = new THREE.Vector3();
+        const mundo = new THREE.Vector3();
+        const posicionarRotulos = () => {
           const r = canvas.getBoundingClientRect();
           if (!r.height) return;
           const k = (2 * Math.tan((camera.fov * Math.PI) / 360)) / r.height;
-          const dCam = camera.position.distanceTo(controls.target);
-          const px = Math.min(34, Math.max(13, (34 * 300) / Math.max(1, dCam)));
-          for (const sp of placas) {
-            const d = camera.position.distanceTo(sp.position);
-            const alt = Math.min(34, Math.max(4, px * k * d));
-            sp.scale.set(alt * ASPECTO_PLACA, alt, 1);
+          const dCamAlvo = camera.position.distanceTo(controls.target);
+          visiveis.clear();
+          const ocupados: { x0: number; y0: number; x1: number; y1: number }[] = [];
+
+          // o balão de hoje tem lugar cativo, é o primeiro a ocupar
+          if (balaoHoje) {
+            balaoHoje.getWorldPosition(mundo);
+            const d = camera.position.distanceTo(mundo);
+            const alt = 26 * k * d;
+            balaoHoje.scale.set(alt * (512 / 160), alt, 1);
+            v3.copy(mundo).project(camera);
+            if (v3.z <= 1) {
+              const cx = ((v3.x + 1) / 2) * r.width;
+              const cy = ((1 - v3.y) / 2) * r.height;
+              const w = 26 * ASPECTO_PLACA;
+              ocupados.push({ x0: cx - w / 2, y0: cy - 13, x1: cx + w / 2, y1: cy + 13 });
+            }
           }
-          // as placas das miniaturas: menores, e só quando o anel está aceso
-          const pxMini = Math.min(22, Math.max(11, (22 * 260) / Math.max(1, dCam)));
-          for (const sp of mapa.placasMini) {
-            const d = camera.position.distanceTo(sp.position);
-            const alt = Math.min(22, Math.max(3, pxMini * k * d));
+
+          const prioridade = (r: Rot) => {
+            if (r.id && r.id === lugarSelRef.current) return -100;
+            if (r.tipo === 'cidade' && r.id === cidadeEmFoco) return -90;
+            return r.prio;
+          };
+          // longe, as placas se desencontram na vertical para caberem lado a
+          // lado; perto, voltam para cima do próprio marco
+          const fator = Math.min(1, Math.max(0, (dCamAlvo - 260) / 320));
+          for (const r of rotulos) {
+            if (r.tipo !== 'cidade') continue;
+            const yb = r.sp.userData.yBase as number | undefined;
+            if (yb === undefined) continue;
+            r.sp.position.y = yb + ((r.sp.userData.yOffset as number) ?? 0) * fator;
+          }
+
+          const ordenados = [...rotulos].sort((a, b) => prioridade(a) - prioridade(b));
+
+          for (const rot of ordenados) {
+            const { sp, tipo, px } = rot;
+            // miniaturas só contam quando o anel delas está aceso
+            if (tipo === 'mini' && (!sp.parent || !sp.parent.visible)) { sp.visible = false; continue; }
+            // as placas das miniaturas são filhas do anel: vale a posição no
+            // mundo, não a local, senão elas são projetadas no meio do mar
+            sp.getWorldPosition(mundo);
+            const d = camera.position.distanceTo(mundo);
+            const alt = px * k * d;
             sp.scale.set(alt * ASPECTO_PLACA, alt, 1);
+            v3.copy(mundo).project(camera);
+            if (v3.z > 1) { sp.visible = false; continue; }
+            const cx = ((v3.x + 1) / 2) * r.width;
+            const cy = ((1 - v3.y) / 2) * r.height;
+            const w = px * ASPECTO_PLACA;
+            const h = px;
+            // fora da tela (ou atrás da régua) não ocupa lugar
+            if (cx < -w || cx > r.width + w || cy < -h || cy > r.height * 0.82) { sp.visible = false; continue; }
+            const cai = { x0: cx - w / 2, y0: cy - h / 2, x1: cx + w / 2, y1: cy + h / 2 };
+            const bate = ocupados.some((o) => cai.x0 < o.x1 && cai.x1 > o.x0 && cai.y0 < o.y1 && cai.y1 > o.y0);
+            if (bate) { sp.visible = false; continue; }
+            ocupados.push(cai);
+            sp.visible = true;
+            visiveis.add(sp);
           }
         };
 
@@ -388,8 +476,8 @@ export function MapaJapao() {
         const laco = () => {
           raf = requestAnimationFrame(laco);
           t += 0.016;
-          ajustarPlacas();
           atualizarAneis();
+          posicionarRotulos();
           if (fTrem >= 0 && Math.abs(fAlvo - fTrem) > 0.0005) {
             fTrem += (fAlvo - fTrem) * 0.06;
             if (Math.abs(fAlvo - fTrem) < 0.0005) fTrem = fAlvo;
@@ -412,6 +500,12 @@ export function MapaJapao() {
 
         motorRef.current = {
           irPara,
+          verTudo: () => {
+            anel.visible = false;
+            anelAtivo = null;
+            alvoCam = null;
+            enquadrar();
+          },
           mostrarAnel,
           acenderAte,
           dispose: () => {
@@ -446,23 +540,18 @@ export function MapaJapao() {
   const jaVoou = useRef(false);
   useEffect(() => {
     if (estado !== 'pronto') return;
+    // a régua acende a linha e leva o trem; a câmera fica onde vocês deixaram
     motorRef.current?.acenderAte(indiceNoFimDoDia(dia), jaVoou.current);
-    if (!jaVoou.current) { jaVoou.current = true; return; }
-    const lugares = DIA_LUGARES[DIAS[dia]] ?? [];
-    const ultimo = lugares[lugares.length - 1];
-    if (ultimo) {
-      motorRef.current?.irPara(ultimo, 200);
-      motorRef.current?.mostrarAnel(ultimo);
-    }
+    jaVoou.current = true;
   }, [dia, estado]);
 
   useEffect(() => {
     if (estado !== 'pronto') return;
-    if (lugarSel) {
-      motorRef.current?.irPara(lugarSel, 195);
-      motorRef.current?.mostrarAnel(lugarSel);
-    }
+    motorRef.current?.mostrarAnel(lugarSel);
+    if (lugarSel) motorRef.current?.irPara(lugarSel, 240);
   }, [lugarSel, estado]);
+
+  useEffect(() => { lugarSelRef.current = lugarSel; }, [lugarSel]);
 
   const lugar = lugarSel ? lugarPorId(lugarSel) : undefined;
   const diaAtual = ALL_DAYS[dia];
@@ -486,19 +575,31 @@ export function MapaJapao() {
           <p className="text-[14px] font-bold leading-tight text-rail">A viagem inteira</p>
           <p className="text-[11px] leading-tight text-rail/70">{LUGARES.length} lugares · {ALL_DAYS.length} dias</p>
         </div>
-        <button
-          type="button"
-          onClick={() => setQualidade((q) => (q === 'alta' ? 'leve' : 'alta'))}
-          className="inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1.5 font-mono text-[11px] font-semibold text-rail backdrop-blur"
-        >
-          <Gauge size={12} /> {qualidade}
-        </button>
+        <div className="flex flex-col items-end gap-2">
+          <button
+            type="button"
+            onClick={() => setQualidade((q) => (q === 'alta' ? 'leve' : 'alta'))}
+            className="inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1.5 font-mono text-[11px] font-semibold text-rail backdrop-blur"
+          >
+            <Gauge size={12} /> {qualidade}
+          </button>
+          <button
+            type="button"
+            onClick={() => { setLugarSel(null); setTrechoSel(null); motorRef.current?.verTudo(); }}
+            className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 text-[12px] font-semibold text-rail backdrop-blur"
+          >
+            <Maximize2 size={13} /> Japão inteiro
+          </button>
+        </div>
       </div>
 
       {/* régua dos dias */}
       {!lugar && !trechoSel && (
         <div className="absolute inset-x-0 bottom-0 p-3">
           <div className="rounded-2xl bg-white/85 p-3 backdrop-blur">
+            <p className="mb-2 text-[11px] leading-snug text-rail/60">
+              Aproxime uma cidade para ver os lugares dela. Toque na linha para ver o trem do trecho.
+            </p>
             <div className="flex items-baseline justify-between">
               <p className="font-mono text-[10.5px] uppercase tracking-widest text-rail/60">
                 Dia {dia + 1} de {ALL_DAYS.length} · {dataCurta(diaAtual.date)}
