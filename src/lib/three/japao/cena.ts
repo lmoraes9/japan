@@ -27,6 +27,11 @@ const MAT_NEVE = new THREE.MeshStandardMaterial({ color: 0xf2f4f7, roughness: 0.
 const MAT_TELHADO = new THREE.MeshStandardMaterial({ color: 0x8f97a3, roughness: 0.75, side: THREE.DoubleSide });
 const MAT_BAMBU = new THREE.MeshStandardMaterial({ color: 0x7fa35a, roughness: 0.8 });
 const MAT_FIO = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.45 });
+// o trem é o indicador de "onde a viagem está": desenha por cima de tudo,
+// senão some atrás do marco da cidade por onde a linha passa
+const MAT_TREM = new THREE.MeshStandardMaterial({ color: 0xfbfcfd, roughness: 0.35, metalness: 0.1, depthTest: false });
+const MAT_FAIXA = new THREE.MeshBasicMaterial({ color: 0x1450a8, depthTest: false });
+const MAT_SAIA = new THREE.MeshStandardMaterial({ color: 0x25303d, roughness: 0.7, depthTest: false });
 const MAT_ROTA = new THREE.MeshBasicMaterial({ color: 0xc2402a });
 const MAT_ROTA_APAGADA = new THREE.MeshBasicMaterial({ color: 0xc2402a, transparent: true, opacity: 0.22 });
 
@@ -634,20 +639,35 @@ export function construirMapaJapao(
   }
   raiz.add(rota);
 
-  // o Shinkansen, que a interface leva pela linha
+  // O Shinkansen, que a interface leva pela linha. Na escala do país ele é
+  // um marcador antes de ser um trem: corpo branco chapado e faixa azul,
+  // sem as janelas escuras do modelo original, que viravam uma mancha.
   const trem = new THREE.Group();
-  const carroceria = new THREE.Group();
-  train(carroceria, { cars: 3, color: 0xf7f8fa });
-  carroceria.scale.setScalar(0.36);
-  trem.add(carroceria);
-  const nariz = new THREE.Mesh(new THREE.ConeGeometry(0.62, 3, 10), new THREE.MeshStandardMaterial({ color: 0xf7f8fa, roughness: 0.5 }));
+  const corpo = new THREE.Group();
+  train(corpo, { cars: 3, color: 0xffffff });
+  corpo.scale.setScalar(0.36);
+  corpo.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (m.isMesh) m.material = MAT_TREM;
+  });
+  trem.add(corpo);
+  const nariz = new THREE.Mesh(new THREE.ConeGeometry(0.62, 3.2, 12), MAT_TREM);
   nariz.rotation.x = -Math.PI / 2;
-  nariz.position.set(0, 0.95, -11.5);
+  nariz.position.set(0, 0.95, -11.8);
   trem.add(nariz);
-  const faixa = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.3, 20), new THREE.MeshBasicMaterial({ color: 0x1c4f9c }));
-  faixa.position.set(0, 1.3, 0);
+  const faixa = new THREE.Mesh(new THREE.BoxGeometry(1.34, 0.34, 20.5), MAT_FAIXA);
+  faixa.position.set(0, 1.15, 0);
   trem.add(faixa);
-  trem.traverse((o) => { (o as THREE.Mesh).castShadow = true; });
+  // saia escura embaixo: é ela que separa o trem do verde do mapa
+  const saia = new THREE.Mesh(new THREE.BoxGeometry(1.45, 0.42, 21.5), MAT_SAIA);
+  saia.position.set(0, 0.16, 0);
+  trem.add(saia);
+  trem.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh) return;
+    m.castShadow = false;
+    m.renderOrder = 8;
+  });
   trem.visible = false;
   raiz.add(trem);
 

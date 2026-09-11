@@ -238,17 +238,10 @@ export function MapaJapao() {
           const p = c.getPointAt(u);
           const tg = c.getTangentAt(Math.min(0.999, Math.max(0.001, u)));
           // sobre o tubo, não dentro dele
-          mapa.trem.position.set(p.x, p.y + 2.7, p.z);
-          mapa.trem.lookAt(p.x + tg.x, p.y + 2.7 + tg.y, p.z + tg.z);
+          // acima do tubo e dos marcos vizinhos, para não se confundir com eles
+          mapa.trem.position.set(p.x, p.y + 5.5, p.z);
+          mapa.trem.lookAt(p.x + tg.x, p.y + 5.5 + tg.y, p.z + tg.z);
           mapa.trem.visible = true;
-          // o trem também mantém presença na tela: cresce com a distância
-          const r = canvas.getBoundingClientRect();
-          if (r.height) {
-            const k = (2 * Math.tan((camera.fov * Math.PI) / 360)) / r.height;
-            const dc = camera.position.distanceTo(mapa.trem.position);
-            const desejado = Math.min(3.2, Math.max(1, (34 * k * dc) / 6));
-            mapa.trem.scale.setScalar(desejado);
-          }
           const t = mapa.tuboPercorrido;
           if (t) {
             // o tubo é dividido por parâmetro; a fração u é de comprimento
@@ -442,6 +435,16 @@ export function MapaJapao() {
             r.sp.position.y = yb + ((r.sp.userData.yOffset as number) ?? 0) * fator;
           }
 
+          // o trem reserva o próprio espaço: nenhum rótulo escreve por cima dele
+          if (mapa.trem.visible) {
+            v3.copy(mapa.trem.position).project(camera);
+            if (v3.z <= 1) {
+              const cx = ((v3.x + 1) / 2) * r.width;
+              const cy = ((1 - v3.y) / 2) * r.height;
+              ocupados.push({ x0: cx - 26, y0: cy - 18, x1: cx + 26, y1: cy + 18 });
+            }
+          }
+
           const ordenados = [...rotulos].sort((a, b) => prioridade(a) - prioridade(b));
 
           for (const rot of ordenados) {
@@ -471,6 +474,16 @@ export function MapaJapao() {
           }
         };
 
+        /** o trem tem comprimento constante na tela: ~46 px, perto ou longe */
+        const ajustarTrem = () => {
+          if (!mapa.trem.visible) return;
+          const r = canvas.getBoundingClientRect();
+          if (!r.height) return;
+          const k = (2 * Math.tan((camera.fov * Math.PI) / 360)) / r.height;
+          const dc = camera.position.distanceTo(mapa.trem.position);
+          mapa.trem.scale.setScalar(Math.min(4.2, Math.max(0.9, (46 * k * dc) / 21)));
+        };
+
         let raf = 0;
         let t = 0;
         const laco = () => {
@@ -478,6 +491,7 @@ export function MapaJapao() {
           t += 0.016;
           atualizarAneis();
           posicionarRotulos();
+          ajustarTrem();
           if (fTrem >= 0 && Math.abs(fAlvo - fTrem) > 0.0005) {
             fTrem += (fAlvo - fTrem) * 0.06;
             if (Math.abs(fAlvo - fTrem) < 0.0005) fTrem = fAlvo;
