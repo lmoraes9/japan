@@ -1,15 +1,25 @@
 import * as THREE from 'three';
-import { ILHAS } from './costa';
-import { LUGARES, FUJI, BIWA, ROTULOS, passagensEntre, type LugarMapa, type Marco } from './lugares';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { ILHAS } from './costa';
+import { LUGARES, FUJI, BIWA, passagensEntre, type Marco } from './lugares';
+import { REGIOES } from '@/lib/mapa-japao/regioes';
 import { MAT, add, box, cyl, toriiGeometry } from '../parts';
 import { group, castle, pagoda, buddha, domeRuin, kura, tower, bigTorii, hall, deerGeometry, gate2, stage, bridge, train } from '../buildings';
+
+/**
+ * O diorama do Japão. É só figura: nenhum objeto desta cena responde a toque.
+ * No fim da montagem toda a árvore recebe `raycast` vazio, para que nem por
+ * engano alguém consiga transformar um marco de 20 px num alvo de dedo — foi
+ * exatamente isso que tornou a tela anterior impossível de usar.
+ */
 
 /** graus por unidade da cena: o Japão inteiro cabe em ~700 unidades */
 const K = 55;
 const LAT0 = 37.5;
 const LNG0 = 137.5;
 const COS0 = Math.cos((LAT0 * Math.PI) / 180);
+/** quilômetros por unidade, para as legendas falarem em distância real */
+export const KM_POR_UNIDADE = 111.32 / K;
 
 /** longitude/latitude → x/z da cena (equirretangular, boa nesta escala) */
 export function proj(lng: number, lat: number): [number, number] {
@@ -21,19 +31,19 @@ export const ALTURA_TERRA = ESPESSURA;
 
 const MAT_TERRA = new THREE.MeshStandardMaterial({ color: 0x7d8a63, roughness: 0.95 });
 const MAT_BORDA = new THREE.MeshStandardMaterial({ color: 0xcbb992, roughness: 1 });
-const MAT_MAR = new THREE.MeshStandardMaterial({ color: 0x2e4a66, roughness: 0.25, metalness: 0.3 });
+const MAT_MAR = new THREE.MeshStandardMaterial({ color: 0x3a5f80, roughness: 0.3, metalness: 0.25 });
 const MAT_MONTE = new THREE.MeshStandardMaterial({ color: 0x6b7856, roughness: 1 });
 const MAT_NEVE = new THREE.MeshStandardMaterial({ color: 0xf2f4f7, roughness: 0.8 });
 const MAT_TELHADO = new THREE.MeshStandardMaterial({ color: 0x8f97a3, roughness: 0.75, side: THREE.DoubleSide });
 const MAT_BAMBU = new THREE.MeshStandardMaterial({ color: 0x7fa35a, roughness: 0.8 });
 const MAT_FIO = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.45 });
-// o trem é o indicador de "onde a viagem está": desenha por cima de tudo,
-// senão some atrás do marco da cidade por onde a linha passa
 const MAT_TREM = new THREE.MeshStandardMaterial({ color: 0xfbfcfd, roughness: 0.35, metalness: 0.1, depthTest: false });
 const MAT_FAIXA = new THREE.MeshBasicMaterial({ color: 0x1450a8, depthTest: false });
 const MAT_SAIA = new THREE.MeshStandardMaterial({ color: 0x25303d, roughness: 0.7, depthTest: false });
 const MAT_ROTA = new THREE.MeshBasicMaterial({ color: 0xc2402a });
 const MAT_ROTA_APAGADA = new THREE.MeshBasicMaterial({ color: 0xc2402a, transparent: true, opacity: 0.22 });
+const ALTURA_MINIATURA = 13;
+const RAIO_ANEL = 42;
 
 function pontoDentro(anel: [number, number][], x: number, y: number) {
   let dentro = false;
@@ -131,50 +141,14 @@ function montanhas(pai: THREE.Object3D, leve: boolean) {
   pai.add(neve);
 }
 
-/** Texto solto sobre o mar ou a montanha, sem balão, em itálico. */
-function rotulo(texto: string, sub?: string): THREE.Sprite {
-  const L = 640;
-  const A = sub ? 150 : 90;
-  const cv = document.createElement('canvas');
-  cv.width = L;
-  cv.height = A;
-  const c = cv.getContext('2d')!;
-  c.textAlign = 'center';
-  c.fillStyle = 'rgba(255,255,255,0.82)';
-  c.font = 'italic 600 46px Georgia, "Times New Roman", serif';
-  c.shadowColor = 'rgba(0,0,0,0.45)';
-  c.shadowBlur = 8;
-  c.fillText(texto, L / 2, 56);
-  if (sub) {
-    c.font = 'italic 30px Georgia, "Times New Roman", serif';
-    c.fillStyle = 'rgba(255,255,255,0.7)';
-    c.fillText(sub, L / 2, 112);
-  }
-  const tex = new THREE.CanvasTexture(cv);
-  tex.colorSpace = THREE.SRGBColorSpace;
-  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthTest: false, transparent: true, opacity: 0.95 }));
-  sp.scale.set(64, sub ? 15 : 9, 1);
-  sp.renderOrder = 9;
-  return sp;
-}
-
-function paisagem(pai: THREE.Object3D, coleta: THREE.Sprite[]) {
-  // o lago Biwa, que o contorno da costa não tem
+/** O lago Biwa, que o contorno da costa do Natural Earth não traz. */
+function paisagem(pai: THREE.Object3D) {
   const [bx, bz] = proj(BIWA.lng, BIWA.lat);
   const lago = new THREE.Mesh(new THREE.CircleGeometry(1, 28), MAT_MAR);
   lago.rotation.x = -Math.PI / 2;
   lago.scale.set(BIWA.rx * COS0 * K, BIWA.rz * K, 1);
   lago.position.set(bx, ESPESSURA + 0.15, bz);
   pai.add(lago);
-
-  for (const r of ROTULOS) {
-    const [x, z] = proj(r.lng, r.lat);
-    const sp = rotulo(r.texto, r.sub);
-    const noFuji = r.texto.startsWith('Fuji');
-    sp.position.set(x, noFuji ? ESPESSURA + 40 : ESPESSURA + 4, z);
-    pai.add(sp);
-    coleta.push(sp);
-  }
 }
 
 /** Uma miniatura por mapa ilustrado: a mesma linguagem dos marcos, menor. */
@@ -264,49 +238,6 @@ function miniatura(pai: THREE.Object3D, mapaId: string): THREE.Object3D {
   const alto = Math.max(0.001, caixa.max.y - Math.min(0, caixa.min.y));
   g.scale.setScalar(ALTURA_MINIATURA / alto);
   return g;
-}
-
-const ALTURA_MINIATURA = 13;
-const RAIO_ANEL = 42;
-
-/**
- * O anel de miniaturas de uma cidade: cada mapa ilustrado dela vira um
- * modelo pequeno, disposto na direção real em que fica, com placa e uma
- * linha até o centro. Começa invisível: a interface acende quando a
- * câmera chega perto.
- */
-function anelMiniaturas(pai: THREE.Object3D, l: LugarMapa, cx: number, cz: number, escala: number, coletaPlacas: THREE.Sprite[]): THREE.Group | null {
-  if (!l.mapas || l.mapas.length < 2) return null;
-  const anel = new THREE.Group();
-  anel.position.set(cx, ALTURA_TERRA, cz);
-  anel.visible = false;
-  anel.userData.lugarId = l.id;
-  const raio = RAIO_ANEL * escala;
-  for (const m of l.mapas) {
-    const a = ((90 - m.rumo) * Math.PI) / 180; // rumo 0 = norte = -z
-    const x = Math.cos(a) * raio;
-    const z = -Math.sin(a) * raio;
-    const mini = miniatura(anel, m.id);
-    mini.position.set(x, 0, z);
-    mini.rotation.y = -a + Math.PI / 2;
-    mini.userData.mapaId = m.id;
-    mini.userData.lugarId = l.id;
-    // fio até o centro
-    const fio = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, raio, 5), MAT_FIO);
-    fio.position.set(x / 2, 0.6, z / 2);
-    fio.rotation.z = Math.PI / 2;
-    fio.rotation.y = -Math.atan2(z, x);
-    anel.add(fio);
-    const sp = placa(m.nome, '', { pequena: true });
-    sp.position.set(x, ALTURA_MINIATURA + 7, z);
-    sp.scale.set(30, 7.5, 1);
-    sp.userData.mapaId = m.id;
-    sp.userData.lugarId = l.id;
-    anel.add(sp);
-    coletaPlacas.push(sp);
-  }
-  pai.add(anel);
-  return anel;
 }
 
 function mergeSimples(geos: THREE.BufferGeometry[]): THREE.BufferGeometry | null {
@@ -456,89 +387,57 @@ function compactar(g: THREE.Object3D) {
   }
 }
 
-/** Placa com o nome da cidade, sempre virada para a câmera. */
-export function placa(nome: string, jp: string, o: { pequena?: boolean; cor?: string; texto?: string } = {}): THREE.Sprite {
-  const L = 512;
-  const A = o.pequena ? 128 : 160;
-  const cv = document.createElement('canvas');
-  cv.width = L;
-  cv.height = A;
-  const c = cv.getContext('2d')!;
-  c.fillStyle = o.cor ?? 'rgba(255,255,255,0.92)';
-  const r = 30;
-  c.beginPath();
-  c.moveTo(r, 6);
-  c.arcTo(L - 6, 6, L - 6, A - 34, r);
-  c.arcTo(L - 6, A - 34, 6, A - 34, r);
-  c.arcTo(6, A - 34, 6, 6, r);
-  c.arcTo(6, 6, L - 6, 6, r);
-  c.closePath();
-  c.fill();
-  // o bico apontando para baixo
-  c.beginPath();
-  c.moveTo(L / 2 - 20, A - 36);
-  c.lineTo(L / 2 + 20, A - 36);
-  c.lineTo(L / 2, A - 4);
-  c.closePath();
-  c.fill();
-  c.fillStyle = o.texto ?? '#1d2b3a';
-  c.textAlign = 'center';
-  // a fonte encolhe até o nome caber na placa
-  const caber = (base: number) => {
-    let px = base;
-    do {
-      c.font = `bold ${px}px system-ui, -apple-system, sans-serif`;
-      if (c.measureText(nome).width <= L - 48) break;
-      px -= 2;
-    } while (px > 22);
-  };
-  if (o.pequena) {
-    caber(50);
-    c.fillText(nome, L / 2, 66);
-  } else {
-    caber(64);
-    c.fillText(nome, L / 2, 74);
-    c.fillStyle = o.texto ? 'rgba(255,255,255,0.75)' : 'rgba(29,43,58,0.55)';
-    c.font = '34px system-ui, -apple-system, sans-serif';
-    c.fillText(jp, L / 2, 112);
+/**
+ * As miniaturas dos mapas ilustrados de uma cidade, em volta dela, no rumo
+ * real de cada um. Aparecem só para a cidade selecionada, e são cenário: o
+ * caminho até um mapa ilustrado é o chip da ficha, não este modelo.
+ */
+function anelMiniaturas(pai: THREE.Object3D, lugarId: string): THREE.Group | null {
+  const l = LUGARES.find((x) => x.id === lugarId);
+  if (!l?.mapas?.length) return null;
+  const [cx, cz] = proj(l.lng, l.lat);
+  const anel = new THREE.Group();
+  anel.position.set(cx, ALTURA_TERRA, cz);
+  anel.visible = false;
+  const raio = RAIO_ANEL * (l.escala ?? 1);
+  for (const m of l.mapas) {
+    const a = ((90 - m.rumo) * Math.PI) / 180;
+    const x = Math.cos(a) * raio;
+    const z = -Math.sin(a) * raio;
+    const mini = miniatura(anel, m.id);
+    mini.position.set(x, 0, z);
+    mini.rotation.y = -a + Math.PI / 2;
+    mini.userData.mapaId = m.id;
+    const fio = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, raio, 5), MAT_FIO);
+    fio.position.set(x / 2, 0.6, z / 2);
+    fio.rotation.z = Math.PI / 2;
+    fio.rotation.y = -Math.atan2(z, x);
+    anel.add(fio);
   }
-  const tex = new THREE.CanvasTexture(cv);
-  tex.colorSpace = THREE.SRGBColorSpace;
-  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthTest: false, transparent: true }));
-  sp.renderOrder = 10;
-  return sp;
+  pai.add(anel);
+  return anel;
 }
 
-export interface MapaJapaoConstruido {
+export interface Diorama {
+  /** posição de cada cidade, para a camada de tinta projetar */
   posicoes: Record<string, THREE.Vector3>;
+  /** centroide de cada região, idem */
+  centroidesRegiao: Record<string, THREE.Vector3>;
   marcos: Record<string, THREE.Object3D>;
-  placas: Record<string, THREE.Sprite>;
-  /** anel de miniaturas por cidade (só as que têm mais de um mapa) */
   aneis: Record<string, THREE.Group>;
-  /** as placas das miniaturas, para a interface manter o tamanho na tela */
-  placasMini: THREE.Sprite[];
-  /** Fuji, mares, lago: entram no mesmo cálculo de sobreposição */
-  rotulosPaisagem: THREE.Sprite[];
-  rota: THREE.Object3D;
-  /** o tubo apagado, para achar em que trecho o dedo tocou */
-  tuboFundo: THREE.Mesh | null;
-  curva: THREE.CatmullRomCurve3 | null;
   trem: THREE.Group;
-  /** o tubo aceso: cortar o drawRange mostra só o trecho já percorrido */
-  tuboPercorrido: THREE.Mesh | null;
-  /** fração da curva (0–1) em cada ponto da rota */
+  curva: THREE.CatmullRomCurve3 | null;
+  /** fração de comprimento de arco de cada uma das 13 visitas */
   fracoes: number[];
+  tuboAceso: THREE.Mesh | null;
   segmentosTubo: number;
   radiaisTubo: number;
-  limites: { min: THREE.Vector3; max: THREE.Vector3 };
+  posicaoFuji: THREE.Vector3;
+  dispose: () => void;
 }
 
-/** Monta o mapa inteiro na cena e devolve o que a interface precisa. */
-export function construirMapaJapao(
-  scene: THREE.Scene,
-  rotaIds: string[],
-  leve: boolean,
-): MapaJapaoConstruido {
+/** Monta o diorama inteiro. `rotaIds` são as 13 visitas, na ordem da viagem. */
+export function construirDiorama(scene: THREE.Scene, rotaIds: string[], leve: boolean): Diorama {
   const raiz = new THREE.Group();
   scene.add(raiz);
 
@@ -546,110 +445,89 @@ export function construirMapaJapao(
   mar.rotation.x = -Math.PI / 2;
   mar.position.y = -0.4;
   mar.receiveShadow = true;
-  scene.add(mar);
+  raiz.add(mar);
 
-  const rotulosPaisagem: THREE.Sprite[] = [];
   ilhas(raiz);
   montanhas(raiz, leve);
-  paisagem(raiz, rotulosPaisagem);
+  paisagem(raiz);
 
   const posicoes: Record<string, THREE.Vector3> = {};
   const marcos: Record<string, THREE.Object3D> = {};
-  const placas: Record<string, THREE.Sprite> = {};
   const aneis: Record<string, THREE.Group> = {};
-  const placasMini: THREE.Sprite[] = [];
   for (const l of LUGARES) {
     const [x, z] = proj(l.lng, l.lat);
     posicoes[l.id] = new THREE.Vector3(x, ALTURA_TERRA, z);
     const g = marco(raiz, l.marco, l.escala ?? 1);
     g.position.set(x, ALTURA_TERRA, z);
-    g.userData.lugarId = l.id;
     marcos[l.id] = g;
-    const sp = placa(l.nome, l.jp);
-    // a altura de base e o desencontro ficam guardados: de perto o
-    // desencontro encolhe, senão a placa sobe para fora da tela
-    sp.userData.yBase = ALTURA_TERRA + ALTURA_MARCO[l.marco] * (l.escala ?? 1) + 11;
-    sp.userData.yOffset = l.placaOffset ?? 0;
-    sp.position.set(x, (sp.userData.yBase as number) + (sp.userData.yOffset as number), z);
-    sp.scale.set(44, 13.8, 1);
-    sp.userData.lugarId = l.id;
-    raiz.add(sp);
-    placas[l.id] = sp;
-    const anel = anelMiniaturas(raiz, l, x, z, l.escala ?? 1, placasMini);
-    if (anel) aneis[l.id] = anel;
+    const a = anelMiniaturas(raiz, l.id);
+    if (a) aneis[l.id] = a;
   }
 
-  // a linha da viagem: um traço apagado com o caminho inteiro e, por cima,
-  // o mesmo traço aceso, cortado no ponto em que a viagem está
-  // a sequência de pontos da curva: cidades e, entre elas, as passagens
+  const centroidesRegiao: Record<string, THREE.Vector3> = {};
+  for (const r of REGIOES) {
+    const ps = r.lugares.map((id) => posicoes[id]).filter(Boolean);
+    if (!ps.length) continue;
+    centroidesRegiao[r.id] = ps
+      .reduce((a, p) => a.add(p.clone()), new THREE.Vector3())
+      .divideScalar(ps.length);
+  }
+
+  // a linha da viagem: traço apagado inteiro, traço aceso cortado no presente
   const pontos: THREE.Vector3[] = [];
-  const indiceDaCidade: number[] = [];
+  const indiceDaVisita: number[] = [];
   for (let i = 0; i < rotaIds.length; i++) {
     const p = posicoes[rotaIds[i]];
     if (!p) continue;
-    indiceDaCidade.push(pontos.length);
-    pontos.push(p);
+    indiceDaVisita.push(pontos.length);
+    pontos.push(new THREE.Vector3(p.x, ALTURA_TERRA + 4, p.z));
     const prox = rotaIds[i + 1];
     if (!prox) continue;
     for (const [lng, lat] of passagensEntre(rotaIds[i], prox)) {
       const [vx, vz] = proj(lng, lat);
-      pontos.push(new THREE.Vector3(vx, ALTURA_TERRA, vz));
+      pontos.push(new THREE.Vector3(vx, ALTURA_TERRA + 4, vz));
     }
   }
-  const rota = new THREE.Group();
-  let tuboPercorrido: THREE.Mesh | null = null;
-  let tuboFundo: THREE.Mesh | null = null;
-  let curva: THREE.CatmullRomCurve3 | null = null;
-  const fracoes: number[] = [];
-  const SEG = leve ? 200 : 480;
-  const RAD = 6;
-  if (pontos.length > 1) {
-    const altos = pontos.map((p) => new THREE.Vector3(p.x, ALTURA_TERRA + 4, p.z));
-    curva = new THREE.CatmullRomCurve3(altos, false, 'catmullrom', 0.12);
-    const geo = new THREE.TubeGeometry(curva, SEG, 2.6, RAD, false);
-    tuboFundo = new THREE.Mesh(geo, MAT_ROTA_APAGADA);
-    rota.add(tuboFundo);
-    tuboPercorrido = new THREE.Mesh(geo.clone(), MAT_ROTA);
-    tuboPercorrido.renderOrder = 2;
-    rota.add(tuboPercorrido);
 
-    // Fração de COMPRIMENTO DE ARCO (u) de cada cidade sobre a curva. Tem de
-    // ser em arco, e não em corda, porque é assim que getPointAt caminha —
-    // senão o trem e o trecho tocado apontam para lugares diferentes.
+  const SEG = leve ? 220 : 520;
+  const RAD = 6;
+  let curva: THREE.CatmullRomCurve3 | null = null;
+  let tuboAceso: THREE.Mesh | null = null;
+  const fracoes: number[] = [];
+  if (pontos.length > 1) {
+    curva = new THREE.CatmullRomCurve3(pontos, false, 'catmullrom', 0.12);
+    const geo = new THREE.TubeGeometry(curva, SEG, 2.6, RAD, false);
+    raiz.add(new THREE.Mesh(geo, MAT_ROTA_APAGADA));
+    tuboAceso = new THREE.Mesh(geo.clone(), MAT_ROTA);
+    tuboAceso.renderOrder = 2;
+    raiz.add(tuboAceso);
+
+    // frações em comprimento de arco, que é como getPointAt caminha
     const N = 1000;
     const espacados = curva.getSpacedPoints(N);
-    for (const i of indiceDaCidade) {
-      const alvo = altos[i];
+    for (const i of indiceDaVisita) {
       let melhor = 0;
       let md = Infinity;
       for (let k = 0; k <= N; k++) {
-        const dd = espacados[k].distanceToSquared(alvo);
+        const dd = espacados[k].distanceToSquared(pontos[i]);
         if (dd < md) { md = dd; melhor = k; }
       }
       fracoes.push(melhor / N);
     }
-
-    for (const i of indiceDaCidade) {
-      const p = pontos[i];
+    for (const i of indiceDaVisita) {
       const d = new THREE.Mesh(new THREE.SphereGeometry(4.4, 14, 10), MAT_ROTA);
-      d.position.set(p.x, ALTURA_TERRA + 4, p.z);
+      d.position.copy(pontos[i]);
       d.renderOrder = 3;
-      rota.add(d);
+      raiz.add(d);
     }
   }
-  raiz.add(rota);
 
-  // O Shinkansen, que a interface leva pela linha. Na escala do país ele é
-  // um marcador antes de ser um trem: corpo branco chapado e faixa azul,
-  // sem as janelas escuras do modelo original, que viravam uma mancha.
+  // o trem: sujeito da câmera, nunca alvo
   const trem = new THREE.Group();
   const corpo = new THREE.Group();
   train(corpo, { cars: 3, color: 0xffffff });
   corpo.scale.setScalar(0.36);
-  corpo.traverse((o) => {
-    const m = o as THREE.Mesh;
-    if (m.isMesh) m.material = MAT_TREM;
-  });
+  corpo.traverse((o) => { const m = o as THREE.Mesh; if (m.isMesh) m.material = MAT_TREM; });
   trem.add(corpo);
   const nariz = new THREE.Mesh(new THREE.ConeGeometry(0.62, 3.2, 12), MAT_TREM);
   nariz.rotation.x = -Math.PI / 2;
@@ -658,38 +536,35 @@ export function construirMapaJapao(
   const faixa = new THREE.Mesh(new THREE.BoxGeometry(1.34, 0.34, 20.5), MAT_FAIXA);
   faixa.position.set(0, 1.15, 0);
   trem.add(faixa);
-  // saia escura embaixo: é ela que separa o trem do verde do mapa
   const saia = new THREE.Mesh(new THREE.BoxGeometry(1.45, 0.42, 21.5), MAT_SAIA);
   saia.position.set(0, 0.16, 0);
   trem.add(saia);
-  trem.traverse((o) => {
-    const m = o as THREE.Mesh;
-    if (!m.isMesh) return;
-    m.castShadow = false;
-    m.renderOrder = 8;
-  });
-  trem.visible = false;
+  trem.traverse((o) => { const m = o as THREE.Mesh; if (m.isMesh) { m.castShadow = false; m.renderOrder = 8; } });
   raiz.add(trem);
 
-  const caixa = new THREE.Box3().setFromObject(raiz);
+  const [fx, fz] = proj(FUJI.lng, FUJI.lat);
+
+  // NADA nesta cena recebe toque. É o invariante da tela.
+  raiz.traverse((o) => { o.raycast = () => {}; });
+
   return {
     posicoes,
+    centroidesRegiao,
     marcos,
-    placas,
     aneis,
-    placasMini,
-    rotulosPaisagem,
-    rota,
-    tuboFundo,
-    curva,
     trem,
-    tuboPercorrido,
+    curva,
     fracoes,
+    tuboAceso,
     segmentosTubo: SEG,
     radiaisTubo: RAD,
-    limites: { min: caixa.min, max: caixa.max },
+    posicaoFuji: new THREE.Vector3(fx, ALTURA_TERRA + 20, fz),
+    dispose: () => {
+      raiz.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (m.geometry) m.geometry.dispose();
+      });
+      scene.remove(raiz);
+    },
   };
 }
-
-export { LUGARES };
-export type { LugarMapa };

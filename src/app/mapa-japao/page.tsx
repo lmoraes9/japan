@@ -1,18 +1,11 @@
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import { MapaJapao } from '@/components/MapaJapao';
+import { MapaJapao } from '@/components/mapa-japao/MapaJapao';
 
 export const metadata = { title: 'A viagem inteira · mapa do Japão' };
 
 export default function MapaJapaoPage() {
+  // sangria total: a tela é o mapa, sem margem nem cabeçalho do app
   return (
-    <div className="min-h-dvh bg-[#dfe6ea] px-4 pt-3">
-      <Link
-        href="/mais/mapas"
-        className="absolute bottom-3 left-3 z-20 inline-flex items-center gap-1 rounded-full bg-black/40 px-3 py-1.5 text-[13px] font-medium text-white backdrop-blur"
-      >
-        <ArrowLeft size={15} /> Mapas
-      </Link>
+    <div className="fixed inset-0 overflow-hidden">
       <MapaJapao />
     </div>
   );
