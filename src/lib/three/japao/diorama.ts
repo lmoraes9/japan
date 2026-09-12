@@ -1,10 +1,9 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { ILHAS } from './costa';
-import { LUGARES, FUJI, BIWA, passagensEntre, type Marco } from './lugares';
-import { REGIOES } from '@/lib/mapa-japao/regioes';
+import { FUJI, BIWA } from './lugares';
 import { MAT, add, box, cyl, toriiGeometry } from '../parts';
-import { group, castle, pagoda, buddha, domeRuin, kura, tower, bigTorii, hall, deerGeometry, gate2, stage, bridge, train } from '../buildings';
+import { group, castle, pagoda, buddha, domeRuin, kura, tower, bigTorii, hall, deerGeometry, gate2, stage, bridge } from '../buildings';
 
 /**
  * O diorama do Japão. É só figura: nenhum objeto desta cena responde a toque.
@@ -18,9 +17,6 @@ const K = 55;
 const LAT0 = 37.5;
 const LNG0 = 137.5;
 const COS0 = Math.cos((LAT0 * Math.PI) / 180);
-/** quilômetros por unidade, para as legendas falarem em distância real */
-export const KM_POR_UNIDADE = 111.32 / K;
-
 /** longitude/latitude → x/z da cena (equirretangular, boa nesta escala) */
 export function proj(lng: number, lat: number): [number, number] {
   return [(lng - LNG0) * COS0 * K, -(lat - LAT0) * K];
@@ -31,19 +27,22 @@ export const ALTURA_TERRA = ESPESSURA;
 
 const MAT_TERRA = new THREE.MeshStandardMaterial({ color: 0x7d8a63, roughness: 0.95 });
 const MAT_BORDA = new THREE.MeshStandardMaterial({ color: 0xcbb992, roughness: 1 });
-const MAT_MAR = new THREE.MeshStandardMaterial({ color: 0x3a5f80, roughness: 0.3, metalness: 0.25 });
+const MAT_MAR = new THREE.MeshStandardMaterial({ color: 0x5e87a6, roughness: 0.35, metalness: 0.18 });
 const MAT_MONTE = new THREE.MeshStandardMaterial({ color: 0x6b7856, roughness: 1 });
 const MAT_NEVE = new THREE.MeshStandardMaterial({ color: 0xf2f4f7, roughness: 0.8 });
 const MAT_TELHADO = new THREE.MeshStandardMaterial({ color: 0x8f97a3, roughness: 0.75, side: THREE.DoubleSide });
 const MAT_BAMBU = new THREE.MeshStandardMaterial({ color: 0x7fa35a, roughness: 0.8 });
-const MAT_FIO = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.45 });
-const MAT_TREM = new THREE.MeshStandardMaterial({ color: 0xfbfcfd, roughness: 0.35, metalness: 0.1, depthTest: false });
-const MAT_FAIXA = new THREE.MeshBasicMaterial({ color: 0x1450a8, depthTest: false });
-const MAT_SAIA = new THREE.MeshStandardMaterial({ color: 0x25303d, roughness: 0.7, depthTest: false });
-const MAT_ROTA = new THREE.MeshBasicMaterial({ color: 0xc2402a });
-const MAT_ROTA_APAGADA = new THREE.MeshBasicMaterial({ color: 0xc2402a, transparent: true, opacity: 0.22 });
-const ALTURA_MINIATURA = 13;
-const RAIO_ANEL = 42;
+/** o branco do avião, o mesmo branco do trem-bala */
+const MAT_AVIAO = new THREE.MeshStandardMaterial({ color: 0xf4f6f8, roughness: 0.4, metalness: 0.1 });
+const MAT_SOMBRA = new THREE.MeshBasicMaterial({ color: 0x2a3326, transparent: true, opacity: 0.17, depthWrite: false });
+/**
+ * Tamanho de referência dos ícones. A cena guarda todos com esta altura e a
+ * tela depois os reescala conforme a distância da câmera, para que um ícone
+ * ocupe sempre os mesmos pixels: de longe eles não viram alfinetes, de perto
+ * não viram torres. Sem isso, aproximar em Kyoto encheria a tela de um
+ * torii de oito quilômetros de altura.
+ */
+export const ALTURA_ICONE = 26;
 
 function pontoDentro(anel: [number, number][], x: number, y: number) {
   let dentro = false;
@@ -92,7 +91,7 @@ function ilhas(pai: THREE.Object3D) {
 }
 
 /** A espinha de montanhas, semeada só onde há terra e longe dos marcos. */
-function montanhas(pai: THREE.Object3D, leve: boolean) {
+function montanhas(pai: THREE.Object3D, leve: boolean, evitar: { lat: number; lng: number }[] = []) {
   const honshu = ILHAS.find((i) => i.id === 'honshu')!;
   const outras = ILHAS.filter((i) => ['hokkaido', 'kyushu', 'shikoku'].includes(i.id));
   const rng = mulberry32(20261118);
@@ -107,8 +106,8 @@ function montanhas(pai: THREE.Object3D, leve: boolean) {
     const emOutra = !emHonshu && outras.some((i) => pontoDentro(i.anel, lng, lat));
     if (!emHonshu && !emOutra) continue;
     if (Math.hypot(lng - FUJI.lng, lat - FUJI.lat) < 0.8) continue;
-    // não encostar nas cidades: o marco é que tem de ser visto
-    if (LUGARES.some((l) => Math.hypot((lng - l.lng) * COS0, lat - l.lat) < 0.42)) continue;
+    // não encostar nos lugares da viagem: o ícone é que tem de ser visto
+    if (evitar.some((l) => Math.hypot((lng - l.lng) * COS0, lat - l.lat) < 0.42)) continue;
     const [x, z] = proj(lng, lat);
     const alta = emHonshu && lat > 34.9 && lat < 38.6 && lng > 136.2 && lng < 140.4; // Alpes
     const h = (alta ? 6 : 2.6) + rng() * (alta ? 6 : 3);
@@ -185,9 +184,17 @@ function miniatura(pai: THREE.Object3D, mapaId: string): THREE.Object3D {
       bridge(g, new THREE.Vector3(-7, 0, 0), new THREE.Vector3(7, 0, 0), { kind: 'arch', width: 3.5 });
       break;
     }
-    case 'kinkakuji':
-      hall(group(g, 0, 0, 0, 0), { bays: 3, depthBays: 2, bay: 3, two: true, gold: true });
+    case 'kinkakuji': {
+      const pavilhao = group(g, 0, 0, 0, 0);
+      hall(pavilhao, { bays: 3, depthBays: 2, bay: 3, two: true, gold: true });
+      // no mapa o pavilhão é visto de cima, e de cima só se vê telhado: sem
+      // dourá-lo também, o Pavilhão Dourado chega cinza
+      pavilhao.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (m.isMesh && m.material !== MAT.stone) m.material = MAT.gold;
+      });
       break;
+    }
     case 'arashiyama': {
       for (let i = 0; i < 14; i++) {
         const a = (i / 14) * Math.PI * 2;
@@ -224,6 +231,44 @@ function miniatura(pai: THREE.Object3D, mapaId: string): THREE.Object3D {
       hall(group(g, 0, 0, -6, 0), { bays: 3, depthBays: 2, bay: 2.6 });
       break;
     }
+    case 'aviao': {
+      // o avião da chegada e o da volta
+      const fus = new THREE.Mesh(new THREE.CapsuleGeometry(1.5, 11, 6, 12), MAT_AVIAO);
+      fus.rotation.z = Math.PI / 2;
+      fus.position.y = 3;
+      g.add(fus);
+      const asa = new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.5, 15), MAT_AVIAO);
+      asa.position.set(0, 3, 0);
+      g.add(asa);
+      const cauda = new THREE.Mesh(new THREE.BoxGeometry(2.4, 4, 0.5), MAT.vermilion);
+      cauda.position.set(-6, 5, 0);
+      g.add(cauda);
+      const estab = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 6), MAT_AVIAO);
+      estab.position.set(-6, 3.2, 0);
+      g.add(estab);
+      break;
+    }
+    case 'mercado': {
+      // as barracas de Tsukiji e as vitrines da Ginza
+      for (let i = 0; i < 3; i++) {
+        const x = (i - 1) * 6;
+        add(g, box(5, 3.4, 5), MAT.plaster, x, 1.7, 0);
+        const toldo = new THREE.Mesh(new THREE.BoxGeometry(6, 0.4, 6), i % 2 ? MAT.awning : MAT.awning2);
+        toldo.position.set(x, 3.8, 0);
+        toldo.rotation.x = 0.12;
+        g.add(toldo);
+        add(g, box(0.3, 4, 0.3), MAT.wood, x - 2.6, 2, 2.6, false);
+        add(g, box(0.3, 4, 0.3), MAT.wood, x + 2.6, 2, 2.6, false);
+      }
+      break;
+    }
+    case 'cidade': {
+      // o último dia: prédios de Akihabara e Nihonbashi
+      tower(group(g, -5, 0, 0, 0.2), 4.5, 4.5, 14, { color: 0x7e8691, screen: true });
+      tower(group(g, 1, 0, 3, -0.3), 4, 4, 10, { color: 0x8e959f });
+      tower(group(g, 5.5, 0, -2, 0.1), 3.6, 3.6, 17, { color: 0x6f7784 });
+      break;
+    }
     default:
       add(g, box(4, 6, 4), MAT.stone, 0, 3, 0);
   }
@@ -234,9 +279,6 @@ function miniatura(pai: THREE.Object3D, mapaId: string): THREE.Object3D {
     m.material = Array.isArray(m.material) ? m.material.map(troca) : troca(m.material as THREE.Material);
   });
   compactar(g);
-  const caixa = new THREE.Box3().setFromObject(g);
-  const alto = Math.max(0.001, caixa.max.y - Math.min(0, caixa.min.y));
-  g.scale.setScalar(ALTURA_MINIATURA / alto);
   return g;
 }
 
@@ -255,92 +297,6 @@ function mergeSimples(geos: THREE.BufferGeometry[]): THREE.BufferGeometry | null
   out.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
   out.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
   return out;
-}
-
-/** altura desejada de cada marco, para todos lerem juntos no zoom do país */
-const ALTURA_MARCO: Record<Marco, number> = {
-  torre: 26,
-  buda: 20,
-  domo: 20,
-  torii: 22,
-  kura: 18,
-  castelo: 24,
-  'castelo-osaka': 24,
-  pagode: 26,
-  veado: 19,
-};
-
-/** O marco 3D de cada cidade, montado com as mesmas peças dos outros mapas. */
-function marco(pai: THREE.Object3D, tipo: Marco, escalaExtra: number) {
-  const g = new THREE.Group();
-  pai.add(g);
-  switch (tipo) {
-    case 'torre': {
-      tower(group(g, -8, 0, 5, 0.4), 5, 5, 13, { color: 0x8e9199 });
-      tower(group(g, 8, 0, 7, -0.3), 4.5, 4.5, 9, { color: 0x9aa0a8 });
-      const t = group(g, 0, 0, -3, 0);
-      add(t, cyl(0.7, 3.4, 20, 8), MAT.vermilion, 0, 10, 0);
-      add(t, cyl(0.35, 0.7, 7, 6), MAT.vermilion, 0, 23, 0);
-      add(t, box(6.5, 1.4, 6.5), MAT.white, 0, 14.5, 0);
-      add(t, box(4.6, 1.1, 4.6), MAT.white, 0, 19, 0);
-      break;
-    }
-    case 'buda':
-      buddha(group(g, 0, 0, 0, 0), 1);
-      break;
-    case 'domo':
-      domeRuin(group(g, 0, 0, 0, 0.3));
-      break;
-    case 'torii': {
-      const agua = new THREE.Mesh(new THREE.CylinderGeometry(16, 16, 0.6, 28), MAT_MAR);
-      agua.position.set(0, 0.1, 0);
-      g.add(agua);
-      bigTorii(g, 0, 0.4, 0, 0.5, 13, 16);
-      break;
-    }
-    case 'kura':
-      kura(group(g, -5, 0, 0, 0.2), { w: 7, d: 6, h: 7 });
-      kura(group(g, 4, 0, 3, -0.15), { w: 6, d: 5, h: 6 });
-      break;
-    case 'castelo':
-      castle(group(g, 0, 0, 0, 0.3), { tiers: 5, size: 11, base: 5, turrets: true });
-      break;
-    case 'castelo-osaka':
-      castle(group(g, 0, 0, 0, -0.2), { tiers: 5, size: 10, base: 6, turrets: false });
-      break;
-    case 'pagode':
-      pagoda(group(g, 0, 0, 0, 0.25), 5, 8);
-      break;
-    case 'veado': {
-      hall(group(g, 0, 0, -2, 0.2), { bays: 4, depthBays: 3, bay: 3.4, two: true });
-      const veado = new THREE.Mesh(deerGeometry(), MAT.woodLight);
-      veado.scale.setScalar(2.4);
-      veado.position.set(10, 0, 7);
-      veado.rotation.y = -0.6;
-      veado.castShadow = true;
-      g.add(veado);
-      break;
-    }
-  }
-  // nesta escala a textura de telha vira uma mancha escura: troca por
-  // um cinza chapado, que também economiza chamadas de desenho
-  g.traverse((o) => {
-    const m = o as THREE.Mesh;
-    if (!m.isMesh) return;
-    const mats = Array.isArray(m.material) ? m.material : [m.material];
-    m.material = (Array.isArray(m.material) ? mats : mats[0]) as THREE.Material;
-    const troca = (mat: THREE.Material) =>
-      (mat as THREE.MeshStandardMaterial).map ? MAT_TELHADO : mat;
-    m.material = Array.isArray(m.material) ? m.material.map(troca) : troca(m.material);
-  });
-
-  compactar(g);
-
-  // normaliza a altura para todos os marcos lerem no mesmo zoom
-  const caixa = new THREE.Box3().setFromObject(g);
-  const alto = Math.max(0.001, caixa.max.y - Math.min(0, caixa.min.y));
-  g.scale.setScalar((ALTURA_MARCO[tipo] / alto) * escalaExtra);
-  return g;
 }
 
 /**
@@ -387,57 +343,32 @@ function compactar(g: THREE.Object3D) {
   }
 }
 
-/**
- * As miniaturas dos mapas ilustrados de uma cidade, em volta dela, no rumo
- * real de cada um. Aparecem só para a cidade selecionada, e são cenário: o
- * caminho até um mapa ilustrado é o chip da ficha, não este modelo.
- */
-function anelMiniaturas(pai: THREE.Object3D, lugarId: string): THREE.Group | null {
-  const l = LUGARES.find((x) => x.id === lugarId);
-  if (!l?.mapas?.length) return null;
-  const [cx, cz] = proj(l.lng, l.lat);
-  const anel = new THREE.Group();
-  anel.position.set(cx, ALTURA_TERRA, cz);
-  anel.visible = false;
-  const raio = RAIO_ANEL * (l.escala ?? 1);
-  for (const m of l.mapas) {
-    const a = ((90 - m.rumo) * Math.PI) / 180;
-    const x = Math.cos(a) * raio;
-    const z = -Math.sin(a) * raio;
-    const mini = miniatura(anel, m.id);
-    mini.position.set(x, 0, z);
-    mini.rotation.y = -a + Math.PI / 2;
-    mini.userData.mapaId = m.id;
-    const fio = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, raio, 5), MAT_FIO);
-    fio.position.set(x / 2, 0.6, z / 2);
-    fio.rotation.z = Math.PI / 2;
-    fio.rotation.y = -Math.atan2(z, x);
-    anel.add(fio);
-  }
-  pai.add(anel);
-  return anel;
-}
-
 export interface Diorama {
-  /** posição de cada cidade, para a camada de tinta projetar */
+  /**
+   * Os ícones vivem fora da cena do país, numa camada própria que a tela
+   * desenha depois, com a profundidade zerada. É o que faz um marcador se
+   * comportar como marcador: de perto, onde o ícone fica menor que as
+   * montanhas, ele continua por cima delas em vez de sumir dentro do relevo.
+   */
+  camada: THREE.Group;
+  /** posição no mundo de cada dia, para a camada de etiquetas projetar */
   posicoes: Record<string, THREE.Vector3>;
-  /** centroide de cada região, idem */
-  centroidesRegiao: Record<string, THREE.Vector3>;
-  marcos: Record<string, THREE.Object3D>;
-  aneis: Record<string, THREE.Group>;
-  trem: THREE.Group;
-  curva: THREE.CatmullRomCurve3 | null;
-  /** fração de comprimento de arco de cada uma das 13 visitas */
-  fracoes: number[];
-  tuboAceso: THREE.Mesh | null;
-  segmentosTubo: number;
-  radiaisTubo: number;
-  posicaoFuji: THREE.Vector3;
+  /** o grupo do ícone de cada dia, para acender e apagar */
+  icones: Record<string, THREE.Object3D>;
+  /** escala com que o ícone nasceu, para a tela multiplicar pela distância */
+  escalas: Record<string, number>;
   dispose: () => void;
 }
 
-/** Monta o diorama inteiro. `rotaIds` são as 13 visitas, na ordem da viagem. */
-export function construirDiorama(scene: THREE.Scene, rotaIds: string[], leve: boolean): Diorama {
+/**
+ * Monta o mapa: as ilhas, as montanhas, e um ícone por dia no lugar certo.
+ * Nada aqui responde a toque — a árvore inteira recebe `raycast` vazio.
+ */
+export function construirDiorama(
+  scene: THREE.Scene,
+  dias: { dayId: string; icone: string; lat: number; lng: number }[],
+  leve: boolean,
+): Diorama {
   const raiz = new THREE.Group();
   scene.add(raiz);
 
@@ -448,123 +379,58 @@ export function construirDiorama(scene: THREE.Scene, rotaIds: string[], leve: bo
   raiz.add(mar);
 
   ilhas(raiz);
-  montanhas(raiz, leve);
+  montanhas(raiz, leve, dias);
   paisagem(raiz);
 
   const posicoes: Record<string, THREE.Vector3> = {};
-  const marcos: Record<string, THREE.Object3D> = {};
-  const aneis: Record<string, THREE.Group> = {};
-  for (const l of LUGARES) {
-    const [x, z] = proj(l.lng, l.lat);
-    posicoes[l.id] = new THREE.Vector3(x, ALTURA_TERRA, z);
-    const g = marco(raiz, l.marco, l.escala ?? 1);
+  const icones: Record<string, THREE.Object3D> = {};
+  const escalas: Record<string, number> = {};
+
+  const camada = new THREE.Group();
+
+  for (const d of dias) {
+    const [x, z] = proj(d.lng, d.lat);
+    posicoes[d.dayId] = new THREE.Vector3(x, ALTURA_TERRA, z);
+    const g = miniatura(camada, d.icone);
+    // todos os ícones com a mesma altura: no mapa eles são símbolos, e um
+    // símbolo maior que o outro mentiria sobre a importância do dia
+    const caixa = new THREE.Box3().setFromObject(g);
+    // a medida é a maior das três dimensões, não a altura: senão um torii
+    // alto e fino sairia pequeno e um salão largo e baixo sairia gigante
+    const tam = caixa.getSize(new THREE.Vector3());
+    const medida = Math.max(0.001, tam.x, tam.z, caixa.max.y - Math.min(0, caixa.min.y));
+    // uma sombra de contato: sem ela o ícone, desenhado por cima de tudo,
+    // parece recortado e colado sobre o mapa
+    const largo = Math.max(tam.x, tam.z);
+    const disco = new THREE.Mesh(new THREE.CircleGeometry((largo * 0.46) / (g.scale.x || 1), 24), MAT_SOMBRA);
+    disco.rotation.x = -Math.PI / 2;
+    disco.position.y = 0.02;
+    disco.renderOrder = -1;
+    g.add(disco);
+
+    const base = (ALTURA_ICONE / medida) * g.scale.x;
+    g.scale.setScalar(base);
     g.position.set(x, ALTURA_TERRA, z);
-    marcos[l.id] = g;
-    const a = anelMiniaturas(raiz, l.id);
-    if (a) aneis[l.id] = a;
+    icones[d.dayId] = g;
+    escalas[d.dayId] = base;
   }
 
-  const centroidesRegiao: Record<string, THREE.Vector3> = {};
-  for (const r of REGIOES) {
-    const ps = r.lugares.map((id) => posicoes[id]).filter(Boolean);
-    if (!ps.length) continue;
-    centroidesRegiao[r.id] = ps
-      .reduce((a, p) => a.add(p.clone()), new THREE.Vector3())
-      .divideScalar(ps.length);
-  }
-
-  // a linha da viagem: traço apagado inteiro, traço aceso cortado no presente
-  const pontos: THREE.Vector3[] = [];
-  const indiceDaVisita: number[] = [];
-  for (let i = 0; i < rotaIds.length; i++) {
-    const p = posicoes[rotaIds[i]];
-    if (!p) continue;
-    indiceDaVisita.push(pontos.length);
-    pontos.push(new THREE.Vector3(p.x, ALTURA_TERRA + 4, p.z));
-    const prox = rotaIds[i + 1];
-    if (!prox) continue;
-    for (const [lng, lat] of passagensEntre(rotaIds[i], prox)) {
-      const [vx, vz] = proj(lng, lat);
-      pontos.push(new THREE.Vector3(vx, ALTURA_TERRA + 4, vz));
-    }
-  }
-
-  const SEG = leve ? 220 : 520;
-  const RAD = 6;
-  let curva: THREE.CatmullRomCurve3 | null = null;
-  let tuboAceso: THREE.Mesh | null = null;
-  const fracoes: number[] = [];
-  if (pontos.length > 1) {
-    curva = new THREE.CatmullRomCurve3(pontos, false, 'catmullrom', 0.12);
-    const geo = new THREE.TubeGeometry(curva, SEG, 2.6, RAD, false);
-    raiz.add(new THREE.Mesh(geo, MAT_ROTA_APAGADA));
-    tuboAceso = new THREE.Mesh(geo.clone(), MAT_ROTA);
-    tuboAceso.renderOrder = 2;
-    raiz.add(tuboAceso);
-
-    // frações em comprimento de arco, que é como getPointAt caminha
-    const N = 1000;
-    const espacados = curva.getSpacedPoints(N);
-    for (const i of indiceDaVisita) {
-      let melhor = 0;
-      let md = Infinity;
-      for (let k = 0; k <= N; k++) {
-        const dd = espacados[k].distanceToSquared(pontos[i]);
-        if (dd < md) { md = dd; melhor = k; }
-      }
-      fracoes.push(melhor / N);
-    }
-    for (const i of indiceDaVisita) {
-      const d = new THREE.Mesh(new THREE.SphereGeometry(4.4, 14, 10), MAT_ROTA);
-      d.position.copy(pontos[i]);
-      d.renderOrder = 3;
-      raiz.add(d);
-    }
-  }
-
-  // o trem: sujeito da câmera, nunca alvo
-  const trem = new THREE.Group();
-  const corpo = new THREE.Group();
-  train(corpo, { cars: 3, color: 0xffffff });
-  corpo.scale.setScalar(0.36);
-  corpo.traverse((o) => { const m = o as THREE.Mesh; if (m.isMesh) m.material = MAT_TREM; });
-  trem.add(corpo);
-  const nariz = new THREE.Mesh(new THREE.ConeGeometry(0.62, 3.2, 12), MAT_TREM);
-  nariz.rotation.x = -Math.PI / 2;
-  nariz.position.set(0, 0.95, -11.8);
-  trem.add(nariz);
-  const faixa = new THREE.Mesh(new THREE.BoxGeometry(1.34, 0.34, 20.5), MAT_FAIXA);
-  faixa.position.set(0, 1.15, 0);
-  trem.add(faixa);
-  const saia = new THREE.Mesh(new THREE.BoxGeometry(1.45, 0.42, 21.5), MAT_SAIA);
-  saia.position.set(0, 0.16, 0);
-  trem.add(saia);
-  trem.traverse((o) => { const m = o as THREE.Mesh; if (m.isMesh) { m.castShadow = false; m.renderOrder = 8; } });
-  raiz.add(trem);
-
-  const [fx, fz] = proj(FUJI.lng, FUJI.lat);
-
-  // NADA nesta cena recebe toque. É o invariante da tela.
   raiz.traverse((o) => { o.raycast = () => {}; });
+  camada.traverse((o) => { o.raycast = () => {}; });
 
   return {
+    camada,
     posicoes,
-    centroidesRegiao,
-    marcos,
-    aneis,
-    trem,
-    curva,
-    fracoes,
-    tuboAceso,
-    segmentosTubo: SEG,
-    radiaisTubo: RAD,
-    posicaoFuji: new THREE.Vector3(fx, ALTURA_TERRA + 20, fz),
+    icones,
+    escalas,
     dispose: () => {
-      raiz.traverse((o) => {
-        const m = o as THREE.Mesh;
-        if (m.geometry) m.geometry.dispose();
-      });
+      for (const no of [raiz, camada])
+        no.traverse((o) => {
+          const m = o as THREE.Mesh;
+          if (m.geometry) m.geometry.dispose();
+        });
       scene.remove(raiz);
+      camada.removeFromParent();
     },
   };
 }
