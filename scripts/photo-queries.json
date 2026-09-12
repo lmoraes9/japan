@@ -937,5 +937,53 @@
     "MIYASHITA PARK 屋上",
     "Miyashita Park rooftop Shibuya",
     "Rayard Miyashita Park"
+  ],
+  "stops/d26-nankai": [
+    "南海高野線 特急こうや",
+    "Nankai Koya Line limited express"
+  ],
+  "stops/d26-checkin-shukubo": [
+    "高野山 宿坊 熊谷寺",
+    "Koyasan shukubo temple lodging tatami"
+  ],
+  "stops/d26-okunoin": [
+    "高野山 奥之院 参道 杉",
+    "Koyasan Okunoin cemetery cedar path"
+  ],
+  "stops/d26-jantar-shojin": [
+    "高野山 精進料理 胡麻豆腐",
+    "Koyasan shojin ryori temple cuisine"
+  ],
+  "stops/d26-okunoin-noite": [
+    "高野山 奥之院 燈籠堂",
+    "Koyasan Okunoin Torodo lanterns"
+  ],
+  "stops/d27-gongyo": [
+    "高野山 朝勤行 本堂",
+    "Koyasan morning prayer hall goma"
+  ],
+  "stops/d27-garan": [
+    "高野山 壇上伽藍 根本大塔",
+    "Koyasan Konpon Daito great pagoda"
+  ],
+  "stops/d27-kongobuji": [
+    "高野山 金剛峯寺 蟠龍庭",
+    "Kongobuji Banryutei rock garden Koyasan"
+  ],
+  "stops/d27-descida": [
+    "高野山ケーブル 極楽橋",
+    "Koyasan cable car Gokurakubashi"
+  ],
+  "stops/d27-nishiki-rapido": [
+    "錦市場 京都",
+    "Nishiki Market Kyoto arcade"
+  ],
+  "stops/d27-almoco": [
+    "551蓬莱 豚まん",
+    "551 Horai butaman Osaka"
+  ],
+  "stops/d02-ultima-vista": [
+    "東京 夜景 展望",
+    "Tokyo skyline at night from observation deck"
   ]
 }

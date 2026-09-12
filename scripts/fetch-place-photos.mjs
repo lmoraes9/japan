@@ -51,6 +51,15 @@ async function buscar(url, tentativa = 0) {
 /** largura do thumb: os mapas ganham foto maior; as paradas do roteiro, menor */
 const WIDTH_MAPA = 1200;
 const WIDTH_PARADA = 800;
+/**
+ * Quantas fotos EXTRAS cada parada do roteiro ganha, além da principal.
+ *
+ * Uma foto só não dá noção de um lugar. Os pontos dos mapas ilustrados já
+ * resolviam isso para as paradas que têm mapa; as outras ficavam com uma
+ * imagem e ponto. As extras são salvas como `<parada>-2.jpg`, `-3.jpg`… e o
+ * app as mostra no mesmo carrossel.
+ */
+const EXTRAS_POR_PARADA = 3;
 
 const args = process.argv.slice(2);
 const force = args.includes('--force');
@@ -176,6 +185,32 @@ async function search(query, width, termos, cidades) {
   return bom.length ? bom : aceitavel;
 }
 
+/**
+ * Junta candidatos de todas as frases de busca até ter `quantas` fotos
+ * diferentes — é o que permite uma parada ter carrossel em vez de foto única.
+ */
+async function searchVarias(queries, usados, width, cidades, quantas) {
+  const termos = termosDe(queries);
+  const achados = [];
+  const titulos = new Set();
+  for (const q of queries) {
+    if (achados.length >= quantas) break;
+    let hits = [];
+    try {
+      hits = await search(q, width, termos, cidades);
+    } catch (err) {
+      console.warn(`  (busca "${q}" falhou: ${err.message})`);
+    }
+    for (const h of hits) {
+      if (achados.length >= quantas) break;
+      if (usados.has(h.title) || titulos.has(h.title)) continue;
+      titulos.add(h.title);
+      achados.push(h);
+    }
+  }
+  return achados;
+}
+
 /** tenta cada frase de busca até uma trazer resultado ainda não usado */
 async function searchAny(queries, usados, width, cidades) {
   const termos = termosDe(queries);
@@ -194,6 +229,19 @@ async function searchAny(queries, usados, width, cidades) {
   // se todas as buscas só trouxeram fotos já usadas, é melhor ponto sem foto
   // do que a mesma imagem aparecendo duas vezes no mesmo mapa
   return repetido ? { ...repetido, duplicada: true } : null;
+}
+
+/** baixa uma foto e registra o crédito dela no arquivo gerado */
+async function guardar(key, rel, dest, hit) {
+  const meta = hit.info.extmetadata ?? {};
+  await download(hit.info.thumburl, dest);
+  current[key] = {
+    src: `/${rel}`,
+    credit: stripTags(meta.Artist?.value) || 'autor não identificado',
+    license: stripTags(meta.LicenseShortName?.value) || 'ver página no Commons',
+    source: hit.info.descriptionurl,
+    title: hit.title.replace(/^File:/, ''),
+  };
 }
 
 async function download(url, dest) {
@@ -269,8 +317,19 @@ for (const [key, query] of entries) {
   const dest = join(ROOT, 'public', rel);
   if (!force && current[key] && (await exists(dest))) {
     usados.add(current[key].title);
-    console.log(`· ${key} — já tem, pulando`);
-    continue;
+    // uma parada só está pronta quando as extras também estão: sem isso, quem
+    // já tinha a foto principal nunca ganharia carrossel
+    const faltamExtras =
+      grupo === 'stops' && EXTRAS_POR_PARADA > 0 && !current[`${key}-2`];
+    if (!faltamExtras) {
+      for (let n = 2; n <= EXTRAS_POR_PARADA + 1; n += 1) {
+        const e = current[`${key}-${n}`];
+        if (e) usados.add(e.title);
+      }
+      console.log(`· ${key} — já tem, pulando`);
+      continue;
+    }
+    console.log(`· ${key} — tem a principal, buscando as extras`);
   }
 
   const tentativas = Array.isArray(query) ? query : [query];
@@ -285,17 +344,27 @@ for (const [key, query] of entries) {
       continue;
     }
     const best = found.hit;
-    const meta = best.info.extmetadata ?? {};
-    await download(best.info.thumburl, dest);
-    current[key] = {
-      src: `/${rel}`,
-      credit: stripTags(meta.Artist?.value) || 'autor não identificado',
-      license: stripTags(meta.LicenseShortName?.value) || 'ver página no Commons',
-      source: best.info.descriptionurl,
-      title: best.title.replace(/^File:/, ''),
-    };
+    await guardar(key, rel, dest, best);
     usados.add(current[key].title);
     console.log(`✓ ${key} — ${current[key].title}`);
+
+    // as paradas do roteiro ganham fotos extras, para virar carrossel
+    if (grupo === 'stops' && EXTRAS_POR_PARADA > 0) {
+      const extras = await searchVarias(tentativas, usados, width, cidadesDe(key), EXTRAS_POR_PARADA);
+      let n = 1;
+      for (const extra of extras) {
+        n += 1;
+        const chaveExtra = `${key}-${n}`;
+        const relExtra = `lugares/${grupo}/${itemId}-${n}.jpg`;
+        try {
+          await guardar(chaveExtra, relExtra, join(ROOT, 'public', relExtra), extra);
+          usados.add(current[chaveExtra].title);
+          console.log(`  + ${chaveExtra} — ${current[chaveExtra].title}`);
+        } catch (err) {
+          console.warn(`  ! ${chaveExtra} — ${err.message}`);
+        }
+      }
+    }
   } catch (err) {
     console.warn(`! ${key} — ${err.message}`);
   }

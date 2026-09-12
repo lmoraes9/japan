@@ -64,7 +64,7 @@ export function StopCard({
   // parada que é só escolha de refeição não tem "fotos do lugar" — cada item tem as suas
   const isPlace = stop.kind !== 'food' || !!stop.jp;
   // fotos locais do lugar; havendo alguma, elas substituem o botão do Google Fotos
-  const fotos = fotosDaParada(stop);
+  const fotos = fotosDaParada(stop, dayId);
   const photos = isPlace && !fotos.length ? photosUrl(stop) : undefined;
   const extraLinks = stop.links?.filter((l) => l.label !== 'fotos');
   const Icon = KIND_ICON[stop.kind] ?? Landmark;
