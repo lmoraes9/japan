@@ -20,3 +20,24 @@ export function photosUrl(stop: Stop): string | undefined {
   if (!stop.mapQuery) return undefined;
   return `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(stop.mapQuery)}`;
 }
+
+export type ModoRota = 'transit' | 'walking' | 'driving';
+
+/**
+ * Rota de A até B no Google Maps. É o que o modo rua usa em cada trecho:
+ * do hotel até a estação, da estação até o templo, do templo até o café.
+ */
+export function directionsUrl(origem: string | undefined, destino: string, modo: ModoRota = 'transit'): string {
+  const p = new URLSearchParams({ api: '1', destination: destino, travelmode: modo });
+  if (origem) p.set('origin', origem);
+  return `https://www.google.com/maps/dir/?${p.toString()}`;
+}
+
+/** Onde vocês dormem em cada etapa, para as rotas que começam no hotel. */
+export const BASE_DA_ETAPA: Record<string, string> = {
+  tokyo1: 'Shinjuku Station, Tokyo',
+  hiroshima: 'Hondori, Hiroshima',
+  osaka: 'Namba Station, Osaka',
+  kyoto: 'Kyoto Station',
+  tokyo2: 'Ginza, Tokyo',
+};

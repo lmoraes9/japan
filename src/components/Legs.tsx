@@ -1,6 +1,7 @@
-import { Footprints, TrainFront, TramFront, Bus, Ship, Car, CableCar, Plane, Zap } from 'lucide-react';
+import { Footprints, TrainFront, TramFront, Bus, Ship, Car, CableCar, Plane, Zap, Navigation } from 'lucide-react';
 import type { Leg, LegMode } from '@/data/types';
 import { legsMinutes } from '@/data/legs';
+import { directionsUrl, type ModoRota } from '@/lib/mapsLinks';
 
 const ICON: Record<LegMode, typeof Footprints> = {
   walk: Footprints,
@@ -31,14 +32,48 @@ const LABEL: Record<LegMode, string> = {
  * Como ir daqui até o próximo lugar: um trecho por linha, com onde embarcar,
  * o sentido do painel, onde descer e quanto custa. `big` é para o modo rua.
  */
-export function Legs({ legs, title, big }: { legs: Leg[]; title?: string; big?: boolean }) {
+export function Legs({
+  legs,
+  title,
+  big,
+  origem,
+  destino,
+}: {
+  legs: Leg[];
+  title?: string;
+  big?: boolean;
+  /** de onde parte o trecho inteiro, para o botão de navegar */
+  origem?: string;
+  /** aonde chega */
+  destino?: string;
+}) {
   if (!legs.length) return null;
   const total = legsMinutes(legs);
+
+  // a cadeia de pontos do percurso: hotel → estação → baldeação → templo.
+  // É ela que dá a cada linha o seu próprio botão de navegar.
+  const pontos: (string | undefined)[] = [origem];
+  legs.forEach((l, i) => {
+    const proximo = legs[i + 1];
+    pontos.push(l.alight ?? proximo?.board ?? (i === legs.length - 1 ? destino : undefined));
+  });
+  const modoDe = (m: LegMode): ModoRota => (m === 'walk' ? 'walking' : m === 'taxi' ? 'driving' : 'transit');
+  const limpar = (s: string) => s.replace(/\s*\([^)]*\)/g, '').trim();
   return (
     <div className={`overflow-hidden rounded-2xl border border-hairline bg-surface ${big ? '' : 'text-[13px]'}`}>
-      <div className="flex items-center justify-between border-b border-hairline bg-surface-2/70 px-4 py-2">
-        <span className="font-mono text-[11px] uppercase tracking-widest text-muted">{title ?? 'Como chegar'}</span>
+      <div className="flex items-center justify-between gap-2 border-b border-hairline bg-surface-2/70 px-4 py-2">
+        <span className="min-w-0 flex-1 truncate font-mono text-[11px] uppercase tracking-widest text-muted">{title ?? 'Como chegar'}</span>
         <span className="font-mono text-[11px] tabular-nums text-muted">~{total} min</span>
+        {destino && (
+          <a
+            href={directionsUrl(origem ? limpar(origem) : undefined, limpar(destino), modoDe(legs[0].mode))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[11.5px] font-semibold text-white"
+          >
+            <Navigation size={12} /> Navegar
+          </a>
+        )}
       </div>
       <ol className="divide-y divide-hairline">
         {legs.map((l, i) => {
@@ -89,6 +124,19 @@ export function Legs({ legs, title, big }: { legs: Leg[]; title?: string; big?: 
                 )}
                 {l.note && <p className={`mt-0.5 leading-snug text-muted ${big ? 'text-[14px]' : 'text-[12px]'}`}>{l.note}</p>}
               </div>
+              {/* cada linha tem a sua própria rota: este pedaço do caminho */}
+              {pontos[i + 1] && (
+                <a
+                  href={directionsUrl(pontos[i] ? limpar(pontos[i]!) : undefined, limpar(pontos[i + 1]!), modoDe(l.mode))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`navegar até ${pontos[i + 1]}`}
+                  className="tappable flex shrink-0 items-center justify-center self-center rounded-full border border-hairline bg-surface-2 text-accent"
+                  style={{ width: big ? 44 : 34, height: big ? 44 : 34 }}
+                >
+                  <Navigation size={big ? 17 : 14} />
+                </a>
+              )}
             </li>
           );
         })}

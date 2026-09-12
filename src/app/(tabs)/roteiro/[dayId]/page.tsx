@@ -12,6 +12,7 @@ import { LastReturn } from '@/components/LastReturn';
 import { LegsConnector } from '@/components/LegsConnector';
 import { legsFrom, legsToFirst } from '@/data/legs';
 import { stopsEmOrdem } from '@/lib/now';
+import { BASE_DA_ETAPA } from '@/lib/mapsLinks';
 import { BookOpen } from 'lucide-react';
 
 /** a cidade cuja história abre em cada dia */
@@ -125,14 +126,28 @@ export default async function DayPage({
       ))}
 
       <div className="space-y-3">
-        {legsToFirst(day.id) && <LegsConnector legs={legsToFirst(day.id)!} title="Do hotel até a primeira parada" />}
+        {legsToFirst(day.id) && (
+          <LegsConnector
+            legs={legsToFirst(day.id)!}
+            title="Do hotel até a primeira parada"
+            origem={BASE_DA_ETAPA[day.stageId]}
+            destino={stopsEmOrdem(day.stops)[0]?.mapQuery ?? stopsEmOrdem(day.stops)[0]?.name}
+          />
+        )}
         {stopsEmOrdem(day.stops).map((stop, i, ordenadas) => {
           const legs = legsFrom(stop.id);
           const next = ordenadas[i + 1];
           return (
             <div key={stop.id} className="space-y-3">
               <StopCard stop={stop} dayId={day.id} />
-              {legs && <LegsConnector legs={legs} title={next ? `Até ${next.name}` : 'De volta ao hotel'} />}
+              {legs && (
+                <LegsConnector
+                  legs={legs}
+                  title={next ? `Até ${next.name}` : 'De volta ao hotel'}
+                  origem={stop.mapQuery ?? stop.name}
+                  destino={next ? next.mapQuery ?? next.name : BASE_DA_ETAPA[day.stageId]}
+                />
+              )}
             </div>
           );
         })}

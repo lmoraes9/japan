@@ -64,7 +64,7 @@ export function ProximaParada({
 
       {legs && (
         <div className="px-4 pb-3">
-          <Legs legs={legs} title="Como chegar lá" />
+          <Legs legs={legs} title="Como chegar lá" destino={stop.mapQuery ?? stop.name} />
         </div>
       )}
 
