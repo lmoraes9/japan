@@ -997,12 +997,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E5%8D%81%E4%B8%89%E9%96%93%E5%A0%82_-_panoramio.jpg",
     "title": "三十三間堂 - panoramio.jpg"
   },
+  "stops/d01-sanjusangendo-2": {
+    "src": "/lugares/stops/d01-sanjusangendo-2.jpg",
+    "credit": "alonfloc",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E5%8D%81%E4%B8%89%E9%96%93%E5%A0%82_-_panoramio.jpg",
+    "title": "三十三間堂 - panoramio.jpg"
+  },
+  "stops/d01-sanjusangendo-3": {
+    "src": "/lugares/stops/d01-sanjusangendo-3.jpg",
+    "credit": "Maechan0360",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E5%8D%81%E4%B8%89%E9%96%93%E5%A0%82.JPG",
+    "title": "三十三間堂.JPG"
+  },
+  "stops/d01-sanjusangendo-4": {
+    "src": "/lugares/stops/d01-sanjusangendo-4.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Sanjusangendo_temple01s1408.jpg",
+    "title": "Sanjusangendo temple01s1408.jpg"
+  },
   "stops/d01-tofukuji": {
     "src": "/lugares/stops/d01-tofukuji.jpg",
     "credit": "Hyppolyte de Saint-Rambert",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Dfuku-ji_temple_IMG_5400.jpg",
     "title": "Tōfuku-ji temple IMG 5400.jpg"
+  },
+  "stops/d01-tofukuji-2": {
+    "src": "/lugares/stops/d01-tofukuji-2.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Dfuku-ji_temple_IMG_5400.jpg",
+    "title": "Tōfuku-ji temple IMG 5400.jpg"
+  },
+  "stops/d01-tofukuji-3": {
+    "src": "/lugares/stops/d01-tofukuji-3.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Dfuku-ji_temple_IMG_5459.jpg",
+    "title": "Tōfuku-ji temple IMG 5459.jpg"
+  },
+  "stops/d01-tofukuji-4": {
+    "src": "/lugares/stops/d01-tofukuji-4.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Dfuku-ji_temple_IMG_5463.jpg",
+    "title": "Tōfuku-ji temple IMG 5463.jpg"
   },
   "stops/d02-akihabara-missoes": {
     "src": "/lugares/stops/d02-akihabara-missoes.jpg",
@@ -1011,12 +1053,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Akiba_denkigai.jpg",
     "title": "Akiba denkigai.jpg"
   },
+  "stops/d02-akihabara-missoes-2": {
+    "src": "/lugares/stops/d02-akihabara-missoes-2.jpg",
+    "credit": "Jmho",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Akiba_denkigai.jpg",
+    "title": "Akiba denkigai.jpg"
+  },
+  "stops/d02-akihabara-missoes-3": {
+    "src": "/lugares/stops/d02-akihabara-missoes-3.jpg",
+    "credit": "Christian Kadluba from Vienna, Austria",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yodobashi-Akiba_sign.jpg",
+    "title": "Yodobashi-Akiba sign.jpg"
+  },
+  "stops/d02-akihabara-missoes-4": {
+    "src": "/lugares/stops/d02-akihabara-missoes-4.jpg",
+    "credit": "Rs1421",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yodobashi-Akiba-01.jpg",
+    "title": "Yodobashi-Akiba-01.jpg"
+  },
   "stops/d02-compras-finais": {
     "src": "/lugares/stops/d02-compras-finais.jpg",
     "credit": "jmho",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:BicCamera_Yurakucho.jpg",
     "title": "BicCamera Yurakucho.jpg"
+  },
+  "stops/d02-compras-finais-2": {
+    "src": "/lugares/stops/d02-compras-finais-2.jpg",
+    "credit": "jmho",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:BicCamera_Yurakucho.jpg",
+    "title": "BicCamera Yurakucho.jpg"
+  },
+  "stops/d02-compras-finais-3": {
+    "src": "/lugares/stops/d02-compras-finais-3.jpg",
+    "credit": "heiwa4126",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bic_Camera_Store_(not_typo)_-_panoramio.jpg",
+    "title": "Bic Camera Store (not typo) - panoramio.jpg"
+  },
+  "stops/d02-compras-finais-4": {
+    "src": "/lugares/stops/d02-compras-finais-4.jpg",
+    "credit": "そらみみ (Soramimi)",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yurakucho_Station_Crossroads_(west).JPG",
+    "title": "Yurakucho Station Crossroads (west).JPG"
   },
   "stops/d02-jardim-imperial": {
     "src": "/lugares/stops/d02-jardim-imperial.jpg",
@@ -1025,12 +1109,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Imperial_Palace_East_Garden_Japan_1989_air.jpg",
     "title": "Imperial Palace East Garden Japan 1989 air.jpg"
   },
+  "stops/d02-jardim-imperial-2": {
+    "src": "/lugares/stops/d02-jardim-imperial-2.jpg",
+    "credit": "autor não identificado",
+    "license": "Attribution",
+    "source": "https://commons.wikimedia.org/wiki/File:Imperial_Palace_East_Garden_Japan_1989_air.jpg",
+    "title": "Imperial Palace East Garden Japan 1989 air.jpg"
+  },
+  "stops/d02-jardim-imperial-3": {
+    "src": "/lugares/stops/d02-jardim-imperial-3.jpg",
+    "credit": "Big Ben in Japan",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mejiro_and_plum_blossoms_at_the_Imperial_Palace_East_Gardens;_February_2020_(03).jpg",
+    "title": "Mejiro and plum blossoms at the Imperial Palace East Gardens; February 2020 (03).jpg"
+  },
+  "stops/d02-jardim-imperial-4": {
+    "src": "/lugares/stops/d02-jardim-imperial-4.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fish_@_Imperial_Palace_East_Gardens_(8999132627).jpg",
+    "title": "Fish @ Imperial Palace East Gardens (8999132627).jpg"
+  },
   "stops/d02-jimbocho": {
     "src": "/lugares/stops/d02-jimbocho.jpg",
     "credit": "Nyao148",
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Jimbocho-Sta-A3.JPG",
     "title": "Jimbocho-Sta-A3.JPG"
+  },
+  "stops/d02-jimbocho-2": {
+    "src": "/lugares/stops/d02-jimbocho-2.jpg",
+    "credit": "Nyao148",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jimbocho-Sta-A3.JPG",
+    "title": "Jimbocho-Sta-A3.JPG"
+  },
+  "stops/d02-jimbocho-3": {
+    "src": "/lugares/stops/d02-jimbocho-3.jpg",
+    "credit": "江戸村のとくぞう",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jimbocho_Station-1.jpg",
+    "title": "Jimbocho Station-1.jpg"
+  },
+  "stops/d02-jimbocho-4": {
+    "src": "/lugares/stops/d02-jimbocho-4.jpg",
+    "credit": "nesnad",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toei_Jimbocho_Station_platform_-_March_2_2018.jpg",
+    "title": "Toei Jimbocho Station platform - March 2 2018.jpg"
   },
   "stops/d02-nihonbashi": {
     "src": "/lugares/stops/d02-nihonbashi.jpg",
@@ -1039,6 +1165,41 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Yoroi_Bridge,_at_Nihonbashi-Kabutocho,_Chuo,_Tokyo_(2019-01-02).jpg",
     "title": "Yoroi Bridge, at Nihonbashi-Kabutocho, Chuo, Tokyo (2019-01-02).jpg"
   },
+  "stops/d02-nihonbashi-2": {
+    "src": "/lugares/stops/d02-nihonbashi-2.jpg",
+    "credit": "Lombroso",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yoroi_Bridge,_at_Nihonbashi-Kabutocho,_Chuo,_Tokyo_(2019-01-02).jpg",
+    "title": "Yoroi Bridge, at Nihonbashi-Kabutocho, Chuo, Tokyo (2019-01-02).jpg"
+  },
+  "stops/d02-nihonbashi-3": {
+    "src": "/lugares/stops/d02-nihonbashi-3.jpg",
+    "credit": "Katsushika Hokusai",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Nihonbashi_bridge_in_Edo.jpg",
+    "title": "Nihonbashi bridge in Edo.jpg"
+  },
+  "stops/d02-nihonbashi-4": {
+    "src": "/lugares/stops/d02-nihonbashi-4.jpg",
+    "credit": "urbzoo",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nihonbashi_Bridge_(3767056045).jpg",
+    "title": "Nihonbashi Bridge (3767056045).jpg"
+  },
+  "stops/d02-ultima-vista": {
+    "src": "/lugares/stops/d02-ultima-vista.jpg",
+    "credit": "T.Kiya from Japan",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo_station,_%E6%9D%B1%E4%BA%AC%E9%A7%85,_(13012089975).jpg",
+    "title": "Tokyo station, 東京駅, (13012089975).jpg"
+  },
+  "stops/d02-ultima-vista-2": {
+    "src": "/lugares/stops/d02-ultima-vista-2.jpg",
+    "credit": "T.Kiya from Japan",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo_station,_%E6%9D%B1%E4%BA%AC%E9%A7%85,_(13012089975).jpg",
+    "title": "Tokyo station, 東京駅, (13012089975).jpg"
+  },
   "stops/d03-haneda": {
     "src": "/lugares/stops/d03-haneda.jpg",
     "credit": "AD Train",
@@ -1046,12 +1207,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Haneda_airport_international_terminal_005.jpg",
     "title": "Haneda airport international terminal 005.jpg"
   },
+  "stops/d03-haneda-2": {
+    "src": "/lugares/stops/d03-haneda-2.jpg",
+    "credit": "AD Train",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Haneda_airport_international_terminal_005.jpg",
+    "title": "Haneda airport international terminal 005.jpg"
+  },
+  "stops/d03-haneda-3": {
+    "src": "/lugares/stops/d03-haneda-3.jpg",
+    "credit": "Adkdhc8",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Haneda_International_Terminal.JPG",
+    "title": "Haneda International Terminal.JPG"
+  },
+  "stops/d03-haneda-4": {
+    "src": "/lugares/stops/d03-haneda-4.jpg",
+    "credit": "Dandy1022",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Haneda_Airport_Terminal_3_Station_name_sign.jpg",
+    "title": "Haneda Airport Terminal 3 Station name sign.jpg"
+  },
   "stops/d18-haneda": {
     "src": "/lugares/stops/d18-haneda.jpg",
-    "credit": "AMANO Jun-ichi",
-    "license": "CC BY 3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:%E7%BE%BD%E7%94%B0%E7%A9%BA%E6%B8%AF_Tokyo_International_Airport_(Haneda_Airport)_-_panoramio.jpg",
-    "title": "羽田空港 Tokyo International Airport (Haneda Airport) - panoramio.jpg"
+    "credit": "LERK",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Keikyu-railway-KK17-Haneda-airport-domestic-terminal-station-sign-20190122-104706.jpg",
+    "title": "Keikyu-railway-KK17-Haneda-airport-domestic-terminal-station-sign-20190122-104706.jpg"
+  },
+  "stops/d18-haneda-2": {
+    "src": "/lugares/stops/d18-haneda-2.jpg",
+    "credit": "LERK",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Keikyu-railway-KK17-Haneda-airport-domestic-terminal-station-sign-20190122-104706.jpg",
+    "title": "Keikyu-railway-KK17-Haneda-airport-domestic-terminal-station-sign-20190122-104706.jpg"
+  },
+  "stops/d18-haneda-3": {
+    "src": "/lugares/stops/d18-haneda-3.jpg",
+    "credit": "Kzaral",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Keikyu_Haneda_Airport_Terminal_1-2_Station_(50762241107).jpg",
+    "title": "Keikyu Haneda Airport Terminal 1-2 Station (50762241107).jpg"
+  },
+  "stops/d18-haneda-4": {
+    "src": "/lugares/stops/d18-haneda-4.jpg",
+    "credit": "Dandy1022",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Haneda_Airport_Terminal_1%C2%B72_Station_name_sign.jpg",
+    "title": "Haneda Airport Terminal 1·2 Station name sign.jpg"
   },
   "stops/d18-konbini": {
     "src": "/lugares/stops/d18-konbini.jpg",
@@ -1060,12 +1263,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Entrance_of_Shinjuku_Kabuki-cho_-_panoramio.jpg",
     "title": "Entrance of Shinjuku Kabuki-cho - panoramio.jpg"
   },
+  "stops/d18-konbini-2": {
+    "src": "/lugares/stops/d18-konbini-2.jpg",
+    "credit": "Tomi Mäkitalo",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Entrance_of_Shinjuku_Kabuki-cho_-_panoramio.jpg",
+    "title": "Entrance of Shinjuku Kabuki-cho - panoramio.jpg"
+  },
+  "stops/d18-konbini-3": {
+    "src": "/lugares/stops/d18-konbini-3.jpg",
+    "credit": "Raf24~commonswiki",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yasukuni-dori,_Shinjuku.jpg",
+    "title": "Yasukuni-dori, Shinjuku.jpg"
+  },
+  "stops/d18-konbini-4": {
+    "src": "/lugares/stops/d18-konbini-4.jpg",
+    "credit": "Another Believer",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yasukuni_street_in_Shinjuku,_Tokyo,_2019_-_012.jpg",
+    "title": "Yasukuni street in Shinjuku, Tokyo, 2019 - 012.jpg"
+  },
   "stops/d18-ramen": {
     "src": "/lugares/stops/d18-ramen.jpg",
     "credit": "Rs1421",
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Omoide-Yokocho-Shinjuku-01.jpg",
     "title": "Omoide-Yokocho-Shinjuku-01.jpg"
+  },
+  "stops/d18-ramen-2": {
+    "src": "/lugares/stops/d18-ramen-2.jpg",
+    "credit": "Rs1421",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Omoide-Yokocho-Shinjuku-01.jpg",
+    "title": "Omoide-Yokocho-Shinjuku-01.jpg"
+  },
+  "stops/d18-ramen-3": {
+    "src": "/lugares/stops/d18-ramen-3.jpg",
+    "credit": "Fabio Achilli from Milano, Italy",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Omoide_Yokocho,_Shinjuku_(29255435527).jpg",
+    "title": "Omoide Yokocho, Shinjuku (29255435527).jpg"
+  },
+  "stops/d18-ramen-4": {
+    "src": "/lugares/stops/d18-ramen-4.jpg",
+    "credit": "Fabio Achilli from Milano, Italy",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Omoide_Yokocho,_Shinjuku_(29255442807).jpg",
+    "title": "Omoide Yokocho, Shinjuku (29255442807).jpg"
   },
   "stops/d19-akihabara": {
     "src": "/lugares/stops/d19-akihabara.jpg",
@@ -1074,12 +1319,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Claw_cranes_with_kawaii_stuffed_mascots_and_a_woman_playing,_Akihabara,_Chiyoda,_Tokyo,_Japan.jpg",
     "title": "Claw cranes with kawaii stuffed mascots and a woman playing, Akihabara, Chiyoda, Tokyo, Japan.jpg"
   },
+  "stops/d19-akihabara-2": {
+    "src": "/lugares/stops/d19-akihabara-2.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Claw_cranes_with_kawaii_stuffed_mascots_and_a_woman_playing,_Akihabara,_Chiyoda,_Tokyo,_Japan.jpg",
+    "title": "Claw cranes with kawaii stuffed mascots and a woman playing, Akihabara, Chiyoda, Tokyo, Japan.jpg"
+  },
+  "stops/d19-akihabara-3": {
+    "src": "/lugares/stops/d19-akihabara-3.jpg",
+    "credit": "JOHN LLOYD",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Akihabara_1976.jpg",
+    "title": "Akihabara 1976.jpg"
+  },
+  "stops/d19-akihabara-4": {
+    "src": "/lugares/stops/d19-akihabara-4.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Akihabara_Electric_Town_9999_25.jpg",
+    "title": "Akihabara Electric Town 9999 25.jpg"
+  },
   "stops/d19-ameyoko": {
     "src": "/lugares/stops/d19-ameyoko.jpg",
     "credit": "663highland",
     "license": "CC BY 2.5",
     "source": "https://commons.wikimedia.org/wiki/File:Ameya-yokocho01s5s3200.jpg",
     "title": "Ameya-yokocho01s5s3200.jpg"
+  },
+  "stops/d19-ameyoko-2": {
+    "src": "/lugares/stops/d19-ameyoko-2.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Ameya-yokocho01s5s3200.jpg",
+    "title": "Ameya-yokocho01s5s3200.jpg"
+  },
+  "stops/d19-ameyoko-3": {
+    "src": "/lugares/stops/d19-ameyoko-3.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Street_View_of_Ameya-Yokocho.jpg",
+    "title": "Street View of Ameya-Yokocho.jpg"
+  },
+  "stops/d19-ameyoko-4": {
+    "src": "/lugares/stops/d19-ameyoko-4.jpg",
+    "credit": "Wpcpey",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ueno_Ameya-Yokocho_shops_under_track_2015.jpg",
+    "title": "Ueno Ameya-Yokocho shops under track 2015.jpg"
   },
   "stops/d19-hanabusa": {
     "src": "/lugares/stops/d19-hanabusa.jpg",
@@ -1088,12 +1375,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Hanabusa_Inari_Jinja_(%E8%8A%B1%E6%88%BF%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE),_re-exposed._-_4-4-5_Sotokanda,_2014-03-18_21.01.40_(by_Ryo_FUKAsawa).jpg",
     "title": "Hanabusa Inari Jinja (花房稲荷神社), re-exposed. - 4-4-5 Sotokanda, 2014-03-18 21.01.40 (by Ryo FUKAsawa).jpg"
   },
+  "stops/d19-hanabusa-2": {
+    "src": "/lugares/stops/d19-hanabusa-2.jpg",
+    "credit": "Ryo FUKAsawa from Tokyo, Japan",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hanabusa_Inari_Jinja_(%E8%8A%B1%E6%88%BF%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE),_re-exposed._-_4-4-5_Sotokanda,_2014-03-18_21.01.40_(by_Ryo_FUKAsawa).jpg",
+    "title": "Hanabusa Inari Jinja (花房稲荷神社), re-exposed. - 4-4-5 Sotokanda, 2014-03-18 21.01.40 (by Ryo FUKAsawa).jpg"
+  },
+  "stops/d19-hanabusa-3": {
+    "src": "/lugares/stops/d19-hanabusa-3.jpg",
+    "credit": "Ominae",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hanabusa_Inari_Jinja_layout.jpg",
+    "title": "Hanabusa Inari Jinja layout.jpg"
+  },
+  "stops/d19-hanabusa-4": {
+    "src": "/lugares/stops/d19-hanabusa-4.jpg",
+    "credit": "Ominae",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hanabusa_Inari_Jinja_Address_plate.jpg",
+    "title": "Hanabusa Inari Jinja Address plate.jpg"
+  },
   "stops/d19-kappabashi": {
     "src": "/lugares/stops/d19-kappabashi.jpg",
     "credit": "Basile Morin",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Red_coffee_cup-shaped_balcony,_Niimi_Tableware,_Kappabashi_Dougu_Street,_Tokyo,_Japan.jpg",
     "title": "Red coffee cup-shaped balcony, Niimi Tableware, Kappabashi Dougu Street, Tokyo, Japan.jpg"
+  },
+  "stops/d19-kappabashi-2": {
+    "src": "/lugares/stops/d19-kappabashi-2.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Red_coffee_cup-shaped_balcony,_Niimi_Tableware,_Kappabashi_Dougu_Street,_Tokyo,_Japan.jpg",
+    "title": "Red coffee cup-shaped balcony, Niimi Tableware, Kappabashi Dougu Street, Tokyo, Japan.jpg"
+  },
+  "stops/d19-kappabashi-3": {
+    "src": "/lugares/stops/d19-kappabashi-3.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cream_and_red_coffee_cup-shaped_balconies,_Niimi_Tableware,_Kappabashi_Dougu_Street,_Tokyo,_Japan.jpg",
+    "title": "Cream and red coffee cup-shaped balconies, Niimi Tableware, Kappabashi Dougu Street, Tokyo, Japan.jpg"
+  },
+  "stops/d19-kappabashi-4": {
+    "src": "/lugares/stops/d19-kappabashi-4.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cream_coffee_cup-shaped_balcony,_Niimi_Tableware,_Kappabashi_Dougu_Street,_Tokyo,_Japan.jpg",
+    "title": "Cream coffee cup-shaped balcony, Niimi Tableware, Kappabashi Dougu Street, Tokyo, Japan.jpg"
   },
   "stops/d19-museu-nacional": {
     "src": "/lugares/stops/d19-museu-nacional.jpg",
@@ -1102,12 +1431,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Tokyo_National_Museum,_Honkan_2010.jpg",
     "title": "Tokyo National Museum, Honkan 2010.jpg"
   },
+  "stops/d19-museu-nacional-2": {
+    "src": "/lugares/stops/d19-museu-nacional-2.jpg",
+    "credit": "Wiiii",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo_National_Museum,_Honkan_2010.jpg",
+    "title": "Tokyo National Museum, Honkan 2010.jpg"
+  },
+  "stops/d19-museu-nacional-3": {
+    "src": "/lugares/stops/d19-museu-nacional-3.jpg",
+    "credit": "AMANO Jun-ichi",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo_National_Museum_%E6%9D%B1%E4%BA%AC%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8_-_panoramio.jpg",
+    "title": "Tokyo National Museum 東京国立博物館 - panoramio.jpg"
+  },
+  "stops/d19-museu-nacional-4": {
+    "src": "/lugares/stops/d19-museu-nacional-4.jpg",
+    "credit": "伊部リコ",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E4%BA%AC%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8_-_panoramio.jpg",
+    "title": "東京国立博物館 - panoramio.jpg"
+  },
   "stops/d19-radio-kaikan": {
     "src": "/lugares/stops/d19-radio-kaikan.jpg",
-    "credit": "Yuukokusya",
+    "credit": "Aimaimyi",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Akihabara_Radio_Kaikan_1st_-01.jpg",
+    "title": "Akihabara Radio Kaikan 1st -01.jpg"
+  },
+  "stops/d19-radio-kaikan-2": {
+    "src": "/lugares/stops/d19-radio-kaikan-2.jpg",
+    "credit": "Aimaimyi",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Akihabara_Radio_Kaikan_1st_-01.jpg",
+    "title": "Akihabara Radio Kaikan 1st -01.jpg"
+  },
+  "stops/d19-radio-kaikan-3": {
+    "src": "/lugares/stops/d19-radio-kaikan-3.jpg",
+    "credit": "Tokumeigakarinoaoshima",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:2nd_generation_Akihabara_Radio_Kaikan.JPG",
+    "title": "2nd generation Akihabara Radio Kaikan.JPG"
+  },
+  "stops/d19-radio-kaikan-4": {
+    "src": "/lugares/stops/d19-radio-kaikan-4.jpg",
+    "credit": "Tokumeigakarinoaoshima",
     "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:AKIHABARA_New_Radio_Kaikan.jpg",
-    "title": "AKIHABARA New Radio Kaikan.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:AKIHABARA_RADIO_KAIKAN.jpg",
+    "title": "AKIHABARA RADIO KAIKAN.jpg"
   },
   "stops/d19-sensoji": {
     "src": "/lugares/stops/d19-sensoji.jpg",
@@ -1116,12 +1487,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Sensoji_2023.jpg",
     "title": "Sensoji 2023.jpg"
   },
+  "stops/d19-sensoji-2": {
+    "src": "/lugares/stops/d19-sensoji-2.jpg",
+    "credit": "Akonnchiroll",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sensoji_2023.jpg",
+    "title": "Sensoji 2023.jpg"
+  },
+  "stops/d19-sensoji-3": {
+    "src": "/lugares/stops/d19-sensoji-3.jpg",
+    "credit": "くろふね",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%B5%85%E8%8D%89%E5%AF%BA%E6%9C%AC%E5%A0%8220250719-P1070577.jpg",
+    "title": "浅草寺本堂20250719-P1070577.jpg"
+  },
+  "stops/d19-sensoji-4": {
+    "src": "/lugares/stops/d19-sensoji-4.jpg",
+    "credit": "IQRemix from Canada",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sensoji_-_Asakusa_Kannon_Temple_(17625161926).jpg",
+    "title": "Sensoji - Asakusa Kannon Temple (17625161926).jpg"
+  },
   "stops/d20-daibutsu": {
     "src": "/lugares/stops/d20-daibutsu.jpg",
     "credit": "江戸村のとくぞう",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Kamakura_Daibutsu-2.jpg",
     "title": "Kamakura Daibutsu-2.jpg"
+  },
+  "stops/d20-daibutsu-2": {
+    "src": "/lugares/stops/d20-daibutsu-2.jpg",
+    "credit": "Astrooscar",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura_Daibutsu_side_view.jpg",
+    "title": "Kamakura Daibutsu side view.jpg"
+  },
+  "stops/d20-daibutsu-3": {
+    "src": "/lugares/stops/d20-daibutsu-3.jpg",
+    "credit": "江戸村のとくぞう",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura_Daibutsu-2.jpg",
+    "title": "Kamakura Daibutsu-2.jpg"
+  },
+  "stops/d20-daibutsu-4": {
+    "src": "/lugares/stops/d20-daibutsu-4.jpg",
+    "credit": "江戸村のとくぞう",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura_Daibutsu-5.jpg",
+    "title": "Kamakura Daibutsu-5.jpg"
   },
   "stops/d20-engakuji": {
     "src": "/lugares/stops/d20-engakuji.jpg",
@@ -1130,12 +1543,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:%E5%86%86%E8%A6%9A%E5%AF%BA%E5%B1%B1%E9%96%80%E3%81%AE%E6%89%81%E9%A1%8D.jpg",
     "title": "円覚寺山門の扁額.jpg"
   },
+  "stops/d20-engakuji-2": {
+    "src": "/lugares/stops/d20-engakuji-2.jpg",
+    "credit": "Tsuyoshi chiba",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%86%86%E8%A6%9A%E5%AF%BA%E5%B1%B1%E9%96%80%E3%81%AE%E6%89%81%E9%A1%8D.jpg",
+    "title": "円覚寺山門の扁額.jpg"
+  },
+  "stops/d20-engakuji-3": {
+    "src": "/lugares/stops/d20-engakuji-3.jpg",
+    "credit": "Tsuyoshi chiba",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%86%86%E8%A6%9A%E5%AF%BA%E5%B1%B1%E9%96%80.jpg",
+    "title": "円覚寺山門.jpg"
+  },
+  "stops/d20-engakuji-4": {
+    "src": "/lugares/stops/d20-engakuji-4.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Engakuji_Temple_@_Kamakura_(12697798714).jpg",
+    "title": "Engakuji Temple @ Kamakura (12697798714).jpg"
+  },
   "stops/d20-hachimangu": {
     "src": "/lugares/stops/d20-hachimangu.jpg",
     "credit": "Urashimataro",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Sorei_Jinja-_Tsurugaoka_Hachimangu.jpg",
     "title": "Sorei Jinja- Tsurugaoka Hachimangu.jpg"
+  },
+  "stops/d20-hachimangu-2": {
+    "src": "/lugares/stops/d20-hachimangu-2.jpg",
+    "credit": "Unknown authorUnknown author",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Tsurugaoka_Hachimang%C5%AB-ji.jpg",
+    "title": "Tsurugaoka Hachimangū-ji.jpg"
+  },
+  "stops/d20-hachimangu-3": {
+    "src": "/lugares/stops/d20-hachimangu-3.jpg",
+    "credit": "sailko",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tsurugaoka_hachimangu,_06.JPG",
+    "title": "Tsurugaoka hachimangu, 06.JPG"
+  },
+  "stops/d20-hachimangu-4": {
+    "src": "/lugares/stops/d20-hachimangu-4.jpg",
+    "credit": "sailko",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tsurugaoka_hachimangu,_02.JPG",
+    "title": "Tsurugaoka hachimangu, 02.JPG"
   },
   "stops/d20-hasedera": {
     "src": "/lugares/stops/d20-hasedera.jpg",
@@ -1144,12 +1599,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Hasedera_Sakurai_Nara_pref58s5s4272.jpg",
     "title": "Hasedera Sakurai Nara pref58s5s4272.jpg"
   },
+  "stops/d20-hasedera-2": {
+    "src": "/lugares/stops/d20-hasedera-2.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Hasedera_Sakurai_Nara_pref58s5s4272.jpg",
+    "title": "Hasedera Sakurai Nara pref58s5s4272.jpg"
+  },
+  "stops/d20-hasedera-3": {
+    "src": "/lugares/stops/d20-hasedera-3.jpg",
+    "credit": "whiz0520",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%95%B7%E8%B0%B7%E5%AF%BA_-_panoramio_(2).jpg",
+    "title": "長谷寺 - panoramio (2).jpg"
+  },
+  "stops/d20-hasedera-4": {
+    "src": "/lugares/stops/d20-hasedera-4.jpg",
+    "credit": "LBM1948",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakura,_Hasedera_(2005)_09.jpg",
+    "title": "Kamakura, Hasedera (2005) 09.jpg"
+  },
   "stops/d20-kenchoji": {
     "src": "/lugares/stops/d20-kenchoji.jpg",
     "credit": "Tarourashima",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Kenchoji_Main_Complex.jpg",
     "title": "Kenchoji Main Complex.jpg"
+  },
+  "stops/d20-kenchoji-2": {
+    "src": "/lugares/stops/d20-kenchoji-2.jpg",
+    "credit": "Tarourashima",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Kenchoji_Main_Complex.jpg",
+    "title": "Kenchoji Main Complex.jpg"
+  },
+  "stops/d20-kenchoji-3": {
+    "src": "/lugares/stops/d20-kenchoji-3.jpg",
+    "credit": "Wiiii",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kenchoji_Sanmon_2009.jpg",
+    "title": "Kenchoji Sanmon 2009.jpg"
+  },
+  "stops/d20-kenchoji-4": {
+    "src": "/lugares/stops/d20-kenchoji-4.jpg",
+    "credit": "Tsuyoshi chiba",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%BB%BA%E9%95%B7%E5%AF%BA%E4%B8%89%E9%96%80%E3%81%AB%E6%8E%B2%E3%81%92%E3%82%89%E3%82%8C%E3%81%9F%E6%89%81%E9%A1%8D.jpg",
+    "title": "建長寺三門に掲げられた扁額.jpg"
   },
   "stops/d20-komachi": {
     "src": "/lugares/stops/d20-komachi.jpg",
@@ -1158,12 +1655,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Komachi_Dori-Kamakura.jpg",
     "title": "Komachi Dori-Kamakura.jpg"
   },
+  "stops/d20-komachi-2": {
+    "src": "/lugares/stops/d20-komachi-2.jpg",
+    "credit": "Urashimataro",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Komachi_Dori-Kamakura.jpg",
+    "title": "Komachi Dori-Kamakura.jpg"
+  },
+  "stops/d20-komachi-3": {
+    "src": "/lugares/stops/d20-komachi-3.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Komachi-dori_@_Kamakura_(9399478395).jpg",
+    "title": "Komachi-dori @ Kamakura (9399478395).jpg"
+  },
+  "stops/d20-komachi-4": {
+    "src": "/lugares/stops/d20-komachi-4.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Komachi-dori_@_Kamakura_(9399491781).jpg",
+    "title": "Komachi-dori @ Kamakura (9399491781).jpg"
+  },
   "stops/d21-almoco-ginza": {
     "src": "/lugares/stops/d21-almoco-ginza.jpg",
     "credit": "Guilhem Vellut from Annecy, France",
     "license": "CC BY 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Tori_Paitan_Ramen_@_Kagari_@_Ginza_(15250521472).jpg",
     "title": "Tori Paitan Ramen @ Kagari @ Ginza (15250521472).jpg"
+  },
+  "stops/d21-almoco-ginza-2": {
+    "src": "/lugares/stops/d21-almoco-ginza-2.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tori_Paitan_Ramen_@_Kagari_@_Ginza_(15250521472).jpg",
+    "title": "Tori Paitan Ramen @ Kagari @ Ginza (15250521472).jpg"
+  },
+  "stops/d21-almoco-ginza-3": {
+    "src": "/lugares/stops/d21-almoco-ginza-3.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tori_Paitan_Ramen_@_Kagari_@_Ginza_(15064311497).jpg",
+    "title": "Tori Paitan Ramen @ Kagari @ Ginza (15064311497).jpg"
+  },
+  "stops/d21-almoco-ginza-4": {
+    "src": "/lugares/stops/d21-almoco-ginza-4.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tori_Paitan_Ramen_@_Kagari_@_Ginza_(15250870695).jpg",
+    "title": "Tori Paitan Ramen @ Kagari @ Ginza (15250870695).jpg"
   },
   "stops/d21-ginza": {
     "src": "/lugares/stops/d21-ginza.jpg",
@@ -1172,12 +1711,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Ginza_area_at_dusk_from_Tokyo_Tower.jpg",
     "title": "Ginza area at dusk from Tokyo Tower.jpg"
   },
+  "stops/d21-ginza-2": {
+    "src": "/lugares/stops/d21-ginza-2.jpg",
+    "credit": "autor não identificado",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ginza_area_at_dusk_from_Tokyo_Tower.jpg",
+    "title": "Ginza area at dusk from Tokyo Tower.jpg"
+  },
+  "stops/d21-ginza-3": {
+    "src": "/lugares/stops/d21-ginza-3.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Exterior_view_of_the_illuminated_facade_of_Maison_Herm%C3%A8s,_Ginza,_Tokyo,_Japan.jpg",
+    "title": "Exterior view of the illuminated facade of Maison Hermès, Ginza, Tokyo, Japan.jpg"
+  },
+  "stops/d21-ginza-4": {
+    "src": "/lugares/stops/d21-ginza-4.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Illuminated_street_corner_at_blue_hour_-_facade_of_the_building_Fujiya_in_Ginza_Chuo-ku_Tokyo_Japan.jpg",
+    "title": "Illuminated street corner at blue hour - facade of the building Fujiya in Ginza Chuo-ku Tokyo Japan.jpg"
+  },
   "stops/d21-hamarikyu": {
     "src": "/lugares/stops/d21-hamarikyu.jpg",
     "credit": "ohkubo",
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Hamarikyu_Onshi_Teien_(%E6%B5%9C%E9%9B%A2%E5%AE%AE%E6%81%A9%E8%B3%9C%E5%BA%AD%E5%9C%92)_-_panoramio.jpg",
     "title": "Hamarikyu Onshi Teien (浜離宮恩賜庭園) - panoramio.jpg"
+  },
+  "stops/d21-hamarikyu-2": {
+    "src": "/lugares/stops/d21-hamarikyu-2.jpg",
+    "credit": "ohkubo",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hamarikyu_Onshi_Teien_(%E6%B5%9C%E9%9B%A2%E5%AE%AE%E6%81%A9%E8%B3%9C%E5%BA%AD%E5%9C%92)_-_panoramio.jpg",
+    "title": "Hamarikyu Onshi Teien (浜離宮恩賜庭園) - panoramio.jpg"
+  },
+  "stops/d21-hamarikyu-3": {
+    "src": "/lugares/stops/d21-hamarikyu-3.jpg",
+    "credit": "AMANO Jun-ichi",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hamariky%C5%AB_Gardens_%E4%B9%9D%E6%9C%88%E3%81%AE%E6%B5%9C%E9%9B%A2%E5%AE%AE%E6%81%A9%E8%B3%9C%E5%BA%AD%E5%9C%92_-_panoramio.jpg",
+    "title": "Hamarikyū Gardens 九月の浜離宮恩賜庭園 - panoramio.jpg"
+  },
+  "stops/d21-hamarikyu-4": {
+    "src": "/lugares/stops/d21-hamarikyu-4.jpg",
+    "credit": "kanesue",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%B5%9C%E9%9B%A2%E5%AE%AE%E6%81%A9%E8%B3%9C%E5%BA%AD%E5%9C%92_-_panoramio.jpg",
+    "title": "浜離宮恩賜庭園 - panoramio.jpg"
   },
   "stops/d21-jantar-estacao": {
     "src": "/lugares/stops/d21-jantar-estacao.jpg",
@@ -1186,12 +1767,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Tokyo_Ramen_Street_in_First_Avenue_Tokyo_Station_01.jpg",
     "title": "Tokyo Ramen Street in First Avenue Tokyo Station 01.jpg"
   },
+  "stops/d21-jantar-estacao-2": {
+    "src": "/lugares/stops/d21-jantar-estacao-2.jpg",
+    "credit": "電車(新幹線)でゴー！",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo_Ramen_Street_in_First_Avenue_Tokyo_Station_01.jpg",
+    "title": "Tokyo Ramen Street in First Avenue Tokyo Station 01.jpg"
+  },
+  "stops/d21-jantar-estacao-3": {
+    "src": "/lugares/stops/d21-jantar-estacao-3.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tonkotsu_Ramen_@_Oreshiki_Jun_@_Tokyo_Ramen_Street_(13099280083).jpg",
+    "title": "Tonkotsu Ramen @ Oreshiki Jun @ Tokyo Ramen Street (13099280083).jpg"
+  },
+  "stops/d21-jantar-estacao-4": {
+    "src": "/lugares/stops/d21-jantar-estacao-4.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tonkotsu_Ramen_@_Oreshiki_Jun_@_Tokyo_Ramen_Street_(13099279913).jpg",
+    "title": "Tonkotsu Ramen @ Oreshiki Jun @ Tokyo Ramen Street (13099279913).jpg"
+  },
   "stops/d21-kitte": {
     "src": "/lugares/stops/d21-kitte.jpg",
     "credit": "Kestrel",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Tokyo_Station_Marunouchi_Building_P5228775.jpg",
     "title": "Tokyo Station Marunouchi Building P5228775.jpg"
+  },
+  "stops/d21-kitte-2": {
+    "src": "/lugares/stops/d21-kitte-2.jpg",
+    "credit": "Kestrel",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo_Station_Marunouchi_Building_P5228775.jpg",
+    "title": "Tokyo Station Marunouchi Building P5228775.jpg"
+  },
+  "stops/d21-kitte-3": {
+    "src": "/lugares/stops/d21-kitte-3.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Marunouchi_Central_Plaza_with_blue_sky,_Tokyo_station_and_Shin-Marunouchi_Building,_panoramic_view_from_JP_Tower,_Tokyo,_Japan.jpg",
+    "title": "Marunouchi Central Plaza with blue sky, Tokyo station and Shin-Marunouchi Building, panoramic view from JP Tower, Tokyo, Japan.jpg"
+  },
+  "stops/d21-kitte-4": {
+    "src": "/lugares/stops/d21-kitte-4.jpg",
+    "credit": "MaedaAkihiko",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo-STA_Marunouchi-Entrance_2023.jpg",
+    "title": "Tokyo-STA Marunouchi-Entrance 2023.jpg"
   },
   "stops/d21-tsukiji": {
     "src": "/lugares/stops/d21-tsukiji.jpg",
@@ -1200,12 +1823,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Oweston_sting_fish_for_sale_at_Tsukiji_Fishmarket,_Tokyo-30.jpg",
     "title": "Oweston sting fish for sale at Tsukiji Fishmarket, Tokyo-30.jpg"
   },
+  "stops/d21-tsukiji-2": {
+    "src": "/lugares/stops/d21-tsukiji-2.jpg",
+    "credit": "MichaelMaggs",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Oweston_sting_fish_for_sale_at_Tsukiji_Fishmarket,_Tokyo-30.jpg",
+    "title": "Oweston sting fish for sale at Tsukiji Fishmarket, Tokyo-30.jpg"
+  },
+  "stops/d21-tsukiji-3": {
+    "src": "/lugares/stops/d21-tsukiji-3.jpg",
+    "credit": "Syced",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:August_2007_Tsukiji_fish_market_3.jpg",
+    "title": "August 2007 Tsukiji fish market 3.jpg"
+  },
+  "stops/d21-tsukiji-4": {
+    "src": "/lugares/stops/d21-tsukiji-4.jpg",
+    "credit": "Syced",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:August_2007_Tsukiji_fish_market_8.jpg",
+    "title": "August 2007 Tsukiji fish market 8.jpg"
+  },
   "stops/d22-cruzamento": {
     "src": "/lugares/stops/d22-cruzamento.jpg",
     "credit": "Benh LIEU SONG (Flickr)",
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
     "title": "Tokyo Shibuya Scramble Crossing 2018-10-09.jpg"
+  },
+  "stops/d22-cruzamento-2": {
+    "src": "/lugares/stops/d22-cruzamento-2.jpg",
+    "credit": "Benh LIEU SONG (Flickr)",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
+    "title": "Tokyo Shibuya Scramble Crossing 2018-10-09.jpg"
+  },
+  "stops/d22-cruzamento-3": {
+    "src": "/lugares/stops/d22-cruzamento-3.jpg",
+    "credit": "Yoshikazu TAKADA from Tokyo, Japan",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Crossing_(31333692136).jpg",
+    "title": "Shibuya Scramble Crossing (31333692136).jpg"
+  },
+  "stops/d22-cruzamento-4": {
+    "src": "/lugares/stops/d22-cruzamento-4.jpg",
+    "credit": "Yoshikazu TAKADA from Tokyo, Japan",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Crossing_(30562491713).jpg",
+    "title": "Shibuya Scramble Crossing (30562491713).jpg"
   },
   "stops/d22-gaien": {
     "src": "/lugares/stops/d22-gaien.jpg",
@@ -1214,12 +1879,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Fall_foliage_of_Jingu_Gaien_Ginkgo_(icho)_avenue_%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%E3%81%84%E3%81%A1%E3%82%87%E3%81%86%E4%B8%A6%E6%9C%A8_%E7%B4%85%E8%91%89_(51699698968).jpg",
     "title": "Fall foliage of Jingu Gaien Ginkgo (icho) avenue 神宮外苑いちょう並木 紅葉 (51699698968).jpg"
   },
+  "stops/d22-gaien-2": {
+    "src": "/lugares/stops/d22-gaien-2.jpg",
+    "credit": "nakashi from Chofu, Tokyo, JAPAN",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fall_foliage_of_Jingu_Gaien_Ginkgo_(icho)_avenue_%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%E3%81%84%E3%81%A1%E3%82%87%E3%81%86%E4%B8%A6%E6%9C%A8_%E7%B4%85%E8%91%89_(51699698968).jpg",
+    "title": "Fall foliage of Jingu Gaien Ginkgo (icho) avenue 神宮外苑いちょう並木 紅葉 (51699698968).jpg"
+  },
+  "stops/d22-gaien-3": {
+    "src": "/lugares/stops/d22-gaien-3.jpg",
+    "credit": "Dick Thomas Johnson from Tokyo, Japan",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Meiji_Jingu_Gaien_Ginkgo_Festival_(53441834843).jpg",
+    "title": "Meiji Jingu Gaien Ginkgo Festival (53441834843).jpg"
+  },
+  "stops/d22-gaien-4": {
+    "src": "/lugares/stops/d22-gaien-4.jpg",
+    "credit": "Dick Thomas Johnson from Tokyo, Japan",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Meiji_Jingu_Gaien_Ginkgo_Festival_(53442107340).jpg",
+    "title": "Meiji Jingu Gaien Ginkgo Festival (53442107340).jpg"
+  },
   "stops/d22-jantar": {
     "src": "/lugares/stops/d22-jantar.jpg",
     "credit": "Ons",
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Mark_City_East.jpg",
     "title": "Shibuya Mark City East.jpg"
+  },
+  "stops/d22-jantar-2": {
+    "src": "/lugares/stops/d22-jantar-2.jpg",
+    "credit": "Ons",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Mark_City_East.jpg",
+    "title": "Shibuya Mark City East.jpg"
+  },
+  "stops/d22-jantar-3": {
+    "src": "/lugares/stops/d22-jantar-3.jpg",
+    "credit": "Rs1421",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya-Mark-City-Bus-Terminal.jpg",
+    "title": "Shibuya-Mark-City-Bus-Terminal.jpg"
+  },
+  "stops/d22-jantar-4": {
+    "src": "/lugares/stops/d22-jantar-4.jpg",
+    "credit": "Syced",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Demolition_near_Shibuya_Mark_City.jpg",
+    "title": "Demolition near Shibuya Mark City.jpg"
   },
   "stops/d22-meiji-jingu": {
     "src": "/lugares/stops/d22-meiji-jingu.jpg",
@@ -1228,12 +1935,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Meiji-jingu-pathway.jpg",
     "title": "Meiji-jingu-pathway.jpg"
   },
+  "stops/d22-meiji-jingu-2": {
+    "src": "/lugares/stops/d22-meiji-jingu-2.jpg",
+    "credit": "Nightcrafter",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Meiji-jingu-pathway.jpg",
+    "title": "Meiji-jingu-pathway.jpg"
+  },
+  "stops/d22-meiji-jingu-3": {
+    "src": "/lugares/stops/d22-meiji-jingu-3.jpg",
+    "credit": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Meiji_Jingu_Stadium_aerial_view.jpg",
+    "title": "Meiji Jingu Stadium aerial view.jpg"
+  },
+  "stops/d22-meiji-jingu-4": {
+    "src": "/lugares/stops/d22-meiji-jingu-4.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Meiji-jing%C5%AB_grand_torii_d%27entr%C3%A9e.jpg",
+    "title": "Meiji-jingū grand torii d'entrée.jpg"
+  },
   "stops/d22-omotesando": {
     "src": "/lugares/stops/d22-omotesando.jpg",
     "credit": "Rs1421",
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Tokyo-Metro-Omotesando-Station-02.jpg",
     "title": "Tokyo-Metro-Omotesando-Station-02.jpg"
+  },
+  "stops/d22-omotesando-2": {
+    "src": "/lugares/stops/d22-omotesando-2.jpg",
+    "credit": "Rs1421",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo-Metro-Omotesando-Station-02.jpg",
+    "title": "Tokyo-Metro-Omotesando-Station-02.jpg"
+  },
+  "stops/d22-omotesando-3": {
+    "src": "/lugares/stops/d22-omotesando-3.jpg",
+    "credit": "Kestrel",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Apple_Store_Omotesando_P9230569.jpg",
+    "title": "Apple Store Omotesando P9230569.jpg"
+  },
+  "stops/d22-omotesando-4": {
+    "src": "/lugares/stops/d22-omotesando-4.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Street_crowd_reflecting_in_the_polyhedral_mirrors_of_the_station_Tokyu_Plaza_Omotesando,_Harajuku,_Tokyo,_Japan.jpg",
+    "title": "Street crowd reflecting in the polyhedral mirrors of the station Tokyu Plaza Omotesando, Harajuku, Tokyo, Japan.jpg"
   },
   "stops/d22-shibuya-sky": {
     "src": "/lugares/stops/d22-shibuya-sky.jpg",
@@ -1242,8 +1991,36 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Square_-_SHIBUYA_SKY_10.jpg",
     "title": "Shibuya Scramble Square - SHIBUYA SKY 10.jpg"
   },
+  "stops/d22-shibuya-sky-2": {
+    "src": "/lugares/stops/d22-shibuya-sky-2.jpg",
+    "credit": "Kakidai",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Square_-_SHIBUYA_SKY_10.jpg",
+    "title": "Shibuya Scramble Square - SHIBUYA SKY 10.jpg"
+  },
+  "stops/d22-shibuya-sky-3": {
+    "src": "/lugares/stops/d22-shibuya-sky-3.jpg",
+    "credit": "稲妻ノ歯鯨",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:SHIBUYA_SKY_Exit.jpg",
+    "title": "SHIBUYA SKY Exit.jpg"
+  },
+  "stops/d22-shibuya-sky-4": {
+    "src": "/lugares/stops/d22-shibuya-sky-4.jpg",
+    "credit": "Dick Thomas Johnson from Tokyo, Japan",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Square_SHIBUYA_SKY_(52651902582).jpg",
+    "title": "Shibuya Scramble Square SHIBUYA SKY (52651902582).jpg"
+  },
   "stops/d23-konbini": {
     "src": "/lugares/stops/d23-konbini.jpg",
+    "credit": "トトト",
+    "license": "CC BY-SA 2.1 jp",
+    "source": "https://commons.wikimedia.org/wiki/File:7-Eleven_Toshimaen-ekimae_in_Nerima_4-ch%C5%8Dme,_-16_augustus_2026_12%EF%BC%9A40.jpg",
+    "title": "7-Eleven Toshimaen-ekimae in Nerima 4-chōme, -16 augustus 2026 12：40.jpg"
+  },
+  "stops/d23-konbini-2": {
+    "src": "/lugares/stops/d23-konbini-2.jpg",
     "credit": "トトト",
     "license": "CC BY-SA 2.1 jp",
     "source": "https://commons.wikimedia.org/wiki/File:7-Eleven_Toshimaen-ekimae_in_Nerima_4-ch%C5%8Dme,_-16_augustus_2026_12%EF%BC%9A40.jpg",
@@ -1256,6 +2033,27 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_Museum_2008_01.JPG",
     "title": "Hiroshima Peace Memorial Museum 2008 01.JPG"
   },
+  "stops/d23-museu-paz-2": {
+    "src": "/lugares/stops/d23-museu-paz-2.jpg",
+    "credit": "Taisyo",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_Museum_2008_01.JPG",
+    "title": "Hiroshima Peace Memorial Museum 2008 01.JPG"
+  },
+  "stops/d23-museu-paz-3": {
+    "src": "/lugares/stops/d23-museu-paz-3.jpg",
+    "credit": "Wiiii",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_Museum_2009.jpg",
+    "title": "Hiroshima Peace Memorial Museum 2009.jpg"
+  },
+  "stops/d23-museu-paz-4": {
+    "src": "/lugares/stops/d23-museu-paz-4.jpg",
+    "credit": "菅野崇",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%BA%83%E5%B3%B6%E5%B9%B3%E5%92%8C%E8%A8%98%E5%BF%B5%E8%B3%87%E6%96%99%E9%A4%A8_-_panoramio.jpg",
+    "title": "広島平和記念資料館 - panoramio.jpg"
+  },
   "stops/d23-parque-domo": {
     "src": "/lugares/stops/d23-parque-domo.jpg",
     "credit": "Dan Smith",
@@ -1263,8 +2061,36 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:A-Bomb_Dome.jpg",
     "title": "A-Bomb Dome.jpg"
   },
+  "stops/d23-parque-domo-2": {
+    "src": "/lugares/stops/d23-parque-domo-2.jpg",
+    "credit": "Dan Smith",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:A-Bomb_Dome.jpg",
+    "title": "A-Bomb Dome.jpg"
+  },
+  "stops/d23-parque-domo-3": {
+    "src": "/lugares/stops/d23-parque-domo-3.jpg",
+    "credit": "Oilstreet",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Genbaku_Dome04-r.JPG",
+    "title": "Genbaku Dome04-r.JPG"
+  },
+  "stops/d23-parque-domo-4": {
+    "src": "/lugares/stops/d23-parque-domo-4.jpg",
+    "credit": "DXR",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Atomic_Bomb_Dome,_Hiroshima,_South_view_20190417_1.jpg",
+    "title": "Atomic Bomb Dome, Hiroshima, South view 20190417 1.jpg"
+  },
   "stops/d23-pokemon-center": {
     "src": "/lugares/stops/d23-pokemon-center.jpg",
+    "credit": "Yoh-Plus",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:PokemonCenter_Hiroshima.jpg",
+    "title": "PokemonCenter Hiroshima.jpg"
+  },
+  "stops/d23-pokemon-center-2": {
+    "src": "/lugares/stops/d23-pokemon-center-2.jpg",
     "credit": "Yoh-Plus",
     "license": "CC BY 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:PokemonCenter_Hiroshima.jpg",
@@ -1277,12 +2103,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E8%81%96%E9%99%A2_-_panoramio.jpg",
     "title": "大聖院 - panoramio.jpg"
   },
+  "stops/d24-daishoin-2": {
+    "src": "/lugares/stops/d24-daishoin-2.jpg",
+    "credit": "OS6",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E8%81%96%E9%99%A2_-_panoramio.jpg",
+    "title": "大聖院 - panoramio.jpg"
+  },
+  "stops/d24-daishoin-3": {
+    "src": "/lugares/stops/d24-daishoin-3.jpg",
+    "credit": "sk01",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E8%81%96%E9%99%A2%E5%B1%B1%E9%96%80_-_panoramio.jpg",
+    "title": "大聖院山門 - panoramio.jpg"
+  },
+  "stops/d24-daishoin-4": {
+    "src": "/lugares/stops/d24-daishoin-4.jpg",
+    "credit": "Syced",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E8%81%96%E9%99%A2.jpg",
+    "title": "大聖院.jpg"
+  },
   "stops/d24-itsukushima": {
     "src": "/lugares/stops/d24-itsukushima.jpg",
     "credit": "JordyMeow",
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Itsukushima_Gate.jpg",
     "title": "Itsukushima Gate.jpg"
+  },
+  "stops/d24-itsukushima-2": {
+    "src": "/lugares/stops/d24-itsukushima-2.jpg",
+    "credit": "JordyMeow",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Itsukushima_Gate.jpg",
+    "title": "Itsukushima Gate.jpg"
+  },
+  "stops/d24-itsukushima-3": {
+    "src": "/lugares/stops/d24-itsukushima-3.jpg",
+    "credit": "z tanuki",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Itsukushima_Shrine_,_%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE_-_panoramio_(5).jpg",
+    "title": "Itsukushima Shrine , 厳島神社 - panoramio (5).jpg"
+  },
+  "stops/d24-itsukushima-4": {
+    "src": "/lugares/stops/d24-itsukushima-4.jpg",
+    "credit": "Balon Greyjoy",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:20181111_Itsukushima_Shrine_torii-2.jpg",
+    "title": "20181111 Itsukushima Shrine torii-2.jpg"
   },
   "stops/d24-misen": {
     "src": "/lugares/stops/d24-misen.jpg",
@@ -1291,12 +2159,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Japan_-_Miyajima_-_Miyajima_Ropeway_-_Mount_Misen.jpg",
     "title": "Japan - Miyajima - Miyajima Ropeway - Mount Misen.jpg"
   },
+  "stops/d24-misen-2": {
+    "src": "/lugares/stops/d24-misen-2.jpg",
+    "credit": "Vanvelthem Cédric",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Japan_-_Miyajima_-_Miyajima_Ropeway_-_Mount_Misen.jpg",
+    "title": "Japan - Miyajima - Miyajima Ropeway - Mount Misen.jpg"
+  },
+  "stops/d24-misen-3": {
+    "src": "/lugares/stops/d24-misen-3.jpg",
+    "credit": "redlegsfan21",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Miyajima_Ropeway_(13890461069).jpg",
+    "title": "Miyajima Ropeway (13890461069).jpg"
+  },
+  "stops/d24-misen-4": {
+    "src": "/lugares/stops/d24-misen-4.jpg",
+    "credit": "PekePON",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Miyajima_Ropeway_Momijidani_Line_2010.jpg",
+    "title": "Miyajima Ropeway Momijidani Line 2010.jpg"
+  },
   "stops/d24-momijidani": {
     "src": "/lugares/stops/d24-momijidani.jpg",
     "credit": "Spiegel from Hiroshima, Japan",
     "license": "CC BY 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Autumn_colours_on_Miyajima_Island_Japan.jpg",
     "title": "Autumn colours on Miyajima Island Japan.jpg"
+  },
+  "stops/d24-momijidani-2": {
+    "src": "/lugares/stops/d24-momijidani-2.jpg",
+    "credit": "Spiegel from Hiroshima, Japan",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Autumn_colours_on_Miyajima_Island_Japan.jpg",
+    "title": "Autumn colours on Miyajima Island Japan.jpg"
+  },
+  "stops/d24-momijidani-3": {
+    "src": "/lugares/stops/d24-momijidani-3.jpg",
+    "credit": "tina_kazusa",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%AE%AE%E5%B3%B6%E7%B4%85%E8%91%89%E8%B0%B7_-_panoramio.jpg",
+    "title": "宮島紅葉谷 - panoramio.jpg"
+  },
+  "stops/d24-momijidani-4": {
+    "src": "/lugares/stops/d24-momijidani-4.jpg",
+    "credit": "KimonBerlin",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:In_momijidani_park_(4175176805).jpg",
+    "title": "In momijidani park (4175176805).jpg"
   },
   "stops/d24-shukkeien": {
     "src": "/lugares/stops/d24-shukkeien.jpg",
@@ -1305,12 +2215,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Rainbow_bridge_in_Shukkei-en_Hiroshima.jpg",
     "title": "Rainbow bridge in Shukkei-en Hiroshima.jpg"
   },
+  "stops/d24-shukkeien-2": {
+    "src": "/lugares/stops/d24-shukkeien-2.jpg",
+    "credit": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Rainbow_bridge_in_Shukkei-en_Hiroshima.jpg",
+    "title": "Rainbow bridge in Shukkei-en Hiroshima.jpg"
+  },
+  "stops/d24-shukkeien-3": {
+    "src": "/lugares/stops/d24-shukkeien-3.jpg",
+    "credit": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Hiroshima_Shukkei-en_Pond.jpg",
+    "title": "Hiroshima Shukkei-en Pond.jpg"
+  },
+  "stops/d24-shukkeien-4": {
+    "src": "/lugares/stops/d24-shukkeien-4.jpg",
+    "credit": "Yoshio Kohara",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E7%B8%AE%E6%99%AF%E5%9C%92_-_panoramio_(4).jpg",
+    "title": "縮景園 - panoramio (4).jpg"
+  },
   "stops/d25-bikan": {
     "src": "/lugares/stops/d25-bikan.jpg",
     "credit": "takeokahp",
     "license": "CC BY 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA_by_takeokahp_-_panoramio.jpg",
     "title": "倉敷美観地区 by takeokahp - panoramio.jpg"
+  },
+  "stops/d25-bikan-2": {
+    "src": "/lugares/stops/d25-bikan-2.jpg",
+    "credit": "takeokahp",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA_by_takeokahp_-_panoramio.jpg",
+    "title": "倉敷美観地区 by takeokahp - panoramio.jpg"
+  },
+  "stops/d25-bikan-3": {
+    "src": "/lugares/stops/d25-bikan-3.jpg",
+    "credit": "takeokahp",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA_by_takeokahp_-_panoramio_(3).jpg",
+    "title": "倉敷美観地区 by takeokahp - panoramio (3).jpg"
+  },
+  "stops/d25-bikan-4": {
+    "src": "/lugares/stops/d25-bikan-4.jpg",
+    "credit": "Nankou Oronain (as36…",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA%E3%81%AB%E3%81%A6_Kurashiki_Bikan_historical_quarter_2009.8.24_-_panoramio.jpg",
+    "title": "倉敷美観地区にて Kurashiki Bikan historical quarter 2009.8.24 - panoramio.jpg"
   },
   "stops/d25-dotonbori": {
     "src": "/lugares/stops/d25-dotonbori.jpg",
@@ -1319,12 +2271,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:D%C5%8Dtonbori_sign.JPG",
     "title": "Dōtonbori sign.JPG"
   },
+  "stops/d25-dotonbori-2": {
+    "src": "/lugares/stops/d25-dotonbori-2.jpg",
+    "credit": "WeiHsiang Wang",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:D%C5%8Dtonbori_sign.JPG",
+    "title": "Dōtonbori sign.JPG"
+  },
+  "stops/d25-dotonbori-3": {
+    "src": "/lugares/stops/d25-dotonbori-3.jpg",
+    "credit": "kanesue",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%81%93%E9%A0%93%E5%A0%80_-_panoramio_(1).jpg",
+    "title": "道頓堀 - panoramio (1).jpg"
+  },
+  "stops/d25-dotonbori-4": {
+    "src": "/lugares/stops/d25-dotonbori-4.jpg",
+    "credit": "Zest",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:D%C5%8Dtonbori_Canal_1.jpg",
+    "title": "Dōtonbori Canal 1.jpg"
+  },
   "stops/d25-himeji": {
     "src": "/lugares/stops/d25-himeji.jpg",
     "credit": "Gorgo",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_0804_1.jpg",
     "title": "Himeji Castle 0804 1.jpg"
+  },
+  "stops/d25-himeji-2": {
+    "src": "/lugares/stops/d25-himeji-2.jpg",
+    "credit": "Gorgo",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_0804_1.jpg",
+    "title": "Himeji Castle 0804 1.jpg"
+  },
+  "stops/d25-himeji-3": {
+    "src": "/lugares/stops/d25-himeji-3.jpg",
+    "credit": "by ja:User:Reggaeman",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_The_Keep_Towers.jpg",
+    "title": "Himeji Castle The Keep Towers.jpg"
+  },
+  "stops/d25-himeji-4": {
+    "src": "/lugares/stops/d25-himeji-4.jpg",
+    "credit": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Himeji02.jpg",
+    "title": "Château de Himeji02.jpg"
   },
   "stops/d25-ohara": {
     "src": "/lugares/stops/d25-ohara.jpg",
@@ -1333,12 +2327,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Kurashiki_Ohara_Art_Museum02nt3200.jpg",
     "title": "Kurashiki Ohara Art Museum02nt3200.jpg"
   },
+  "stops/d25-ohara-2": {
+    "src": "/lugares/stops/d25-ohara-2.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Kurashiki_Ohara_Art_Museum02nt3200.jpg",
+    "title": "Kurashiki Ohara Art Museum02nt3200.jpg"
+  },
+  "stops/d25-ohara-3": {
+    "src": "/lugares/stops/d25-ohara-3.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Kurashiki_Ohara_Art_Museum04n4592.jpg",
+    "title": "Kurashiki Ohara Art Museum04n4592.jpg"
+  },
+  "stops/d25-ohara-4": {
+    "src": "/lugares/stops/d25-ohara-4.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Kurashiki_Ohara_Art_Museum06n4592.jpg",
+    "title": "Kurashiki Ohara Art Museum06n4592.jpg"
+  },
   "stops/d26-castelo-osaka": {
     "src": "/lugares/stops/d26-castelo-osaka.jpg",
     "credit": "anonymous",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:The_Siege_of_Osaka_Castle.jpg",
     "title": "The Siege of Osaka Castle.jpg"
+  },
+  "stops/d26-castelo-osaka-2": {
+    "src": "/lugares/stops/d26-castelo-osaka-2.jpg",
+    "credit": "anonymous",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Siege_of_Osaka_Castle.jpg",
+    "title": "The Siege of Osaka Castle.jpg"
+  },
+  "stops/d26-castelo-osaka-3": {
+    "src": "/lugares/stops/d26-castelo-osaka-3.jpg",
+    "credit": "663highland",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_02bs3200.jpg",
+    "title": "Osaka Castle 02bs3200.jpg"
+  },
+  "stops/d26-castelo-osaka-4": {
+    "src": "/lugares/stops/d26-castelo-osaka-4.jpg",
+    "credit": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_Outer_Moat_and_Osaka_Business_Park,_November_2016.jpg",
+    "title": "Osaka Castle Outer Moat and Osaka Business Park, November 2016.jpg"
   },
   "stops/d26-kuromon": {
     "src": "/lugares/stops/d26-kuromon.jpg",
@@ -1347,12 +2383,82 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Kuromon-ichiba_in_201408.JPG",
     "title": "Kuromon-ichiba in 201408.JPG"
   },
+  "stops/d26-kuromon-2": {
+    "src": "/lugares/stops/d26-kuromon-2.jpg",
+    "credit": "Mc681",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kuromon-ichiba_in_201408.JPG",
+    "title": "Kuromon-ichiba in 201408.JPG"
+  },
+  "stops/d26-kuromon-3": {
+    "src": "/lugares/stops/d26-kuromon-3.jpg",
+    "credit": "Mr.ちゅらさん",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kuromon_Ichiba_Market_at_LaLaport_Kadoma4.jpg",
+    "title": "Kuromon Ichiba Market at LaLaport Kadoma4.jpg"
+  },
+  "stops/d26-kuromon-4": {
+    "src": "/lugares/stops/d26-kuromon-4.jpg",
+    "credit": "Mr.ちゅらさん",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kuromon_Ichiba_Market_at_Lalaport_Kadoma2.jpg",
+    "title": "Kuromon Ichiba Market at Lalaport Kadoma2.jpg"
+  },
+  "stops/d26-nankai": {
+    "src": "/lugares/stops/d26-nankai.jpg",
+    "credit": "MaedaAkihiko",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nankai_Series30000_Koya-5.jpg",
+    "title": "Nankai Series30000 Koya-5.jpg"
+  },
+  "stops/d26-nankai-2": {
+    "src": "/lugares/stops/d26-nankai-2.jpg",
+    "credit": "MaedaAkihiko",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nankai_Series30000_Koya-5.jpg",
+    "title": "Nankai Series30000 Koya-5.jpg"
+  },
+  "stops/d26-nankai-3": {
+    "src": "/lugares/stops/d26-nankai-3.jpg",
+    "credit": "Olegushka",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Koya_30000_Hashimoto-KiiShimizu_19921018.jpg",
+    "title": "Koya 30000 Hashimoto-KiiShimizu 19921018.jpg"
+  },
+  "stops/d26-nankai-4": {
+    "src": "/lugares/stops/d26-nankai-4.jpg",
+    "credit": "Fabio Achilli from Milano, Italy",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nankai_30000_series_interior_(44125168132).jpg",
+    "title": "Nankai 30000 series interior (44125168132).jpg"
+  },
   "stops/d26-shinsekai": {
     "src": "/lugares/stops/d26-shinsekai.jpg",
     "credit": "Kansai explorer at ja.wikipedia",
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E9%80%9A%E5%A4%A9%E9%96%A303.jpg",
     "title": "通天閣03.jpg"
+  },
+  "stops/d26-shinsekai-2": {
+    "src": "/lugares/stops/d26-shinsekai-2.jpg",
+    "credit": "Kansai explorer at ja.wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%80%9A%E5%A4%A9%E9%96%A303.jpg",
+    "title": "通天閣03.jpg"
+  },
+  "stops/d26-shinsekai-3": {
+    "src": "/lugares/stops/d26-shinsekai-3.jpg",
+    "credit": "Richard, enjoy my life!",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E3%82%AB%E3%82%B4%E3%83%A1%E3%83%88%E3%83%9E%E3%83%88%E3%82%B8%E3%83%A5%E3%83%BC%E3%82%B9%E9%80%9A%E5%A4%A9%E9%96%A3_(9196601073).jpg",
+    "title": "カゴメトマトジュース通天閣 (9196601073).jpg"
+  },
+  "stops/d26-shinsekai-4": {
+    "src": "/lugares/stops/d26-shinsekai-4.jpg",
+    "credit": "Scarper Montgomery",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shinsekai_Nikkatsu_2_-_HIBIKIFL.jpg",
+    "title": "Shinsekai Nikkatsu 2 - HIBIKIFL.jpg"
   },
   "stops/d26-shitennoji": {
     "src": "/lugares/stops/d26-shitennoji.jpg",
@@ -1361,12 +2467,110 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:%E5%9B%9B%E5%A4%A9%E7%8E%8B%E5%AF%BA_(%E6%B5%AA%E8%8A%B1%E7%99%BE%E6%99%AF).jpg",
     "title": "四天王寺 (浪花百景).jpg"
   },
+  "stops/d26-shitennoji-2": {
+    "src": "/lugares/stops/d26-shitennoji-2.jpg",
+    "credit": "Utagawa Yoshiyuki",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%9B%9B%E5%A4%A9%E7%8E%8B%E5%AF%BA_(%E6%B5%AA%E8%8A%B1%E7%99%BE%E6%99%AF).jpg",
+    "title": "四天王寺 (浪花百景).jpg"
+  },
+  "stops/d26-shitennoji-3": {
+    "src": "/lugares/stops/d26-shitennoji-3.jpg",
+    "credit": "George N",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rokujiraisando,_Shitennoji_temple,_Osaka_-_Jun_24m_2016.jpg",
+    "title": "Rokujiraisando, Shitennoji temple, Osaka - Jun 24m 2016.jpg"
+  },
+  "stops/d26-shitennoji-4": {
+    "src": "/lugares/stops/d26-shitennoji-4.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shitennoji_(Osaka_Tennoji-ku)_Temple_hdsr_S5_ch04.jpg",
+    "title": "Shitennoji (Osaka Tennoji-ku) Temple hdsr S5 ch04.jpg"
+  },
   "stops/d26-umeda": {
     "src": "/lugares/stops/d26-umeda.jpg",
     "credit": "Martin Falbisoner",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Umeda_Sky_Building,_Osaka,_November_2016_-01.jpg",
     "title": "Umeda Sky Building, Osaka, November 2016 -01.jpg"
+  },
+  "stops/d26-umeda-2": {
+    "src": "/lugares/stops/d26-umeda-2.jpg",
+    "credit": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Umeda_Sky_Building,_Osaka,_November_2016_-01.jpg",
+    "title": "Umeda Sky Building, Osaka, November 2016 -01.jpg"
+  },
+  "stops/d26-umeda-3": {
+    "src": "/lugares/stops/d26-umeda-3.jpg",
+    "credit": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Umeda_Sky_Building,_Osaka,_November_2016_-02.jpg",
+    "title": "Umeda Sky Building, Osaka, November 2016 -02.jpg"
+  },
+  "stops/d26-umeda-4": {
+    "src": "/lugares/stops/d26-umeda-4.jpg",
+    "credit": "Zairon",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Osaka_Umeda_Sky_Building_Panoramablick_05.jpg",
+    "title": "Osaka Umeda Sky Building Panoramablick 05.jpg"
+  },
+  "stops/d27-almoco": {
+    "src": "/lugares/stops/d27-almoco.jpg",
+    "credit": "hirotomo from Osaka",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Butaman_by_hirotomo_in_Osaka.jpg",
+    "title": "Butaman by hirotomo in Osaka.jpg"
+  },
+  "stops/d27-almoco-2": {
+    "src": "/lugares/stops/d27-almoco-2.jpg",
+    "credit": "hirotomo from Osaka",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Butaman_by_hirotomo_in_Osaka.jpg",
+    "title": "Butaman by hirotomo in Osaka.jpg"
+  },
+  "stops/d27-almoco-3": {
+    "src": "/lugares/stops/d27-almoco-3.jpg",
+    "credit": "bryan... from Taipei, Taiwan",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E8%82%89%E5%8C%85,_%E5%8C%85%E5%AD%90,_551%E8%93%AC%E8%8E%B1,_%E5%A4%A7%E9%98%AA,_%E6%97%A5%E6%9C%AC,_%E8%B1%9A%E3%81%BE%E3%82%93,_%E3%81%8A%E3%81%8A%E3%81%95%E3%81%8B%E3%81%97,_%E3%81%AB%E3%81%A3%E3%81%BD%E3%82%93,_%E3%81%AB%E3%81%BB%E3%82%93,_551_Horai,_Osaka,_Japan,_Nippon,_Nihon_(25099679281).jpg",
+    "title": "肉包, 包子, 551蓬莱, 大阪, 日本, 豚まん, おおさかし, にっぽん, にほん, 551 Horai, Osaka, Japan, Nippon, Nihon (25099679281).jpg"
+  },
+  "stops/d27-almoco-4": {
+    "src": "/lugares/stops/d27-almoco-4.jpg",
+    "credit": "bryan... from Taipei, Taiwan",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E8%82%89%E5%8C%85,_%E5%8C%85%E5%AD%90,_551%E8%93%AC%E8%8E%B1,_%E5%A4%A7%E9%98%AA,_%E6%97%A5%E6%9C%AC,_%E8%B1%9A%E3%81%BE%E3%82%93,_%E3%81%8A%E3%81%8A%E3%81%95%E3%81%8B%E3%81%97,_%E3%81%AB%E3%81%A3%E3%81%BD%E3%82%93,_%E3%81%AB%E3%81%BB%E3%82%93,_551_Horai,_Osaka,_Japan,_Nippon,_Nihon_(24825228409).jpg",
+    "title": "肉包, 包子, 551蓬莱, 大阪, 日本, 豚まん, おおさかし, にっぽん, にほん, 551 Horai, Osaka, Japan, Nippon, Nihon (24825228409).jpg"
+  },
+  "stops/d27-descida": {
+    "src": "/lugares/stops/d27-descida.jpg",
+    "credit": "nobu3withfoxy",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nankai_Cable_Line_Gokurakubashi_Station.jpg",
+    "title": "Nankai Cable Line Gokurakubashi Station.jpg"
+  },
+  "stops/d27-descida-2": {
+    "src": "/lugares/stops/d27-descida-2.jpg",
+    "credit": "nobu3withfoxy",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nankai_Cable_Line_Gokurakubashi_Station.jpg",
+    "title": "Nankai Cable Line Gokurakubashi Station.jpg"
+  },
+  "stops/d27-descida-3": {
+    "src": "/lugares/stops/d27-descida-3.jpg",
+    "credit": "nobu3withfoxy",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nankai_Cable_Line_2018-07-21.jpg",
+    "title": "Nankai Cable Line 2018-07-21.jpg"
+  },
+  "stops/d27-descida-4": {
+    "src": "/lugares/stops/d27-descida-4.jpg",
+    "credit": "Maarten Heerlien",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cable_car_to_Koyasan_2009-09-04.jpg",
+    "title": "Cable car to Koyasan 2009-09-04.jpg"
   },
   "stops/d27-fushimi-inari": {
     "src": "/lugares/stops/d27-fushimi-inari.jpg",
@@ -1375,12 +2579,117 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:KyotoFushimiInariLarge.jpg",
     "title": "KyotoFushimiInariLarge.jpg"
   },
+  "stops/d27-fushimi-inari-2": {
+    "src": "/lugares/stops/d27-fushimi-inari-2.jpg",
+    "credit": "Paul Vlaar",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:KyotoFushimiInariLarge.jpg",
+    "title": "KyotoFushimiInariLarge.jpg"
+  },
+  "stops/d27-fushimi-inari-3": {
+    "src": "/lugares/stops/d27-fushimi-inari-3.jpg",
+    "credit": "MichaelMaggs",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Inscriptions_on_torii,_Fushimi_Inari_shrine,_Kyoto.jpg",
+    "title": "Inscriptions on torii, Fushimi Inari shrine, Kyoto.jpg"
+  },
+  "stops/d27-fushimi-inari-4": {
+    "src": "/lugares/stops/d27-fushimi-inari-4.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg",
+    "title": "Torii path with lantern at Fushimi Inari Taisha Shrine, Kyoto, Japan.jpg"
+  },
+  "stops/d27-garan": {
+    "src": "/lugares/stops/d27-garan.jpg",
+    "credit": "Naokijp",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Koyasan_Danjogaran_Konpondaito_Mosikizu_01.jpg",
+    "title": "Koyasan Danjogaran Konpondaito Mosikizu 01.jpg"
+  },
+  "stops/d27-garan-2": {
+    "src": "/lugares/stops/d27-garan-2.jpg",
+    "credit": "Naokijp",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Koyasan_Danjogaran_Konpondaito_Mosikizu_01.jpg",
+    "title": "Koyasan Danjogaran Konpondaito Mosikizu 01.jpg"
+  },
+  "stops/d27-garan-3": {
+    "src": "/lugares/stops/d27-garan-3.jpg",
+    "credit": "Naokijp",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Konpon_Dait%C5%8D_at_Danjogaran_of_Kong%C5%8Dbu-ji_in_K%C5%8Dyasan_in_Autumn_(2021.11)_001.jpg",
+    "title": "Konpon Daitō at Danjogaran of Kongōbu-ji in Kōyasan in Autumn (2021.11) 001.jpg"
+  },
+  "stops/d27-kongobuji": {
+    "src": "/lugares/stops/d27-kongobuji.jpg",
+    "credit": "Daderot",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kongobuji_Temple,_Koyasan,_Japan_-_Banryutei_rock_garden.JPG",
+    "title": "Kongobuji Temple, Koyasan, Japan - Banryutei rock garden.JPG"
+  },
+  "stops/d27-kongobuji-2": {
+    "src": "/lugares/stops/d27-kongobuji-2.jpg",
+    "credit": "Daderot",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kongobuji_Temple,_Koyasan,_Japan_-_Banryutei_rock_garden.JPG",
+    "title": "Kongobuji Temple, Koyasan, Japan - Banryutei rock garden.JPG"
+  },
+  "stops/d27-nishiki-rapido": {
+    "src": "/lugares/stops/d27-nishiki-rapido.jpg",
+    "credit": "matsuyuki",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_matsuyuki.jpg",
+    "title": "Nishiki Ichiba by matsuyuki.jpg"
+  },
+  "stops/d27-nishiki-rapido-2": {
+    "src": "/lugares/stops/d27-nishiki-rapido-2.jpg",
+    "credit": "matsuyuki",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_matsuyuki.jpg",
+    "title": "Nishiki Ichiba by matsuyuki.jpg"
+  },
+  "stops/d27-nishiki-rapido-3": {
+    "src": "/lugares/stops/d27-nishiki-rapido-3.jpg",
+    "credit": "pokpok313 from Nishiki Ichiba, Nakagyo, Kyoto",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_pokpok313_in_Kyoto.jpg",
+    "title": "Nishiki Ichiba by pokpok313 in Kyoto.jpg"
+  },
+  "stops/d27-nishiki-rapido-4": {
+    "src": "/lugares/stops/d27-nishiki-rapido-4.jpg",
+    "credit": "Kazutaka NAKANO",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_Kazutaka_NAKANO_in_Kyoto.jpg",
+    "title": "Nishiki Ichiba by Kazutaka NAKANO in Kyoto.jpg"
+  },
   "stops/d27-sumiyoshi": {
     "src": "/lugares/stops/d27-sumiyoshi.jpg",
     "credit": "Saigen Jiro",
     "license": "CC0",
     "source": "https://commons.wikimedia.org/wiki/File:Sumiyoshi-taisha,_keidai.jpg",
     "title": "Sumiyoshi-taisha, keidai.jpg"
+  },
+  "stops/d27-sumiyoshi-2": {
+    "src": "/lugares/stops/d27-sumiyoshi-2.jpg",
+    "credit": "Saigen Jiro",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sumiyoshi-taisha,_keidai.jpg",
+    "title": "Sumiyoshi-taisha, keidai.jpg"
+  },
+  "stops/d27-sumiyoshi-3": {
+    "src": "/lugares/stops/d27-sumiyoshi-3.jpg",
+    "credit": "Immanuelle",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sumiyoshi_Taisha-33.jpg",
+    "title": "Sumiyoshi Taisha-33.jpg"
+  },
+  "stops/d27-sumiyoshi-4": {
+    "src": "/lugares/stops/d27-sumiyoshi-4.jpg",
+    "credit": "Immanuelle",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sumiyoshi_Taisha-27.jpg",
+    "title": "Sumiyoshi Taisha-27.jpg"
   },
   "stops/d28-eikando": {
     "src": "/lugares/stops/d28-eikando.jpg",
@@ -1389,12 +2698,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Eikan-d%C5%8D_Zenrin-ji_-_%E6%B0%B8%E8%A6%B3%E5%A0%82%E7%A6%85%E6%9E%97%E5%AF%BA_(25604818833).jpg",
     "title": "Eikan-dō Zenrin-ji - 永観堂禅林寺 (25604818833).jpg"
   },
+  "stops/d28-eikando-2": {
+    "src": "/lugares/stops/d28-eikando-2.jpg",
+    "credit": "Blondinrikard Fröberg",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Eikan-d%C5%8D_Zenrin-ji_-_%E6%B0%B8%E8%A6%B3%E5%A0%82%E7%A6%85%E6%9E%97%E5%AF%BA_(25604818833).jpg",
+    "title": "Eikan-dō Zenrin-ji - 永観堂禅林寺 (25604818833).jpg"
+  },
+  "stops/d28-eikando-3": {
+    "src": "/lugares/stops/d28-eikando-3.jpg",
+    "credit": "Suicasmo",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zenrinji_Eikando_20161113-1.jpg",
+    "title": "Zenrinji Eikando 20161113-1.jpg"
+  },
+  "stops/d28-eikando-4": {
+    "src": "/lugares/stops/d28-eikando-4.jpg",
+    "credit": "Suicasmo",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zenrinji_Eikando_20161113-2.jpg",
+    "title": "Zenrinji Eikando 20161113-2.jpg"
+  },
   "stops/d28-filosofo": {
     "src": "/lugares/stops/d28-filosofo.jpg",
     "credit": "Gzzz",
     "license": "CC BY 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Tetsugaku-no-michi_-_Philosopher%27s_Walk_-_Kyoto.jpg",
     "title": "Tetsugaku-no-michi - Philosopher's Walk - Kyoto.jpg"
+  },
+  "stops/d28-filosofo-2": {
+    "src": "/lugares/stops/d28-filosofo-2.jpg",
+    "credit": "Gzzz",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tetsugaku-no-michi_-_Philosopher%27s_Walk_-_Kyoto.jpg",
+    "title": "Tetsugaku-no-michi - Philosopher's Walk - Kyoto.jpg"
+  },
+  "stops/d28-filosofo-3": {
+    "src": "/lugares/stops/d28-filosofo-3.jpg",
+    "credit": "autor não identificado",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bronze_statuette_of_a_philosopher_on_a_lamp_stand_MET_DP337221.jpg",
+    "title": "Bronze statuette of a philosopher on a lamp stand MET DP337221.jpg"
+  },
+  "stops/d28-filosofo-4": {
+    "src": "/lugares/stops/d28-filosofo-4.jpg",
+    "credit": "autor não identificado",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Marble_statuette_of_a_seated_philosopher_MET_DP338143.jpg",
+    "title": "Marble statuette of a seated philosopher MET DP338143.jpg"
   },
   "stops/d28-ginkakuji": {
     "src": "/lugares/stops/d28-ginkakuji.jpg",
@@ -1403,6 +2754,27 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Sunlight_through_clouds_and_view_of_Ginkaku-ji_Temple_from_above,_Kyoto,_Japan.jpg",
     "title": "Sunlight through clouds and view of Ginkaku-ji Temple from above, Kyoto, Japan.jpg"
   },
+  "stops/d28-ginkakuji-2": {
+    "src": "/lugares/stops/d28-ginkakuji-2.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunlight_through_clouds_and_view_of_Ginkaku-ji_Temple_from_above,_Kyoto,_Japan.jpg",
+    "title": "Sunlight through clouds and view of Ginkaku-ji Temple from above, Kyoto, Japan.jpg"
+  },
+  "stops/d28-ginkakuji-3": {
+    "src": "/lugares/stops/d28-ginkakuji-3.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dry-sand_Zen_garden_made_of_beige_stripes_a_sunny_day_at_Higashiyama_Jisho-ji_Buddhist_temple_Ginkaku-ji_Kyoto_Japan.jpg",
+    "title": "Dry-sand Zen garden made of beige stripes a sunny day at Higashiyama Jisho-ji Buddhist temple Ginkaku-ji Kyoto Japan.jpg"
+  },
+  "stops/d28-ginkakuji-4": {
+    "src": "/lugares/stops/d28-ginkakuji-4.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ginkaku-ji_Kyoto_1.jpg",
+    "title": "Ginkaku-ji Kyoto 1.jpg"
+  },
   "stops/d28-gion": {
     "src": "/lugares/stops/d28-gion.jpg",
     "credit": "sailko",
@@ -1410,12 +2782,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Gion,_Kyoto,_maiko_henshin.jpg",
     "title": "Gion, Kyoto, maiko henshin.jpg"
   },
+  "stops/d28-gion-2": {
+    "src": "/lugares/stops/d28-gion-2.jpg",
+    "credit": "sailko",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gion,_Kyoto,_maiko_henshin.jpg",
+    "title": "Gion, Kyoto, maiko henshin.jpg"
+  },
+  "stops/d28-gion-3": {
+    "src": "/lugares/stops/d28-gion-3.jpg",
+    "credit": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kyoto_Gion_Matsuri_20100716_2544.jpg",
+    "title": "Kyoto Gion Matsuri 20100716 2544.jpg"
+  },
+  "stops/d28-gion-4": {
+    "src": "/lugares/stops/d28-gion-4.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Portrait_photograph_of_a_walking_woman_wearing_a_red_yukata_with_an_oil-paper_umbrella,_in_Gion,_Kyoto,_Japan.jpg",
+    "title": "Portrait photograph of a walking woman wearing a red yukata with an oil-paper umbrella, in Gion, Kyoto, Japan.jpg"
+  },
   "stops/d28-kiyomizu": {
     "src": "/lugares/stops/d28-kiyomizu.jpg",
-    "credit": "z tanuki",
-    "license": "CC BY 3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera_temple_,_%E6%B8%85%E6%B0%B4%E5%AF%BA_-_panoramio.jpg",
-    "title": "Kiyomizu-dera temple , 清水寺 - panoramio.jpg"
+    "credit": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg",
+    "title": "Kiyomizu-dera, Kyoto, November 2016 -01.jpg"
+  },
+  "stops/d28-kiyomizu-2": {
+    "src": "/lugares/stops/d28-kiyomizu-2.jpg",
+    "credit": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg",
+    "title": "Kiyomizu-dera, Kyoto, November 2016 -01.jpg"
+  },
+  "stops/d28-kiyomizu-3": {
+    "src": "/lugares/stops/d28-kiyomizu-3.jpg",
+    "credit": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-06.jpg",
+    "title": "Kiyomizu-dera, Kyoto, November 2016 -06.jpg"
+  },
+  "stops/d28-kiyomizu-4": {
+    "src": "/lugares/stops/d28-kiyomizu-4.jpg",
+    "credit": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-07.jpg",
+    "title": "Kiyomizu-dera, Kyoto, November 2016 -07.jpg"
   },
   "stops/d28-kodaiji": {
     "src": "/lugares/stops/d28-kodaiji.jpg",
@@ -1424,12 +2838,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:20131014_44_Kyoto_-_Higashiyama_-_Kodaiji_Temple_(10512619864).jpg",
     "title": "20131014 44 Kyoto - Higashiyama - Kodaiji Temple (10512619864).jpg"
   },
+  "stops/d28-kodaiji-2": {
+    "src": "/lugares/stops/d28-kodaiji-2.jpg",
+    "credit": "Sjaak Kempe from Groningen, The Netherlands",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20131014_44_Kyoto_-_Higashiyama_-_Kodaiji_Temple_(10512619864).jpg",
+    "title": "20131014 44 Kyoto - Higashiyama - Kodaiji Temple (10512619864).jpg"
+  },
+  "stops/d28-kodaiji-3": {
+    "src": "/lugares/stops/d28-kodaiji-3.jpg",
+    "credit": "Sjaak Kempe from Groningen, The Netherlands",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20131014_46_Kyoto_-_Higashiyama_-_Kodaiji_Temple_(10512624624).jpg",
+    "title": "20131014 46 Kyoto - Higashiyama - Kodaiji Temple (10512624624).jpg"
+  },
+  "stops/d28-kodaiji-4": {
+    "src": "/lugares/stops/d28-kodaiji-4.jpg",
+    "credit": "Sjaak Kempe from Groningen, The Netherlands",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20131014_52_Kyoto_-_Higashiyama_-_Kodaiji_Temple_(10512806443).jpg",
+    "title": "20131014 52 Kyoto - Higashiyama - Kodaiji Temple (10512806443).jpg"
+  },
   "stops/d28-nanzenji": {
     "src": "/lugares/stops/d28-nanzenji.jpg",
     "credit": "Patrick20242023",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E7%A6%85%E5%AF%BA%E5%A4%A7%E6%AE%BF%E5%B7%A6%E4%BE%A7%E9%9D%A2.jpg",
     "title": "南禅寺大殿左侧面.jpg"
+  },
+  "stops/d28-nanzenji-2": {
+    "src": "/lugares/stops/d28-nanzenji-2.jpg",
+    "credit": "Patrick20242023",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E7%A6%85%E5%AF%BA%E5%A4%A7%E6%AE%BF%E5%B7%A6%E4%BE%A7%E9%9D%A2.jpg",
+    "title": "南禅寺大殿左侧面.jpg"
+  },
+  "stops/d28-nanzenji-3": {
+    "src": "/lugares/stops/d28-nanzenji-3.jpg",
+    "credit": "Patrick20242023",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E7%A6%85%E5%AF%BA%E5%A4%A7%E6%AE%BF%E8%83%8C%E9%9D%A2.jpg",
+    "title": "南禅寺大殿背面.jpg"
+  },
+  "stops/d28-nanzenji-4": {
+    "src": "/lugares/stops/d28-nanzenji-4.jpg",
+    "credit": "Patrick20242023",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E7%A6%85%E5%AF%BA%E5%A4%A7%E6%AE%BF%E6%AD%A3%E9%9D%A2.jpg",
+    "title": "南禅寺大殿正面.jpg"
   },
   "stops/d28-sannenzaka": {
     "src": "/lugares/stops/d28-sannenzaka.jpg",
@@ -1438,12 +2894,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E5%B9%B4%E5%9D%82_%E4%BA%8C%E5%B9%B4%E5%9D%82_%E5%AF%8C%E5%A3%AB%E5%B1%8B_(14005366732).jpg",
     "title": "三年坂 二年坂 富士屋 (14005366732).jpg"
   },
+  "stops/d28-sannenzaka-2": {
+    "src": "/lugares/stops/d28-sannenzaka-2.jpg",
+    "credit": "othree",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E5%B9%B4%E5%9D%82_%E4%BA%8C%E5%B9%B4%E5%9D%82_%E5%AF%8C%E5%A3%AB%E5%B1%8B_(14005366732).jpg",
+    "title": "三年坂 二年坂 富士屋 (14005366732).jpg"
+  },
+  "stops/d28-sannenzaka-3": {
+    "src": "/lugares/stops/d28-sannenzaka-3.jpg",
+    "credit": "othree",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E5%B9%B4%E5%9D%82_%E4%BA%8C%E5%B9%B4%E5%9D%82_%E5%AF%8C%E5%A3%AB%E5%B1%8B_(14028579033).jpg",
+    "title": "三年坂 二年坂 富士屋 (14028579033).jpg"
+  },
+  "stops/d28-sannenzaka-4": {
+    "src": "/lugares/stops/d28-sannenzaka-4.jpg",
+    "credit": "Aporon999",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sannenzaka-kyoto.JPG",
+    "title": "Sannenzaka-kyoto.JPG"
+  },
   "stops/d29-bambu": {
     "src": "/lugares/stops/d29-bambu.jpg",
     "credit": "松岡明芳",
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Arashiyama_Hanat%C5%8Dro_%E5%B5%90%E5%B1%B1%E8%8A%B1%E7%81%AF%E8%B7%AF_%E5%B5%AF%E5%B3%A8%E9%87%8E%E7%AB%B9%E6%9E%97_DSCF5369.JPG",
     "title": "Arashiyama Hanatōro 嵐山花灯路 嵯峨野竹林 DSCF5369.JPG"
+  },
+  "stops/d29-bambu-2": {
+    "src": "/lugares/stops/d29-bambu-2.jpg",
+    "credit": "松岡明芳",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Arashiyama_Hanat%C5%8Dro_%E5%B5%90%E5%B1%B1%E8%8A%B1%E7%81%AF%E8%B7%AF_%E5%B5%AF%E5%B3%A8%E9%87%8E%E7%AB%B9%E6%9E%97_DSCF5369.JPG",
+    "title": "Arashiyama Hanatōro 嵐山花灯路 嵯峨野竹林 DSCF5369.JPG"
+  },
+  "stops/d29-bambu-3": {
+    "src": "/lugares/stops/d29-bambu-3.jpg",
+    "credit": "松岡明芳",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Arashiyama_Hanat%C5%8Dro_%E5%B5%90%E5%B1%B1%E8%8A%B1%E7%81%AF%E8%B7%AF_%E5%B5%AF%E5%B3%A8%E9%87%8E%E7%AB%B9%E6%9E%97_DSCF5459.JPG",
+    "title": "Arashiyama Hanatōro 嵐山花灯路 嵯峨野竹林 DSCF5459.JPG"
+  },
+  "stops/d29-bambu-4": {
+    "src": "/lugares/stops/d29-bambu-4.jpg",
+    "credit": "surimu",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%98%A5%E3%81%AE%E5%B5%AF%E5%B3%A8%E9%87%8E%E3%81%AE%E7%AB%B9%E6%9E%97_-_panoramio.jpg",
+    "title": "春の嵯峨野の竹林 - panoramio.jpg"
   },
   "stops/d29-kinkakuji": {
     "src": "/lugares/stops/d29-kinkakuji.jpg",
@@ -1452,12 +2950,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Kinkaku-ji_in_November_2016_-02.jpg",
     "title": "Kinkaku-ji in November 2016 -02.jpg"
   },
+  "stops/d29-kinkakuji-2": {
+    "src": "/lugares/stops/d29-kinkakuji-2.jpg",
+    "credit": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kinkaku-ji_in_November_2016_-02.jpg",
+    "title": "Kinkaku-ji in November 2016 -02.jpg"
+  },
+  "stops/d29-kinkakuji-3": {
+    "src": "/lugares/stops/d29-kinkakuji-3.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_Kinkaku-ji_Temple_a_sunny_day,_Kyoto,_Japan.jpg",
+    "title": "Water reflection of Kinkaku-ji Temple a sunny day, Kyoto, Japan.jpg"
+  },
+  "stops/d29-kinkakuji-4": {
+    "src": "/lugares/stops/d29-kinkakuji-4.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_Kinkaku-ji_Temple,_side_view,_a_cloudy_day,_Kyoto,_Japan.jpg",
+    "title": "Water reflection of Kinkaku-ji Temple, side view, a cloudy day, Kyoto, Japan.jpg"
+  },
   "stops/d29-konbini": {
     "src": "/lugares/stops/d29-konbini.jpg",
     "credit": "Tokumeigakarinoaoshima",
     "license": "CC0",
     "source": "https://commons.wikimedia.org/wiki/File:7-ELEVEN_Kiosk_JR_Kyoto_station_west_entrance_ticket_gate%27s_inside_store.JPG",
     "title": "7-ELEVEN Kiosk JR Kyoto station west entrance ticket gate's inside store.JPG"
+  },
+  "stops/d29-konbini-2": {
+    "src": "/lugares/stops/d29-konbini-2.jpg",
+    "credit": "Tokumeigakarinoaoshima",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:7-ELEVEN_Kiosk_JR_Kyoto_station_west_entrance_ticket_gate%27s_inside_store.JPG",
+    "title": "7-ELEVEN Kiosk JR Kyoto station west entrance ticket gate's inside store.JPG"
+  },
+  "stops/d29-konbini-3": {
+    "src": "/lugares/stops/d29-konbini-3.jpg",
+    "credit": "Tokumeigakarinoaoshima",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:7-Eleven_Heart-in_JR_Kyoto_Station_Higashi-Koji_store.JPG",
+    "title": "7-Eleven Heart-in JR Kyoto Station Higashi-Koji store.JPG"
+  },
+  "stops/d29-konbini-4": {
+    "src": "/lugares/stops/d29-konbini-4.jpg",
+    "credit": "Tokumeigakarinoaoshima",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:7-Eleven_Heart-in_JR_Kyoto_Station_central_ticket_gate_store.JPG",
+    "title": "7-Eleven Heart-in JR Kyoto Station central ticket gate store.JPG"
   },
   "stops/d29-nishiki": {
     "src": "/lugares/stops/d29-nishiki.jpg",
@@ -1466,12 +3006,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_matsuyuki.jpg",
     "title": "Nishiki Ichiba by matsuyuki.jpg"
   },
+  "stops/d29-nishiki-2": {
+    "src": "/lugares/stops/d29-nishiki-2.jpg",
+    "credit": "matsuyuki",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_matsuyuki.jpg",
+    "title": "Nishiki Ichiba by matsuyuki.jpg"
+  },
+  "stops/d29-nishiki-3": {
+    "src": "/lugares/stops/d29-nishiki-3.jpg",
+    "credit": "pokpok313 from Nishiki Ichiba, Nakagyo, Kyoto",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_pokpok313_in_Kyoto.jpg",
+    "title": "Nishiki Ichiba by pokpok313 in Kyoto.jpg"
+  },
+  "stops/d29-nishiki-4": {
+    "src": "/lugares/stops/d29-nishiki-4.jpg",
+    "credit": "Kazutaka NAKANO",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_Kazutaka_NAKANO_in_Kyoto.jpg",
+    "title": "Nishiki Ichiba by Kazutaka NAKANO in Kyoto.jpg"
+  },
   "stops/d29-okochi-sanso": {
     "src": "/lugares/stops/d29-okochi-sanso.jpg",
     "credit": "KimonBerlin",
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Okochi_Sanso_Villa_(3670797334).jpg",
     "title": "Okochi Sanso Villa (3670797334).jpg"
+  },
+  "stops/d29-okochi-sanso-2": {
+    "src": "/lugares/stops/d29-okochi-sanso-2.jpg",
+    "credit": "KimonBerlin",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Okochi_Sanso_Villa_(3670797334).jpg",
+    "title": "Okochi Sanso Villa (3670797334).jpg"
+  },
+  "stops/d29-okochi-sanso-3": {
+    "src": "/lugares/stops/d29-okochi-sanso-3.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wooden_gate_in_Okochi_Sanso_Garden,_Kyoto,_Japan.jpg",
+    "title": "Wooden gate in Okochi Sanso Garden, Kyoto, Japan.jpg"
+  },
+  "stops/d29-okochi-sanso-4": {
+    "src": "/lugares/stops/d29-okochi-sanso-4.jpg",
+    "credit": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wooden_gate_in_Okochi_Sanso_Garden,_Kyoto,_Japan_(2).jpg",
+    "title": "Wooden gate in Okochi Sanso Garden, Kyoto, Japan (2).jpg"
   },
   "stops/d29-ryoanji": {
     "src": "/lugares/stops/d29-ryoanji.jpg",
@@ -1480,12 +3062,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:RyoanJi-Kane.jpg",
     "title": "RyoanJi-Kane.jpg"
   },
+  "stops/d29-ryoanji-2": {
+    "src": "/lugares/stops/d29-ryoanji-2.jpg",
+    "credit": "Syohei Arai",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:RyoanJi-Kane.jpg",
+    "title": "RyoanJi-Kane.jpg"
+  },
+  "stops/d29-ryoanji-3": {
+    "src": "/lugares/stops/d29-ryoanji-3.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ryoanji_Temple_@_Kyoto_(13406278543).jpg",
+    "title": "Ryoanji Temple @ Kyoto (13406278543).jpg"
+  },
+  "stops/d29-ryoanji-4": {
+    "src": "/lugares/stops/d29-ryoanji-4.jpg",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ryoanji_Temple_@_Kyoto_(13406277743).jpg",
+    "title": "Ryoanji Temple @ Kyoto (13406277743).jpg"
+  },
   "stops/d29-tenryuji": {
     "src": "/lugares/stops/d29-tenryuji.jpg",
     "credit": "osakaosaka",
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Tenryuji_Kyoto.jpg",
     "title": "Tenryuji Kyoto.jpg"
+  },
+  "stops/d29-tenryuji-2": {
+    "src": "/lugares/stops/d29-tenryuji-2.jpg",
+    "credit": "osakaosaka",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tenryuji_Kyoto.jpg",
+    "title": "Tenryuji Kyoto.jpg"
+  },
+  "stops/d29-tenryuji-3": {
+    "src": "/lugares/stops/d29-tenryuji-3.jpg",
+    "credit": "lienyuan lee",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A9%E9%BE%8D%E5%AF%BA_Sagatenryuji_Temple_-_panoramio.jpg",
+    "title": "天龍寺 Sagatenryuji Temple - panoramio.jpg"
+  },
+  "stops/d29-tenryuji-4": {
+    "src": "/lugares/stops/d29-tenryuji-4.jpg",
+    "credit": "chee.hong",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tenryuji_Temple,_Kyoto_City;_November_2013_(02).jpg",
+    "title": "Tenryuji Temple, Kyoto City; November 2013 (02).jpg"
   },
   "stops/d29-togetsukyo": {
     "src": "/lugares/stops/d29-togetsukyo.jpg",
@@ -1494,12 +3118,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Arashiyama_Togetsukyo-bridge.jpg",
     "title": "Arashiyama Togetsukyo-bridge.jpg"
   },
+  "stops/d29-togetsukyo-2": {
+    "src": "/lugares/stops/d29-togetsukyo-2.jpg",
+    "credit": "Tomomarusan",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Arashiyama_Togetsukyo-bridge.jpg",
+    "title": "Arashiyama Togetsukyo-bridge.jpg"
+  },
+  "stops/d29-togetsukyo-3": {
+    "src": "/lugares/stops/d29-togetsukyo-3.jpg",
+    "credit": "User: (WT-shared) ChubbyWimbus at wts wikivoyage",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Togetsukyo_Bridge_in_Arashiyama,_Kyoto.jpg",
+    "title": "Togetsukyo Bridge in Arashiyama, Kyoto.jpg"
+  },
+  "stops/d29-togetsukyo-4": {
+    "src": "/lugares/stops/d29-togetsukyo-4.jpg",
+    "credit": "そらみみ",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Togetsukyo_Bridge_at_night.JPG",
+    "title": "Togetsukyo Bridge at night.JPG"
+  },
   "stops/d30-kasuga-taisha": {
     "src": "/lugares/stops/d30-kasuga-taisha.jpg",
     "credit": "Hyppolyte de Saint-Rambert",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Kasuga-taisha_%E6%98%A5%E6%97%A5%E5%A4%A7%E7%A4%BE_IMG_3563.jpg",
     "title": "Kasuga-taisha 春日大社 IMG 3563.jpg"
+  },
+  "stops/d30-kasuga-taisha-2": {
+    "src": "/lugares/stops/d30-kasuga-taisha-2.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kasuga-taisha_%E6%98%A5%E6%97%A5%E5%A4%A7%E7%A4%BE_IMG_3563.jpg",
+    "title": "Kasuga-taisha 春日大社 IMG 3563.jpg"
+  },
+  "stops/d30-kasuga-taisha-3": {
+    "src": "/lugares/stops/d30-kasuga-taisha-3.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kasuga-taisha_%E6%98%A5%E6%97%A5%E5%A4%A7%E7%A4%BE_IMG_3593.jpg",
+    "title": "Kasuga-taisha 春日大社 IMG 3593.jpg"
+  },
+  "stops/d30-kasuga-taisha-4": {
+    "src": "/lugares/stops/d30-kasuga-taisha-4.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kasuga-taisha_%E6%98%A5%E6%97%A5%E5%A4%A7%E7%A4%BE_IMG_3598.jpg",
+    "title": "Kasuga-taisha 春日大社 IMG 3598.jpg"
   },
   "stops/d30-kofukuji": {
     "src": "/lugares/stops/d30-kofukuji.jpg",
@@ -1508,12 +3174,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Nara_Kofukuji_South_Jizo.jpg",
     "title": "Nara Kofukuji South Jizo.jpg"
   },
+  "stops/d30-kofukuji-2": {
+    "src": "/lugares/stops/d30-kofukuji-2.jpg",
+    "credit": "Kochizufan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nara_Kofukuji_South_Jizo.jpg",
+    "title": "Nara Kofukuji South Jizo.jpg"
+  },
+  "stops/d30-kofukuji-3": {
+    "src": "/lugares/stops/d30-kofukuji-3.jpg",
+    "credit": "Kochizufan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nara_Kofukuji_South_Jizo_(Kasako).jpg",
+    "title": "Nara Kofukuji South Jizo (Kasako).jpg"
+  },
+  "stops/d30-kofukuji-4": {
+    "src": "/lugares/stops/d30-kofukuji-4.jpg",
+    "credit": "Cun Cun",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kofukuji_Chukondo.jpg",
+    "title": "Kofukuji Chukondo.jpg"
+  },
   "stops/d30-naramachi": {
     "src": "/lugares/stops/d30-naramachi.jpg",
     "credit": "Kochizufan",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Naramachi_Tenjin_SouthGate.JPG",
     "title": "Naramachi Tenjin SouthGate.JPG"
+  },
+  "stops/d30-naramachi-2": {
+    "src": "/lugares/stops/d30-naramachi-2.jpg",
+    "credit": "Kochizufan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Naramachi_Tenjin_SouthGate.JPG",
+    "title": "Naramachi Tenjin SouthGate.JPG"
+  },
+  "stops/d30-naramachi-3": {
+    "src": "/lugares/stops/d30-naramachi-3.jpg",
+    "credit": "Kochizufan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg",
+    "title": "Naramachi Tenjin Reisai Togyo Nara 1.jpg"
+  },
+  "stops/d30-naramachi-4": {
+    "src": "/lugares/stops/d30-naramachi-4.jpg",
+    "credit": "Kochizufan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Naramachi_Tenjin_Reisai_Togyo_Nara_3.jpg",
+    "title": "Naramachi Tenjin Reisai Togyo Nara 3.jpg"
   },
   "stops/d30-nigatsudo": {
     "src": "/lugares/stops/d30-nigatsudo.jpg",
@@ -1522,6 +3230,27 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Todai-ji_Nigatsu-do_National_Treasure_%E5%9B%BD%E5%AE%9D%E6%9D%B1%E5%A4%A7%E5%AF%BA%E4%BA%8C%E6%9C%88%E5%A0%8203.JPG",
     "title": "Todai-ji Nigatsu-do National Treasure 国宝東大寺二月堂03.JPG"
   },
+  "stops/d30-nigatsudo-2": {
+    "src": "/lugares/stops/d30-nigatsudo-2.jpg",
+    "credit": "Nekosuki",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Todai-ji_Nigatsu-do_National_Treasure_%E5%9B%BD%E5%AE%9D%E6%9D%B1%E5%A4%A7%E5%AF%BA%E4%BA%8C%E6%9C%88%E5%A0%8203.JPG",
+    "title": "Todai-ji Nigatsu-do National Treasure 国宝東大寺二月堂03.JPG"
+  },
+  "stops/d30-nigatsudo-3": {
+    "src": "/lugares/stops/d30-nigatsudo-3.jpg",
+    "credit": "Nekosuki",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Todai-ji_Nigatsu-do_National_Treasure_%E5%9B%BD%E5%AE%9D%E6%9D%B1%E5%A4%A7%E5%AF%BA%E4%BA%8C%E6%9C%88%E5%A0%8214.JPG",
+    "title": "Todai-ji Nigatsu-do National Treasure 国宝東大寺二月堂14.JPG"
+  },
+  "stops/d30-nigatsudo-4": {
+    "src": "/lugares/stops/d30-nigatsudo-4.jpg",
+    "credit": "Nekosuki",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Todai-ji_Nigatsu-do_National_Treasure_%E5%9B%BD%E5%AE%9D%E6%9D%B1%E5%A4%A7%E5%AF%BA%E4%BA%8C%E6%9C%88%E5%A0%8220.JPG",
+    "title": "Todai-ji Nigatsu-do National Treasure 国宝東大寺二月堂20.JPG"
+  },
   "stops/d30-parque-nara": {
     "src": "/lugares/stops/d30-parque-nara.jpg",
     "credit": "Feri88",
@@ -1529,12 +3258,54 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Nara_Park_-_panoramio_(2).jpg",
     "title": "Nara Park - panoramio (2).jpg"
   },
+  "stops/d30-parque-nara-2": {
+    "src": "/lugares/stops/d30-parque-nara-2.jpg",
+    "credit": "Feri88",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nara_Park_-_panoramio_(2).jpg",
+    "title": "Nara Park - panoramio (2).jpg"
+  },
+  "stops/d30-parque-nara-3": {
+    "src": "/lugares/stops/d30-parque-nara-3.jpg",
+    "credit": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nara_Park,_November_2016.jpg",
+    "title": "Nara Park, November 2016.jpg"
+  },
+  "stops/d30-parque-nara-4": {
+    "src": "/lugares/stops/d30-parque-nara-4.jpg",
+    "credit": "Balon Greyjoy",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:20190121_Nara_deer-3.jpg",
+    "title": "20190121 Nara deer-3.jpg"
+  },
   "stops/d30-todaiji": {
     "src": "/lugares/stops/d30-todaiji.jpg",
     "credit": "Hyppolyte de Saint-Rambert",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_hdsr_IMG_3845.jpg",
     "title": "Tōdai-ji hdsr IMG 3845.jpg"
+  },
+  "stops/d30-todaiji-2": {
+    "src": "/lugares/stops/d30-todaiji-2.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_hdsr_IMG_3845.jpg",
+    "title": "Tōdai-ji hdsr IMG 3845.jpg"
+  },
+  "stops/d30-todaiji-3": {
+    "src": "/lugares/stops/d30-todaiji-3.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_hdsr_IMG_3862.jpg",
+    "title": "Tōdai-ji hdsr IMG 3862.jpg"
+  },
+  "stops/d30-todaiji-4": {
+    "src": "/lugares/stops/d30-todaiji-4.jpg",
+    "credit": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_hdsr_IMG_3865.jpg",
+    "title": "Tōdai-ji hdsr IMG 3865.jpg"
   },
   "sumiyoshi/bonde": {
     "src": "/lugares/sumiyoshi/bonde.jpg",
