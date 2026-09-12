@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, X, ChevronLeft, ChevronRight, Navigation, Gauge, RotateCw, Mountain } from 'lucide-react';
+import { ArrowLeft, Navigation, Gauge, RotateCw, Mountain } from 'lucide-react';
 import type { PlaceMap, PlaceHotspot } from '@/data/placeMaps';
 import { photoKey } from '@/data/placeMaps';
 import { PLACE_PHOTOS } from '@/data/placePhotos.generated';
 import { searchUrl } from '@/lib/mapsLinks';
 import { Rich } from './Rich';
+import { FolhaPonto, type AlturaFolha } from './FolhaPonto';
 
 type Quality = 'alta' | 'leve';
 
@@ -44,6 +45,7 @@ export function Map3D({ map }: { map: PlaceMap }) {
   const [quality, setQuality] = useState<Quality>('alta');
   const [rotate, setRotate] = useState(true);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [altura, setAltura] = useState<AlturaFolha>('meia');
   const [stats, setStats] = useState<Stats | null>(null);
   const [status, setStatus] = useState<'carregando' | 'pronto' | 'erro'>('carregando');
   const selectedRef = useRef<string | null>(null);
@@ -303,17 +305,18 @@ export function Map3D({ map }: { map: PlaceMap }) {
 
       {/* rodapé: lista de pontos ou painel do ponto */}
       {selected ? (
-        <div className="sheet-in absolute inset-x-0 bottom-0 px-2" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 8px)' }}>
-          <div className="mx-auto max-w-xl overflow-hidden rounded-3xl border border-hairline bg-surface shadow-2xl">
-            <div className="flex items-center justify-between border-b border-hairline bg-surface-2/70 px-2 py-1">
-              <button onClick={() => step(-1)} aria-label="Ponto anterior" className="flex h-9 w-9 items-center justify-center rounded-full text-foreground/70"><ChevronLeft size={20} /></button>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-muted">{index + 1} de {map.hotspots.length}{selected.walk ? <span className="ml-2 normal-case tracking-normal text-foreground/60">· {selected.walk} a pé</span> : null}</span>
-              <div className="flex items-center">
-                <button onClick={() => step(1)} aria-label="Próximo ponto" className="flex h-9 w-9 items-center justify-center rounded-full text-foreground/70"><ChevronRight size={20} /></button>
-                <button onClick={() => engineRef.current?.flyTo(null)} aria-label="Fechar" className="flex h-9 w-9 items-center justify-center rounded-full text-muted"><X size={18} /></button>
-              </div>
-            </div>
-            <div className="max-h-[38svh] overflow-y-auto overscroll-contain px-4 pb-3 pt-2.5">
+        <FolhaPonto
+          indice={index}
+          total={map.hotspots.length}
+          passo={step}
+          aoFechar={() => engineRef.current?.flyTo(null)}
+          caminhada={selected.walk}
+          altura={altura}
+          aoMudarAltura={setAltura}
+          flutuante
+        >
+          <>
+
               <h2 className="text-[15px] font-bold leading-snug">
                 {selected.title}
                 {selected.jp && <span className="ml-1.5 font-jp text-[12px] font-normal text-muted">{selected.jp}</span>}
@@ -321,7 +324,7 @@ export function Map3D({ map }: { map: PlaceMap }) {
               {selected.facts && <p className="mt-1 font-mono text-[11px] leading-relaxed text-muted"><Rich text={selected.facts} /></p>}
               {selectedPhoto && (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={selectedPhoto.src} alt={selected.photoCaption ?? selected.title} loading="lazy" className="mt-2.5 max-h-[22svh] w-full rounded-2xl border border-hairline object-cover" />
+                <img src={selectedPhoto.src} alt={selected.photoCaption ?? selected.title} loading="lazy" className="mt-2.5 max-h-[26svh] w-full rounded-2xl border border-hairline object-cover" />
               )}
               {selected.paragraphs.map((p, i) => (
                 <p key={i} className="mt-2 text-[13px] leading-relaxed text-foreground/90"><Rich text={p} /></p>
@@ -329,9 +332,8 @@ export function Map3D({ map }: { map: PlaceMap }) {
               <a href={searchUrl(selected.mapQuery ?? selected.title)} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-[12px] font-medium text-white">
                 <Navigation size={13} /> Navegar até aqui
               </a>
-            </div>
-          </div>
-        </div>
+          </>
+        </FolhaPonto>
       ) : (
         <div className="absolute inset-x-0 bottom-0" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 10px)' }}>
           <p className="mb-1.5 text-center text-[11px] text-white drop-shadow">Toque num número, ou escolha um ponto:</p>

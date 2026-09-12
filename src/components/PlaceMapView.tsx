@@ -28,6 +28,7 @@ import { MAP_COLORS, photoKey, thumbOf } from '@/data/placeMaps';
 import { PLACE_PHOTOS } from '@/data/placePhotos.generated';
 import { searchUrl } from '@/lib/mapsLinks';
 import { Rich } from './Rich';
+import { FolhaPonto, type AlturaFolha } from './FolhaPonto';
 
 const KIND_ICON: Record<HotspotKind, typeof Landmark> = {
   gate: DoorOpen,
@@ -70,6 +71,7 @@ const fmtDist = (m: number) => (m < 950 ? `${Math.round(m / 10) * 10} m` : `${(m
 
 export function PlaceMapView({ map }: { map: PlaceMap }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [altura, setAltura] = useState<AlturaFolha>('meia');
 
   // ── GPS: "você está perto do ponto X" ─────────────────────────────────
   const [geo, setGeo] = useState<{ status: 'off' | 'wait' | 'on' | 'err'; pos?: { lat: number; lng: number }; msg?: string }>({ status: 'off' });
@@ -306,7 +308,7 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
     : '';
 
   return (
-    <div className={`space-y-3 ${selected ? 'pb-[46svh]' : ''}`}>
+    <div className={`space-y-3 ${selected ? (altura === 'cheia' ? 'pb-[92svh]' : 'pb-[60svh]') : ''}`}>
       {/* ── o mapa ─────────────────────────────────────────────────────── */}
       <div className="relative overflow-hidden rounded-3xl border border-hairline bg-surface shadow-sm">
         <svg
@@ -315,7 +317,7 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
           role="img"
           aria-label={`Mapa ilustrado de ${map.title}`}
           className={`block w-full select-none transition-[height] duration-300 ${
-            selected ? 'h-[40svh]' : 'h-[64svh] max-h-[600px]'
+            selected ? (altura === 'cheia' ? 'h-[22svh]' : 'h-[36svh]') : 'h-[64svh] max-h-[600px]'
           }`}
           preserveAspectRatio="xMidYMid meet"
           style={{ touchAction: zoomed ? 'none' : 'pan-y' }}
@@ -524,32 +526,17 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
 
       {/* ── painel do ponto ────────────────────────────────────────────── */}
       {selected ? (
-        <div
-          className="fixed inset-x-0 z-40 px-3 sheet-in"
-          style={{ bottom: 'calc(58px + env(safe-area-inset-bottom))' }}
+        <FolhaPonto
+          indice={index}
+          total={map.hotspots.length}
+          passo={step}
+          aoFechar={() => select(null)}
+          caminhada={selected.walk}
+          altura={altura}
+          aoMudarAltura={setAltura}
         >
-          <div className="mx-auto max-w-xl overflow-hidden rounded-3xl border border-hairline bg-surface shadow-2xl">
-            <div className="flex items-center justify-between border-b border-hairline bg-surface-2/70 px-2 py-1.5">
-              <button onClick={() => step(-1)} aria-label="Ponto anterior" className="flex h-9 w-9 items-center justify-center rounded-full text-foreground/70 active:bg-surface-2">
-                <ChevronLeft size={20} />
-              </button>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-muted">
-                {index + 1} de {map.hotspots.length}
-                {selected.walk && (
-                  <span className="ml-2 normal-case tracking-normal text-foreground/60">· {selected.walk} a pé do anterior</span>
-                )}
-              </span>
-              <div className="flex items-center">
-                <button onClick={() => step(1)} aria-label="Próximo ponto" className="flex h-9 w-9 items-center justify-center rounded-full text-foreground/70 active:bg-surface-2">
-                  <ChevronRight size={20} />
-                </button>
-                <button onClick={() => select(null)} aria-label="Fechar" className="flex h-9 w-9 items-center justify-center rounded-full text-muted active:bg-surface-2">
-                  <X size={18} />
-                </button>
-              </div>
-            </div>
+          <>
 
-            <div className="max-h-[42svh] overflow-y-auto overscroll-contain px-4 pb-4 pt-3">
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent">
                   <Icon size={17} strokeWidth={1.8} />
@@ -577,7 +564,7 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
                     alt={selected.photoCaption ?? selected.title}
                     loading="lazy"
                     decoding="async"
-                    className="max-h-[32svh] w-full rounded-2xl border border-hairline bg-surface-2 object-cover"
+                    className="max-h-[26svh] w-full rounded-2xl border border-hairline bg-surface-2 object-cover"
                   />
                   <figcaption className="mt-1.5 text-[11px] leading-snug text-muted">
                     {selected.photoCaption && (
@@ -607,9 +594,8 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
                   Navegar até aqui
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+          </>
+        </FolhaPonto>
       ) : (
         <p className="px-6 text-center text-[12px] text-muted">
           Toquem numa foto do mapa para ver o que é aquilo e a história.
