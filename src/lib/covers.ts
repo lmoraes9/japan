@@ -37,6 +37,7 @@ const STAGE_COVERS: Record<StageId, string> = {
   tokyo1: 'sensoji/kaminarimon',
   hiroshima: 'miyajima/otorii',
   osaka: 'stops/d26-castelo-osaka',
+  koyasan: 'stops/d26-okunoin',
   kyoto: 'fushimi-inari/senbon',
   tokyo2: 'stops/d02-jardim-imperial',
 };

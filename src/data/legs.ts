@@ -38,8 +38,7 @@ export const START: Record<string, Leg[]> = {
     walk(12, 'reto até o portão Ōtemon, sobre o fosso'),
   ],
   'd2026-11-27': [
-    { mode: 'train', line: 'Nankai Main Line (trem local, 普通)', board: 'Nankai Namba, 3º andar', direction: 'Wakayama-shi · Kansai Airport', alight: 'Sumiyoshitaisha', minutes: 10, cost: '¥210', note: 'os expressos não param; peguem o local ou o semi-expresso. Malas: deixem na recepção do hotel depois do check-out' },
-    walk(3, 'saída leste, atravessa a rua do bonde e o torii está ali'),
+    walk(1, 'a oração é no hondō do próprio templo — é só descer o corredor de meia'),
   ],
   'd2026-11-28': [
     { mode: 'taxi', board: 'na porta do hotel', alight: 'Kiyomizu-dera (清水寺)', minutes: 12, cost: '~¥1.500', note: 'às 5h45 é o jeito certo; ônibus 206 (parada D2 da estação) só começa perto das 6h' },
@@ -216,61 +215,78 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd25-dotonbori': [walk(5, 'até o hotel')],
 
-  // ── 26 nov · Osaka ─────────────────────────────────────────────────
+  // ── 26 nov · meia manhã de Osaka e a subida para Kōyasan ───────────
   'd26-castelo-osaka': [
-    walk(12, 'saída pelo portão Aoyamon ou de volta ao Ōtemon, até a estação Tanimachi 4-chōme'),
+    walk(12, 'saída pelo portão Ōtemon, até a estação Tanimachi 4-chōme'),
     { mode: 'metro', line: 'Chūō Line (verde)', board: 'Tanimachi 4-chōme', direction: 'Cosmosquare', alight: 'Sakaisuji-Hommachi', minutes: 3 },
     { mode: 'metro', line: 'Sakaisuji Line (marrom)', board: 'Sakaisuji-Hommachi', direction: 'Tengachaya', alight: 'Nippombashi, saída 10', minutes: 5, cost: '¥240 no total' },
     walk(2, 'a galeria do Kuromon começa na saída'),
   ],
   'd26-kuromon': [
-    walk(3, 'até a estação Nippombashi'),
-    { mode: 'metro', line: 'Sakaisuji Line (marrom)', board: 'Nippombashi', direction: 'Tenjimbashisuji 6-chōme', alight: 'Tenjimbashisuji 6-chōme (final), saída 8', minutes: 10, cost: '¥240' },
-    walk(4, 'o Harukoma fica na galeria coberta, a mais longa do Japão; a fila é a pista'),
+    walk(8, 'pela galeria até o hotel, em Sennichimae, para pegar a mochila'),
+    walk(6, 'do hotel até a **Nankai Namba**, que fica no 3º andar do prédio da Takashimaya — não confundir com a estação do metrô'),
   ],
-  'd26-sushi': [
-    walk(4, 'de volta à estação Tenjimbashisuji 6-chōme'),
-    { mode: 'metro', line: 'Tanimachi Line (roxa)', board: 'Tenjimbashisuji 6-chōme', direction: 'Yaominami', alight: 'Shitennōji-mae Yūhigaoka, saída 4', minutes: 15, cost: '¥290' },
-    walk(5, 'para o leste até o portão oeste do templo'),
+  'd26-nankai': [
+    { mode: 'train', line: 'Nankai Kōya Line · 特急こうや ou 快速急行', board: 'Nankai Namba, plataformas 3–4 (3º andar)', direction: 'Gokurakubashi (極楽橋)', alight: 'Gokurakubashi (final)', minutes: 85, cost: 'no passe', note: 'no 快速急行 pode ser preciso trocar em Hashimoto — o painel avisa' },
+    { mode: 'cable', line: 'funicular de Kōyasan (高野山ケーブル)', board: 'Gokurakubashi (mesma plataforma, siga a multidão)', direction: 'Kōyasan', alight: 'Estação de Kōyasan', minutes: 5, cost: 'no passe', note: 'rampa de 30 graus; fiquem em pé segurando ou sentem nos degraus' },
+    { mode: 'bus', line: 'Nankai Rinkan · linha do Okunoin', board: 'terminal em frente à estação de Kōyasan', direction: 'Okunoin-mae (奥の院前)', alight: 'Ichinohashi-guchi (一の橋口)', minutes: 13, cost: 'no passe', note: 'é proibido ir a pé da estação à cidade: a estrada não tem calçada' },
+    walk(3, 'o templo fica na rua principal, perto da boca do Ichinohashi'),
   ],
-  'd26-shitennoji': [walk(12, 'para o sudoeste; a torre Tsūtenkaku aparece e é só ir na direção dela')],
-  'd26-shinsekai': [
-    walk(5, 'até a estação Dōbutsuen-mae'),
-    { mode: 'metro', line: 'Midōsuji Line (vermelha)', board: 'Dōbutsuen-mae', direction: 'Shin-Osaka · Senri-Chūō', alight: 'Umeda', minutes: 15, cost: '¥290' },
-    walk(10, 'saída norte; o Umeda Sky Building fica do outro lado dos trilhos, pela passagem subterrânea'),
+  'd26-checkin-shukubo': [
+    walk(5, 'para o leste pela rua principal até a ponte do Ichinohashi, onde começa o Okunoin'),
   ],
-  'd26-umeda': [walk(12, 'para o oeste, seguindo a avenida até Fukushima; o Jinsei JET fica perto da estação JR Fukushima')],
-  'd26-jantar': [
-    { mode: 'train', line: 'Hanshin Namba Line', board: 'Fukushima (Hanshin, não a JR)', direction: 'Ōsaka-Namba · Nara', alight: 'Ōsaka-Namba', minutes: 8, cost: '¥240' },
-    walk(5, 'até o hotel'),
+  'd26-okunoin': [
+    walk(35, 'os 2 km de volta pelo cemitério até o Ichinohashi — ou o ônibus de Okunoin-mae, se o frio apertar'),
+    walk(3, 'até o templo'),
+  ],
+  'd26-jantar-shojin': [
+    walk(5, 'até o lobby do Ekō-in, se forem no tour guiado; senão, direto para o Ichinohashi'),
+  ],
+  'd26-okunoin-noite': [
+    walk(8, 'de volta ao templo, pela rua principal'),
   ],
 
-  // ── 27 nov · Sumiyoshi, Kyoto, Fushimi Inari ───────────────────────
-  'd27-sumiyoshi': [
-    walk(8, 'de volta à estação Sumiyoshitaisha'),
-    { mode: 'train', line: 'Nankai Main Line', board: 'Sumiyoshitaisha', direction: 'Namba', alight: 'Nankai Namba', minutes: 10, cost: '¥210' },
-    walk(5, 'pegar as malas no hotel'),
-    { mode: 'metro', line: 'Midōsuji Line (vermelha)', board: 'Namba', direction: 'Shin-Osaka · Senri-Chūō', alight: 'Umeda', minutes: 8, cost: '¥240' },
-    walk(5, 'siga a placa JR (JR大阪駅); o Special Rapid sai das plataformas 8 e 9'),
+  // ── 27 nov · Kōyasan de manhã, Sumiyoshi no caminho, Kyoto à noite ──
+  'd27-gongyo': [
+    walk(4, 'café da manhã no próprio templo, e depois a pé para o oeste pela rua principal'),
+    { mode: 'bus', line: 'Nankai Rinkan', board: 'Ichinohashi-guchi (一の橋口)', direction: 'Daimon (大門)', alight: 'Kondō-mae (金堂前)', minutes: 8, cost: 'no passe', note: 'dá para ir a pé em 20 min pela rua principal, que é bonita de manhã' },
   ],
-  'd27-trem-kyoto': [
-    { mode: 'train', line: 'JR Special Rapid (新快速)', board: 'Osaka, plataformas 8–9', direction: 'Kyoto · Yasu · Nagahama', alight: 'Kyoto', minutes: 29, cost: '¥580' },
-    walk(8, 'até o hotel: deixar as malas (check-in às 15h, mas guardam antes) e conferir se as malas do takuhaibin chegaram'),
+  'd27-garan': [walk(5, 'para o leste, atravessando a rua: o portão do Kongōbu-ji fica logo ali')],
+  'd27-kongobuji': [
+    walk(10, 'de volta ao templo pela mochila'),
+    { mode: 'bus', line: 'Nankai Rinkan', board: 'Ichinohashi-guchi (一の橋口)', direction: 'Kōyasan Station (高野山駅)', alight: 'Estação de Kōyasan (final)', minutes: 15, cost: 'no passe' },
+  ],
+  'd27-descida': [
+    { mode: 'cable', line: 'funicular de Kōyasan', board: 'Estação de Kōyasan', direction: 'Gokurakubashi', alight: 'Gokurakubashi', minutes: 5, cost: 'no passe' },
+    { mode: 'train', line: 'Nankai Kōya Line', board: 'Gokurakubashi (mesma plataforma)', direction: 'Namba (なんば)', alight: 'Sumiyoshi-Higashi (住吉東)', minutes: 80, cost: 'no passe', note: 'quase sempre é preciso trocar em Hashimoto; Sumiyoshi-Higashi é parada de local, então pode haver mais uma troca em Kishinosato-Tamade' },
+    walk(10, 'para o oeste até o santuário; a ponte curva vermelha aparece antes do portão'),
+  ],
+  'd27-sumiyoshi': [
+    walk(10, 'de volta à estação Sumiyoshi-Higashi'),
+    { mode: 'train', line: 'Nankai Kōya Line', board: 'Sumiyoshi-Higashi', direction: 'Namba', alight: 'Nankai Namba (final)', minutes: 15, cost: 'no passe' },
+    walk(3, 'o balcão do 551 Hōrai fica na própria estação; a depachika da Takashimaya é no mesmo prédio'),
   ],
   'd27-almoco': [
-    walk(5, 'até a Estação de Kyoto, plataformas 8 a 10 (JR Nara Line)'),
-    { mode: 'train', line: 'JR Nara Line (local, 普通)', board: 'Kyoto, plataformas 8–10', direction: 'Nara', alight: 'Inari (2ª parada)', minutes: 5, cost: '¥150', note: 'só o LOCAL para em Inari; o rápido Miyakoji passa direto' },
-    walk(2, 'a estação fica na frente do torii'),
+    walk(4, 'até a estação Namba do metrô, linha Midōsuji'),
+    { mode: 'metro', line: 'Midōsuji Line (vermelha)', board: 'Namba', direction: 'Shin-Osaka · Senri-Chūō', alight: 'Umeda', minutes: 8, cost: '¥240' },
+    walk(6, 'siga a placa 阪急 (Hankyu), que é um prédio diferente da JR: as plataformas do Kyoto Line ficam no alto'),
+  ],
+  'd27-trem-kyoto': [
+    { mode: 'train', line: 'Hankyu Kyoto Line · limited express (特急)', board: 'Osaka-Umeda (Hankyu), plataformas 2–3', direction: 'Kyoto-Kawaramachi (京都河原町)', alight: 'Kyoto-Kawaramachi (final)', minutes: 45, cost: '¥410', note: 'sem reserva e sem taxa extra; o limited express é o mais rápido e passa a cada 10 min' },
+    walk(4, 'o hotel fica na saída do Shijō-Kawaramachi — as malas do takuhaibin devem estar na recepção'),
+  ],
+  'd27-nishiki-rapido': [
+    walk(3, 'a entrada leste do Nishiki fica na Teramachi, a uma quadra do hotel'),
   ],
   'd27-fushimi-inari': [
-    walk(5, 'até a estação Fushimi-Inari da Keihan (não a JR), na rua das barracas'),
-    { mode: 'train', line: 'Keihan Main Line', board: 'Fushimi-Inari', direction: 'Yodoyabashi · Osaka', alight: 'Fushimi-Momoyama', minutes: 8, cost: '¥220' },
-    walk(8, 'as cervejarias de saquê ficam pela galeria Ōtesuji e o canal'),
+    walk(8, 'até a estação Gion-Shijō da Keihan, atravessando a ponte Shijō sobre o rio Kamo'),
+    { mode: 'train', line: 'Keihan Main Line', board: 'Gion-Shijō', direction: 'Yodoyabashi · Nakanoshima', alight: 'Fushimi-Inari', minutes: 10, cost: '¥220', note: 'não pegue o limited express: ele passa direto por Fushimi-Inari' },
+    walk(5, 'pela rua das barracas até o portão'),
   ],
   'd27-jantar': [
-    walk(5, 'até a estação Momoyama-Goryō-mae da Kintetsu'),
-    { mode: 'train', line: 'Kintetsu Kyoto Line', board: 'Momoyama-Goryō-mae', direction: 'Kyoto', alight: 'Kyoto (final)', minutes: 10, cost: '¥300' },
-    walk(8, 'até o hotel'),
+    walk(5, 'até a estação Fushimi-Inari da Keihan'),
+    { mode: 'train', line: 'Keihan Main Line', board: 'Fushimi-Inari', direction: 'Demachiyanagi', alight: 'Gion-Shijō', minutes: 10, cost: '¥220' },
+    walk(8, 'atravessando a ponte Shijō de volta ao hotel'),
   ],
 
   // ── 28 nov · Higashiyama ───────────────────────────────────────────

@@ -9,19 +9,89 @@ export const kyotoDays: Day[] = [
     ],
     date: '2026-11-27',
     stageId: 'kyoto',
-    title: 'Sumiyoshi Taisha, mudança para Kyoto, e Fushimi Inari ao anoitecer',
-    subtitle: 'Chegar no portal de dez mil torii às 15h30, quando todo mundo está indo embora.',
-    chips: ['história', 'santuário', 'ramen'],
+    title: 'A manhã no Garan, a descida, e Fushimi Inari ao anoitecer',
+    subtitle: 'Oração às 6h, o coração de Kōyasan antes do meio-dia, e o portal de dez mil torii quando todo mundo está indo embora.',
+    chips: ['oração', 'pagode', 'santuário', 'torii'],
+    notes: [
+      {
+        label: 'o dia em três tempos',
+        tone: 'info',
+        text: 'Manhã em Kōyasan, meio-dia dentro do trem, tarde e noite em Kyoto. É longo, mas a metade do meio é sentada.',
+      },
+      {
+        label: 'malas em Kyoto',
+        tone: 'ok',
+        text: 'As malas grandes estão esperando no hotel do Shijō-Kawaramachi desde o dia 24. Hoje vocês chegam só com a mochila.',
+      },
+    ],
     stops: [
+      {
+        id: 'd27-gongyo',
+        time: '06:00',
+        timeLabel: 'oração',
+        kind: 'temple',
+        name: 'Asa-gongyō — a oração da manhã',
+        jp: '朝勤行',
+        facts: 'Normalmente **06:00 ou 06:30** no hondō · 30–40 min · **grátis e opcional** — mas é para isto que se dorme num templo',
+        paragraphs: [
+          'Faz frio, ainda está escuro, e é o melhor momento da estadia. Vocês sentam no fundo do salão principal enquanto os monges recitam — sutras em japonês antigo, sino, incenso, e a luz entrando devagar. Não é preciso fazer nada além de estar ali.',
+          'Alguns templos de Kōyasan seguem a oração com o **goma**, o ritual do fogo do Shingon: o monge acende uma fogueira no altar e vai jogando tabuinhas de cedro com pedidos escritos, enquanto recita. As chamas sobem quase até o teto. **É a coisa que a Priscila lembra do Ekō-in** — pergunte na recepção na chegada se aqui tem, e a que horas.',
+        ],
+        mapQuery: 'Kumagaiji Koyasan',
+      },
+      {
+        id: 'd27-garan',
+        time: '08:30',
+        timeLabel: 'pagode',
+        kind: 'temple',
+        name: 'Danjō Garan e o Konpon Daitō',
+        jp: '壇上伽藍・根本大塔',
+        facts: 'Pátio **24h, grátis** · interior do Daitō **08:30–17:00**, ¥500 · o templo fica a 10 min a pé',
+        paragraphs: [
+          'Este é o lugar que Kūkai desenhou primeiro, em 819: não um templo, mas um **mandala construído em tamanho real**. As construções estão dispostas no chão como as figuras de um diagrama sagrado, e quem anda entre elas está atravessando o mandala.',
+          'O **Konpon Daitō** é a torre vermelha de 48 metros que vocês viram na foto. Por dentro, as colunas são pintadas como bodhisattvas e no centro está o Buda Dainichi cercado por outros quatro — de modo que **a estatuária inteira forma um mandala tridimensional**. É a única coisa dessas no mundo. Vale os ¥500.',
+          'Ao lado, o **Miedō** guarda o retrato de Kūkai e só abre uma vez por ano. E há o cedro do **Sanko-no-matsu**: a lenda diz que Kūkai, ainda na China, atirou um objeto ritual de três pontas para o Japão pedindo que caísse no lugar certo de fundar o Shingon — e o achou preso neste pinheiro. Procurem as agulhas: dizem que aqui elas nascem em três, não em duas.',
+        ],
+        mapQuery: 'Danjo Garan Koyasan',
+      },
+      {
+        id: 'd27-kongobuji',
+        time: '09:45',
+        timeLabel: 'templo',
+        kind: 'temple',
+        name: 'Kongōbu-ji e o jardim de pedras',
+        jp: '金剛峯寺',
+        facts: '**08:30–17:00** · ¥1.000 · **chá e biscoito de arroz inclusos** no salão dos fundos · 5 min do Garan',
+        paragraphs: [
+          'A sede de todo o budismo Shingon — 3.600 templos no Japão respondem a esta casa. Por dentro é um palácio de painéis dourados; numa das salas, o **Yanagi-no-ma**, o senhor Toyotomi Hidetsugu foi obrigado a cometer seppuku em 1595 por ordem do próprio tio, Hideyoshi.',
+          'Nos fundos está o **Banryūtei**, o maior jardim de pedras do Japão: 140 granitos de Shikoku dispostos como dois dragões emergindo de um mar de areia branca, guardando o pavilhão. Vá até o fim do corredor — **o chá está incluído no ingresso** e servem numa sala grande de tatame, onde dá para sentar e olhar o jardim sem pressa.',
+          'Voltem ao templo pela mochila e peguem o ônibus por volta das **11:00**.',
+        ],
+        mapQuery: 'Kongobuji Koyasan',
+      },
+      {
+        id: 'd27-descida',
+        time: '11:15',
+        timeLabel: 'descida',
+        kind: 'transit',
+        name: 'Kōyasan → Sumiyoshi, de volta pela Nankai',
+        jp: '南海高野線',
+        facts: 'Ônibus + funicular ~25 min · trem até **Sumiyoshi-Higashi** ~1h20 · a volta já está no passe',
+        paragraphs: [
+          'Ônibus até a estação de Kōyasan, funicular até Gokurakubashi, e o mesmo trem de ontem no sentido contrário — desta vez com a garganta aparecendo pela janela de baixo, que é melhor.',
+          '**Não vão até Namba.** Desçam em **Sumiyoshi-Higashi**, que fica na própria linha Kōya: o santuário está a 10 min a pé dali. Assim vocês não perdem o Sumiyoshi Taisha, que era o programa original desta manhã.',
+        ],
+        mapQuery: 'Gokurakubashi Station',
+      },
       {
         id: 'd27-sumiyoshi',
         placeMapId: 'sumiyoshi',
-        time: '08:30',
+        time: '13:00',
         timeLabel: 'santuário',
         kind: 'temple',
         name: 'Sumiyoshi Taisha',
         jp: '住吉大社',
-        facts: '**06:00–17:00** · **grátis** · 20 min de Namba pela linha Nankai',
+        facts: '**06:00–17:00** · **grátis** · na própria linha Nankai Kōya, estação **Sumiyoshi-Higashi** + 10 min a pé',
         paragraphs: [
           'A última manhã de Osaka bem gasta. Um dos santuários mais antigos do Japão, e o mais estranho arquitetonicamente — de um jeito que só faz sentido quando alguém explica.',
         ],
@@ -34,49 +104,80 @@ export const kyotoDays: Day[] = [
         mapQuery: 'Sumiyoshi Taisha Osaka',
       },
       {
-        id: 'd27-trem-kyoto',
-        time: '11:30',
-        timeLabel: 'trem',
-        kind: 'transit',
-        name: 'Osaka → Kyoto e check-in',
-        facts: 'JR Special Rapid **29 min ¥580** · as malas de Tóquio devem estar esperando no hotel',
-        mapQuery: 'Osaka Station',
-      },
-      {
         id: 'd27-almoco',
-        time: '13:30',
+        time: '14:15',
         timeLabel: 'almoço',
         kind: 'food',
-        name: 'Almoço perto da estação',
+        name: 'Almoço de estação, em Namba',
+        facts: 'Vocês passam por Namba de qualquer jeito · comer aqui poupa uma hora do outro lado',
+        paragraphs: [
+          'Depois de um café de monge às 7h e uma manhã inteira em pé, vocês vão chegar em Namba com fome de verdade e ainda com uma hora de trem pela frente. Comam aqui.',
+        ],
         eat: [
           {
-            label: 'Ramen em Kyoto',
+            label: 'O clássico absoluto da estação de Namba',
             items: [
               {
-                name: 'Honke Daiichi-Asahi',
+                name: '551 Hōrai — butaman',
                 specialty: true,
-                note: '06:00–02:00, fecha qui · ao lado da estação, desde 1947. Shoyu escuro com gordura de porco por cima — o estilo Kyoto, muito mais pesado do que as pessoas esperam de Kyoto. Fila permanente.',
+                note: 'O pãozinho de porco no vapor que é **a** instituição de Osaka. Tem balcão na própria estação; dá para comer em pé ou levar quente para o trem. Duas unidades por pessoa e vocês estão resolvidos.',
               },
               {
-                name: 'Menya Inoichi',
-                note: '11:00–15:00, fecha qua · Bib Gourmand, caldo claro de *hamaguri*. O oposto refinado do anterior.',
+                name: 'Depachika da Takashimaya Namba',
+                note: 'Colada na estação. Bentô, onigiri, tempurá, tudo pronto para comer no trem — e é onde se acha comida boa rápido sem fila de restaurante.',
               },
             ],
           },
         ],
-        mapQuery: 'Honke Daiichi Asahi Kyoto',
+        mapQuery: '551 Horai Namba',
+      },
+      {
+        id: 'd27-trem-kyoto',
+        time: '14:45',
+        timeLabel: 'trem',
+        kind: 'transit',
+        name: 'Namba → Kyoto e check-in',
+        facts: 'Midōsuji até Umeda **8 min** + **Hankyu Kyoto Line** até Kawaramachi **45 min, ¥410** · total ~1h · desce na porta do hotel',
+        paragraphs: [
+          'Atenção que o caminho mudou: como vocês estão em **Namba** e não em Osaka/Umeda, o JR Special Rapid deixa de ser o melhor. Peguem o **Midōsuji** até Umeda e ali o **Hankyu Kyoto Line** (limited express) até **Kyoto-Kawaramachi** — que é a estação embaixo do hotel, no Shijō-Kawaramachi. Sem baldeação de mala, sem subir para a Estação de Kyoto e voltar.',
+          'As malas grandes que saíram de Tóquio no dia 23 devem estar na recepção. Confiram na chegada.',
+        ],
+        mapQuery: 'Hankyu Osaka-Umeda Station',
+      },
+      {
+        id: 'd27-nishiki-rapido',
+        time: '15:45',
+        timeLabel: 'mercado',
+        kind: 'food',
+        name: 'Nishiki, já que ele é na esquina',
+        jp: '錦市場',
+        facts: '**09:00–18:00**, lojas fecham escalonado · 400 m cobertos · **3 min a pé do hotel**',
+        paragraphs: [
+          'Meia hora só, de passagem, para saber o que tem. O Nishiki está literalmente ao lado do hotel de vocês e **no domingo dia 29 ele estará fechando quando vocês chegarem lá** — então esta é a boa oportunidade de andar nele com as bancas abertas.',
+        ],
+        mapQuery: 'Nishiki Market Kyoto',
+        eat: [
+          {
+            label: 'Para provar andando',
+            items: [
+              { name: 'Tako tamago', note: 'polvinho baby recheado com um ovo de codorna inteiro na cabeça. Estranho, doce, ótimo.', specialty: true },
+              { name: 'Tsukemono', note: 'os picles de Kyoto são uma arte local; peça para provar antes de comprar.' },
+              { name: 'Soymilk donut', note: 'da Konnamonja — sai quente da fritadeira.' },
+            ],
+          },
+        ],
       },
       {
         id: 'd27-fushimi-inari',
-        time: '15:30',
+        time: '16:15',
         timeLabel: 'santuário',
         kind: 'temple',
         name: 'Fushimi Inari Taisha',
         jp: '伏見稲荷大社',
-        facts: '**24h · grátis** · JR Nara Line, 5 min da Estação de Kyoto · subida completa ~2h',
+        facts: '**24h · grátis** · **Keihan Gion-Shijō → Fushimi-Inari, 10 min, ¥220** · pôr do sol **16:45** · subida completa ~2h',
         paragraphs: [
-          'Este é o segredo do dia: chegar às 15h30 e **subir enquanto todo mundo desce**. Por volta das 16h45 escurece, as lanternas acendem, e a partir dali vocês vão ter os corredores de torii praticamente sozinhos. É o santuário mais fotografado do Japão e o único que fica melhor de noite.',
-          'Não precisam ir até o topo (233 m, 2h ida e volta). O **Yotsutsuji**, a meia altura, tem a vista da cidade e é ótimo ponto de retorno — cerca de 45 min de subida.',
+          'Este é o segredo do dia: chegar no fim da tarde e **subir enquanto todo mundo desce**. Às 16h45 o sol se põe, as lanternas acendem, e a partir dali vocês têm os corredores de torii praticamente sozinhos. É o santuário mais fotografado do Japão e o único que fica melhor de noite.',
+          '**Não vão até o topo.** São 233 m e 2h ida e volta, e a parte alta do circuito não tem iluminação nenhuma. O **Yotsutsuji**, a meia altura, tem a vista da cidade sobre os telhados e é o ponto certo de retorno — cerca de 45 min de subida, e os trechos até ali são iluminados.',
         ],
         history: {
           paragraphs: [
@@ -124,6 +225,23 @@ export const kyotoDays: Day[] = [
     title: 'Higashiyama de ponta a ponta, terminando na iluminação noturna',
     subtitle: 'Kiyomizu-dera às 6h da manhã. É a coisa mais importante deste roteiro inteiro.',
     chips: ['história', 'momiji', 'unesco', 'iluminação'],
+    notes: [
+      {
+        label: 'sábado no pico',
+        tone: 'warn',
+        text: 'Hoje é **sábado, no auge exato do momiji de Kyoto** — o pior dia possível no lugar mais cheio. As 6h no Kiyomizu são a defesa contra isso, e funcionam. Mas o resto do dia precisa de duas decisões antecipadas, abaixo.',
+      },
+      {
+        label: 'de Gion ao Ginkaku-ji: táxi',
+        tone: 'warn',
+        text: 'Os ônibus 100 e 206 fazem esse trajeto em 15 min num dia comum e em **40 a 50 min** num sábado de pico — e vocês podem não entrar no primeiro que passar. **Peguem táxi** (¥1.500–2.000, 15 min). É o ponto do roteiro inteiro com maior chance de quebrar o cronograma.',
+      },
+      {
+        label: 'Eikan-dō: escolham dia OU noite',
+        tone: 'warn',
+        text: 'O Eikan-dō **esvazia o templo às 17:00** e reabre às 17:30 com ingresso separado para a iluminação — e no pico essa fila passa de uma hora. Fazer os dois é irreal. Ou a visita diurna às 15h45, ou chegar 17:00 para pegar fila da noturna. O Kōdai-ji também ilumina até 21:30: os dois na mesma noite, não dá.',
+      },
+    ],
     stops: [
       {
         id: 'd28-kiyomizu',
@@ -317,6 +435,23 @@ export const kyotoDays: Day[] = [
     stageId: 'kyoto',
     title: 'Arashiyama de manhã cedo → Kinkaku-ji → Ryōan-ji → Nishiki',
     subtitle: 'Bambuzal às 7h, o Pavilhão Dourado, o jardim de pedras, e o mercado de 400 anos.',
+    notes: [
+      {
+        label: 'domingo no pico',
+        tone: 'warn',
+        text: 'Arashiyama num domingo de folhagem é o pior cenário de multidão do Japão inteiro. As 7h no bambuzal resolvem a manhã; a tarde precisa dos ajustes abaixo.',
+      },
+      {
+        label: 'de Arashiyama ao Kinkaku-ji',
+        tone: 'warn',
+        text: 'Os "35 min de ônibus 205/12" viram **60 a 90 min** hoje, e o ônibus passa cheio. Use o **Randen** (bondinho) até Kitano-Hakubaichō + 10 min a pé, ou táxi (~¥3.000, 25 min). E conte **30 a 45 min de fila só para entrar** no Kinkaku-ji à tarde de domingo.',
+      },
+      {
+        label: 'o Nishiki fecha antes de vocês chegarem',
+        tone: 'info',
+        text: 'No domingo as bancas do Nishiki começam a baixar as portas às **17:00**. Por isso vocês já passaram nele na chegada, no dia 27 — hoje, se der tempo, é bônus.',
+      },
+    ],
     chips: ['história', 'unesco', 'mercado', 'jardim'],
     stops: [
       {
@@ -526,7 +661,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Tōdai-ji & o Grande Buda',
         jp: '東大寺',
-        facts: '**07:30–17:30** em novembro · ¥800 · Patrimônio Mundial',
+        facts: '**08:00–17:00** em novembro (7:30–17:30 é só de abril a outubro) · ¥800 · Patrimônio Mundial',
         paragraphs: [
           'Atrás do Buda há um **pilar com um buraco** do mesmo tamanho da narina da estátua. Diz a tradição que quem passar por ele alcança a iluminação. Crianças passam fácil; adultos, com esforço e público.',
         ],
@@ -560,7 +695,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Kasuga Taisha',
         jp: '春日大社',
-        facts: '**06:30–17:30** · pátio grátis · área interna ¥700 · Patrimônio Mundial',
+        facts: '**07:00–17:00** em novembro · pátio grátis · área interna ¥700 · Patrimônio Mundial',
         paragraphs: [
           'Fundado em **768** pelo clã Fujiwara. Cerca de **3.000 lanternas**: 2.000 de pedra ao longo do caminho na floresta, cobertas de musgo, e 1.000 de bronze penduradas nos beirais, todas doadas por fiéis ao longo de mil anos. Dentro há um corredor escuro onde algumas ficam acesas o ano inteiro com espelhos — dá uma noção do que é o festival de lanternas.',
           'Por mais de mil anos o santuário foi **totalmente reconstruído a cada vinte anos**, sempre idêntico, para manter viva a técnica de construção. A floresta ao redor, o Kasugayama, é proibida de corte desde **841** — é uma floresta primária de 1.200 anos dentro de uma cidade.',
@@ -644,12 +779,12 @@ export const kyotoDays: Day[] = [
       {
         id: 'd01-tofukuji',
         placeMapId: 'tofukuji',
-        time: '08:00',
+        time: '08:30',
         timeLabel: 'momiji',
         kind: 'temple',
         name: 'Tōfuku-ji',
         jp: '東福寺',
-        facts: 'Na alta do outono abre **08:00–16:00** (última entrada 15:30) · ¥600 para a ponte Tsūtenkyō + ¥500 para os jardins Hōjō · 2 estações da Estação de Kyoto',
+        facts: 'No período de outono (**11/nov a 3/dez**) abre **08:30–16:00** · ¥600 para a ponte Tsūtenkyō + ¥500 para os jardins Hōjō · 2 estações da Estação de Kyoto · **sem fotos na ponte** no pico',
         paragraphs: [
           'Cheguem na abertura. A ponte coberta **Tsūtenkyō** atravessa um vale com cerca de 2.000 bordos plantados abaixo — quando você olha por cima do parapeito, é uma superfície contínua de vermelho e laranja. Em novembro forma-se fila para entrar na ponte e é proibido parar para fotografar em cima dela justamente por isso.',
         ],

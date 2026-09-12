@@ -157,6 +157,11 @@ export const hiroshimaDays: Day[] = [
     chips: ['história', 'momiji', 'ostras', 'unesco'],
     notes: [
       {
+        label: 'Reservem o horário do teleférico',
+        tone: 'info',
+        text: 'O teleférico do Misen passou a ter **reserva de horário pelo site** e voltou a operar em **março de 2026** com carros novos — a manutenção anual de 2026 foi entre janeiro e março, então em novembro ele está funcionando. Reservem a subida: sem isso, no pico do momiji a fila come o tempo do cume.',
+      },
+      {
         label: 'Chequem a tabela de marés na véspera',
         tone: 'info',
         text: 'Com **maré alta**, o torii e o santuário parecem flutuar — é a imagem clássica. Com **maré baixa**, dá para caminhar até a base do torii e tocar nele. As duas coisas são ótimas, mas são experiências diferentes; se puderem, planejem chegar perto da maré alta e ficar até a baixa (ou o contrário). O site oficial de Miyajima publica a tabela.',
@@ -226,7 +231,7 @@ export const hiroshimaDays: Day[] = [
         kind: 'view',
         name: 'Monte Misen · teleférico',
         jp: '弥山',
-        facts: 'Teleférico **09:00–17:00** · ¥2.000 ida e volta · + **30 min de caminhada** do topo do teleférico ao cume real',
+        facts: 'Teleférico **09:00–17:00** · ¥2.000 ida e volta · **reserva de horário pelo site** · + **30 min de caminhada** do topo ao cume real — e mais 30 de volta, contem 2h no total',
         paragraphs: [
           'Do cume, 535 m, a vista é do Mar Interior de Seto inteiro salpicado de ilhas. Vale a caminhada final — o ponto onde o teleférico deixa vocês **não é** o cume. No caminho fica o **Kiezu-no-hi**, um fogo que os monges dizem arder ininterruptamente desde que Kūkai o acendeu em 806; foi dele que se acendeu a Chama da Paz de Hiroshima.',
           'Se estiverem cansados, pulem sem culpa e fiquem mais tempo embaixo comendo.',

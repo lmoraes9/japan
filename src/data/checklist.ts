@@ -1,6 +1,26 @@
 import type { ChecklistItem } from './types';
 
 export const CHECKLIST: ChecklistItem[] = [
+  // ── Kōyasan: 800 m de altitude em fim de novembro ──
+  {
+    id: 'koyasan-casaco',
+    group: 'mala',
+    title: 'Casaco pesado + luvas + gorro',
+    subtitle: 'Kōyasan (dia 26) vai a **0 °C à noite** · o resto da viagem é 10–17 °C, então isto é item extra, não o casaco de Tóquio',
+  },
+  {
+    id: 'koyasan-meia',
+    group: 'mala',
+    title: 'Meia grossa para o templo',
+    subtitle: 'Quarto e corredores de tatame, sem sapato · o chão do shukubō é gelado de manhã',
+  },
+  {
+    id: 'koyasan-dinheiro',
+    group: 'mala',
+    title: 'Dinheiro vivo para Kōyasan',
+    subtitle: 'A montanha quase não tem caixa eletrônico — o dos Correios fecha cedo · levar o de dois dias já separado',
+  },
+
   // ── Compras dos primeiros dias ──
   {
     id: 'tenis',

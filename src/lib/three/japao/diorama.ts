@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { ILHAS } from './costa';
 import { FUJI, BIWA } from './lugares';
-import { MAT, add, box, cyl, toriiGeometry } from '../parts';
+import { MAT, add, box, cyl, roof, bracket, toriiGeometry } from '../parts';
 import { group, castle, pagoda, buddha, domeRuin, kura, tower, bigTorii, hall, deerGeometry, gate2, stage, bridge } from '../buildings';
 
 /**
@@ -177,6 +177,45 @@ function miniatura(pai: THREE.Object3D, mapaId: string): THREE.Object3D {
     case 'castelo-osaka':
       castle(group(g, 0, 0, 0, 0), { tiers: 5, size: 9, base: 5 });
       break;
+    case 'koyasan': {
+      // O Konpon Daitō: um tahōtō, a forma mais estranha da arquitetura budista
+      // japonesa — andar quadrado embaixo, cúpula branca no meio, andar quadrado
+      // menor em cima. Aqui ele vai mais esguio que o real, senão os beirais
+      // comem a silhueta e o ícone chega como um telhado cinza qualquer.
+      const t = group(g, 0, 0, 0, 0);
+      const L = 8.4;
+      add(t, box(L + 2.6, 0.8, L + 2.6), MAT.stone, 0, 0.4, 0);
+      add(t, box(L, 6.4, L), MAT.vermilion, 0, 4, 0);
+      for (const sx of [-1, 1])
+        for (const sz of [-1, 1]) {
+          add(t, cyl(0.3, 0.34, 6.4, 8), MAT.vermilion, (sx * L) / 2, 4, (sz * L) / 2);
+          bracket(t, (sx * L) / 2, 7.1, (sz * L) / 2, 0.7);
+        }
+      for (const sz of [1, -1]) add(t, box(L - 2.8, 3.4, 0.16), MAT.black, 0, 3.8, sz * (L / 2 - 0.1), false);
+      roof(t, { W: L + 4.4, D: L + 4.4, H: 1.3, L: L + 0.6, lift: 0.8, y: 7.9, ridge: false, rafters: true });
+      // a cúpula branca, que é o que faz um tahōtō ser um tahōtō
+      add(t, new THREE.SphereGeometry(3.5, 20, 12, 0, Math.PI * 2, 0, Math.PI / 2), MAT.white, 0, 8.4, 0);
+      add(t, cyl(2.3, 3.3, 1.2, 16), MAT.white, 0, 12.3, 0);
+      const U = 4.2;
+      add(t, box(U, 3.2, U), MAT.vermilion, 0, 14.4, 0);
+      for (const sx of [-1, 1]) for (const sz of [-1, 1]) bracket(t, (sx * U) / 2, 15.8, (sz * U) / 2, 0.5);
+      roof(t, { W: U + 4, D: U + 4, H: 2.8, L: 0.3, lift: 0.9, y: 16.4, ridge: false, rafters: true });
+      // o sōrin de ouro no topo
+      add(t, cyl(0.45, 0.6, 0.45, 10), MAT.gold, 0, 19.6, 0);
+      add(t, cyl(0.1, 0.13, 5, 8), MAT.gold, 0, 22.4, 0);
+      for (let k = 0; k < 7; k++)
+        add(t, new THREE.TorusGeometry(0.5 - k * 0.04, 0.055, 6, 18), MAT.gold, 0, 20.4 + k * 0.45, 0).rotation.x = Math.PI / 2;
+      add(t, new THREE.ConeGeometry(0.34, 1, 8), MAT.gold, 0, 25.1, 0);
+      // visto de cima, um telhado cinza é um telhado cinza: o Daitō é conhecido
+      // por ser vermelho, então o vermelho tem que estar no telhado também
+      t.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (m.isMesh && m.material !== MAT.white && m.material !== MAT.gold && m.material !== MAT.stone && m.material !== MAT.black) {
+          m.material = MAT.vermilion;
+        }
+      });
+      break;
+    }
     case 'himeji':
       castle(group(g, 0, 0, 0, 0), { tiers: 5, size: 9, base: 4, turrets: true });
       break;

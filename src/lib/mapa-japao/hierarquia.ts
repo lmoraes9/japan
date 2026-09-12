@@ -46,7 +46,7 @@ export interface No {
 const REGIOES: { id: string; nome: string; cidades: string[] }[] = [
   { id: 'kanto', nome: 'Tóquio', cidades: ['tokyo', 'kamakura'] },
   { id: 'chugoku', nome: 'Hiroshima', cidades: ['hiroshima', 'miyajima'] },
-  { id: 'kansai', nome: 'Kansai', cidades: ['kyoto', 'osaka', 'nara', 'himeji'] },
+  { id: 'kansai', nome: 'Kansai', cidades: ['kyoto', 'osaka', 'nara', 'himeji', 'koyasan'] },
 ];
 
 /** o dia que representa cada cidade: o lugar pelo qual ela é conhecida */
@@ -59,6 +59,7 @@ const CIDADES: { id: string; nome: string; principal: string }[] = [
   { id: 'osaka', nome: 'Osaka', principal: 'd2026-11-26' },
   { id: 'nara', nome: 'Nara', principal: 'd2026-11-30' },
   { id: 'himeji', nome: 'Himeji', principal: 'd2026-11-25' },
+  { id: 'koyasan', nome: 'Kōyasan', principal: 'd2026-11-26' },
 ];
 
 /** metade de um quilômetro, em graus: mais perto que isso é o mesmo lugar */

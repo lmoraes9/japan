@@ -211,6 +211,21 @@ export const CITY_HISTORIES: CityHistory[] = [
     ],
   },
   {
+    id: 'koyasan',
+    name: 'Kōyasan',
+    jp: '高野山',
+    lead: 'Um mosteiro com uma rua, no alto de uma flor de lótus de oito picos — e um homem que, segundo cem gerações de monges, ainda não morreu.',
+    dayIds: ['d2026-11-26', 'd2026-11-27'],
+    paragraphs: [
+      'Em 804 um monge japonês de 31 anos chamado **Kūkai** embarcou numa missão diplomática para a China. Era um dos quatro navios; dois afundaram. O dele foi parar a centenas de quilômetros do destino e a tripulação foi presa como pirata — até Kūkai escrever, em chinês clássico impecável, uma carta ao governador que abriu as portas. Em Chang\'an, a maior cidade do mundo na época, ele encontrou o mestre Huiguo, que o reconheceu na primeira visita e lhe transmitiu em poucos meses todo o budismo esotérico — a linhagem inteira, a um estrangeiro. Huiguo morreu logo depois. Kūkai voltou ao Japão em 806 com sutras, mandalas e instrumentos rituais, e trouxe também o sistema de escrita silábico, teoria da poesia, engenharia de barragens e a arte de fazer tinta.',
+      'Em 816 ele pediu ao imperador uma montanha vazia para fundar o Shingon longe da política dos templos de Nara, e recebeu este planalto a 800 metros, cercado por oito picos que de cima desenham uma **flor de lótus**. Começou pelo **Danjō Garan**, que não é um conjunto de prédios mas um **mandala construído em tamanho real**: quem anda entre as construções está atravessando um diagrama sagrado. No meio dele ergueu o Konpon Daitō, e dentro da torre dispôs cinco budas e dezesseis bodisatvas pintados nas colunas de modo que a estatuária inteira forma um mandala tridimensional — a única coisa dessas no mundo.',
+      'Kūkai morreu em 835, aos 61 anos, depois de semanas se recusando a comer. Seus discípulos não dizem que ele morreu: dizem que **entrou em meditação eterna**, e que continua sentado no mausoléu no fundo do Okunoin, esperando Maitreya, o Buda do futuro. Em 921 a corte lhe deu o título póstumo de **Kōbō Daishi**. Duas vezes por dia, às 6h e às 10h30, monges levam uma refeição até a porta daquele mausoléu — o *shōjingu*. Isso nunca foi interrompido: nem nas guerras civis, nem quando Oda Nobunaga cercou a montanha, nem em 1945.',
+      'O **Okunoin** são dois quilômetros de cemitério sob cedros de quarenta metros, com mais de 200 mil túmulos, e é a coisa mais estranha e mais bonita do Japão. Estão ali, a cem metros uns dos outros, Oda Nobunaga e os monges que ele mandou queimar vivos; Toyotomi Hideyoshi e os Toyotomi que os Tokugawa exterminaram; Takeda Shingen e Uesugi Kenshin, que passaram a vida se enfrentando. A ideia é simples: perto de Kūkai, a disputa acaba. Há também um memorial erguido por uma empresa de dedetização **aos cupins que ela matou**, uma xícara de café gigante da UCC, um foguete, e um monumento aos mortos dos dois lados da guerra do Pacífico — inimigos incluídos, o que em 1945 era quase escandaloso.',
+      'A montanha teve seus séculos ruins. Chegou a ter mais de 1.500 templos e um exército de monges-soldados; Nobunaga a cercou em 1581 e só não a arrasou porque foi assassinado em 1582. Hideyoshi, depois, construiu aqui um templo para a mãe. Na era Meiji o governo confiscou terras, forçou a separação entre budismo e xintoísmo e **permitiu mulheres na montanha pela primeira vez, em 1872** — antes disso elas só podiam chegar até as ermidas do perímetro, e ainda existe uma trilha chamada *nyonin-michi*, "o caminho das mulheres", que dá a volta por fora.',
+      'Hoje restam **117 templos**, e mais de 50 recebem hóspedes. Kōyasan nunca virou cidade: é um mosteiro com uma rua. Dormir aqui não é turismo de templo — é entrar no horário deles.',
+    ],
+  },
+  {
     id: 'nara',
     name: 'Nara',
     jp: '奈良',

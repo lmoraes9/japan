@@ -12,11 +12,11 @@ import { LastReturn } from '@/components/LastReturn';
 import { LegsConnector } from '@/components/LegsConnector';
 import { legsFrom, legsToFirst } from '@/data/legs';
 import { stopsEmOrdem } from '@/lib/now';
-import { BASE_DA_ETAPA } from '@/lib/mapsLinks';
+import { BASE_DA_ETAPA, baseDaManha } from '@/lib/mapsLinks';
 import { BookOpen } from 'lucide-react';
 
 /** a cidade cuja história abre em cada dia */
-const CITY_OF: Record<string, string> = { 'd2026-11-20': 'kamakura', 'd2026-11-24': 'miyajima', 'd2026-11-25': 'himeji', 'd2026-11-30': 'nara', 'd2026-11-27': 'kyoto' };
+const CITY_OF: Record<string, string> = { 'd2026-11-20': 'kamakura', 'd2026-11-24': 'miyajima', 'd2026-11-25': 'himeji', 'd2026-11-26': 'koyasan', 'd2026-11-30': 'nara', 'd2026-11-27': 'koyasan' };
 import { Footprints } from 'lucide-react';
 
 export function generateStaticParams() {
@@ -130,7 +130,7 @@ export default async function DayPage({
           <LegsConnector
             legs={legsToFirst(day.id)!}
             title="Do hotel até a primeira parada"
-            origem={BASE_DA_ETAPA[day.stageId]}
+            origem={baseDaManha(day.id, day.stageId)}
             destino={stopsEmOrdem(day.stops)[0]?.mapQuery ?? stopsEmOrdem(day.stops)[0]?.name}
           />
         )}

@@ -7,7 +7,7 @@ import { X, ChevronLeft, ChevronRight, Navigation, Compass, Clock, Footprints, L
 import { ALL_DAYS } from '@/data/days';
 import { placeMapByStopId, thumbOf } from '@/data/placeMaps';
 import { resolvePosition, formatCountdown } from '@/lib/now';
-import { navigateUrl, BASE_DA_ETAPA } from '@/lib/mapsLinks';
+import { navigateUrl, baseDaManha } from '@/lib/mapsLinks';
 import { stopPhoto } from '@/lib/covers';
 import { Rich } from '@/components/Rich';
 import { LastReturn } from '@/components/LastReturn';
@@ -94,7 +94,7 @@ function Rua() {
   const nav = navigateUrl(stop);
   // como o Google Maps encontra cada ponta do caminho
   const alvo = (s?: { mapQuery?: string; name: string }) => (s ? s.mapQuery ?? s.name : undefined);
-  const base = BASE_DA_ETAPA[day.stageId] ?? 'Tokyo Station';
+  const base = baseDaManha(day.id, day.stageId) ?? 'Tokyo Station';
   const map = placeMapByStopId(stop.id);
   const photo = stopPhoto(stop);
   const eat = stop.eat?.[0]?.items.slice(0, 3);

@@ -46,7 +46,7 @@ const TABELA: Omit<DiaMapa, 'n' | 'day' | 'data'>[] = [
   { dayId: 'd2026-11-23', titulo: 'Parque da Paz', cidade: 'Hiroshima', cidadeId: 'hiroshima', icone: 'parque-da-paz', lat: 34.3955, lng: 132.4536 },
   { dayId: 'd2026-11-24', titulo: 'Miyajima', cidade: 'Miyajima', cidadeId: 'miyajima', icone: 'miyajima', lat: 34.296, lng: 132.3197 },
   { dayId: 'd2026-11-25', titulo: 'Castelo de Himeji', cidade: 'Himeji', cidadeId: 'himeji', icone: 'himeji', lat: 34.8394, lng: 134.6939 },
-  { dayId: 'd2026-11-26', titulo: 'Castelo de Osaka', cidade: 'Osaka', cidadeId: 'osaka', icone: 'castelo-osaka', lat: 34.6873, lng: 135.5259 },
+  { dayId: 'd2026-11-26', titulo: 'Kōyasan', cidade: 'Kōyasan', cidadeId: 'koyasan', icone: 'koyasan', lat: 34.2131, lng: 135.5847 },
   { dayId: 'd2026-11-27', titulo: 'Fushimi Inari', cidade: 'Kyoto', cidadeId: 'kyoto', icone: 'fushimi-inari', lat: 34.9671, lng: 135.7727 },
   { dayId: 'd2026-11-28', titulo: 'Higashiyama', cidade: 'Kyoto', cidadeId: 'kyoto', icone: 'higashiyama', lat: 34.9949, lng: 135.785 },
   { dayId: 'd2026-11-29', titulo: 'Kinkaku-ji', cidade: 'Kyoto', cidadeId: 'kyoto', icone: 'kinkakuji', lat: 35.0394, lng: 135.7292 },

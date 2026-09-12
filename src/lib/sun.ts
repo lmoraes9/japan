@@ -5,6 +5,7 @@ export const STAGE_COORDS: Record<StageId, { lat: number; lng: number; name: str
   tokyo1: { lat: 35.69, lng: 139.7, name: 'Tóquio' },
   hiroshima: { lat: 34.39, lng: 132.46, name: 'Hiroshima' },
   osaka: { lat: 34.69, lng: 135.5, name: 'Osaka' },
+  koyasan: { lat: 34.21, lng: 135.59, name: 'Kōyasan' },
   kyoto: { lat: 35.01, lng: 135.77, name: 'Kyoto' },
   tokyo2: { lat: 35.67, lng: 139.76, name: 'Tóquio' },
 };

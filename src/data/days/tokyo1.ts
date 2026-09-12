@@ -34,8 +34,8 @@ export const tokyo1Days: Day[] = [
         time: '18:30',
         timeLabel: 'trem',
         kind: 'transit',
-        name: 'Haneda → Shinjuku',
-        facts: '**¥600 · ~45 min** · Keikyu até Shinagawa, JR Yamanote até Shinjuku · alternativa: Airport Limousine Bus, ¥1.400, direto ao hotel',
+        name: 'Haneda → Shinjuku — hoje, de ônibus',
+        facts: '**Airport Limousine Bus ¥1.400 · ~60 min, direto ao hotel** · alternativa: Keikyu + JR Yamanote, ¥600, ~45 min',
         paragraphs: [
           'Com mala grande e no fim do dia, o ônibus é mais humano — para na porta dos hotéis grandes e não tem escada.',
         ],

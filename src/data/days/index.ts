@@ -2,6 +2,7 @@ import type { Day, Stop } from '../types';
 import { tokyo1Days } from './tokyo1';
 import { hiroshimaDays } from './hiroshima';
 import { osakaDays } from './osaka';
+import { koyasanDays } from './koyasan';
 import { kyotoDays } from './kyoto';
 import { tokyo2Days } from './tokyo2';
 import { COORDS } from '../coords';
@@ -11,6 +12,7 @@ export const ALL_DAYS: Day[] = [
   ...tokyo1Days,
   ...hiroshimaDays,
   ...osakaDays,
+  ...koyasanDays,
   ...kyotoDays,
   ...tokyo2Days,
 ].map((day) => ({

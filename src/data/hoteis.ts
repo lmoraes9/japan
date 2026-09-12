@@ -22,8 +22,115 @@ export interface HotelSugestao {
   pick?: boolean;
 }
 
+/**
+ * O que está de fato reservado. Esta lista manda: a de sugestões, abaixo,
+ * virou histórico de como se chegou até aqui.
+ */
+export interface ReservaHotel {
+  name: string;
+  jp?: string;
+  city: string;
+  datas: string;
+  noites: number;
+  preco: string;
+  status: 'confirmada' | 'decidir' | 'refazer';
+  /** o que precisa acontecer com esta reserva */
+  acao?: string;
+  codigo?: string;
+  mapQuery: string;
+}
+
+export const RESERVAS_HOTEL: ReservaHotel[] = [
+  {
+    name: 'HOTEL AMANEK Shinjuku Kabukicho',
+    city: 'Tóquio',
+    datas: '18 → 23 de novembro',
+    noites: 5,
+    preco: 'R$ 5.987',
+    status: 'confirmada',
+    mapQuery: 'HOTEL AMANEK Shinjuku Kabukicho',
+  },
+  {
+    name: 'APA Hotel Hiroshima Ekimae Ohashi',
+    city: 'Hiroshima',
+    datas: '23 → 25 de novembro',
+    noites: 2,
+    preco: 'R$ 953',
+    status: 'confirmada',
+    acao: 'É daqui que as malas grandes já saíram para Kyoto, no dia 23.',
+    mapQuery: 'APA Hotel Hiroshima Ekimae Ohashi',
+  },
+  {
+    name: 'KOKO HOTEL Osaka Namba Sennichimae',
+    city: 'Osaka · Namba',
+    datas: '25 → 27 de novembro',
+    noites: 2,
+    preco: 'R$ 1.084',
+    status: 'refazer',
+    acao:
+      'Precisa virar **25 → 26, uma noite só**, para abrir espaço para Kōyasan. Reservem a noite nova **antes** de cancelar esta: diária avulsa em novembro costuma subir.',
+    mapQuery: 'KOKO HOTEL Osaka Namba Sennichimae',
+  },
+  {
+    name: '高野山 宿坊 熊谷寺 · Koyasan Shukubo Kumagaiji',
+    jp: '熊谷寺',
+    city: 'Kōyasan',
+    datas: '26 → 27 de novembro',
+    noites: 1,
+    preco: 'R$ 1.861',
+    status: 'decidir',
+    codigo: '5897947836',
+    acao:
+      'Quarto de luxo em estilo japonês, com jantar e café. Fica na ponta **leste** da montanha, a 5 min do Ichinohashi (a boca do Okunoin) e 10 min do Kongōbu-ji — bem colocado para as duas metades do programa. O site deles anuncia **oração matinal com ritual do fogo**, que é justamente o que a Priscila lembra do Ekō-in. Check-in 14:00–17:00, check-out **09:00**.',
+    mapQuery: 'Kumagaiji Koyasan',
+  },
+  {
+    name: '高野山 宿坊 普門院 · Koyasan Shukubo Fumonin',
+    jp: '普門院',
+    city: 'Kōyasan',
+    datas: '26 → 27 de novembro',
+    noites: 1,
+    preco: '—',
+    status: 'decidir',
+    acao:
+      'A outra opção, reservada pela Priscila. Fica no **Senjuinbashi**, o centro exato da montanha: 3 min do Kongōbu-ji, ao lado do correio e do mercadinho, e todos os ônibus param ali. Templo de 824, com **jardim atribuído a Kobori Enshū** e hondō do começo do período Edo. Check-in **15:00–16:30**, jantar **17:30** servido em mesa e cadeira, oração **06:30** (35–40 min). Um dos dois tem que ser cancelado.',
+    mapQuery: 'Fumonin Koyasan',
+  },
+  {
+    name: 'Travelodge Kyoto Shijo Kawaramachi',
+    city: 'Kyoto · Shijō-Kawaramachi',
+    datas: '27 de novembro → 1º de dezembro',
+    noites: 4,
+    preco: 'R$ 3.920',
+    status: 'confirmada',
+    acao:
+      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e na melhor posição — Nishiki na esquina, Gion a 15 min a pé pela ponte, Keihan direto para Fushimi e Hankyu direto para Arashiyama. **É aqui que as malas do dia 23 estão esperando** — confirmem por escrito que o hotel guarda bagagem antes do check-in.',
+    mapQuery: 'Travelodge Kyoto Shijo Kawaramachi',
+  },
+  {
+    name: 'Carta Hotel Kyoto Gion',
+    city: 'Kyoto · Gion',
+    datas: '27 de novembro → 1º de dezembro',
+    noites: 4,
+    preco: 'R$ 4.381',
+    status: 'decidir',
+    acao: 'Duplicata exata do Travelodge, dia por dia. Cancelar libera **R$ 4.381**.',
+    mapQuery: 'Carta Hotel Kyoto Gion',
+  },
+  {
+    name: 'Sotetsu Fresa Inn Ginza Sanchome',
+    city: 'Tóquio · Ginza',
+    datas: '1º → 3 de dezembro',
+    noites: 2,
+    preco: 'R$ 1.596',
+    status: 'confirmada',
+    acao: 'Endereço de Ginza pelas duas últimas noites, com as compras finais a pé e o trem direto para Haneda em Higashi-Ginza.',
+    mapQuery: 'Sotetsu Fresa Inn Ginza Sanchome',
+  },
+];
+
 export interface EtapaHoteis {
-  stageId: 'tokyo1' | 'hiroshima' | 'osaka' | 'kyoto' | 'tokyo2';
+  stageId: 'tokyo1' | 'hiroshima' | 'osaka' | 'koyasan' | 'kyoto' | 'tokyo2';
   city: string;
   nights: string;
   /** o critério para esta etapa, em uma frase */
@@ -179,8 +286,8 @@ export const HOTEIS: EtapaHoteis[] = [
   {
     stageId: 'osaka',
     city: 'Osaka · Namba',
-    nights: '25 a 27 de novembro · 2 noites',
-    criteria: 'Namba resolve tudo a pé: chega-se de Himeji pela Midōsuji, o Dōtonbori é logo ali, o Nankai para Sumiyoshi sai daqui e a saída para Kyoto é pela mesma linha. Osaka tem a maior oferta de hotel barato do Japão, então aqui não se paga caro.',
+    nights: '25 a 26 de novembro · 1 noite',
+    criteria: 'Uma noite só, agora que o dia 26 sobe para Kōyasan. Namba continua sendo o lugar certo: chega-se de Himeji pela Midōsuji, o Dōtonbori é logo ali e **o trem da Nankai que sobe a montanha parte daqui mesmo**.',
     hotels: [
       {
         name: 'Super Hotel Osaka Namba-Nihonbashi',

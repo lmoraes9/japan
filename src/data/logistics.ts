@@ -23,7 +23,9 @@ export const ALERTS: InfoBlock[] = [
     bullets: [
       'Você paga o preço cheio, **com os 10% de imposto**, na loja.',
       'Escaneia o QR code do recibo e registra passaporte e forma de reembolso no site **J-TaxRefund** (só na primeira compra da viagem).',
-      '**Em Haneda**, antes do voo: quiosque eletrônico + inspeção da alfândega, que pode pedir para ver as mercadorias.',
+      '**Em Haneda**, antes do voo: o quiosque de autoatendimento fica na **área pública, antes do despacho de bagagem**. Escaneia o passaporte e dá **verde** (acabou) ou **vermelho** (a alfândega quer ver as mercadorias).',
+      'Haneda é um dos aeroportos onde esse passo também pode ser feito pelo app **Visit Japan Web** — vale deixar configurado antes de embarcar.',
+      'O dinheiro volta pela loja ou pelo agente dela: transferência, cartão, app ou **dinheiro no aeroporto**, dependendo de quem vendeu. Perguntem na hora da compra qual é.',
       'Mínimo continua ¥5.000 (sem imposto) por loja por dia. Acabou o teto de ¥500.000 para consumíveis e acabou o lacre plástico.',
       'Enviar pelos Correios não dá mais direito a isenção (mudou em abril/2025). **Tem que sair do Japão com o produto na mão.**',
     ],

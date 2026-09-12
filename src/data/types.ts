@@ -1,4 +1,4 @@
-export type StageId = 'tokyo1' | 'hiroshima' | 'osaka' | 'kyoto' | 'tokyo2';
+export type StageId = 'tokyo1' | 'hiroshima' | 'osaka' | 'koyasan' | 'kyoto' | 'tokyo2';
 
 export interface Stage {
   id: StageId;

@@ -33,11 +33,30 @@ export function directionsUrl(origem: string | undefined, destino: string, modo:
   return `https://www.google.com/maps/dir/?${p.toString()}`;
 }
 
-/** Onde vocês dormem em cada etapa, para as rotas que começam no hotel. */
+/** Onde vocês dormem em cada etapa — os hotéis reservados de verdade. */
 export const BASE_DA_ETAPA: Record<string, string> = {
-  tokyo1: 'Shinjuku Station, Tokyo',
-  hiroshima: 'Hondori, Hiroshima',
-  osaka: 'Namba Station, Osaka',
-  kyoto: 'Kyoto Station',
-  tokyo2: 'Ginza, Tokyo',
+  tokyo1: 'HOTEL AMANEK Shinjuku Kabukicho',
+  hiroshima: 'APA Hotel Hiroshima Ekimae Ohashi',
+  osaka: 'KOKO HOTEL Osaka Namba Sennichimae',
+  koyasan: 'Kumagaiji, Koyasan',
+  kyoto: 'Travelodge Kyoto Shijo Kawaramachi',
+  tokyo2: 'Sotetsu Fresa Inn Ginza Sanchome',
 };
+
+/**
+ * Nos dias de mudança de cidade, a manhã começa no hotel da etapa ANTERIOR —
+ * a etapa de um dia é onde se dorme naquela noite, não de onde se saiu. Sem
+ * esta tabela, o botão "do hotel até a primeira parada" do dia 26 traçaria a
+ * rota a partir de um templo em Kōyasan que vocês só vão conhecer à tarde.
+ */
+const BASE_DA_MANHA: Record<string, string> = {
+  'd2026-11-23': 'HOTEL AMANEK Shinjuku Kabukicho',
+  'd2026-11-25': 'APA Hotel Hiroshima Ekimae Ohashi',
+  'd2026-11-26': 'KOKO HOTEL Osaka Namba Sennichimae',
+  'd2026-11-27': 'Kumagaiji, Koyasan',
+  'd2026-12-01': 'Travelodge Kyoto Shijo Kawaramachi',
+};
+
+/** De onde a manhã deste dia parte de fato. */
+export const baseDaManha = (dayId: string, stageId: string): string | undefined =>
+  BASE_DA_MANHA[dayId] ?? BASE_DA_ETAPA[stageId];

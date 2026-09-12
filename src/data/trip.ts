@@ -49,12 +49,31 @@ export const STAGES: Stage[] = [
     name: 'Kurashiki, Himeji & Osaka',
     jp: '大阪',
     start: '2026-11-25',
-    end: '2026-11-27',
-    nights: 2,
+    end: '2026-11-26',
+    nights: 1,
+    hotelHint:
+      'Namba. Uma noite só: vocês chegam de Himeji no fim da tarde e saem no dia seguinte ao meio-dia, subindo para Kōyasan pela própria Nankai, que parte daqui.',
     color: '#B9861A',
     intro: [
       'Osaka foi, por séculos, **a cozinha do Japão** — *tenka no daidokoro*. No período Edo, cada domínio feudal do país mantinha aqui um armazém para converter o arroz dos impostos em dinheiro; a bolsa de arroz de Dōjima, fundada em 1697, é considerada **o primeiro mercado futuro organizado do mundo**, com contratos a termo padronizados um século antes de Chicago.',
       'Isso produziu uma cidade de comerciantes, não de samurais. Enquanto Kyoto tinha etiqueta e Edo tinha hierarquia, Osaka tinha preço. Até a saudação tradicional daqui é comercial: *mōkarimakka?* — "está lucrando?". A resposta certa é *bochi bochi denna*, "mais ou menos, vamos indo". O sotaque, o humor e a comida de rua vêm todos daí.',
+    ],
+  },
+  {
+    id: 'koyasan',
+    name: 'Kōyasan',
+    jp: '高野山',
+    start: '2026-11-26',
+    end: '2026-11-27',
+    nights: 1,
+    color: '#6B4A7A',
+    hotelHint:
+      'Shukubō — alojamento em templo. Não é hotel: é a casa de monges que recebe hóspedes há mil anos, com jantar vegetariano, oração de manhã e banho comum.',
+    intro: [
+      'Em 816 um monge de 42 anos chamado **Kūkai** pediu ao imperador uma montanha. Ele tinha voltado da China quatro anos antes trazendo o Shingon — o budismo esotérico, com seus mandalas, mantras e rituais de fogo — e queria um lugar longe da política de Nara para fundá-lo. Recebeu este planalto a 800 metros de altitude, cercado por oito picos que, vistos de cima, desenham uma flor de lótus.',
+      'Kūkai morreu aqui em 835. Seus discípulos não dizem que ele morreu: dizem que **entrou em meditação eterna**, e que ainda está sentado no mausoléu no fundo do Okunoin, esperando o Buda do futuro. Duas vezes por dia, todos os dias, há mais de mil anos, monges levam refeições até a porta daquele mausoléu. Isso nunca foi interrompido — nem pelas guerras civis, nem quando Oda Nobunaga cercou a montanha, nem em 1945.',
+      'O resultado é o **Okunoin**: dois quilômetros de cemitério sob cedros de quarenta metros, com mais de 200 mil túmulos. Estão ali Oda Nobunaga e o clã que ele exterminou, Toyotomi Hideyoshi, Date Masamune — inimigos de morte enterrados a cem metros uns dos outros, porque perto de Kūkai a disputa acaba. Tem também um memorial de cupins erguido por uma empresa de dedetização, e outro para os mortos dos dois lados da guerra. É o lugar mais estranho e mais bonito do Japão.',
+      'Kōyasan nunca virou cidade: é um mosteiro com uma rua. Restaram **117 templos**, e mais de 50 deles recebem hóspedes. Dormir aqui não é turismo de templo — é entrar no horário deles: jantar às 17h30, oração às 6h, silêncio no meio.',
     ],
   },
   {
@@ -66,7 +85,7 @@ export const STAGES: Stage[] = [
     nights: 4,
     color: '#4F6349',
     hotelHint:
-      'Perto da Estação de Kyoto (prático para o Shinkansen e ônibus) ou em Karasuma/Shijō (centro, a pé do Nishiki e de Gion). Em novembro, hotel em Kyoto lota e encarece muito.',
+      'Shijō-Kawaramachi, o centro: o Nishiki na esquina, Gion a 15 min a pé pela ponte, Keihan direto para Fushimi Inari e Hankyu direto para Arashiyama.',
     intro: [
       'Em 794 o imperador Kanmu mudou a capital para cá e chamou o lugar de **Heian-kyō**, "capital da paz e tranquilidade". Ele estava fugindo de Nara, onde os mosteiros budistas tinham ficado tão poderosos que praticamente controlavam a corte. A cidade nova foi desenhada em grade retangular copiada de Chang\'an, a capital chinesa dos Tang — e essa grade ainda é a razão pela qual as ruas de Kyoto são retas e numeradas até hoje.',
       'Kyoto foi capital por **1.074 anos**, até 1868. Nesse tempo ela sobreviveu a incêndios recorrentes, à Guerra Ōnin (1467–77), que destruiu boa parte da cidade e desencadeou um século de guerra civil, e ao esvaziamento humilhante de 1868, quando o imperador foi para Tóquio e levou a corte junto.',
