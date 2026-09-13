@@ -149,14 +149,38 @@ export interface Marcador {
   etiquetaX: number;
   /** o topo da etiqueta: normalmente acima do ícone, às vezes abaixo */
   topo: number;
+  /** o tamanho da etiqueta — ou da bolha, quando a etiqueta não coube */
+  larg: number;
+  alt: number;
+  /** false quando não houve lugar para a etiqueta: fica só a bolha com o número */
+  etiqueta: boolean;
+}
+
+/** a bolha com o número, e o vão entre as bolhas de um lugar com dois dias */
+const BOLHA = 26;
+const BOLHA_VAO = 4;
+/** a largura média de uma letra do nome, em negrito de 12,5 px */
+const LETRA = 8;
+/** o tamanho da bolha sozinha, quando a etiqueta não cabe */
+const SO_BOLHA = 28;
+
+/**
+ * Quanto a etiqueta de um nó mede: as bolhas, o nome e as folgas. É com a
+ * largura real de cada uma que a separação é decidida — 'Kansai' pede menos
+ * espaço que 'Castelo de Himeji', e cabe onde a outra não caberia.
+ */
+export function larguraEtiqueta(no: No, extra = 0): number {
+  const n = no.nivel === 'lugar' ? no.dias.length : 1;
+  const bolhas = n * BOLHA + (n - 1) * BOLHA_VAO;
+  return Math.min(220, 3 + bolhas + 6 + Math.round(no.nome.length * LETRA) + extra + 10 + 4);
 }
 
 /** quando a etiqueta vai para baixo, ela encosta logo abaixo do pé do ícone */
 const ABAIXO = 12;
 
 /** o retângulo que a etiqueta de um marcador ocupa */
-function caixa(m: Marcador, larg: number, alt: number) {
-  return { x0: m.etiquetaX - larg / 2, x1: m.etiquetaX + larg / 2, y0: m.topo, y1: m.topo + alt };
+function caixa(m: Marcador) {
+  return { x0: m.etiquetaX - m.larg / 2, x1: m.etiquetaX + m.larg / 2, y0: m.topo, y1: m.topo + m.alt };
 }
 
 function bate(a: ReturnType<typeof caixa>, b: ReturnType<typeof caixa>) {
@@ -171,14 +195,14 @@ function descendeDe(n: No, pai: No): boolean {
 /**
  * Decide quem aparece e onde a etiqueta de cada um fica.
  *
- * `larg` e `alt` são o tamanho da etiqueta em pixels e `acima` a distância
- * dela até o pé do ícone — é com esses três números, e só com eles, que a
- * função garante que nada se cobre.
+ * `larguraDe` dá a largura da etiqueta de cada nó, `alt` a altura e `acima`
+ * a distância dela até o pé do ícone — é com esses números, e só com eles,
+ * que a função garante que nada se cobre.
  */
 export function marcadores(
   pontos: Record<string, Ponto>,
   tela: { largura: number; altura: number },
-  larg: number,
+  larguraDe: (no: No) => number,
   alt: number,
   acima: number,
   icone: number,
@@ -188,7 +212,7 @@ export function marcadores(
     const pa = pos(a);
     const pb = pos(b);
     if (!pa || !pb) return true;
-    return Math.abs(pa.x - pb.x) >= larg || Math.abs(pa.y - pb.y) >= alt;
+    return Math.abs(pa.x - pb.x) >= (larguraDe(a) + larguraDe(b)) / 2 || Math.abs(pa.y - pb.y) >= alt;
   };
 
   // desce enquanto os irmãos couberem lado a lado
@@ -234,40 +258,56 @@ export function marcadores(
     .map((no) => pos(no))
     .filter((p): p is Ponto => !!p && p.visivel)
     .map((p) => ({ x0: p.x - icone / 2, x1: p.x + icone / 2, y0: p.y - icone, y1: p.y + 2 }));
-  // onde tentar pôr a etiqueta, em ordem: em cima do ícone, embaixo dele, e
-  // só então mais longe. Descer é melhor que subir duas alturas — a etiqueta
-  // continua colada no seu ícone em vez de flutuar acima do mapa.
   const degrau = alt + 6;
-  const lugares = [0, 1, 2, 3, 4, 5].map((i) => ({ abaixo: i % 2 === 1, salto: Math.floor(i / 2) * degrau }));
   for (const no of atual) {
     const p = pos(no);
     if (!p || !p.visivel) continue;
     // o ícone precisa estar na tela: etiqueta sem ícone à vista só confunde
     if (p.x < borda || p.x > tela.largura - borda) continue;
     if (p.y < borda || p.y > tela.altura - borda) continue;
+    const larg = larguraDe(no);
     // encostou na lateral, a etiqueta desliza para dentro e a haste aponta o ícone
     const meia = larg / 2 + borda;
-    const etiquetaX = Math.max(meia, Math.min(tela.largura - meia, p.x));
-    const m: Marcador = { no, x: p.x, y: p.y, etiquetaX, topo: 0 };
+    const base = Math.max(meia, Math.min(tela.largura - meia, p.x));
+    const m: Marcador = { no, x: p.x, y: p.y, etiquetaX: base, topo: 0, larg, alt, etiqueta: true };
+    // onde tentar pôr a etiqueta, em ordem: em cima do ícone, embaixo dele,
+    // ao lado, e só então mais longe. Descer ou ir para o lado é melhor que
+    // subir duas alturas — a etiqueta continua colada no seu ícone em vez
+    // de flutuar acima do mapa.
+    const aoLado = p.y - icone / 2 - alt / 2;
+    const candidatos = [
+      { x: base, topo: p.y - acima - alt },
+      { x: base, topo: p.y + ABAIXO },
+      { x: p.x + icone / 2 + larg / 2 + 6, topo: aoLado },
+      { x: p.x - icone / 2 - larg / 2 - 6, topo: aoLado },
+      { x: base, topo: p.y - acima - alt - degrau },
+      { x: base, topo: p.y + ABAIXO + degrau },
+      { x: base, topo: p.y - acima - alt - 2 * degrau },
+      { x: base, topo: p.y + ABAIXO + 2 * degrau },
+    ];
     let coube = false;
-    // primeiro tenta sem encostar em ícone nenhum; se não houver lugar assim,
-    // tenta de novo só evitando as outras etiquetas. Uma etiqueta que cobre
-    // um pedaço de ícone ainda é melhor que um ícone sem nome
-    for (const poupaIcones of [true, false]) {
-      for (const l of lugares) {
-        m.topo = l.abaixo ? p.y + ABAIXO + l.salto : p.y - acima - alt - l.salto;
-        const c = caixa(m, larg, alt);
-        if (c.y0 < 4 || c.y1 > tela.altura - 4) continue;
-        if (poupaIcones && caixasIcone.some((b) => bate(b, c))) continue;
-        if (postos.every((o) => !bate(caixa(o, larg, alt), c))) {
-          coube = true;
-          break;
-        }
+    for (const c of candidatos) {
+      m.etiquetaX = c.x;
+      m.topo = c.topo;
+      const cx = caixa(m);
+      if (cx.x0 < 4 || cx.x1 > tela.largura - 4 || cx.y0 < 4 || cx.y1 > tela.altura - 4) continue;
+      if (caixasIcone.some((b) => bate(b, cx))) continue;
+      if (postos.every((o) => !bate(caixa(o), cx))) {
+        coube = true;
+        break;
       }
-      if (coube) break;
     }
-    // quem não achar lugar nenhum fica só com o ícone, sem etiqueta
-    if (coube) postos.push(m);
+    if (!coube) {
+      // sem lugar para a etiqueta, o ícone fica com a bolha do número: ele
+      // continua no mapa, e o nome fica a um toque de distância
+      m.etiqueta = false;
+      m.larg = SO_BOLHA;
+      m.alt = SO_BOLHA;
+      m.etiquetaX = p.x;
+      m.topo = p.y - icone - SO_BOLHA - 2;
+      if (postos.some((o) => bate(caixa(o), caixa(m)))) m.topo = p.y + 4;
+    }
+    postos.push(m);
   }
   return postos;
 }

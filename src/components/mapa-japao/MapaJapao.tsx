@@ -6,7 +6,7 @@ import { ArrowLeft, Maximize2, Plus, Minus } from 'lucide-react';
 import { DIAS_MAPA, diaPorId } from '@/lib/mapa-japao/dias';
 import {
   diasDe,
-  faixa,
+  larguraEtiqueta,
   marcadores,
   noDoDia,
   numero,
@@ -18,23 +18,33 @@ import {
 import { hojeNaViagem, type Hoje } from '@/lib/mapa-japao/hoje';
 import { getNow } from '@/lib/now';
 import { corDaEtapa, TRECHOS } from '@/lib/mapa-japao/rota';
+import { Cartao } from './Cartao';
 import { TiraDias } from './TiraDias';
 
-/** o tamanho da etiqueta, em pixels — é daqui que sai toda a separação */
-const LARG = 168;
-const ALT = 50;
+/** a altura da etiqueta em pixels, e a folga que ela pede em volta */
+const ETIQUETA_PX = 32;
+const ALT = ETIQUETA_PX + 4;
 /** o pé do ícone fica aqui embaixo da etiqueta */
-const ACIMA = 60;
+const ACIMA = 54;
 /** quantos pixels de altura um ícone ocupa, em qualquer distância */
 const ICONE_PX = 48;
+/** o tanto que a palavra 'hoje' acrescenta a uma etiqueta */
+const EXTRA_HOJE = 34;
 
-/** margens reservadas: título em cima, a tira dos dias embaixo, etiquetas nos lados */
+/** margens reservadas: título em cima, cartão e tira dos dias embaixo, etiquetas nos lados */
 const MARGEM_X = 48;
 const MARGEM_TOPO = 112;
-const MARGEM_BASE = 116;
+const MARGEM_BASE = 160;
 
 /** quanto dura o voo da câmera de um lugar a outro */
 const VOO_MS = 520;
+/** um toque: pouco tempo, pouco movimento; dois toques seguidos aproximam */
+const TOQUE_MS = 300;
+const TOQUE_PX = 8;
+const DUPLO_MS = 320;
+const DUPLO_PX = 30;
+/** a velocidade máxima com que o mapa sai deslizando, em pixels por milissegundo */
+const INERCIA_MAX = 2.5;
 
 interface Motor {
   pontos: () => Record<string, Ponto>;
@@ -45,7 +55,6 @@ interface Motor {
   /** voa até um dia e aproxima só o bastante para ele aparecer sozinho */
   irParaDia: (dayId: string) => void;
   tudo: () => void;
-  arrastar: (dx: number, dy: number) => void;
   mostrar: (dayIds: Set<string>) => void;
   dispose: () => void;
 }
@@ -58,30 +67,43 @@ function diaDeHoje(hoje: Hoje | null): string | null {
   return null;
 }
 
+/** a largura de cada etiqueta, com a palavra 'hoje' na que a tem */
+function larguraCom(hojeId: string | null) {
+  return (no: No) => larguraEtiqueta(no, hojeId && no.dias.some((d) => d.dayId === hojeId) ? EXTRA_HOJE : 0);
+}
+
+/** este marcador contém o que está escolhido? é ele que ganha o anel */
+function contem(m: Marcador, foco: No | null) {
+  return !!foco && foco.dias.every((d) => m.no.dias.includes(d));
+}
+
 /**
  * O mapa da viagem.
  *
- * Um ícone por dia, no lugar onde o dia acontece, com uma etiqueta que traz o
- * número da sequência, o nome e a data. Quando dois ícones não cabem lado a
- * lado eles aparecem como um só — 'Kansai, 25/nov – 1/dez' — e aproximar
- * desfaz o grupo: primeiro nas cidades, depois nos dias. Uma linha liga os
- * dias na ordem, com a cor de cada etapa; o dia de hoje pulsa; e a tira na
- * base leva a câmera a qualquer dia com um toque.
+ * Um ícone por dia, no lugar onde o dia acontece, com uma etiqueta de número
+ * e nome. Quando dois ícones não cabem lado a lado eles aparecem como um só
+ * — 'Kansai' — e aproximar desfaz o grupo: primeiro nas cidades, depois nos
+ * dias. Uma linha liga os dias na ordem, com a cor de cada etapa; o dia de
+ * hoje pulsa; tocar em qualquer coisa a escolhe e abre o cartão na base; e a
+ * tira dos dias leva a câmera a qualquer dia com um toque.
  */
 export function MapaJapao() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const motorRef = useRef<Motor | null>(null);
+  const hojeRef = useRef<Hoje | null>(null);
   const [marcas, setMarcas] = useState<Marcador[]>([]);
   const [estado, setEstado] = useState<'carregando' | 'pronto' | 'erro'>('carregando');
   const [erro, setErro] = useState('');
   const [hoje, setHoje] = useState<Hoje | null>(null);
-  const [foco, setFoco] = useState<string | null>(null);
+  const [foco, setFoco] = useState<No | null>(null);
 
   // a data só existe no aparelho: no servidor a página não sabe que dia é
   useEffect(() => {
     const h = hojeNaViagem(getNow());
+    hojeRef.current = h;
     setHoje(h);
-    setFoco(diaDeHoje(h));
+    const id = diaDeHoje(h);
+    setFoco(id ? noDoDia(id) ?? null : null);
   }, []);
 
   useEffect(() => {
@@ -126,6 +148,7 @@ export function MapaJapao() {
         // a linha sabe que trecho já passou: o de hoje salta, os anteriores apagam
         const agora = hojeNaViagem(getNow());
         const hojeN = (agora.fase === 'durante' && diaPorId(agora.dayId)?.n) || 0;
+        const larguraDe = larguraCom(diaDeHoje(agora));
         const linha = construirLinha(TRECHOS, (t) => {
           if (!hojeN || t.para.n > hojeN) return 'futuro';
           return t.para.n === hojeN ? 'hoje' : 'passado';
@@ -195,6 +218,13 @@ export function MapaJapao() {
         /** quanto de mundo cabe num pixel, a uma dada distância */
         const porPixel = (dd: number) => (2 * dd * TAN) / Math.max(1, canvas.getBoundingClientRect().height);
 
+        const arrastar = (dx: number, dy: number) => {
+          const k = porPixel(dist);
+          alvo.x -= dx * k;
+          alvo.z -= (dy * k) / ACHATA;
+          aplicar();
+        };
+
         /** centra o mapa num ponto do chão, com a margem de cima maior que a de baixo */
         const centrarEm = (x: number, z: number) => {
           alvo.set(x, ALTURA_TERRA, z);
@@ -231,10 +261,13 @@ export function MapaJapao() {
 
         /** os filhos deste nó já cabem lado a lado, do jeito que a tela está agora? */
         const abertoNaTela = (no: No) => {
-          const ps = no.filhos.map((f) => d.posicoes[f.principal.dayId]).filter(Boolean).map(naTela);
+          const fs = no.filhos.filter((f) => d.posicoes[f.principal.dayId]);
+          const ps = fs.map((f) => naTela(d.posicoes[f.principal.dayId]));
           for (let i = 0; i < ps.length; i += 1)
-            for (let j = i + 1; j < ps.length; j += 1)
-              if (Math.abs(ps[i].x - ps[j].x) < LARG && Math.abs(ps[i].y - ps[j].y) < ALT) return false;
+            for (let j = i + 1; j < ps.length; j += 1) {
+              const perto = Math.abs(ps[i].x - ps[j].x) < (larguraDe(fs[i]) + larguraDe(fs[j])) / 2;
+              if (perto && Math.abs(ps[i].y - ps[j].y) < ALT) return false;
+            }
           return true;
         };
 
@@ -259,10 +292,31 @@ export function MapaJapao() {
           else aplicar();
         };
 
-        const arrastar = (dx: number, dy: number) => {
-          const k = porPixel(dist);
-          alvo.x -= dx * k;
-          alvo.z -= (dy * k) / ACHATA;
+        /**
+         * O ponto do chão que está debaixo de um pixel. É o que deixa o zoom
+         * acontecer em volta do dedo — o lugar tocado fica parado na tela e o
+         * resto do mapa cresce ou encolhe ao redor dele.
+         */
+        const raio = new THREE.Raycaster();
+        const chao = new THREE.Plane(new THREE.Vector3(0, 1, 0), -ALTURA_TERRA);
+        const ndc = new THREE.Vector2();
+        const chaoSob = (px: number, py: number) => {
+          const r = canvas.getBoundingClientRect();
+          ndc.set(((px - r.left) / Math.max(1, r.width)) * 2 - 1, -((py - r.top) / Math.max(1, r.height)) * 2 + 1);
+          raio.setFromCamera(ndc, camera);
+          const p = new THREE.Vector3();
+          return raio.ray.intersectPlane(chao, p) ? p : null;
+        };
+        const zoomEm = (f: number, px: number, py: number) => {
+          voo = null;
+          const p = chaoSob(px, py);
+          const novo = Math.max(D_MIN, Math.min(D_MAX, dist * f));
+          const fe = novo / dist;
+          dist = novo;
+          if (p) {
+            alvo.x = p.x + (alvo.x - p.x) * fe;
+            alvo.z = p.z + (alvo.z - p.z) * fe;
+          }
           aplicar();
         };
 
@@ -277,6 +331,7 @@ export function MapaJapao() {
         let voo: { t0: number; de: Pose; para: Pose } | null = null;
         const pose = (): Pose => ({ x: alvo.x, z: alvo.z, dist });
         const voar = (calcular: () => void) => {
+          inercia = null;
           const de = pose();
           calcular();
           const para = pose();
@@ -295,6 +350,19 @@ export function MapaJapao() {
           dist = Math.exp(Math.log(voo.de.dist) + (Math.log(voo.para.dist) - Math.log(voo.de.dist)) * e);
           aplicar();
           if (t >= 1) voo = null;
+        };
+
+        /** o mapa continua deslizando depois que o dedo solta, e vai parando */
+        let inercia: { vx: number; vy: number; t: number } | null = null;
+        const passoDaInercia = (agoraMs: number) => {
+          if (!inercia) return;
+          const dt = Math.min(50, agoraMs - inercia.t);
+          inercia.t = agoraMs;
+          arrastar(inercia.vx * dt, inercia.vy * dt);
+          const k = Math.pow(0.93, dt / 16);
+          inercia.vx *= k;
+          inercia.vy *= k;
+          if (Math.hypot(inercia.vx, inercia.vy) < 0.02) inercia = null;
         };
 
         /** aproxima até os filhos do nó se separarem, sem tirar o ponto do centro */
@@ -323,7 +391,11 @@ export function MapaJapao() {
             const r = canvas.getBoundingClientRect();
             return { largura: r.width, altura: r.height };
           },
-          zoom: (f) => { voo = null; dist *= f; aplicar(); },
+          zoom: (f) => {
+            // os botões aproximam em volta do meio da parte visível do mapa
+            const r = canvas.getBoundingClientRect();
+            zoomEm(f, r.left + r.width / 2, r.top + (r.height + MARGEM_TOPO - MARGEM_BASE) / 2);
+          },
           abrir: (no) =>
             voar(() => {
               enquadrar(diasDe(no));
@@ -346,7 +418,6 @@ export function MapaJapao() {
               if (grupo.filhos.length >= 2) abrirEmTorno(grupo, p.x, p.z);
             }),
           tudo: () => voar(() => enquadrar(DIAS_MAPA.map((x) => x.dayId))),
-          arrastar,
           mostrar: (ids) => {
             for (const [id, g] of Object.entries(d.icones)) g.visible = ids.has(id);
           },
@@ -368,34 +439,114 @@ export function MapaJapao() {
         const ro = new ResizeObserver(redimensionar);
         ro.observe(canvas);
 
-        // um dedo arrasta o mapa, dois dedos pinçam
+        /**
+         * Os dedos. Um arrasta e, ao soltar, o mapa desliza; dois pinçam e
+         * arrastam juntos. Um toque limpo desfaz a escolha; dois toques
+         * seguidos aproximam em volta do dedo; um toque com dois dedos afasta.
+         */
         const dedos = new Map<number, { x: number; y: number }>();
         let pinca = 0;
+        let meio: { x: number; y: number } | null = null;
+        /** o dedo que desceu e ainda não se mexeu: pode virar um toque */
+        let toque: { x: number; y: number; t: number } | null = null;
+        let ultimoToque: { x: number; y: number; t: number } | null = null;
+        /** dois dedos que desceram juntos: se subirem parados, é um toque duplo-dedo */
+        let doisDedos: { t: number; movimento: number } | null = null;
+        /** as últimas posições do arrasto, para medir a velocidade ao soltar */
+        let amostras: { t: number; x: number; y: number }[] = [];
+        const meioDe = () => {
+          const l = [...dedos.values()];
+          return { x: (l[0].x + l[1].x) / 2, y: (l[0].y + l[1].y) / 2 };
+        };
+
         const onDown = (e: PointerEvent) => {
           voo = null;
+          inercia = null;
           dedos.set(e.pointerId, { x: e.clientX, y: e.clientY });
           canvas.setPointerCapture?.(e.pointerId);
+          const t = performance.now();
+          if (dedos.size === 1) {
+            toque = { x: e.clientX, y: e.clientY, t };
+            amostras = [{ t, x: e.clientX, y: e.clientY }];
+          } else if (dedos.size === 2) {
+            toque = null;
+            pinca = 0;
+            meio = meioDe();
+            doisDedos = { t, movimento: 0 };
+          } else {
+            toque = null;
+            doisDedos = null;
+          }
         };
         const onMove = (e: PointerEvent) => {
           const ant = dedos.get(e.pointerId);
           if (!ant) return;
           dedos.set(e.pointerId, { x: e.clientX, y: e.clientY });
-          const lista = [...dedos.values()];
-          if (lista.length >= 2) {
-            const dd = Math.hypot(lista[0].x - lista[1].x, lista[0].y - lista[1].y);
-            if (pinca) motor.zoom(pinca / Math.max(1, dd));
+          if (dedos.size >= 2) {
+            const l = [...dedos.values()];
+            const dd = Math.hypot(l[0].x - l[1].x, l[0].y - l[1].y);
+            const m = meioDe();
+            if (meio && doisDedos) doisDedos.movimento += Math.hypot(m.x - meio.x, m.y - meio.y) + Math.abs(dd - (pinca || dd));
+            if (pinca) zoomEm(pinca / Math.max(1, dd), m.x, m.y);
+            if (meio) arrastar(m.x - meio.x, m.y - meio.y);
             pinca = dd;
+            meio = m;
           } else {
             arrastar(e.clientX - ant.x, e.clientY - ant.y);
+            const t = performance.now();
+            amostras.push({ t, x: e.clientX, y: e.clientY });
+            if (amostras.length > 6) amostras.shift();
+            if (toque && Math.hypot(e.clientX - toque.x, e.clientY - toque.y) > TOQUE_PX) toque = null;
           }
         };
         const onUp = (e: PointerEvent) => {
+          const eram = dedos.size;
           dedos.delete(e.pointerId);
-          if (dedos.size < 2) pinca = 0;
+          const t = performance.now();
+          if (eram === 2 && doisDedos) {
+            if (t - doisDedos.t < TOQUE_MS && doisDedos.movimento < 12 && meio) zoomEm(2, meio.x, meio.y);
+            doisDedos = null;
+          }
+          if (dedos.size < 2) {
+            pinca = 0;
+            meio = null;
+          }
+          if (eram !== 1) return;
+          if (toque && t - toque.t < TOQUE_MS) {
+            const x = e.clientX;
+            const y = e.clientY;
+            if (ultimoToque && t - ultimoToque.t < DUPLO_MS && Math.hypot(x - ultimoToque.x, y - ultimoToque.y) < DUPLO_PX) {
+              zoomEm(0.5, x, y);
+              ultimoToque = null;
+            } else {
+              ultimoToque = { x, y, t };
+              // um toque no mapa vazio desfaz a escolha
+              setFoco(null);
+            }
+          } else if (amostras.length >= 2) {
+            // a velocidade dos últimos instantes do arrasto vira inércia
+            const fim = amostras[amostras.length - 1];
+            const ini = amostras.find((a) => fim.t - a.t <= 90) ?? amostras[0];
+            const dt = fim.t - ini.t;
+            if (dt > 0 && t - fim.t < 60) {
+              let vx = (fim.x - ini.x) / dt;
+              let vy = (fim.y - ini.y) / dt;
+              // um piso e um teto: devagar demais não desliza, rápido demais
+              // não atira o mapa para fora da tela
+              const v = Math.hypot(vx, vy);
+              if (v > INERCIA_MAX) {
+                vx *= INERCIA_MAX / v;
+                vy *= INERCIA_MAX / v;
+              }
+              if (v > 0.15) inercia = { vx, vy, t };
+            }
+          }
+          toque = null;
+          amostras = [];
         };
         const onWheel = (e: WheelEvent) => {
           e.preventDefault();
-          motor.zoom(e.deltaY > 0 ? 1.12 : 0.89);
+          zoomEm(e.deltaY > 0 ? 1.12 : 0.89, e.clientX, e.clientY);
         };
         canvas.addEventListener('pointerdown', onDown);
         canvas.addEventListener('pointermove', onMove);
@@ -407,6 +558,7 @@ export function MapaJapao() {
         const laco = (agoraMs: number) => {
           raf = requestAnimationFrame(laco);
           passoDoVoo(agoraMs);
+          passoDaInercia(agoraMs);
           renderer.render(scene, camera);
           renderer.autoClear = false;
           renderer.clearDepth();
@@ -440,16 +592,19 @@ export function MapaJapao() {
     if (estado !== 'pronto') return;
     let raf = 0;
     let anterior = '';
+    const larguraDe = larguraCom(diaDeHoje(hojeRef.current));
     const laco = () => {
       raf = requestAnimationFrame(laco);
       const m = motorRef.current;
       if (!m) return;
-      // a faixa da tira dos dias não recebe etiqueta: ela ficaria por baixo
+      // a faixa do cartão e da tira não recebe etiqueta: ela ficaria por baixo
       const tela = m.tela();
-      const ms = marcadores(m.pontos(), { largura: tela.largura, altura: tela.altura - MARGEM_BASE }, LARG, ALT, ACIMA, ICONE_PX);
+      const ms = marcadores(m.pontos(), { largura: tela.largura, altura: tela.altura - MARGEM_BASE }, larguraDe, ALT, ACIMA, ICONE_PX);
       // só o ícone que representa cada marcador fica aceso
       m.mostrar(new Set(ms.map((x) => x.no.principal.dayId)));
-      const chave = ms.map((x) => `${x.no.id}@${Math.round(x.x)},${Math.round(x.y)},${Math.round(x.topo)}`).join('|');
+      const chave = ms
+        .map((x) => `${x.no.id}${x.etiqueta ? '' : '*'}@${Math.round(x.x)},${Math.round(x.y)},${Math.round(x.topo)}`)
+        .join('|');
       if (chave !== anterior) {
         anterior = chave;
         setMarcas(ms);
@@ -459,11 +614,16 @@ export function MapaJapao() {
     return () => cancelAnimationFrame(raf);
   }, [estado]);
 
-  const abrir = useCallback((no: No) => motorRef.current?.abrir(no), []);
   const escolherDia = useCallback((dayId: string) => {
-    setFoco(dayId);
+    setFoco(noDoDia(dayId) ?? null);
     motorRef.current?.irParaDia(dayId);
   }, []);
+  /** o botão do cartão: abre o grupo, ou centra o dia */
+  const localizar = useCallback(() => {
+    if (!foco) return;
+    if (foco.filhos.length) motorRef.current?.abrir(foco);
+    else motorRef.current?.irParaDia(foco.principal.dayId);
+  }, [foco]);
 
   const hojeId = diaDeHoje(hoje);
   const marcaHoje = hojeId ? marcas.find((m) => m.no.dias.some((x) => x.dayId === hojeId)) : undefined;
@@ -497,8 +657,8 @@ export function MapaJapao() {
           key={m.no.id}
           marca={m}
           hoje={m === marcaHoje}
-          foco={!!foco && m.no.dias.some((x) => x.dayId === foco)}
-          onAbrir={() => abrir(m.no)}
+          foco={contem(m, foco)}
+          onEscolher={() => setFoco(m.no)}
         />
       ))}
 
@@ -536,7 +696,20 @@ export function MapaJapao() {
         </button>
       </div>
 
-      <TiraDias dias={DIAS_MAPA} hojeId={hojeId} passadoAte={hojeN} focoId={foco} corDe={corDaEtapa} onEscolher={escolherDia} />
+      <div
+        className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/30 to-transparent pt-8"
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+      >
+        {foco && <Cartao no={foco} corDe={corDaEtapa} onLocalizar={localizar} onEscolherDia={escolherDia} />}
+        <TiraDias
+          dias={DIAS_MAPA}
+          hojeId={hojeId}
+          passadoAte={hojeN}
+          focoDias={foco ? foco.dias.map((x) => x.dayId) : []}
+          corDe={corDaEtapa}
+          onEscolher={escolherDia}
+        />
+      </div>
     </div>
   );
 }
@@ -552,70 +725,38 @@ function Pulso({ x, y }: { x: number; y: number }) {
   );
 }
 
+const BOLHA =
+  'flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-accent font-mono text-[11px] font-bold leading-none text-white';
+
 /**
- * A etiqueta: número da sequência, nome do lugar e a data. Quando ela precisou
- * subir para desviar de outra, uma haste fina a liga de volta ao seu ícone.
+ * A etiqueta: o número da sequência e o nome, numa linha. Quando ela
+ * precisou subir para desviar de outra, uma haste fina a liga de volta ao
+ * seu ícone; quando não coube em lugar nenhum, sobra a bolha do número.
+ * Tocar escolhe o marcador, e o cartão na base conta o resto.
  */
-function Etiqueta({ marca, hoje, foco, onAbrir }: { marca: Marcador; hoje: boolean; foco: boolean; onAbrir: () => void }) {
-  const { no, x, y, etiquetaX, topo } = marca;
-  /** um nó sem filhos não tem o que abrir: leva direto ao dia */
-  const folha = no.filhos.length === 0;
-  const classe = `tappable absolute flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-white/93 py-1.5 pl-1.5 pr-2.5 shadow-md backdrop-blur ${
-    foco ? 'ring-2 ring-accent' : 'ring-1 ring-black/5'
-  }`;
-  const estilo = { left: etiquetaX, top: topo, width: LARG - 4, height: 44 };
-  // a haste liga a etiqueta ao seu ícone quando ela não está bem em cima dele
-  const abaixo = topo > y;
-  const vao = abaixo ? topo - y : y - (topo + 44);
-  const haste = vao > 6 || Math.abs(etiquetaX - x) > 1;
+function Etiqueta({ marca, hoje, foco, onEscolher }: { marca: Marcador; hoje: boolean; foco: boolean; onEscolher: () => void }) {
+  const { no, x, y, etiquetaX, topo, larg, etiqueta } = marca;
 
-  const texto = (
-    <span className="min-w-0 flex-1 text-left">
-      <span className="block truncate text-[12.5px] font-bold leading-tight text-rail">{no.nome}</span>
-      <span className="block truncate font-mono text-[9.5px] leading-tight text-rail/65">
-        {hoje && <span className="font-bold text-accent">hoje · </span>}
-        {faixa(no)}
-      </span>
-    </span>
-  );
-  const bolha = (rotulo: string) => (
-    <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-accent font-mono text-[11px] font-bold leading-none text-white">
-      {rotulo}
-    </span>
-  );
-
-  let corpo;
-  if (!folha) {
-    // um grupo: tocar aproxima até ele se desfazer
-    corpo = (
-      <button type="button" onClick={onAbrir} className={classe} style={estilo}>
-        {bolha(numero(no))}
-        {texto}
+  if (!etiqueta) {
+    return (
+      <button type="button" onClick={onEscolher} aria-label={no.nome}
+        className={`tappable absolute -translate-x-1/2 shadow-md ring-2 ${foco ? 'ring-accent' : 'ring-white'} ${BOLHA} h-[28px] w-[28px]`}
+        style={{ left: etiquetaX, top: topo }}>
+        {numero(no)}
       </button>
     );
-  } else if (no.dias.length === 1) {
-    corpo = (
-      <Link href={`/roteiro/${no.principal.dayId}`} className={classe} style={estilo}>
-        {bolha(numero(no))}
-        {texto}
-      </Link>
-    );
-  } else {
-    // o mesmo lugar em dias diferentes: um número para cada dia, cada um um link
-    corpo = (
-      <span className={`${classe} pr-2`} style={estilo}>
-        <span className="flex shrink-0 gap-1">
-          {no.dias.map((d) => (
-            <Link key={d.dayId} href={`/roteiro/${d.dayId}`} aria-label={`dia ${d.n}, ${d.titulo}`}
-              className="tappable flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-accent font-mono text-[11px] font-bold leading-none text-white">
-              {d.n}
-            </Link>
-          ))}
-        </span>
-        {texto}
-      </span>
-    );
   }
+
+  const classe = `tappable absolute flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-white/93 py-[3px] pl-[3px] pr-2.5 shadow-md backdrop-blur ${
+    foco ? 'ring-2 ring-accent' : 'ring-1 ring-black/5'
+  }`;
+  const estilo = { left: etiquetaX, top: topo, width: larg - 4, height: ETIQUETA_PX };
+  // a haste liga a etiqueta ao seu ícone quando ela não está bem em cima
+  // dele — mas não quando ela está ao lado: aí a vizinhança já diz de quem é
+  const abaixo = topo > y;
+  const vao = abaixo ? topo - y : y - (topo + ETIQUETA_PX);
+  const aoLado = Math.abs(etiquetaX - x) >= larg / 2;
+  const haste = !aoLado && (vao > 6 || Math.abs(etiquetaX - x) > 1);
 
   return (
     <>
@@ -623,7 +764,7 @@ function Etiqueta({ marca, hoje, foco, onAbrir }: { marca: Marcador; hoje: boole
         <span aria-hidden className="pointer-events-none absolute bg-rail/35"
           style={{
             left: Math.min(x, etiquetaX) - 1,
-            top: abaixo ? y : topo + 44,
+            top: abaixo ? y : topo + ETIQUETA_PX,
             width: Math.abs(etiquetaX - x) + 2,
             height: Math.max(2, vao),
             clipPath:
@@ -632,7 +773,20 @@ function Etiqueta({ marca, hoje, foco, onAbrir }: { marca: Marcador; hoje: boole
                 : 'polygon(0 0, 0 2px, 100% 100%, 100% calc(100% - 2px))',
           }} />
       )}
-      {corpo}
+      <button type="button" onClick={onEscolher} className={classe} style={estilo}>
+        {/* o mesmo lugar em dias diferentes ganha uma bolha por dia */}
+        {no.nivel === 'lugar' ? (
+          <span className="flex shrink-0 gap-1">
+            {no.dias.map((d) => <span key={d.dayId} className={BOLHA}>{d.n}</span>)}
+          </span>
+        ) : (
+          <span className={BOLHA}>{numero(no)}</span>
+        )}
+        <span className="min-w-0 flex-1 truncate text-left text-[12.5px] font-bold leading-none text-rail">
+          {no.nome}
+          {hoje && <span className="ml-1.5 font-mono text-[9.5px] font-bold text-accent">hoje</span>}
+        </span>
+      </button>
     </>
   );
 }
