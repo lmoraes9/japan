@@ -1167,24 +1167,31 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
   },
   "stops/d02-nihonbashi": {
     "src": "/lugares/stops/d02-nihonbashi.jpg",
+    "credit": "Aimaimyi",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nihonbashi_12.jpg",
+    "title": "Nihonbashi 12.jpg"
+  },
+  "stops/d02-nihonbashi-2": {
+    "src": "/lugares/stops/d02-nihonbashi-2.jpg",
+    "credit": "urbzoo",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nihonbashi_Bridge_(3767056045).jpg",
+    "title": "Nihonbashi Bridge (3767056045).jpg"
+  },
+  "stops/d02-nihonbashi-3": {
+    "src": "/lugares/stops/d02-nihonbashi-3.jpg",
+    "credit": "Aimaimyi",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Kilometre_Zero_of_road_in_Japan_in_Nihonbashi,_Chuo,_Tokyo.jpg",
+    "title": "The Kilometre Zero of road in Japan in Nihonbashi, Chuo, Tokyo.jpg"
+  },
+  "stops/d02-nihonbashi-4": {
+    "src": "/lugares/stops/d02-nihonbashi-4.jpg",
     "credit": "Lombroso",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Yoroi_Bridge,_at_Nihonbashi-Kabutocho,_Chuo,_Tokyo_(2019-01-02).jpg",
     "title": "Yoroi Bridge, at Nihonbashi-Kabutocho, Chuo, Tokyo (2019-01-02).jpg"
-  },
-  "stops/d02-nihonbashi-2": {
-    "src": "/lugares/stops/d02-nihonbashi-2.jpg",
-    "credit": "Katsushika Hokusai",
-    "license": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Nihonbashi_bridge_in_Edo.jpg",
-    "title": "Nihonbashi bridge in Edo.jpg"
-  },
-  "stops/d02-nihonbashi-3": {
-    "src": "/lugares/stops/d02-nihonbashi-3.jpg",
-    "credit": "Katsushika Hokusai",
-    "license": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Edo_nihonbashi_LCCN2008661022.jpg",
-    "title": "Edo nihonbashi LCCN2008661022.jpg"
   },
   "stops/d02-ultima-vista": {
     "src": "/lugares/stops/d02-ultima-vista.jpg",

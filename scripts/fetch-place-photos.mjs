@@ -91,6 +91,14 @@ const NAO_E_FOTO =
   /(map|diagram|plan|logo|icon|stamp|hiroshige|hokusai|ukiyo|woodblock|print|painting|drawing|engraving|titel op object|AK-MAK|RP-P-|浮世絵|錦絵|版画|絵図|五十三次|三十六景|百景|名所|之図|の図|広重|北斎|画|views of|from the series|siege of|battle of|MET DP|Rijksmuseum|collection of the)/i;
 
 /**
+ * O título nem sempre entrega a gravura: "Nihonbashi bridge in Edo.jpg" é um
+ * Hokusai e passava batido. O autor, esse, não mente — e um mestre do ukiyo-e
+ * ou um museu no crédito significa peça de acervo, não foto do lugar hoje.
+ */
+const AUTOR_DE_ACERVO =
+  /(hiroshige|hokusai|utamaro|kuniyoshi|kunisada|toyokuni|yoshitoshi|広重|北斎|歌麿|国芳|rijksmuseum|metropolitan museum)/i;
+
+/**
  * Muitos santuários têm xarás pelo país (há um 厳島神社 em Kushiro, Hokkaidō).
  * Quando o título traz a cidade entre parênteses — "(釧路市)" — ela precisa
  * ser uma cidade do roteiro daquele grupo/dia; senão é outro lugar.
@@ -182,7 +190,11 @@ async function search(query, width, termos, cidades) {
   // numa tela larga, e só depois aceitamos qualquer coisa que preste
   // foto errada é pior que ponto sem foto
   const doLugar = candidates.filter(
-    ({ title }) => combina(title, termos) && cidadeBate(title, cidades) && !HISTORICA.test(title),
+    ({ title, info }) =>
+      combina(title, termos) &&
+      cidadeBate(title, cidades) &&
+      !HISTORICA.test(title) &&
+      !AUTOR_DE_ACERVO.test(stripTags(info.extmetadata?.Artist?.value)),
   );
 
   const bom = doLugar
@@ -318,7 +330,7 @@ if (validar) {
     for (const chave of chaves) {
       const atual = current[chave];
       if (!atual) continue;
-      if (combina(atual.title, termos) && !NAO_E_FOTO.test(atual.title) && cidadeBate(atual.title, cidadesDe(key)) && !HISTORICA.test(atual.title)) continue;
+      if (combina(atual.title, termos) && !NAO_E_FOTO.test(atual.title) && cidadeBate(atual.title, cidadesDe(key)) && !HISTORICA.test(atual.title) && !AUTOR_DE_ACERVO.test(atual.credit)) continue;
       console.log(`✗ ${chave} — "${atual.title}" não parece ser do lugar; removida`);
       delete current[chave];
       await rm(join(ROOT, 'public', `lugares/${chave.split('/')[0]}/${chave.split('/')[1]}.jpg`), { force: true });
