@@ -2,8 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Maximize2, Plus, Minus } from 'lucide-react';
+import { ArrowLeft, BedDouble, Maximize2, Plus, Minus } from 'lucide-react';
+import { BASES, baseDaNoite, type Base } from '@/lib/mapa-japao/bases';
 import { DIAS_MAPA, diaPorId } from '@/lib/mapa-japao/dias';
+import type { Foco } from '@/lib/mapa-japao/foco';
 import {
   diasDe,
   larguraEtiqueta,
@@ -17,7 +19,7 @@ import {
 } from '@/lib/mapa-japao/hierarquia';
 import { hojeNaViagem, type Hoje } from '@/lib/mapa-japao/hoje';
 import { getNow } from '@/lib/now';
-import { corDaEtapa, TRECHOS } from '@/lib/mapa-japao/rota';
+import { corDaEtapa, kmAte, TRECHOS } from '@/lib/mapa-japao/rota';
 import { Cartao } from './Cartao';
 import { TiraDias } from './TiraDias';
 
@@ -30,6 +32,9 @@ const ACIMA = 54;
 const ICONE_PX = 48;
 /** o tanto que a palavra 'hoje' acrescenta a uma etiqueta */
 const EXTRA_HOJE = 34;
+/** a cama: o tamanho do botão, e a distância mínima de um ícone para ela aparecer */
+const CAMA_PX = 28;
+const CAMA_LONGE = 44;
 
 /** margens reservadas: título em cima, cartão e tira dos dias embaixo, etiquetas nos lados */
 const MARGEM_X = 48;
@@ -45,18 +50,31 @@ const DUPLO_MS = 320;
 const DUPLO_PX = 30;
 /** a velocidade máxima com que o mapa sai deslizando, em pixels por milissegundo */
 const INERCIA_MAX = 2.5;
+/** a barra de escala: o mais longo destes que couber em tantos pixels */
+const ESCALAS_KM = [1, 2, 5, 10, 20, 50, 100, 200, 500];
+const ESCALA_MAX_PX = 120;
 
 interface Motor {
   pontos: () => Record<string, Ponto>;
   tela: () => { largura: number; altura: number };
+  /** quantos quilômetros cabem num pixel, no meio da tela */
+  kmPorPixel: () => number;
   zoom: (fator: number) => void;
   /** enquadra um nó e, se ele for um grupo, aproxima o bastante para abri-lo */
   abrir: (no: No) => void;
   /** voa até um dia e aproxima só o bastante para ele aparecer sozinho */
   irParaDia: (dayId: string) => void;
+  /** voa até um ponto do chão, de perto o bastante para ver a cidade */
+  irParaPonto: (chave: string) => void;
   tudo: () => void;
   mostrar: (dayIds: Set<string>) => void;
   dispose: () => void;
+}
+
+interface Cama {
+  base: Base;
+  x: number;
+  y: number;
 }
 
 /** o dia que o mapa marca como 'aqui': o de hoje, ou o primeiro enquanto a viagem não começa */
@@ -73,8 +91,8 @@ function larguraCom(hojeId: string | null) {
 }
 
 /** este marcador contém o que está escolhido? é ele que ganha o anel */
-function contem(m: Marcador, foco: No | null) {
-  return !!foco && foco.dias.every((d) => m.no.dias.includes(d));
+function contem(m: Marcador, foco: Foco | null) {
+  return foco?.tipo === 'no' && foco.no.dias.every((d) => m.no.dias.includes(d));
 }
 
 /**
@@ -83,8 +101,9 @@ function contem(m: Marcador, foco: No | null) {
  * Um ícone por dia, no lugar onde o dia acontece, com uma etiqueta de número
  * e nome. Quando dois ícones não cabem lado a lado eles aparecem como um só
  * — 'Kansai' — e aproximar desfaz o grupo: primeiro nas cidades, depois nos
- * dias. Uma linha liga os dias na ordem, com a cor de cada etapa; o dia de
- * hoje pulsa; tocar em qualquer coisa a escolhe e abre o cartão na base; e a
+ * dias. Uma linha liga cada dia à cama de onde ele sai e à que ele volta,
+ * com a cor de cada etapa; de perto, as camas aparecem; o dia de hoje
+ * pulsa; tocar em qualquer coisa a escolhe e abre o cartão na base; e a
  * tira dos dias leva a câmera a qualquer dia com um toque.
  */
 export function MapaJapao() {
@@ -92,10 +111,12 @@ export function MapaJapao() {
   const motorRef = useRef<Motor | null>(null);
   const hojeRef = useRef<Hoje | null>(null);
   const [marcas, setMarcas] = useState<Marcador[]>([]);
+  const [camas, setCamas] = useState<Cama[]>([]);
+  const [escala, setEscala] = useState<{ km: number; px: number } | null>(null);
   const [estado, setEstado] = useState<'carregando' | 'pronto' | 'erro'>('carregando');
   const [erro, setErro] = useState('');
   const [hoje, setHoje] = useState<Hoje | null>(null);
-  const [foco, setFoco] = useState<No | null>(null);
+  const [foco, setFoco] = useState<Foco | null>(null);
 
   // a data só existe no aparelho: no servidor a página não sabe que dia é
   useEffect(() => {
@@ -103,7 +124,8 @@ export function MapaJapao() {
     hojeRef.current = h;
     setHoje(h);
     const id = diaDeHoje(h);
-    setFoco(id ? noDoDia(id) ?? null : null);
+    const no = id ? noDoDia(id) : undefined;
+    setFoco(no ? { tipo: 'no', no } : null);
   }, []);
 
   useEffect(() => {
@@ -114,11 +136,8 @@ export function MapaJapao() {
 
     (async () => {
       try {
-        const [THREE, { construirDiorama, ALTURA_TERRA, ALTURA_ICONE }, { construirLinha }] = await Promise.all([
-          import('three'),
-          import('@/lib/three/japao/diorama'),
-          import('@/lib/three/japao/linha'),
-        ]);
+        const [THREE, { construirDiorama, ALTURA_TERRA, ALTURA_ICONE, KM_POR_UNIDADE, proj }, { construirLinha }] =
+          await Promise.all([import('three'), import('@/lib/three/japao/diorama'), import('@/lib/three/japao/linha')]);
         if (!vivo) return;
 
         const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
@@ -145,13 +164,20 @@ export function MapaJapao() {
 
         const d = construirDiorama(scene, DIAS_MAPA, false);
 
+        // as camas também têm lugar no chão, para a tela projetar
+        const posicoes: Record<string, import('three').Vector3> = { ...d.posicoes };
+        for (const b of BASES) {
+          const [x, z] = proj(b.lng, b.lat);
+          posicoes[`base:${b.id}`] = new THREE.Vector3(x, ALTURA_TERRA, z);
+        }
+
         // a linha sabe que trecho já passou: o de hoje salta, os anteriores apagam
         const agora = hojeNaViagem(getNow());
         const hojeN = (agora.fase === 'durante' && diaPorId(agora.dayId)?.n) || 0;
         const larguraDe = larguraCom(diaDeHoje(agora));
         const linha = construirLinha(TRECHOS, (t) => {
-          if (!hojeN || t.para.n > hojeN) return 'futuro';
-          return t.para.n === hojeN ? 'hoje' : 'passado';
+          if (!hojeN || t.dia.n > hojeN) return 'futuro';
+          return t.dia.n === hojeN ? 'hoje' : 'passado';
         });
 
         // a camada dos ícones é desenhada num segundo passe, com a
@@ -182,6 +208,8 @@ export function MapaJapao() {
         let dist = 900;
         const D_MIN = 8;
         const D_MAX = 2400;
+        /** a distância de onde se vê uma cidade inteira, para ir até uma cama */
+        const D_CIDADE = 18;
 
         const aplicar = () => {
           dist = Math.max(D_MIN, Math.min(D_MAX, dist));
@@ -381,7 +409,7 @@ export function MapaJapao() {
           pontos: () => {
             const r = canvas.getBoundingClientRect();
             const out: Record<string, Ponto> = {};
-            for (const [id, p] of Object.entries(d.posicoes)) {
+            for (const [id, p] of Object.entries(posicoes)) {
               v.copy(p).project(camera);
               out[id] = { x: ((v.x + 1) / 2) * r.width, y: ((1 - v.y) / 2) * r.height, visivel: v.z <= 1 };
             }
@@ -391,6 +419,7 @@ export function MapaJapao() {
             const r = canvas.getBoundingClientRect();
             return { largura: r.width, altura: r.height };
           },
+          kmPorPixel: () => porPixel(dist) * KM_POR_UNIDADE,
           zoom: (f) => {
             // os botões aproximam em volta do meio da parte visível do mapa
             const r = canvas.getBoundingClientRect();
@@ -416,6 +445,13 @@ export function MapaJapao() {
               enquadrar(diasDe(grupo));
               centrarEm(p.x, p.z);
               if (grupo.filhos.length >= 2) abrirEmTorno(grupo, p.x, p.z);
+            }),
+          irParaPonto: (chave) =>
+            voar(() => {
+              const p = posicoes[chave];
+              if (!p) return;
+              dist = Math.min(dist, D_CIDADE);
+              centrarEm(p.x, p.z);
             }),
           tudo: () => voar(() => enquadrar(DIAS_MAPA.map((x) => x.dayId))),
           mostrar: (ids) => {
@@ -533,12 +569,12 @@ export function MapaJapao() {
               let vy = (fim.y - ini.y) / dt;
               // um piso e um teto: devagar demais não desliza, rápido demais
               // não atira o mapa para fora da tela
-              const v = Math.hypot(vx, vy);
-              if (v > INERCIA_MAX) {
-                vx *= INERCIA_MAX / v;
-                vy *= INERCIA_MAX / v;
+              const vel = Math.hypot(vx, vy);
+              if (vel > INERCIA_MAX) {
+                vx *= INERCIA_MAX / vel;
+                vy *= INERCIA_MAX / vel;
               }
-              if (v > 0.15) inercia = { vx, vy, t };
+              if (vel > 0.15) inercia = { vx, vy, t };
             }
           }
           toque = null;
@@ -587,7 +623,7 @@ export function MapaJapao() {
     return () => { vivo = false; limpar(); };
   }, []);
 
-  // as etiquetas são recalculadas a cada quadro, a partir da projeção
+  // as etiquetas, as camas e a escala são recalculadas a cada quadro, a partir da projeção
   useEffect(() => {
     if (estado !== 'pronto') return;
     let raf = 0;
@@ -599,15 +635,47 @@ export function MapaJapao() {
       if (!m) return;
       // a faixa do cartão e da tira não recebe etiqueta: ela ficaria por baixo
       const tela = m.tela();
-      const ms = marcadores(m.pontos(), { largura: tela.largura, altura: tela.altura - MARGEM_BASE }, larguraDe, ALT, ACIMA, ICONE_PX);
+      const util = { largura: tela.largura, altura: tela.altura - MARGEM_BASE };
+      const pontos = m.pontos();
+      const ms = marcadores(pontos, util, larguraDe, ALT, ACIMA, ICONE_PX);
       // só o ícone que representa cada marcador fica aceso
       m.mostrar(new Set(ms.map((x) => x.no.principal.dayId)));
-      const chave = ms
-        .map((x) => `${x.no.id}${x.etiqueta ? '' : '*'}@${Math.round(x.x)},${Math.round(x.y)},${Math.round(x.topo)}`)
-        .join('|');
+
+      // as camas aparecem quando estão longe de todo ícone aceso e fora de
+      // toda etiqueta: de longe, a cama e o ícone da cidade são o mesmo pixel
+      const cs: Cama[] = [];
+      for (const b of BASES) {
+        const p = pontos[`base:${b.id}`];
+        if (!p || !p.visivel) continue;
+        // nem debaixo do título e dos botões, onde o toque não chegaria nela
+        if (p.x < 16 || p.x > util.largura - 16 || p.y < MARGEM_TOPO || p.y > util.altura - 8) continue;
+        if (ms.some((k) => Math.hypot(k.x - p.x, k.y - p.y) < CAMA_LONGE)) continue;
+        const cx0 = p.x - CAMA_PX / 2;
+        const cx1 = p.x + CAMA_PX / 2;
+        const cy0 = p.y - CAMA_PX;
+        const cy1 = p.y;
+        const tapada = ms.some((k) => {
+          const x0 = k.etiquetaX - k.larg / 2;
+          const x1 = k.etiquetaX + k.larg / 2;
+          return x0 < cx1 && cx0 < x1 && k.topo < cy1 && cy0 < k.topo + k.alt;
+        });
+        if (!tapada) cs.push({ base: b, x: p.x, y: p.y });
+      }
+
+      // a barra de escala: o maior tamanho redondo que cabe
+      const kmPx = m.kmPorPixel();
+      const km = [...ESCALAS_KM].reverse().find((k) => k / kmPx <= ESCALA_MAX_PX) ?? ESCALAS_KM[0];
+      const px = Math.round(km / kmPx);
+
+      const chave =
+        ms.map((x) => `${x.no.id}${x.etiqueta ? '' : '*'}@${Math.round(x.x)},${Math.round(x.y)},${Math.round(x.topo)}`).join('|') +
+        '#' + cs.map((c) => `${c.base.id}@${Math.round(c.x)},${Math.round(c.y)}`).join('|') +
+        `#${km}:${px}`;
       if (chave !== anterior) {
         anterior = chave;
         setMarcas(ms);
+        setCamas(cs);
+        setEscala({ km, px });
       }
     };
     raf = requestAnimationFrame(laco);
@@ -615,27 +683,31 @@ export function MapaJapao() {
   }, [estado]);
 
   const escolherDia = useCallback((dayId: string) => {
-    setFoco(noDoDia(dayId) ?? null);
+    const no = noDoDia(dayId);
+    setFoco(no ? { tipo: 'no', no } : null);
     motorRef.current?.irParaDia(dayId);
   }, []);
-  /** o botão do cartão: abre o grupo, ou centra o dia */
+  /** o botão do cartão: abre o grupo, ou centra o dia ou a cama */
   const localizar = useCallback(() => {
-    if (!foco) return;
-    if (foco.filhos.length) motorRef.current?.abrir(foco);
-    else motorRef.current?.irParaDia(foco.principal.dayId);
+    const m = motorRef.current;
+    if (!foco || !m) return;
+    if (foco.tipo === 'base') m.irParaPonto(`base:${foco.base.id}`);
+    else if (foco.no.filhos.length) m.abrir(foco.no);
+    else m.irParaDia(foco.no.principal.dayId);
   }, [foco]);
 
   const hojeId = diaDeHoje(hoje);
   const marcaHoje = hojeId ? marcas.find((m) => m.no.dias.some((x) => x.dayId === hojeId)) : undefined;
-  const hojeN = (hoje?.fase === 'durante' && diaPorId(hoje.dayId)?.n) || 0;
+  const diaHoje = hoje?.fase === 'durante' ? diaPorId(hoje.dayId) : undefined;
+  const hojeN = diaHoje?.n ?? 0;
+  /** a cama desta noite */
+  const camaHoje = diaHoje ? baseDaNoite(diaHoje.day.date)?.id : undefined;
 
   const periodo = `${DIAS_MAPA[0].data} – ${DIAS_MAPA[DIAS_MAPA.length - 1].data}`;
   let subtitulo = `${DIAS_MAPA.length} dias · ${periodo}`;
   if (hoje?.fase === 'antes') subtitulo = `faltam ${hoje.dias} ${hoje.dias === 1 ? 'dia' : 'dias'} · ${periodo}`;
-  else if (hoje?.fase === 'durante') {
-    const dh = diaPorId(hoje.dayId);
-    if (dh) subtitulo = `dia ${dh.n} de ${DIAS_MAPA.length} · ${dh.cidade}`;
-  }
+  else if (diaHoje) subtitulo = `dia ${diaHoje.n} de ${DIAS_MAPA.length} · ${diaHoje.cidade} · ${kmAte(diaHoje.n).toLocaleString('pt-BR')} km`;
+  else if (hoje?.fase === 'depois') subtitulo = `${DIAS_MAPA.length} dias · ${kmAte().toLocaleString('pt-BR')} km`;
 
   const topo = { top: 'calc(env(safe-area-inset-top) + 12px)' };
 
@@ -652,13 +724,23 @@ export function MapaJapao() {
 
       {marcaHoje && <Pulso x={marcaHoje.x} y={marcaHoje.y} />}
 
+      {camas.map((c) => (
+        <CamaMarca
+          key={c.base.id}
+          cama={c}
+          hoje={c.base.id === camaHoje}
+          foco={foco?.tipo === 'base' && foco.base.id === c.base.id}
+          onEscolher={() => setFoco({ tipo: 'base', base: c.base })}
+        />
+      ))}
+
       {marcas.map((m) => (
         <Etiqueta
           key={m.no.id}
           marca={m}
           hoje={m === marcaHoje}
           foco={contem(m, foco)}
-          onEscolher={() => setFoco(m.no)}
+          onEscolher={() => setFoco({ tipo: 'no', no: m.no })}
         />
       ))}
 
@@ -696,16 +778,25 @@ export function MapaJapao() {
         </button>
       </div>
 
+      {escala && (
+        <div aria-hidden className="pointer-events-none absolute left-3 z-10" style={{ bottom: MARGEM_BASE + 10 }}>
+          <div className="h-[6px] border-x-2 border-b-2 border-rail/80" style={{ width: escala.px }} />
+          <p className="mt-0.5 font-mono text-[10px] leading-none text-rail/80 drop-shadow-[0_0_2px_rgba(255,255,255,0.9)]">
+            {escala.km} km
+          </p>
+        </div>
+      )}
+
       <div
         className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/30 to-transparent pt-8"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
-        {foco && <Cartao no={foco} corDe={corDaEtapa} onLocalizar={localizar} onEscolherDia={escolherDia} />}
+        {foco && <Cartao foco={foco} corDe={corDaEtapa} onLocalizar={localizar} onEscolherDia={escolherDia} />}
         <TiraDias
           dias={DIAS_MAPA}
           hojeId={hojeId}
           passadoAte={hojeN}
-          focoDias={foco ? foco.dias.map((x) => x.dayId) : []}
+          focoDias={foco?.tipo === 'no' ? foco.no.dias.map((x) => x.dayId) : []}
           corDe={corDaEtapa}
           onEscolher={escolherDia}
         />
@@ -722,6 +813,18 @@ function Pulso({ x, y }: { x: number; y: number }) {
       <span className="absolute inset-0 animate-ping rounded-full border-[3px] border-accent [animation-duration:1.8s]" />
       <span className="absolute inset-[9px] rounded-full border-2 border-accent/70" />
     </span>
+  );
+}
+
+/** a cama de uma etapa: onde se dorme, na cor dela, com anel na cama desta noite */
+function CamaMarca({ cama, hoje, foco, onEscolher }: { cama: Cama; hoje: boolean; foco: boolean; onEscolher: () => void }) {
+  const anel = foco ? 'ring-2 ring-accent' : hoje ? 'ring-2 ring-accent/60' : 'ring-1 ring-black/10';
+  return (
+    <button type="button" onClick={onEscolher} aria-label={`${cama.base.nome}, ${cama.base.noites} noites`}
+      className={`tappable absolute flex -translate-x-1/2 -translate-y-full items-center justify-center rounded-full bg-white shadow-md ${anel}`}
+      style={{ left: cama.x, top: cama.y, width: CAMA_PX, height: CAMA_PX, color: cama.base.cor }}>
+      <BedDouble size={15} />
+    </button>
   );
 }
 
