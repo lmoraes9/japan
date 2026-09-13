@@ -98,9 +98,11 @@ export const INGRESSOS: Ingresso[] = [
   },
   {
     id: 'koyasan-tour-noturno',
+    checklistItemId: 'reserva-ekoin',
     title: 'Tour noturno do Okunoin (Ekō-in)',
     jp: '奥之院ナイトツアー',
-    status: 'recomendado',
+    status: 'obrigatorio',
+    url: 'https://www.ekoin.jp/en/',
     date: '2026-11-26',
     action: 'Reservar o tour guiado em inglês que sai do lobby do Ekō-in às 19:00 — **aceita quem não está hospedado lá**.',
     when: 'Reservar com antecedência: lota de março a novembro.',
@@ -140,22 +142,6 @@ export const INGRESSOS: Ingresso[] = [
   },
 
   // ── Tóquio ──
-  {
-    id: 'shibuya-sky',
-    opensAt: '2026-11-08T00:00:00+09:00',
-    checklistItemId: 'reserva-shibuya-sky',
-    title: 'Shibuya Sky',
-    jp: '渋谷スカイ',
-    status: 'obrigatorio',
-    date: '2026-11-22',
-    action: 'Comprar o horário das 15:30–16:00 assim que abrir: o pôr do sol de domingo esgota em minutos.',
-    when: 'Abre exatamente 14 dias antes, à 0:00 JST: 8 de novembro às 12:00 de Brasília',
-    where: 'Site oficial (shibuya-scramble-square.com/sky); se esgotar, KKday ou Klook têm cota separada',
-    url: 'https://www.shibuya-scramble-square.com/sky/',
-    cost: '¥2.500 online (¥2.700 no dia, se houver)',
-    note: 'Deixem um alarme. Se perderem a janela, o horário das 14:30 ou o noturno (18:00) costumam sobrar.',
-    stopId: 'd22-shibuya-sky',
-  },
   {
     id: 'skytree',
     title: 'Tokyo Skytree (se for a escolha do dia 2)',

@@ -95,7 +95,7 @@ export const koyasanDays: Day[] = [
         jp: '宿坊',
         facts: 'Check-in **14:00–17:00** · jantar **~17:30** · check-out **09:00** · banho comum · quarto de tatame',
         paragraphs: [
-          'Um shukubō não é hotel: é a hospedaria de um templo em funcionamento, e vocês entram no horário da casa. Tirem os sapatos na entrada, recebam o chá, e perguntem logo **três coisas**: a que horas é o jantar, a que horas abre o banho, e a que horas é a oração da manhã.',
+          'Um shukubō não é hotel: é a hospedaria de um templo em funcionamento, e vocês entram no horário da casa. Tirem os sapatos na entrada, recebam o chá, e perguntem logo **quatro coisas**: a que horas é o jantar, a que horas abre o banho, a que horas é a oração da manhã, e — a que importa — **se aqui tem o *goma*, o ritual do fogo**, e a que horas. Nem todo templo de Kōyasan faz; o Ekō-in faz, e é a coisa que a Priscila lembra. Se aqui não tiver, dá para assistir ao de outro templo pagando à parte.',
           'O quarto é de tatame, com futon e uma mesa baixa, e as paredes são de papel — o silêncio ali é uma cortesia, não uma regra escrita. Quase sempre há aquecedor, mas o corredor é frio: é para isso que servem as meias grossas.',
         ],
         mapQuery: 'Kumagaiji Koyasan',

@@ -131,11 +131,11 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: 'ATMs da 7-Eleven e Correios aceitam cartão internacional; espécie para templos, mercados e izakaya',
   },
   {
-    id: 'reserva-shibuya-sky',
-    dueAt: '2026-11-08T00:00:00+09:00',
+    id: 'reserva-ekoin',
+    dueAt: '2026-10-15T00:00:00+09:00',
     group: 'pretrip',
-    title: 'Reservar Shibuya Sky',
-    subtitle: 'Faixa 15:30–16:00 do dia 22/11 · esgota com antecedência',
+    title: 'Reservar o tour noturno do Ekō-in',
+    subtitle: 'Okunoin à noite, dia 26/11 · lota de março a novembro e é o único tour em inglês guiado por monge',
   },
   {
     id: 'reserva-torokko',

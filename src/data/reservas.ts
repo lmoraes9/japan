@@ -140,15 +140,6 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
 
   // ── ingressos e mesas ──
   {
-    id: 'ingresso-shibuya-sky',
-    kind: 'ingresso',
-    title: 'Shibuya Sky',
-    date: '2026-11-22',
-    time: 'faixa do pôr do sol (~16:00)',
-    notes: 'Esgota com semanas de antecedência; comprar online assim que abrir a venda',
-    hint: 'Horário do slot e QR do ingresso',
-  },
-  {
     id: 'ingresso-torokko',
     kind: 'ingresso',
     title: 'Trem Torokko (Sagano Romantic Train)',

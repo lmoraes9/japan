@@ -7,7 +7,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd18-haneda': { lat: 35.5494, lng: 139.7798 },
   'd18-ramen': { lat: 35.6938, lng: 139.6994 }, // Omoide Yokochō
   'd19-sensoji': { lat: 35.7148, lng: 139.7967 },
-  'd19-kuramae': { lat: 35.7062, lng: 139.7907 }, // Pelican Café
+  'd19-kuramae': { lat: 35.7118, lng: 139.7955 }, // Kissaten Tomorrow, Asakusa
   'd19-kappabashi': { lat: 35.7139, lng: 139.7886 },
   'd19-museu-nacional': { lat: 35.7188, lng: 139.7765 },
   'd19-almoco-ueno': { lat: 35.7126, lng: 139.7731 }, // Innsyōtei, Ueno Park
@@ -32,9 +32,10 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd21-jantar-estacao': { lat: 35.6812, lng: 139.7671 }, // Estação de Tóquio
   'd22-meiji-jingu': { lat: 35.6764, lng: 139.6993 },
   'd22-omotesando': { lat: 35.667, lng: 139.71 },
+  'd21-bar-triad': { lat: 35.6467, lng: 139.7086 }, // Bar TRIAD, Ebisu-Nishi
   'd22-almoco': { lat: 35.6698, lng: 139.7065 }, // Afuri Harajuku
   'd22-gaien': { lat: 35.6745, lng: 139.7174 },
-  'd22-shibuya-sky': { lat: 35.6584, lng: 139.7023 },
+  'd22-parco': { lat: 35.6619, lng: 139.6987 },
   'd22-cruzamento': { lat: 35.6595, lng: 139.7005 },
   'd22-jantar': { lat: 35.658, lng: 139.6994 }, // Shibuya Mark City
 

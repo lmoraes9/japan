@@ -514,7 +514,6 @@
     "かっぱ橋道具街",
     "Kappabashi Street Tokyo"
   ],
-  "stops/d19-kuramae": "Pelican Cafe Kuramae Tokyo",
   "stops/d19-museu-nacional": [
     "東京国立博物館",
     "Tokyo National Museum"
@@ -579,9 +578,9 @@
     "Meiji Jingu Shrine Tokyo"
   ],
   "stops/d22-omotesando": "Omotesando Tokyo",
-  "stops/d22-shibuya-sky": [
-    "渋谷スカイ",
-    "Shibuya Sky"
+  "stops/d22-parco": [
+    "渋谷パルコ",
+    "Shibuya PARCO Udagawacho"
   ],
   "stops/d23-konbini": "7-Eleven Tokyo Station",
   "stops/d23-museu-paz": [
@@ -905,9 +904,9 @@
     "倉敷 本町通り",
     "Kurashiki Honmachi street"
   ],
-  "shibuya/sky": [
-    "渋谷スカイ",
-    "Shibuya Sky rooftop"
+  "shibuya/parco": [
+    "渋谷パルコ",
+    "Shibuya PARCO building"
   ],
   "shibuya/estacao": [
     "渋谷駅 ハチ公口",

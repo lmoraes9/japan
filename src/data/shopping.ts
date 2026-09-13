@@ -44,7 +44,7 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
           paragraphs: [
             'O que você viu no Instagram é quase certamente uma destas três redes, que fazem exatamente isso: **JINS**, **Zoff** e **OWNDAYS**. O processo é igual nas três: exame de vista **grátis na própria loja** (~10 minutos, não precisa de receita — mas levar o óculos atual ajuda a calibrar), armação escolhida na hora com **lentes já incluídas no preço**, e o óculos sai pronto em **30 a 60 minutos** na maioria dos graus.',
             '**Preço:** a partir de ¥5.900 (JINS/Zoff) a ¥8.000 (OWNDAYS) — de fato uns R$210–290. Grau muito alto pode pedir lente fina (custo extra) ou alguns dias de espera; nesse caso façam logo no dia 19 que sobra viagem inteira para retirar.',
-            '**Onde e quando:** já está no roteiro — **dia 19 às 17:45, em Akihabara** (JINS no Atré, colado na estação; OWNDAYS na Chūō-dōri): exame, lojas de Magic enquanto fica pronto, retirada antes do jantar no Kikanbō. Plano B: as três redes têm lojas em Shinjuku (perto do hotel, até ~21h), Shibuya e Ginza. A OWNDAYS costuma ter o melhor atendimento em inglês. E vale tax-free.',
+            '**Onde e quando:** já está no roteiro — **dia 19 às 17:45, em Akihabara** (JINS no Atré, colado na estação; OWNDAYS na Chūō-dōri): exame, o resto do bairro enquanto fica pronto, retirada antes do jantar no Kikanbō. Plano B: as três redes têm lojas em Shinjuku (perto do hotel, até ~21h), Shibuya e Ginza. A OWNDAYS costuma ter o melhor atendimento em inglês. E vale tax-free.',
           ],
         },
       },
@@ -245,11 +245,11 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
         type: 'bullets',
         items: [
           '**Faca de cozinha japonesa** — Kappabashi em Tóquio (dia 19) ou **Aritsugu** no Mercado Nishiki, em Kyoto (dia 29) — fundada em **1560**, fazia espadas antes de fazer facas. Gravam seu nome em japonês na lâmina. Vai na mala despachada.',
-          '**Singles de Magic em japonês** — Hareruya, BIG MAGIC e Card Kingdom, todas em Akihabara; BIG MAGIC Nipponbashi em Osaka costuma ter preço melhor. Várias artes alternativas só existem em japonês.',
           '**Retrogame e material de referência** — Super Potato e Mandarake, em Akihabara. Cartucho, caixa, manual e guia de sprite art de GBA — literalmente material de pesquisa para o STREETMON.',
           '**Papelaria da Itōya** — Ginza, 12 andares, desde 1904. Papel washi por folha, cadernos, canetas.',
           '**Chá** — matcha de Uji e sencha de boa procedência custam uma fração do preço brasileiro. **Ippodo** (Kyoto, desde 1717) e **Jugetsudo** (Ginza).',
           "**Royce' Nama Chocolate** — a compra da **volta**, no duty free de Haneda (depois da imigração, dia 3/12): ganache de creme fresco de Hokkaidō, ~¥800–1.000 a caixa. Pedir o saco térmico com gelo, levar na bagagem de mão e guardar na geladeira ao chegar.",
+          '**Utensílio de madeira** — a colher, a espátula e os *saibashi* (hashi longo de cozinhar) de Kappabashi custam ¥300–1.500 e duram uma vida. Kappabashi fica em **Asakusa/Tawaramachi**, não em Ueno, e já é parada do dia 19 às 09:30.',
           '**Cerâmica** — tigela de arroz e xícara de chá boas saem por ¥1.500–4.000. Kappabashi, Nishiki, e as feiras de templo (a de Tōji, em Kyoto, acontece dia 21 de cada mês).',
         ],
       },

@@ -6,9 +6,9 @@ import { janelasPendentes, janelaQuando, faltam } from '@/lib/janelas';
 import { useSyncStore } from '@/lib/store';
 
 /**
- * As compras que têm hora marcada para abrir: Shinkansen, Shibuya Sky,
- * Torokko. Fica na tela Agora porque perder a janela é o único erro
- * desta viagem que não tem conserto.
+ * As compras que têm hora marcada para abrir: Shinkansen, Torokko.
+ * Fica na tela Agora porque perder a janela é o único erro desta viagem
+ * que não tem conserto.
  */
 export function Janelas({ max = 3 }: { max?: number }) {
   const checklist = useSyncStore((s) => s.state.checklist);

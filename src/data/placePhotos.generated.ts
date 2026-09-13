@@ -990,12 +990,12 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%A6%E6%9C%A8(%E3%81%AE%E3%82%93%E3%81%B9%E3%81%84%E6%A8%AA%E4%B8%81)_IMG_20220929_195547_HDR_03.jpg",
     "title": "並木(のんべい横丁) IMG 20220929 195547 HDR 03.jpg"
   },
-  "shibuya/sky": {
-    "src": "/lugares/shibuya/sky.jpg",
-    "credit": "Kakidai",
+  "shibuya/parco": {
+    "src": "/lugares/shibuya/parco.jpg",
+    "credit": "稲妻ノ歯鯨",
     "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Square_-_SHIBUYA_SKY_10.jpg",
-    "title": "Shibuya Scramble Square - SHIBUYA SKY 10.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Parco_Hulic_Building.jpg",
+    "title": "Shibuya Parco Hulic Building.jpg"
   },
   "stops/d01-sanjusangendo": {
     "src": "/lugares/stops/d01-sanjusangendo.jpg",
@@ -2005,33 +2005,33 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Street_crowd_reflecting_in_the_polyhedral_mirrors_of_the_station_Tokyu_Plaza_Omotesando,_Harajuku,_Tokyo,_Japan.jpg",
     "title": "Street crowd reflecting in the polyhedral mirrors of the station Tokyu Plaza Omotesando, Harajuku, Tokyo, Japan.jpg"
   },
-  "stops/d22-shibuya-sky": {
-    "src": "/lugares/stops/d22-shibuya-sky.jpg",
-    "credit": "Kakidai",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Square_-_SHIBUYA_SKY_10.jpg",
-    "title": "Shibuya Scramble Square - SHIBUYA SKY 10.jpg"
-  },
-  "stops/d22-shibuya-sky-2": {
-    "src": "/lugares/stops/d22-shibuya-sky-2.jpg",
+  "stops/d22-parco": {
+    "src": "/lugares/stops/d22-parco.jpg",
     "credit": "稲妻ノ歯鯨",
     "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:SHIBUYA_SKY_Exit.jpg",
-    "title": "SHIBUYA SKY Exit.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Parco_Hulic_Building.jpg",
+    "title": "Shibuya Parco Hulic Building.jpg"
   },
-  "stops/d22-shibuya-sky-3": {
-    "src": "/lugares/stops/d22-shibuya-sky-3.jpg",
+  "stops/d22-parco-2": {
+    "src": "/lugares/stops/d22-parco-2.jpg",
     "credit": "Dick Thomas Johnson from Tokyo, Japan",
     "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Square_SHIBUYA_SKY_(52651902582).jpg",
-    "title": "Shibuya Scramble Square SHIBUYA SKY (52651902582).jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Square_Shibuya_Parco_(49994135753).jpg",
+    "title": "Shibuya Scramble Square Shibuya Parco (49994135753).jpg"
   },
-  "stops/d22-shibuya-sky-4": {
-    "src": "/lugares/stops/d22-shibuya-sky-4.jpg",
-    "credit": "Dick Thomas Johnson from Tokyo, Japan",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_Square_SHIBUYA_SKY_(53083861869).jpg",
-    "title": "Shibuya Scramble Square SHIBUYA SKY (53083861869).jpg"
+  "stops/d22-parco-3": {
+    "src": "/lugares/stops/d22-parco-3.jpg",
+    "credit": "ウィ貴公子",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E4%B9%83%E6%9C%A8%E5%9D%8246_%E7%9C%9F%E5%A4%8F%E3%81%AE%E5%85%A8%E5%9B%BD%E3%83%84%E3%82%A2%E3%83%BC2024_CAFE_%E6%B8%8B%E8%B0%B7%E5%BA%97_%E6%B8%8B%E8%B0%B7%E3%83%91%E3%83%AB%E3%82%B3_2024%E5%B9%B47%E6%9C%8830%E6%97%A5%E3%81%AE%E6%B8%8B%E8%B0%B7_202407301337_IMG_9474.jpg",
+    "title": "乃木坂46 真夏の全国ツアー2024 CAFE 渋谷店 渋谷パルコ 2024年7月30日の渋谷 202407301337 IMG 9474.jpg"
+  },
+  "stops/d22-parco-4": {
+    "src": "/lugares/stops/d22-parco-4.jpg",
+    "credit": "ウィ貴公子",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%B8%8B%E8%B0%B7%E3%83%91%E3%83%AB%E3%82%B3_2024%E5%B9%B49%E6%9C%882%E6%97%A5%E3%81%AE%E6%B8%8B%E8%B0%B7_202409021718_IMG_4580.jpg",
+    "title": "渋谷パルコ 2024年9月2日の渋谷 202409021718 IMG 4580.jpg"
   },
   "stops/d23-konbini": {
     "src": "/lugares/stops/d23-konbini.jpg",
