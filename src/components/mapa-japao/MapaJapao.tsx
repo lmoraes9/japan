@@ -3,8 +3,21 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Maximize2, Plus, Minus } from 'lucide-react';
-import { DIAS_MAPA } from '@/lib/mapa-japao/dias';
-import { diasDe, faixa, marcadores, numero, type Marcador, type No, type Ponto } from '@/lib/mapa-japao/hierarquia';
+import { DIAS_MAPA, diaPorId } from '@/lib/mapa-japao/dias';
+import {
+  diasDe,
+  faixa,
+  marcadores,
+  noDoDia,
+  numero,
+  quemAbre,
+  type Marcador,
+  type No,
+  type Ponto,
+} from '@/lib/mapa-japao/hierarquia';
+import { hojeNaViagem, type Hoje } from '@/lib/mapa-japao/hoje';
+import { corDaEtapa, TRECHOS } from '@/lib/mapa-japao/rota';
+import { TiraDias } from './TiraDias';
 
 /** o tamanho da etiqueta, em pixels — é daqui que sai toda a separação */
 const LARG = 168;
@@ -14,10 +27,13 @@ const ACIMA = 60;
 /** quantos pixels de altura um ícone ocupa, em qualquer distância */
 const ICONE_PX = 48;
 
-/** margens reservadas: título em cima, botão de voltar embaixo, etiquetas nos lados */
+/** margens reservadas: título em cima, a tira dos dias embaixo, etiquetas nos lados */
 const MARGEM_X = 48;
 const MARGEM_TOPO = 112;
-const MARGEM_BASE = 76;
+const MARGEM_BASE = 116;
+
+/** quanto dura o voo da câmera de um lugar a outro */
+const VOO_MS = 520;
 
 interface Motor {
   pontos: () => Record<string, Ponto>;
@@ -25,10 +41,20 @@ interface Motor {
   zoom: (fator: number) => void;
   /** enquadra um nó e, se ele for um grupo, aproxima o bastante para abri-lo */
   abrir: (no: No) => void;
+  /** voa até um dia e aproxima só o bastante para ele aparecer sozinho */
+  irParaDia: (dayId: string) => void;
   tudo: () => void;
   arrastar: (dx: number, dy: number) => void;
   mostrar: (dayIds: Set<string>) => void;
   dispose: () => void;
+}
+
+/** o dia que o mapa marca como 'aqui': o de hoje, ou o primeiro enquanto a viagem não começa */
+function diaDeHoje(hoje: Hoje | null): string | null {
+  if (!hoje) return null;
+  if (hoje.fase === 'durante') return hoje.dayId;
+  if (hoje.fase === 'antes') return DIAS_MAPA[0].dayId;
+  return null;
 }
 
 /**
@@ -37,8 +63,9 @@ interface Motor {
  * Um ícone por dia, no lugar onde o dia acontece, com uma etiqueta que traz o
  * número da sequência, o nome e a data. Quando dois ícones não cabem lado a
  * lado eles aparecem como um só — 'Kansai, 25/nov – 1/dez' — e aproximar
- * desfaz o grupo: primeiro nas cidades, depois nos dias. Arrastar move,
- * pinçar aproxima, tocar num grupo abre o grupo e tocar num dia abre o dia.
+ * desfaz o grupo: primeiro nas cidades, depois nos dias. Uma linha liga os
+ * dias na ordem, com a cor de cada etapa; o dia de hoje pulsa; e a tira na
+ * base leva a câmera a qualquer dia com um toque.
  */
 export function MapaJapao() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -46,6 +73,15 @@ export function MapaJapao() {
   const [marcas, setMarcas] = useState<Marcador[]>([]);
   const [estado, setEstado] = useState<'carregando' | 'pronto' | 'erro'>('carregando');
   const [erro, setErro] = useState('');
+  const [hoje, setHoje] = useState<Hoje | null>(null);
+  const [foco, setFoco] = useState<string | null>(null);
+
+  // a data só existe no aparelho: no servidor a página não sabe que dia é
+  useEffect(() => {
+    const h = hojeNaViagem();
+    setHoje(h);
+    setFoco(diaDeHoje(h));
+  }, []);
 
   useEffect(() => {
     let vivo = true;
@@ -55,9 +91,10 @@ export function MapaJapao() {
 
     (async () => {
       try {
-        const [THREE, { construirDiorama, ALTURA_TERRA, ALTURA_ICONE }] = await Promise.all([
+        const [THREE, { construirDiorama, ALTURA_TERRA, ALTURA_ICONE }, { construirLinha }] = await Promise.all([
           import('three'),
           import('@/lib/three/japao/diorama'),
+          import('@/lib/three/japao/linha'),
         ]);
         if (!vivo) return;
 
@@ -85,10 +122,19 @@ export function MapaJapao() {
 
         const d = construirDiorama(scene, DIAS_MAPA, false);
 
+        // a linha sabe que trecho já passou: o de hoje salta, os anteriores apagam
+        const agora = hojeNaViagem();
+        const hojeN = (agora.fase === 'durante' && diaPorId(agora.dayId)?.n) || 0;
+        const linha = construirLinha(TRECHOS, (t) => {
+          if (!hojeN || t.para.n > hojeN) return 'futuro';
+          return t.para.n === hojeN ? 'hoje' : 'passado';
+        });
+
         // a camada dos ícones é desenhada num segundo passe, com a
         // profundidade zerada: um marcador nunca fica escondido atrás de uma
-        // montanha, por menor que ele esteja
+        // montanha, por menor que ele seja. A linha vai junto, pelo mesmo motivo.
         const cenaIcones = new THREE.Scene();
+        cenaIcones.add(linha.grupo);
         cenaIcones.add(d.camada);
         cenaIcones.add(new THREE.HemisphereLight(0xdfe9f5, 0x54513f, 0.95));
         const luzIcones = new THREE.DirectionalLight(0xfff2dd, 1.5);
@@ -142,6 +188,7 @@ export function MapaJapao() {
           const mundoPorPx = (2 * dist * TAN) / Math.max(1, r.height);
           const fator = (ICONE_PX * mundoPorPx) / ALTURA_ICONE;
           for (const [id, g] of Object.entries(d.icones)) g.scale.setScalar((d.escalas[id] ?? 1) * fator);
+          linha.escalar(mundoPorPx);
         };
 
         /** quanto de mundo cabe num pixel, a uma dada distância */
@@ -218,6 +265,49 @@ export function MapaJapao() {
           aplicar();
         };
 
+        /**
+         * A câmera não salta: ela voa. O destino é calculado do jeito de
+         * sempre — as funções acima mexem no alvo e na distância e medem na
+         * projeção — e depois a câmera volta para onde estava e percorre o
+         * caminho em meio segundo. Como só se desenha no laço, o pulo de ida e
+         * volta nunca aparece na tela.
+         */
+        type Pose = { x: number; z: number; dist: number };
+        let voo: { t0: number; de: Pose; para: Pose } | null = null;
+        const pose = (): Pose => ({ x: alvo.x, z: alvo.z, dist });
+        const voar = (calcular: () => void) => {
+          const de = pose();
+          calcular();
+          const para = pose();
+          alvo.set(de.x, ALTURA_TERRA, de.z);
+          dist = de.dist;
+          aplicar();
+          voo = { t0: performance.now(), de, para };
+        };
+        const passoDoVoo = (agoraMs: number) => {
+          if (!voo) return;
+          const t = Math.min(1, (agoraMs - voo.t0) / VOO_MS);
+          const e = t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2;
+          alvo.x = voo.de.x + (voo.para.x - voo.de.x) * e;
+          alvo.z = voo.de.z + (voo.para.z - voo.de.z) * e;
+          // a distância anda no logaritmo, para o zoom parecer uniforme
+          dist = Math.exp(Math.log(voo.de.dist) + (Math.log(voo.para.dist) - Math.log(voo.de.dist)) * e);
+          aplicar();
+          if (t >= 1) voo = null;
+        };
+
+        /** aproxima até os filhos do nó se separarem, sem tirar o ponto do centro */
+        const abrirEmTorno = (no: No, x: number, z: number) => {
+          // aproxima de pouco em pouco até o grupo se desfazer de verdade.
+          // A conta de quanto bastaria erra: um lugar longe do centro da tela
+          // encolhe pela perspectiva. Medir na projeção não erra.
+          for (let i = 0; i < 20 && !abertoNaTela(no); i += 1) {
+            if (dist <= D_MIN + 0.01) break;
+            dist *= 0.86;
+            centrarEm(x, z);
+          }
+        };
+
         const motor: Motor = {
           pontos: () => {
             const r = canvas.getBoundingClientRect();
@@ -232,25 +322,34 @@ export function MapaJapao() {
             const r = canvas.getBoundingClientRect();
             return { largura: r.width, altura: r.height };
           },
-          zoom: (f) => { dist *= f; aplicar(); },
-          abrir: (no) => {
-            enquadrar(diasDe(no));
-            if (no.filhos.length < 2) return;
-            // aproxima de pouco em pouco até o grupo se desfazer de verdade.
-            // A conta de quanto bastaria erra: um lugar longe do centro da tela
-            // encolhe pela perspectiva. Medir na projeção não erra.
-            for (let i = 0; i < 20 && !abertoNaTela(no); i += 1) {
-              if (dist <= D_MIN + 0.01) break;
-              dist *= 0.86;
-              ancorar(no);
-            }
-          },
-          tudo: () => enquadrar(DIAS_MAPA.map((x) => x.dayId)),
+          zoom: (f) => { voo = null; dist *= f; aplicar(); },
+          abrir: (no) =>
+            voar(() => {
+              enquadrar(diasDe(no));
+              if (no.filhos.length < 2) return;
+              for (let i = 0; i < 20 && !abertoNaTela(no); i += 1) {
+                if (dist <= D_MIN + 0.01) break;
+                dist *= 0.86;
+                ancorar(no);
+              }
+            }),
+          irParaDia: (dayId) =>
+            voar(() => {
+              const folha = noDoDia(dayId);
+              const p = d.posicoes[dayId];
+              if (!folha || !p) return;
+              // o zoom vem do grupo que precisa se abrir; o centro é o dia
+              const grupo = quemAbre(folha);
+              enquadrar(diasDe(grupo));
+              centrarEm(p.x, p.z);
+              if (grupo.filhos.length >= 2) abrirEmTorno(grupo, p.x, p.z);
+            }),
+          tudo: () => voar(() => enquadrar(DIAS_MAPA.map((x) => x.dayId))),
           arrastar,
           mostrar: (ids) => {
             for (const [id, g] of Object.entries(d.icones)) g.visible = ids.has(id);
           },
-          dispose: () => { d.dispose(); renderer.dispose(); },
+          dispose: () => { linha.dispose(); d.dispose(); renderer.dispose(); },
         };
         motorRef.current = motor;
         const redimensionar = () => {
@@ -259,10 +358,12 @@ export function MapaJapao() {
           renderer.setSize(r.width, r.height, false);
           camera.aspect = r.width / r.height;
           camera.updateProjectionMatrix();
+          linha.redimensionar(r.width, r.height);
           aplicar();
         };
         redimensionar();
-        motor.tudo();
+        // a primeira vista não voa: o mapa já nasce no lugar
+        enquadrar(DIAS_MAPA.map((x) => x.dayId));
         const ro = new ResizeObserver(redimensionar);
         ro.observe(canvas);
 
@@ -270,6 +371,7 @@ export function MapaJapao() {
         const dedos = new Map<number, { x: number; y: number }>();
         let pinca = 0;
         const onDown = (e: PointerEvent) => {
+          voo = null;
           dedos.set(e.pointerId, { x: e.clientX, y: e.clientY });
           canvas.setPointerCapture?.(e.pointerId);
         };
@@ -301,8 +403,9 @@ export function MapaJapao() {
         canvas.addEventListener('wheel', onWheel, { passive: false });
 
         let raf = 0;
-        const laco = () => {
+        const laco = (agoraMs: number) => {
           raf = requestAnimationFrame(laco);
+          passoDoVoo(agoraMs);
           renderer.render(scene, camera);
           renderer.autoClear = false;
           renderer.clearDepth();
@@ -340,7 +443,9 @@ export function MapaJapao() {
       raf = requestAnimationFrame(laco);
       const m = motorRef.current;
       if (!m) return;
-      const ms = marcadores(m.pontos(), m.tela(), LARG, ALT, ACIMA, ICONE_PX);
+      // a faixa da tira dos dias não recebe etiqueta: ela ficaria por baixo
+      const tela = m.tela();
+      const ms = marcadores(m.pontos(), { largura: tela.largura, altura: tela.altura - MARGEM_BASE }, LARG, ALT, ACIMA, ICONE_PX);
       // só o ícone que representa cada marcador fica aceso
       m.mostrar(new Set(ms.map((x) => x.no.principal.dayId)));
       const chave = ms.map((x) => `${x.no.id}@${Math.round(x.x)},${Math.round(x.y)},${Math.round(x.topo)}`).join('|');
@@ -354,6 +459,24 @@ export function MapaJapao() {
   }, [estado]);
 
   const abrir = useCallback((no: No) => motorRef.current?.abrir(no), []);
+  const escolherDia = useCallback((dayId: string) => {
+    setFoco(dayId);
+    motorRef.current?.irParaDia(dayId);
+  }, []);
+
+  const hojeId = diaDeHoje(hoje);
+  const marcaHoje = hojeId ? marcas.find((m) => m.no.dias.some((x) => x.dayId === hojeId)) : undefined;
+  const hojeN = (hoje?.fase === 'durante' && diaPorId(hoje.dayId)?.n) || 0;
+
+  const periodo = `${DIAS_MAPA[0].data} – ${DIAS_MAPA[DIAS_MAPA.length - 1].data}`;
+  let subtitulo = `${DIAS_MAPA.length} dias · ${periodo}`;
+  if (hoje?.fase === 'antes') subtitulo = `faltam ${hoje.dias} ${hoje.dias === 1 ? 'dia' : 'dias'} · ${periodo}`;
+  else if (hoje?.fase === 'durante') {
+    const dh = diaPorId(hoje.dayId);
+    if (dh) subtitulo = `dia ${dh.n} de ${DIAS_MAPA.length} · ${dh.cidade}`;
+  }
+
+  const topo = { top: 'calc(env(safe-area-inset-top) + 12px)' };
 
   return (
     <div className="relative h-full w-full overflow-hidden" style={{ background: 'linear-gradient(180deg,#cfe0ee 0%,#e8eef3 55%,#dfe6ea 100%)' }}>
@@ -366,8 +489,16 @@ export function MapaJapao() {
         <p className="absolute inset-x-0 top-1/2 px-6 text-center text-[13px] text-accent">Não deu para montar o mapa ({erro}).</p>
       )}
 
+      {marcaHoje && <Pulso x={marcaHoje.x} y={marcaHoje.y} />}
+
       {marcas.map((m) => (
-        <Etiqueta key={m.no.id} marca={m} onAbrir={() => abrir(m.no)} />
+        <Etiqueta
+          key={m.no.id}
+          marca={m}
+          hoje={m === marcaHoje}
+          foco={!!foco && m.no.dias.some((x) => x.dayId === foco)}
+          onAbrir={() => abrir(m.no)}
+        />
       ))}
 
       {estado === 'pronto' && marcas.length === 0 && (
@@ -377,13 +508,19 @@ export function MapaJapao() {
         </button>
       )}
 
-      <div className="pointer-events-none absolute left-3 top-3 rounded-2xl bg-white/85 px-3 py-2 backdrop-blur">
-        <p className="font-jp text-[10px] tracking-[0.3em] text-rail/70">日本一周</p>
-        <p className="text-[15px] font-bold leading-tight text-rail">A viagem inteira</p>
-        <p className="text-[11px] leading-tight text-rail/70">16 dias · aproxime para separar</p>
+      <div className="absolute left-3 flex items-start gap-2" style={{ ...topo, right: 68 }}>
+        <Link href="/mais/mapas" aria-label="voltar aos mapas"
+          className="tappable flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/85 text-rail backdrop-blur">
+          <ArrowLeft size={18} />
+        </Link>
+        <div className="pointer-events-none min-w-0 rounded-2xl bg-white/85 px-3 py-2 backdrop-blur">
+          <p className="font-jp text-[10px] tracking-[0.3em] text-rail/70">日本一周</p>
+          <p className="truncate text-[15px] font-bold leading-tight text-rail">A viagem inteira</p>
+          <p className="truncate text-[11px] leading-tight text-rail/70">{subtitulo}</p>
+        </div>
       </div>
 
-      <div className="absolute right-3 top-3 flex flex-col gap-2">
+      <div className="absolute right-3 flex flex-col gap-2" style={topo}>
         <button type="button" onClick={() => motorRef.current?.tudo()} aria-label="Japão inteiro"
           className="tappable flex h-11 w-11 items-center justify-center rounded-full bg-white/85 text-rail backdrop-blur">
           <Maximize2 size={17} />
@@ -398,11 +535,19 @@ export function MapaJapao() {
         </button>
       </div>
 
-      <Link href="/mais/mapas" aria-label="voltar aos mapas"
-        className="tappable absolute bottom-4 left-3 flex h-11 w-11 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur">
-        <ArrowLeft size={18} />
-      </Link>
+      <TiraDias dias={DIAS_MAPA} hojeId={hojeId} passadoAte={hojeN} focoId={foco} corDe={corDaEtapa} onEscolher={escolherDia} />
     </div>
+  );
+}
+
+/** o anel que pulsa em volta do ícone de hoje: 'vocês estão aqui' */
+function Pulso({ x, y }: { x: number; y: number }) {
+  const R = 30;
+  return (
+    <span aria-hidden className="pointer-events-none absolute" style={{ left: x - R, top: y - ICONE_PX / 2 - R, width: 2 * R, height: 2 * R }}>
+      <span className="absolute inset-0 animate-ping rounded-full border-[3px] border-accent [animation-duration:1.8s]" />
+      <span className="absolute inset-[9px] rounded-full border-2 border-accent/70" />
+    </span>
   );
 }
 
@@ -410,12 +555,13 @@ export function MapaJapao() {
  * A etiqueta: número da sequência, nome do lugar e a data. Quando ela precisou
  * subir para desviar de outra, uma haste fina a liga de volta ao seu ícone.
  */
-function Etiqueta({ marca, onAbrir }: { marca: Marcador; onAbrir: () => void }) {
+function Etiqueta({ marca, hoje, foco, onAbrir }: { marca: Marcador; hoje: boolean; foco: boolean; onAbrir: () => void }) {
   const { no, x, y, etiquetaX, topo } = marca;
   /** um nó sem filhos não tem o que abrir: leva direto ao dia */
   const folha = no.filhos.length === 0;
-  const classe =
-    'tappable absolute flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-white/93 py-1.5 pl-1.5 pr-2.5 shadow-md ring-1 ring-black/5 backdrop-blur';
+  const classe = `tappable absolute flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-white/93 py-1.5 pl-1.5 pr-2.5 shadow-md backdrop-blur ${
+    foco ? 'ring-2 ring-accent' : 'ring-1 ring-black/5'
+  }`;
   const estilo = { left: etiquetaX, top: topo, width: LARG - 4, height: 44 };
   // a haste liga a etiqueta ao seu ícone quando ela não está bem em cima dele
   const abaixo = topo > y;
@@ -425,7 +571,10 @@ function Etiqueta({ marca, onAbrir }: { marca: Marcador; onAbrir: () => void }) 
   const texto = (
     <span className="min-w-0 flex-1 text-left">
       <span className="block truncate text-[12.5px] font-bold leading-tight text-rail">{no.nome}</span>
-      <span className="block truncate font-mono text-[9.5px] leading-tight text-rail/65">{faixa(no)}</span>
+      <span className="block truncate font-mono text-[9.5px] leading-tight text-rail/65">
+        {hoje && <span className="font-bold text-accent">hoje · </span>}
+        {faixa(no)}
+      </span>
     </span>
   );
   const bolha = (rotulo: string) => (

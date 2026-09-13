@@ -309,3 +309,30 @@ export function faixa(no: No): string {
 export function numero(no: No): string {
   return String(no.dias[0].n);
 }
+
+/** o nó folha em que um dia mora: o próprio dia, ou o lugar que ele divide com outro */
+export function noDoDia(dayId: string): No | undefined {
+  const busca = (no: No): No | undefined => {
+    if (!no.filhos.length) return no.dias.some((d) => d.dayId === dayId) ? no : undefined;
+    for (const f of no.filhos) {
+      const achou = busca(f);
+      if (achou) return achou;
+    }
+    return undefined;
+  };
+  for (const r of RAIZES) {
+    const achou = busca(r);
+    if (achou) return achou;
+  }
+  return undefined;
+}
+
+/**
+ * Quem precisa se abrir para um nó aparecer sozinho: o ancestral mais fundo
+ * com dois filhos ou mais. É o zoom em que os irmãos dele se separam que
+ * tira o nó de dentro do grupo — um pai de filho único abre de graça.
+ */
+export function quemAbre(no: No): No {
+  for (let p = no.pai; p; p = p.pai) if (p.filhos.length >= 2) return p;
+  return no;
+}
