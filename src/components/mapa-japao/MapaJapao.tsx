@@ -16,6 +16,7 @@ import {
   type Ponto,
 } from '@/lib/mapa-japao/hierarquia';
 import { hojeNaViagem, type Hoje } from '@/lib/mapa-japao/hoje';
+import { getNow } from '@/lib/now';
 import { corDaEtapa, TRECHOS } from '@/lib/mapa-japao/rota';
 import { TiraDias } from './TiraDias';
 
@@ -78,7 +79,7 @@ export function MapaJapao() {
 
   // a data só existe no aparelho: no servidor a página não sabe que dia é
   useEffect(() => {
-    const h = hojeNaViagem();
+    const h = hojeNaViagem(getNow());
     setHoje(h);
     setFoco(diaDeHoje(h));
   }, []);
@@ -123,7 +124,7 @@ export function MapaJapao() {
         const d = construirDiorama(scene, DIAS_MAPA, false);
 
         // a linha sabe que trecho já passou: o de hoje salta, os anteriores apagam
-        const agora = hojeNaViagem();
+        const agora = hojeNaViagem(getNow());
         const hojeN = (agora.fase === 'durante' && diaPorId(agora.dayId)?.n) || 0;
         const linha = construirLinha(TRECHOS, (t) => {
           if (!hojeN || t.para.n > hojeN) return 'futuro';
