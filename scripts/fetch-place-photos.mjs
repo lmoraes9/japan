@@ -88,7 +88,7 @@ const GENERICAS = new Set(
 const HISTORICA = /\b(18\d\d|19[0-4]\d)\b/;
 
 const NAO_E_FOTO =
-  /(map|diagram|plan|logo|icon|stamp|hiroshige|hokusai|ukiyo|woodblock|print|painting|drawing|engraving|titel op object|AK-MAK|RP-P-|浮世絵|錦絵|版画|絵図|五十三次|三十六景|名所|之図|の図|広重|北斎|画|views of|from the series|MET DP|Rijksmuseum|collection of the)/i;
+  /(map|diagram|plan|logo|icon|stamp|hiroshige|hokusai|ukiyo|woodblock|print|painting|drawing|engraving|titel op object|AK-MAK|RP-P-|浮世絵|錦絵|版画|絵図|五十三次|三十六景|百景|名所|之図|の図|広重|北斎|画|views of|from the series|siege of|battle of|MET DP|Rijksmuseum|collection of the)/i;
 
 /**
  * Muitos santuários têm xarás pelo país (há um 厳島神社 em Kushiro, Hokkaidō).
@@ -100,6 +100,9 @@ const CIDADES = {
   hiroshima: ['広島', '廿日市', '宮島', 'hiroshima', 'miyajima', 'hatsukaichi'],
   osaka: ['大阪', '姫路', '倉敷', 'osaka', 'himeji', 'kurashiki'],
   kyoto: ['京都', '奈良', '伏見', '宇治', 'kyoto', 'nara', 'fushimi'],
+  // Kōyasan é em Wakayama, não em Osaka nem em Kyoto: sem isto, uma foto
+  // titulada "(高野町)" seria descartada como se fosse de outro lugar
+  koyasan: ['高野', '和歌山', 'koya', 'koyasan', 'wakayama'],
 };
 const cidadesDe = (key) => {
   const [grupo, item] = key.split('/');
@@ -111,8 +114,12 @@ const cidadesDe = (key) => {
     const dia = Number(item.match(/^d(\d\d)/)?.[1]);
     if (dia >= 18 && dia <= 22) return CIDADES.tokyo;
     if (dia === 23 || dia === 24) return CIDADES.hiroshima;
-    if (dia === 25 || dia === 26) return CIDADES.osaka;
-    if (dia >= 27 || dia === 1) return CIDADES.kyoto;
+    if (dia === 25) return CIDADES.osaka;
+    // o 26 começa em Osaka e sobe para Kōyasan; o 27 desce de Kōyasan,
+    // almoça em Namba e dorme em Kyoto — os três valem nesses dias
+    if (dia === 26) return [...CIDADES.osaka, ...CIDADES.koyasan];
+    if (dia === 27) return [...CIDADES.kyoto, ...CIDADES.osaka, ...CIDADES.koyasan];
+    if (dia >= 28 || dia === 1) return CIDADES.kyoto;
     return CIDADES.tokyo; // 2 e 3 de dezembro
   }
   return null; // konbini, extras: sem restrição
@@ -181,7 +188,9 @@ async function search(query, width, termos, cidades) {
   const bom = doLugar
     .filter(({ info }) => info.width >= 1000 && info.width >= info.height * 0.6)
     .filter(({ title }) => !NAO_E_FOTO.test(title));
-  const aceitavel = doLugar.filter(({ info }) => info.width >= 700 && !NAO_E_FOTO.test(info.title ?? ''));
+  // o título fica no objeto da página, não no imageinfo: testando `info.title`
+  // a régua comparava contra undefined e deixava passar gravura e mapa
+  const aceitavel = doLugar.filter(({ info, title }) => info.width >= 700 && !NAO_E_FOTO.test(title));
   return bom.length ? bom : aceitavel;
 }
 
@@ -263,6 +272,13 @@ async function escreverGerado(mapa) {
   );
 }
 
+/**
+ * O Commons devolve o título com o prefixo "File:", mas o arquivo gerado o
+ * guarda sem — comparar os dois direto fazia a deduplicação nunca casar, e a
+ * foto principal reaparecia como primeira extra do carrossel.
+ */
+const tituloCheio = (t) => (t.startsWith('File:') ? t : `File:${t}`);
+
 /** títulos já usados por grupo (um mapa, ou as paradas do roteiro) */
 const usadosPor = new Map();
 const usadosDe = (grupo) => {
@@ -292,14 +308,22 @@ if (validar) {
   // revê o que já está baixado com a régua de relevância, sem tocar na rede
   let removidas = 0;
   for (const [key, query] of entries) {
-    const atual = current[key];
-    if (!atual) continue;
     const termos = termosDe(Array.isArray(query) ? query : [query]);
-    if (combina(atual.title, termos) && !NAO_E_FOTO.test(atual.title) && cidadeBate(atual.title, cidadesDe(key)) && !HISTORICA.test(atual.title)) continue;
-    console.log(`✗ ${key} — "${atual.title}" não parece ser do lugar; removida`);
-    delete current[key];
-    await rm(join(ROOT, 'public', `lugares/${key.split('/')[0]}/${key.split('/')[1]}.jpg`), { force: true });
-    removidas++;
+    // as extras (`-2`, `-3`…) não são chaves do photo-queries.json, mas saem do
+    // mesmo resultado de busca e são as mais sujeitas a fugir do contexto:
+    // sem revê-las aqui, a maior parte do acervo passava sem conferência
+    const chaves = [key];
+    for (let n = 2; n <= EXTRAS_POR_PARADA + 1; n += 1) chaves.push(`${key}-${n}`);
+
+    for (const chave of chaves) {
+      const atual = current[chave];
+      if (!atual) continue;
+      if (combina(atual.title, termos) && !NAO_E_FOTO.test(atual.title) && cidadeBate(atual.title, cidadesDe(key)) && !HISTORICA.test(atual.title)) continue;
+      console.log(`✗ ${chave} — "${atual.title}" não parece ser do lugar; removida`);
+      delete current[chave];
+      await rm(join(ROOT, 'public', `lugares/${chave.split('/')[0]}/${chave.split('/')[1]}.jpg`), { force: true });
+      removidas++;
+    }
   }
   await escreverGerado(current);
   console.log(`\n${removidas} foto(s) removida(s). Rode sem --validar para rebaixar.`);
@@ -315,8 +339,9 @@ for (const [key, query] of entries) {
 
   const rel = `lugares/${grupo}/${itemId}.jpg`;
   const dest = join(ROOT, 'public', rel);
+  let soExtras = false;
   if (!force && current[key] && (await exists(dest))) {
-    usados.add(current[key].title);
+    usados.add(tituloCheio(current[key].title));
     // uma parada só está pronta quando as extras também estão: sem isso, quem
     // já tinha a foto principal nunca ganharia carrossel
     const faltamExtras =
@@ -324,29 +349,34 @@ for (const [key, query] of entries) {
     if (!faltamExtras) {
       for (let n = 2; n <= EXTRAS_POR_PARADA + 1; n += 1) {
         const e = current[`${key}-${n}`];
-        if (e) usados.add(e.title);
+        if (e) usados.add(tituloCheio(e.title));
       }
       console.log(`· ${key} — já tem, pulando`);
       continue;
     }
     console.log(`· ${key} — tem a principal, buscando as extras`);
+    soExtras = true;
   }
 
   const tentativas = Array.isArray(query) ? query : [query];
   try {
-    const found = await searchAny(tentativas, usados, width, cidadesDe(key));
-    if (found?.duplicada) {
-      console.warn(`! ${key} — só achou fotos já usadas neste grupo; melhore a busca`);
-      continue;
+    // a principal já baixada é uma foto que passou pela régua: rebaixá-la só
+    // trocaria por outra (o título dela já está em `usados`) e gastaria rede
+    if (!soExtras) {
+      const found = await searchAny(tentativas, usados, width, cidadesDe(key));
+      if (found?.duplicada) {
+        console.warn(`! ${key} — só achou fotos já usadas neste grupo; melhore a busca`);
+        continue;
+      }
+      if (!found) {
+        console.warn(`! ${key} — nada encontrado para ${tentativas.map((q) => `"${q}"`).join(' / ')}`);
+        continue;
+      }
+      const best = found.hit;
+      await guardar(key, rel, dest, best);
+      usados.add(tituloCheio(current[key].title));
+      console.log(`✓ ${key} — ${current[key].title}`);
     }
-    if (!found) {
-      console.warn(`! ${key} — nada encontrado para ${tentativas.map((q) => `"${q}"`).join(' / ')}`);
-      continue;
-    }
-    const best = found.hit;
-    await guardar(key, rel, dest, best);
-    usados.add(current[key].title);
-    console.log(`✓ ${key} — ${current[key].title}`);
 
     // as paradas do roteiro ganham fotos extras, para virar carrossel
     if (grupo === 'stops' && EXTRAS_POR_PARADA > 0) {
@@ -358,7 +388,7 @@ for (const [key, query] of entries) {
         const relExtra = `lugares/${grupo}/${itemId}-${n}.jpg`;
         try {
           await guardar(chaveExtra, relExtra, join(ROOT, 'public', relExtra), extra);
-          usados.add(current[chaveExtra].title);
+          usados.add(tituloCheio(current[chaveExtra].title));
           console.log(`  + ${chaveExtra} — ${current[chaveExtra].title}`);
         } catch (err) {
           console.warn(`  ! ${chaveExtra} — ${err.message}`);

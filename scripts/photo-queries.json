@@ -258,11 +258,9 @@
     "Meiji Jingu sake barrels"
   ],
   "meiji-jingu/floresta": [
-    [
-      "明治神宮 参道",
-      "明治神宮 南参道",
-      "Meiji Shrine approach"
-    ]
+    "明治神宮 参道",
+    "明治神宮 南参道",
+    "Meiji Shrine approach"
   ],
   "meiji-jingu/harajuku": [
     "原宿駅 西口",
@@ -544,7 +542,7 @@
     "Tsurugaoka Hachimangu Kamakura"
   ],
   "stops/d20-hasedera": [
-    "長谷寺",
+    "鎌倉 長谷寺",
     "Hasedera Temple Kamakura"
   ],
   "stops/d20-kenchoji": [
@@ -641,8 +639,8 @@
     "Osaka Castle"
   ],
   "stops/d26-kuromon": [
-    "黒門市場",
-    "Kuromon Ichiba Market Osaka"
+    "黒門市場 大阪市",
+    "Kuromon market Osaka -LaLaport"
   ],
   "stops/d26-shinsekai": [
     "新世界・通天閣",
@@ -653,7 +651,7 @@
     "Shitennoji Temple Osaka"
   ],
   "stops/d26-umeda": [
-    "梅田",
+    "梅田スカイビル",
     "Umeda Sky Building"
   ],
   "stops/d27-fushimi-inari": [
@@ -670,7 +668,7 @@
   ],
   "stops/d28-filosofo": [
     "哲学の道",
-    "Philosopher\\"
+    "Tetsugaku no michi"
   ],
   "stops/d28-ginkakuji": [
     "銀閣寺",
@@ -939,51 +937,51 @@
     "Rayard Miyashita Park"
   ],
   "stops/d26-nankai": [
-    "南海高野線 特急こうや",
-    "Nankai Koya Line limited express"
+    "南海高野線",
+    "Nankai Koya Line"
   ],
   "stops/d26-checkin-shukubo": [
-    "高野山 宿坊 熊谷寺",
-    "Koyasan shukubo temple lodging tatami"
+    "高野山 宿坊",
+    "Koyasan shukubo"
   ],
   "stops/d26-okunoin": [
-    "高野山 奥之院 参道 杉",
-    "Koyasan Okunoin cemetery cedar path"
+    "高野山 奥之院",
+    "Okunoin Koyasan"
   ],
   "stops/d26-jantar-shojin": [
-    "高野山 精進料理 胡麻豆腐",
-    "Koyasan shojin ryori temple cuisine"
+    "高野山 精進料理",
+    "Koyasan shojin ryori"
   ],
   "stops/d26-okunoin-noite": [
-    "高野山 奥之院 燈籠堂",
-    "Koyasan Okunoin Torodo lanterns"
+    "Koyasan night",
+    "奥之院 ろうそく"
   ],
   "stops/d27-gongyo": [
-    "高野山 朝勤行 本堂",
-    "Koyasan morning prayer hall goma"
+    "Koyasan monk",
+    "高野山 金堂"
   ],
   "stops/d27-garan": [
-    "高野山 壇上伽藍 根本大塔",
-    "Koyasan Konpon Daito great pagoda"
+    "根本大塔",
+    "Koyasan Danjo Garan"
   ],
   "stops/d27-kongobuji": [
-    "高野山 金剛峯寺 蟠龍庭",
-    "Kongobuji Banryutei rock garden Koyasan"
+    "Kongobuji rock garden",
+    "金剛峯寺"
   ],
   "stops/d27-descida": [
-    "高野山ケーブル 極楽橋",
-    "Koyasan cable car Gokurakubashi"
+    "極楽橋駅",
+    "Nankai Koyasan Cable"
   ],
   "stops/d27-nishiki-rapido": [
-    "錦市場 京都",
-    "Nishiki Market Kyoto arcade"
+    "錦市場",
+    "Nishiki Market Kyoto"
   ],
   "stops/d27-almoco": [
-    "551蓬莱 豚まん",
-    "551 Horai butaman Osaka"
+    "551蓬莱",
+    "551 Horai butaman"
   ],
   "stops/d02-ultima-vista": [
-    "東京 夜景 展望",
-    "Tokyo skyline at night from observation deck"
+    "東京 夜景",
+    "Tokyo night view"
   ]
 }

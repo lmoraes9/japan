@@ -12,7 +12,7 @@
  * Precisa do sharp (npm i -D sharp). Idempotente: só mexe no que ainda está
  * acima do tamanho-alvo ou sem miniatura.
  */
-import { readdir, stat } from 'node:fs/promises';
+import { readdir, stat, readFile, writeFile } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
@@ -33,33 +33,53 @@ for (const grupo of await readdir(BASE)) {
   for (const arquivo of await readdir(dir)) {
     if (!arquivo.endsWith('.jpg') || arquivo.endsWith('.thumb.jpg')) continue;
     const caminho = join(dir, arquivo);
-    const tamanho = (await stat(caminho)).size;
-    antes += tamanho;
-    const meta = await sharp(caminho).metadata();
+    const nascida = (await stat(caminho)).mtimeMs;
+    // lemos o arquivo inteiro de uma vez: dando o caminho ao sharp, o libvips
+    // o mantém aberto para leitura preguiçosa e a gravação por cima falha
+    let atual = await readFile(caminho);
+    antes += atual.length;
+    const meta = await sharp(atual).metadata();
 
     // recomprime se estiver largo demais ou pesado demais para a largura
-    if (meta.width > alvo.w || tamanho > alvo.w * 220) {
-      const buf = await sharp(caminho)
+    const larga = meta.width > alvo.w;
+    if (larga || atual.length > alvo.w * 220) {
+      // `buf` já sai como o JPEG final; passá-lo pelo sharp outra vez para
+      // gravar o reencodaria na qualidade padrão, jogando fora o `alvo.q`
+      const buf = await sharp(atual)
         .rotate()
         .resize({ width: alvo.w, withoutEnlargement: true })
         .jpeg({ quality: alvo.q, mozjpeg: true })
         .toBuffer();
-      await sharp(buf).toFile(caminho);
-      recomprimidas++;
-      depois += buf.length;
-    } else {
-      depois += tamanho;
+      // Uma foto detalhada continua acima do limite de bytes mesmo já estando
+      // na largura certa — e aí toda passada a reencodava outra vez, perdendo
+      // qualidade de graça. Só vale reescrever por redimensionamento ou por um
+      // ganho que justifique a perda.
+      if (larga || buf.length <= atual.length * 0.9) {
+        await writeFile(caminho, buf);
+        atual = buf;
+        recomprimidas++;
+      }
     }
+    depois += atual.length;
 
     const thumb = caminho.replace(/\.jpg$/, '.thumb.jpg');
+    // miniatura mais velha que a foto é miniatura de outra foto: depois de um
+    // `fotos --force` a imagem muda e a miniatura antiga ficava no lugar
+    let precisa = true;
     try {
-      await stat(thumb);
+      precisa = (await stat(thumb)).mtimeMs < nascida;
     } catch {
-      await sharp(caminho)
-        .rotate()
-        .resize({ width: THUMB.w, height: THUMB.w, fit: 'cover', position: 'attention' })
-        .jpeg({ quality: THUMB.q, mozjpeg: true })
-        .toFile(thumb);
+      /* ainda não existe */
+    }
+    if (precisa) {
+      await writeFile(
+        thumb,
+        await sharp(atual)
+          .rotate()
+          .resize({ width: THUMB.w, height: THUMB.w, fit: 'cover', position: 'attention' })
+          .jpeg({ quality: THUMB.q, mozjpeg: true })
+          .toBuffer(),
+      );
       thumbs++;
     }
   }
