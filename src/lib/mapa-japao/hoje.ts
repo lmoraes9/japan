@@ -1,5 +1,6 @@
 import { ALL_DAYS } from '@/data/days';
 import { TRIP } from '@/data/trip';
+import { itineraryDate } from '@/lib/now';
 
 export type Hoje =
   | { fase: 'antes'; dias: number }
@@ -11,9 +12,12 @@ export function hojeNoJapao(agora: Date = new Date()): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo' }).format(agora);
 }
 
-/** Onde a viagem está: antes, durante (com o dia) ou depois. */
+/**
+ * Onde a viagem está: antes, durante (com o dia) ou depois.
+ * O dia é o do roteiro, que só vira às 4h — como no resto do app.
+ */
 export function hojeNaViagem(agora: Date = new Date()): Hoje {
-  const hoje = hojeNoJapao(agora);
+  const hoje = itineraryDate(agora);
   const i = ALL_DAYS.findIndex((d) => d.date === hoje);
   if (i >= 0) return { fase: 'durante', indiceDia: i, dayId: ALL_DAYS[i].id };
   if (hoje < TRIP.start) {

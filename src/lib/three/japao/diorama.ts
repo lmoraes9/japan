@@ -14,6 +14,8 @@ import { group, castle, pagoda, buddha, domeRuin, kura, tower, bigTorii, hall, d
 
 /** graus por unidade da cena: o Japão inteiro cabe em ~700 unidades */
 const K = 55;
+/** quilômetros por unidade da cena: um grau de latitude são 111,32 km */
+export const KM_POR_UNIDADE = 111.32 / K;
 const LAT0 = 37.5;
 const LNG0 = 137.5;
 const COS0 = Math.cos((LAT0 * Math.PI) / 180);
