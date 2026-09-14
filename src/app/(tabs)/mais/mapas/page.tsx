@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ChevronRight, Globe2 } from 'lucide-react';
+import { ChevronRight, Globe2, TrainFront } from 'lucide-react';
 import { SubpageHeader } from '@/components/SubpageHeader';
 import { PLACE_MAPS, thumbOf } from '@/data/placeMaps';
 import { dayById } from '@/data/days';
@@ -34,6 +34,25 @@ export default function MapasPage() {
             </span>
           </span>
           <ChevronRight size={18} className="shrink-0 text-accent" />
+        </div>
+      </Link>
+
+      <Link
+        href="/mais/estacoes"
+        className="tappable block overflow-hidden rounded-3xl border border-rail/40 bg-rail/10 p-4"
+      >
+        <div className="flex items-center gap-3">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-rail text-white">
+            <TrainFront size={22} />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[15px] font-bold leading-snug">Mapa das estações</span>
+            <span className="mt-0.5 block text-[12.5px] leading-snug text-muted">
+              Tóquio, Hiroshima, Osaka e Kyoto como mapa de metrô: as linhas que vocês pegam, e cada parada
+              do roteiro pendurada na estação onde se desce.
+            </span>
+          </span>
+          <ChevronRight size={18} className="shrink-0 text-rail" />
         </div>
       </Link>
 
