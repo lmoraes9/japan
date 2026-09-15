@@ -21,7 +21,7 @@ export const STAGES: Stage[] = [
     nights: 5,
     color: '#16324A',
     hotelHint:
-      'Shinjuku. Melhor nó de transporte do país, comida a qualquer hora, e vocês têm o oeste da cidade na porta.',
+      'Hotel Amanek, no Kabukichō — lado leste de Shinjuku. Comida a qualquer hora na porta; para os trens, contem 8 a 10 minutos até a saída leste da estação.',
     intro: [
       'Até 1590 isto aqui era Edo — um vilarejo de pescadores num pântano de estuário, com um castelo em ruínas. Naquele ano Tokugawa Ieyasu foi mandado para cá quase como exílio disfarçado. Ele drenou o pântano, cavou canais em espiral ao redor do castelo e, treze anos depois, ao virar xogum, transformou o vilarejo na capital de facto do Japão — enquanto o imperador continuava em Kyoto, decorativo, por mais 265 anos.',
       'Edo cresceu até ser, por volta de 1720, provavelmente **a maior cidade do mundo**: um milhão de habitantes numa cidade de madeira e papel que pegava fogo com tanta regularidade que os incêndios ganharam apelido — "as flores de Edo". Em 1868 o imperador mudou-se para cá e a cidade foi rebatizada Tō-kyō, "capital do leste". Depois ela foi destruída duas vezes em 22 anos: pelo terremoto de 1923 e pelos bombardeios incendiários de 1945.',
@@ -37,7 +37,7 @@ export const STAGES: Stage[] = [
     nights: 2,
     color: '#A3322A',
     hotelHint:
-      'Entre a estação e Hondori/Kamiyachō. O bonde de Hiroshima é o maior sistema de bonde do Japão.',
+      'APA Ekimae Ōhashi, na frente da estação: mochila na recepção assim que chegam, e o bonde para o Parque da Paz sai do 2º andar da própria estação.',
     intro: [
       'A cidade nasceu em 1589, quando o senhor da guerra Mōri Terumoto escolheu o delta de seis braços do rio Ōta para construir um castelo. O nome quer dizer "ilha larga" — é isso que o lugar é, literalmente: um punhado de ilhas fluviais. Foi cidade-castelo, depois porto militar, depois quartel-general do exército imperial na guerra sino-japonesa.',
       'Foi exatamente essa concentração militar, somada ao relevo plano e ao fato de a cidade não ter sido bombardeada antes (o que permitiria medir o efeito com precisão), que a colocou no topo da lista de alvos. Em **6 de agosto de 1945, às 8h15**, a bomba explodiu a 600 metros de altitude, quase na vertical acima do que hoje é o Domo. Cerca de 80.000 pessoas morreram na hora; até o fim do ano, aproximadamente 140.000.',
@@ -101,7 +101,7 @@ export const STAGES: Stage[] = [
     nights: 2,
     color: '#2E6F8E',
     hotelHint:
-      'Ginza, Yaesu ou Nihonbashi. Fica a 30 minutos de Haneda, a pé das lojas que interessam, e permite sair tarde no dia 3.',
+      'Sotetsu Fresa Inn Ginza 3-chōme: a pé das lojas que interessam, e com o trem direto para Haneda saindo da Higashi-Ginza, a seis minutos — dá para sair tarde no dia 3.',
   },
 ];
 
