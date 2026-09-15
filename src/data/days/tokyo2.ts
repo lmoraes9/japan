@@ -316,7 +316,7 @@ export const tokyo2Days: Day[] = [
         name: 'Haneda, Terminal 3 — a ordem das coisas',
         facts: 'Voo JL7014 às **20:25** · deixem **3h20** de margem — com o sistema novo de reembolso, a fila pode ser bem maior que antes',
         paragraphs: [
-          '1. **Reembolso do imposto primeiro**, antes do check-in de bagagem. Desde **1º de novembro de 2026** o Japão mudou de sistema: vocês pagaram o imposto em todas as lojas e recebem tudo de volta aqui. Escaneiem o passaporte no **terminal de autoatendimento na área pública** (antes do despacho). Verde: acabou. Vermelho: a alfândega quer ver as mercadorias — por isso elas não podem estar dentro da mala despachada.',
+          '1. **Reembolso do imposto primeiro**, antes do check-in de bagagem. Desde **1º de novembro de 2026** o Japão mudou de sistema: vocês pagaram o imposto em todas as lojas e recebem tudo de volta aqui. O balcão de isenção fica no **3º andar, no saguão de partidas, em frente ao check-in K** — e a JAL fica nas ilhas F a K, ali mesmo. Escaneiem o passaporte: verde, acabou; vermelho, a alfândega quer ver as mercadorias — por isso elas não podem estar dentro da mala despachada.',
           '2. **Check-in e despacho** — só depois de liberadas as mercadorias inspecionadas.',
           '3. **Imigração e segurança.**',
           "4. **Última compra** na área livre de impostos — é aí que entra o Royce' Nama Chocolate, logo abaixo.",

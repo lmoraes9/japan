@@ -238,9 +238,9 @@ export const kyotoDays: Day[] = [
         text: 'Os ônibus 100 e 206 fazem esse trajeto em 15 min num dia comum e em **40 a 50 min** num sábado de pico — e vocês podem não entrar no primeiro que passar. **Peguem táxi** (¥1.500–2.000, 15 min). É o ponto do roteiro inteiro com maior chance de quebrar o cronograma.',
       },
       {
-        label: 'Eikan-dō: escolham dia OU noite',
+        label: 'A noite de hoje: chá em Gion OU a iluminação do Eikan-dō',
         tone: 'warn',
-        text: 'O Eikan-dō **esvazia o templo às 17:00** e reabre às 17:30 com ingresso separado para a iluminação — e no pico essa fila passa de uma hora. Fazer os dois é irreal. Ou a visita diurna às 15h45, ou chegar 17:00 para pegar fila da noturna. O Kōdai-ji também ilumina até 21:30: os dois na mesma noite, não dá.',
+        text: 'O Eikan-dō **esvazia o templo às 17:00** e reabre às 17:30 com ingresso separado para a iluminação — e no pico essa fila passa de uma hora. O roteiro escolheu a **visita diurna às 15h45** e o **chá no Kitagawa Hanbee às 18h**, que só abre até as 20h por ser sábado.\n\nSe preferirem a iluminação, troquem: fiquem no Eikan-dō até ~19h e joguem Gion para depois — mas então cancelem a reserva do chá, porque a última chamada dele é 19:30. Os dois na mesma noite não cabem, e o Kōdai-ji iluminado (até 21:30) seria um terceiro.',
       },
     ],
     stops: [

@@ -52,7 +52,7 @@ export const STAGES: Stage[] = [
     end: '2026-11-26',
     nights: 1,
     hotelHint:
-      'Namba. Uma noite só: vocês chegam de Himeji no fim da tarde e saem no dia seguinte ao meio-dia, subindo para Kōyasan pela própria Nankai, que parte daqui.',
+      'KOKO Hotel Sennichimae, entre a Namba e a Nippombashi — a saída 2 da Nippombashi dá quase na porta, e o Kuromon fica a 4 min. Uma noite só: vocês chegam de Himeji no fim da tarde e saem no dia seguinte ao meio-dia, pela Nankai.',
     color: '#B9861A',
     intro: [
       'Osaka foi, por séculos, **a cozinha do Japão** — *tenka no daidokoro*. No período Edo, cada domínio feudal do país mantinha aqui um armazém para converter o arroz dos impostos em dinheiro; a bolsa de arroz de Dōjima, fundada em 1697, é considerada **o primeiro mercado futuro organizado do mundo**, com contratos a termo padronizados um século antes de Chicago.',
@@ -85,7 +85,7 @@ export const STAGES: Stage[] = [
     nights: 4,
     color: '#4F6349',
     hotelHint:
-      'Shijō-Kawaramachi, o centro: o Nishiki na esquina, Gion a 15 min a pé pela ponte, Keihan direto para Fushimi Inari e Hankyu direto para Arashiyama.',
+      'Travelodge, na Kawaramachi logo abaixo de Sanjō — apesar do nome, não é na esquina de Shijō. Ficam a 2 min do Umezono e da esteira do Musashi, a 5 da Keihan Sanjō e a 7 da Hankyu, no Shijō.',
     intro: [
       'Em 794 o imperador Kanmu mudou a capital para cá e chamou o lugar de **Heian-kyō**, "capital da paz e tranquilidade". Ele estava fugindo de Nara, onde os mosteiros budistas tinham ficado tão poderosos que praticamente controlavam a corte. A cidade nova foi desenhada em grade retangular copiada de Chang\'an, a capital chinesa dos Tang — e essa grade ainda é a razão pela qual as ruas de Kyoto são retas e numeradas até hoje.',
       'Kyoto foi capital por **1.074 anos**, até 1868. Nesse tempo ela sobreviveu a incêndios recorrentes, à Guerra Ōnin (1467–77), que destruiu boa parte da cidade e desencadeou um século de guerra civil, e ao esvaziamento humilhante de 1868, quando o imperador foi para Tóquio e levou a corte junto.',

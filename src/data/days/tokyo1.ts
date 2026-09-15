@@ -900,10 +900,10 @@ export const tokyo1Days: Day[] = [
         kind: 'sight',
         name: 'Alameda de ginkgos de Meiji Jingū Gaien',
         jp: '神宮外苑いちょう並木',
-        facts: '**24h · grátis** · Aoyama-itchōme Stn · **pico: fim de novembro**',
+        facts: '**24h · grátis** · saída 4a de Gaienmae, 3 min · **pico previsto para o começo de dezembro** — hoje é o amarelo de chegada',
         paragraphs: [
-          '146 ginkgos em quatro fileiras, plantados em 1923, podados há um século no formato de cone para que a perspectiva pareça mais longa do que é. No fim de novembro a rua inteira fica dourada e o chão vira um tapete amarelo.',
-          'É o cartão-postal de outono de Tóquio, e vocês estão exatamente na semana certa.',
+          '146 ginkgos em quatro fileiras, plantados em 1923, podados há um século no formato de cone para que a perspectiva pareça mais longa do que é. No fim de novembro a rua começa a dourar; o chão só vira tapete amarelo semanas depois.',
+          'A previsão de 2026 põe o pico **a partir do dia 30 de novembro** — ou seja, hoje vocês pegam o começo. Por isso há uma segunda passada marcada aqui na manhã do dia 2 de dezembro, já no ouro cheio, a caminho de Jimbōchō.',
         ],
         eat: [
           {

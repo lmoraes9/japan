@@ -69,7 +69,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     status: 'refazer',
     acao:
       'Precisa virar **25 → 26, uma noite só**, para abrir espaço para Kōyasan. Reservem a noite nova **antes** de cancelar esta: diária avulsa em novembro costuma subir.',
-    mapQuery: 'KOKO HOTEL Osaka Namba Sennichimae',
+    mapQuery: 'KOKO HOTEL Osaka Namba Sennichimae, Chuo-ku Sennichimae 1-3-7',
   },
   {
     name: '高野山 宿坊 熊谷寺 · Koyasan Shukubo Kumagaiji',
@@ -104,7 +104,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     preco: 'R$ 3.920',
     status: 'confirmada',
     acao:
-      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e na melhor posição — Nishiki na esquina, Gion a 15 min a pé pela ponte, Keihan direto para Fushimi e Hankyu direto para Arashiyama. **É aqui que as malas do dia 23 estão esperando** — confirmem por escrito que o hotel guarda bagagem antes do check-in.',
+      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e bem colocada. Atenção ao endereço, que o nome esconde: é na **Kawaramachi abaixo de Sanjō** (Yamazaki-chō 220), e não na esquina de Shijō — a Keihan Sanjō fica a 5 min, a Hankyu Kyoto-Kawaramachi a 7, o Nishiki a 6 e o Umezono na mesma quadra. **É aqui que as malas do dia 23 estão esperando** — confirmem por escrito que o hotel guarda bagagem antes do check-in.',
     mapQuery: 'Travelodge Kyoto Shijo Kawaramachi',
   },
   {
