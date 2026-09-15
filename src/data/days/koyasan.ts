@@ -72,6 +72,19 @@ export const koyasanDays: Day[] = [
         mapQuery: 'Kuromon Ichiba Market Osaka',
       },
       {
+        id: 'd26-konbini',
+        time: '12:50',
+        timeLabel: 'konbini',
+        kind: 'food',
+        name: '7-Eleven da Nankai Namba — o lanche do trem e a fome da noite',
+        facts: 'No 2º andar da Nankai Namba, ao lado da catraca central · 06:00–23:00 · há outro no 3º, já dentro das catracas',
+        paragraphs: [
+          'O jantar dos monges às 17:30 é bonito e é pouco, e a montanha fecha cedo. Comprem aqui o lanche das duas horas de trem **e** a reserva da noite: onigiri, pão, algo doce, chá. Nada perecível demais — o quarto tem chá quente, mas não geladeira.',
+          'Em Kōyasan existem dois konbini e nenhum supermercado: o **Daily Yamazaki** (08:00–22:30), na rua principal a 1 min da parada Odawara-dōri, é o mais perto do Kumagaiji; o **FamilyMart** (07:00–23:00) fica no Kondō-mae, do lado do Garan. Dá para passar num deles depois do tour noturno, mas o toque de recolher do templo (~21h) manda — confirmem na chegada.',
+        ],
+        mapQuery: '7-Eleven Nankai Namba Station',
+      },
+      {
         id: 'd26-nankai',
         time: '13:20',
         timeLabel: 'trem',
@@ -144,10 +157,10 @@ export const koyasanDays: Day[] = [
         kind: 'temple',
         name: 'Okunoin no escuro — a parte que importa',
         jp: '奥之院ナイトツアー',
-        facts: '**Grátis por conta própria** · o tour guiado em inglês do Ekō-in sai às **19:00**, dura ~90 min e **aceita quem não está hospedado lá** — reservar antes',
+        facts: '**Grátis por conta própria** · tour guiado em inglês: **¥6.000 por pessoa online**, saída **19:00–19:15** do café TAIRA (ao lado do Ekō-in), 1h20, ônibus de volta grátis · **aceita hóspedes de qualquer templo** · reservar 2 a 4 semanas antes',
         paragraphs: [
           'Se vocês fizerem uma coisa só em Kōyasan, é esta. O caminho tem lanternas de pedra acesas de ponta a ponta, a neblina desce entre os cedros e não há mais ninguém. É completamente diferente do mesmo caminho de dia.',
-          'O **Ekō-in** — onde a Priscila ficou da outra vez — opera o único tour noturno em inglês que existe o ano inteiro, guiado por um monge, saindo do lobby deles às 19:00. **Não é preciso estar hospedado lá**, mas é preciso reservar, e esgota. Vale muito: o monge conta quem está enterrado em cada canto, e isso é metade do lugar.',
+          'O tour noturno é o do **Ekō-in** — onde a Priscila ficou da outra vez — mas quem opera é a AWESOME TOURS, e a reserva é à parte, no site deles (night.koyasan-okunoin.com), inclusive para hóspede do próprio Ekō-in. **Qualquer templo serve** (só Renge-in e Sainan-in não podem, pelo horário do jantar). O ponto de encontro é o balcão dentro do café **TAIRA**, colado ao Ekō-in; o jantar das 17:30 termina lá pelas 18:30, dá tempo. Vale muito: o guia conta quem está enterrado em cada canto, e isso é metade do lugar.',
           'Por conta própria também funciona. Levem lanterna, casaco pesado e paciência para o frio. E não saiam do caminho principal.',
         ],
         mapQuery: 'Ekoin Koyasan',

@@ -8,7 +8,8 @@ import {
   AdvancedMarker,
   useMap,
 } from '@vis.gl/react-google-maps';
-import { Navigation, X, WifiOff, Image as ImageIcon } from 'lucide-react';
+import Link from 'next/link';
+import { Navigation, X, WifiOff, Image as ImageIcon, TrainFront } from 'lucide-react';
 import { ALL_DAYS } from '@/data/days';
 import { STAGES } from '@/data/trip';
 import type { Day, Stop } from '@/data/types';
@@ -241,9 +242,17 @@ export function MapScreen() {
 
   return (
     <div className="space-y-3 flex flex-col" style={{ minHeight: 'calc(100dvh - 140px)' }}>
-      <header className="flex items-baseline justify-between pt-1">
-        <h1 className="text-2xl font-bold">Mapa</h1>
-        <p className="text-[12px] text-muted">{day.title}</p>
+      <header className="flex items-center justify-between gap-3 pt-1">
+        <div className="min-w-0">
+          <h1 className="text-2xl font-bold">Mapa</h1>
+          <p className="truncate text-[12px] text-muted">{day.title}</p>
+        </div>
+        <Link
+          href="/mais/estacoes"
+          className="tappable inline-flex shrink-0 items-center gap-1.5 rounded-full border border-hairline bg-surface px-3 py-1.5 text-[12.5px] font-medium text-foreground/80"
+        >
+          <TrainFront size={14} className="text-rail" /> Estações
+        </Link>
       </header>
       <DaySelector selected={dayId} onSelect={selectDay} />
 
