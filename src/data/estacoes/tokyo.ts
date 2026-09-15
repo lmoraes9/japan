@@ -34,7 +34,7 @@ export const TOKYO: MapaEstacoes = {
       casa: /Yamanote|Keihin/,
       fechada: true,
       tracado: [
-        'shinjuku', [90, 250], 'ikebukuro', [215, 58], [330, 44], [386, 100], 'ueno', 'okachimachi', 'akihabara', 'kanda', 'tokyo', 'yurakucho', 'shimbashi',
+        'shinjuku', [90, 250], 'ikebukuro', [210, 60], 'komagome', [330, 44], [386, 100], 'ueno', 'okachimachi', 'akihabara', 'kanda', 'tokyo', 'yurakucho', 'shimbashi',
         [335, 500], [305, 556], 'shinagawa', [200, 668], [130, 622], 'ebisu', 'shibuya', 'harajuku',
       ],
     },
@@ -87,7 +87,7 @@ export const TOKYO: MapaEstacoes = {
       cor: '#F62E36',
       modo: 'metro',
       casa: /Marunouchi/,
-      tracado: ['ikebukuro', [240, 145], [355, 240], [392, 322], 'tokyo', 'ginza', [330, 430], 'akasaka-mitsuke', [205, 346], 'shinjuku'],
+      tracado: ['ikebukuro', [232, 148], 'korakuen', [355, 240], [392, 322], 'tokyo', 'ginza', [330, 430], 'akasaka-mitsuke', [205, 346], 'shinjuku'],
     },
     {
       id: 'ginza-line',
@@ -114,14 +114,6 @@ export const TOKYO: MapaEstacoes = {
       tracado: ['akasaka-mitsuke', [285, 330], 'jimbocho', [345, 322], 'mitsukoshimae', [492, 336], [540, 300], 'kinshicho', 'oshiage'],
     },
     {
-      id: 'oedo',
-      nome: 'Toei Ōedo',
-      cor: '#B6007A',
-      modo: 'metro',
-      casa: /Ōedo/,
-      tracado: ['shinjuku', [140, 380], [205, 445], [240, 470], [300, 526], [352, 512], [395, 506], 'tsukijishijo'],
-    },
-    {
       id: 'asakusa-keikyu',
       nome: 'Toei Asakusa → Keikyu (Haneda)',
       cor: '#EF6E65',
@@ -142,8 +134,9 @@ export const TOKYO: MapaEstacoes = {
     { id: 'yurakucho', nome: 'Yūrakuchō', jp: '有楽町', x: 375, y: 398, lado: 'l' },
     { id: 'ginza', nome: 'Ginza', jp: '銀座', x: 400, y: 430, troca: true, destaque: true, lado: 'r' },
     { id: 'higashi-ginza', nome: 'Higashi-Ginza', jp: '東銀座', x: 420, y: 452, lado: 'b', nota: 'trem direto para Haneda' },
-    { id: 'tsukiji', nome: 'Tsukiji', jp: '築地', x: 440, y: 472, lado: 'b' },
-    { id: 'tsukijishijo', nome: 'Tsukijishijō', jp: '築地市場', x: 405, y: 492, lado: 'b' },
+    { id: 'tsukiji', nome: 'Tsukiji', jp: '築地', x: 440, y: 472, lado: 'b', nota: 'saída 1 = mercado externo; Hamarikyū a 10 min' },
+    { id: 'komagome', nome: 'Komagome', jp: '駒込', x: 275, y: 46, lado: 't', nota: 'saída sul → Rikugien, 7 min' },
+    { id: 'korakuen', nome: 'Kōrakuen', jp: '後楽園', x: 300, y: 198, lado: 'l', nota: 'saída 2 → portão leste do jardim, 6 min' },
     { id: 'shimbashi', nome: 'Shimbashi', jp: '新橋', x: 350, y: 455, lado: 'b' },
     { id: 'akasaka-mitsuke', nome: 'Akasaka-mitsuke', jp: '赤坂見附', x: 245, y: 400, troca: true, lado: 't', nota: 'troca Marunouchi ⇄ Ginza Line na mesma plataforma' },
     { id: 'omote-sando', nome: 'Omote-sandō', jp: '表参道', x: 150, y: 455, troca: true, lado: 'b' },
@@ -189,7 +182,7 @@ export const TOKYO: MapaEstacoes = {
     { id: 'p-d20-hasedera', nome: 'Hase-dera', estacaoId: 'hase', dx: 6, dy: 30, stopId: 'd20-hasedera' },
     // 21 nov
     { id: 'p-d21-tsukiji', nome: 'Mercado de Tsukiji', estacaoId: 'tsukiji', dx: 40, dy: 14, stopId: 'd21-tsukiji' },
-    { id: 'p-d21-hamarikyu', nome: 'Hamarikyū', estacaoId: 'tsukijishijo', dx: 8, dy: 44, stopId: 'd21-hamarikyu' },
+    { id: 'p-d21-hamarikyu', nome: 'Hamarikyū', estacaoId: 'tsukiji', dx: -10, dy: 48, stopId: 'd21-hamarikyu', lado: 'l' },
     { id: 'p-d21-almoco-ginza', nome: 'Almoço · Shima', estacaoId: 'ginza', dx: 48, dy: -6, stopId: 'd21-almoco-ginza' },
     { id: 'p-d21-ginza', nome: 'Ginza · compras', estacaoId: 'ginza', dx: 70, dy: 14, stopId: 'd21-ginza' },
     { id: 'p-d21-kitte', nome: 'KITTE · terraço', estacaoId: 'tokyo', dx: -56, dy: -10, stopId: 'd21-kitte', lado: 'l' },
@@ -207,9 +200,11 @@ export const TOKYO: MapaEstacoes = {
     { id: 'p-d23-trem-hiroshima', nome: 'Shinkansen → Hiroshima', estacaoId: 'tokyo', dx: 52, dy: 10, stopId: 'd23-trem-hiroshima' },
     // 1 dez
     { id: 'p-d01-checkin-compras', nome: 'Check-in + Ginza', estacaoId: 'ginza', dx: 60, dy: -40, stopId: 'd01-checkin-compras' },
+    { id: 'p-d01-rikugien', nome: 'Rikugien iluminado', estacaoId: 'komagome', dx: 34, dy: -22, stopId: 'd01-rikugien' },
     { id: 'p-d01-gachapon', nome: 'Gachapon · Sunshine City', estacaoId: 'ikebukuro', dx: 42, dy: -26, stopId: 'd01-gachapon-ikebukuro' },
     // 2 dez
-    { id: 'p-d02-jardim-imperial', nome: 'Jardim do Palácio', estacaoId: 'tokyo', dx: -70, dy: -34, stopId: 'd02-jardim-imperial', lado: 'l' },
+    { id: 'p-d02-gaien-peak', nome: 'Ginkgos no pico', estacaoId: 'gaienmae', dx: -30, dy: -36, stopId: 'd02-gaien-peak', lado: 'l' },
+    { id: 'p-d02-korakuen', nome: 'Kōrakuen · bordos', estacaoId: 'korakuen', dx: -40, dy: -22, stopId: 'd02-korakuen', lado: 'l' },
     { id: 'p-d02-jimbocho', nome: 'Curry · Bondy', estacaoId: 'jimbocho', dx: -34, dy: -22, stopId: 'd02-jimbocho', lado: 'l' },
     { id: 'p-d02-nihonbashi', nome: 'Nihonbashi', estacaoId: 'mitsukoshimae', dx: 42, dy: -18, stopId: 'd02-nihonbashi' },
     { id: 'p-d02-akihabara-missoes', nome: 'Yodobashi-Akiba', estacaoId: 'akihabara', dx: 38, dy: 52, stopId: 'd02-akihabara-missoes' },
@@ -220,11 +215,6 @@ export const TOKYO: MapaEstacoes = {
     { id: 'p-d03-ultima-manha', nome: 'Café em Tsukiji', estacaoId: 'tsukiji', dx: 40, dy: 42, stopId: 'd03-ultima-manha' },
     { id: 'p-d03-haneda', nome: 'Haneda · tax-free', estacaoId: 'haneda', dx: 34, dy: 4, stopId: 'd03-haneda' },
     { id: 'p-d03-duty-free', nome: "Royce' no duty free", estacaoId: 'haneda', dx: 34, dy: 34, stopId: 'd03-duty-free' },
-    // desejos
-    { id: 'w-mario-kart', nome: 'Mario Kart · namco TOKYO', estacaoId: 'shinjuku', dx: 62, dy: -36, desejoId: 'mario-kart' },
-    { id: 'w-black-thunder', nome: 'Black Thunder · Don Quijote', estacaoId: 'shinjuku', dx: 40, dy: 30, desejoId: 'black-thunder' },
-    { id: 'w-oura', nome: 'Oura Ring · Bic Camera', estacaoId: 'yurakucho', dx: -70, dy: 50, desejoId: 'oura', lado: 'l' },
-    { id: 'w-nambu-tekki', nome: 'Nambu tekki · Iwate Ginga Plaza', estacaoId: 'higashi-ginza', dx: 56, dy: 22, desejoId: 'nambu-tekki' },
-    { id: 'w-aliancas', nome: 'Alianças · Okachimachi', estacaoId: 'okachimachi', dx: 44, dy: -30, desejoId: 'aliancas' },
+    { id: 'p-d02-tekki', nome: 'Nambu tekki · Ginga Plaza', estacaoId: 'higashi-ginza', dx: 56, dy: 22, stopId: 'd02-tekki' },
   ],
 };

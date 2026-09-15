@@ -65,6 +65,8 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   // ── Kyoto & Nara ──
   'd27-sumiyoshi': { lat: 34.6124, lng: 135.4932 },
   'd27-fushimi-inari': { lat: 34.9671, lng: 135.7727 },
+  'd27-jantar': { lat: 34.9302, lng: 135.7625 }, // Torisei Honten, Fushimi
+  'd26-konbini': { lat: 34.6633, lng: 135.5027 }, // 7-Eleven Nankai Namba, 2F
   'd28-kiyomizu': { lat: 34.9949, lng: 135.785 },
   'd28-sannenzaka': { lat: 34.9966, lng: 135.781 },
   'd28-kodaiji': { lat: 35.0007, lng: 135.781 },
@@ -72,7 +74,13 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd28-filosofo': { lat: 35.0192, lng: 135.7955 },
   'd28-nanzenji': { lat: 35.0116, lng: 135.7943 },
   'd28-eikando': { lat: 35.0146, lng: 135.7942 },
+  'd28-kitagawa': { lat: 35.0027, lng: 135.7765 }, // Gion Kitagawa Hanbee, Hanamikōji
   'd28-gion': { lat: 35.0037, lng: 135.771 },
+  'd29-umezono': { lat: 35.0083, lng: 135.769 }, // Umezono Kawaramachi-ten
+  'd29-jantar-musashi': { lat: 35.0089, lng: 135.769 }, // Sushi no Musashi Sanjō Honten
+  'd30-jantar': { lat: 35.004, lng: 135.7686 }, // Onimaru Shijō-Kawaramachi
+  'd30-karafuneya': { lat: 35.0081, lng: 135.7687 }, // Karafuneya Sanjō Honten
+  'd01-malas': { lat: 35.0039, lng: 135.7688 }, // Travelodge Kyoto Shijō Kawaramachi
   'd29-bambu': { lat: 35.017, lng: 135.671 },
   'd29-tenryuji': { lat: 35.0158, lng: 135.6737 },
   'd29-okochi-sanso': { lat: 35.0186, lng: 135.669 },
@@ -89,13 +97,16 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd01-tofukuji': { lat: 34.9764, lng: 135.774 },
   'd01-sanjusangendo': { lat: 34.988, lng: 135.7715 },
   'd01-checkin-compras': { lat: 35.6712, lng: 139.764 }, // Ginza
+  'd01-rikugien': { lat: 35.7331, lng: 139.746 }, // Rikugien, portão principal
   'd01-gachapon-ikebukuro': { lat: 35.729, lng: 139.719 }, // Sunshine City World Import Mart
 
   // ── Tóquio II ──
-  'd02-jardim-imperial': { lat: 35.6863, lng: 139.7573 },
+  'd02-gaien-peak': { lat: 35.6745, lng: 139.7174 },
+  'd02-korakuen': { lat: 35.7053, lng: 139.7497 }, // Koishikawa Kōrakuen, portão leste
   'd02-jimbocho': { lat: 35.6958, lng: 139.7576 }, // Bondy, Jimbōchō
   'd02-akihabara-missoes': { lat: 35.6987, lng: 139.7745 }, // Yodobashi-Akiba
   'd02-nihonbashi': { lat: 35.684, lng: 139.7745 },
+  'd02-tekki': { lat: 35.6693, lng: 139.7677 }, // Iwate Ginga Plaza, Ginza 5-15-1
   'd02-compras-finais': { lat: 35.6749, lng: 139.7628 }, // Bic Camera Yūrakuchō
   'd03-haneda': { lat: 35.5494, lng: 139.7798 },
 };

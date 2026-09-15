@@ -142,8 +142,6 @@ export const OSAKA: MapaEstacoes = {
     { id: 'p-d27-sumiyoshi', nome: 'Sumiyoshi Taisha', estacaoId: 'sumiyoshi-higashi', dx: 42, dy: -20, stopId: 'd27-sumiyoshi' },
     { id: 'p-d27-almoco', nome: '551 Hōrai · butaman', estacaoId: 'nankai-namba', dx: 52, dy: 6, stopId: 'd27-almoco' },
     { id: 'p-d27-trem-kyoto', nome: 'Hankyu → Kyoto 14:45', estacaoId: 'umeda', dx: 46, dy: 32, stopId: 'd27-trem-kyoto' },
-    // desejos
-    { id: 'w-mario-kart-osaka', nome: 'Mario Kart · Round1', estacaoId: 'namba', dx: 52, dy: 22, desejoId: 'mario-kart' },
-    { id: 'w-nambu-tekki-osaka', nome: 'Loft Umeda · nambu tekki', estacaoId: 'umeda', dx: 52, dy: -30, desejoId: 'nambu-tekki' },
+    { id: 'p-d26-konbini', nome: '7-Eleven · lanche do trem', estacaoId: 'nankai-namba', dx: 56, dy: -22, stopId: 'd26-konbini' },
   ],
 };

@@ -58,13 +58,15 @@ export const hiroshimaDays: Day[] = [
       {
         id: 'd23-chegada',
         time: '11:45',
-        timeLabel: 'chegada',
+        timeLabel: 'hotel',
         kind: 'hotel',
-        name: 'Hiroshima · check-in e almoço',
-        facts: 'Do Shinkansen ao Parque da Paz: **bonde nº 2 ou 6, ~15 min, ¥240**',
+        name: 'Hotel na estação: mochila e almoço rápido',
+        facts: '**APA Hotel Hiroshima Ekimae Ōhashi — saída sul da estação, 5 min a pé** · check-in a partir das 15:00, mas a recepção guarda a mochila · almoço no **ekie**, dentro da estação',
         paragraphs: [
-          'Sugestão de base: entre a estação e Hondori/Kamiyachō. O bonde de Hiroshima é o maior sistema de bonde do Japão, e alguns vagões são sobreviventes de 1945 ainda em operação.',
+          'O hotel é na frente da estação, então hoje não tem bonde com mochila: deixem-na na recepção e almocem no **ekie**, o shopping da própria estação — o **Musubi Musashi** (o onigiri de Hiroshima, desde 1958) resolve em 15 minutos, e a rua de okonomiyaki do ekie serve se a fome for maior. Guardem o okonomiyaki de verdade para o jantar.',
+          'Às 12:30, bonde **2 ou 6** até Genbaku-Dōmu-mae, 16 minutos. Desde agosto de 2025 o terminal do bonde fica **dentro do prédio novo da estação, no 2º andar**, e não mais na praça. O bonde de Hiroshima é o maior sistema de bonde do Japão, e alguns vagões são sobreviventes de 1945 ainda em operação.',
         ],
+        mapQuery: 'APA Hotel Hiroshima Ekimae Ohashi',
       },
       {
         id: 'd23-museu-paz',

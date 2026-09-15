@@ -1,32 +1,26 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { BedDouble, CalendarDays, ExternalLink, Maximize2, Minus, Navigation, Plus, Star, TrainFront } from 'lucide-react';
-import { MAPAS_ESTACOES, mapaEstacoesById, desejoById } from '@/data/estacoes';
+import { BedDouble, CalendarDays, DoorOpen, ExternalLink, Maximize2, Minus, Navigation, Plus, TrainFront } from 'lucide-react';
+import { MAPAS_ESTACOES, mapaEstacoesById } from '@/data/estacoes';
+import { internoById, internosDoMapa } from '@/data/estacoes/internos';
 import type { Estacao, Linha, MapaEstacoes as Mapa, Ponto } from '@/data/estacoes/types';
 import { STAGES } from '@/data/trip';
 import { START, LEGS } from '@/data/legs';
 import { formatDayLabel, itineraryDate } from '@/lib/now';
 import { ALL_DAYS } from '@/data/days';
-import { baseDaManha, navigateUrl, searchUrl } from '@/lib/mapsLinks';
-import { diasDoMapa, infoDaParada, linhasDoDia, type DiaMapa } from '@/lib/estacoes/dias';
+import { baseDaManha, navigateUrl } from '@/lib/mapsLinks';
+import { diasDoMapa, infoDaParada, linhasDoDia } from '@/lib/estacoes/dias';
+import { usePanZoom } from '@/lib/estacoes/usePanZoom';
 import { Legs } from '../Legs';
 import { Rich } from '../Rich';
 import { EatBlocks } from '../EatBlocks';
 import { FolhaPonto, type AlturaFolha } from '../FolhaPonto';
 
-const K_MIN = 1;
-const K_MAX = 4.5;
 /** raio do pino de um ponto */
 const RP = 8;
-
-interface View {
-  k: number;
-  tx: number;
-  ty: number;
-}
 
 type Escolha = { tipo: 'ponto'; id: string } | { tipo: 'estacao'; id: string } | null;
 
@@ -79,20 +73,22 @@ export function MapaEstacoes() {
   const [diaId, setDiaId] = useState<string | null>(() => (dias.some((d) => d.dayId === hojeId) ? hojeId : null));
   const [escolha, setEscolha] = useState<Escolha>(null);
   const [altura, setAltura] = useState<AlturaFolha>('meia');
-  const [view, setView] = useState<View>({ k: 1, tx: 0, ty: 0 });
-  const svgRef = useRef<SVGSVGElement>(null);
 
-  const [vx, vy, vw, vh] = useMemo(() => mapa.viewBox.split(' ').map(Number) as [number, number, number, number], [mapa.viewBox]);
+  const pz = usePanZoom(mapa.viewBox);
+  const { vx, vy, vw, vh } = pz.box;
 
   const estacoes = useMemo(() => new Map(mapa.estacoes.map((e) => [e.id, e])), [mapa]);
-  const ponto = useCallback((p: string | [number, number]) => {
-    if (typeof p === 'string') {
-      const e = estacoes.get(p);
-      if (!e) throw new Error(`estação desconhecida no traçado: ${p}`);
-      return { x: e.x, y: e.y };
-    }
-    return { x: p[0], y: p[1] };
-  }, [estacoes]);
+  const ponto = useCallback(
+    (p: string | [number, number]) => {
+      if (typeof p === 'string') {
+        const e = estacoes.get(p);
+        if (!e) throw new Error(`estação desconhecida no traçado: ${p}`);
+        return { x: e.x, y: e.y };
+      }
+      return { x: p[0], y: p[1] };
+    },
+    [estacoes],
+  );
 
   /** o caminho de uma linha: reto entre estações, arredondado nas curvas sem estação */
   const caminho = useCallback(
@@ -126,7 +122,7 @@ export function MapaEstacoes() {
   // ── o dia escolhido: o que acende e o que apaga ────────────────────────────
   const corDoDia = useMemo(() => new Map(dias.map((d) => [d.dayId, d.cor])), [dias]);
   const infoPonto = useMemo(() => new Map(mapa.pontos.map((p) => [p.id, infoDaParada(p)])), [mapa]);
-  const diaDoPonto = (p: Ponto) => infoPonto.get(p.id)?.day.id ?? null;
+  const diaDoPonto = useCallback((p: Ponto) => infoPonto.get(p.id)?.day.id ?? null, [infoPonto]);
 
   const linhasAcesas = useMemo(() => (diaId ? linhasDoDia(mapa, diaId) : null), [mapa, diaId]);
   const estacoesAcesas = useMemo(() => {
@@ -136,62 +132,9 @@ export function MapaEstacoes() {
     const dia = ALL_DAYS.find((d) => d.id === diaId);
     for (const b of mapa.bases) if (dia && b.stageId === dia.stageId) s.add(b.estacaoId);
     return s;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mapa, diaId, infoPonto]);
+  }, [mapa, diaId, diaDoPonto]);
 
-  const pontosVisiveis = useMemo(
-    () => (diaId ? mapa.pontos.filter((p) => diaDoPonto(p) === diaId || p.desejoId) : mapa.pontos),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [mapa, diaId, infoPonto],
-  );
-
-  // ── zoom e pan (a mesma mecânica do mapa ilustrado) ────────────────────────
-  const clamp = useCallback(
-    (v: View): View => {
-      const k = Math.min(K_MAX, Math.max(K_MIN, v.k));
-      const tx = Math.min(vx * (1 - k), Math.max((vx + vw) * (1 - k), v.tx));
-      const ty = Math.min(vy * (1 - k), Math.max((vy + vh) * (1 - k), v.ty));
-      return { k, tx, ty };
-    },
-    [vx, vy, vw, vh],
-  );
-
-  const geometry = () => {
-    const rect = svgRef.current?.getBoundingClientRect();
-    if (!rect || rect.width === 0 || rect.height === 0) return { rect, r: 1, ox: 0, oy: 0 };
-    const scale = Math.min(rect.width / vw, rect.height / vh);
-    return { rect, r: 1 / scale, ox: (rect.width - vw * scale) / 2, oy: (rect.height - vh * scale) / 2 };
-  };
-  const toWindow = (clientX: number, clientY: number) => {
-    const { rect, r, ox, oy } = geometry();
-    if (!rect) return { x: vx + vw / 2, y: vy + vh / 2 };
-    return { x: vx + (clientX - rect.left - ox) * r, y: vy + (clientY - rect.top - oy) * r };
-  };
-
-  const zoomAbout = useCallback(
-    (px: number, py: number, k2: number, base: View) => {
-      const k = Math.min(K_MAX, Math.max(K_MIN, k2));
-      const f = k / base.k;
-      return clamp({ k, tx: px - (px - base.tx) * f, ty: py - (py - base.ty) * f });
-    },
-    [clamp],
-  );
-  const zoomStep = (dir: 1 | -1) => setView((v) => zoomAbout(vx + vw / 2, vy + vh / 2, v.k * (dir > 0 ? 1.5 : 1 / 1.5), v));
-  const reset = () => setView({ k: 1, tx: 0, ty: 0 });
-
-  /** enquadra uma caixa do viewBox; o painel toma o rodapé, então o centro sobe um pouco */
-  const enquadrar = useCallback(
-    (x0: number, y0: number, x1: number, y1: number, comPainel: boolean) => {
-      const m = 70;
-      const w = Math.max(60, x1 - x0 + m * 2);
-      const h = Math.max(60, y1 - y0 + m * 2);
-      const k = Math.min(K_MAX, Math.max(K_MIN, Math.min(vw / w, vh / h)));
-      const cx = (x0 + x1) / 2;
-      const cy = (y0 + y1) / 2;
-      setView(clamp({ k, tx: vx + vw / 2 - cx * k, ty: vy + vh * (comPainel ? 0.44 : 0.5) - cy * k }));
-    },
-    [clamp, vx, vy, vw, vh],
-  );
+  const pontosVisiveis = useMemo(() => (diaId ? mapa.pontos.filter((p) => diaDoPonto(p) === diaId) : mapa.pontos), [mapa, diaId, diaDoPonto]);
 
   const posicaoDoPonto = useCallback(
     (p: Ponto) => {
@@ -205,7 +148,7 @@ export function MapaEstacoes() {
   const enquadrarDia = useCallback(
     (id: string | null) => {
       if (!id) {
-        setView({ k: 1, tx: 0, ty: 0 });
+        pz.reset();
         return;
       }
       const xs: number[] = [];
@@ -217,81 +160,10 @@ export function MapaEstacoes() {
         ys.push(y, ey);
       }
       if (xs.length === 0) return;
-      enquadrar(Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys), false);
+      pz.enquadrar(Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys));
     },
-    [mapa, infoPonto, posicaoDoPonto, enquadrar],
+    [mapa, infoPonto, posicaoDoPonto, pz],
   );
-
-  const pointers = useRef(new Map<number, { x: number; y: number }>());
-  const panStart = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
-  const pinchStart = useRef<{ dist: number; view: View } | null>(null);
-  const moved = useRef(false);
-  const lastTap = useRef<{ t: number; x: number; y: number } | null>(null);
-  const viewRef = useRef(view);
-  viewRef.current = view;
-
-  const onPointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
-    pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    moved.current = false;
-    if (pointers.current.size === 1) {
-      panStart.current = { x: e.clientX, y: e.clientY, tx: view.tx, ty: view.ty };
-      pinchStart.current = null;
-    } else if (pointers.current.size === 2) {
-      const [a, b] = [...pointers.current.values()];
-      pinchStart.current = { dist: Math.hypot(a.x - b.x, a.y - b.y), view: viewRef.current };
-      panStart.current = null;
-    }
-    // dois dedos é sempre pinça; com um dedo, só se captura quando o arrasto de fato começa
-    // (capturar já no toque faria o clique parar no svg, e o pino nunca abriria)
-    if (pointers.current.size === 2) (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
-  };
-  const onPointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
-    if (!pointers.current.has(e.pointerId)) return;
-    pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    if (pointers.current.size === 2 && pinchStart.current) {
-      const [a, b] = [...pointers.current.values()];
-      const dist = Math.hypot(a.x - b.x, a.y - b.y);
-      const mid = toWindow((a.x + b.x) / 2, (a.y + b.y) / 2);
-      const { dist: d0, view: v0 } = pinchStart.current;
-      moved.current = true;
-      setView(zoomAbout(mid.x, mid.y, v0.k * (dist / d0), v0));
-      return;
-    }
-    if (pointers.current.size === 1 && panStart.current && viewRef.current.k > 1.01) {
-      const r = geometry().r;
-      const dx = e.clientX - panStart.current.x;
-      const dy = e.clientY - panStart.current.y;
-      if (Math.hypot(dx, dy) > 4 && !moved.current) {
-        moved.current = true;
-        (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
-      }
-      setView((v) => clamp({ k: v.k, tx: panStart.current!.tx + dx * r, ty: panStart.current!.ty + dy * r }));
-    }
-  };
-  const onPointerUp = (e: React.PointerEvent<SVGSVGElement>) => {
-    pointers.current.delete(e.pointerId);
-    if (pointers.current.size < 2) pinchStart.current = null;
-    if (pointers.current.size === 0) {
-      panStart.current = null;
-      if (!moved.current && e.pointerType === 'touch') {
-        const now = Date.now();
-        const last = lastTap.current;
-        if (last && now - last.t < 320 && Math.hypot(e.clientX - last.x, e.clientY - last.y) < 24) {
-          const p = toWindow(e.clientX, e.clientY);
-          setView((v) => (v.k > 1.01 ? { k: 1, tx: 0, ty: 0 } : zoomAbout(p.x, p.y, 2.4, v)));
-          lastTap.current = null;
-          return;
-        }
-        lastTap.current = { t: now, x: e.clientX, y: e.clientY };
-      }
-    }
-  };
-  const onWheel = (e: React.WheelEvent<SVGSVGElement>) => {
-    if (!(e.ctrlKey || e.metaKey)) return;
-    e.preventDefault();
-    const p = toWindow(e.clientX, e.clientY);
-    setView((v) => zoomAbout(p.x, p.y, v.k * (e.deltaY < 0 ? 1.15 : 1 / 1.15), v));
-  };
 
   // ── escolhas ───────────────────────────────────────────────────────────────
   const escolherCidade = (id: string) => {
@@ -302,7 +174,6 @@ export function MapaEstacoes() {
     setCidadeId(id);
     setDiaId(ds.some((d) => d.dayId === hojeId) ? hojeId : null);
     setEscolha(null);
-    setView({ k: 1, tx: 0, ty: 0 });
     router.replace(`/mais/estacoes?cidade=${id}`, { scroll: false });
   };
 
@@ -320,20 +191,14 @@ export function MapaEstacoes() {
       }
       setEscolha({ tipo: 'ponto', id: p.id });
       const { x, y } = posicaoDoPonto(p);
-      setView((v) => {
-        const k = Math.max(v.k, 2.2);
-        return clamp({ k, tx: vx + vw / 2 - x * k, ty: vy + vh * 0.44 - y * k });
-      });
+      pz.centrarEm(x, y);
     },
-    [posicaoDoPonto, clamp, vx, vy, vw, vh],
+    [posicaoDoPonto, pz],
   );
 
   const escolherEstacao = (e: Estacao) => {
     setEscolha({ tipo: 'estacao', id: e.id });
-    setView((v) => {
-      const k = Math.max(v.k, 2.2);
-      return clamp({ k, tx: vx + vw / 2 - e.x * k, ty: vy + vh * 0.44 - e.y * k });
-    });
+    pz.centrarEm(e.x, e.y);
   };
 
   const fechar = () => setEscolha(null);
@@ -357,13 +222,11 @@ export function MapaEstacoes() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [escolha, indice]);
 
-  const zoomed = view.k > 1.01;
-  const mostrarNomesMenores = view.k >= 1.6;
+  const mostrarNomesMenores = pz.view.k >= 1.6;
   const pontoEscolhido = escolha?.tipo === 'ponto' ? mapa.pontos.find((p) => p.id === escolha.id) ?? null : null;
   const estacaoEscolhida = escolha?.tipo === 'estacao' ? estacoes.get(escolha.id) ?? null : null;
-  const arrastando = !!(pinchStart.current || panStart.current);
-
   const rotuloDia = (id: string) => dias.find((d) => d.dayId === id);
+  const internos = internosDoMapa(mapa.id);
 
   return (
     <div className={`space-y-3 ${escolha ? (altura === 'cheia' ? 'pb-[92svh]' : 'pb-[60svh]') : ''}`}>
@@ -426,7 +289,7 @@ export function MapaEstacoes() {
       {/* ── o mapa ─────────────────────────────────────────────────────────── */}
       <div className="relative overflow-hidden rounded-3xl border border-hairline bg-surface shadow-sm">
         <svg
-          ref={svgRef}
+          ref={pz.svgRef}
           viewBox={mapa.viewBox}
           role="img"
           aria-label={`Mapa das estações de ${mapa.titulo}`}
@@ -434,12 +297,8 @@ export function MapaEstacoes() {
             escolha ? (altura === 'cheia' ? 'h-[22svh]' : 'h-[36svh]') : 'h-[66svh] max-h-[640px]'
           }`}
           preserveAspectRatio="xMidYMid meet"
-          style={{ touchAction: zoomed ? 'none' : 'pan-y' }}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={onPointerUp}
-          onPointerCancel={onPointerUp}
-          onWheel={onWheel}
+          style={{ touchAction: pz.zoomed ? 'none' : 'pan-y' }}
+          {...pz.handlers}
         >
           <defs>
             <filter id="est-sombra" x="-40%" y="-40%" width="180%" height="180%">
@@ -449,12 +308,7 @@ export function MapaEstacoes() {
 
           <rect x={vx - 2000} y={vy - 2000} width={vw + 4000} height={vh + 4000} fill="var(--surface)" />
 
-          <g
-            style={{
-              transform: `translate(${view.tx}px, ${view.ty}px) scale(${view.k})`,
-              transition: arrastando ? 'none' : 'transform 240ms ease-out',
-            }}
-          >
+          <g style={pz.transform}>
             {/* água */}
             {mapa.agua?.map((a, i) => (
               <g key={i}>
@@ -531,6 +385,7 @@ export function MapaEstacoes() {
               const lx = lado === 'l' ? e.x - dist : lado === 'r' ? e.x + dist : e.x;
               const ly = (lado === 't' ? e.y - dist - 1 : lado === 'b' ? e.y + dist + 8 : e.y + 3.5) + (e.rotuloDy ?? 0);
               const anchor = lado === 'l' ? 'end' : lado === 'r' ? 'start' : 'middle';
+              const temInterno = !!internoById(e.id);
               return (
                 <g
                   key={e.id}
@@ -541,7 +396,7 @@ export function MapaEstacoes() {
                   opacity={estacoesAcesas && !acesa && !e.destaque ? 0.45 : 1}
                   style={{ transition: 'opacity 240ms' }}
                   onClick={() => {
-                    if (moved.current) return;
+                    if (pz.moved.current) return;
                     if (ativa) fechar();
                     else escolherEstacao(e);
                   }}
@@ -561,6 +416,7 @@ export function MapaEstacoes() {
                   ) : (
                     <circle cx={e.x} cy={e.y} r={r} fill="var(--surface)" stroke={cor} strokeWidth={2.4} />
                   )}
+                  {temInterno && <circle cx={e.x} cy={e.y} r={2.2} fill="var(--foreground)" />}
                   <text
                     x={lx}
                     y={ly}
@@ -612,17 +468,14 @@ export function MapaEstacoes() {
               );
             })}
 
-            {/* pontos do roteiro e desejos */}
+            {/* pontos do roteiro */}
             {mapa.pontos.map((p) => {
               const { x, y, ex, ey } = posicaoDoPonto(p);
               const info = infoPonto.get(p.id);
-              const desejo = p.desejoId ? desejoById(p.desejoId) : undefined;
               const dia = info?.day.id ?? null;
-              const cor = desejo ? 'var(--gold)' : (dia && corDoDia.get(dia)) || 'var(--muted)';
+              const cor = (dia && corDoDia.get(dia)) || 'var(--muted)';
               const noDia = !diaId || dia === diaId;
               const ativo = pontoEscolhido?.id === p.id;
-              // com um dia escolhido, os desejos ficam visíveis mas discretos: o dia é o assunto
-              const opacidade = ativo ? 1 : noDia ? 1 : desejo ? 0.55 : 0.3;
               const mostrarNome = ativo || (diaId ? noDia : mostrarNomesMenores);
               const lado = p.lado ?? 'r';
               return (
@@ -633,10 +486,10 @@ export function MapaEstacoes() {
                   aria-label={p.nome}
                   aria-pressed={ativo}
                   className="cursor-pointer outline-none"
-                  opacity={opacidade}
+                  opacity={ativo || noDia ? 1 : 0.3}
                   style={{ transition: 'opacity 240ms' }}
                   onClick={() => {
-                    if (moved.current) return;
+                    if (pz.moved.current) return;
                     escolherPonto(ativo ? null : p);
                   }}
                   onKeyDown={(ev) => {
@@ -672,13 +525,9 @@ export function MapaEstacoes() {
                     )}
                     <circle r={RP + 7} fill="transparent" />
                     <circle r={RP} fill={cor} stroke="var(--surface)" strokeWidth={1.8} filter="url(#est-sombra)" />
-                    {desejo ? (
-                      <Star x={-5} y={-5} width={10} height={10} color="#fff" fill="#fff" strokeWidth={2} />
-                    ) : (
-                      <text y={3} fontSize={8.5} fontWeight={700} fill="#fff" textAnchor="middle">
-                        {info?.n ?? '·'}
-                      </text>
-                    )}
+                    <text y={3} fontSize={8.5} fontWeight={700} fill="#fff" textAnchor="middle">
+                      {info?.n ?? '·'}
+                    </text>
                   </g>
                 </g>
               );
@@ -688,13 +537,13 @@ export function MapaEstacoes() {
 
         {/* controles */}
         <div className="absolute right-2.5 top-2.5 flex flex-col overflow-hidden rounded-xl border border-hairline bg-surface/90 shadow-sm backdrop-blur">
-          <button onClick={() => zoomStep(1)} aria-label="Aproximar" className="flex h-9 w-9 items-center justify-center text-foreground/80 active:bg-surface-2">
+          <button onClick={() => pz.zoomStep(1)} aria-label="Aproximar" className="flex h-9 w-9 items-center justify-center text-foreground/80 active:bg-surface-2">
             <Plus size={16} />
           </button>
-          <button onClick={() => zoomStep(-1)} aria-label="Afastar" className="flex h-9 w-9 items-center justify-center border-t border-hairline text-foreground/80 active:bg-surface-2">
+          <button onClick={() => pz.zoomStep(-1)} aria-label="Afastar" className="flex h-9 w-9 items-center justify-center border-t border-hairline text-foreground/80 active:bg-surface-2">
             <Minus size={16} />
           </button>
-          <button onClick={reset} aria-label="Ver o mapa inteiro" className={`flex h-9 w-9 items-center justify-center border-t border-hairline active:bg-surface-2 ${zoomed ? 'text-accent' : 'text-muted'}`}>
+          <button onClick={pz.reset} aria-label="Ver o mapa inteiro" className={`flex h-9 w-9 items-center justify-center border-t border-hairline active:bg-surface-2 ${pz.zoomed ? 'text-accent' : 'text-muted'}`}>
             <Maximize2 size={15} />
           </button>
         </div>
@@ -705,10 +554,36 @@ export function MapaEstacoes() {
               <strong className="text-foreground/80">Dia {rotuloDia(diaId)?.n}</strong> · {rotuloDia(diaId)?.titulo}. As linhas acesas são as que vocês pegam nesse dia; o número no pino é a ordem da parada.
             </>
           ) : (
-            <>Cada pino é uma parada do roteiro, na estação onde se desce; a cor é o dia. Toque num dia para acender só as linhas dele. Pinça para aproximar.</>
+            <>Cada pino é uma parada do roteiro, na estação onde se desce; a cor é o dia. Toque num dia para acender só as linhas dele. Pinça para aproximar. As estações com ponto no meio têm o mapa por dentro.</>
           )}
         </p>
       </div>
+
+      {/* ── por dentro ─────────────────────────────────────────────────────── */}
+      {internos.length > 0 && (
+        <div className="rounded-2xl border border-hairline bg-surface p-3.5">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-muted">Por dentro das estações</p>
+          <p className="mt-1 text-[12.5px] text-muted">Onde é a catraca, a plataforma, a saída certa e a comida — para não entrar na estação e não saber para onde ir.</p>
+          <ul className="mt-2 divide-y divide-hairline overflow-hidden rounded-2xl border border-hairline">
+            {internos.map((i) => (
+              <li key={i.estacaoId}>
+                <Link href={`/mais/estacoes/${i.estacaoId}`} className="tappable flex items-center gap-3 px-3 py-2.5">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-rail/15 text-rail">
+                    <DoorOpen size={16} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-[13.5px] font-medium">
+                      {i.nome}
+                      {i.jp && <span className="font-jp ml-1.5 text-[11px] font-normal text-muted">{i.jp}</span>}
+                    </span>
+                    <span className="block truncate text-[11.5px] text-muted">{i.bussola ?? i.resumo}</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* ── legenda ────────────────────────────────────────────────────────── */}
       <div className="rounded-2xl border border-hairline bg-surface p-3.5">
@@ -746,10 +621,10 @@ export function MapaEstacoes() {
             hotel
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gold text-white">
-              <Star size={9} fill="#fff" />
+            <span className="relative inline-block h-3.5 w-3.5 rounded-full border-2 border-muted bg-surface">
+              <span className="absolute left-1/2 top-1/2 h-1 w-1 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground" />
             </span>{' '}
-            desejo fora do roteiro
+            tem mapa por dentro
           </span>
         </div>
         {mapa.oficiais && mapa.oficiais.length > 0 && (
@@ -791,76 +666,9 @@ export function MapaEstacoes() {
   );
 }
 
-function Facilidade({ nivel }: { nivel: 'fácil' | 'médio' | 'difícil' }) {
-  const cls = nivel === 'fácil' ? 'bg-matcha/15 text-matcha' : nivel === 'médio' ? 'bg-gold/15 text-gold' : 'bg-accent-soft text-accent';
-  return <span className={`rounded-full px-2 py-0.5 font-mono text-[10.5px] font-bold uppercase tracking-wider ${cls}`}>{nivel}</span>;
-}
-
 function FolhaDoPonto({ ponto, mapa, corDoDia }: { ponto: Ponto; mapa: Mapa; corDoDia: Map<string, string> }) {
   const estacao = mapa.estacoes.find((e) => e.id === ponto.estacaoId);
-  const desejo = ponto.desejoId ? desejoById(ponto.desejoId) : undefined;
   const info = infoDaParada(ponto);
-
-  if (desejo) {
-    const categoria = desejo.categoria === 'comer' ? 'para comer' : desejo.categoria === 'comprar' ? 'para comprar' : 'para jogar';
-    return (
-      <div className="space-y-3">
-        <div>
-          <p className="flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-widest text-gold">
-            <Star size={12} fill="currentColor" /> desejo · {categoria}
-          </p>
-          <h3 className="mt-1 text-[17px] font-bold leading-snug">
-            {desejo.nome}
-            {desejo.jp && <span className="font-jp ml-1.5 text-[12px] font-normal text-muted">{desejo.jp}</span>}
-          </h3>
-          <p className="mt-1.5 flex flex-wrap items-center gap-2 text-[12.5px] text-muted">
-            <Facilidade nivel={desejo.facilidade} />
-            <span>{desejo.veredito}</span>
-          </p>
-        </div>
-        <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 rounded-2xl bg-surface-2/70 p-3 text-[12.5px]">
-          <dt className="font-mono text-[10.5px] uppercase tracking-wider text-muted">onde</dt>
-          <dd><Rich text={desejo.onde} /></dd>
-          <dt className="font-mono text-[10.5px] uppercase tracking-wider text-muted">quando</dt>
-          <dd><Rich text={desejo.quando} /></dd>
-          {desejo.horario && (
-            <>
-              <dt className="font-mono text-[10.5px] uppercase tracking-wider text-muted">horário</dt>
-              <dd><Rich text={desejo.horario} /></dd>
-            </>
-          )}
-          {desejo.preco && (
-            <>
-              <dt className="font-mono text-[10.5px] uppercase tracking-wider text-muted">preço</dt>
-              <dd><Rich text={desejo.preco} /></dd>
-            </>
-          )}
-          {estacao && (
-            <>
-              <dt className="font-mono text-[10.5px] uppercase tracking-wider text-muted">estação</dt>
-              <dd className="inline-flex items-center gap-1"><TrainFront size={12} className="text-muted" /> {estacao.nome}</dd>
-            </>
-          )}
-        </dl>
-        {desejo.paragrafos.map((t, i) => (
-          <p key={i} className="text-[13.5px] leading-relaxed text-foreground/90">
-            <Rich text={t} />
-          </p>
-        ))}
-        <div className="flex flex-wrap gap-2">
-          <a href={searchUrl(desejo.mapQuery)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[13px] font-medium text-white">
-            <Navigation size={14} /> Abrir no Google Maps
-          </a>
-          {desejo.fonte && (
-            <a href={desejo.fonte} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-hairline px-4 py-2 text-[13px] font-medium text-foreground/80">
-              <ExternalLink size={13} /> Site
-            </a>
-          )}
-        </div>
-      </div>
-    );
-  }
-
   if (!info) return <p className="text-[13px] text-muted">Esta parada não está mais no roteiro.</p>;
 
   const { day, stop, n, anterior } = info;
@@ -870,6 +678,7 @@ function FolhaDoPonto({ ponto, mapa, corDoDia }: { ponto: Ponto; mapa: Mapa; cor
   const origem = anterior ? anterior.mapQuery ?? anterior.name : baseDaManha(day.id, day.stageId);
   const destino = stop.mapQuery ?? stop.name;
   const nav = navigateUrl(stop);
+  const interno = estacao ? internoById(estacao.id) : undefined;
 
   return (
     <div className="space-y-3">
@@ -908,6 +717,11 @@ function FolhaDoPonto({ ponto, mapa, corDoDia }: { ponto: Ponto; mapa: Mapa; cor
         <Link href={`/roteiro/${day.id}#${stop.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-hairline px-4 py-2 text-[13px] font-medium text-foreground/80">
           <CalendarDays size={14} /> Ver no roteiro
         </Link>
+        {interno && (
+          <Link href={`/mais/estacoes/${interno.estacaoId}`} className="inline-flex items-center gap-1.5 rounded-full border border-hairline px-4 py-2 text-[13px] font-medium text-foreground/80">
+            <DoorOpen size={14} /> {estacao?.nome} por dentro
+          </Link>
+        )}
         {nav && (
           <a href={nav} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[13px] font-medium text-white">
             <Navigation size={14} /> Navegar até aqui
@@ -935,6 +749,7 @@ function FolhaDaEstacao({
 }) {
   const tipo =
     estacao.tipo === 'onibus' ? 'parada de ônibus' : estacao.tipo === 'bonde' ? 'parada de bonde' : estacao.tipo === 'cabo' ? 'teleférico' : estacao.tipo === 'pier' || estacao.tipo === 'balsa' ? 'píer' : 'estação';
+  const interno = internoById(estacao.id);
   return (
     <div className="space-y-3">
       <div>
@@ -945,6 +760,20 @@ function FolhaDaEstacao({
         </h3>
         {estacao.nota && <p className="mt-1 text-[12.5px] text-muted">{estacao.nota}</p>}
       </div>
+      {interno && (
+        <Link
+          href={`/mais/estacoes/${interno.estacaoId}`}
+          className="tappable flex items-center gap-3 rounded-2xl border border-rail/40 bg-rail/10 px-3.5 py-3"
+        >
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-rail text-white">
+            <DoorOpen size={18} />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[14px] font-bold leading-snug">Ver a estação por dentro</span>
+            <span className="block text-[12px] leading-snug text-muted">{interno.bussola ?? interno.resumo}</span>
+          </span>
+        </Link>
+      )}
       {linhas.length > 0 && (
         <div className="flex flex-wrap gap-1.5">
           {linhas.map((l) => (
@@ -966,18 +795,17 @@ function FolhaDaEstacao({
           <ul className="mt-1.5 divide-y divide-hairline overflow-hidden rounded-2xl border border-hairline">
             {pontos.map((p) => {
               const info = infoDaParada(p);
-              const desejo = p.desejoId ? desejoById(p.desejoId) : undefined;
-              const cor = desejo ? 'var(--gold)' : info ? corDoDia.get(info.day.id) ?? 'var(--muted)' : 'var(--muted)';
+              const cor = info ? corDoDia.get(info.day.id) ?? 'var(--muted)' : 'var(--muted)';
               return (
                 <li key={p.id}>
                   <button type="button" onClick={() => aoEscolher(p)} className="tappable flex w-full items-center gap-3 px-3 py-2.5 text-left">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white" style={{ background: cor }}>
-                      {desejo ? <Star size={11} fill="#fff" /> : info?.n ?? '·'}
+                      {info?.n ?? '·'}
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block truncate text-[13.5px] font-medium">{desejo ? desejo.nome : info?.stop.name ?? p.nome}</span>
+                      <span className="block truncate text-[13.5px] font-medium">{info?.stop.name ?? p.nome}</span>
                       <span className="block text-[11.5px] text-muted">
-                        {desejo ? `desejo · ${desejo.facilidade}` : info ? `dia ${ALL_DAYS.findIndex((d) => d.id === info.day.id) + 1} · ${formatDayLabel(info.day.date)} · ${info.stop.time}` : ''}
+                        {info ? `dia ${ALL_DAYS.findIndex((d) => d.id === info.day.id) + 1} · ${formatDayLabel(info.day.date)} · ${info.stop.time}` : ''}
                       </span>
                     </span>
                   </button>
@@ -992,5 +820,3 @@ function FolhaDaEstacao({
     </div>
   );
 }
-
-export type { DiaMapa };

@@ -34,10 +34,10 @@ export const tokyo1Days: Day[] = [
         time: '18:30',
         timeLabel: 'trem',
         kind: 'transit',
-        name: 'Haneda → Shinjuku — hoje, de ônibus',
-        facts: '**Airport Limousine Bus ¥1.400 · ~60 min, direto ao hotel** · alternativa: Keikyu + JR Yamanote, ¥600, ~45 min',
+        name: 'Haneda → Shinjuku',
+        facts: '**Keikyu + JR Yamanote, ¥540, ~45 min** + 8 min a pé da saída leste até o Kabukichō · alternativa: Airport Limousine Bus até o Busta Shinjuku, ¥1.400, ~60 min',
         paragraphs: [
-          'Com mala grande e no fim do dia, o ônibus é mais humano — para na porta dos hotéis grandes e não tem escada.',
+          'Com mala grande e no fim do dia, o ônibus é mais humano — sem escada. Mas ele para no **Busta Shinjuku**, do lado sul da estação, e o hotel fica do lado oposto, no Kabukichō: são 12 min a pé pela avenida ou ¥800 de táxi na porta do terminal. De trem, o Keikyu sai do subsolo do T3, a troca em Shinagawa é uma escada só, e em Shinjuku é sair pela **saída leste** e seguir a Yasukuni-dōri.',
         ],
         mapQuery: 'Haneda Airport Terminal 3 Station',
       },
@@ -341,7 +341,7 @@ export const tokyo1Days: Day[] = [
         facts: '**10:00–20:00** · Sotokanda 1-15-16, na saída Electric Town · 10 andares de lojas de hobby',
         paragraphs: [
           'É aqui que tudo começa: no primeiro episódio de Steins;Gate, a "máquina do tempo" aparece **cravada no topo deste prédio** — e o Radio Kaikan virou o ponto de peregrinação da série. O prédio original era de 1962, o berço da cultura eletrônica/otaku de Akihabara; foi reconstruído e reaberto em 2014, mas continua sendo O marco do bairro. Tirem a foto da fachada olhando para o topo. El Psy Kongroo.',
-          'Por dentro são 10 andares de loja de figure e hobby — **AmiAmi** (preço de loja online para figures novas), **Kaiyodo** (a casa dos esculpidos caprichados) e **K-Books**. É aqui, ou no Kotobukiya logo ali, que sai a figure do Henrique: nova, lacrada e com caixa, que é o que sobrevive à mala. O Mandarake, no dia 2/12, é para figure **usada** — mais barata e às vezes fora de catálogo, mas a caixa costuma estar amassada.',
+          'Por dentro são 10 andares de loja de hobby: **AmiAmi no 4º** (figure nova e usada, preço de loja online), **Yellow Submarine no 6º** (figure e plamo), **Kaiyodo e Uchūsen no 5º**, **Jungle no 7º** (brinquedo e figure usados). E a novidade é do lado: a **AmiAmi Figure Tower**, colada ao Radio Kaikan, tem oito andares só de figure, novo e usado por marca, com canto de desconto em cada andar. É aqui que sai a figure do Henrique — nova, lacrada e com caixa, que é o que sobrevive à mala; o **Kotobukiya** hoje tem prédio próprio a 3 min (Sotokanda 1-8-8). Antes de pagar, confiram o preço no MyFigureCollection e o estado da caixa. O Mandarake, no dia 2/12, é para figure **usada** — abre só ao meio-dia, mais barato e às vezes fora de catálogo, mas a caixa costuma estar amassada.',
         ],
         mapQuery: 'Akihabara Radio Kaikan',
       },
@@ -709,6 +709,10 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Itōya — 12 andares de papelaria',
                 note: '10:00–20:00 · desde 1904. Papel washi, canetas, cadernos. Perigoso.',
+              },
+              {
+                name: 'Bic Camera Yūrakuchō — o kit de tamanho do Oura Ring',
+                note: '10:00–22:00 · dois minutos da Ginza. Hoje é só pegar o **kit de prova do Oura** (~¥1.500, volta em pontos na compra do anel): o anel não segue numeração de aliança, e a compra de verdade fica para o dia 2, com o número certo. Perguntem no balcão de relógios inteligentes se o Ring 4 ou o Ring 5 está em estoque — e lembrem que a assinatura não cobre o Brasil oficialmente; detalhes na parada do dia 2.',
               },
               {
                 name: 'Ginza Six / Mitsukoshi',

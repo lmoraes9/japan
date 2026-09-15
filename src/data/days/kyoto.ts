@@ -4,8 +4,8 @@ export const kyotoDays: Day[] = [
   {
     id: 'd2026-11-27',
     lastReturn: [
-      { label: 'JR Nara Line Inari → Kyoto', time: '23:00', from: 'Estação Inari (na porta do santuário)', note: 'aprox. e conservador · confirmar na placa da plataforma' },
-      { label: 'Keihan Fushimi-Inari → centro', time: '23:30', from: 'Estação Keihan Fushimi-Inari', note: 'aprox. · alternativa se perderem o JR' },
+      { label: 'Keihan Fushimi-Inari → Gion-Shijō', time: '23:30', from: 'Estação Keihan Fushimi-Inari', note: 'aprox. · é a linha que deixa vocês a 8 min do hotel; confirmar na placa' },
+      { label: 'JR Nara Line Inari → Kyoto + metrô Karasuma até Shijō', time: '23:00', from: 'Estação Inari (na porta do santuário)', note: 'aprox. · plano B, com uma baldeação a mais' },
     ],
     date: '2026-11-27',
     stageId: 'kyoto',
@@ -191,34 +191,35 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd27-jantar',
-        time: '18:30',
+        time: '18:15',
         timeLabel: 'jantar',
         kind: 'food',
-        name: 'Jantar',
+        name: 'Jantar numa kura de saquê, em Fushimi',
+        jp: '伏見 · 鳥せい本店',
+        facts: 'Keihan Fushimi-Inari → **Fushimi-Momoyama, 5 estações, ~12 min** · Torisei **11:00–22:00** (último pedido 21:30), fecha seg · ~¥3.500 por pessoa · **reservar por telefone: 075-622-5533** · último trem de volta 00:08',
+        paragraphs: [
+          'Vale, com uma condição. Fushimi é uma das duas capitais do saquê do Japão, pela água subterrânea — mas à noite o bairro fica escuro e quieto: o museu Gekkeikan fecha às 16:30 e não conta. O que conta é jantar **dentro de uma kura**: o **Torisei** é o restaurante da cervejaria Yamamoto Honke (1677) num armazém de 1740, frango grelhado e saquê tirado direto do tanque. É a especialidade regional com qualidade que vocês procuram, e a volta é fácil.',
+          'A condição é a reserva: sexta à noite sem reserva é fila de uma a duas horas. Peçam ao hotel de Tóquio para ligar. Se não conseguirem, o plano B é o **Fushimi Sakagura Kōji**, um balcão com o saquê de 18 cervejarias de Fushimi e oito barracas de comida, aberto até 22:00 sem folga. Se nada disso animar, jantar perto do hotel é a saída simples — amanhã vocês acordam às 5h30.',
+        ],
         eat: [
           {
-            label: 'Opção temática, já que vocês estão em Fushimi',
+            label: 'Em Fushimi-Momoyama, 7 min da estação',
             items: [
-              {
-                name: 'Distrito do saquê de Fushimi',
-                note: 'Fushimi é uma das duas capitais do saquê do Japão, graças à água subterrânea daqui. O **Museu Gekkeikan Ōkura** (09:30–16:30, ¥600 com degustação) fica a 15 min de trem. Se for, é programa de fim de tarde, antes do jantar.',
-              },
-              {
-                name: 'Torikizoku ou izakaya perto do hotel',
-                note: 'para uma noite curta — vocês acordam às 5h30 amanhã',
-              },
+              { name: 'Torisei Honten', specialty: true, note: 'frango grelhado, *tori-ramen* de caldo de frango e o saquê Shinsei tirado da kura; ~¥3.500. Reserva por telefone.' },
+              { name: 'Fushimi Sakagura Kōji', note: '11:00–22:00, sem folga · o set de degustação das 18 kuras e barracas de comida — o plano B que não precisa de reserva.' },
+              { name: 'Kizakura Kappa Country', note: '17:00–21:30 · cervejaria (Kyoto Bakushu) e saquê, o mais turístico dos três.' },
             ],
           },
         ],
-        mapQuery: 'Fushimi sake district Kyoto',
+        mapQuery: 'Torisei Honten Fushimi Kyoto',
       },
     ],
   },
   {
     id: 'd2026-11-28',
     lastReturn: [
-      { label: 'Ônibus 206 Gion → Estação de Kyoto', time: '22:40', from: 'Ponto Gion, na Shijō-dōri', note: 'aprox. e conservador · é o ônibus que some primeiro; confirmar na placa do ponto', critical: true },
-      { label: 'Keihan Gion-Shijō → Tōfukuji (baldeação p/ Kyoto)', time: '23:40', from: 'Estação Keihan Gion-Shijō', note: 'aprox. · plano B quando o ônibus já passou' },
+      { label: 'Ônibus 5 Nanzenji-Eikandō-michi → Shijō-Kawaramachi', time: '22:10', from: 'Parada Nanzenji-Eikandō-michi', note: 'aprox. · só importa se ficarem para a iluminação do Eikan-dō; táxi ~¥1.800 resolve a qualquer hora', critical: true },
+      { label: 'De Gion ao hotel: a pé', time: '23:59', from: 'Shijō-dōri, atravessando a ponte', note: '12 min andando; nenhum ônibus é necessário' },
     ],
     date: '2026-11-28',
     stageId: 'kyoto',
@@ -393,6 +394,41 @@ export const kyotoDays: Day[] = [
         mapQuery: 'Eikando Zenrinji Kyoto',
       },
       {
+        id: 'd28-kitagawa',
+        time: '18:00',
+        timeLabel: 'chá',
+        kind: 'food',
+        name: 'Chá no Gion Kitagawa Hanbee',
+        jp: '祇園 北川半兵衛',
+        facts: 'Sábado **11:00–20:00**, último pedido 19:30 (dia útil só até 18:00) · **reservar por telefone: 075-205-0880** · Hanamikōji, 6 min da Keihan Gion-Shijō · ~¥2.300–2.900 por pessoa',
+        paragraphs: [
+          'Casa de chá da família Kitagawa Hanbee, de Uji, que planta e torra chá desde 1861 — a *noren* é discreta, numa casa de madeira da Hanamikōji, e é fácil passar direto. Hoje é sábado, por isso ela fica aberta até as 20h; em dia útil fecharia às 18h, antes de vocês chegarem de Higashiyama.',
+          'Reservem: no fim de semana do momiji Gion lota, e sem reserva deixa-se o nome e eles ligam quando vaga. Uma hora aqui é a transição perfeita entre a maratona de templos e o jantar em Gion, do lado.',
+        ],
+        eat: [
+          {
+            label: 'O que pedir',
+            items: [
+              {
+                name: '茶詠み (cha-yomi) — a degustação de cinco chás',
+                specialty: true,
+                note: '¥2.900 · matcha, sencha, hōjicha, wakōcha e oolong em sequência, cada um com um doce de uma mordida. É o "tea tasting" que vocês viram. Um por casal já rende a experiência.',
+              },
+              {
+                name: 'Parfait de hōjicha de outono',
+                specialty: true,
+                note: '¥2.300 · panna cotta de hōjicha com batata-doce assada — só na estação. Não existe um "hōjicha set" no cardápio atual: o mais perto é este parfait, ou o **chá com doces** (¥1.900) escolhendo hōjicha.',
+              },
+              {
+                name: 'Prato de doces com chá à escolha',
+                note: '¥2.900 · o sucessor do antigo "matcha set": vários doces pequenos e um chá, que pode ser matcha ou hōjicha.',
+              },
+            ],
+          },
+        ],
+        mapQuery: 'Gion Kitagawa Hanbee',
+      },
+      {
         id: 'd28-gion',
         time: '19:30',
         timeLabel: 'jantar',
@@ -429,7 +465,8 @@ export const kyotoDays: Day[] = [
     id: 'd2026-11-29',
     lastReturn: [
       { label: 'Torokko Kameoka → Saga — último trem', time: '16:32', from: 'Torokko Kameoka', note: 'aprox. · só vale se acrescentarem o Torokko: ele não está no plano deste dia, que sai de Arashiyama às 12:15' },
-      { label: 'JR Sagano Line Saga-Arashiyama → Kyoto', time: '23:35', from: 'Estação Saga-Arashiyama', note: 'aprox. · rede de segurança se ficarem em Arashiyama' },
+      { label: 'Hankyu Arashiyama → Katsura → Kyoto-Kawaramachi', time: '23:20', from: 'Estação Hankyu Arashiyama', note: 'aprox. · a linha que chega embaixo do hotel; rede de segurança se ficarem em Arashiyama' },
+      { label: 'JR Sagano Saga-Arashiyama → Kyoto + metrô até Shijō', time: '23:35', from: 'Estação Saga-Arashiyama', note: 'aprox. · plano B, com uma baldeação a mais' },
     ],
     date: '2026-11-29',
     stageId: 'kyoto',
@@ -460,12 +497,12 @@ export const kyotoDays: Day[] = [
         timeLabel: 'konbini',
         kind: 'food',
         name: '7-Eleven a caminho de Arashiyama — parada 3 de 4',
-        facts: 'Estação de Kyoto e Saga-Arashiyama têm lojas 24h',
+        facts: 'O 7-Eleven da Kawaramachi fica a 2 min do hotel, e a Hankyu Kyoto-Kawaramachi é embaixo dele · 24h',
         paragraphs: [
           'Saindo às 6h30 nada está aberto, e é exatamente para isso que o konbini existe. Hoje: **café da máquina** — pega-se o copo vazio no caixa (o gelado já vem lacrado com gelo na geladeira), paga, e só então põe na máquina, botão R ou L.',
           'E, se a loja tiver a máquina branca de **smoothie** ao lado do caixa, é a hora: copo de fruta congelada do freezer, tira o lacre, encaixa, 40 segundos. Nem toda loja tem — se não achar, fica para a repescagem do dia 2.',
         ],
-        mapQuery: '7-Eleven Kyoto Station',
+        mapQuery: '7-Eleven Kawaramachi Shijo Kyoto',
       },
       {
         id: 'd29-bambu',
@@ -475,7 +512,7 @@ export const kyotoDays: Day[] = [
         kind: 'sight',
         name: 'Bosque de bambu de Arashiyama',
         jp: '嵯峨野竹林',
-        facts: '**24h · grátis** · JR Saga-Arashiyama, 15 min da Estação de Kyoto',
+        facts: '**24h · grátis** · Hankyu Kyoto-Kawaramachi → Katsura → Arashiyama, **~20 min**, e 18 min a pé pela ponte Togetsukyō · (JR Saga-Arashiyama é a alternativa, saindo da Estação de Kyoto)',
         paragraphs: [
           'Às 7h vocês têm o caminho quase vazio; às 9h30 é um corredor de gente. O bambu *moso* daqui cresce até 1 metro por dia na primavera e o bosque é gerenciado há séculos — cada haste é colhida depois de 3 a 5 anos. O som do vento nas hastes está na lista oficial dos **100 sons a preservar do Japão**.',
         ],
@@ -610,12 +647,62 @@ export const kyotoDays: Day[] = [
         ],
         mapQuery: 'Nishiki Market Kyoto',
       },
+      {
+        id: 'd29-umezono',
+        time: '17:30',
+        timeLabel: 'doce',
+        kind: 'food',
+        name: 'Umezono — o warabi mochi',
+        jp: '甘党茶屋 梅園 河原町店',
+        facts: '**10:30–19:30**, último pedido 19:20 · sem folga · sem reserva, fila anda rápido · Kawaramachi, Sanjō-sagaru — 8 min do Nishiki, 6 do hotel',
+        paragraphs: [
+          'Casa de doces de 1927 — esta é a matriz, a que guarda o cardápio de sempre. O **warabi mochi** (gelatina de fécula de samambaia com kinako) é o que vocês vieram buscar, mas o carro-chefe da casa é o **mitarashi dango quadrado**, e o combo dos dois é o pedido certo.',
+          'Se o frio apertar, o **shiratama zenzai** quente com warabi mochi resolve. Fila até em dia útil no fim da tarde, mas o giro é rápido; para viagem quase não se espera.',
+        ],
+        eat: [
+          {
+            label: 'O que pedir',
+            items: [
+              { name: 'Mitarashi dango + warabi mochi de matcha (ou de açúcar mascavo)', specialty: true, note: '¥1.000 · o combo "Umezono": o dango quadrado grelhado com molho doce de shoyu, e o warabi mochi tremendo ao lado.' },
+              { name: 'Warabi mochi', specialty: true, note: '¥920 · sozinho, com kinako e kuromitsu.' },
+              { name: 'Shiratama zenzai quente com warabi mochi', note: '¥1.330 · sopa doce de azuki com bolinhas de arroz. Comida de dezembro.' },
+              { name: 'Para viagem', note: 'warabi mochi de matcha ou mascavo, ¥600 — se preferirem comer no hotel.' },
+            ],
+          },
+        ],
+        mapQuery: 'Umezono Kawaramachi Kyoto',
+      },
+      {
+        id: 'd29-jantar-musashi',
+        time: '18:30',
+        timeLabel: 'jantar',
+        kind: 'food',
+        name: 'Jantar: Sushi no Musashi, a esteira de Kyoto',
+        jp: '寿しのむさし 三条本店',
+        facts: '**11:00–21:45** (entrada até 21:20), fecha só 1º de janeiro · sem reserva, fila de ~10 min que anda · esquina Kawaramachi × Sanjō · ~¥1.000–2.000 por pessoa · cartão e QR',
+        paragraphs: [
+          'A esteira original de Kyoto, de 1977, com balcão de 36 lugares no térreo e boxes no 2º andar. A placa é um sushi girando; fica na esquina, dois minutos do Umezono. Pede-se direto ao chef o que não vier passando.',
+          'Prato padrão ¥160 (duas peças), vermelho ¥289, especial ¥400, dourado ¥509 — dá para sair muito bem por menos de ¥2.000 cada. Há uma filial na **Estação de Kyoto** (Asty Road, lado Hachijō) que serve de almoço no dia 1, se hoje não der.',
+        ],
+        eat: [
+          {
+            label: 'O que os regulares pedem',
+            items: [
+              { name: 'Kani sarada (salada de kani)', specialty: true, note: 'o gunkan que a casa faz há décadas' },
+              { name: 'Engawa', note: 'a borda gordurosa do linguado, marcada na maçarico' },
+              { name: 'Tamago grosso', note: 'omelete alta, doce, feita na casa' },
+              { name: 'Gunkan de peixe picado', note: 'em quantidade limitada — acaba' },
+            ],
+          },
+        ],
+        mapQuery: 'Sushi no Musashi Sanjo Honten Kyoto',
+      },
     ],
   },
   {
     id: 'd2026-11-30',
     lastReturn: [
-      { label: 'Kintetsu Nara → Kyoto (expresso)', time: '22:45', from: 'Estação Kintetsu Nara', note: 'aprox. · locais até ~23:20, com baldeação' },
+      { label: 'Kintetsu Nara → Kyoto (expresso)', time: '22:45', from: 'Estação Kintetsu Nara', note: 'aprox. · locais até ~23:20, com baldeação · na Estação de Kyoto, metrô Karasuma até Shijō sai até ~23:50' },
     ],
     date: '2026-11-30',
     stageId: 'kyoto',
@@ -759,6 +846,49 @@ export const kyotoDays: Day[] = [
         ],
         mapQuery: 'Naramachi Nara',
       },
+      {
+        id: 'd30-jantar',
+        time: '18:30',
+        timeLabel: 'jantar',
+        kind: 'food',
+        name: 'Jantar perto do hotel',
+        facts: 'Vocês chegam de Nara por volta das 18:00 · tudo a menos de 8 min do hotel',
+        eat: [
+          {
+            label: 'Escolham pelo cansaço',
+            items: [
+              { name: 'Sushi no Musashi (Sanjō)', note: 'se ontem não deu, ou se deu e quiseram repetir. Esteira, sem reserva, até 21:20.' },
+              { name: 'Onimaru — onigiri grelhado, para levar', specialty: true, note: '10:00–21:00 · a 120 m do hotel, na Shijō. Yaki-musubi no carvão: **ebi tempura com molho (¥430)** é o carro-chefe, o de porco grelhado com ovo (¥399) é o segundo. Com um tonjiru (¥356) vira jantar no quarto — e mais dois para o café de amanhã, que começa cedo.' },
+              { name: 'Gion Tanto ou Pontochō', note: 'do outro lado da ponte, 10 min: okonomiyaki e izakaya se o dia 28 ficou devendo Pontochō.' },
+            ],
+          },
+        ],
+        mapQuery: 'Onimaru Shijo Kawaramachi Kyoto',
+      },
+      {
+        id: 'd30-karafuneya',
+        time: '20:00',
+        timeLabel: 'parfait',
+        kind: 'food',
+        name: 'Parfait no Karafuneya',
+        jp: 'からふね屋珈琲 三条本店',
+        facts: 'Dom–qui **09:00–22:00** (parfait até 21:00; sex e sáb até 23:00) · ~100 lugares, sem fila · mínimo 1 item por pessoa · Kawaramachi Sanjō-sagaru, ao lado do Onimaru · 6 min do hotel',
+        paragraphs: [
+          'Kissaten de 1972 com **150 parfaits** no cardápio, pedidos pelo número. Tem os de brincadeira (de frango frito, de curry) e os gigantes para 20 pessoas, mas o que interessa é a linha de chá: matcha forte com kuromitsu e warabi mochi, hōjicha com azuki. Wi-Fi, tomada, e ninguém apressa ninguém — é a sobremesa da última noite inteira em Kyoto.',
+        ],
+        eat: [
+          {
+            label: 'Os números certos',
+            items: [
+              { name: 'nº 533 · parfait de matcha forte com kuromitsu e warabi mochi', specialty: true, note: '¥950 · o mais pedido da casa' },
+              { name: 'nº 532 · parfait de hōjicha forte com kuromitsu e azuki', specialty: true, note: '¥950 · o irmão torrado' },
+              { name: 'nº 333 · parfait de daifuku de castanha', note: '¥1.130 · castanha é o sabor de novembro' },
+              { name: 'nº 43 · parfait de matcha clássico', note: '¥1.100' },
+            ],
+          },
+        ],
+        mapQuery: 'Karafuneya Coffee Sanjo Honten Kyoto',
+      },
     ],
   },
   {
@@ -798,7 +928,7 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd01-sanjusangendo',
-        time: '10:00',
+        time: '09:50',
         timeLabel: 'templo',
         kind: 'temple',
         name: 'Sanjūsangen-dō',
@@ -811,27 +941,56 @@ export const kyotoDays: Day[] = [
         mapQuery: 'Sanjusangendo Kyoto',
       },
       {
+        id: 'd01-malas',
+        time: '11:15',
+        timeLabel: 'malas',
+        kind: 'hotel',
+        name: 'Malas no hotel e onigiri do Onimaru',
+        jp: 'ごちそう焼むすび おにまる',
+        facts: 'Check-out até 11:00, as malas de mão ficam na recepção · **Onimaru Shijō-Kawaramachi: 10:00–21:00, a 120 m do hotel** · táxi até a estação ~¥1.200, 12 min',
+        paragraphs: [
+          'Da Keihan Gion-Shijō são 8 min pela ponte até o hotel. Peguem as malas de mão (as grandes já saíram de takuhaibin para Ginza de manhã) e, antes do táxi, passem no **Onimaru**, na própria Shijō: onigiri grelhado no carvão *binchōtan*, a fila é de gente local e anda. É o lanche do Shinkansen — e o melhor onigiri que vocês vão comer na viagem.',
+          'Peçam o **ebi tempura com molho** (¥430), o carro-chefe, e o **porco grelhado com ovo** (¥399); tarako com camembert (¥399) se quiserem um terceiro. Dá para encomendar por telefone até as 17h do dia anterior, mas não precisa.',
+        ],
+        mapQuery: 'Onimaru Shijo Kawaramachi Kyoto',
+      },
+      {
         id: 'd01-almoco',
-        time: '11:45',
+        time: '12:00',
         timeLabel: 'almoço',
         kind: 'food',
-        name: 'Almoço na Estação de Kyoto',
+        name: 'Almoço e omiyage na Estação de Kyoto',
+        facts: 'Cheguem com **1h15 de margem**: comer, comprar o Black Thunder de Kyoto e achar as catracas do Shinkansen, no lado Hachijō (sul)',
         eat: [
           {
             label: 'No prédio da estação',
             items: [
+              {
+                name: 'Sushi no Musashi — Kyoto Station (Asty Road, lado Hachijō)',
+                note: '10:30–21:45 · a filial da esteira do dia 29, a 2 min das catracas do Shinkansen. Sempre cheia, mas gira.',
+              },
               {
                 name: 'Kyoto Ramen Kōji — 10º andar',
                 note: '11:00–22:00 · nove casas de nove regiões do Japão num corredor só. Bom jeito de comparar estilos.',
               },
               {
                 name: 'Isetan depachika — B1/B2',
-                note: '10:00–20:00 · comprem um **ekiben** aqui para o trem, se preferirem comer a bordo',
+                note: '10:00–20:00 · comprem um **ekiben** aqui para o trem, se preferirem comer a bordo (e vocês já têm o onigiri)',
+              },
+            ],
+          },
+          {
+            label: 'Omiyage antes de embarcar',
+            items: [
+              {
+                name: 'Kyoto Black Thunder — a edição de matcha',
+                specialty: true,
+                note: '~¥957 o pacote · nas lojas de omiyage do Asty Road e do lado Hachijō. Só existe na região de Kansai; o Black Thunder comum (¥44) está em qualquer konbini, mas este é o que não se acha em Tóquio. A versão **Okoicha** (¥1.296, 8 unidades) é a de matcha forte.',
               },
             ],
           },
         ],
-        mapQuery: 'Kyoto Ramen Koji Kyoto Station',
+        mapQuery: 'Asty Road Kyoto Station',
       },
       {
         id: 'd01-shinkansen',
@@ -850,21 +1009,36 @@ export const kyotoDays: Day[] = [
         name: 'Check-in em Ginza/Nihonbashi + primeira rodada de compras',
         facts: 'Lojas **10:00–21:00**',
         paragraphs: [
-          'Base sugerida para as duas últimas noites: **Ginza, Yaesu ou Nihonbashi**. Fica a 30 minutos de Haneda, a pé das lojas que interessam, e permite sair tarde no dia 3.',
-          'Hoje é o dia de **fechar as compras grandes** — MacBook, iPhone, robô aspirador — e não amanhã. Se der algum problema de estoque ou de configuração, vocês ainda têm um dia inteiro de margem.',
+          'O hotel é o **Sotetsu Fresa Inn Ginza 3-chōme**: 5 min a pé da estação Ginza e 6 da Higashi-Ginza, de onde sai o trem direto para Haneda no dia 3. As malas do takuhaibin chegam hoje ou amanhã — confiram na recepção.',
+          'Hoje é o dia de **fechar as compras grandes** — MacBook, iPhone, robô aspirador — e não amanhã. Se der algum problema de estoque ou de configuração, vocês ainda têm um dia inteiro de margem. Saiam de Ginza às **17:50**: a noite tem hora marcada num jardim.',
         ],
+        mapQuery: 'Sotetsu Fresa Inn Ginza Sanchome',
+      },
+      {
+        id: 'd01-rikugien',
+        time: '18:30',
+        timeLabel: 'momiji',
+        kind: 'sight',
+        name: 'Rikugien iluminado — o bordo de Tóquio',
+        jp: '六義園 夜間特別観賞',
+        facts: 'Iluminação de outono **25/11 a 6/12 · 18:00–20:30, última entrada 19:30** · ¥1.000 antecipado (só online) ou ¥1.200 no dia · entrada pelo **portão principal (正門)**, 7 min da saída sul de Komagome (Yamanote)',
+        paragraphs: [
+          'O jardim de 1702 que os Tokugawa mandaram fazer para um daimyō poeta — 88 cenas de poemas clássicos ao redor de um lago — e o melhor bordo dentro da Yamanote. Nesta noite ele reabre só para a iluminação: as árvores refletidas no lago, projeções no armazém e no bambuzal, e as casas de chá servindo matcha. Meia hora de volta ao lago já vale; uma hora se pararem no chá.',
+          'É a ida rápida que cabe: de Ginza, Marunouchi até Tokyo e Yamanote até Komagome, 25 minutos, e de lá o gachapon fica a três estações. Comprem o ingresso antecipado assim que a venda abrir (em 2025 abriu 1º de novembro): no dia a fila da bilheteria passa de 30 min e o limite diário esgota.',
+        ],
+        mapQuery: 'Rikugien Garden Tokyo',
       },
       {
         id: 'd01-gachapon-ikebukuro',
-        time: '18:45',
+        time: '19:45',
         timeLabel: 'gachapon',
         kind: 'sight',
         name: 'Gashapon Department Store — Ikebukuro',
         jp: 'ガシャポンのデパート',
-        facts: '**~3.000 máquinas — a maior loja de gachapon do mundo** · Sunshine City, World Import Mart 3F · normalmente até 21h/22h — confirmem no site do Sunshine City · de Ginza: linha Marunouchi direto, ~25 min',
+        facts: '**~3.000 máquinas — a maior loja de gachapon do mundo** · Sunshine City, World Import Mart 3F · normalmente até 21h/22h — confirmem no site do Sunshine City · de Komagome: Yamanote, 3 estações, 8 min',
         paragraphs: [
-          'A noite de hoje está livre, e as compras grandes fecham lá pelas 18h — então este é o momento do gachapon: um andar inteiro com cerca de **3.000 máquinas de cápsula**, de franquia de anime a miniaturas absurdas de utensílio de cozinha. Levem moedas de ¥100 (tem trocador na loja).',
-          'A volta para Ginza é direta pela mesma linha. Se estiverem mortos das compras, pulem sem culpa — é diversão, não obrigação.',
+          'Saindo do Rikugien, o gachapon está a três estações: um andar inteiro com cerca de **3.000 máquinas de cápsula**, de franquia de anime a miniaturas absurdas de utensílio de cozinha. Levem moedas de ¥100 (tem trocador na loja).',
+          'A volta para Ginza é direta pela Marunouchi, 25 min. Se estiverem mortos das compras, pulem sem culpa — é diversão, não obrigação.',
         ],
         mapQuery: 'Gashapon Department Store Ikebukuro Sunshine City',
       },

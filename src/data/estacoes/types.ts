@@ -48,30 +48,6 @@ export interface Estacao {
   nota?: string;
 }
 
-export type CategoriaDesejo = 'comer' | 'comprar' | 'jogar';
-export type Facilidade = 'fácil' | 'médio' | 'difícil';
-
-/** Um lugar que está fora do roteiro e o casal quer encaixar */
-export interface Desejo {
-  id: string;
-  nome: string;
-  jp?: string;
-  categoria: CategoriaDesejo;
-  facilidade: Facilidade;
-  /** em uma frase: por que é fácil ou difícil */
-  veredito: string;
-  /** endereço curto e como chegar da estação */
-  onde: string;
-  /** quando encaixa no roteiro */
-  quando: string;
-  horario?: string;
-  preco?: string;
-  paragrafos: string[];
-  mapQuery: string;
-  /** fonte principal */
-  fonte?: string;
-}
-
 export interface Ponto {
   id: string;
   /** nome curto para o mapa */
@@ -81,9 +57,7 @@ export interface Ponto {
   dx: number;
   dy: number;
   /** a parada do roteiro: dia, hora e texto vêm de lá */
-  stopId?: string;
-  /** um desejo fora do roteiro */
-  desejoId?: string;
+  stopId: string;
   /** de que lado do pino fica o nome */
   lado?: 'r' | 'l';
 }

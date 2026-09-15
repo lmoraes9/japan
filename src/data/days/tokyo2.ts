@@ -5,29 +5,46 @@ export const tokyo2Days: Day[] = [
     id: 'd2026-12-02',
     date: '2026-12-02',
     stageId: 'tokyo2',
-    title: 'Palácio Imperial, curry de Jimbōchō, Akihabara e jantar de despedida',
-    subtitle: 'O último dia inteiro. Fechar tudo, separar os recibos, e as missões de Akihabara.',
-    chips: ['história', 'curry', 'akihabara', 'compras', 'sushi'],
+    title: 'Ginkgos no pico, bordos do Kōrakuen, curry de Jimbōchō, Akihabara e jantar de despedida',
+    subtitle: 'O último dia inteiro. Uma manhã de folhas, fechar tudo, separar os recibos, e as missões de Akihabara.',
+    chips: ['momiji', 'curry', 'akihabara', 'compras', 'sushi'],
     stops: [
       {
-        id: 'd02-jardim-imperial',
+        id: 'd02-gaien-peak',
         time: '09:00',
+        timeLabel: 'ginkgos',
+        kind: 'sight',
+        name: 'Alameda de ginkgos do Gaien — a passada no pico',
+        jp: '神宮外苑いちょう並木',
+        facts: '**24h · grátis** · Ginza Line de Ginza até Gaienmae, 12 min · saída 4a, 3 min · pico previsto **a partir de ~30/11**: hoje é o dia dourado',
+        paragraphs: [
+          'Vocês já passaram aqui no dia 22, ainda amarelando. A previsão de 2026 põe o pico dos ginkgos no começo de dezembro — então esta é a passada rápida no ouro de verdade: 300 metros de alameda, meia hora, e embora. Às 9h ainda está vazio.',
+          'O prédio no fim da alameda, a Galeria Memorial, está em obra até 2027 e pode ter andaimes — a foto clássica fica pela metade, as árvores não.',
+        ],
+        mapQuery: 'Meiji Jingu Gaien Ginkgo Avenue',
+      },
+      {
+        id: 'd02-korakuen',
+        time: '10:00',
         timeLabel: 'jardim',
         kind: 'sight',
-        name: 'Jardim Leste do Palácio Imperial',
-        jp: '皇居東御苑',
-        facts: '**09:00–16:00 · fecha segunda e sexta** · **grátis** · quarta está aberto',
+        name: 'Koishikawa Kōrakuen — o vale de bordos',
+        jp: '小石川後楽園',
+        facts: '**09:00–17:00** · ¥300 · portão leste a 6 min da saída 2 de Kōrakuen (Marunouchi) · pico **fim de novembro a começo de dezembro** · a 15 min a pé de Jimbōchō',
         paragraphs: [
-          'É aqui que o círculo se fecha. Esses jardins são o núcleo do **Castelo de Edo** — o castelo dos Tokugawa, o maior do mundo em sua época, com um perímetro de fossos de 16 km que ainda define o traçado do centro de Tóquio.',
+          'O jardim mais antigo de Tóquio, começado em 1629 pelo ramo Mito dos Tokugawa, com cerca de 500 bordos concentrados num vale — a melhor mancha de vermelho do centro da cidade, ao lado do Tokyo Dome. Uma volta de 45 minutos basta; saiam pelo mesmo portão leste e desçam a pé até Jimbōchō pela Suidōbashi.',
+          'Aviso: a ponte vermelha do vale, a **Tsūtenkyō**, está em obra de substituição desde 2025, com desvio por passarela provisória — o vale continua aberto, a foto da ponte não.',
         ],
-        history: {
-          paragraphs: [
-            'Subam na base de pedra do **Tenshudai**, a fundação do torreão. O donjon de Edo tinha **cinco andares e cerca de 58 metros** — o mais alto que o Japão já construiu, mais alto que Himeji e Osaka. Ele durou dezenove anos: queimou no Grande Incêndio de Meireki, em 1657.',
-            'E nunca foi reconstruído. A regência decidiu que o dinheiro deveria ir para reerguer a cidade e alimentar os desabrigados, e que um torreão era ornamento militar sem função numa era de paz. Ficou só a base de pedra, que está aí desde então. É, provavelmente, o monumento mais eloquente de Tóquio — e é uma pedra vazia.',
-            'Vejam também os fundamentos do **Ōoku**, os aposentos femininos do castelo, onde viviam mais de mil mulheres e onde se decidia, na prática, boa parte da política sucessória do xogunato.',
-          ],
-        },
-        mapQuery: 'Imperial Palace East Gardens Tokyo',
+        eat: [
+          {
+            label: 'Se preferirem outra manhã',
+            items: [
+              { name: 'Yasukuni → Chidorigafuchi → Kitanomaru', note: 'grátis e sem portão: a alameda de 200 ginkgos do santuário Yasukuni, o fosso de Chidorigafuchi e o bosque de bordos do parque Kitanomaru. Ginza Line até Nihombashi + Tōzai até Kudanshita, 16 min; Jimbōchō é a estação seguinte.' },
+              { name: 'Kiyosumi Garden', note: '¥150, 09:00–17:00 · jardim de lago e pedras em Fukagawa, folhagem mais discreta. Da estação Kiyosumi-Shirakawa, a Hanzōmon leva direto a Jimbōchō em 11 min.' },
+            ],
+          },
+        ],
+        mapQuery: 'Koishikawa Korakuen Garden',
       },
       {
         id: 'd02-jimbocho',
@@ -36,9 +53,9 @@ export const tokyo2Days: Day[] = [
         kind: 'food',
         name: 'Curry em Jimbōchō — o bairro do curry',
         jp: '神保町',
-        facts: '15 min a pé do Jardim Leste · 400+ casas de curry no bairro · cheguem na abertura (11:00) para furar a fila',
+        facts: '15 min a pé do Kōrakuen, descendo pela Suidōbashi · 400+ casas de curry no bairro · cheguem antes do meio-dia para furar a fila',
         paragraphs: [
-          'Jimbōchō é o bairro dos sebos e livrarias — e virou, ninguém sabe bem por quê, a capital do curry de Tóquio. Saindo do Palácio pelo lado oeste, vocês chegam a pé. A jogada é almoçar **cedo**: às 12h30 as filas dobram.',
+          'Jimbōchō é o bairro dos sebos e livrarias — e virou, ninguém sabe bem por quê, a capital do curry de Tóquio. Do Kōrakuen vocês chegam a pé, pela Hakusan-dōri. A jogada é almoçar **cedo**: às 12h30 as filas dobram.',
         ],
         eat: [
           {
@@ -162,14 +179,39 @@ export const tokyo2Days: Day[] = [
         ],
       },
       {
+        id: 'd02-tekki',
+        time: '17:45',
+        timeLabel: 'ferro',
+        kind: 'shopping',
+        name: 'Chaleira nambu tekki na Iwate Ginga Plaza',
+        jp: '南部鉄器 · いわて銀河プラザ',
+        facts: '**10:30–19:00** · Ginza 5-15-1, térreo do Nankai Tokyo Building, **na saída da Higashi-Ginza** · loja oficial da província de Iwate · tax-free',
+        paragraphs: [
+          'A melhor seleção de ferro de Nambu em Tóquio não está no Loft: está na **antena de Iwate**, a província de onde ele vem — peças da Iwachu e de oficinas menores de Morioka, com gente que sabe explicar. Comprar hoje, e não antes, é de propósito: a chaleira pesa de 1,4 a 2 kg e vai direto para a mala, que já está no hotel a seis minutos daqui.',
+          'Se preferirem o bule colorido de catálogo, o **Loft Ginza** (Ginza 2-4-6, 11:00–21:00) fica a 8 min e vende o Iwachu 5型 (¥11.000), mas o estoque por filial não aparece online.',
+        ],
+        eat: [
+          {
+            label: 'O que é o quê',
+            items: [
+              { name: 'Tetsubin — a chaleira', specialty: true, note: 'ferro nu por dentro, vai ao fogo ou indução, solta um pouco de ferro na água. Precisa secar depois de cada uso, senão enferruja. ¥20.000–50.000+; 1 L ≈ 2 kg.' },
+              { name: 'Tetsu kyūsu — o bule', note: 'esmaltado por dentro, colorido, com filtro de inox. Não enferruja e **não vai ao fogo**: só recebe água já fervida. É o da maioria das fotos. 0,25–0,65 L, ¥12.000–19.000.' },
+              { name: 'Iwachu 5型, o híbrido', note: '¥11.000 · 0,65 L e 1,4 kg, sem esmalte, com filtro: ferve água e serve chá. O meio-termo honesto.' },
+            ],
+          },
+        ],
+        mapQuery: 'Iwate Ginga Plaza Ginza',
+      },
+      {
         id: 'd02-compras-finais',
-        time: '18:00',
+        time: '18:15',
         timeLabel: 'compras',
         kind: 'shopping',
-        name: 'Última varredura em Ginza',
+        name: 'Última varredura em Ginza — e o Oura Ring',
         facts: 'Ginza **11:00–21:00** · Bic Camera Yūrakuchō **10:00–22:00**',
         paragraphs: [
           'O que faltou de Muji e Uniqlo, presentes, doces do depachika — e o **missô artesanal**, se ficou para a última hora (balcões do depachika do Mitsukoshi). O **Bic Camera Yūrakuchō** fica a dois minutos de Ginza e tem os andares de eletrodoméstico com modelos de exportação, caso algo tenha escapado em Akihabara.',
+          'É aqui que se compra o **Oura Ring**, com o número que o kit do dia 21 indicou: Ring 4 a ¥52.800 (prata, preto, stealth) ou ¥59.800 (dourado, rosé); Ring 5, lançado em junho, ¥65.800–81.800. Sai tax-free (restituição em Haneda amanhã). Antes de pagar, saibam o ponto fraco: o **Brasil não está na lista de países da assinatura** (¥999/mês, obrigatória para os dados), que exige cartão com endereço de cobrança num país suportado — há brasileiros usando com cartão internacional, mas não há garantia oficial, e a garantia do produto pode não valer fora dessas regiões. Em iene custa o mesmo que nos EUA; contra o Brasil, onde não há venda oficial, é bem mais barato.',
         ],
         mapQuery: 'Bic Camera Yurakucho',
       },
