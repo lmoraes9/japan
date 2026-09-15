@@ -77,9 +77,9 @@ export function InternoEstacao({ interno }: { interno: Interno }) {
           viewBox={interno.viewBox}
           role="img"
           aria-label={`${interno.nome} por dentro`}
-          className="block h-[58svh] max-h-[620px] w-full select-none"
+          className="block w-full select-none"
           preserveAspectRatio="xMidYMid meet"
-          style={{ touchAction: pz.zoomed ? 'none' : 'pan-y' }}
+          style={{ touchAction: pz.zoomed ? 'none' : 'pan-y', aspectRatio: `${vw} / ${vh}`, maxHeight: '76svh' }}
           {...pz.handlers}
         >
           <defs>
@@ -119,7 +119,8 @@ export function InternoEstacao({ interno }: { interno: Interno }) {
               return (
                 <g key={i} opacity={apagada ? 0.2 : 0.8}>
                   <line x1={ca.x} y1={ca.y} x2={cb.x} y2={cb.y} stroke="var(--foreground)" strokeWidth={1.4} strokeDasharray="4 3" markerEnd="url(#seta)" />
-                  {l.nota && (
+                  {/* o rótulo do passo só aparece quando um dia está escolhido: senão polui o desenho todo */}
+                  {l.nota && acesas && !apagada && (
                     <text x={(ca.x + cb.x) / 2} y={(ca.y + cb.y) / 2 - 4} fontSize={7.5} fill="var(--foreground)" textAnchor="middle" paintOrder="stroke" stroke="var(--surface)" strokeWidth={3}>
                       {l.nota}
                     </text>
@@ -185,20 +186,20 @@ export function InternoEstacao({ interno }: { interno: Interno }) {
           </g>
         </svg>
 
-        <div className="absolute right-2.5 top-2.5 flex flex-col overflow-hidden rounded-xl border border-hairline bg-surface/90 shadow-sm backdrop-blur">
-          <button onClick={() => pz.zoomStep(1)} aria-label="Aproximar" className="flex h-9 w-9 items-center justify-center text-foreground/80 active:bg-surface-2">
-            <Plus size={16} />
-          </button>
-          <button onClick={() => pz.zoomStep(-1)} aria-label="Afastar" className="flex h-9 w-9 items-center justify-center border-t border-hairline text-foreground/80 active:bg-surface-2">
-            <Minus size={16} />
-          </button>
-          <button onClick={pz.reset} aria-label="Ver tudo" className={`flex h-9 w-9 items-center justify-center border-t border-hairline active:bg-surface-2 ${pz.zoomed ? 'text-accent' : 'text-muted'}`}>
-            <Maximize2 size={15} />
-          </button>
-        </div>
-
-        {/* o que foi tocado */}
-        <div className="border-t border-hairline px-3.5 py-2.5 text-[12.5px] leading-snug">
+        {/* o que foi tocado — com o zoom na mesma barra, para os botões não cobrirem o desenho */}
+        <div className="flex items-start gap-2 border-t border-hairline px-3.5 py-2.5 text-[12.5px] leading-snug">
+          <div className="order-2 flex shrink-0 overflow-hidden rounded-xl border border-hairline">
+            <button onClick={() => pz.zoomStep(-1)} aria-label="Afastar" className="flex h-8 w-8 items-center justify-center text-foreground/80 active:bg-surface-2">
+              <Minus size={15} />
+            </button>
+            <button onClick={() => pz.zoomStep(1)} aria-label="Aproximar" className="flex h-8 w-8 items-center justify-center border-l border-hairline text-foreground/80 active:bg-surface-2">
+              <Plus size={15} />
+            </button>
+            <button onClick={pz.reset} aria-label="Ver tudo" className={`flex h-8 w-8 items-center justify-center border-l border-hairline active:bg-surface-2 ${pz.zoomed ? 'text-accent' : 'text-muted'}`}>
+              <Maximize2 size={14} />
+            </button>
+          </div>
+          <div className="order-1 min-w-0 flex-1">
           {area ? (
             <p>
               <span className="font-mono text-[10px] uppercase tracking-wider" style={{ color: area.cor ?? TIPO[area.tipo].cor }}>
@@ -214,6 +215,7 @@ export function InternoEstacao({ interno }: { interno: Interno }) {
           ) : (
             <p className="text-muted">Cada faixa é um andar; toque num bloco para saber o que é. Escolha um dia abaixo para acender só o caminho daquele dia.</p>
           )}
+          </div>
         </div>
       </div>
 

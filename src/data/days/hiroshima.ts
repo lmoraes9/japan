@@ -149,7 +149,7 @@ export const hiroshimaDays: Day[] = [
   {
     id: 'd2026-11-24',
     lastReturn: [
-      { label: 'Teleférico do Misen — última descida', time: '17:00', from: 'Estação Shishiiwa (topo)', note: 'quem perde desce 1h a pé no escuro', critical: true },
+      { label: 'Teleférico do Misen — última descida', time: '16:30', from: 'Estação Shishiiwa (topo)', note: 'o site diz 16:30 (subida até 16:00); confirmem na cabine ao subir · quem perde desce 1h a pé no escuro', critical: true },
       { label: 'Balsa JR Miyajima → Miyajimaguchi', time: '22:14', from: 'Cais de Miyajima', note: 'aprox. · a cada 15 min até 20h, depois a cada 30' },
     ],
     date: '2026-11-24',
@@ -161,7 +161,7 @@ export const hiroshimaDays: Day[] = [
       {
         label: 'Reservem o horário do teleférico',
         tone: 'info',
-        text: 'O teleférico do Misen passou a ter **reserva de horário pelo site** e voltou a operar em **março de 2026** com carros novos — a manutenção anual de 2026 foi entre janeiro e março, então em novembro ele está funcionando. Reservem a subida: sem isso, no pico do momiji a fila come o tempo do cume.',
+        text: 'O teleférico do Misen tem **reserva de horário pelo site** nos dias cheios — em novembro de 2026 ela é obrigatória nos fins de semana e no feriado 23; **terça, dia 24, não exige**, mas reservar (grátis, abre 3 meses antes) tira vocês da fila do pico do momiji. A manutenção de 2026 foi entre janeiro e março; nada anunciado para novembro. Atenção ao horário: o site diz **subida até 16:00 e última descida 16:30**.',
       },
       {
         label: 'Chequem a tabela de marés na véspera',
@@ -233,7 +233,7 @@ export const hiroshimaDays: Day[] = [
         kind: 'view',
         name: 'Monte Misen · teleférico',
         jp: '弥山',
-        facts: 'Teleférico **09:00–17:00** · ¥2.000 ida e volta · **reserva de horário pelo site** · + **30 min de caminhada** do topo ao cume real — e mais 30 de volta, contem 2h no total',
+        facts: 'Teleférico **09:00–16:00 (última descida 16:30)** · ¥2.000 ida e volta · reserva de horário pelo site, opcional na terça · + **30 min de caminhada** do topo ao cume real — e mais 30 de volta, contem 2h no total',
         paragraphs: [
           'Do cume, 535 m, a vista é do Mar Interior de Seto inteiro salpicado de ilhas. Vale a caminhada final — o ponto onde o teleférico deixa vocês **não é** o cume. No caminho fica o **Kiezu-no-hi**, um fogo que os monges dizem arder ininterruptamente desde que Kūkai o acendeu em 806; foi dele que se acendeu a Chama da Paz de Hiroshima.',
           'Se estiverem cansados, pulem sem culpa e fiquem mais tempo embaixo comendo.',

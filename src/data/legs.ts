@@ -170,16 +170,16 @@ export const LEGS: Record<string, Leg[]> = {
   // ── 23 nov · Shinkansen e Hiroshima ────────────────────────────────
   'd23-konbini': [walk(5, 'catracas do Tōkaidō Shinkansen no lado Yaesu; plataformas 14 a 19. Ekiben na loja antes de passar')],
   'd23-trem-hiroshima': [
-    { mode: 'shinkansen', line: 'Nozomi', board: 'Tokyo, plataforma indicada no bilhete (14–19)', direction: 'Hakata (博多)', alight: 'Hiroshima', minutes: 235, cost: '¥19.800 reservado', note: 'número do carro está no bilhete; a fila é na marca do chão. Fuji do lado direito, uns 40 min depois de sair' },
-    walk(3, 'saída norte da estação; o ekie é o shopping dentro da própria estação, 2º andar'),
+    { mode: 'shinkansen', line: 'Nozomi', board: 'Tokyo, plataforma indicada no bilhete (14–19)', direction: 'Hakata (博多)', alight: 'Hiroshima, plataforma 11 ou 12 (3º andar)', minutes: 235, cost: '¥19.800 reservado', note: 'número do carro está no bilhete; a fila é na marca do chão. Fuji do lado direito, uns 40 min depois de sair' },
+    walk(3, 'desça ao 2º andar e saia pelo 新幹線口 (o portão do Shinkansen, lado norte): o ekie é o shopping logo à frente, do lado leste do corredor'),
   ],
   'd23-pokemon-center': [
     walk(5, 'do ekie, desça para a saída sul: o APA fica na frente da estação, do lado da ponte Ekimae-Ōhashi'),
   ],
   'd23-chegada': [
-    walk(4, 'de volta à estação: o terminal do bonde fica no 2º andar do prédio novo, do lado sul'),
-    { mode: 'tram', line: 'bonde 2 ou 6', board: 'Hiroshima Station (terminal no 2º andar)', direction: 'Miyajimaguchi (2) · Eba (6)', alight: 'Genbaku-Dōmu-mae', minutes: 16, cost: '¥240, paga ao descer' },
-    walk(4, 'o museu fica no fundo do parque, atravessando a ponte'),
+    walk(4, 'de volta à estação: o terminal do bonde fica no 2º andar do minamoa, no átrio em frente ao 中央口'),
+    { mode: 'tram', line: 'bonde 2 (plataforma D) ou 6 (plataforma C)', board: 'Hiroshima Station, terminal no 2º andar', direction: 'Miyajimaguchi (2) · Eba (6)', alight: 'Genbaku-Dōmu-mae', minutes: 15, cost: '¥240, paga ao descer · IC: encoste ao embarcar e ao descer', note: 'a linha 1 NÃO passa no Domo: ela vira para o sul em Kamiyachō' },
+    walk(8, 'o museu fica no fundo do parque, atravessando a ponte'),
   ],
   'd23-museu-paz': [walk(5, 'pelo eixo do parque: cenotáfio, chama, e a ponte até o Domo')],
   'd23-parque-domo': [walk(3, 'o Nagataya fica na rua ao lado do Domo')],
@@ -191,20 +191,20 @@ export const LEGS: Record<string, Leg[]> = {
 
   // ── 24 nov · Miyajima ──────────────────────────────────────────────
   'd24-ferry-miyajima': [
-    { mode: 'train', line: 'JR Sanyō Line', board: 'Hiroshima, plataforma 1', direction: 'Iwakuni (岩国)', alight: 'Miyajimaguchi', minutes: 27, cost: '¥420' },
-    walk(4, 'saída da estação, reto até o píer; a balsa da JR é a da direita'),
-    { mode: 'ferry', line: 'balsa JR', board: 'Miyajimaguchi', alight: 'Miyajima', minutes: 10, cost: '¥200 + ¥100 de taxa de visitante', note: 'fiquem no lado direito do convés: a balsa passa perto do torii' },
-    walk(12, 'pela orla, seguindo os cervos, até o santuário'),
+    { mode: 'train', line: 'JR Sanyō Line', board: 'Hiroshima, plataforma 1 (pelo 中央口, no 2º andar)', direction: 'Iwakuni (岩国)', alight: 'Miyajimaguchi', minutes: 27, cost: '¥420' },
+    walk(6, 'saída única; a passagem subterrânea ao norte da estação leva direto ao terminal das balsas. Lá, placa vermelha à direita = balsa JR (a azul é a Matsudai)'),
+    { mode: 'ferry', line: 'balsa JR', board: 'Miyajimaguchi', alight: 'Miyajima', minutes: 10, cost: '¥200 + ¥100 de taxa de visitante, os dois descontados do IC na catraca', note: 'até as 16:10 a balsa faz a rota do torii (大鳥居便): fiquem no lado direito do convés' },
+    walk(14, 'pela orla, seguindo os cervos, até o santuário'),
   ],
   'd24-itsukushima': [walk(10, 'saindo pelo lado oposto da entrada, subida pelas escadas ao lado do pagode')],
   'd24-daishoin': [walk(12, 'descendo e seguindo o riacho para o vale dos bordos')],
   'd24-momijidani': [
-    walk(3, 'até a parada do micro-ônibus gratuito do teleférico, na entrada do parque (ou 10 min de subida a pé)'),
-    { mode: 'cable', line: 'Miyajima Ropeway (2 trechos)', board: 'Momijidani', alight: 'Shishiiwa', minutes: 15, cost: '¥2.000 ida e volta', note: 'troca de cabine em Kayatani; do topo do teleférico ao cume real são mais 30 min a pé' },
+    walk(10, 'subida a pé pelo parque até a estação Momijidani do teleférico — o micro-ônibus gratuito da entrada do parque não roda entre 12:10 e 13:10, e é justamente a hora de vocês'),
+    { mode: 'cable', line: 'Miyajima Ropeway (2 trechos)', board: 'Momijidani', alight: 'Shishiiwa', minutes: 15, cost: '¥2.000 ida e volta', note: 'troca de cabine em Kayatani; do topo do teleférico ao cume real são mais 30 min a pé. Terça não exige reserva de horário (só fins de semana e o feriado 23)' },
   ],
   'd24-misen': [
     walk(30, 'de volta do cume ao teleférico'),
-    { mode: 'cable', line: 'Miyajima Ropeway', board: 'Shishiiwa', alight: 'Momijidani', minutes: 15, note: 'último teleférico de descida às 17:00' },
+    { mode: 'cable', line: 'Miyajima Ropeway', board: 'Shishiiwa', alight: 'Momijidani', minutes: 15, note: 'o site hoje diz última descida 16:30 (subida até 16:00): confirmem na cabine ao subir' },
     walk(15, 'até a rua de comércio (Omotesandō)'),
   ],
   'd24-comer-miyajima': [
@@ -214,7 +214,7 @@ export const LEGS: Record<string, Leg[]> = {
     walk(15, 'saída norte (Shinkansen), para o oeste ao longo da avenida; o jardim fica atrás do museu de arte'),
   ],
   'd24-shukkeien': [
-    { mode: 'tram', line: 'bonde 9', board: 'Shukkeien-mae', direction: 'Hatchōbori', alight: 'Hatchōbori (final)', minutes: 5, cost: '¥240', note: 'ou 15 min a pé' },
+    { mode: 'tram', line: 'bonde 9', board: 'Shukkeien-mae', direction: 'Hatchōbori', alight: 'Hatchōbori (final)', minutes: 4, cost: '¥240', note: 'desde março de 2026 a linha 9 passa só a cada ~18 min; se não vier, são 15 min a pé' },
     walk(5, 'o Bakudan-ya fica nas ruas atrás da Hondōri'),
   ],
   'd24-jantar': [
@@ -225,21 +225,21 @@ export const LEGS: Record<string, Leg[]> = {
 
   // ── 25 nov · Kurashiki, Himeji, Osaka ──────────────────────────────
   'd25-trem-kurashiki': [
-    { mode: 'shinkansen', line: 'Sanyō Shinkansen (Nozomi, Sakura ou Hikari)', board: 'Hiroshima, plataformas 11–14', direction: 'Shin-Osaka · Tokyo', alight: 'Okayama', minutes: 38, cost: '~¥6.000' },
-    { mode: 'train', line: 'JR Sanyō Line', board: 'Okayama, plataformas 3–4 (siga a placa 山陽線)', direction: 'Fukuyama · Mihara', alight: 'Kurashiki (3ª parada)', minutes: 17, cost: '¥330' },
-    walk(12, 'armários na saída sul; depois reto pela Kurashiki Chūō-dōri até o canal'),
+    { mode: 'shinkansen', line: 'Sanyō Shinkansen (Nozomi, Sakura ou Hikari)', board: 'Hiroshima, plataformas 13–14 (3º andar, sentido Shin-Osaka)', direction: 'Shin-Osaka · Tokyo', alight: 'Okayama', minutes: 38, cost: '~¥6.000' },
+    { mode: 'train', line: 'JR Sanyō Line', board: 'Okayama: desça ao 2º andar, passe o portão de baldeação B (新幹線乗換口) e vá às plataformas 1–2, no térreo', direction: 'Fukuyama · Mihara', alight: 'Kurashiki (3ª parada)', minutes: 17, cost: '¥330' },
+    walk(12, 'a catraca é no 2º andar; os armários ficam no corredor, do lado da saída norte (ao lado da padaria Little Mermaid). Depois saída sul, e reto pela Kurashiki Chūō-dōri até o canal'),
   ],
   'd25-bikan': [walk(3, 'o museu é o prédio de colunas gregas na margem do canal')],
   'd25-ohara': [walk(5, 'o Kamoi fica na margem oposta, perto da ponte Nakabashi')],
   'd25-almoco-kurashiki': [walk(12, 'de volta pela mesma rua até a estação; pegar a mochila no armário')],
   'd25-trem-himeji': [
-    { mode: 'train', line: 'JR Sanyō Line', board: 'Kurashiki', direction: 'Okayama', alight: 'Okayama', minutes: 17, cost: '¥330' },
-    { mode: 'shinkansen', line: 'Hikari ou Sakura (o Nozomi nem sempre para em Himeji)', board: 'Okayama, plataformas 21–24', direction: 'Shin-Osaka · Tokyo', alight: 'Himeji', minutes: 20, cost: '~¥3.500' },
-    walk(15, 'saída norte, reto pela avenida Ōtemae; o castelo está no fim, à vista o tempo todo. Armários na estação (ou ônibus circular ¥100 até Ōtemon)'),
+    { mode: 'train', line: 'JR Sanyō Line', board: 'Kurashiki, plataforma 3', direction: 'Okayama', alight: 'Okayama', minutes: 17, cost: '¥330' },
+    { mode: 'shinkansen', line: 'Hikari ou Sakura (o Nozomi em regra não para em Himeji)', board: 'Okayama: 2º andar, portão de baldeação B, e plataformas 23–24 no 3º (sentido Shin-Osaka)', direction: 'Shin-Osaka · Tokyo', alight: 'Himeji (plataforma 11)', minutes: 20, cost: '~¥3.500' },
+    walk(18, 'do 3º andar desça ao 2º (portão de baldeação do Shinkansen) e ao 1º: saída pelo 中央改札 e pelo Himeji-jō-guchi (norte). Armários 24h na saída norte. Reto pela avenida Ōtemae; o castelo está no fim, à vista o tempo todo (ou ônibus circular ¥100 até Ōtemon)'),
   ],
   'd25-himeji': [walk(15, 'de volta pela avenida até a estação; pegar a mochila')],
   'd25-trem-osaka': [
-    { mode: 'train', line: 'JR Special Rapid (新快速)', board: 'Himeji, plataformas 5–6', direction: 'Osaka · Kyoto · Yasu', alight: 'Osaka', minutes: 60, cost: '¥1.520', note: 'sem reserva; entrem pela ponta do trem para achar lugar' },
+    { mode: 'train', line: 'JR Special Rapid (新快速)', board: 'Himeji, plataformas 5–6 (2º andar, pelo 中央改札)', direction: 'Osaka · Kyoto · Yasu', alight: 'Osaka', minutes: 60, cost: '¥1.520', note: 'sem reserva; entrem pela ponta do trem para achar lugar' },
     { mode: 'metro', line: 'Midōsuji Line (vermelha)', board: 'Umeda (siga 御堂筋線 pelo sub-solo)', direction: 'Tennōji · Nakamozu', alight: 'Namba', minutes: 8, cost: '¥240' },
     walk(5, 'check-in no hotel, e o Dōtonbori fica a poucos minutos'),
   ],
