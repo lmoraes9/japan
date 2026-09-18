@@ -6,6 +6,7 @@ export const kyotoDays: Day[] = [
     lastReturn: [
       { label: 'JR Nara Line Inari → Kyoto', time: '23:00', from: 'Estação Inari (na porta do santuário)', note: 'aprox. e conservador · confirmar na placa da plataforma' },
       { label: 'Keihan Fushimi-Inari → centro', time: '23:30', from: 'Estação Keihan Fushimi-Inari', note: 'aprox. · alternativa se perderem o JR' },
+      { label: 'Keihan Fushimi-Momoyama → Sanjō', time: '23:40', from: 'Estação Keihan Fushimi-Momoyama (do Torisei)', note: 'aprox. · é por aqui que vocês voltam do saquê' },
     ],
     date: '2026-11-27',
     stageId: 'kyoto',
@@ -192,25 +193,47 @@ export const kyotoDays: Day[] = [
       {
         id: 'd27-jantar',
         time: '18:30',
-        timeLabel: 'jantar',
+        timeLabel: 'saquê',
         kind: 'food',
-        name: 'Jantar',
+        name: 'Saquê em Fushimi, no armazém do Yamamoto Honke',
+        jp: '鳥せい本店',
+        facts: '**Ter–sáb 11:30–23:00** (última comanda 22:30) · **fecha segunda** — dia 27 é sexta · 8 min a pé da estação Keihan Fushimi-Momoyama',
+        paragraphs: [
+          'Vocês estão em Fushimi, que é uma das duas capitais do saquê do Japão por causa da água subterrânea daqui — e o jeito de aproveitar isso à noite não é o museu. **O Museu Gekkeikan Ōkura fecha às 16:30**, e a essa altura vocês ainda estão subindo o monte Inari. A degustação de hoje é no balcão.',
+          'O **Torisei** é o restaurante da cervejaria **Yamamoto Honke, de 1677**, que faz o saquê *Shinsei*. Fica dentro de um armazém de saquê reformado, com as vigas pretas originais. Peçam o ***kuradashi nama-genshu***, o saquê não pasteurizado tirado direto do tanque: ele não é engarrafado nem sai daqui, então só se bebe nesta sala. Acompanha espetinho de frango na brasa.',
+          'Fiquem uma hora, não mais — o sushi é logo depois, e amanhã vocês acordam às 5h30.',
+        ],
         eat: [
           {
-            label: 'Opção temática, já que vocês estão em Fushimi',
+            label: 'Se o Torisei estiver cheio',
             items: [
               {
-                name: 'Distrito do saquê de Fushimi',
-                note: 'Fushimi é uma das duas capitais do saquê do Japão, graças à água subterrânea daqui. O **Museu Gekkeikan Ōkura** (09:30–16:30, ¥600 com degustação) fica a 15 min de trem. Se for, é programa de fim de tarde, antes do jantar.',
+                name: 'Kizakura Kappa Country',
+                note: 'A outra cervejaria com restaurante aberto à noite, na mesma área. Menos bonita, mas serve o saquê da casa e uma cerveja artesanal própria.',
               },
               {
-                name: 'Torikizoku ou izakaya perto do hotel',
-                note: 'para uma noite curta — vocês acordam às 5h30 amanhã',
+                name: 'Galeria Ōtesuji',
+                note: 'A rua coberta que liga a estação ao bairro das cervejarias, com izakayas pequenos dos dois lados.',
               },
             ],
           },
         ],
-        mapQuery: 'Fushimi sake district Kyoto',
+        mapQuery: 'Torisei Honten Fushimi Kyoto',
+      },
+      {
+        id: 'd27-sushi-musashi',
+        time: '20:15',
+        timeLabel: 'sushi',
+        kind: 'food',
+        name: 'Sushi no Musashi — Sanjō Honten',
+        jp: '寿しのむさし 三条本店',
+        facts: '**11:00–22:00**, última entrada 21:30 · Kawaramachi-Sanjō · **7 min a pé do hotel** · pratos de **¥146 e ¥346** · não aceita reserva',
+        paragraphs: [
+          'Kaiten desde **1977**, e a diferença está no balcão: aqui os itamae limpam o peixe e fecham o nigiri na frente de vocês, em vez de a esteira trazer o que saiu de uma máquina nos fundos. O arroz, o shoyu e até o chá são de fórmula própria da casa.',
+          'Jantar sai por volta de **¥2.000 a ¥3.000 por pessoa**, o que para sushi em Kyoto é pouco. O primeiro andar é só balcão — é onde vale sentar; o segundo tem mesas.',
+          '**Não aceita reserva e a fila do horário de pico passa de uma hora.** Chegando às 20:15, depois do saquê, vocês pegam o movimento já caindo. Se ainda assim estiver longa, o hotel fica a sete minutos a pé e a Kawaramachi está cheia de alternativas.',
+        ],
+        mapQuery: 'Sushi no Musashi Sanjo Honten Kyoto',
       },
     ],
   },

@@ -276,17 +276,22 @@ export const LEGS: Record<string, Leg[]> = {
     walk(4, 'o hotel fica na saída do Shijō-Kawaramachi — as malas do takuhaibin devem estar na recepção'),
   ],
   'd27-nishiki-rapido': [
-    walk(3, 'a entrada leste do Nishiki fica na Teramachi, a uma quadra do hotel'),
-  ],
-  'd27-fushimi-inari': [
     walk(8, 'até a estação Gion-Shijō da Keihan, atravessando a ponte Shijō sobre o rio Kamo'),
     { mode: 'train', line: 'Keihan Main Line', board: 'Gion-Shijō', direction: 'Yodoyabashi · Nakanoshima', alight: 'Fushimi-Inari', minutes: 10, cost: '¥220', note: 'não pegue o limited express: ele passa direto por Fushimi-Inari' },
     walk(5, 'pela rua das barracas até o portão'),
   ],
+  'd27-fushimi-inari': [
+    walk(5, 'de volta à estação Fushimi-Inari da Keihan'),
+    { mode: 'train', line: 'Keihan Main Line', board: 'Fushimi-Inari', direction: 'Yodoyabashi · Nakanoshima', alight: 'Fushimi-Momoyama', minutes: 8, cost: '¥220' },
+    walk(8, 'pela galeria Ōtesuji até o bairro das cervejarias; o Torisei fica num armazém de esquina'),
+  ],
   'd27-jantar': [
-    walk(5, 'até a estação Fushimi-Inari da Keihan'),
-    { mode: 'train', line: 'Keihan Main Line', board: 'Fushimi-Inari', direction: 'Demachiyanagi', alight: 'Gion-Shijō', minutes: 10, cost: '¥220' },
-    walk(8, 'atravessando a ponte Shijō de volta ao hotel'),
+    walk(8, 'do Torisei de volta à estação Fushimi-Momoyama'),
+    { mode: 'train', line: 'Keihan Main Line', board: 'Fushimi-Momoyama', direction: 'Demachiyanagi', alight: 'Sanjō', minutes: 15, cost: '¥280' },
+    walk(5, 'atravessando a ponte Sanjō para o oeste, até o Kawaramachi-Sanjō'),
+  ],
+  'd27-sushi-musashi': [
+    walk(7, 'descendo a Kawaramachi para o sul, até o hotel no Shijō'),
   ],
 
   // ── 28 nov · Higashiyama ───────────────────────────────────────────

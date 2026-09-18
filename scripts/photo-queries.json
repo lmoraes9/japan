@@ -985,5 +985,13 @@
   "stops/d02-ultima-vista": [
     "東京 夜景 展望",
     "Tokyo skyline at night from observation deck"
+  ],
+  "stops/d27-jantar": [
+    "鳥せい本店 伏見 酒蔵",
+    "Torisei Fushimi sake brewery restaurant Kyoto"
+  ],
+  "stops/d27-sushi-musashi": [
+    "寿しのむさし 三条 回転寿司",
+    "Sushi no Musashi Kyoto conveyor belt sushi"
   ]
 }
