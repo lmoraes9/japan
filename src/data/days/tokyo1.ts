@@ -899,8 +899,15 @@ export const tokyo1Days: Day[] = [
         facts: '**24h · grátis** · Aoyama-itchōme Stn · **pico: fim de novembro**',
         paragraphs: [
           '146 ginkgos em quatro fileiras, plantados em 1923, podados há um século no formato de cone para que a perspectiva pareça mais longa do que é. No fim de novembro a rua inteira fica dourada e o chão vira um tapete amarelo.',
-          'É o cartão-postal de outono de Tóquio, e vocês estão exatamente na semana certa.',
+          'É o cartão-postal de outono de Tóquio, e vocês estão exatamente na semana certa. **Fotografem de costas para a avenida Aoyama**, olhando na direção do museu — é nesse sentido que o truque funciona.',
         ],
+        history: {
+          label: 'A alameda é uma ilusão de ótica, e de propósito',
+          paragraphs: [
+            'São **300 metros** de rua, o que não é grande coisa — mas ela parece muito mais longa, e isso foi projetado. Quem desenhou o parque em **1923** fez duas coisas ao mesmo tempo: as árvores vão **diminuindo de altura** conforme se afastam da avenida Aoyama, e **o próprio terreno desce** no mesmo sentido. As duas quedas somadas forçam a perspectiva e empurram o **Seitoku Kinen Kaigakan**, o museu no fim da rua, para muito mais longe do que ele está.',
+            'As árvores não foram compradas prontas. Em **1908** colheram sementes dos ginkgos do Shinjuku Gyoen, criaram um viveiro de **1.600 mudas** e, ano após ano, foram escolhendo as que cresciam com a forma mais regular. As 146 que estão aí são as sobreviventes dessa seleção, todas com mais de cem anos, podadas em cone desde então para não estragar o efeito.',
+          ],
+        },
         eat: [
           {
             label: 'Icho Matsuri — o festival do ginkgo',

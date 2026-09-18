@@ -136,9 +136,13 @@ export const osakaDays: Day[] = [
         time: '19:00',
         timeLabel: 'jantar',
         kind: 'food',
-        name: 'Dōtonbori',
-        jp: '道頓堀',
-        facts: '**24h** · Namba Stn',
+        name: 'Dōtonbori e o letreiro da Glico',
+        jp: '道頓堀・グリコサイン',
+        facts: '**24h · grátis** · Namba Stn · o letreiro fica de frente para a **ponte Ebisu-bashi**, e acende do pôr do sol até a meia-noite',
+        paragraphs: [
+          'Comecem pela ponte, não pela comida. O **Ebisu-bashi** é o ponto de onde todo mundo fotografa o homem correndo da Glico — e é de praxe fazer a pose dele, os dois braços para cima. A ponte fica lotada e ninguém se importa: é o cartão-postal de Osaka desde antes dos seus avós.',
+          'Depois disso, jantem andando. A regra de Dōtonbori é o *kuidaore* — 食い倒れ, "comer até falir" —, que é como os próprios habitantes de Osaka descrevem a cidade deles. Comam pouco em três lugares em vez de sentar num só.',
+        ],
         eat: [
           {
             label: 'Comam de pé, em três lugares diferentes',
@@ -168,9 +172,14 @@ export const osakaDays: Day[] = [
         history: {
           paragraphs: [
             'O canal foi escavado por conta própria por um mercador chamado Yasui Dōton, a partir de 1612, para ligar dois rios e valorizar as terras. Ele morreu em 1615 lutando no cerco de Osaka, antes de ver a obra pronta — os primos terminaram e deram o nome dele ao canal. Nos séculos seguintes as margens viraram o distrito de teatro kabuki e bunraku de Osaka; os letreiros gigantes de hoje são descendentes diretos dos painéis de teatro.',
+            '**O homem correndo é um anúncio de bala de caramelo, e o nome da empresa é uma molécula.** Em 1919, num porto de Saga, um comerciante chamado **Ezaki Riichi** viu pescadores cozinhando ostras e jogando fora o caldo. Ele sabia que aquele caldo era rico em **glicogênio** — o açúcar que o corpo queima como combustível — e passou anos extraindo aquilo para dentro de um caramelo, vendido como produto de saúde para crianças. A empresa, fundada em 1922, ganhou o nome da molécula: **Glico**.',
+            'Daí sai tudo o que está no letreiro. Uma bala tem **16,75 kcal**, que é quanto se gasta correndo **300 metros** — e o slogan virou *hitotsubu sanbyaku mētoru*, "uma bala, trezentos metros". Ezaki testou 500 metros (exagerado) e 100 (fraco) antes de fechar em 300, que soava melhor e ainda por cima era verdade. E o desenho do homem cruzando a linha de chegada, de braços erguidos, veio de ele ter visto **uma criança correndo e chegando ao fim de uma corrida**. Não é um atleta famoso: é o cliente.',
+            'O primeiro letreiro subiu aqui em **1935**: uma torre de neon de **33 metros**, absurda para a época. Foi desmontado na guerra, quando o metal foi requisitado, e voltou depois. O que vocês vão ver é a **sexta geração**, de outubro de 2014, já em LED, com o fundo trocando entre paisagens de Osaka. São noventa anos do mesmo sujeito correndo sem sair do lugar.',
+            '**E tem a maldição.** Em 16 de outubro de 1985 o Hanshin Tigers ganhou a liga, e a torcida se juntou nesta ponte para comemorar do jeito de Osaka: a cada nome do time chamado em voz alta, um torcedor parecido com aquele jogador pulava no canal. Chegou a vez de **Randy Bass**, o rebatedor americano — e não havia nenhum estrangeiro barbudo por perto. Alguém correu até o KFC da esquina, arrancou a **estátua do Coronel Sanders** e jogou no canal no lugar dele.',
+            'O Hanshin passou os **17 anos seguintes sem ganhar a liga**, com dez últimos lugares no caminho. A torcida batizou aquilo de **maldição do Coronel**. A estátua foi achada no fundo do canal em **10 de março de 2009**, 24 anos depois, sem as mãos e sem os óculos. Quando os Tigers enfim voltaram a ser campeões do Japão, 38 anos depois de 1985, o Coronel foi levado para ser purificado num santuário — **o Sumiyoshi Taisha, que vocês visitam no dia 27** — e depois descartado: 24 anos submerso não deixaram nada aproveitável.',
           ],
         },
-        mapQuery: 'Dotonbori Osaka',
+        mapQuery: 'Ebisubashi Bridge Dotonbori Osaka',
       },
     ],
   },
