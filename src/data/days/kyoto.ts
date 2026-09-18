@@ -100,6 +100,7 @@ export const kyotoDays: Day[] = [
           paragraphs: [
             'O estilo daqui, o *sumiyoshi-zukuri*, é **anterior à chegada do budismo ao Japão**. Repare: telhado reto (não curvo), sem pintura vermelha, sem influência chinesa nenhuma. É o mais perto que existe de saber como era um santuário xintoísta antes de o continente influenciar qualquer coisa. Os prédios são reconstruídos periodicamente, sempre idênticos — o último de 1810.',
             'As divindades daqui protegem os marinheiros, e o santuário era parada obrigatória das embaixadas japonesas que partiam para a China. A ponte arqueada de laca vermelha na entrada, a **Sorihashi**, é tão íngreme que atravessá-la é considerado um rito de purificação — a subida força você a se curvar.',
+            'E um detalhe recente, que fecha o círculo com o dia 25: foi **aqui** que, em março de 2024, levaram para purificação a **estátua do Coronel Sanders** que a torcida do Hanshin Tigers jogou no canal de Dōtonbori em 1985 e que passou 24 anos no fundo. Depois da cerimônia ela foi descartada — não havia mais o que salvar. A história completa está na parada do Dōtonbori.',
           ],
         },
         mapQuery: 'Sumiyoshi Taisha Osaka',
@@ -200,7 +201,7 @@ export const kyotoDays: Day[] = [
         facts: '**Ter–sáb 11:30–23:00** (última comanda 22:30) · **fecha segunda** — dia 27 é sexta · 8 min a pé da estação Keihan Fushimi-Momoyama',
         paragraphs: [
           'Vocês estão em Fushimi, que é uma das duas capitais do saquê do Japão por causa da água subterrânea daqui — e o jeito de aproveitar isso à noite não é o museu. **O Museu Gekkeikan Ōkura fecha às 16:30**, e a essa altura vocês ainda estão subindo o monte Inari. A degustação de hoje é no balcão.',
-          'O **Torisei** é o restaurante da cervejaria **Yamamoto Honke, de 1677**, que faz o saquê *Shinsei*. Fica dentro de um armazém de saquê reformado, com as vigas pretas originais. Peçam o ***kuradashi nama-genshu***, o saquê não pasteurizado tirado direto do tanque: ele não é engarrafado nem sai daqui, então só se bebe nesta sala. Acompanha espetinho de frango na brasa.',
+          'O **Torisei** é o restaurante da cervejaria **Yamamoto Honke, de 1677**, que faz o saquê *Shinsei*. Fica dentro de um armazém de saquê reformado, com as vigas pretas originais. Peçam o *kuradashi nama-genshu*, o saquê não pasteurizado tirado direto do tanque: ele não é engarrafado nem sai daqui, então só se bebe nesta sala. Acompanha espetinho de frango na brasa.',
           'Fiquem uma hora, não mais — o sushi é logo depois, e amanhã vocês acordam às 5h30.',
         ],
         eat: [
@@ -617,6 +618,15 @@ export const kyotoDays: Day[] = [
           'O jardim seco mais famoso do mundo: 15 pedras sobre cascalho branco raspado, num retângulo de 25 × 10 m, cercado por um muro de barro fervido em óleo que envelheceu em manchas. Ninguém sabe quem o fez, nem quando exatamente (século XV ou XVI), nem o que significa — e não existe interpretação oficial.',
           'A propriedade mais citada: **de qualquer ponto da varanda, sempre há exatamente uma pedra invisível**. Só se vê as 15 do alto. Sentem-se, fiquem quinze minutos em silêncio e testem. Depois desçam ao lago, que é do século XII e quase ninguém visita.',
         ],
+        history: {
+          label: 'Por que sempre falta uma pedra',
+          paragraphs: [
+            'As pedras estão em cinco grupos de **5, 2, 3, 2 e 3**. Some: quinze. E quinze, no pensamento budista que chegou da China, é o número da **completude** — é a noite da lua cheia, o décimo quinto dia do mês lunar. Dezesseis seria excesso; quatorze, falta.',
+            'Só que o jardim é montado de tal modo que **de nenhum ponto do assoalho se enxergam as quinze ao mesmo tempo**: sempre uma fica escondida atrás de outra, e qual delas some muda conforme onde você senta. Ou seja, o jardim guarda a completude e nega a você a visão dela. A leitura mais aceita é que isso é proposital — a perfeição existe, mas não para quem está sentado na varanda.',
+            'Nos fundos, perto do lago, há uma bacia de pedra, a *tsukubai*, com quatro caracteres arranjados em volta do buraco quadrado do meio. O quadrado é o radical 口, e cada caractere o usa: lidos com ele, dizem **吾唯足知** — *ware tada taru o shiru*, "eu apenas sei o que basta". É a mesma ideia do jardim, escrita.',
+            'Ninguém sabe quem fez nenhuma das duas coisas. Não há autor, não há data exata, não há texto explicando. O templo nunca ofereceu interpretação oficial, e é por isso que existem dezenas.',
+          ],
+        },
         mapQuery: 'Ryoanji Temple Kyoto',
       },
       {
@@ -675,6 +685,14 @@ export const kyotoDays: Day[] = [
           'Cerca de 1.200 cervos sika soltos. Eles **fazem reverência** quando você levanta o biscoito — comportamento aprendido, passado de geração para geração há séculos. Segurem o biscoito escondido até estar pronta para dar, ou vocês vão ser cercadas. Eles mordiscam bolsa, mapa e casaco.',
           'A razão de estarem ali: a lenda diz que a divindade Takemikazuchi chegou a Nara montado num cervo branco para proteger a nova capital. Até 1637, matar um cervo em Nara era crime capital. Hoje são Monumento Natural Nacional.',
         ],
+        history: {
+          label: 'Um animal que é, oficialmente, um monumento',
+          paragraphs: [
+            'Quando a corte fundou Nara, mandou trazer para cá o deus **Takemikazuchi**, do santuário de Kashima, para proteger a capital nova — e a tradição diz que ele fez a viagem **montado num cervo branco**. Desde então os cervos daqui não são bichos do parque: são *shinroku*, **cervos divinos**, mensageiros do deus do Kasuga Taisha. O *Man\'yōshū*, a antologia de poesia de por volta de **750**, já fala deles pastando aqui.',
+            'Matar um era coisa gravíssima. A história mais contada em Nara é a de um menino que, estudando, atirou um peso de papel num cervo que entrou na sala e o matou sem querer — e foi **enterrado vivo junto com o animal**. O túmulo atribuído a ele ainda está no parque. Verdade ou não, a lenda servia ao propósito de manter todo mundo longe dos cervos.',
+            'Eles perderam o status sagrado na era Meiji, foram caçados quase à extinção e sobraram poucas dezenas no fim do século XIX. Foram protegidos de novo, e hoje são cerca de **1.300**, classificados como **Monumento Natural do Japão** — a mesma categoria de um sítio arqueológico. Continuam sendo animais selvagens: a reverência que fazem pelo biscoito é comportamento aprendido, não domesticação. Eles mordem, chutam e, no outono, os machos têm chifres afiados.',
+          ],
+        },
         mapQuery: 'Nara Park',
       },
       {
@@ -830,7 +848,16 @@ export const kyotoDays: Day[] = [
         paragraphs: [
           'Um salão de madeira de **120 metros** de comprimento com **1.001 estátuas de Kannon** de mil braços, cobertas de folha de ouro, em fileiras. Cada rosto é diferente — a tradição diz que qualquer pessoa encontra ali o rosto de alguém que perdeu. Na frente delas, 28 divindades guardiãs esculpidas com um realismo de tirar o fôlego, incluindo uma com olhos de cristal incrustado.',
           '124 das estátuas são originais de **1164**; as outras 876 foram refeitas no século XIII depois de um incêndio, por uma escola inteira de escultores trabalhando em série. O nome significa "salão de 33 vãos", pelos espaços entre as colunas. Sem fotografia lá dentro — o que, honestamente, melhora a visita.',
+          'Ao sair, deem a volta e olhem a **varanda oeste**, do lado de fora. Aqueles 120 metros de corredor coberto foram, por dois séculos, o campeonato de arco mais insano do Japão — a história está abaixo.',
         ],
+        history: {
+          label: 'O tōshiya: 24 horas atirando debaixo do beiral',
+          paragraphs: [
+            'Do século XVII em diante, arqueiros de todo o país vinham disputar aqui o **tōshiya** (通し矢): atirar de uma ponta à outra da varanda oeste, **120 metros**, sem que a flecha tocasse nada. E é aí que a coisa fica absurda — o vão sob o beiral tem só cerca de **5 metros de altura e 2,36 de largura**. Uma flecha comum, para vencer 120 metros, sobe muito mais que isso. Era preciso um arco durísimo e uma trajetória quase reta, atirando praticamente dentro de um túnel.',
+            'A prova principal era o *ōyakazu*: **vinte e quatro horas seguidas**, contando quantas flechas passavam. Em 27 de abril de **1686**, **Wasa Daihachirō**, do domínio de Kishū, com 24 anos, disparou **13.053 flechas** e acertou a passagem com **8.133** — 62% de aproveitamento, uma flecha a cada seis segundos e meio, dia e noite, sem parar. O recorde nunca foi batido.',
+            'A disputa era entre domínios feudais e virou questão de honra: os senhores bancavam arqueiros profissionais, e quem vencia mandava gravar o nome numa placa dentro do templo. As placas ainda estão lá. Em janeiro o templo ainda faz uma versão simbólica, com moças de vinte anos de quimono atirando num alvo grande — mas a 60 metros, e sem o beiral.',
+          ],
+        },
         mapQuery: 'Sanjusangendo Kyoto',
       },
       {
