@@ -50,8 +50,8 @@ export const START: Record<string, Leg[]> = {
     walk(10, 'saindo, siga o fluxo para o sul até a ponte Gaun-kyō'),
   ],
   'd2026-12-02': [
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro', alight: 'Tokyo', minutes: 2, cost: '¥180' },
-    walk(10, 'saída Marunouchi, atravessa a praça e o fosso até o portão Ōte-mon'),
+    { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro', alight: 'Ochanomizu', minutes: 12, cost: '¥210', note: 'se pularem a manhã opcional, o dia começa direto no curry: Marunouchi até Ōtemachi e baldeação para a Hanzōmon até Jimbōchō' },
+    walk(5, 'saída Hijiribashi; o santuário fica subindo, atrás do Yushima Seidō'),
   ],
   'd2026-12-03': [
     { mode: 'metro', line: 'Hibiya Line', board: 'Ginza', direction: 'Naka-Meguro', alight: 'Tsukiji, saída 1', minutes: 3, cost: '¥180' },
@@ -384,7 +384,8 @@ export const LEGS: Record<string, Leg[]> = {
   ],
 
   // ── 2 dez · Tóquio, último dia inteiro ─────────────────────────────
-  'd02-jardim-imperial': [walk(15, 'saída pelo portão Hirakawamon (noroeste) e reto pela avenida até Jimbōchō; o Bondy fica dentro de um pátio, entrada pela livraria')],
+  'd02-kanda-myojin': [walk(4, 'atravessando a rua para o sul: o muro preto do Yushima Seidō começa ali')],
+  'd02-yushima-seido': [walk(14, 'pela ponte Hijiribashi, passando pela Nikolai-dō, e ladeira abaixo pela Yasukuni-dōri até Jimbōchō; o Bondy fica dentro de um pátio, entrada pela livraria')],
   'd02-jimbocho': [
     { mode: 'metro', line: 'Hanzōmon Line', board: 'Jimbōchō', direction: 'Oshiage', alight: 'Mitsukoshimae, saída B6', minutes: 6, cost: '¥180' },
     walk(2, 'a ponte é logo ao lado do Mitsukoshi'),
