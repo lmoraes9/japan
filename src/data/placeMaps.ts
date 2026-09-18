@@ -2864,13 +2864,13 @@ const kurashiki: PlaceMap = {
 const shibuya: PlaceMap = {
   id: 'shibuya',
   coverHotspotId: 'cruzamento',
-  stopId: 'd22-shibuya-sky',
+  stopId: 'd22-parco',
   dayId: 'd2026-11-22',
   title: 'Shibuya à noite',
   jp: '渋谷の夜',
   subtitle: 'Do rooftop ao cruzamento, e depois às ruelas, quando a cidade acende',
   intro: [
-    'Shibuya é um vale: a estação fica no fundo e as ruas sobem em todas as direções. O plano é ver a cidade **de cima, ao pôr do sol** (Shibuya Sky, reserva das 15h30), descer para o cruzamento já com os letreiros acesos, e terminar nas ruelas de bar de dois metros de largura ao lado dos trilhos.',
+    'Shibuya é um vale: a estação fica no fundo e as ruas sobem em todas as direções. O plano é subir a Center-gai até o **PARCO** no fim da tarde, descer para o cruzamento já com os letreiros acesos, e terminar nas ruelas de bar de dois metros de largura ao lado dos trilhos.',
     'Tudo aqui é a 5 minutos a pé de tudo. Toquem nos pontos para saber o que é cada coisa; a legenda de neon é do próprio lugar.',
   ],
   viewBox: '0 0 360 620',
@@ -2902,17 +2902,17 @@ const shibuya: PlaceMap = {
   ],
   hotspots: [
     {
-      id: 'sky',
-      photoCaption: 'O rooftop do Shibuya Sky, a 230 m, sem vidro.',
-      n: 1, x: 225, y: 480, kind: 'view', label: 'Shibuya Sky', side: 'left',
-      coords: { lat: 35.6584, lng: 139.7022 },
-      title: 'Shibuya Sky — o rooftop sem vidro',
-      jp: '渋谷スカイ',
-      facts: '**10:00–22:30** · ¥2.500 (reservado) · 46º andar, **229 m** · entrada pelo 14º do Scramble Square',
+      id: 'parco',
+      photoCaption: 'O Shibuya PARCO, no alto da Center-gai.',
+      n: 1, x: 96, y: 130, kind: 'sight', label: 'PARCO · 6º andar', side: 'right',
+      coords: { lat: 35.6619, lng: 139.6987 },
+      title: 'Shibuya PARCO — Cyberspace, no 6º',
+      jp: '渋谷パルコ 6F',
+      facts: '**6º andar 10:00–21:00** · **grátis** · no alto da Center-gai, 5 min do cruzamento',
       paragraphs: [
-        'O topo da torre construída em cima da estação (2019): um rooftop aberto, sem vidro, só com uma parede transparente baixa e a cidade em volta a 360°. Vê-se o cruzamento lá embaixo como um formigueiro, a Tokyo Tower, a Skytree, o Shinjuku de arranha-céus, e, com o ar seco de novembro, o **Fuji** no horizonte a oeste, exatamente onde o sol se põe.',
-        'A entrada das 15h30 pega tudo: cidade de dia, o sol descendo atrás do Fuji (~16h28), o azul e depois os letreiros acendendo. Fiquem os 60–90 minutos. Casaco: lá em cima venta. Bolsas vão para o armário (obrigatório), celular preso na mão.',
-        'A saída passa por um andar fechado, o Sky Gallery, com vista para o norte e um bar. Não tem pressa: o cruzamento não vai a lugar nenhum.',
+        'Um andar inteiro de loja-conceito de videogame e mangá: **Nintendo TOKYO** (a primeira loja oficial da Nintendo no Japão), **Pokémon Center SHIBUYA**, **CAPCOM STORE** e **JUMP SHOP**, lado a lado.',
+        'Domingo é o dia cheio, e a Nintendo TOKYO às vezes controla a entrada por senha de horário. Se houver fila, peguem a senha e usem a espera nas outras três — elas ficam no mesmo andar.',
+        'Daqui se desce a Center-gai a pé até o cruzamento, cinco minutos, chegando com os letreiros já acesos.',
       ],
     },
     {

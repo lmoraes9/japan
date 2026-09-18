@@ -78,7 +78,9 @@ O script recusa foto cujo nome de arquivo não cite o lugar — é o que evita "
 
 As frases de busca ficam em `scripts/photo-queries.json`: se a foto escolhida para um ponto não agradar, edite a busca daquele ponto e rode de novo com `--force`. Para usar foto própria, basta salvar por cima do arquivo em `public/lugares/...` (aí o crédito continua sendo o da foto anterior — apague a entrada no arquivo gerado se quiser sem crédito).
 
-Sem rodar o script o app funciona igual, só não mostra foto nenhuma. As fotos entram no cache offline depois que a página é aberta uma vez com internet.
+Sem rodar o script o app funciona igual, só não mostra foto nenhuma.
+
+As fotos **entram no precache do service worker**: o Serwist glob `public/**` por padrão, então cada foto e cada miniatura viram uma entrada do manifesto e o celular baixa todas na primeira visita com internet — não sob demanda. Hoje são 1014 arquivos, 90 MB dos 100 MB do precache. É o que garante o roteiro ilustrado offline no Japão, mas cobra o preço na instalação: se o número de fotos por parada crescer, vale medir de novo (`EXTRAS_POR_PARADA`, em `scripts/fetch-place-photos.mjs`).
 
 ## Estrutura
 

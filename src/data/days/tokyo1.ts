@@ -91,27 +91,60 @@ export const tokyo1Days: Day[] = [
     date: '2026-11-19',
     stageId: 'tokyo1',
     title: 'Edo antigo: Asakusa → Kappabashi → Ueno → Akihabara',
-    subtitle: 'O jet lag joga a favor. Acordar às 5h30 e chegar no templo mais antigo da cidade vazio.',
+    subtitle: 'Café cedo em Asakusa, o templo mais antigo da cidade ainda vazio, e sair dele quando a Nakamise acorda.',
     chips: ['história', 'facas', 'ramen', 'museu', 'compras do dia 1'],
     notes: [
       {
         label: 'Compras dos primeiros dias — resolve tudo hoje',
         tone: 'ok',
-        text: 'O trajeto de hoje passa exatamente onde se resolve o kit de chegada, cada coisa no seu horário:\n\n**15:30 · Camisetas e tênis** — na parada da Ameyoko: London Sports, Mita Sneakers e ABC-Mart para tênis; UNIQLO Okachimachi / GU a um quarteirão para as camisetas da semana.\n\n**17:45 · Óculos de grau** — parada própria em Akihabara: exame grátis na hora, óculos pronto enquanto vocês fecham as lojas de Magic, retirada antes do jantar. Detalhes lá embaixo e na seção Compras.',
+        text: 'O trajeto de hoje passa exatamente onde se resolve o kit de chegada, cada coisa no seu horário:\n\n**15:30 · Camisetas e tênis** — na parada da Ameyoko: London Sports, Mita Sneakers e ABC-Mart para tênis; UNIQLO Okachimachi / GU a um quarteirão para as camisetas da semana.\n\n**17:45 · Óculos de grau** — parada própria em Akihabara: exame grátis na hora, óculos pronto enquanto vocês varrem o resto do bairro, retirada antes do jantar. Detalhes lá embaixo e na seção Compras.',
       },
     ],
     stops: [
       {
+        id: 'd19-kuramae',
+        time: '07:00',
+        timeLabel: 'café',
+        kind: 'food',
+        name: 'Café da manhã em Asakusa, antes do templo',
+        facts: 'Saindo de Kabukichō ~06:50 · Shinjuku → Asakusa **~40 min**',
+        paragraphs: [
+          'O café vem **antes** do templo de propósito: as barracas da Nakamise só levantam a porta às 09:00, e não faz sentido chegar ao Sensō-ji cedo demais para ter de sair justamente quando ele fica interessante.',
+        ],
+        eat: [
+          {
+            label: 'Abrem cedo, a poucos minutos do Kaminarimon',
+            items: [
+              {
+                name: 'Kissaten Tomorrow',
+                specialty: true,
+                note: '**abre 06:30** · conjunto de café da manhã a partir de **¥740**: torrada com ovo, ou onigiri, com bebida. É *kissaten* de verdade — o café antigo japonês, de balcão de fórmica e cadeira de veludo. Chegando 07:40 vocês comem sem pressa e entram no templo às 08:00.',
+              },
+              {
+                name: 'MISOJYU',
+                note: 'sopa de missô artesanal com onigiri — café da manhã japonês de verdade, se quiserem começar o dia pelo lado salgado. Confiram o horário de abertura na porta.',
+              },
+              {
+                name: 'Konbini, se atrasarem',
+                note: 'o 7-Eleven do lado do hotel resolve em três minutos e conta como parada da checklist de konbini. Comer no trem é perfeitamente normal aqui — só não coma andando na rua.',
+              },
+            ],
+          },
+        ],
+        mapQuery: 'Kissaten Tomorrow Asakusa',
+      },
+      {
         id: 'd19-sensoji',
         placeMapId: 'sensoji',
-        time: '06:30',
+        time: '08:00',
         timeLabel: 'templo',
         kind: 'temple',
         name: 'Sensō-ji',
         jp: '浅草寺',
-        facts: 'Pátio **24h** · salão principal **06:00–17:00** · **grátis** · Asakusa Stn',
+        facts: 'Pátio **24h** · salão principal **06:00–17:00** · **grátis** · Asakusa Stn · **as barracas da Nakamise abrem 09:00**',
         paragraphs: [
-          'Às 6h30 a rua Nakamise está com as portas de aço fechadas e pintadas — e a pintura é linda. Vocês vão ter o Kaminarimon e o pagode de cinco andares praticamente só para vocês. Às 9h isso aqui é uma multidão.',
+          'Às 8h o pátio ainda está quase vazio e a luz entra baixa por trás do pagode — vocês têm o Kaminarimon quase só para vocês. Às 9h e meia isto aqui é uma multidão.',
+          'Fiquem **até umas 09:15**: por volta das 09:00 as portas de aço pintadas da Nakamise sobem uma a uma e a rua vira o que ela é de verdade, com o cheiro de senbei na chapa e os doces saindo quentes. Sair antes disso é ver só metade do lugar.',
         ],
         history: {
           paragraphs: [
@@ -128,30 +161,6 @@ export const tokyo1Days: Day[] = [
         mapQuery: 'Sensoji Temple Asakusa',
       },
       {
-        id: 'd19-kuramae',
-        time: '08:15',
-        timeLabel: 'café',
-        kind: 'food',
-        name: 'Café da manhã em Kuramae',
-        eat: [
-          {
-            label: 'Duas opções a 10 min a pé',
-            items: [
-              {
-                name: 'Pelican Café',
-                note: '09:00–17:00, fecha dom · a padaria Pelican existe desde 1942 e faz só dois produtos: pão de forma e pão doce. O café ao lado torra esse pão na brasa. É simples e é memorável.',
-              },
-              {
-                name: 'Kagetsudō',
-                specialty: true,
-                note: '09:00–16:00 · o melonpan gigante de Asakusa, ¥250, para comer na hora',
-              },
-            ],
-          },
-        ],
-        mapQuery: 'Pelican Cafe Kuramae Tokyo',
-      },
-      {
         id: 'd19-kappabashi',
         time: '09:30',
         timeLabel: 'compras',
@@ -160,6 +169,7 @@ export const tokyo1Days: Day[] = [
         jp: 'かっぱ橋道具街',
         facts: 'Maioria **09:00–17:00** · muitas lojas fecham domingo · 800 m de rua',
         paragraphs: [
+          'Saindo do templo, parem no **Kagetsudō** (abre 09:00) pelo melonpan gigante de ¥250 e venham comendo pelo caminho — são 10 minutos a pé até aqui. A fila do Kagetsudō começa por volta das 10:00 e ele fecha quando acaba, então 09:15 é a hora exata.',
           'A rua de utensílios que abastece todo restaurante de Tóquio. É aqui que vocês compram **facas japonesas** — e onde a loja afia e grava o nome de vocês em japonês na lâmina, geralmente de graça.',
           '**Qual comprar:** um *gyuto* de 210 mm resolve 90% da cozinha; um *petty* de 150 mm resolve o resto. Aço carbono corta melhor e enferruja se você deixar molhado — inox (VG-10, SG2) é mais realista para o dia a dia. **Faca vai despachada, nunca na bagagem de mão.**',
         ],
@@ -261,7 +271,11 @@ export const tokyo1Days: Day[] = [
               },
               {
                 name: 'UNIQLO Okachimachi / GU',
-                note: 'a um quarteirão · camisetas para os primeiros dias (GU a ¥590–990). A compra grande de Muji/Uniqlo continua sendo sábado em Ginza.',
+                note: 'a um quarteirão · camisetas para os primeiros dias (GU a ¥590–990), e **meias** — vale levar um pacote hoje para testar durante a viagem antes de comprar pesado.',
+              },
+              {
+                name: 'MUJI — Ueno Marui, B2',
+                note: '2 min da estação de Ueno, 7 da de Okachimachi, na ponta norte da Ameyoko. Serve para o mesmo teste de hoje: **meias**, uma camiseta, o básico. A compra grande de MUJI/UNIQLO continua sendo sábado em Ginza, nas lojas-mãe.',
               },
             ],
           },
@@ -287,8 +301,17 @@ export const tokyo1Days: Day[] = [
             label: 'O resto de Akihabara que interessa a vocês',
             items: [
               {
-                name: 'Hareruya / BIG MAGIC / Card Kingdom',
-                note: 'as três maiores lojas de Magic do Japão ficam num raio de 400 m. Singles em japonês são mais baratos e, em várias cartas, a arte alternativa só existe em japonês.',
+                name: 'Akihabara Gachapon Kaikan',
+                specialty: true,
+                note: '**400 a 500 máquinas de gachapon** empilhadas em quatro fileiras do chão ao teto, funcionando há mais de 20 anos — é o lugar icônico disso em Akihabara. De **¥200 a ¥600** a cápsula, e leve moeda de ¥100: parte das máquinas não troca nota. Tem vitrine com cápsulas antigas à venda por colecionador, para quem quer uma específica sem depender da sorte.',
+              },
+              {
+                name: 'Kotobukiya Akihabara',
+                note: '**5 andares** da fabricante, com as linhas dela e de terceiros, kits de montar e edição limitada. É a parada certa se quiserem uma figure **nova** e bem embalada para levar de presente.',
+              },
+              {
+                name: 'Animate Akihabara',
+                note: 'a maior rede de anime do Japão: mangá, figure, produto de personagem e andar de evento. Menos raridade que o Mandarake, mais variedade do que está em alta agora.',
               },
               {
                 name: 'Super Potato',
@@ -318,7 +341,7 @@ export const tokyo1Days: Day[] = [
         facts: '**10:00–20:00** · Sotokanda 1-15-16, na saída Electric Town · 10 andares de lojas de hobby',
         paragraphs: [
           'É aqui que tudo começa: no primeiro episódio de Steins;Gate, a "máquina do tempo" aparece **cravada no topo deste prédio** — e o Radio Kaikan virou o ponto de peregrinação da série. O prédio original era de 1962, o berço da cultura eletrônica/otaku de Akihabara; foi reconstruído e reaberto em 2014, mas continua sendo O marco do bairro. Tirem a foto da fachada olhando para o topo. El Psy Kongroo.',
-          'Por dentro são 10 andares de lojas de figure e hobby — **AmiAmi** (preço de loja online para figures novas), Kaiyodo, K-Books, Yellow Submarine (cartas). Vale uma volta rápida de reconhecimento; a missão de figures usadas continua sendo o Mandarake no dia 2/12.',
+          'Por dentro são 10 andares de loja de figure e hobby — **AmiAmi** (preço de loja online para figures novas), **Kaiyodo** (a casa dos esculpidos caprichados) e **K-Books**. É aqui, ou no Kotobukiya logo ali, que sai a figure do Henrique: nova, lacrada e com caixa, que é o que sobrevive à mala. O Mandarake, no dia 2/12, é para figure **usada** — mais barata e às vezes fora de catálogo, mas a caixa costuma estar amassada.',
         ],
         mapQuery: 'Akihabara Radio Kaikan',
       },
@@ -345,7 +368,7 @@ export const tokyo1Days: Day[] = [
         facts: 'Exame **grátis, ~10 min, sem receita** · armação + lentes desde **¥5.900–8.000** (≈ R$210–290) · pronto em **30–60 min** · tax-free',
         paragraphs: [
           'O "lugar que mede o grau e faz na hora" é isto: as redes **JINS, Zoff e OWNDAYS** fazem exatamente esse serviço, e há loja aqui em Akihabara — a **JINS fica no Atré, colado na saída da estação**, e a **OWNDAYS na Chūō-dōri**. Levem o óculos atual para calibrar.',
-          'A jogada: façam o exame **agora**, escolham a armação, e deixem fazendo enquanto vocês terminam Super Potato e as lojas de Magic. Retirem ~18:45 e sigam para o jantar de óculos novo.',
+          'A jogada: façam o exame **agora**, escolham a armação, e deixem fazendo enquanto vocês terminam o Super Potato e o Gachapon Kaikan. Retirem ~18:45 e sigam para o jantar de óculos novo.',
           'Grau muito alto pode pedir lente fina (custo extra) ou uns dias de espera — por isso este stop está no dia 19: sobra viagem inteira para retirar. **Plano B:** as três redes têm lojas em Shinjuku, perto do hotel, abertas até ~21h — o botão Navegar acha a mais próxima de onde estiverem.',
         ],
         mapQuery: 'JINS Atre Akihabara',
@@ -629,28 +652,32 @@ export const tokyo1Days: Day[] = [
         time: '11:45',
         timeLabel: 'almoço',
         kind: 'food',
-        name: 'Almoço em Ginza',
+        name: 'Almoço em Ginza — o katsu sando',
+        facts: 'O Shima **costuma acabar antes das 14h** · ir direto, antes das lojas',
+        paragraphs: [
+          'O almoço aqui é o sanduíche, não um restaurante: peguem o katsu sando no balcão do **Shima** e comam nos Jardins Hamarikyū ou num banco da Namiki-dōri. Sai por uma fração do sushi de balcão de Ginza e é o que vocês vão lembrar.',
+        ],
         eat: [
           {
-            label: 'De acessível a especial',
+            label: 'O plano, e o plano B',
             items: [
               {
-                name: 'Ginza Kagari',
-                note: '11:00–21:30 · *tori-paitan* soba: caldo de frango batido até virar creme. Um dos ramens mais famosos do Japão. Fila de 30–60 min, ~¥1.200.',
-              },
-              {
-                name: 'Ginza Satō Yōsuke',
-                note: '11:00–21:00 · udon *inaniwa* de Akita, finíssimo, estirado à mão. Calmo, elegante, ~¥1.800.',
-              },
-              {
-                name: 'Kyūbey',
+                name: 'Shima — o katsu sando de wagyu',
                 specialty: true,
-                note: '11:30–14:00 / 17:00–22:00, fecha dom · sushi de balcão clássico desde 1935 — o nigiri Edomae nasceu em Tóquio. Almoço a partir de ~¥8.000, jantar bem mais. Reserva obrigatória.',
+                note: 'casa antiga de yōshoku em Ginza que vende, no balcão da frente, **carne wagyu empanada** entre duas fatias grossas de pão de leite, com mostarda e molho tonkatsu. Só para viagem, feito em quantidade limitada e **costuma acabar antes das 14h** — por isso vir agora, não depois das compras.',
+              },
+              {
+                name: 'Depachika do Mitsukoshi — se o Shima já acabou',
+                note: 'no subsolo do Mitsukoshi tem **gyūkatsu sando** de casa de carne por **¥1.500–3.000**, a versão sensata do mesmo sanduíche. E o depachika inteiro é um museu de comida de graça.',
+              },
+              {
+                name: 'Ginza Kagari — se quiserem sentar e comer quente',
+                note: '11:00–21:30 · *tori-paitan* soba: caldo de frango batido até virar creme. Um dos ramens mais famosos do Japão. Fila de 30–60 min, ~¥1.200.',
               },
             ],
           },
         ],
-        mapQuery: 'Ginza Kagari ramen',
+        mapQuery: 'Shima Ginza katsu sando',
       },
       {
         id: 'd21-ginza',
@@ -690,7 +717,7 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Shima — o katsu sando de carne, para viagem',
                 specialty: true,
-                note: 'Casa antiga de yōshoku em Ginza que vende, no balcão da frente, um sanduíche de **carne wagyu empanada** entre duas fatias grossas de pão de leite, com mostarda e molho tonkatsu. Só para viagem, feito em quantidade limitada e **costuma acabar antes das 14h**. Se passarem antes, comprem e comam no terraço do KITTE às 17:00.',
+                note: 'Casa antiga de yōshoku em Ginza que vende, no balcão da frente, um sanduíche de **carne wagyu empanada** entre duas fatias grossas de pão de leite, com mostarda e molho tonkatsu. Só para viagem, feito em quantidade limitada e **costuma acabar antes das 14h**. É o almoço de hoje — está na parada das 11:45, venham aqui antes das lojas.',
               },
             ],
           },
@@ -722,23 +749,42 @@ export const tokyo1Days: Day[] = [
         timeLabel: 'jantar',
         kind: 'food',
         name: 'Jantar na estação',
+        facts: '**Não precisa de bilhete** para nenhum dos dois — ver abaixo',
+        paragraphs: [
+          '**Respondendo à dúvida:** não se paga nada para entrar. O Tokyo Ramen Street fica no B1 do First Avenue, **do lado de fora das catracas**, logo depois da saída Yaesu Subterrânea Central; e o Nemuro Hanamaru fica no KITTE, que é outro prédio, do lado Marunouchi. O que exige bilhete (ou um *nyūjōken* de ~¥150) é a **GRANSTA**, o corredor de lojas que fica **dentro** da área paga — se vocês virem catraca, é porque entraram na parte errada.',
+        ],
         eat: [
           {
-            label: 'Duas ideias, ambas no subsolo/andares da estação',
+            label: 'Duas ideias, as duas fora da catraca',
             items: [
               {
-                name: 'Tokyo Ramen Street — B1',
+                name: 'Nemuro Hanamaru — KITTE 5º andar',
                 specialty: true,
-                note: '11:00–23:00 · oito casas selecionadas. **Rokurinsha** é o tsukemen mais famoso do Japão (fila de 40 min); **Soranoiro** faz uma versão vegetal excelente.',
+                note: '11:00–22:00 · **o sushi de esteira que vale a pena**: kaiten de Hokkaidō, peixe muito acima da média para um giratório, ¥150–500 o par. Peguem senha na entrada. É subir do terraço do KITTE, onde vocês já vão estar às 17:00.',
               },
               {
-                name: 'Nemuro Hanamaru — KITTE 5º andar',
-                note: '11:00–22:00 · kaiten-zushi de Hokkaidō. Peixe muito acima da média para um esteira, ¥150–500 o par. Peguem senha na entrada.',
+                name: 'Tokyo Ramen Street — B1 do First Avenue',
+                note: '11:00–23:00 · oito casas selecionadas. **Rokurinsha** é o tsukemen mais famoso do Japão (fila de 40 min); **Soranoiro** faz uma versão vegetal excelente. Fica do outro lado da estação, no lado Yaesu.',
               },
             ],
           },
         ],
-        mapQuery: 'Tokyo Ramen Street Tokyo Station',
+        mapQuery: 'Nemuro Hanamaru KITTE Marunouchi',
+      },
+      {
+        id: 'd21-bar-triad',
+        time: '20:30',
+        timeLabel: 'drinque',
+        kind: 'food',
+        name: 'Bar TRIAD, em Ebisu',
+        jp: 'バー トライアド',
+        facts: '**19:00–02:00 · fecha domingo e segunda** · 4º andar do Uchino Building, Ebisu-Nishi 1-4-1 · ~5 min a pé da estação de Ebisu',
+        paragraphs: [
+          'Apesar de ser endereço de Shibuya-ku, o TRIAD fica em **Ebisu**, não no Shibuya do cruzamento — são duas paradas da Yamanote a partir de Shibuya, e da Estação de Tóquio dá uns 20 minutos pela mesma linha.',
+          'Abriu em 2017 como a terceira casa do Bar Tram, e é a mais descontraída e a maior das três. O nome é o acorde de três notas — a ideia é a harmonia entre gente, bebida e música. O forte são os clássicos bem-feitos e os coquetéis com licor de ervas, e **dá para pedir mais doce ou mais forte**, o que resolve a vida de quem não é de bar de coquetel.',
+          'Está hoje porque hoje é **sábado**: eles fecham domingo e segunda, e o domingo é justamente o dia de Shibuya no roteiro.',
+        ],
+        mapQuery: 'Bar TRIAD Ebisu Nishi Shibuya',
       },
     ],
   },
@@ -832,7 +878,7 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'WAGYUMAFIA The Cutlet Sandwich — Nakameguro',
                 specialty: true,
-                note: 'É **este** o sanduíche dos vídeos: lombo de wagyu empanado por segundos, rosa por dentro, molho de três shoyus, pão tostado na manteiga, servido de pé num balcão de 4 lugares. Fica em Nakameguro, **2 paradas de Shibuya** pela Tōkyū Tōyoko: encaixa antes ou depois do Shibuya Sky. **O preço é o problema:** de **¥5.000** (Ozaki sirloin) a ¥35.000 (Kobe maturado) o sanduíche, para uma pessoa. Vale se for tratado como o programa do dia, não como almoço.',
+                note: 'É **este** o sanduíche dos vídeos: lombo de wagyu empanado por segundos, rosa por dentro, molho de três shoyus, pão tostado na manteiga, servido de pé num balcão de 4 lugares. Fica em Nakameguro, **2 paradas de Shibuya** pela Tōkyū Tōyoko: encaixa antes ou depois da tarde em Shibuya. **O preço é o problema:** de **¥5.000** (Ozaki sirloin) a ¥35.000 (Kobe maturado) o sanduíche, para uma pessoa. Vale se for tratado como o programa do dia, não como almoço.',
               },
               {
                 name: 'A alternativa honesta — o gyūkatsu sando de depachika',
@@ -870,21 +916,43 @@ export const tokyo1Days: Day[] = [
         mapQuery: 'Meiji Jingu Gaien Ginkgo Avenue',
       },
       {
-        id: 'd22-shibuya-sky',
+        id: 'd22-parco',
         placeMapId: 'shibuya',
         time: '16:00',
-        timeLabel: 'vista',
-        kind: 'view',
-        name: 'Shibuya Sky',
-        jp: '渋谷スカイ',
-        facts: '**10:00–22:30** (última entrada 21:20) · ¥2.500 · **reservem online com antecedência** · pôr do sol ~16:28',
+        timeLabel: 'lojas',
+        kind: 'shopping',
+        name: 'Shibuya PARCO — o 6º andar inteiro',
+        jp: '渋谷パルコ 6F',
+        facts: '**6º andar 10:00–21:00** · **grátis** · 5 min a pé do cruzamento, subindo a Center-gai',
         paragraphs: [
-          'Rooftop aberto no 46º andar, sem vidro. Reservem a faixa das **15:30–16:00** para pegar o dia, o pôr do sol e a cidade acendendo — é a mesma entrada. Com tempo seco de novembro, o Fuji aparece no horizonte oeste com frequência.',
+          'O 6º andar do PARCO chama-se **Cyberspace Shibuya** e é um andar só de loja-conceito de videogame e mangá — quatro marcas que não têm loja própria em quase lugar nenhum do mundo, lado a lado. Não é vitrine de shopping: cada uma é a loja-carro-chefe da marca no Japão.',
+          'É de graça, é coberto, e às 17:30 vocês descem os cinco minutos até o cruzamento com os letreiros já acesos — que era o ponto do fim de tarde aqui.',
         ],
-        links: [
-          { label: 'reservas', url: 'https://www.shibuya-scramble-square.com/sky/' },
+        eat: [
+          {
+            label: 'As quatro lojas do andar',
+            items: [
+              {
+                name: 'Nintendo TOKYO',
+                specialty: true,
+                note: 'a **primeira loja oficial da Nintendo no Japão** (2019). Produto exclusivo que não sai daqui, do Mario ao Splatoon, e um Pikachu e um Mario em tamanho real na entrada. Nos fins de semana pode haver senha de entrada por horário — é o dia 22, domingo, então cheguem preparados para isso.',
+              },
+              {
+                name: 'Pokémon Center SHIBUYA',
+                note: '10:00–21:00 · a entrada é um portal estilo Sala de Batalha, com um Mewtwo suspenso. Vocês já veem o **Pokémon Center de Hiroshima no dia 23** — se quiserem guardar as compras para lá, aqui dá para só olhar.',
+              },
+              {
+                name: 'CAPCOM STORE TOKYO',
+                note: 'Street Fighter, Monster Hunter, Resident Evil. Tem máquina de garra com pelúcia exclusiva.',
+              },
+              {
+                name: 'JUMP SHOP',
+                note: 'a loja da Shonen Jump: One Piece, Dragon Ball, Jujutsu Kaisen, Demon Slayer. É onde se acha a camiseta que ninguém mais tem.',
+              },
+            ],
+          },
         ],
-        mapQuery: 'Shibuya Sky',
+        mapQuery: 'Shibuya PARCO',
       },
       {
         id: 'd22-cruzamento',

@@ -19,7 +19,7 @@ export default function IngressosPage() {
     <div className="space-y-5">
       <SubpageHeader title="Ingressos e reservas" subtitle="O que precisa ser comprado antes, o que só convém, e o que é chegar e entrar" />
       <div className="rounded-2xl border border-hairline bg-surface-2/70 p-3.5 text-[13px] leading-relaxed">
-        Conferido em setembro de 2026. Três coisas realmente esgotam: <strong>Shibuya Sky</strong> (abre 14 dias antes, some em minutos), os <strong>assentos de Shinkansen</strong> no fim de novembro, e o <strong>Torokko</strong> se decidirem fazer. O resto é fila, não falta de vaga.
+        Conferido em setembro de 2026. Duas coisas realmente esgotam: os <strong>assentos de Shinkansen</strong> no fim de novembro e o <strong>Torokko</strong>, se decidirem fazer. O <strong>tour noturno do Okunoin</strong> não esgota em minutos, mas lota de março a novembro — reservem cedo. O resto é fila, não falta de vaga.
       </div>
       {ORDER.map((status) => {
         const items = INGRESSOS.filter((i) => i.status === status).sort((a, b) => a.date.localeCompare(b.date));

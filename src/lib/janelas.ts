@@ -31,7 +31,7 @@ export function faltam(minutes: number): string {
 }
 
 /**
- * As compras com hora marcada (Shinkansen, Shibuya Sky, Torokko…), com o
+ * As compras com hora marcada (Shinkansen, Torokko…), com o
  * estado de cada uma. `checklist` é o mapa de itens marcados: uma janela cujo
  * item da checklist já foi marcado sai da lista.
  */

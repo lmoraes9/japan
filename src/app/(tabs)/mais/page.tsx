@@ -35,7 +35,7 @@ const ITEMS = [
     href: '/mais/ingressos',
     icon: TicketCheck,
     title: 'Ingressos e reservas necessárias',
-    subtitle: 'O que esgota (Shibuya Sky, Shinkansen), o que convém comprar antes e o que é só chegar',
+    subtitle: 'O que esgota (Shinkansen, Torokko), o que convém comprar antes e o que é só chegar',
   },
   {
     href: '/mais/hoteis',

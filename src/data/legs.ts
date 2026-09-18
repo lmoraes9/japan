@@ -71,8 +71,8 @@ export const LEGS: Record<string, Leg[]> = {
   'd18-konbini': [walk(3, 'de volta ao hotel')],
 
   // ── 19 nov · Asakusa, Ueno, Akihabara ─────────────────────────────
-  'd19-sensoji': [walk(15, 'para o sul pela Edo-dōri, ou pela beira do rio Sumida')],
-  'd19-kuramae': [walk(20, 'pela Asakusa-dōri para o oeste; a rua das panelas começa no cozinheiro gigante do prédio Niimi')],
+  'd19-kuramae': [walk(6, 'para o norte até o Kaminarimon — a lanterna vermelha gigante é impossível de errar')],
+  'd19-sensoji': [walk(10, 'saindo pela Nakamise, passa no Kagetsudō pelo melonpan e segue pela Asakusa-dōri para o oeste; a rua das panelas começa no cozinheiro gigante do prédio Niimi')],
   'd19-kappabashi': [
     walk(5, 'até a estação Tawaramachi'),
     { mode: 'metro', line: 'Ginza Line', board: 'Tawaramachi', direction: 'Shibuya', alight: 'Ueno', minutes: 4, cost: '¥180', note: 'ou 20 min a pé pela Asakusa-dōri, se as pernas estiverem boas' },
@@ -123,7 +123,11 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd21-kitte': [walk(8, 'atravessa a estação pelo corredor livre até o lado Yaesu; a Ramen Street fica no sub-solo (First Avenue)')],
   'd21-jantar-estacao': [
-    { mode: 'train', line: 'JR Chūō (rápido)', board: 'Tokyo, plataformas 1 e 2 (as de cima)', direction: 'Shinjuku · Takao', alight: 'Shinjuku', minutes: 14, cost: '¥210' },
+    { mode: 'train', line: 'JR Yamanote', board: 'Tokyo', direction: 'Shinagawa · Shibuya', alight: 'Ebisu', minutes: 20, cost: '¥210' },
+    walk(5, 'saída oeste; o Uchino Building fica na Ebisu-Nishi, e o bar é no 4º andar'),
+  ],
+  'd21-bar-triad': [
+    { mode: 'train', line: 'JR Yamanote', board: 'Ebisu', direction: 'Shibuya · Shinjuku', alight: 'Shinjuku', minutes: 11, cost: '¥180', note: 'passa da meia-noite? O último trem da Yamanote sai por volta de 00:30; depois disso é táxi' },
     walk(5, 'até o hotel'),
   ],
 
@@ -138,9 +142,9 @@ export const LEGS: Record<string, Leg[]> = {
   'd22-gaien': [
     walk(5, 'de volta à estação Gaienmae'),
     { mode: 'metro', line: 'Ginza Line', board: 'Gaienmae', direction: 'Shibuya', alight: 'Shibuya (final)', minutes: 6, cost: '¥180' },
-    walk(5, 'o Scramble Square é o prédio da própria estação; a bilheteria do Sky fica no 14º andar, elevador dedicado'),
+    walk(7, 'saída Hachikō, atravessa o cruzamento e sobe a Center-gai; o PARCO fica no fim dela, à direita'),
   ],
-  'd22-shibuya-sky': [walk(3, 'desce ao térreo, saída Hachikō, e o cruzamento está na frente')],
+  'd22-parco': [walk(5, 'desce a Center-gai de volta; o cruzamento está no fim dela')],
   'd22-cruzamento': [walk(5, 'o Mark City é o prédio colado à saída oeste da estação (o sushi fica no 4º)')],
   'd22-jantar': [
     { mode: 'train', line: 'JR Yamanote', board: 'Shibuya', direction: 'Shinjuku · Ikebukuro', alight: 'Shinjuku', minutes: 7, cost: '¥170' },
