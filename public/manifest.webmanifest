@@ -4,7 +4,7 @@
   "description": "Roteiro de viagem · 18 nov – 3 dez 2026 · Priscila & Leonardo",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "any",
   "background_color": "#f6f5f2",
   "theme_color": "#c2402a",
   "lang": "pt-BR",

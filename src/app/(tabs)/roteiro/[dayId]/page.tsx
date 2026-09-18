@@ -46,7 +46,7 @@ export default async function DayPage({
 
   return (
     <div className="space-y-4">
-      <header className="relative -mx-4 -mt-3 overflow-hidden bg-surface-2" style={{ minHeight: cover ? 250 : undefined }}>
+      <header className={`relative -mx-4 -mt-3 overflow-hidden bg-surface-2 ${cover ? 'min-h-[250px] deitado:min-h-[176px]' : ''}`}>
         {cover && (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={cover.src} alt="" fetchPriority="high" className="photo-in absolute inset-0 h-full w-full object-cover" />
@@ -82,7 +82,7 @@ export default async function DayPage({
             Ver no mapa
           </Link>
         </div>
-        <div className="relative px-4 pb-4 pt-16 text-white">
+        <div className="relative px-4 pb-4 pt-16 text-white deitado:pt-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">
             {stage.name} · {dateLabel}
           </p>
