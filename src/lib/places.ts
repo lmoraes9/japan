@@ -49,3 +49,37 @@ export function itemPhotosUrl(itemName: string, stopId: string, dayId: string): 
 export function itemMapsUrl(itemName: string, stopId: string, dayId: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(itemQuery(itemName, stopId, dayId))}`;
 }
+
+/**
+ * A mesma cidade das buscas acima, mas escrita para aparecer na tela — em
+ * português e sem o bairro que só serve para desambiguar o Google.
+ */
+const CIDADE_DO_DIA: Record<string, string> = {
+  'd2026-11-18': 'Tóquio',
+  'd2026-11-19': 'Tóquio',
+  'd2026-11-20': 'Kamakura',
+  'd2026-11-21': 'Tóquio',
+  'd2026-11-22': 'Tóquio',
+  'd2026-11-23': 'Hiroshima',
+  'd2026-11-24': 'Miyajima',
+  'd2026-11-25': 'Osaka',
+  'd2026-11-26': 'Osaka',
+  'd2026-11-27': 'Kyoto',
+  'd2026-11-28': 'Kyoto',
+  'd2026-11-29': 'Kyoto',
+  'd2026-11-30': 'Nara',
+  'd2026-12-01': 'Kyoto',
+  'd2026-12-02': 'Tóquio',
+  'd2026-12-03': 'Tóquio',
+};
+
+/** paradas cuja cidade difere da cidade-base do dia */
+const CIDADE_DA_PARADA: Record<string, string> = {
+  'd25-almoco-kurashiki': 'Kurashiki',
+  'd26-jantar-shojin': 'Kōyasan',
+  'd27-almoco': 'Osaka',
+};
+
+export function cidadeDe(stopId: string, dayId: string): string {
+  return CIDADE_DA_PARADA[stopId] ?? CIDADE_DO_DIA[dayId] ?? 'Japão';
+}
