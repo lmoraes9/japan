@@ -126,15 +126,63 @@ export const tokyo2Days: Day[] = [
         mapQuery: 'Nihonbashi Bridge Tokyo',
       },
       {
-        id: 'd02-akihabara-missoes',
+        id: 'd02-switch2',
         time: '14:30',
+        timeLabel: 'compras',
+        kind: 'shopping',
+        name: 'Nintendo Switch 2 — a edição de 40 anos de Zelda',
+        jp: 'ゼルダの伝説 40周年 アニバーサリーエディション',
+        facts: 'Yodobashi-Akiba **09:30–22:00** · **¥62.980** com imposto · saiu **29/out**, edição limitada · **leiam o aviso antes de pagar**',
+        paragraphs: [
+          'Existem **dois Nintendo Switch 2 diferentes** no Japão, e a edição de Zelda só existe na versão que provavelmente não é a que vocês querem. Vale entender isso antes de entrar na loja, porque não tem volta depois.',
+          'O que está nas prateleiras da Yodobashi, da Bic e de toda loja japonesa é o **Nintendo Switch 2 日本語・国内専用** — "japonês, só para uso doméstico". O idioma do sistema é **japonês e ponto**: não existe opção de trocar, nunca. Só dá para vincular conta Nintendo com país definido como **Japão**, então a eShop é a japonesa. A Nintendo pede que ele **não seja usado fora do Japão**, não dá garantia no exterior, e diz que **não garante** que cartuchos comprados fora funcionem nele (quem testou relata que funcionam, mas isso é relato, não promessa).',
+          'A outra versão, o **multi-idioma** (¥69.980), essa sim faz tudo — e é vendida **só pela loja oficial da Nintendo**, não nas lojas de rua. Só que ela **não existe no desenho de Zelda**. Ou seja: no Japão não dá para ter as duas coisas.',
+          'Fora do Japão a história é outra: lá a edição de 40 anos **é** o console normal, multi-idioma (US$ 519,99 nos EUA). Então a escolha é essa — **o desenho de Zelda aqui, com um console em japonês para sempre**, ou o mesmo desenho comprado lá fora, funcionando em português. Se o Switch 2 for para jogar em casa no dia a dia, comprem fora. Se for peça de coleção que vocês querem por ter vindo do Japão, aí o japonês faz sentido.',
+          'Sobre achar: ela saiu em **29 de outubro** e as reservas já esgotavam em setembro. No dia 2 de dezembro isto é **caça, não compra** — confiram estoque no Yodobashi.com e no BicCamera.com **antes** de sair do hotel, e se aparecer em qualquer loja em qualquer dia da viagem, comprem na hora em vez de esperar chegar aqui.',
+        ],
+        history: {
+          label: 'Por que 40 anos',
+          paragraphs: [
+            '**21 de fevereiro de 1986.** *The Legend of Zelda* saiu no Japão não em cartucho, mas em **disquete** — era um dos jogos de lançamento do **Famicom Disk System**, aquele periférico que encaixava embaixo do Famicom e usava disquetes magnéticos regraváveis.',
+            'E o disquete é a razão de Zelda ser Zelda. Até ali, jogo de console não salvava: quando acabava, acabava, e no máximo te davam uma senha enorme para anotar num papel. O disquete **gravava o seu progresso**. Foi isso que permitiu um jogo que não se atravessa numa tarde — um mundo grande, para explorar aos poucos, voltando amanhã de onde parou. A ideia veio de Miyamoto lembrando da infância nos arredores de Kyoto, entrando em grutas e campos sem mapa, só para ver o que tinha lá dentro.',
+            'O nome veio de **Zelda Fitzgerald**, mulher do escritor F. Scott Fitzgerald. Miyamoto achou o nome bonito e a pediu emprestada. Ela nunca soube.',
+          ],
+        },
+        eat: [
+          {
+            label: 'Onde procurar, na ordem',
+            items: [
+              {
+                name: 'Yodobashi-Akiba — 6º andar',
+                note: '09:30–22:00, todo dia · colado na estação (saída Showa-dōri). O andar de games fica no **6º**. É o maior estoque de Tóquio e o primeiro lugar a tentar — e já é a primeira das missões seguintes, então vocês estão no prédio de qualquer jeito.',
+              },
+              {
+                name: 'Bic Camera e Sofmap (Chūō-dōri)',
+                note: 'Plano B a 5 min a pé. A Sofmap é do grupo Bic e tem loja dedicada a games em Akihabara. Vale perguntar por **抽選** (chūsen, sorteio): em edição limitada as lojas às vezes trocam a venda livre por sorteio do dia.',
+              },
+              {
+                name: 'Os acessórios da mesma coleção',
+                note: 'Saíram no mesmo dia e costumam sobrar depois que o console some: **Pro Controller** no desenho de Zelda **¥12.980** e **capa de transporte** com película **¥3.980**. O Pro Controller é multi-idioma por natureza — é só um controle — então ele funciona em qualquer Switch 2, inclusive num comprado no Brasil. Se o console não aparecer, esse é o consolo que presta.',
+              },
+              {
+                name: 'Sobre o tax-free',
+                note: 'O preço de ¥62.980 **já inclui** os 10%, então o reembolso seria de uns **¥5.700**. Confirmem no balcão de tax-free se eles fazem para este modelo — é um console que a própria Nintendo pede para não sair do Japão, e o tax-free é justamente a declaração de que ele vai sair. Não contem com o desconto ao fazer a conta.',
+              },
+            ],
+          },
+        ],
+        mapQuery: 'Yodobashi Camera Akiba',
+      },
+      {
+        id: 'd02-akihabara-missoes',
+        time: '15:10',
         timeLabel: 'compras',
         kind: 'shopping',
         name: 'Akihabara — as três missões',
         jp: '秋葉原',
         facts: 'De Mitsukoshimae: JR/metrô **~5 min** · tudo num raio de 400 m da estação',
         paragraphs: [
-          'A volta a Akihabara com lista na mão. As três paradas abaixo, na ordem, cabem em ~1h30 — saiam até 16:10 para pegar a última vista no horário.',
+          'A volta a Akihabara com lista na mão. Vocês já estão na Yodobashi por causa do Switch 2, então a primeira parada é subir os andares. As três cabem em ~1h — saiam até 16:10 para pegar a última vista no horário.',
         ],
         eat: [
           {

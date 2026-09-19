@@ -394,6 +394,7 @@ export const LEGS: Record<string, Leg[]> = {
     { mode: 'metro', line: 'Ginza Line', board: 'Mitsukoshimae', direction: 'Asakusa', alight: 'Kanda', minutes: 2, cost: '¥180' },
     { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Kanda', direction: 'Ueno', alight: 'Akihabara, saída Electric Town', minutes: 2, cost: '¥150', note: 'ou 18 min a pé reto pela Chūō-dōri, que é a mesma rua' },
   ],
+  'd02-switch2': [walk(2, 'a Yodobashi é o prédio em frente à saída; o andar de games é o 6º, subindo de escada rolante')],
   'd02-akihabara-missoes': [
     { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Akihabara, plataforma 6 (a de cima)', direction: 'Chiba', alight: 'Kinshichō', minutes: 5, cost: '¥150' },
     { mode: 'metro', line: 'Hanzōmon Line', board: 'Kinshichō', direction: 'Oshiage', alight: 'Oshiage (Skytree-mae)', minutes: 3, cost: '¥180', note: 'isto é para a Skytree. Tokyo Tower: Hibiya Line até Kamiyachō. Prédio do Governo: Chūō até Shinjuku' },

@@ -255,4 +255,53 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
       },
     ],
   },
+  {
+    id: 'switch2',
+    title: '7 · Nintendo Switch 2 — a edição de 40 anos de Zelda',
+    checklistItemId: 'switch2',
+    blocks: [
+      {
+        type: 'p',
+        text: 'A **Nintendo Switch 2 – ゼルダの伝説 40周年 アニバーサリーエディション** saiu em **29 de outubro de 2026**, por **¥62.980** com imposto. Triforce gravada nas costas do console, no dock e nos Joy-Con 2, verde com detalhe dourado. **Não vem jogo junto.** No mesmo dia saíram o **Pro Controller** no mesmo desenho (¥12.980) e a **capa de transporte** com película (¥3.980).',
+      },
+      {
+        type: 'note',
+        note: {
+          label: 'Leiam isto antes de pagar — são dois consoles diferentes',
+          tone: 'warn',
+          paragraphs: [
+            'O Japão vende **dois Switch 2**, e a edição de Zelda só existe em um deles. O que está em toda loja japonesa é o **日本語・国内専用**, "japonês, só para uso doméstico": o idioma do sistema é japonês e **não há opção de trocar**, nunca; só aceita conta Nintendo com país **Japão**, então a eShop é a japonesa; a Nintendo **pede que ele não seja usado fora do Japão** e não dá garantia no exterior; e diz que **não garante** que cartuchos comprados fora funcionem (quem testou diz que funcionam — mas é relato, não promessa).',
+            'A versão **multi-idioma** (¥69.980) resolve tudo isso, mas é vendida **só pela loja oficial da Nintendo**, não nas lojas de rua — e **não existe no desenho de Zelda**.',
+            'Fora do Japão, a edição de 40 anos **é** o console normal multi-idioma (US$ 519,99 nos EUA). Então a conta é essa: **o desenho de Zelda comprado aqui vem com um console em japonês para sempre.** Para jogar no dia a dia em casa, compra-se fora. Para ter a peça e a história de ter comprado no Japão, aí sim.',
+          ],
+        },
+      },
+      {
+        type: 'table',
+        table: {
+          title: 'Os dois modelos, lado a lado',
+          headers: ['', 'Japonês / uso doméstico', 'Multi-idioma'],
+          rows: [
+            ['Preço (console comum)', '¥49.980', '¥69.980'],
+            ['Edição de Zelda', '**¥62.980** — só existe aqui', '**não existe**'],
+            ['Onde se compra', 'Yodobashi, Bic, Sofmap, qualquer loja', 'Só na loja oficial da Nintendo'],
+            ['Idioma do sistema', 'Japonês, sem opção de troca', 'Português, inglês e mais'],
+            ['Conta / eShop', 'Só conta com país Japão', 'Qualquer país'],
+            ['Cartucho comprado fora', 'Sem garantia de funcionar', 'Normal'],
+            ['Garantia fora do Japão', 'Nenhuma', 'Nenhuma'],
+          ],
+        },
+      },
+      {
+        type: 'bullets',
+        items: [
+          '**Onde tentar, dia 2/12** — **Yodobashi-Akiba, 6º andar** (games), colado na estação de Akihabara, 09:30–22:00. Plano B a 5 min: **Bic Camera** e **Sofmap** na Chūō-dōri.',
+          '**É caça, não compra** — edição limitada lançada três semanas antes da viagem, com reservas esgotando já em setembro. Confiram o estoque no **Yodobashi.com** e no **BicCamera.com** antes de sair do hotel. E se aparecer numa vitrine em **qualquer dia da viagem**, comprem ali: não guardem para o dia 2.',
+          '**Perguntem por 抽選** (*chūsen*, sorteio) — em edição limitada as lojas trocam a venda livre por sorteio do dia. Costuma ter horário fixo para se inscrever, de manhã.',
+          '**O Pro Controller é o consolo que presta** — controle é controle: o do desenho de Zelda funciona em **qualquer** Switch 2, inclusive num comprado no Brasil. Ele costuma sobrar nas prateleiras depois que o console some.',
+          '**Tax-free** — os ¥62.980 **já incluem** os 10%, então voltariam uns **¥5.700**. Confirmem no balcão se fazem para este modelo: é um console que a Nintendo pede para não sair do Japão, e o tax-free é exatamente a declaração de que ele vai sair. Não contem com o desconto na hora de fazer a conta.',
+        ],
+      },
+    ],
+  },
 ];

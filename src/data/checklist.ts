@@ -41,6 +41,12 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: 'Janpara Akihabara (2ª loja, periféricos) · dia 2/12 · conferir modelo e fonte',
   },
   {
+    id: 'switch2',
+    group: 'compras',
+    title: 'Switch 2 — edição 40 anos de Zelda',
+    subtitle: 'Yodobashi-Akiba, 6º andar · dia 2/12 · ¥62.980 · só existe na versão japonês/uso-doméstico — ler o aviso antes de pagar',
+  },
+  {
     id: 'pikachu',
     group: 'compras',
     title: 'Pikachu momiji manjū (exclusivo de Hiroshima)',
