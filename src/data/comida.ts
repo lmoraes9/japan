@@ -186,6 +186,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'sushi-zanmai-akiba',
     nome: 'Sushi Zanmai Akihabara',
     cat: 'sushi',
+    estilo: ['nigiri', 'Edomae'],
     formato: ['rede'],
     avisos: ['24h'],
     preco: '¥¥',
@@ -197,6 +198,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'midori-shinjuku',
     nome: 'Sushi no Midori Shinjuku',
     cat: 'sushi',
+    estilo: ['nigiri'],
     formato: ['balcão'],
     avisos: ['fila'],
     preco: '¥¥',
@@ -209,6 +211,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     nome: 'Sushi no Midori Umegaoka',
     jp: '梅丘寿司の美登利',
     cat: 'sushi',
+    estilo: ['nigiri'],
     formato: ['balcão'],
     avisos: ['fila'],
     preco: '¥¥',
@@ -222,6 +225,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'uobei',
     nome: 'Uobei Shibuya',
     cat: 'sushi',
+    estilo: ['nigiri', 'gunkan'],
     formato: ['kaiten', 'rede'],
     preco: '¥',
     plano: 'escolha',
@@ -232,6 +236,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'tsukiji-sushisei',
     nome: 'Tsukiji Sushisei',
     cat: 'sushi',
+    estilo: ['nigiri', 'Edomae'],
     formato: ['balcão', 'mercado'],
     preco: '¥¥',
     plano: 'escolha',
@@ -242,6 +247,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'sushizanmai-honten',
     nome: 'Sushizanmai Honten (Tsukiji)',
     cat: 'sushi',
+    estilo: ['nigiri', 'Edomae'],
     formato: ['rede'],
     avisos: ['24h'],
     preco: '¥¥',
@@ -253,6 +259,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'hanamaru',
     nome: 'Nemuro Hanamaru — KITTE 5º andar',
     cat: 'sushi',
+    estilo: ['nigiri', 'gunkan'],
     formato: ['kaiten', 'na estação'],
     avisos: ['fila'],
     preco: '¥¥',
@@ -266,7 +273,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'kamoi',
     nome: 'Kamoi (Kurashiki)',
     cat: 'sushi',
-    estilo: ['sushi curado'],
+    estilo: ['sushi curado', 'mamakari-zushi'],
     formato: ['casa antiga'],
     preco: '¥¥',
     local: true,
@@ -279,6 +286,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     nome: 'Sushi no Musashi — Sanjō Honten',
     jp: '寿しのむさし 三条本店',
     cat: 'sushi',
+    estilo: ['nigiri', 'gunkan'],
     formato: ['kaiten', 'balcão'],
     avisos: ['fila', 'sem reserva'],
     preco: '¥',
@@ -291,7 +299,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     nome: 'Izuju (em frente ao Yasaka)',
     jp: 'いづ重',
     cat: 'sushi',
-    estilo: ['sushi curado'],
+    estilo: ['sushi curado', 'saba-zushi', 'hako-zushi', 'inari-zushi'],
     formato: ['casa antiga'],
     preco: '¥¥',
     local: true,
@@ -304,7 +312,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     nome: 'Kakinoha-zushi (Nara)',
     jp: '柿の葉寿司',
     cat: 'sushi',
-    estilo: ['sushi curado'],
+    estilo: ['sushi curado', 'kakinoha-zushi'],
     formato: ['para viagem'],
     preco: '¥',
     local: true,
@@ -316,6 +324,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'midori-ginza',
     nome: 'Umegaoka Sushi no Midori Ginza',
     cat: 'sushi',
+    estilo: ['nigiri'],
     formato: ['balcão'],
     avisos: ['fila'],
     preco: '¥¥',
@@ -328,6 +337,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     nome: 'Kyūbey Ginza',
     jp: '久兵衛',
     cat: 'sushi',
+    estilo: ['nigiri', 'Edomae'],
     formato: ['omakase', 'balcão'],
     avisos: ['reserva'],
     preco: '¥¥¥¥',
@@ -339,6 +349,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'onodera',
     nome: 'Sushi Ginza Onodera',
     cat: 'sushi',
+    estilo: ['nigiri', 'Edomae'],
     formato: ['omakase', 'balcão'],
     avisos: ['reserva'],
     preco: '¥¥¥¥',
@@ -350,6 +361,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     id: 'toyosu-sushi',
     nome: 'Sushi do prédio 6 de Toyosu',
     cat: 'sushi',
+    estilo: ['nigiri', 'kaisen-don'],
     formato: ['mercado'],
     preco: '¥¥',
     plano: 'escolha',
@@ -1339,4 +1351,83 @@ export const COMIDA_ITENS: ComidaItem[] = [
     stopId: 'd02-konbini',
     nota: 'Ginza e Yūrakuchō têm lojas 24h. **Última chance dos itens perecíveis** da checklist de konbini.',
   },
+];
+
+/**
+ * O que é cada prato. Os termos aqui são exatamente os que aparecem em
+ * `estilo` nos itens acima — a página de Comida cruza os dois, então um
+ * prato novo no catálogo aparece no glossário sem precisar mexer na tela.
+ */
+export interface GlossarioTermo {
+  /** bate com um valor de `estilo` */
+  termo: string;
+  jp?: string;
+  cat: ComidaCatId;
+  /** duas ou três linhas, com a marcação de `Rich` */
+  texto: string;
+}
+
+export const GLOSSARIO: GlossarioTermo[] = [
+  // ── sushi ──
+  { termo: 'nigiri', jp: '握り', cat: 'sushi', texto: 'A fatia de peixe sobre um bolinho de arroz moldado **à mão** — *nigiri* quer dizer "apertado no punho". É o que domina qualquer balcão japonês, e o que o Brasil escreve "niguiri".' },
+  { termo: 'gunkan', jp: '軍艦', cat: 'sushi', texto: '"Navio de guerra": a bolinha de arroz cercada por uma cinta de alga, alta como um casco. Serve para o que não fica em pé sozinho — **ouriço, ovas, salada de caranguejo**.' },
+  { termo: 'Edomae', jp: '江戸前', cat: 'sushi', texto: '"Diante de Edo" — o peixe da baía de Tóquio. Nasceu como **comida de rua do século XIX**, com o peixe curado no shoyu ou no sal porque ainda não havia gelo. Hoje é o nome do sushi clássico de balcão.' },
+  { termo: 'sushi curado', cat: 'sushi', texto: 'O sushi das cidades **sem mar**. O peixe chega salgado ou em conserva e o arroz é **prensado**, não moldado à mão. É o ancestral do nigiri — e continua vivo em Kyoto e Nara.' },
+  { termo: 'saba-zushi', jp: '鯖寿司', cat: 'sushi', texto: 'Cavala curada em sal e vinagre, prensada sobre uma barra de arroz e cortada em fatias grossas. **O prato de Kyoto** — é o que se come no Izuju.' },
+  { termo: 'hako-zushi', jp: '箱寿司', cat: 'sushi', texto: '"Sushi de caixa": prensado numa forma de madeira e cortado em quadrados. De Osaka e Kyoto, e **mais antigo que o nigiri**.' },
+  { termo: 'inari-zushi', jp: '稲荷寿司', cat: 'sushi', texto: 'Arroz dentro de uma bolsinha de **tofu frito adocicado**. Barato, doce-salgado, e dito o preferido das raposas do Inari — daí o nome.' },
+  { termo: 'kakinoha-zushi', jp: '柿の葉寿司', cat: 'sushi', texto: 'Cavala ou salmão curado **embrulhado em folha de caqui**. De Nara: a folha é antibacteriana e era a embalagem antes da geladeira. Comida de conservação virada iguaria.' },
+  { termo: 'mamakari-zushi', jp: 'ままかり寿司', cat: 'sushi', texto: 'A sardinha local de Okayama curada no vinagre. O nome quer dizer **"pedir arroz emprestado"** — porque é tão boa que o seu acaba antes dela.' },
+  { termo: 'kaisen-don', jp: '海鮮丼', cat: 'sushi', texto: 'Não é sushi, é a **tigela**: arroz coberto de fatias cruas variadas. Costuma sair bem mais barato que o equivalente em nigiri, e é o que se come nos mercados.' },
+
+  // ── ramen ──
+  { termo: 'tonkotsu', jp: '豚骨', cat: 'ramen', texto: 'Caldo **branco e denso de osso de porco**, fervido por horas até virar creme. Veio de Kyushu.' },
+  { termo: 'shoyu', jp: '醤油', cat: 'ramen', texto: 'Caldo claro temperado com shoyu. **O ramen mais antigo** e ainda o mais comum do Japão.' },
+  { termo: 'shio', jp: '塩', cat: 'ramen', texto: 'Base de **sal**: o mais leve e transparente dos caldos. É onde dá para sentir o dashi por baixo.' },
+  { termo: 'miso', jp: '味噌', cat: 'ramen', texto: 'Caldo encorpado com **pasta de soja fermentada**. Nasceu em Hokkaidō, onde faz frio de verdade.' },
+  { termo: 'tsukemen', jp: 'つけ麺', cat: 'ramen', texto: 'Macarrão e caldo vêm **separados** — você molha cada porção antes de comer. Por isso o caldo é bem mais concentrado.' },
+  { termo: 'tori-paitan', jp: '鶏白湯', cat: 'ramen', texto: 'A versão de **frango** do tonkotsu: osso de galinha fervido até o caldo ficar branco e cremoso.' },
+  { termo: 'picante', cat: 'ramen', texto: '*Karashibi*: **kara** é o ardido da pimenta, **shibi** é o dormente da pimenta sichuan. No Kikanbō você escolhe os dois níveis separadamente — comecem em *futsū/futsū*.' },
+  { termo: 'vegetal', cat: 'ramen', texto: 'Caldo sem carne nem peixe, feito de legumes. Raro no Japão, e por isso vale anotar onde tem.' },
+
+  // ── soba e udon ──
+  { termo: 'soba', jp: '蕎麦', cat: 'soba', texto: 'Macarrão fino de **trigo-sarraceno**, escuro e com sabor próprio. Quente no caldo, ou frio numa esteira de bambu com molho à parte para molhar.' },
+  { termo: 'udon', jp: 'うどん', cat: 'soba', texto: 'Macarrão **grosso e macio** de trigo. Mais neutro que o soba: aqui o que conta é o caldo.' },
+
+  // ── chapa e espeto ──
+  { termo: 'okonomiyaki de Osaka', jp: 'お好み焼き', cat: 'chapa', texto: 'Massa e repolho **misturados numa tigela** e virados na chapa como uma panqueca grossa. *Okonomi* = "do seu gosto".' },
+  { termo: 'okonomiyaki de Hiroshima', cat: 'chapa', texto: 'A mesma ideia montada **em camadas**, sem misturar nada — e com **macarrão yakisoba** dentro. As duas cidades discutem desde sempre qual é o verdadeiro.' },
+  { termo: 'takoyaki', jp: 'たこ焼き', cat: 'chapa', texto: 'Bolinhas de massa com **polvo** dentro, viradas com palito numa chapa de furos. A comida de rua de Osaka. Saem escaldando — esperem.' },
+  { termo: 'kushikatsu', jp: '串カツ', cat: 'chapa', texto: 'Espetinhos empanados e fritos, de tudo. **Regra sagrada:** o molho é comum à mesa, então se molha **uma vez só** — nunca duas.' },
+  { termo: 'gyoza', jp: '餃子', cat: 'chapa', texto: 'O pastel japonês: **frito de um lado** e cozido no vapor do outro, o que dá a base crocante e o topo macio.' },
+
+  // ── katsu ──
+  { termo: 'tonkatsu', jp: 'とんかつ', cat: 'katsu', texto: 'Costeleta de porco empanada em **panko** e frita, servida com uma montanha de repolho cru, arroz e sopa. O repolho costuma ser à vontade.' },
+  { termo: 'katsu sando', jp: 'カツサンド', cat: 'katsu', texto: 'O mesmo empanado entre duas fatias de **pão de fôrma sem casca**. Comida de trem e de conveniência — e um dos melhores custo-benefício do Japão.' },
+
+  // ── curry e yōshoku ──
+  { termo: 'curry', jp: 'カレー', cat: 'curry', texto: 'Chegou pelos **ingleses** no século XIX, virou comida de quartel da Marinha e depois comida de casa. Mais **doce, escuro e espesso** que o indiano.' },
+  { termo: 'yōshoku', jp: '洋食', cat: 'curry', texto: 'A comida ocidental **adaptada** na era Meiji: omurice, croquete, hambúrguer ao molho. É cozinha japonesa que parece europeia — e não o contrário.' },
+
+  // ── arroz ──
+  { termo: 'donburi', jp: '丼', cat: 'arroz', texto: 'Tigela de arroz com a cobertura **por cima**. *Gyūdon* é de carne, *katsudon* de empanado, *oyakodon* de frango com ovo — "pai e filho".' },
+  { termo: 'kamameshi', jp: '釜飯', cat: 'arroz', texto: 'Arroz cozido e servido **na própria panelinha de ferro**, com os ingredientes em cima. A casquinha tostada do fundo é a melhor parte.' },
+  { termo: 'kaiseki', jp: '懐石', cat: 'arroz', texto: 'O menu longo de **vários pratinhos**, ditado pela estação do ano. É a refeição formal japonesa, e o oposto de comer rápido.' },
+  { termo: 'bandeja', jp: '定食', cat: 'arroz', texto: '*Teishoku*, o combinado: prato principal, **arroz, sopa de missô e conserva**. É o almoço padrão do Japão e quase sempre a melhor conta do cardápio.' },
+
+  // ── templo ──
+  { termo: 'shōjin ryōri', jp: '精進料理', cat: 'templo', texto: 'A **cozinha budista** dos templos: sem carne, sem peixe, sem cebola nem alho. É o jantar e o café da manhã do Kōyasan.' },
+  { termo: 'yudōfu', jp: '湯豆腐', cat: 'templo', texto: 'Tofu **escaldado** em água quente com alga, pescado da panela e comido com molho leve. A especialidade de Kyoto no frio.' },
+
+  // ── mercado e rua ──
+  { termo: 'tamagoyaki', jp: '卵焼き', cat: 'rua', texto: 'A omelete **doce**, enrolada em camadas finas. Nos mercados sai quente no palito — e é o teste clássico da mão de um sushiman.' },
+  { termo: 'frutos do mar', cat: 'rua', texto: 'O que se come **andando** nos mercados: ostra grelhada, vieira na concha, ouriço na casca, perna de caranguejo, espetinho de atum.' },
+  { termo: 'pão no vapor', cat: 'rua', texto: '*Manjū* e *nikuman*: pãezinhos recheados **cozidos no vapor**, doces ou salgados. Aquecem a mão no frio antes de aquecerem o resto.' },
+  { termo: 'conserva', jp: '漬物', cat: 'rua', texto: '*Tsukemono*, os legumes em conserva que acompanham toda refeição japonesa. O Nishiki, em Kyoto, é **uma rua inteira** deles — e quase todas as bancas deixam provar.' },
+  { termo: 'doce', jp: '和菓子', cat: 'rua', texto: '*Wagashi*, os doces tradicionais: mochi, dorayaki, o momiji manjū de Hiroshima. Feitos para acompanhar chá amargo, então **doçura contida**.' },
+
+  // ── bar ──
+  { termo: 'yakitori', jp: '焼き鳥', cat: 'bar', texto: 'Espetinhos de frango na brasa, **pedidos por peça** e por parte da ave. Escolhe-se entre *shio* (sal) e *tare* (molho doce) — no primeiro, vá de sal.' },
+  { termo: 'saquê', jp: '日本酒', cat: 'bar', texto: 'Arroz fermentado. A temperatura é decidida **pelo tipo**, não pelo gosto: os aromáticos vão gelados, os encorpados mornos. Pedir "quente" sempre é erro de estrangeiro.' },
+  { termo: 'coquetel', cat: 'bar', texto: 'A coquetelaria japonesa: **gelo lapidado à mão**, medida exata, pouca conversa. O bar é pequeno e o barman trabalha olhando o copo.' },
 ];

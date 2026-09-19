@@ -6,6 +6,8 @@ import {
   type ComidaCatId,
   type ComidaItem,
   type Formato,
+  GLOSSARIO,
+  type GlossarioTermo,
 } from '@/data/comida';
 import { cidadeDe, itemMapsUrl, itemPhotosUrl } from '@/lib/places';
 
@@ -132,4 +134,48 @@ export function ehAviso(rotulo: string): rotulo is Aviso {
 
 export function ehFormato(rotulo: string): rotulo is Formato {
   return !ehAviso(rotulo) && rotulo !== 'especialidade local';
+}
+
+/** Um termo do glossário já sabendo onde ele aparece no roteiro */
+export interface TermoResolvido extends GlossarioTermo {
+  /** quantos lugares do catálogo servem isto */
+  n: number;
+}
+
+export interface GrupoGlossario {
+  cat: ComidaCatId;
+  titulo: string;
+  jp: string;
+  termos: TermoResolvido[];
+}
+
+/**
+ * O glossário, agrupado por categoria e contado contra o catálogo.
+ *
+ * Um `estilo` sem verbete é erro de build, pelo mesmo motivo que um `stopId`
+ * órfão é: prato novo no roteiro tem que ganhar explicação, senão a página
+ * promete um glossário completo e entrega um furo.
+ */
+export function glossarioResolvido(itens: ComidaResolvida[]): GrupoGlossario[] {
+  const uso = new Map<string, number>();
+  for (const item of itens) {
+    for (const e of item.estilo ?? []) uso.set(e, (uso.get(e) ?? 0) + 1);
+  }
+
+  const verbetes = new Set(GLOSSARIO.map((g) => g.termo));
+  const semVerbete = [...uso.keys()].filter((e) => !verbetes.has(e));
+  if (semVerbete.length > 0) {
+    throw new Error(
+      `comida.ts: estes pratos aparecem em \`estilo\` mas não têm verbete no GLOSSARIO: ${semVerbete.join(', ')}.`,
+    );
+  }
+
+  return COMIDA_CATS.map((cat) => ({
+    cat: cat.id,
+    titulo: cat.titulo,
+    jp: cat.jp,
+    termos: GLOSSARIO.filter((g) => g.cat === cat.id)
+      .map((g) => ({ ...g, n: uso.get(g.termo) ?? 0 }))
+      .sort((a, b) => b.n - a.n || a.termo.localeCompare(b.termo)),
+  })).filter((g) => g.termos.length > 0);
 }
