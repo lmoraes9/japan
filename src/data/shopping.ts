@@ -271,7 +271,7 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
           tone: 'warn',
           paragraphs: [
             'O Japão vende **dois Switch 2**, e a edição de Zelda só existe em um deles. O que está em toda loja japonesa é o **日本語・国内専用**, "japonês, só para uso doméstico": o idioma do sistema é japonês e **não há opção de trocar**, nunca; só aceita conta Nintendo com país **Japão**, então a eShop é a japonesa; a Nintendo **pede que ele não seja usado fora do Japão** e não dá garantia no exterior; e diz que **não garante** que cartuchos comprados fora funcionem (quem testou diz que funcionam — mas é relato, não promessa).',
-            'A versão **multi-idioma** (¥69.980) resolve tudo isso, mas é vendida **só pela loja oficial da Nintendo**, não nas lojas de rua — e **não existe no desenho de Zelda**.',
+            'A versão **multi-idioma** (¥69.980) resolve tudo isso e fala 16 idiomas — mas, para vocês, ela **não é uma opção**. Não existe no desenho de Zelda, não é vendida em loja nenhuma (nem na Nintendo TOKYO: é online, só pela My Nintendo Store), e a loja online tem três barreiras que sozinhas já fecham a porta. Detalhe no bloco abaixo.',
             'Fora do Japão, a edição de 40 anos **é** o console normal multi-idioma (US$ 519,99 nos EUA). Então a conta é essa: **o desenho de Zelda comprado aqui vem com um console em japonês para sempre.** Para jogar no dia a dia em casa, compra-se fora. Para ter a peça e a história de ter comprado no Japão, aí sim.',
           ],
         },
@@ -289,6 +289,20 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
             ['Conta / eShop', 'Só conta com país Japão', 'Qualquer país'],
             ['Cartucho comprado fora', 'Sem garantia de funcionar', 'Normal'],
             ['Garantia fora do Japão', 'Nenhuma', 'Nenhuma'],
+          ],
+        },
+      },
+      {
+        type: 'note',
+        note: {
+          label: 'Por que o multi-idioma está fora de alcance',
+          tone: 'warn',
+          paragraphs: [
+            '**Ele não existe em loja física.** Nem nas lojas oficiais da Nintendo (Nintendo TOKYO, no Shibuya Parco, e as de Osaka, Kyoto e Fukuoka). Ir até lá para comprar o console é viagem perdida — vale a pena pela loja em si, não pelo aparelho.',
+            '**A loja online não entrega em hotel.** A Nintendo diz explicitamente que não aceita entrega em hospedagem, aeroporto, porto ou estação. Só endereço residencial, e só dentro do Japão.',
+            '**Não aceita cartão estrangeiro.** Desde 25 de março de 2025 a My Nintendo Store japonesa não aceita mais cartão emitido fora do Japão nem PayPal aberto fora do Japão.',
+            '**E ainda tem a trava de conta:** desde 25 de maio de 2026 é preciso uma conta Nintendo japonesa com **50 horas ou mais de jogo em Nintendo Switch** acumuladas até 31/05/2026, uma unidade por conta. É uma regra anti-cambista, e o prazo já passou — não dá para cumprir agora nem criando conta nova.',
+            '**Conclusão:** no Japão vocês compram o japonês, ou não compram. O multi-idioma, se for o caso, compra-se **fora do Japão** — e lá ele vem inclusive no desenho de 40 anos de Zelda.',
           ],
         },
       },
