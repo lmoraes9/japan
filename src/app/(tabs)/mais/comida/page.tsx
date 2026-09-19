@@ -5,11 +5,18 @@ import { ComidaLista } from '@/components/ComidaLista';
 import { Glossario } from '@/components/Glossario';
 import { Rich } from '@/components/Rich';
 import { PLANO_LEGENDA, PRECO_LEGENDA, type Plano, type Preco } from '@/data/comida';
-import { comidaResolvida, glossarioResolvido, resumoPorCategoria, rotulosDisponiveis } from '@/lib/comida';
+import {
+  comidaResolvida,
+  glossarioResolvido,
+  resumoPorBairro,
+  resumoPorCategoria,
+  rotulosDisponiveis,
+} from '@/lib/comida';
 
 const INTRO = [
   'Todo lugar de comer do roteiro, reorganizado **por tipo de comida** em vez de por dia. O placar abaixo diz de relance quantos endereços tem cada categoria e de que tipo cada um é.',
   'Toque numa linha do placar para ver só aquela categoria, ou num rótulo para cruzar tudo — *todo lugar com fila*, *tudo que é especialidade da cidade*. Cada cartão volta para o dia em que aquilo acontece.',
+  'O botão **por lugar** troca o agrupamento: em vez de categorias, os bairros — para quando vocês estiverem parados na rua e o lugar marcado estiver fechado.',
   'No fim da página, **o que é cada prato**: os mesmos rótulos dos cartões, explicados um a um, para não ter que pesquisar no meio do cardápio.',
 ];
 
@@ -18,6 +25,7 @@ export default function ComidaPage() {
   const cats = resumoPorCategoria(itens);
   const rotulos = rotulosDisponiveis(itens);
   const glossario = glossarioResolvido(itens);
+  const bairros = resumoPorBairro(itens);
   const marcados = itens.filter((i) => i.plano === 'marcado').length;
   const locais = itens.filter((i) => i.local).length;
 
@@ -36,7 +44,7 @@ export default function ComidaPage() {
         ))}
       </div>
 
-      <ComidaLista itens={itens} cats={cats} rotulos={rotulos} />
+      <ComidaLista itens={itens} cats={cats} bairros={bairros} rotulos={rotulos} />
 
       <Glossario grupos={glossario} />
 

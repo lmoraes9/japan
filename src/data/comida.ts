@@ -81,6 +81,8 @@ export interface ComidaItem {
   stopId: string;
   /** sobrescreve o nome na busca de mapa/fotos quando o nome tem contexto */
   busca?: string;
+  /** sobrescreve o bairro da parada, quando o item fica longe dela */
+  bairro?: string;
   /** uma ou duas linhas, com a marcação de `Rich` */
   nota: string;
 }
@@ -721,6 +723,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
   {
     id: 'wagyumafia',
     nome: 'WAGYUMAFIA The Cutlet Sandwich',
+    bairro: 'Nakameguro',
     cat: 'katsu',
     estilo: ['katsu sando'],
     formato: ['balcão'],

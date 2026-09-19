@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown, ChevronRight, Image as ImageIcon, MapPin, X } from 'lucide-react';
 import { Rich } from './Rich';
-import type { CatResumo, ComidaResolvida } from '@/lib/comida';
+import type { BairroResumo, CatResumo, ComidaResolvida } from '@/lib/comida';
 
 const AVISOS = new Set(['fila', 'reserva', 'sem reserva', 'esgota cedo', 'só almoço', '24h']);
 
@@ -133,20 +133,27 @@ function Cartao({
 export function ComidaLista({
   itens,
   cats,
+  bairros,
   rotulos,
 }: {
   itens: ComidaResolvida[];
   cats: CatResumo[];
+  bairros: BairroResumo[];
   rotulos: { rotulo: string; n: number }[];
 }) {
+  const [modo, setModo] = useState<'tipo' | 'lugar'>('tipo');
   const [cat, setCat] = useState<string | null>(null);
+  const [bairro, setBairro] = useState<string | null>(null);
   const [rotulo, setRotulo] = useState<string | null>(null);
   const [todosRotulos, setTodosRotulos] = useState(false);
 
   const filtrados = itens.filter(
-    (i) => (!cat || i.cat === cat) && (!rotulo || i.rotulos.includes(rotulo)),
+    (i) =>
+      (!cat || i.cat === cat) &&
+      (!bairro || i.bairro === bairro) &&
+      (!rotulo || i.rotulos.includes(rotulo)),
   );
-  const filtrando = cat !== null || rotulo !== null;
+  const filtrando = cat !== null || bairro !== null || rotulo !== null;
 
   const alternaRotulo = (r: string) => setRotulo((atual) => (atual === r ? null : r));
 
@@ -166,12 +173,14 @@ export function ComidaLista({
             <span className="font-semibold">{filtrados.length}</span>
             {filtrados.length === 1 ? ' lugar' : ' lugares'}
             {cat && <> · {cats.find((c) => c.id === cat)?.titulo}</>}
+            {bairro && <> · {bairro}</>}
             {rotulo && <> · {rotulo}</>}
           </p>
           <button
             type="button"
             onClick={() => {
               setCat(null);
+              setBairro(null);
               setRotulo(null);
             }}
             className="inline-flex shrink-0 items-center gap-1 rounded-full border border-hairline bg-surface px-2.5 py-1 text-[11px] font-medium"
@@ -184,10 +193,38 @@ export function ComidaLista({
 
       {/* O placar: bater o olho e saber o que tem */}
       <section className="rounded-2xl border border-hairline bg-surface p-4">
-        <p className="mb-2.5 text-[10px] font-semibold uppercase tracking-wider text-muted">
-          {itens.length} endereços, por tipo de comida
-        </p>
-        <ul className="divide-y divide-hairline">
+        <div className="mb-2.5 flex items-center justify-between gap-3">
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">
+            {itens.length} endereços, por {modo === 'tipo' ? 'tipo de comida' : 'lugar'}
+          </p>
+          <div className="flex shrink-0 rounded-full border border-hairline p-0.5">
+            {(['tipo', 'lugar'] as const).map((m) => (
+              <button
+                key={m}
+                type="button"
+                aria-pressed={modo === m}
+                onClick={() => {
+                  setModo(m);
+                  setCat(null);
+                  setBairro(null);
+                }}
+                className={`rounded-full px-2.5 py-1 text-[11px] font-semibold leading-tight ${
+                  modo === m ? 'bg-accent text-white' : 'text-muted'
+                }`}
+              >
+                {m === 'tipo' ? 'por tipo' : 'por lugar'}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {modo === 'lugar' && (
+          <p className="mb-1.5 text-[12px] leading-snug text-muted">
+            <Rich text="Para quando **o lugar do roteiro estiver fechado**: toque no bairro onde vocês estão e veja tudo que o roteiro tem ali — inclusive o que estava marcado para outro dia." />
+          </p>
+        )}
+
+        <ul className={modo === 'lugar' ? 'hidden' : 'divide-y divide-hairline'}>
           {cats.map((c) => {
             const ativo = cat === c.id;
             return (
@@ -221,6 +258,48 @@ export function ComidaLista({
                         {c.quebra.map((q) => `${q.n} ${q.rotulo}`).join(' · ')}
                       </span>
                     )}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+
+        <ul className={modo === 'tipo' ? 'hidden' : 'divide-y divide-hairline'}>
+          {bairros.map((b) => {
+            const ativo = bairro === b.bairro;
+            return (
+              <li key={b.bairro}>
+                <button
+                  type="button"
+                  aria-pressed={ativo}
+                  onClick={() => setBairro(ativo ? null : b.bairro)}
+                  className="flex w-full items-start gap-3 py-2 text-left"
+                >
+                  <span
+                    className={`mt-0.5 w-7 shrink-0 text-right font-mono text-[15px] font-bold tabular-nums ${
+                      ativo ? 'text-accent' : 'text-foreground'
+                    }`}
+                  >
+                    {b.total}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span
+                      className={`block text-[13.5px] font-semibold leading-snug ${
+                        ativo ? 'text-accent' : ''
+                      }`}
+                    >
+                      {b.bairro}
+                      <span className="ml-1.5 whitespace-nowrap text-[11px] font-normal text-muted">
+                        {b.cidade}
+                      </span>
+                    </span>
+                    <span className="mt-0.5 block text-[11px] leading-snug text-muted">
+                      {b.quebra.map((q) => `${q.n} ${q.rotulo.toLowerCase()}`).join(' · ')}
+                    </span>
+                    <span className="mt-0.5 block font-mono text-[10px] leading-snug text-muted/80">
+                      {b.datas.join(' · ')}
+                    </span>
                   </span>
                 </button>
               </li>
@@ -274,39 +353,71 @@ export function ComidaLista({
       )}
 
       {/* As seções */}
-      {cats.map((c) => {
-        const doGrupo = filtrados.filter((i) => i.cat === c.id);
-        if (doGrupo.length === 0) return null;
-        return (
-          <section
-            key={c.id}
-            id={`cat-${c.id}`}
-            className="scroll-mt-16 rounded-2xl border border-hairline bg-surface p-4"
-          >
-            <header className="mb-3">
-              <h2 className="text-[16px] font-bold leading-tight">
-                {c.titulo}
-                <span className="ml-2 font-mono text-[12px] font-semibold text-muted tabular-nums">
-                  {doGrupo.length}
-                  {doGrupo.length !== c.total && `/${c.total}`}
-                </span>
-              </h2>
-              <p className="font-jp text-[11px] text-muted">{c.jp}</p>
-              <p className="mt-1 text-[12px] leading-snug text-muted">{c.resumo}</p>
-            </header>
-            <div className="space-y-2.5">
-              {doGrupo.map((item) => (
-                <Cartao
-                  key={item.id}
-                  item={item}
-                  rotuloAtivo={rotulo}
-                  onRotulo={alternaRotulo}
-                />
-              ))}
-            </div>
-          </section>
-        );
-      })}
+      {modo === 'tipo' &&
+        cats.map((c) => {
+          const doGrupo = filtrados.filter((i) => i.cat === c.id);
+          if (doGrupo.length === 0) return null;
+          return (
+            <section
+              key={c.id}
+              id={`cat-${c.id}`}
+              className="scroll-mt-16 rounded-2xl border border-hairline bg-surface p-4"
+            >
+              <header className="mb-3">
+                <h2 className="text-[16px] font-bold leading-tight">
+                  {c.titulo}
+                  <span className="ml-2 font-mono text-[12px] font-semibold text-muted tabular-nums">
+                    {doGrupo.length}
+                    {doGrupo.length !== c.total && `/${c.total}`}
+                  </span>
+                </h2>
+                <p className="font-jp text-[11px] text-muted">{c.jp}</p>
+                <p className="mt-1 text-[12px] leading-snug text-muted">{c.resumo}</p>
+              </header>
+              <div className="space-y-2.5">
+                {doGrupo.map((item) => (
+                  <Cartao key={item.id} item={item} rotuloAtivo={rotulo} onRotulo={alternaRotulo} />
+                ))}
+              </div>
+            </section>
+          );
+        })}
+
+      {modo === 'lugar' &&
+        bairros.map((b) => {
+          const doGrupo = filtrados.filter((i) => i.bairro === b.bairro);
+          if (doGrupo.length === 0) return null;
+          return (
+            <section
+              key={b.bairro}
+              id={`bairro-${b.bairro}`}
+              className="scroll-mt-16 rounded-2xl border border-hairline bg-surface p-4"
+            >
+              <header className="mb-3">
+                <h2 className="text-[16px] font-bold leading-tight">
+                  {b.bairro}
+                  <span className="ml-2 font-mono text-[12px] font-semibold text-muted tabular-nums">
+                    {doGrupo.length}
+                    {doGrupo.length !== b.total && `/${b.total}`}
+                  </span>
+                </h2>
+                <p className="text-[11px] text-muted">{b.cidade}</p>
+                <p className="mt-1 text-[12px] leading-snug text-muted">
+                  {b.marcados > 0
+                    ? `${b.marcados} ${b.marcados === 1 ? 'já está' : 'já estão'} no roteiro; o resto é o que sobra por perto.`
+                    : 'Nenhum está marcado no roteiro — é tudo alternativa.'}{' '}
+                  Vocês passam por aqui em {b.datas.join(', ')}.
+                </p>
+              </header>
+              <div className="space-y-2.5">
+                {doGrupo.map((item) => (
+                  <Cartao key={item.id} item={item} rotuloAtivo={rotulo} onRotulo={alternaRotulo} />
+                ))}
+              </div>
+            </section>
+          );
+        })}
+
     </div>
   );
 }

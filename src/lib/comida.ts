@@ -9,7 +9,7 @@ import {
   GLOSSARIO,
   type GlossarioTermo,
 } from '@/data/comida';
-import { cidadeDe, itemMapsUrl, itemPhotosUrl } from '@/lib/places';
+import { bairroDe, cidadeDe, itemMapsUrl, itemPhotosUrl } from '@/lib/places';
 
 /** Um item do catálogo já cruzado com a parada de onde ele veio */
 export interface ComidaResolvida extends ComidaItem {
@@ -20,6 +20,8 @@ export interface ComidaResolvida extends ComidaItem {
   dataCurta: string;
   /** 'jantar', 'almoço', 'mercado'… — o timeLabel da parada */
   refeicao: string;
+  /** 'Akihabara', 'Gion' — para o agrupamento por lugar */
+  bairro: string;
   /** '19:00' */
   hora: string;
   cidade: string;
@@ -77,6 +79,7 @@ export function comidaResolvida(): ComidaResolvida[] {
       refeicao: parada.timeLabel ?? 'parada',
       hora: parada.time,
       cidade: cidadeDe(item.stopId, parada.dayId),
+      bairro: bairroDe(item.stopId, item.bairro),
       rotulos: rotulosDe(item),
       mapsUrl: itemMapsUrl(busca, item.stopId, parada.dayId),
       fotosUrl: itemPhotosUrl(busca, item.stopId, parada.dayId),
@@ -178,4 +181,49 @@ export function glossarioResolvido(itens: ComidaResolvida[]): GrupoGlossario[] {
       .map((g) => ({ ...g, n: uso.get(g.termo) ?? 0 }))
       .sort((a, b) => b.n - a.n || a.termo.localeCompare(b.termo)),
   })).filter((g) => g.termos.length > 0);
+}
+
+export interface BairroResumo {
+  bairro: string;
+  cidade: string;
+  total: number;
+  /** 'Sushi 3 · Ramen 2' — o que dá para comer ali */
+  quebra: { rotulo: string; n: number }[];
+  /** quantos já estão marcados no roteiro */
+  marcados: number;
+  /** as datas em que vocês passam por ali */
+  datas: string[];
+}
+
+/**
+ * O mesmo catálogo agrupado por bairro, para a pergunta do meio da rua:
+ * "estou aqui, o lugar do roteiro fechou, o que mais tem por perto?".
+ *
+ * Ordena pelo número de endereços, porque um bairro com oito opções é o que
+ * resolve a emergência e um com uma só não resolve nada.
+ */
+export function resumoPorBairro(itens: ComidaResolvida[]): BairroResumo[] {
+  const grupos = new Map<string, ComidaResolvida[]>();
+  for (const item of itens) {
+    const lista = grupos.get(item.bairro);
+    if (lista) lista.push(item);
+    else grupos.set(item.bairro, [item]);
+  }
+
+  return [...grupos.entries()]
+    .map(([bairro, doGrupo]) => {
+      const porCat = new Map<string, number>();
+      for (const i of doGrupo) porCat.set(i.cat, (porCat.get(i.cat) ?? 0) + 1);
+      return {
+        bairro,
+        cidade: doGrupo[0].cidade,
+        total: doGrupo.length,
+        marcados: doGrupo.filter((i) => i.plano === 'marcado').length,
+        datas: [...new Set(doGrupo.map((i) => i.dataCurta))].sort(),
+        quebra: [...porCat.entries()]
+          .map(([id, n]) => ({ rotulo: COMIDA_CATS.find((c) => c.id === id)?.titulo ?? id, n }))
+          .sort((a, b) => b.n - a.n || a.rotulo.localeCompare(b.rotulo)),
+      };
+    })
+    .sort((a, b) => b.total - a.total || a.bairro.localeCompare(b.bairro));
 }
