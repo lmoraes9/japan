@@ -282,13 +282,26 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
           title: 'Os dois modelos, lado a lado',
           headers: ['', 'Japonês / uso doméstico', 'Multi-idioma'],
           rows: [
-            ['Preço (console comum)', '¥49.980', '¥69.980'],
+            ['Preço (console comum)', '¥59.980', '¥69.980'],
             ['Edição de Zelda', '**¥62.980** — só existe aqui', '**não existe**'],
             ['Onde se compra', 'Yodobashi, Bic, Sofmap, qualquer loja', 'Só na loja oficial da Nintendo'],
             ['Idioma do sistema', 'Japonês, sem opção de troca', 'Português, inglês e mais'],
             ['Conta / eShop', 'Só conta com país Japão', 'Qualquer país'],
             ['Cartucho comprado fora', 'Sem garantia de funcionar', 'Normal'],
             ['Garantia fora do Japão', 'Nenhuma', 'Nenhuma'],
+          ],
+        },
+      },
+      {
+        type: 'note',
+        note: {
+          label: 'E se for só um Switch 2 japonês comum, sem edição especial?',
+          tone: 'info',
+          paragraphs: [
+            'Esse é **fácil**, ao contrário da edição de Zelda. Desde 2026 a Yodobashi, a Bic e a Yamada vendem o modelo japonês no balcão, sem sorteio e sem condição nenhuma — é chegar, pedir e levar. Estoque costuma ser melhor de sexta a domingo.',
+            '**Mas a economia encolheu.** Em **25 de maio de 2026** a Nintendo subiu o modelo japonês de ¥49.980 para **¥59.980**. O multi-idioma ficou nos ¥69.980. A diferença que era de ¥20.000 virou **¥10.000** — e a edição de Zelda, a ¥62.980, custa só ¥3.000 a mais que o japonês simples.',
+            '**Tax-free:** os guias de turista listam o modelo japonês como comprável com passaporte na Yodobashi e na Bic, com os 10% de volta (¥59.980 → cerca de ¥54.500). Não achei nada oficial da Nintendo proibindo, mas também nada garantindo — **perguntem no balcão antes de pagar**, e lembrem que desde 1º/nov o reembolso sai no aeroporto, não no caixa.',
+            'Vale a conta fria: por **¥10.000** (uns R$ 370) o multi-idioma dá sistema em português, eShop do Brasil e cartucho de qualquer lugar funcionando com garantia. O japonês só compensa se o plano for jogar cartucho e conviver com menu em japonês.',
           ],
         },
       },
