@@ -5,6 +5,7 @@ import {
   Plane,
   MapPinPlus,
   Sandwich,
+  UtensilsCrossed,
   MapPinned,
   Ticket,
   Siren,
@@ -30,6 +31,12 @@ const ITEMS = [
     icon: BookOpen,
     title: 'História',
     subtitle: 'O Japão em capítulos, as nove cidades e os lugares do roteiro em detalhe',
+  },
+  {
+    href: '/mais/comida',
+    icon: UtensilsCrossed,
+    title: 'Comida',
+    subtitle: 'Todo lugar de comer do roteiro por tipo — sushi, ramen, chapa, mercado — com rótulo e filtro',
   },
   {
     href: '/mais/ingressos',
