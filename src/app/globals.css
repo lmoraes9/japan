@@ -2,6 +2,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* "deitado": celular na horizontal — largura de sobra, altura curta.
+   Não pega em tablet nem em TV, que são altos o bastante. */
+@custom-variant deitado (@media (orientation: landscape) and (max-height: 560px));
+
 :root {
   --background: #f6f5f2;
   --surface: #ffffff;
@@ -111,4 +115,22 @@ body {
 }
 .tappable:active {
   transform: scale(0.985);
+}
+
+/* ── celular deitado ──────────────────────────────────────────────────────
+   Na horizontal a folha do ponto não pode nascer do rodapé: 56% de 390px
+   são 218px, e o texto de um ponto não cabe ali. Ela encosta na direita,
+   em coluna inteira, e o mapa fica com a tela toda do lado esquerdo. */
+@media (orientation: landscape) and (max-height: 560px) {
+  .folha-ponto {
+    top: 8px;
+    left: auto;
+    right: 0;
+    width: min(400px, 46vw);
+  }
+  .folha-ponto > div {
+    height: 100%;
+    max-height: 100% !important;
+    transform: none !important;
+  }
 }

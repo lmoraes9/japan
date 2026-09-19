@@ -65,7 +65,7 @@ export function FolhaPonto({
 
   return (
     <div
-      className={`sheet-in z-40 px-2 ${flutuante ? 'absolute inset-x-0 bottom-0' : 'fixed inset-x-0'}`}
+      className={`folha-ponto sheet-in z-40 px-2 ${flutuante ? 'absolute inset-x-0 bottom-0' : 'fixed inset-x-0'}`}
       style={
         flutuante
           ? { paddingBottom: 'calc(env(safe-area-inset-bottom) + 8px)' }

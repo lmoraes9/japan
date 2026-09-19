@@ -308,7 +308,7 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
     : '';
 
   return (
-    <div className={`space-y-3 ${selected ? (altura === 'cheia' ? 'pb-[92svh]' : 'pb-[60svh]') : ''}`}>
+    <div className={`space-y-3 ${selected ? `deitado:pb-0 deitado:pr-[calc(min(400px,46vw)+8px)] ${altura === 'cheia' ? 'pb-[92svh]' : 'pb-[60svh]'}` : ''}`}>
       {/* ── o mapa ─────────────────────────────────────────────────────── */}
       <div className="relative overflow-hidden rounded-3xl border border-hairline bg-surface shadow-sm">
         <svg
@@ -316,7 +316,7 @@ export function PlaceMapView({ map }: { map: PlaceMap }) {
           viewBox={map.viewBox}
           role="img"
           aria-label={`Mapa ilustrado de ${map.title}`}
-          className={`block w-full select-none transition-[height] duration-300 ${
+          className={`block w-full select-none transition-[height] duration-300 deitado:h-[84svh] deitado:max-h-none ${
             selected ? (altura === 'cheia' ? 'h-[22svh]' : 'h-[36svh]') : 'h-[64svh] max-h-[600px]'
           }`}
           preserveAspectRatio="xMidYMid meet"

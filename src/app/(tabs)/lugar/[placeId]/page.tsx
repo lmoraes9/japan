@@ -101,7 +101,10 @@ export default async function PlaceMapPage({
         </Link>
       )}
 
-      <PlaceMapView map={map} />
+      {/* deitado, o mapa escapa da coluna de leitura e ocupa a largura da tela */}
+      <div className="deitado:mx-[calc(50%-50vw)] deitado:w-screen deitado:px-3">
+        <PlaceMapView map={map} />
+      </div>
 
       {/* ── outros mapas ─────────────────────────────────────────────── */}
       {others.length > 0 && (

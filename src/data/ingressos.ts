@@ -190,12 +190,12 @@ export const INGRESSOS: Ingresso[] = [
     stopId: 'd01-gachapon-ikebukuro',
   },
   {
-    id: 'jardim-imperial',
-    title: 'Jardim Leste do Palácio Imperial',
+    id: 'ochanomizu-opcional',
+    title: 'A manhã do dia 2 — Kanda Myōjin e Yushima Seidō',
     status: 'livre',
     date: '2026-12-02',
-    action: 'Grátis, pega-se uma ficha na entrada e devolve na saída. Aberto quarta. (O tour do palácio, que vocês não fazem, é o que exige reserva.)',
-    stopId: 'd02-jardim-imperial',
+    action: 'Nada a reservar e nada a pagar: os dois são de graça e o pátio do Kanda Myōjin não fecha nunca. É passeio opcional — se acordarem sem pique, o dia começa no curry às 11:20.',
+    stopId: 'd02-kanda-myojin',
   },
   {
     id: 'restaurantes-tokyo',
