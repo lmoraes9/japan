@@ -320,6 +320,22 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
         },
       },
       {
+        type: 'note',
+        note: {
+          label: 'E o usado das lojas de Akihabara?',
+          tone: 'warn',
+          paragraphs: [
+            'Tem, e é fácil: **Sofmap**, **Janpara**, **GEO** e **Book-Off** vendem Switch 2 usado com garantia própria da loja, e a Janpara já é parada do dia 2/12 por causa da dock. **O usado é o mesmo modelo japonês**, então todas as travas de idioma e conta continuam valendo — o usado não resolve nada disso, só o preço.',
+            '**Quanto economiza:** em setembro de 2026 as lojas estavam **pagando** ¥34.000–40.000 no console japonês, o que costuma pôr a etiqueta de venda na casa dos **¥45.000–52.000**. Contra os ¥59.980 do novo, a economia real fica em torno de **¥10.000** — confiram na vitrine, que isso varia por semana e por loja.',
+            '**O risco que não dá para inspecionar:** a Nintendo bane **o console**, não a conta. Quem usar cartucho pirata (o tal MIG Flash) ou um cartucho clonado sem saber tem o aparelho **banido permanentemente do online**. Como o banimento fica gravado no hardware, ele **vai junto com o usado** — e já aconteceu de gente comprar de segunda mão e descobrir depois. Console banido perde online, save na nuvem, atualização de firmware, e alguns jogos de Game-Key Card simplesmente não abrem.',
+            '**E o balcão não te mostra isso.** O aparelho liga, a tela funciona, tudo parece normal: o problema só aparece quando tenta entrar na rede. Se forem mesmo de usado, **peçam para testar a conexão online na loja antes de pagar** — e comprem só em rede grande com garantia escrita (Sofmap, Janpara, GEO), nunca em banca ou vitrine de usado solto.',
+            '**A garantia da loja é japonesa.** Vale no Japão, com você no Japão. De volta ao Brasil ela não serve para nada — e a garantia da Nintendo já não valia mesmo, nem no novo.',
+            '**Tax-free vale para usado, sim.** A Janpara faz em todas as lojas, com **passaporte original** (cópia não serve). Vale o mesmo mínimo de ¥5.000 por loja por dia.',
+            '**Minha opinião:** economizar ~¥10.000 para herdar um risco que não dá para conferir no balcão, num console que já vem sem garantia utilizável em casa, não compensa. Se o orçamento apertar, é melhor o novo japonês simples a ¥59.980 do que o usado a ¥48.000.',
+          ],
+        },
+      },
+      {
         type: 'bullets',
         items: [
           '**Onde tentar, dia 2/12** — **Yodobashi-Akiba, 6º andar** (games), colado na estação de Akihabara, 09:30–22:00. Plano B a 5 min: **Bic Camera** e **Sofmap** na Chūō-dōri.',
