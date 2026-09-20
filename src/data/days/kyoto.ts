@@ -580,6 +580,11 @@ export const kyotoDays: Day[] = [
                 specialty: true,
                 note: '11:00–14:00 · *shōjin ryōri*, a cozinha vegetariana budista de monastério, servida por monges. A partir de ¥3.800. Reserva recomendada.',
               },
+              {
+                name: 'Hatoya — 八十八良葉舎 (a sobremesa)',
+                specialty: true,
+                note: 'O matcha que o Leonardo quer: **só matcha colhido à mão em Uji**, de uma casa que nasceu em 2019 de um barista que mudou de vida depois de uma xícara de gyokuro. O famoso é o **latte em camadas** — leite doce embaixo, matcha denso no meio, sorvete de matcha em cima (¥800 o mais leve, ¥1.300 o mais forte). Aqui em Arashiyama tem **duas casas**: a matriz ao lado da estação Kurumazaki-jinja do Randen (**dom 10:00–17:00, seg–qui 11:00–17:00**, last order 16:30) e a loja-conceito **a 1 minuto da ponte Togetsukyō**, que é a que fica no caminho de vocês — confiram o horário dela na porta.',
+              },
             ],
           },
         ],

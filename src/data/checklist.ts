@@ -187,6 +187,14 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: 'Antes de sair do Brasil — as medidas japonesas não batem com as brasileiras',
   },
   {
+    id: 'visit-japan-web',
+    dueAt: '2026-11-15T23:59:00-03:00',
+    group: 'pretrip',
+    title: 'Visit Japan Web preenchido — os dois',
+    subtitle:
+      'Imigração e alfândega num QR só, em services.digital.go.jp · nome idêntico ao passaporte, senão o código falha · salvar print do QR: o guichê é antes de haver wi-fi',
+  },
+  {
     id: 'visto-eua',
     dueAt: '2026-09-30T23:59:00-03:00',
     group: 'pretrip',

@@ -211,6 +211,11 @@ export const tokyo2Days: Day[] = [
                 note: '11:00–21:00 · o melhor custo-benefício de Ginza, ~¥3.000. Peguem senha cedo pelo painel eletrônico.',
               },
               {
+                name: 'Sushi Azabu',
+                specialty: true,
+                note: 'Azabudai Hills, 3º andar · omakase de **~17 peças por ¥9.800** no jantar, com peixe comprado direto em Toyosu. É o meio-termo que faltava aqui: o dobro do Midori, metade do Kyūbey. **Reserva obrigatória** — sem ela não entra. No almoço são ~14 peças por **¥4.800**, e aí vira a melhor conta de Tóquio.',
+              },
+              {
                 name: 'Kyūbey Ginza',
                 note: '17:00–22:00, fecha dom · omakase de balcão desde 1935, ~¥20.000. Reserva.',
               },

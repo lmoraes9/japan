@@ -10,6 +10,11 @@ export const tokyo1Days: Day[] = [
     chips: ['chegada', 'ramen'],
     notes: [
       {
+        label: 'O QR do Visit Japan Web, antes de descer do avião',
+        tone: 'warn',
+        text: 'Se preencheram o **Visit Japan Web**, abram o QR **ainda no avião** e deixem em print na tela: o guichê de imigração vem antes de qualquer wi-fi do aeroporto, e é onde todo mundo trava. É um QR só, que serve para imigração e alfândega. Não é obrigatório — quem não tem preenche o papel na fila — mas a fila digital anda visivelmente mais rápido num pouso de fim de tarde. **O nome tem que estar idêntico ao do passaporte**, senão o código é recusado.',
+      },
+      {
         label: 'Chegando sem roupa',
         tone: 'info',
         text: 'Se precisarem de qualquer coisa ainda hoje (camiseta, meia, escova), o **Don Quijote de Shinjuku é 24h** e tem de tudo. UNIQLO e GU fecham às 21:00 — as compras de roupa de verdade estão programadas para amanhã, no caminho do roteiro.',
@@ -396,6 +401,10 @@ export const tokyo1Days: Day[] = [
                 name: 'Sushi Zanmai Akihabara',
                 note: '24h · rede, mas honesta, e resolve quando tudo mais está fechado',
               },
+              {
+                name: 'Sushiro — Akihabara',
+                note: 'A maior rede de kaiten do Japão (**843 lojas**), e tem **duas** aqui: Akihabara-ekimae e Chūō-dōri. Aviso do preço: a tabela muda por tipo de loja, e as urbanas como estas começam em **¥150** o prato, não nos ¥120 da fama. Pedido por tablet, prato chega em esteira expressa.',
+              },
             ],
           },
         ],
@@ -610,6 +619,11 @@ export const tokyo1Days: Day[] = [
                 name: 'Marutake',
                 specialty: true,
                 note: 'tamagoyaki no espeto, ¥150 — o doce, quente, feito na hora',
+              },
+              {
+                name: 'Tsukiji Uogashi — o prédio, 3º andar',
+                specialty: true,
+                note: '**Praça de alimentação 07:00–19:00** · os dois prédios (Odawarabashi e Kaikobashi) no fim da rua do mercado. No térreo são as peixarias que abastecem os restaurantes; **no 3º andar há uma praça de alimentação e um terraço** onde a mesma matéria-prima sai **bem mais barata** que nas bancas de rua, porque ali não se paga pelo teatro. Cara de refeitório de faculdade, e é exatamente essa a graça. Turista é bem-vindo **depois das 09:00** — antes disso o andar de baixo é dos compradores profissionais.',
               },
               {
                 name: 'Tsukiji Sushisei',
