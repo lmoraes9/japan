@@ -137,6 +137,8 @@ const BAIRRO_DA_PARADA: Record<string, string> = {
   'd27-nishiki-rapido': 'Nishiki',
   'd27-jantar': 'Fushimi',
   'd27-sushi-musashi': 'Kawaramachi-Sanjō',
+  'd29-jantar': 'Kawaramachi-Sanjō',
+  'd28-sannenzaka': 'Higashiyama',
   'd28-almoco': 'Higashiyama',
   'd28-gion': 'Gion e Pontochō',
   'd29-konbini': 'Arashiyama',

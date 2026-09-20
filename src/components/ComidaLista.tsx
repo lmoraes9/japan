@@ -25,10 +25,13 @@ function Pilula({
   onClick: () => void;
 }) {
   const local = rotulo === 'especialidade local';
+  const pedido = rotulo === 'a pedido';
   const aviso = AVISOS.has(rotulo);
   const cor = ativo
     ? 'border-accent bg-accent text-white'
-    : local
+    : pedido
+      ? 'border-matcha/50 bg-matcha/15 font-semibold text-matcha'
+      : local
       ? 'border-accent/40 bg-accent/10 text-accent'
       : aviso
         ? 'border-gold/40 bg-gold/10 text-gold'
@@ -42,7 +45,7 @@ function Pilula({
       onClick={onClick}
       className={`rounded-full border px-2 py-0.5 text-[10px] font-medium leading-tight ${cor}`}
     >
-      {local ? `⭐ ${rotulo}` : rotulo}
+      {local ? `⭐ ${rotulo}` : pedido ? `✋ ${rotulo}` : rotulo}
     </button>
   );
 }
@@ -326,7 +329,7 @@ export function ComidaLista({
                   : 'border-hairline bg-surface-2 text-muted'
               }`}
             >
-              {r === 'especialidade local' ? `⭐ ${r}` : r}
+              {r === 'especialidade local' ? `⭐ ${r}` : r === 'a pedido' ? `✋ ${r}` : r}
               <span className="ml-1 font-mono tabular-nums opacity-60">{n}</span>
             </button>
           ))}

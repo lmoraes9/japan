@@ -275,9 +275,10 @@ export const hiroshimaDays: Day[] = [
         kind: 'sight',
         name: 'Shukkei-en, de volta a Hiroshima',
         jp: '縮景園',
-        facts: '**09:00–18:00** em novembro · ¥260 · 10 min a pé da estação',
+        facts: '**09:00–17:00** de outubro a março · **última entrada 16:30** · ¥260 · 10 min a pé da estação · o jardim pede **uma hora**',
         paragraphs: [
           'Jardim de 1620, desenhado como uma "paisagem em miniatura" — o lago imita o Lago Ocidental de Hangzhou, na China. Ficava a 1,3 km do hipocentro e foi arrasado; virou abrigo improvisado para feridos nos dias seguintes, e muita gente morreu ali. **Algumas árvores sobreviveram** e estão marcadas com placa: são *hibakujumoku*, árvores sobreviventes da bomba. Em novembro, o jardim está vermelho.',
+          '**A conta não fecha como está.** Chegando às 16:30 vocês batem exatamente na última entrada, e o jardim fecha às 17:00: meia hora para um lugar que pede uma. Duas saídas honestas: **ou voltam de Miyajima mais cedo** (ferry das 15:00, aqui às 15:50, uma hora inteira de jardim), **ou deixam o Shukkei-en para lá** e ficam em Miyajima até o pôr do sol, que é o que a ilha faz de melhor. Trinta minutos correndo não valem os ¥260 nem o deslocamento.',
         ],
         mapQuery: 'Shukkeien Garden Hiroshima',
       },

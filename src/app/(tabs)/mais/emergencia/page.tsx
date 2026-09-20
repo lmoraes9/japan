@@ -4,7 +4,7 @@ import { Phone, Navigation, ExternalLink, Camera, Trash2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { SubpageHeader } from '@/components/SubpageHeader';
 import { Rich } from '@/components/Rich';
-import { NUMEROS_JAPAO, CONSULADO, HOSPITAIS, CARTOES, COMO_AGIR, DOC_FIELDS } from '@/data/emergencia';
+import { NUMEROS_JAPAO, CONSULADO, HOSPITAIS, CARTOES, COMO_AGIR, DOC_FIELDS, SEGURO } from '@/data/emergencia';
 import { useSyncStore } from '@/lib/store';
 import { searchUrl } from '@/lib/mapsLinks';
 
@@ -137,6 +137,46 @@ export default function EmergenciaPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="px-1 text-[13px] font-semibold uppercase tracking-wider text-accent">Seguro-viagem</h2>
+        <div className="overflow-hidden rounded-2xl border border-hairline bg-surface">
+          <div className="border-b border-hairline p-4">
+            <p className="text-[15px] font-semibold">{SEGURO.empresa}</p>
+            <p className="mt-0.5 text-[12px] leading-snug text-muted">{SEGURO.produto}</p>
+            <dl className="mt-2.5 space-y-1.5">
+              {SEGURO.pessoas.map((pes) => (
+                <div key={pes.voucher} className="text-[12.5px] leading-snug">
+                  <dt className="font-medium">{pes.nome}</dt>
+                  <dd className="font-mono text-[12px] text-muted">voucher {pes.voucher} · bilhete {pes.bilhete}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          {SEGURO.telefones.map((c) => (
+            <PhoneRow key={c.phone} {...c} />
+          ))}
+          <div className="border-t border-hairline p-4">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">Coberturas principais</p>
+            <dl className="mt-1.5 space-y-1">
+              {SEGURO.coberturas.map(([o, v]) => (
+                <div key={o} className="flex justify-between gap-3 text-[12.5px] leading-snug">
+                  <dt className="text-foreground/85">{o}</dt>
+                  <dd className="shrink-0 font-mono text-gold">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <ol className="mt-3 list-decimal space-y-1.5 pl-4 text-[12.5px] leading-relaxed">
+              {SEGURO.regras.map((r, i) => (
+                <li key={i}>
+                  <Rich text={r} />
+                </li>
+              ))}
+            </ol>
+            <a href={`mailto:${SEGURO.email}`} className="mt-2.5 inline-block text-[12px] font-medium text-accent">{SEGURO.email}</a>
+          </div>
         </div>
       </section>
 

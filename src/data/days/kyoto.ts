@@ -77,10 +77,10 @@ export const kyotoDays: Day[] = [
         kind: 'transit',
         name: 'Kōyasan → Sumiyoshi, de volta pela Nankai',
         jp: '南海高野線',
-        facts: 'Ônibus + funicular ~25 min · trem até **Sumiyoshi-Higashi** ~1h20 · a volta já está no passe',
+        facts: 'Ônibus + funicular ~25 min · expresso até **Sakai-Higashi** ~1h · troca para o local, **4 paradas** até Sumiyoshi-Higashi · o santuário fica a **5 min** do portão de trás · tudo dentro do passe',
         paragraphs: [
           'Ônibus até a estação de Kōyasan, funicular até Gokurakubashi, e o mesmo trem de ontem no sentido contrário — desta vez com a garganta aparecendo pela janela de baixo, que é melhor.',
-          '**Não vão até Namba.** Desçam em **Sumiyoshi-Higashi**, que fica na própria linha Kōya: o santuário está a 10 min a pé dali. Assim vocês não perdem o Sumiyoshi Taisha, que era o programa original desta manhã.',
+          'O desvio pelo Sumiyoshi Taisha é **leve, não perrengue** — mas tem um detalhe: **o expresso não para em Sumiyoshi-Higashi**. Só o trem local (各停) para lá. Então é descer do expresso em **Sakai-Higashi**, atravessar a plataforma para um local no sentido Namba (de dia passa mais ou menos a cada 10 minutos) e descer quatro paradas depois. Da estação ao santuário são **5 minutos** — vocês entram pelo portão de trás. Meia hora lá dentro, de volta à mesma estação, e qualquer local leva a Namba em ~15 min. **Custo total do desvio: uns 50 a 60 minutos** sobre ir direto. Se a manhã em Kōyasan atrasar, pulem sem culpa: é olhar rápido e seguir, não é o programa do dia.',
         ],
         mapQuery: 'Gokurakubashi Station',
       },
@@ -299,6 +299,21 @@ export const kyotoDays: Day[] = [
         paragraphs: [
           'Ladeiras de pedra com casas de madeira, preservadas por lei como distrito histórico. Às 8h da manhã, vazias, com as lanternas ainda acesas, é a melhor caminhada de Kyoto. A superstição local diz que tropeçar aqui dá dois (ou três) anos de azar — daí os nomes. Vão devagar, é escorregadio mesmo.',
         ],
+        eat: [
+          {
+            label: 'Café da manhã — o que abre a essa hora',
+            items: [
+              {
+                name: '7-Eleven ao lado do hotel, antes do táxi',
+                note: 'Nada das listas de vocês abre antes das 9h em Higashiyama. Então o café de verdade é o de sempre nesta viagem: **onigiri e café quente do 7-Eleven** na esquina do hotel, às 05:40, comidos no táxi ou na escadaria do Kiyomizu. É honesto e funciona.',
+              },
+              {
+                name: '% Arabica Higashiyama — 09:00',
+                note: 'Na Yasaka-dōri, **debaixo do pagode de Yasaka**, no caminho entre as ladeiras e o Kōdai-ji. O café mais fotografado de Kyoto, e o latte é bom mesmo. Abre às **09:00** — exatamente quando vocês estão passando na porta. Fila cresce depois das 10.',
+              },
+            ],
+          },
+        ],
         mapQuery: 'Sannenzaka Kyoto',
       },
       {
@@ -427,9 +442,9 @@ export const kyotoDays: Day[] = [
             label: 'Jantar em Kyoto',
             items: [
               {
-                name: 'Izuju (em frente ao santuário Yasaka)',
+                name: 'Izuu (Gion Shinchi)',
                 specialty: true,
-                note: '10:30–19:00, fecha qua · sushi **de Kyoto**, que é outra coisa: *saba-zushi* (cavala curada, prensada) e *hako-zushi*. Cidade sem mar, então o peixe é curado — foi assim por mil anos. Desde 1912.',
+                note: '11:00–22:00 (dom e feriado até 21:00), **fecha ter** · o sushi **de Kyoto**, que é outra coisa: *saba-sugata-zushi* — cavala curada, prensada, embrulhada em folha de bambu. Casa de **1781**, a original do prato; o Izuju, que estava aqui antes, é a filha dela e fecha às 19:00, cedo demais para este jantar. Cidade sem mar, então o peixe é curado — foi assim por mil anos.',
               },
               {
                 name: 'Pontochō',
@@ -484,7 +499,7 @@ export const kyotoDays: Day[] = [
         timeLabel: 'konbini',
         kind: 'food',
         name: '7-Eleven a caminho de Arashiyama — parada 3 de 4',
-        facts: 'Estação de Kyoto e Saga-Arashiyama têm lojas 24h',
+        facts: 'esquina do hotel e Saga-Arashiyama têm lojas 24h',
         paragraphs: [
           'Saindo às 6h30 nada está aberto, e é exatamente para isso que o konbini existe. Hoje: **café da máquina** — pega-se o copo vazio no caixa (o gelado já vem lacrado com gelo na geladeira), paga, e só então põe na máquina, botão R ou L.',
           'E, se a loja tiver a máquina branca de **smoothie** ao lado do caixa, é a hora: copo de fruta congelada do freezer, tira o lacre, encaixa, 40 segundos. Nem toda loja tem — se não achar, fica para a repescagem do dia 2.',
@@ -648,6 +663,49 @@ export const kyotoDays: Day[] = [
         ],
         mapQuery: 'Nishiki Market Kyoto',
       },
+      {
+        id: 'd29-jantar',
+        time: '18:30',
+        timeLabel: 'jantar',
+        kind: 'food',
+        name: 'Jantar de rede, a três minutos do hotel',
+        facts: 'Tudo na **Urateramachi** e na **Kawaramachi**, entre o Shijō e o Sanjō · nada precisa de reserva · domingo, tudo aberto',
+        paragraphs: [
+          'Depois do Nishiki não tem mais programa — e o hotel está a cinco minutos. Então o jantar é o oposto do resto da viagem: **rede, rápido, sem fila de uma hora**. As quatro casas abaixo ficam num raio de 300 m umas das outras, e duas delas são literalmente vizinhas de porta.',
+          'Sobre o Onimaru e o Karafuneya: **não são jantar**, são o que o Leonardo pediu para não esquecer de provar. Cabem antes ou depois do sushi — o onigiri como entrada, o parfait como sobremesa.',
+        ],
+        eat: [
+          {
+            label: 'O jantar',
+            items: [
+              {
+                name: 'Sushiro — Kawaramachi Takoyakushi',
+                note: 'Urateramachi 599, **no subsolo** · dom 10:30–23:00 (seg–sex 11:00–23:00), última entrada 22:30 · a maior rede de kaiten do Japão, a **3 min do hotel**. É loja urbana: o prato começa em **¥150–170**, não nos ¥120 da fama. Pedido por tablet.',
+              },
+              {
+                name: 'Ichiran — Kyoto Kawaramachi',
+                note: 'Urateramachi 598, **a porta ao lado do Sushiro** · domingo aberto até 22:00 · o tonkotsu de Fukuoka em cabine individual, o mesmo que vocês podem ter provado em Shinjuku no dia 18. Se um estiver cheio, o outro está a dois metros.',
+              },
+            ],
+          },
+          {
+            label: 'Para não esquecer de provar',
+            items: [
+              {
+                name: 'Onimaru — o onigiri grelhado',
+                specialty: true,
+                note: '*Gochisō yaki-musubi*: onigiri **grelhado no carvão binchōtan**, com o recheio até o meio e a casca tostada. Duas lojas: **Sanjō-Kawaramachi** (2º andar, 10:00–21:30) e **Shijō-Kawaramachi** (10:00–21:00). Um ou dois como entrada, antes do sushi.',
+              },
+              {
+                name: 'Karafuneya Coffee — Sanjō Honten',
+                specialty: true,
+                note: 'Kawaramachi-dōri, logo abaixo do Sanjō · dom 09:00–22:00, **último pedido de parfait às 21:00** · cerca de **150 parfaits** no cardápio, a casa de parfait de Kyoto desde sempre. Os gigantes (o de ¥10.000, o de balde) exigem reserva; o tamanho normal é chegar e pedir. **A sobremesa da noite** — cheguem antes das 21:00.',
+              },
+            ],
+          },
+        ],
+        mapQuery: 'Sushiro Kawaramachi Takoyakushi Kyoto',
+      },
     ],
   },
   {
@@ -658,9 +716,14 @@ export const kyotoDays: Day[] = [
     date: '2026-11-30',
     stageId: 'kyoto',
     title: 'Nara — a capital antes da capital',
-    subtitle: 'O maior buda de bronze do mundo, mil cervos soltos e o Japão do século VIII.',
+    subtitle: 'Dia em aberto. Nara é a sugestão pronta — o maior buda de bronze do mundo e mil cervos soltos — mas nada aqui está amarrado.',
     chips: ['história', 'unesco', 'bate-volta', 'kakinoha'],
     notes: [
+      {
+        label: 'Este dia está em aberto',
+        tone: 'info',
+        text: 'Por decisão de vocês, **o dia 30 não tem plano fechado**. O roteiro de Nara abaixo continua aqui inteiro porque é a melhor sugestão pronta — dá para fazer sem reservar nada, e o trem sai a cada 15 min. Mas se acordarem querendo outra coisa (repetir um bairro de Kyoto, comprar, não fazer nada), é isso mesmo. **Única coisa que amarra:** o Kamameshi Shizuka, que estava no almoço, fecha às segundas — foi trocado.',
+      },
       {
         label: 'Por que Nara existe',
         tone: 'info',
@@ -769,8 +832,13 @@ export const kyotoDays: Day[] = [
                 note: '10:00–19:00 · fazem *mochi* na rua com dois homens batendo em ritmo absurdo, várias vezes por hora. É um espetáculo e o mochi de artemísia sai quente por ¥150.',
               },
               {
-                name: 'Kamameshi Shizuka',
-                note: '11:00–20:00, fecha seg · arroz cozido em panela de ferro individual',
+                name: 'Tengyokudō — a casa do kuzu',
+                specialty: true,
+                note: '10:00–19:30, **fecha ter** (segunda abre) · perto da Kintetsu-Nara · a especialidade que Nara tem e ninguém mais: **kuzu**, o amido da raiz de Yoshino, em *kuzu-udon* (macarrão transparente e liso), *kuzu-mochi* e *kuzu-kiri* gelado com calda de açúcar mascavo. O Kamameshi Shizuka, que estava aqui, fecha justamente na segunda.',
+              },
+              {
+                name: 'Azekuraya — chagayu dentro do parque',
+                note: 'Dentro do parque de Nara, ao lado do Tōdai-ji · casa de origem Edo · **chagayu**, o mingau de arroz cozido em chá torrado que é o café da manhã histórico de Nara, e udon leve. Sem sair do meio dos cervos. Horário de casa de parque — confiram na porta.',
               },
             ],
           },
@@ -811,14 +879,14 @@ export const kyotoDays: Day[] = [
     id: 'd2026-12-01',
     date: '2026-12-01',
     stageId: 'kyoto',
-    title: 'Tōfuku-ji na abertura, 1.001 Kannons, e Shinkansen para Tóquio',
-    subtitle: 'Duas últimas paradas de Kyoto, ambas perto da estação. Depois, oeste para leste.',
+    title: 'Tōfuku-ji na abertura, 1.001 Kannons, Nijō, e Shinkansen para Tóquio',
+    subtitle: 'Três últimas paradas de Kyoto, com o castelo no meio. Depois, oeste para leste.',
     chips: ['momiji', 'história', 'shinkansen'],
     notes: [
       {
         label: 'Antes de sair',
         tone: 'warn',
-        text: 'Despachem as malas pelo takuhaibin do hotel de Kyoto para o hotel de Tóquio logo cedo — chegam no fim da tarde ou no dia seguinte. Fica muito mais confortável.',
+        text: 'Despachem as malas grandes pelo takuhaibin do hotel de Kyoto para o hotel de Tóquio logo cedo — chegam no fim da tarde ou no dia seguinte. **Em cada volume, escrever "Priscila Werneck" e "check-in 1/12"**: é a regra do Sotetsu para aceitar bagagem enviada antes. **As malas de mão vão com vocês até a Estação de Kyoto e ficam nos armários** (moeda ou IC, ao lado das catracas centrais): o hotel fica em Kawaramachi, longe demais para voltar buscar antes do Shinkansen. A manhã inteira é feita sem peso.',
       },
     ],
     stops: [
@@ -866,8 +934,23 @@ export const kyotoDays: Day[] = [
         mapQuery: 'Sanjusangendo Kyoto',
       },
       {
+        id: 'd01-nijo',
+        time: '11:15',
+        timeLabel: 'castelo',
+        kind: 'sight',
+        name: 'Castelo de Nijō',
+        jp: '二条城',
+        facts: '**08:45–17:00**, última entrada 16:00 · ¥800 o recinto · **terça-feira em dezembro o Palácio Ninomaru fecha** — e 1º de dezembro é terça',
+        paragraphs: [
+          'O castelo que o xogum construiu em **1603** para se hospedar quando vinha a Kyoto — e para lembrar ao imperador, que morava a dez quadras dali, quem mandava. Muralha, fosso, e por dentro o **Palácio Ninomaru**, com os pisos "de rouxinol" que chiam a cada passo justamente para que ninguém se aproximasse em silêncio. Foi nesta sala que, em 1867, o último xogum devolveu o poder ao imperador. O Japão moderno começou aqui.',
+          '**Aviso que muda a visita:** em dezembro o Palácio Ninomaru fecha **às terças**, e o dia 1º cai numa terça. Vocês entram no recinto, andam pelos jardins Ninomaru e Seiryū-en, sobem a base do torreão para ver a cidade, e veem o palácio **por fora**. Ainda vale: o jardim de Kobori Enshū e a escala do lugar são metade da experiência. Mas se o que vocês querem é o piso de rouxinol, a chance é trocar por um dos dias anteriores em Kyoto — me avisem.',
+          '**Uma hora aqui é o teto.** O Shinkansen é às 13:20 e ainda tem o metrô até a estação e o ekiben. Saiam do castelo até as 12:20.',
+        ],
+        mapQuery: 'Nijo Castle Kyoto',
+      },
+      {
         id: 'd01-almoco',
-        time: '11:45',
+        time: '12:40',
         timeLabel: 'almoço',
         kind: 'food',
         name: 'Almoço na Estação de Kyoto',

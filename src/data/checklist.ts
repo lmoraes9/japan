@@ -128,8 +128,8 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'reserva-ekoin',
     dueAt: '2026-10-15T00:00:00+09:00',
     group: 'pretrip',
-    title: 'Reservar o tour noturno do Ekō-in',
-    subtitle: 'Okunoin à noite, dia 26/11 · lota de março a novembro e é o único tour em inglês guiado por monge',
+    title: 'Tour noturno do Okunoin — FEITO (Awesome Tours)',
+    subtitle: 'Voucher RZ260913CQ7084-1, 2 adultos, 26/11 · retirar o passe na recepção Taira até 19:00 · lanterna proibida',
   },
   {
     id: 'reserva-torokko',

@@ -266,7 +266,7 @@ export const tokyo2Days: Day[] = [
         name: 'Última manhã',
         eat: [
           {
-            label: 'Três jeitos de gastar bem',
+            label: 'Quatro jeitos de gastar bem',
             items: [
               {
                 name: 'Café da manhã em Tsukiji',
@@ -275,6 +275,10 @@ export const tokyo2Days: Day[] = [
               {
                 name: 'Mercado de Toyosu',
                 note: '05:00–15:00, fecha dom · o mercado atacadista novo. Dá para ver os leilões de atum da galeria envidraçada se chegarem antes das 6h30 — e o sushi do prédio 6 é excelente.',
+              },
+              {
+                name: 'Shinjuku Gyoen',
+                note: '**09:00–16:30** (out–mar), última entrada 16:00, **fecha seg** — quinta está aberto · **¥500** · o jardim imperial de 58 hectares que virou parque nacional: um jardim japonês, um francês e um inglês no mesmo terreno, e no início de dezembro ainda com bordo vermelho. É o melhor lugar de Tóquio para uma manhã sem pressa. Metrô Marunouchi de Ginza até Shinjuku-Gyoenmae, 15 min; a estufa tropical fecha meia hora antes do parque.',
               },
               {
                 name: 'Nada',
