@@ -96,12 +96,6 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: 'Kappabashi (Tóquio) ou Aritsugu (Nishiki, Kyoto)',
   },
   {
-    id: 'mtg',
-    group: 'compras',
-    title: 'Magic — singles em japonês',
-    subtitle: 'Hareruya e BIG MAGIC, Akihabara ou Den-Den Town',
-  },
-  {
     id: 'tax',
     group: 'compras',
     title: 'Registro no J-TaxRefund feito',
