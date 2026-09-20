@@ -886,7 +886,7 @@ export const kyotoDays: Day[] = [
       {
         label: 'Antes de sair',
         tone: 'warn',
-        text: 'Despachem as malas grandes pelo takuhaibin do hotel de Kyoto para o hotel de Tóquio logo cedo — chegam no fim da tarde ou no dia seguinte. **As malas de mão vão com vocês até a Estação de Kyoto e ficam nos armários** (moeda ou IC, ao lado das catracas centrais): o hotel fica em Kawaramachi, longe demais para voltar buscar antes do Shinkansen. A manhã inteira é feita sem peso.',
+        text: 'Despachem as malas grandes pelo takuhaibin do hotel de Kyoto para o hotel de Tóquio logo cedo — chegam no fim da tarde ou no dia seguinte. **Em cada volume, escrever "Priscila Werneck" e "check-in 1/12"**: é a regra do Sotetsu para aceitar bagagem enviada antes. **As malas de mão vão com vocês até a Estação de Kyoto e ficam nos armários** (moeda ou IC, ao lado das catracas centrais): o hotel fica em Kawaramachi, longe demais para voltar buscar antes do Shinkansen. A manhã inteira é feita sem peso.',
       },
     ],
     stops: [

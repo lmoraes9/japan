@@ -114,7 +114,7 @@ export const COMO_AGIR: { label: string; steps: string[] }[] = [
     steps: [
       'Coisa pequena: **drugstore** (Matsumoto Kiyoshi, Welcia, Sundrug) tem farmacêutico e vende analgésico (Loxonin S, EVE), remédio de estômago (Ōta Isan, Seirogan) e de resfriado (Pabron). As frases estão em **Frases → Saúde**.',
       'Coisa séria: ligar **119** ou ir ao hospital da lista. Levar passaporte e o cartão/apólice do seguro. **Pagam na hora e pedem reembolso** — guardem todo recibo com detalhamento (明細書).',
-      'Antes de qualquer procedimento caro, ligar para a central do seguro (abaixo): alguns só reembolsam se avisados antes.',
+      'Antes de qualquer procedimento caro, ligar para a central do seguro (seção Seguro-viagem, acima): alguns só reembolsam se avisados antes.',
     ],
   },
   {
@@ -134,10 +134,41 @@ export const COMO_AGIR: { label: string; steps: string[] }[] = [
   },
 ];
 
+/** O seguro-viagem dos dois, do bilhete emitido em 11/08/2026 */
+export const SEGURO = {
+  empresa: 'Universal Assistance',
+  produto: 'Universal 40K (60 dias) · vigência 16/11 a 03/12/2026 · destino Ásia',
+  pessoas: [
+    { nome: 'Leonardo Antunes de Moraes', voucher: 'TA6795543', bilhete: 'ZBBR003938343' },
+    { nome: 'Priscila Pinheiro de Toledo Werneck', voucher: 'TA6795544', bilhete: 'ZBBR003938344' },
+  ],
+  telefones: [
+    { label: 'Central 24h no Japão', phone: '0053-153-0002', note: 'de telefone fixo ou celular local (eSIM); de chip brasileiro em roaming a ligação pode não completar' },
+    { label: 'A cobrar, de qualquer lugar', phone: '+54 11 4323-7770', note: 'via operadora, chamada a cobrar' },
+    { label: 'Brasil', phone: '0800-555-6651' },
+  ],
+  email: 'asistencias@universal-assistance.com',
+  coberturas: [
+    ['Despesas médicas e hospitalares (por evento)', 'US$ 40.000'],
+    ['Odontológicas', 'US$ 600'],
+    ['Farmacêuticas', 'US$ 600'],
+    ['Perda de bagagem', 'US$ 1.300'],
+    ['Atraso de voo (a partir de 6 h)', 'US$ 300'],
+    ['Regresso sanitário / traslado médico', 'US$ 5.000 cada'],
+    ['Prorrogação de estadia', 'US$ 1.200'],
+  ],
+  regras: [
+    '**Ligar para a central ANTES de qualquer atendimento** — é condição do seguro. Sem o aviso prévio, o reembolso pode ser negado.',
+    'Pagam na hora e pedem reembolso depois: **guardar todo recibo detalhado** (明細書) e o relatório médico.',
+    'Perda ou roubo: primeiro o boletim no kōban (遺失届 / 盗難届), depois a central. Sem boletim não há cobertura de bagagem.',
+    'Doença pré-existente não é coberta; leia as exclusões antes de contar com algo.',
+  ],
+  site: 'http://bilhete.universal-assistance.com',
+};
+
 /** campos que vocês preenchem no app (texto, sincronizado) */
 export const DOC_FIELDS: { key: string; label: string; placeholder: string; multiline?: boolean }[] = [
   { key: 'consulado-plantao', label: 'Plantão consular (emergências, fora do horário)', placeholder: 'anotar o número do site do consulado' },
-  { key: 'seguro', label: 'Seguro-viagem: empresa, apólice e telefone 24h', placeholder: 'ex.: Assist Card · apólice 123456 · +55 11 ...', multiline: true },
   { key: 'passaporte-l', label: 'Passaporte Leonardo (número e validade)', placeholder: 'ex.: FX123456 · válido até 03/2031' },
   { key: 'passaporte-p', label: 'Passaporte Priscila (número e validade)', placeholder: 'ex.: FX654321 · válido até 07/2030' },
   { key: 'saude', label: 'Alergias, remédios de uso contínuo, tipo sanguíneo', placeholder: 'para mostrar ao médico', multiline: true },

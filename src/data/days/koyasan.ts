@@ -16,7 +16,7 @@ export const koyasanDays: Day[] = [
       {
         label: 'Okunoin à noite — o tour está reservado',
         tone: 'warn',
-        text: 'O **tour noturno do Okunoin já está reservado**: sai do lobby do **Ekō-in às 19:00**, em inglês, guiado por monge, ~90 min. O Ekō-in fica a poucos minutos a pé do shukubō, perto da ponte Ichinohashi — a entrada do cemitério. Jantar às 17:30 é para dar tempo: **saiam do shukubō às 18:40**, com lanterna, casaco pesado, luvas e gorro (a mínima é entre 0 e −3 °C e o caminho não tem luz pública). Levem a confirmação da reserva no celular. Não saiam da trilha principal, e nada de foto depois da ponte Gobyōbashi.',
+        text: 'O **tour noturno do Okunoin já está reservado** (Awesome Tours, voucher RZ260913CQ7084-1, 2 adultos): **retirar o passe na recepção "Taira", 734 Koyasan, ATÉ as 19:00** — sem o passe não entra. O Taira fica perto da ponte Ichinohashi, a entrada do cemitério, a poucos minutos a pé do Fumon-in. Jantar às 17:30 é para dar tempo: **saiam do shukubō às 18:30**, porque táxi na montanha para às 17:00 e ninguém vem buscar. **Lanterna e flash são proibidos** — o caminho é iluminado só pelas lanternas de pedra, e é assim que ele deve ser visto. Casaco pesado, luvas, gorro (mínima entre 0 e −3 °C); capa de chuva se estiver ameaçando, porque com chuva fraca o tour sai mesmo. Voucher no celular, nome da reserva na ponta da língua: Leonardo Moraes.',
       },
       {
         label: 'malas',
@@ -26,7 +26,7 @@ export const koyasanDays: Day[] = [
       {
         label: 'horário',
         tone: 'warn',
-        text: 'O check-in no shukubō vai até as **17:00** e o jantar sai por volta das **17:30**. Chegar depois disso não é atraso: é perder a refeição. Saiam de Namba **até as 13:30**.',
+        text: 'O check-in no Fumon-in é das **15:00 às 16:30** e o jantar sai por volta das **17:30**. Chegar depois disso não é atraso: é perder a refeição. Saiam de Namba **até as 13:30**.',
       },
       {
         label: 'frio',
@@ -98,12 +98,12 @@ export const koyasanDays: Day[] = [
         kind: 'hotel',
         name: 'Check-in no shukubō',
         jp: '宿坊',
-        facts: 'Check-in **14:00–17:00** · jantar **~17:30** · check-out **09:00** · banho comum · quarto de tatame',
+        facts: 'Fumon-in (普門院) · check-in **15:00–16:30** · jantar **~17:30** e café **incluídos** · check-out **08:00–09:00** · banho comum · quarto de tatame',
         paragraphs: [
           'Um shukubō não é hotel: é a hospedaria de um templo em funcionamento, e vocês entram no horário da casa. Tirem os sapatos na entrada, recebam o chá, e perguntem logo **quatro coisas**: a que horas é o jantar, a que horas abre o banho, a que horas é a oração da manhã, e — a que importa — **se aqui tem o *goma*, o ritual do fogo**, e a que horas. Nem todo templo de Kōyasan faz; o Ekō-in faz, e é a coisa que a Priscila lembra. Se aqui não tiver, dá para assistir ao de outro templo pagando à parte.',
           'O quarto é de tatame, com futon e uma mesa baixa, e as paredes são de papel — o silêncio ali é uma cortesia, não uma regra escrita. Quase sempre há aquecedor, mas o corredor é frio: é para isso que servem as meias grossas.',
         ],
-        mapQuery: 'Kumagaiji Koyasan',
+        mapQuery: 'Fumonin Koyasan',
       },
       {
         id: 'd26-okunoin',
@@ -140,7 +140,7 @@ export const koyasanDays: Day[] = [
           'E tem o **kōya-dōfu**, tofu que os monges descobriram, por acidente, que podia ser congelado na neve e seco — o primeiro liofilizado do Japão, do século XIII. Reidratado no caldo, fica esponjoso.',
           'Muitos templos vendem cerveja e saquê ao hóspede. No Kōyasan chamam o saquê de *hannyatō*, "água da sabedoria" — o apelido que os monges deram para contornar a regra. Pergunte; costuma haver.',
         ],
-        mapQuery: 'Kumagaiji Koyasan',
+        mapQuery: 'Fumonin Koyasan',
       },
       {
         id: 'd26-okunoin-noite',
@@ -149,7 +149,7 @@ export const koyasanDays: Day[] = [
         kind: 'temple',
         name: 'Okunoin no escuro — a parte que importa',
         jp: '奥之院ナイトツアー',
-        facts: '**Grátis por conta própria** · o tour guiado em inglês do Ekō-in sai às **19:00**, dura ~90 min e **aceita quem não está hospedado lá** — reservar antes',
+        facts: '**Reservado: Awesome Tours**, passe na recepção Taira até 19:00, saída 19:00, ~90 min · lanterna e flash proibidos · por conta própria também é grátis e aberto · (o Ekō-in tem um tour parecido, mas o de vocês é o da Awesome, e **aceita quem não está hospedado lá** — reservar antes',
         paragraphs: [
           'Se vocês fizerem uma coisa só em Kōyasan, é esta. O caminho tem lanternas de pedra acesas de ponta a ponta, a neblina desce entre os cedros e não há mais ninguém. É completamente diferente do mesmo caminho de dia.',
           'O **Ekō-in** — onde a Priscila ficou da outra vez — opera o único tour noturno em inglês que existe o ano inteiro, guiado por um monge, saindo do lobby deles às 19:00. **Não é preciso estar hospedado lá**, mas é preciso reservar, e esgota. Vale muito: o monge conta quem está enterrado em cada canto, e isso é metade do lugar.',
