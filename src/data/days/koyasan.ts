@@ -14,6 +14,11 @@ export const koyasanDays: Day[] = [
     chips: ['castelo', 'mercado', 'trem de montanha', 'shukubō'],
     notes: [
       {
+        label: 'Okunoin à noite — o tour está reservado',
+        tone: 'warn',
+        text: 'O **tour noturno do Okunoin já está reservado**: sai do lobby do **Ekō-in às 19:00**, em inglês, guiado por monge, ~90 min. O Ekō-in fica a poucos minutos a pé do shukubō, perto da ponte Ichinohashi — a entrada do cemitério. Jantar às 17:30 é para dar tempo: **saiam do shukubō às 18:40**, com lanterna, casaco pesado, luvas e gorro (a mínima é entre 0 e −3 °C e o caminho não tem luz pública). Levem a confirmação da reserva no celular. Não saiam da trilha principal, e nada de foto depois da ponte Gobyōbashi.',
+      },
+      {
         label: 'malas',
         tone: 'warn',
         text: 'Hoje vocês saem do hotel de Namba **com tudo**. As malas grandes já estão em Kyoto desde o dia 24; a mochila de dois dias sobe com vocês. Se ela estiver pesada, há armários com moeda na estação de Kōyasan e no ponto Senjuinbashi.',

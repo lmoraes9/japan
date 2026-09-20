@@ -42,6 +42,7 @@ export function rotulosDe(item: ComidaItem): string[] {
     ...item.formato,
     ...(item.avisos ?? []),
     ...(item.local ? ['especialidade local'] : []),
+    ...(item.pedido ? ['a pedido'] : []),
   ];
 }
 
@@ -136,7 +137,7 @@ export function ehAviso(rotulo: string): rotulo is Aviso {
 }
 
 export function ehFormato(rotulo: string): rotulo is Formato {
-  return !ehAviso(rotulo) && rotulo !== 'especialidade local';
+  return !ehAviso(rotulo) && rotulo !== 'especialidade local' && rotulo !== 'a pedido';
 }
 
 /** Um termo do glossário já sabendo onde ele aparece no roteiro */

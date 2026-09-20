@@ -667,22 +667,22 @@ export const tokyo1Days: Day[] = [
         timeLabel: 'almoço',
         kind: 'food',
         name: 'Almoço em Ginza — o katsu sando',
-        facts: 'O Shima **costuma acabar antes das 14h** · ir direto, antes das lojas',
+        facts: 'Depachika do Mitsukoshi **10:00–20:00** · o sanduíche vai na mão, o almoço é no jardim',
         paragraphs: [
-          'O almoço aqui é o sanduíche, não um restaurante: peguem o katsu sando no balcão do **Shima** e comam nos Jardins Hamarikyū ou num banco da Namiki-dōri. Sai por uma fração do sushi de balcão de Ginza e é o que vocês vão lembrar.',
+          'O almoço aqui é o sanduíche, não um restaurante: desçam ao **depachika do Mitsukoshi**, peguem um **gyūkatsu sando** de casa de carne (¥1.500–3.000) e comam nos Jardins Hamarikyū ou num banco da Namiki-dōri. O Shima, que era o plano original, **exige encomenda por telefone** — saiu do roteiro por isso. O depachika não exige nada, e o sanduíche é a versão sensata do mesmo prato.',
         ],
         eat: [
           {
             label: 'O plano, e o plano B',
             items: [
               {
-                name: 'Shima — o katsu sando de wagyu',
+                name: 'Depachika do Mitsukoshi — o gyūkatsu sando',
                 specialty: true,
-                note: 'casa antiga de yōshoku em Ginza que vende, no balcão da frente, **carne wagyu empanada** entre duas fatias grossas de pão de leite, com mostarda e molho tonkatsu. Só para viagem, feito em quantidade limitada e **costuma acabar antes das 14h** — por isso vir agora, não depois das compras.',
+                note: 'no subsolo do Mitsukoshi tem **gyūkatsu sando** de casa de carne por **¥1.500–3.000**: carne empanada entre duas fatias grossas de pão de leite, com mostarda e molho tonkatsu. Vitrine, não balcão — é escolher e levar. E o depachika inteiro é um museu de comida de graça.',
               },
               {
-                name: 'Depachika do Mitsukoshi — se o Shima já acabou',
-                note: 'no subsolo do Mitsukoshi tem **gyūkatsu sando** de casa de carne por **¥1.500–3.000**, a versão sensata do mesmo sanduíche. E o depachika inteiro é um museu de comida de graça.',
+                name: 'Shima — só se vocês encomendarem por telefone',
+                note: 'a casa antiga de yōshoku que faz o katsu sando de wagyu **exige encomenda por telefone** com antecedência. O Leonardo decidiu que não vale o trabalho — está aqui só para ninguém entrar na loja sem saber por que não tem.',
               },
               {
                 name: 'Ginza Kagari — se quiserem sentar e comer quente',
@@ -691,7 +691,7 @@ export const tokyo1Days: Day[] = [
             ],
           },
         ],
-        mapQuery: 'Shima Ginza katsu sando',
+        mapQuery: 'Mitsukoshi Ginza depachika',
       },
       {
         id: 'd21-ginza',
@@ -727,11 +727,6 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Ginza Six / Mitsukoshi',
                 note: 'o *depachika* (subsolo de comida) do Mitsukoshi é um museu gratuito de comida japonesa. Vão nem que seja só olhar. É aqui que se acha **gyūkatsu sando** de casa de carne por ¥1.500–3.000, a versão sensata do sanduíche de wagyu.',
-              },
-              {
-                name: 'Shima — o katsu sando de carne, para viagem',
-                specialty: true,
-                note: 'Casa antiga de yōshoku em Ginza que vende, no balcão da frente, um sanduíche de **carne wagyu empanada** entre duas fatias grossas de pão de leite, com mostarda e molho tonkatsu. Só para viagem, feito em quantidade limitada e **costuma acabar antes das 14h**. É o almoço de hoje — está na parada das 11:45, venham aqui antes das lojas.',
               },
             ],
           },
