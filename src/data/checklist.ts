@@ -96,12 +96,6 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: 'Kappabashi (Tóquio) ou Aritsugu (Nishiki, Kyoto)',
   },
   {
-    id: 'mtg',
-    group: 'compras',
-    title: 'Magic — singles em japonês',
-    subtitle: 'Hareruya e BIG MAGIC, Akihabara ou Den-Den Town',
-  },
-  {
     id: 'tax',
     group: 'compras',
     title: 'Registro no J-TaxRefund feito',
@@ -185,6 +179,14 @@ export const CHECKLIST: ChecklistItem[] = [
     group: 'pretrip',
     title: 'Anotar as medidas do colchão em cm',
     subtitle: 'Antes de sair do Brasil — as medidas japonesas não batem com as brasileiras',
+  },
+  {
+    id: 'visit-japan-web',
+    dueAt: '2026-11-15T23:59:00-03:00',
+    group: 'pretrip',
+    title: 'Visit Japan Web preenchido — os dois',
+    subtitle:
+      'Imigração e alfândega num QR só, em services.digital.go.jp · nome idêntico ao passaporte, senão o código falha · salvar print do QR: o guichê é antes de haver wi-fi',
   },
   {
     id: 'visto-eua',
