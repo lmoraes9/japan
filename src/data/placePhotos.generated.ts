@@ -234,6 +234,34 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Inariyamakanyuchi,_Fushimi_Ward,_Kyoto,_Kyoto_Prefecture_612-0804,_Japan_-_panoramio_(13).jpg",
     "title": "Inariyamakanyuchi, Fushimi Ward, Kyoto, Kyoto Prefecture 612-0804, Japan - panoramio (13).jpg"
   },
+  "hacks/lipovitan": {
+    "src": "/lugares/hacks/lipovitan.jpg",
+    "credit": "Dynomat",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:LipovitanD.jpg",
+    "title": "LipovitanD.jpg"
+  },
+  "hacks/pocari": {
+    "src": "/lugares/hacks/pocari.jpg",
+    "credit": "Mj-bird",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:POCARI_SWEET,_500ml_Plastic_bottle_type.jpg",
+    "title": "POCARI SWEET, 500ml Plastic bottle type.jpg"
+  },
+  "hacks/salonpas": {
+    "src": "/lugares/hacks/salonpas.jpg",
+    "credit": "AddisWang",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Salonpas_Pain_Relieving_Patch.jpg",
+    "title": "Salonpas Pain Relieving Patch.jpg"
+  },
+  "hacks/yakult1000": {
+    "src": "/lugares/hacks/yakult1000.jpg",
+    "credit": "Hanabishi",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yakult1000_drink.jpg",
+    "title": "Yakult1000 drink.jpg"
+  },
   "higashiyama/filosofo": {
     "src": "/lugares/higashiyama/filosofo.jpg",
     "credit": "Reggaeman",
