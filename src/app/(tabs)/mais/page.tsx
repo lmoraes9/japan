@@ -83,7 +83,7 @@ const ITEMS = [
     href: '/mais/hacks',
     icon: Pill,
     title: 'Hacks de konbini e farmácia',
-    subtitle: 'A água viral, o Seirogan, a bolha no pé — com a foto de cada produto para achar na prateleira',
+    subtitle: 'O café com Coolish de ¥300, a água viral, o Seirogan, a bolha no pé — com a foto de cada produto para achar na prateleira',
   },
   {
     href: '/mais/frases',

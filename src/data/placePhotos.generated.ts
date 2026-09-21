@@ -241,6 +241,20 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:LipovitanD.jpg",
     "title": "LipovitanD.jpg"
   },
+  "hacks/oyako-sando": {
+    "src": "/lugares/hacks/oyako-sando.jpg",
+    "credit": "yuiseki aoba",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E3%81%A7%E3%81%8D%E3%81%9F%E3%81%A6%E3%83%95%E3%82%A1%E3%83%9F%E3%82%AD%E3%83%81%EF%BC%81_(3899919627).jpg",
+    "title": "できたてファミキチ！ (3899919627).jpg"
+  },
+  "hacks/pizzaman-chicken": {
+    "src": "/lugares/hacks/pizzaman-chicken.jpg",
+    "credit": "Yuya Tamai from Gifu, Japan",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E3%83%94%E3%82%B6%E3%81%BE%E3%82%93_pizza_man_baozi_(3931559772).jpg",
+    "title": "ピザまん pizza man baozi (3931559772).jpg"
+  },
   "hacks/pocari": {
     "src": "/lugares/hacks/pocari.jpg",
     "credit": "Mj-bird",
@@ -261,6 +275,13 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC0",
     "source": "https://commons.wikimedia.org/wiki/File:Yakult1000_drink.jpg",
     "title": "Yakult1000 drink.jpg"
+  },
+  "hacks/yukimi-curry": {
+    "src": "/lugares/hacks/yukimi-curry.jpg",
+    "credit": "Autopilot",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yukimi_Daifuku_sliced.jpg",
+    "title": "Yukimi Daifuku sliced.jpg"
   },
   "higashiyama/filosofo": {
     "src": "/lugares/higashiyama/filosofo.jpg",
