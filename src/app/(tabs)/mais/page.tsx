@@ -15,8 +15,7 @@ import {
   Star,
   BookOpen,
   TicketCheck,
-  BedDouble,
-} from 'lucide-react';
+  BedDouble, Pill } from 'lucide-react';
 
 const ITEMS = [
   {
@@ -79,6 +78,12 @@ const ITEMS = [
     icon: Sandwich,
     title: 'Konbini',
     subtitle: 'Os oito itens do 7-Eleven, com checklist e plano por dia',
+  },
+  {
+    href: '/mais/hacks',
+    icon: Pill,
+    title: 'Hacks de konbini e farmácia',
+    subtitle: 'A água viral, o Seirogan, a bolha no pé — com a foto de cada produto para achar na prateleira',
   },
   {
     href: '/mais/frases',

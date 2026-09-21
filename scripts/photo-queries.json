@@ -989,5 +989,37 @@
   "stops/d27-sushi-musashi": [
     "寿しのむさし 三条 回転寿司",
     "Sushi no Musashi Kyoto conveyor belt sushi"
+  ],
+  "hacks/pocari": [
+    "ポカリスエット ペットボトル",
+    "Pocari Sweat bottle"
+  ],
+  "hacks/ukon": [
+    "ウコンの力 ハウス",
+    "Ukon no Chikara"
+  ],
+  "hacks/hepalyse": [
+    "ヘパリーゼW ドリンク",
+    "Hepalyse drink"
+  ],
+  "hacks/lipovitan": [
+    "リポビタンD 瓶",
+    "Lipovitan D bottle"
+  ],
+  "hacks/yakult1000": [
+    "ヤクルト1000",
+    "Yakult 1000 bottle"
+  ],
+  "hacks/eve": [
+    "イブA錠",
+    "EVE A ibuprofen Japan"
+  ],
+  "hacks/salonpas": [
+    "サロンパス 久光",
+    "Salonpas patch"
+  ],
+  "hacks/megrhythm": [
+    "めぐりズム 蒸気でホットアイマスク",
+    "MegRhythm steam eye mask"
   ]
 }
