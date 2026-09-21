@@ -4,7 +4,8 @@
  * para achar o produto na loja: o rótulo é em japonês e as embalagens são
  * parecidas.
  *
- * Fotos: as marcadas com `foto` são recortes dos prints que o Leonardo mandou;
+ * Fotos: as marcadas com `foto` são recortes dos prints que o Leonardo mandou
+ * ou fotos de produto dos sites oficiais (Lotte, 7-Eleven);
  * as outras vêm do pipeline de fotos (`npm run fotos`, chave `hacks/<id>`).
  */
 import type { PlacePhoto } from './placeMaps';
@@ -57,6 +58,7 @@ export const HACKS: HackItem[] = [
     como: 'Tirar o café, dar um gole para abrir espaço, espremer metade do Coolish, mexer com o canudo. O resto vai no final, por cima. **Não** ponham o Coolish antes do café: a máquina não enche direito.',
     aviso: 'O copo de gelo vai ao caixa **antes** da máquina. Usar a máquina sem pagar é o erro clássico de turista.',
     pedido: true,
+    foto: { src: '/lugares/hacks/coolish-cafe.jpg', credit: 'foto de produto, site oficial da Lotte', license: 'Lotte', source: 'https://www.lotte.co.jp/products/catalogue/ice/07/detail01.html', title: 'Coolish Vanilla' },
   },
   {
     id: 'matcha-coolish',
@@ -65,13 +67,14 @@ export const HACKS: HackItem[] = [
     jp: '抹茶ラテ × クーリッシュ',
     romaji: 'Matcha rate × Kūrisshu',
     para: 'o primo verde do anterior',
-    onde: '7-Eleven · matcha latte na geladeira de copos; copo de gelo e Coolish no freezer',
+    onde: '7-Eleven · matcha latte de copo (o **matcha LOVE**, da Ito En) na geladeira de copos; copo de gelo e Coolish no freezer',
     preco: '~¥450–500',
     paragraphs: [
       'Mesma lógica: o **matcha latte gelado** de copo derramado sobre um copo de gelo com Coolish de baunilha espremido no fundo. Fica mais doce e mais cremoso que o latte sozinho, e sai por menos da metade de um matcha frappé de café de Kyoto.',
       'É o combo que vira foto. O matcha de verdade fica para Kyoto — este é o de ¥450 da esquina.',
     ],
     como: 'Coolish no fundo do copo de gelo, matcha por cima, mexer. Canudo se pede no caixa: *sutorō kudasai*.',
+    foto: { src: '/lugares/hacks/matcha-coolish.jpg', credit: 'foto de produto, site oficial da 7-Eleven', license: '7-Eleven', source: 'https://www.sej.co.jp/products/a/item/370222/', title: 'matcha LOVE 抹茶ラテ' },
   },
   {
     id: 'oyako-sando',
@@ -133,6 +136,7 @@ export const HACKS: HackItem[] = [
       'Resolve as manhãs de trem cedo — a saída para Kōyasan, o Shinkansen do dia 23 — sem depender do café do hotel. Com um onigiri de salmão e outro de ume, dá e sobra.',
     ],
     como: 'Pagar, abrir o copo, encher até a linha, tampar e esperar 1 min. Se a água quente não estiver à vista: *oyu arimasu ka?* ("tem água quente?").',
+    foto: { src: '/lugares/hacks/onigiri-misoshiru.jpg', credit: 'foto de produto, site oficial da 7-Eleven', license: '7-Eleven', source: 'https://www.sej.co.jp/products/a/item/340215/', title: 'カップみそ汁 とうふとわかめ' },
   },
   {
     id: 'ice-cup',
@@ -149,6 +153,7 @@ export const HACKS: HackItem[] = [
     ],
     como: 'Um copo por pessoa, bebida por cima, canudo do caixa.',
     aviso: 'As latas **Strong Zero** e parecidas têm 9% de álcool e gosto de refrigerante: uma vale quase três cervejas. Uma basta.',
+    foto: { src: '/lugares/hacks/ice-cup.jpg', credit: 'foto de produto, site oficial da 7-Eleven', license: '7-Eleven', source: 'https://www.sej.co.jp/products/a/item/450336/', title: 'ロックアイスグラス 200g' },
   },
 
   // ── bebidas ──
