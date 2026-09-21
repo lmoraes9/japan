@@ -241,13 +241,6 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:LipovitanD.jpg",
     "title": "LipovitanD.jpg"
   },
-  "hacks/onigiri-misoshiru": {
-    "src": "/lugares/hacks/onigiri-misoshiru.jpg",
-    "credit": "Janine from Mililani, Hawaii, United States",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Good_morning_miso.jpg",
-    "title": "Good morning miso.jpg"
-  },
   "hacks/oyako-sando": {
     "src": "/lugares/hacks/oyako-sando.jpg",
     "credit": "yuiseki aoba",
