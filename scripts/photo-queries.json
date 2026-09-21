@@ -994,14 +994,6 @@
     "ポカリスエット ペットボトル",
     "Pocari Sweat bottle"
   ],
-  "hacks/ukon": [
-    "ウコンの力 ハウス",
-    "Ukon no Chikara"
-  ],
-  "hacks/hepalyse": [
-    "ヘパリーゼW ドリンク",
-    "Hepalyse drink"
-  ],
   "hacks/lipovitan": [
     "リポビタンD 瓶",
     "Lipovitan D bottle"
@@ -1010,17 +1002,9 @@
     "ヤクルト1000",
     "Yakult 1000 bottle"
   ],
-  "hacks/eve": [
-    "イブA錠",
-    "EVE A ibuprofen Japan"
-  ],
   "hacks/salonpas": [
     "サロンパス 久光",
     "Salonpas patch"
-  ],
-  "hacks/megrhythm": [
-    "めぐりズム 蒸気でホットアイマスク",
-    "MegRhythm steam eye mask"
   ],
   "hacks/oyako-sando": [
     "ファミチキ",

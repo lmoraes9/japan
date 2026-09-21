@@ -5,7 +5,7 @@
  * parecidas.
  *
  * Fotos: as marcadas com `foto` são recortes dos prints que o Leonardo mandou
- * ou fotos de produto dos sites oficiais (Lotte, 7-Eleven);
+ * ou fotos de produto dos sites oficiais dos fabricantes;
  * as outras vêm do pipeline de fotos (`npm run fotos`, chave `hacks/<id>`).
  */
 import type { PlacePhoto } from './placeMaps';
@@ -202,7 +202,8 @@ export const HACKS: HackItem[] = [
       'A garrafinha laranja de **cúrcuma** (ukon) que o japonês toma **antes** de uma noite de izakaya. É o ritual mais difundido do país: o vendedor do konbini de sexta à noite vende dezenas. A ciência por trás é fraca — cúrcuma tem pouca absorção e os estudos são pequenos —, mas o ritual em si tem valor: quem toma um Ukon geralmente bebe um copo de água junto e come alguma coisa antes.',
       'Entra aqui porque a noite do dia 27 é **saquê em Fushimi** e o dia 22 tem o Golden Gai. Tomem se quiserem fazer parte da liturgia. Não esperem milagre.',
     ],
-    como: 'Uma garrafinha 30 min antes de começar a beber. Sabor de laranja com fundo de terra.',
+    como: 'Uma garrafinha 30 min antes de começar a beber. Sabor de fruta (フルーツ風味, diz a lata) com fundo de terra.',
+    foto: { src: '/lugares/hacks/ukon.jpg', credit: 'foto de produto, site oficial da House Wellness Foods', license: 'House Wellness Foods', source: 'https://ukon.house-wf.co.jp/products/', title: 'ウコンの力' },
   },
   {
     id: 'hepalyse',
@@ -211,13 +212,14 @@ export const HACKS: HackItem[] = [
     jp: 'ヘパリーゼW',
     romaji: 'Heparīze',
     para: 'antes ou depois de beber',
-    onde: 'konbini (mesma geladeira do Ukon) e farmácia',
-    preco: '¥300–400 · 50 ml',
+    onde: 'konbini (mesma geladeira do Ukon) e farmácia · frasco marrom com rótulo branco e um fígado rosa',
+    preco: '~¥250–350 · 100 ml',
     paragraphs: [
-      'O concorrente do Ukon, à base de **extrato de fígado** (hepa-). A versão de konbini é a W, que é "bebida"; a de farmácia, marcada 医薬品, é a que tem status de remédio para "fadiga e apetite". Mesma história: mais ritual que ciência, mas é o que o salaryman ao lado de vocês no balcão está tomando.',
+      'O concorrente do Ukon, à base de **extrato de fígado** (hepa-) — e, como diz o rótulo, com cúrcuma também. A versão de konbini é a W, que é "bebida"; a de farmácia, marcada 医薬品, é a que tem status de remédio para "fadiga e apetite". Mesma história: mais ritual que ciência, mas é o que o salaryman ao lado de vocês no balcão está tomando.',
       'Se forem provar um dos dois, provem este: o gosto é menos estranho.',
     ],
     como: 'Antes de beber ou na manhã seguinte. Um frasco só.',
+    foto: { src: '/lugares/hacks/hepalyse.jpg', credit: 'foto de produto, site oficial da Zeria', license: 'Zeria', source: 'https://www.zeria.co.jp/hepa/w/product/hepa-w_w.html', title: 'ヘパリーゼW' },
   },
   {
     id: 'lipovitan',
@@ -344,7 +346,7 @@ export const HACKS: HackItem[] = [
     jp: 'イブA錠',
     romaji: 'Ibu Ē',
     para: 'dor de cabeça, cólica, dente',
-    onde: 'farmácia (指定第2類医薬品) · caixa branca e rosa',
+    onde: 'farmácia (指定第2類医薬品, na caixa aparece como 第②類) · caixa branca com EVE enorme em azul-marinho e o A dourado',
     preco: '¥700–1.000 · 24 a 60 comprimidos',
     paragraphs: [
       'O analgésico mais vendido do Japão: **ibuprofeno 150 mg** por dose com um ansiolítico leve e cafeína. É o equivalente do Advil, com dose menor. Serve para dor de cabeça de jet lag, cólica e dente. A versão **EVE Quick** dissolve mais rápido; a **EVE A EX** é mais forte.',
@@ -352,21 +354,23 @@ export const HACKS: HackItem[] = [
     ],
     como: '2 comprimidos, até 3 vezes ao dia, com intervalo de 4 h, sempre depois de comer algo.',
     aviso: 'Não com álcool, não de estômago vazio, e não para quem tem alergia a anti-inflamatório.',
+    foto: { src: '/lugares/hacks/eve.jpg', credit: 'foto de produto, site oficial da SS Pharmaceutical', license: 'SS Pharmaceutical', source: 'https://www.ssp.co.jp/eve/products/evea/', title: 'イブA錠' },
   },
   {
     id: 'megrhythm',
     categoria: 'farmacia',
     title: 'MegRhythm — a máscara de vapor',
-    jp: 'めぐりズム 蒸気でホットアイマスク',
+    jp: 'めぐりズム 蒸気めぐるアイマスク',
     romaji: 'Megurizumu',
     para: 'o voo de 14 horas e a noite mal dormida',
     onde: 'konbini (avulsa, ao lado do caixa) e farmácia (caixa com 5 ou 12)',
     preco: '¥150–200 a unidade · ¥1.000 a caixa de 5',
     paragraphs: [
       'Uma máscara de olhos descartável que **esquenta sozinha** ao abrir o pacote e solta vapor morno por uns 20 minutos, a 40 °C. É o produto mais copiado da Kao e o mais levado de presente do Japão. Para o voo de volta de 11h40, para o Shinkansen, e para a noite em que o cérebro não desliga.',
-      'Tem versões com aroma (lavanda, camomila, yuzu) e sem. A sem aroma é a que dá para usar no avião sem incomodar o vizinho.',
+      'Em 2025 a Kao trocou o nome: a caixa nova diz **蒸気めぐるアイマスク**, e a antiga **蒸気でホットアイマスク** ainda aparece em estoque — é o mesmo produto. A caixa laranja é a sem perfume (無香料), a que dá para usar no avião sem incomodar o vizinho.',
     ],
     como: 'Abrir, desdobrar, colocar. Não é reutilizável. Não dormir com ela mais de meia hora.',
+    foto: { src: '/lugares/hacks/megrhythm.jpg', credit: 'foto de produto, site oficial da Kao', license: 'Kao', source: 'https://www.kao.co.jp/megrhythm/lineup/', title: 'めぐりズム 蒸気めぐるアイマスク' },
   },
 ];
 
