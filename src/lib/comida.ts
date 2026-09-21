@@ -10,6 +10,7 @@ import {
   type GlossarioTermo,
 } from '@/data/comida';
 import { bairroDe, cidadeDe, itemMapsUrl, itemPhotosUrl } from '@/lib/places';
+import { COMIDA_COORDS } from '@/data/comidaCoords';
 
 /** Um item do catálogo já cruzado com a parada de onde ele veio */
 export interface ComidaResolvida extends ComidaItem {
@@ -22,6 +23,8 @@ export interface ComidaResolvida extends ComidaItem {
   refeicao: string;
   /** 'Akihabara', 'Gion' — para o agrupamento por lugar */
   bairro: string;
+  /** para a estrela no mapa; ausente nos lugares genéricos (konbini) */
+  coords?: { lat: number; lng: number };
   /** '19:00' */
   hora: string;
   cidade: string;
@@ -64,6 +67,14 @@ export function comidaResolvida(): ComidaResolvida[] {
     }
   }
 
+  // uma coordenada cujo id não existe no catálogo é erro de digitação — e
+  // ficaria muda no mapa, então vira erro de build como os outros
+  const ids = new Set(COMIDA_ITENS.map((i) => i.id));
+  const orfas = Object.keys(COMIDA_COORDS).filter((k) => !ids.has(k));
+  if (orfas.length > 0) {
+    throw new Error(`comidaCoords.ts: ids sem item no catálogo: ${orfas.join(', ')}.`);
+  }
+
   return COMIDA_ITENS.map((item) => {
     const parada = indice.get(item.stopId);
     if (!parada) {
@@ -81,6 +92,7 @@ export function comidaResolvida(): ComidaResolvida[] {
       hora: parada.time,
       cidade: cidadeDe(item.stopId, parada.dayId),
       bairro: bairroDe(item.stopId, item.bairro),
+      coords: COMIDA_COORDS[item.id],
       rotulos: rotulosDe(item),
       mapsUrl: itemMapsUrl(busca, item.stopId, parada.dayId),
       fotosUrl: itemPhotosUrl(busca, item.stopId, parada.dayId),
