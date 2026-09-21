@@ -4,7 +4,7 @@ import { HACKS, HACKS_INTRO, HACKS_CATEGORIA, type HackCategoria } from '@/data/
 import { PLACE_PHOTOS } from '@/data/placePhotos.generated';
 import { thumbOf } from '@/data/placeMaps';
 
-const ORDEM: HackCategoria[] = ['bebida', 'farmacia'];
+const ORDEM: HackCategoria[] = ['combo', 'bebida', 'farmacia'];
 
 export default function HacksPage() {
   const comFoto = HACKS.filter((h) => h.foto || PLACE_PHOTOS[`hacks/${h.id}`]).length;

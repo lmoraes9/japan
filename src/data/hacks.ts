@@ -9,7 +9,7 @@
  */
 import type { PlacePhoto } from './placeMaps';
 
-export type HackCategoria = 'bebida' | 'farmacia';
+export type HackCategoria = 'combo' | 'bebida' | 'farmacia';
 
 export interface HackItem {
   id: string;
@@ -40,6 +40,117 @@ export const HACKS_INTRO = [
 ];
 
 export const HACKS: HackItem[] = [
+  // ── combos virais ──
+  {
+    id: 'coolish-cafe',
+    categoria: 'combo',
+    title: 'Café preto + Coolish — o "frappé" de ¥300',
+    jp: 'セブンカフェ アイスコーヒー × クーリッシュ',
+    romaji: 'Sebun Kafe aisu kōhī × Kūrisshu',
+    para: 'o café com creme viral',
+    onde: '7-Eleven · copo de gelo no freezer (pagar no caixa) + Coolish no freezer de sorvetes',
+    preco: '~¥300–330 · café gelado R ~¥140 + Coolish ~¥180',
+    paragraphs: [
+      'O hack que mais roda no TikTok de quem vai ao Japão. O **Coolish** (クーリッシュ, Lotte) é um sorvete de baunilha que vem numa **bolsinha de apertar**, feito para beber — por isso ele se mistura no café sem virar pedra. Vocês pegam o copo de café gelado do Seven Café (o que já vem com gelo, lacrado, no freezer), pagam os dois no caixa, tiram o café na máquina e espremem o Coolish por cima. Sai um café com creme meio frappé, meio affogato, pelo preço de um cappuccino no Brasil.',
+      'Variação sem máquina: **Boss Black** (a garrafa preta da Suntory) + Coolish num copo de gelo, uns ¥380. E a variação que o japonês faz: **café latte** em vez de preto, com um copinho de **gelatina de café** (コーヒーゼリー, da geladeira de sobremesas) no fundo.',
+    ],
+    como: 'Tirar o café, dar um gole para abrir espaço, espremer metade do Coolish, mexer com o canudo. O resto vai no final, por cima. **Não** ponham o Coolish antes do café: a máquina não enche direito.',
+    aviso: 'O copo de gelo vai ao caixa **antes** da máquina. Usar a máquina sem pagar é o erro clássico de turista.',
+    pedido: true,
+  },
+  {
+    id: 'matcha-coolish',
+    categoria: 'combo',
+    title: 'Matcha latte + Coolish — o matcha frappé',
+    jp: '抹茶ラテ × クーリッシュ',
+    romaji: 'Matcha rate × Kūrisshu',
+    para: 'o primo verde do anterior',
+    onde: '7-Eleven · matcha latte na geladeira de copos; copo de gelo e Coolish no freezer',
+    preco: '~¥450–500',
+    paragraphs: [
+      'Mesma lógica: o **matcha latte gelado** de copo derramado sobre um copo de gelo com Coolish de baunilha espremido no fundo. Fica mais doce e mais cremoso que o latte sozinho, e sai por menos da metade de um matcha frappé de café de Kyoto.',
+      'É o combo que vira foto. O matcha de verdade fica para Kyoto — este é o de ¥450 da esquina.',
+    ],
+    como: 'Coolish no fundo do copo de gelo, matcha por cima, mexer. Canudo se pede no caixa: *sutorō kudasai*.',
+  },
+  {
+    id: 'oyako-sando',
+    categoria: 'combo',
+    title: 'Famichiki dentro do sanduíche de ovo — o "oyako sando"',
+    jp: 'ファミチキ × たまごサンド',
+    romaji: 'Famichiki × tamago sando',
+    para: 'o almoço de ¥550',
+    onde: 'FamilyMart · Famichiki na estufa do caixa (pedir pelo nome) + たまごサンド na geladeira de sanduíches',
+    preco: '~¥520–560 · Famichiki ~¥230 + tamago sando ~¥298',
+    paragraphs: [
+      'O frango frito sem osso da FamilyMart, o **Famichiki**, enfiado entre as fatias do sanduíche de ovo da mesma loja. O nome é piada com o *oyakodon* — "tigela de pai e filho", frango e ovo —, e é o combo que os próprios japoneses mais postam: a crosta quente e crocante contra o creme de ovo gelado e o shokupan macio.',
+      'O sanduíche de ovo da FamilyMart aparece em várias listas japonesas como o melhor dos três konbini — o que faz dela uma boa loja para o item do Bourdain também.',
+    ],
+    como: 'Separar as fatias de um dos triângulos, meter o Famichiki (ou metade em cada). Comer ali, no balcão da loja.',
+  },
+  {
+    id: 'pizzaman-chicken',
+    categoria: 'combo',
+    title: 'Dois pizza-man + frango frito — a parmegiana de konbini',
+    jp: 'ピザまん × からあげ',
+    romaji: 'Piza-man × karaage',
+    para: 'a noite fria de novembro',
+    onde: 'qualquer konbini · estufa de vapor ao lado do caixa (中華まん) + frango na estufa quente',
+    preco: '~¥550–600',
+    paragraphs: [
+      'O *pizza-man* é o pão cozido no vapor (o mesmo do *nikuman*) recheado de **molho de tomate e queijo derretido**. Dois deles viram o pão de um hambúrguer, e um pedaço de frango frito do caixa (Famichiki na FamilyMart, Nanachiki no 7-Eleven, Karaage-kun na Lawson) vira o recheio: sai algo muito perto de um sanduíche de frango à parmegiana.',
+      'Por que está aqui: a estufa de *chūka-man* é coisa de **outono e inverno**, e em novembro está em todas as lojas, com nikuman, anman (feijão doce) e pizza-man. Se quiserem só um, o **nikuman** puro é o clássico.',
+    ],
+    como: 'Pedir apontando para a estufa: *piza-man futatsu* (dois pizza-man). Abrir cada um ao meio como pão de hambúrguer e montar.',
+  },
+  {
+    id: 'yukimi-curry',
+    categoria: 'combo',
+    title: 'Cup Noodle de curry + Yukimi Daifuku — o esquisito',
+    jp: 'カップヌードル カレー × 雪見だいふく',
+    romaji: 'Kappu Nūdoru karē × Yukimi Daifuku',
+    para: 'para contar que provou',
+    onde: 'qualquer konbini · lámen instantâneo na prateleira, sorvete no freezer; água quente no dispensador perto do micro-ondas',
+    preco: '~¥420 · Cup Noodle ~¥250 + Yukimi ~¥180 (duas bolinhas)',
+    paragraphs: [
+      'O viral que parece erro: uma bolinha do **Yukimi Daifuku** (o sorvete de baunilha embrulhado em mochi) jogada dentro do **Cup Noodle de curry** pronto. O sorvete derrete e deixa o caldo cremoso e mais suave, como curry japonês com leite; o mochi amolece e fica puxa-puxa. Quem prova costuma dizer que é melhor do que devia.',
+      'O Yukimi é **sorvete de inverno** — sai das lojas na primavera e volta no outono —, então novembro é a estação. A outra bolinha fica para a sobremesa, que era a ideia original.',
+    ],
+    como: 'Encher o Cup Noodle com a água quente do konbini, esperar 3 min, pôr **uma** bolinha, mexer até derreter.',
+    aviso: 'Não é para todo mundo. Uma bolinha para o experimento; a outra para quem desistir.',
+  },
+  {
+    id: 'onigiri-misoshiru',
+    categoria: 'combo',
+    title: 'Onigiri + missoshiru de copo — o café da manhã de ¥300',
+    jp: 'おにぎり × カップ味噌汁',
+    romaji: 'onigiri × kappu misoshiru',
+    para: 'a manhã antes do trem',
+    onde: 'qualquer konbini · sopa de copo na prateleira de instantâneos; água quente no dispensador',
+    preco: '~¥280–350',
+    paragraphs: [
+      'Não é viral de TikTok, é o hack de quem mora lá: o café da manhã japonês mínimo, arroz e sopa, por menos de ¥350. O **missoshiru de copo** (カップ味噌汁 — com tofu, cebolinha, alga) se enche com a **água quente do próprio konbini**, um dispensador que fica perto do micro-ondas ou atrás do balcão.',
+      'Resolve as manhãs de trem cedo — a saída para Kōyasan, o Shinkansen do dia 23 — sem depender do café do hotel. Com um onigiri de salmão e outro de ume, dá e sobra.',
+    ],
+    como: 'Pagar, abrir o copo, encher até a linha, tampar e esperar 1 min. Se a água quente não estiver à vista: *oyu arimasu ka?* ("tem água quente?").',
+  },
+  {
+    id: 'ice-cup',
+    categoria: 'combo',
+    title: 'O copo de gelo — o bar do quarto de hotel',
+    jp: 'ロックアイス カップ',
+    romaji: 'rokku aisu kappu',
+    para: 'a highball do fim do dia',
+    onde: 'qualquer konbini · freezer, junto do gelo em saco',
+    preco: '~¥100–150 o copo',
+    paragraphs: [
+      'O copo de gelo lacrado é vendido sozinho — e o japonês usa como copo de bar. Pega-se um **highball de lata** (ハイボール, uísque com soda — o Kaku da Suntory é o clássico), um **chūhai** de limão, ou um **Calpis** para quem não bebe, e serve no gelo, no quarto. No freezer do 7-Eleven também há **fruta congelada** para jogar dentro.',
+      'É o fim de noite mais barato e mais japonês da viagem: uns ¥350 por uma highball gelada de verdade depois de um dia de 25.000 passos, sem sair do hotel.',
+    ],
+    como: 'Um copo por pessoa, bebida por cima, canudo do caixa.',
+    aviso: 'As latas **Strong Zero** e parecidas têm 9% de álcool e gosto de refrigerante: uma vale quase três cervejas. Uma basta.',
+  },
+
   // ── bebidas ──
   {
     id: 'tokusui',
@@ -255,6 +366,11 @@ export const HACKS: HackItem[] = [
 ];
 
 export const HACKS_CATEGORIA: Record<HackCategoria, { titulo: string; jp: string; resumo: string }> = {
+  combo: {
+    titulo: 'Combos virais',
+    jp: 'コンビニアレンジ',
+    resumo: 'Dois produtos da mesma loja que viram um terceiro: o café com Coolish de ¥300, o Famichiki no sanduíche de ovo, a parmegiana de pizza-man, o lámen com sorvete.',
+  },
   bebida: {
     titulo: 'Geladeira do konbini',
     jp: 'コンビニ',
