@@ -109,26 +109,25 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
   },
   {
     id: 'macbook',
-    title: '3 · MacBook — Neo, Air M5 ou Pro M5 Pro',
+    title: '3 · MacBook Pro 14" M5 Pro',
     checklistItemId: 'macbook',
     blocks: [
       {
         type: 'table',
         table: {
-          headers: ['', 'MacBook Neo', 'MacBook Air M5'],
+          headers: ['', 'MacBook Pro 14" M5 Pro (entrada)'],
           rows: [
-            ['Chip', 'A18 Pro (de iPhone)', 'M5, 10 núcleos'],
-            ['Tela', '13" Liquid Retina, 500 nits', '13,6" ou 15,3"'],
-            ['Memória', 'pouca — o gargalo', '16 GB de série'],
-            ['Armazenamento', 'base pequena', '512 GB de série'],
-            ['Preço base (EUA)', 'US$599', 'US$1.099'],
-            ['Serve para você?', '**Não.** É máquina de navegador e documento.', '**Sim.** Godot, containers, CLI, planilha pesada.'],
+            ['Chip', 'M5 Pro, 15 núcleos de CPU e 16 de GPU'],
+            ['Memória', '24 GB'],
+            ['Armazenamento', '1 TB'],
+            ['Japão', '**¥429.800** · ~¥390.700 sem os 10% (tax-free)'],
+            ['Brasil', 'R$ 30.999'],
           ],
         },
       },
       {
         type: 'p',
-        text: '**O M5 compensa muito mais.** O Neo é uma boa máquina para quem usa navegador e Pages; ele não foi feito para compilar projeto de jogo nem rodar ambiente de desenvolvimento. Se o orçamento permitir, considerem subir a RAM para 24 GB — é a única coisa que não dá para mudar depois.',
+        text: '**Por que o Pro e não o Air:** ventoinha (não diminui o ritmo em compilação longa), tela melhor e mais portas. Para Godot, Docker, CLI do Salesforce e planilha pesada, os 24 GB de série bastam.',
       },
       {
         type: 'note',
@@ -172,7 +171,7 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
       },
       {
         type: 'p',
-        text: '**Alfândega brasileira:** a cota de isenção é de **US$1.000 por pessoa** em viagem aérea, e ela é individual e não somável para um mesmo item. Um MacBook Air sozinho já passa da cota. O que exceder é tributado em **50%**. Vale entrar na conta antes de decidir — mesmo com o imposto, o Japão costuma sair na frente do preço brasileiro, mas a diferença é menor do que parece.',
+        text: '**Alfândega brasileira:** a cota de isenção é de **US$1.000 por pessoa** em viagem aérea, e ela é individual e não somável para um mesmo item. Um MacBook sozinho já passa da cota. O que exceder é tributado em **50%**. Vale entrar na conta antes de decidir — mesmo com o imposto, o Japão costuma sair na frente do preço brasileiro, mas a diferença é menor do que parece.',
       },
     ],
   },

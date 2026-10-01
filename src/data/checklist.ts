@@ -74,14 +74,8 @@ export const CHECKLIST: ChecklistItem[] = [
   {
     id: 'macbook',
     group: 'compras',
-    title: 'MacBook Air M5',
-    subtitle: 'Checar teclado JIS vs. US antes · Apple Ginza ou Bic Camera',
-  },
-  {
-    id: 'macbook-pro',
-    group: 'compras',
     title: 'MacBook Pro 14" M5 Pro',
-    subtitle: '24 GB / 1 TB: ¥429.800, ~¥390.700 com o tax-free · novo compensa mais que usado · dia 1º, Bic Camera ou Apple Ginza',
+    subtitle: '24 GB / 1 TB: ¥429.800, ~¥390.700 com o tax-free · novo compensa mais que usado · teclado JIS vs. US · dia 1º, Bic Camera ou Apple Ginza',
   },
   {
     id: 'robo',
