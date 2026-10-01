@@ -78,6 +78,12 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: 'Checar teclado JIS vs. US antes · Apple Ginza ou Bic Camera',
   },
   {
+    id: 'macbook-pro',
+    group: 'compras',
+    title: 'MacBook Pro 14" M5 Pro',
+    subtitle: '24 GB / 1 TB: ¥429.800, ~¥390.700 com o tax-free · novo compensa mais que usado · dia 1º, Bic Camera ou Apple Ginza',
+  },
+  {
     id: 'robo',
     group: 'compras',
     title: 'Robô aspirador',
@@ -94,6 +100,36 @@ export const CHECKLIST: ChecklistItem[] = [
     group: 'compras',
     title: 'Facas',
     subtitle: 'Kappabashi (Tóquio) ou Aritsugu (Nishiki, Kyoto)',
+  },
+  {
+    id: 'colher',
+    group: 'compras',
+    title: 'Colher de madeira',
+    subtitle: 'Kappabashi, dia 19 · as lojas de utensílio (Kama-Asa, Niimi) têm de todo tamanho e madeira',
+  },
+  {
+    id: 'oura-kit',
+    group: 'compras',
+    title: 'Kit de tamanho do Oura Ring',
+    subtitle: 'Bic Camera Yūrakuchō, dia 21 (~¥1.500, volta em pontos) · sem o número certo não dá para comprar o anel',
+  },
+  {
+    id: 'oura',
+    group: 'compras',
+    title: 'Oura Ring',
+    subtitle: 'Bic Camera Yūrakuchō, dia 2 · Ring 4 ¥52.800–59.800, Ring 5 ¥65.800+ · assinatura não cobre o Brasil oficialmente',
+  },
+  {
+    id: 'nambu-tekki',
+    group: 'compras',
+    title: 'Chaleira de ferro nambu tekki',
+    subtitle: 'Iwate Ginga Plaza (Higashi-Ginza), dia 2 · 1,4–2 kg, vai na mala despachada, seca e bem embalada',
+  },
+  {
+    id: 'black-thunder',
+    group: 'compras',
+    title: 'Black Thunder',
+    subtitle: 'O comum em qualquer konbini (¥44) · a edição Kyoto de matcha nas lojas de omiyage da Estação de Kyoto, dia 1',
   },
   {
     id: 'tax',
@@ -130,6 +166,27 @@ export const CHECKLIST: ChecklistItem[] = [
     group: 'pretrip',
     title: 'Tour noturno do Okunoin — FEITO (Awesome Tours)',
     subtitle: 'Voucher RZ260913CQ7084-1, 2 adultos, 26/11 · retirar o passe na recepção Taira até 19:00 · lanterna proibida',
+  },
+  {
+    id: 'reserva-torisei',
+    dueAt: '2026-11-13T23:59:00-03:00',
+    group: 'pretrip',
+    title: 'Reservar o Torisei em Fushimi',
+    subtitle: 'Sexta 27/11, ~18:30, 2 pessoas · por telefone (075-622-5533), peça ajuda ao hotel · sem reserva é fila de 1–2 h',
+  },
+  {
+    id: 'reserva-rikugien',
+    dueAt: '2026-11-05T23:59:00-03:00',
+    group: 'pretrip',
+    title: 'Ingresso antecipado do Rikugien iluminado',
+    subtitle: 'Noite de 1/12 · ¥1.000 online quando a venda abrir (em 2025 foi 1/11) · no dia é fila e pode esgotar',
+  },
+  {
+    id: 'reserva-kitagawa',
+    dueAt: '2026-11-20T23:59:00-03:00',
+    group: 'pretrip',
+    title: 'Reservar o chá no Gion Kitagawa Hanbee',
+    subtitle: 'Sábado 28/11 às 18:00 · por telefone (075-205-0880) ou pelo Hitosara · Gion lota no fim de semana do momiji',
   },
   {
     id: 'reserva-torokko',

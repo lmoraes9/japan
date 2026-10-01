@@ -25,16 +25,6 @@ export const EXTRAS: ExtraPlace[] = [
     mapQuery: 'Toshogu Shrine Nikko',
   },
   {
-    id: 'koyasan',
-    title: 'Kōyasan',
-    subtitle: 'Se quiserem uma noite fora do padrão · 2h de Osaka pela linha Nankai + funicular',
-    paragraphs: [
-      'A montanha sagrada do budismo Shingon, fundada por **Kūkai em 816**. O programa é dormir num **shukubō** (alojamento de templo), jantar comida vegetariana de monastério e assistir à cerimônia matinal às 6h.',
-      'A parte inesquecível é o **Okunoin**: dois quilômetros de cemitério dentro de uma floresta de cedros de 600 anos, com **mais de 200.000 túmulos** — senhores da guerra, poetas, e um mausoléu ao fundo onde, segundo a doutrina, Kūkai não está morto, apenas em meditação eterna. Monges levam refeição até a porta dele duas vezes por dia, todos os dias, **desde 835**. Percorrer o Okunoin à noite, com as lanternas acesas, é uma das experiências mais fortes que o Japão oferece. **Custo:** uma noite de Osaka ou Kyoto. Em novembro faz frio de verdade lá em cima.',
-    ],
-    mapQuery: 'Okunoin Cemetery Koyasan',
-  },
-  {
     id: 'uji',
     title: 'Uji',
     subtitle: 'Meia diária de Kyoto · 20 min de trem da Estação de Kyoto',

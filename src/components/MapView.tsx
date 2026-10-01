@@ -8,8 +8,8 @@ import {
   AdvancedMarker,
   useMap,
 } from '@vis.gl/react-google-maps';
-import { Navigation, X, WifiOff, Image as ImageIcon, Star } from 'lucide-react';
 import Link from 'next/link';
+import { Navigation, X, WifiOff, Image as ImageIcon, Star, TrainFront } from 'lucide-react';
 import { ALL_DAYS } from '@/data/days';
 import { STAGES } from '@/data/trip';
 import type { Day, Stop } from '@/data/types';
@@ -320,20 +320,28 @@ export function MapScreen() {
           <h1 className="text-2xl font-bold">Mapa</h1>
           <p className="truncate text-[12px] text-muted">{day.title}</p>
         </div>
-        <button
-          type="button"
-          aria-pressed={estrelas}
-          onClick={() => {
-            setEstrelas((v) => !v);
-            setSelectedComida(null);
-          }}
-          className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[12px] font-semibold ${
-            estrelas ? 'border-gold bg-gold text-white' : 'border-hairline bg-surface text-muted'
-          }`}
-        >
-          <Star size={13} fill={estrelas ? 'currentColor' : 'none'} />
-          comida por perto
-        </button>
+        <div className="flex shrink-0 items-center gap-1.5">
+          <button
+            type="button"
+            aria-pressed={estrelas}
+            onClick={() => {
+              setEstrelas((v) => !v);
+              setSelectedComida(null);
+            }}
+            className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[12px] font-semibold ${
+              estrelas ? 'border-gold bg-gold text-white' : 'border-hairline bg-surface text-muted'
+            }`}
+          >
+            <Star size={13} fill={estrelas ? 'currentColor' : 'none'} />
+            comida por perto
+          </button>
+          <Link
+            href="/mais/estacoes"
+            className="tappable inline-flex shrink-0 items-center gap-1.5 rounded-full border border-hairline bg-surface px-3 py-1.5 text-[12.5px] font-medium text-foreground/80"
+          >
+            <TrainFront size={14} className="text-rail" /> Estações
+          </Link>
+        </div>
       </header>
       <DaySelector selected={dayId} onSelect={selectDay} />
 

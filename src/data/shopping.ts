@@ -109,7 +109,7 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
   },
   {
     id: 'macbook',
-    title: '3 · MacBook — Neo ou M5',
+    title: '3 · MacBook — Neo, Air M5 ou Pro M5 Pro',
     checklistItemId: 'macbook',
     blocks: [
       {
@@ -145,6 +145,30 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
             '**Encomendar online na Apple Japan** com entrega no hotel (avisem a recepção com antecedência). Vocês ficam com o teclado que querem, mas **abrem mão dos 10%**.',
           ],
         },
+      },
+      {
+        type: 'p',
+        text: '**E o MacBook Pro 14" M5 Pro?** Lançou em março/2026. O de entrada (15 núcleos de CPU, 16 de GPU, **24 GB / 1 TB**) custa **¥429.800** no Japão, igual na Apple, na Bic e na Yodobashi. Sem os 10% de imposto, que voltam pelo tax-free, fica em **~¥390.700 — uns R$ 13 mil**. No Brasil o mesmo modelo está a **R$ 30.999**. Mesmo pagando a alfândega sobre o que passa da cota (conta abaixo, ~R$ 4 mil), sai por volta de **R$ 17 mil**: quase metade do preço daqui.',
+      },
+      {
+        type: 'note',
+        note: {
+          label: 'Usado compensa? No Japão, não',
+          tone: 'info',
+          paragraphs: [
+            'O M5 Pro é recente demais para ter caído de preço: em setembro/2026 a Janpara vendia o 14" 24 GB/1 TB **sem uso (未使用品) a partir de ¥398.980**, e a Iosys o **usado nota A a ¥419.800** — os dois já acima dos ~¥390.700 do novo com tax-free, e sem garantia cheia. Usado só vale para modelo um ou dois anos mais velho (um M4 Pro, por exemplo), e aí a conta precisa ser feita na hora.',
+            'Se mesmo assim forem olhar usado: só loja (Janpara, Iosys, Sofmap, Mac専門店 Akibakan em Akihabara), nunca Mercari ou Yahoo Auctions (exigem endereço japonês, não dão tax-free e podem vir com bloqueio de ativação). Na loja, peçam para ver a **contagem de ciclos da bateria**, confiram a garantia restante pelo número de série em checkcoverage.apple.com e prefiram 未使用品 (sem uso) ou ランクA. Quase todo usado japonês é **teclado JIS**.',
+          ],
+        },
+      },
+      {
+        type: 'bullets',
+        items: [
+          '**Preço não muda entre lojas** — a Apple fixa. O que muda é o brinde: a **Bic Camera e a Yodobashi dão pontos** sobre Mac (confirmem a porcentagem no balcão), que dá para gastar na mesma viagem no robô, no Oura ou em presentes. Pagar no cartão costuma dar menos pontos que em dinheiro.',
+          '**Tax-free:** levem o **passaporte físico**. No sistema novo vocês pagam o preço cheio e os 10% voltam depois da inspeção em Haneda (tabela acima) — por isso o Mac vai **na mala de mão**, com a caixa e o recibo, para mostrar se pedirem.',
+          '**Cartão:** num valor desses, comparem antes o câmbio e o IOF do cartão de crédito com os de uma conta global (Wise, Nomad): 1 ou 2 pontos de diferença no câmbio já são R$ 150–300.',
+          '**Se quiserem mais memória** (36 ou 48 GB) é configuração sob encomenda: só online, sem tax-free. Para Godot, Docker e Salesforce, 24 GB resolvem.',
+        ],
       },
       {
         type: 'p',
