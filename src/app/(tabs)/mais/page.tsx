@@ -15,7 +15,10 @@ import {
   Star,
   BookOpen,
   TicketCheck,
-  BedDouble, Pill } from 'lucide-react';
+  BedDouble,
+  Pill,
+  TrainFront,
+} from 'lucide-react';
 
 const ITEMS = [
   {
@@ -24,6 +27,12 @@ const ITEMS = [
     title: 'Mapas ilustrados',
     subtitle: 'Sensō-ji, Miyajima, Fushimi Inari e Nara, ponto a ponto, com foto e história',
     highlight: true,
+  },
+  {
+    href: '/mais/estacoes',
+    icon: TrainFront,
+    title: 'Mapa das estações',
+    subtitle: 'Tóquio, Hiroshima, Osaka e Kyoto como mapa de metrô, com cada parada do roteiro na sua estação',
   },
   {
     href: '/mais/historia',

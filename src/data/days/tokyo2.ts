@@ -60,7 +60,7 @@ export const tokyo2Days: Day[] = [
         jp: '神保町',
         facts: '400+ casas de curry no bairro · **cheguem na abertura, 11:00**, para furar a fila · 14 min ladeira abaixo do Yushima Seidō, ou metrô direto de Ginza',
         paragraphs: [
-          'Jimbōchō é o bairro dos sebos e livrarias — e virou, ninguém sabe bem por quê, a capital do curry de Tóquio. Saindo do Palácio pelo lado oeste, vocês chegam a pé. A jogada é almoçar **cedo**: às 12h30 as filas dobram.',
+          'Jimbōchō é o bairro dos sebos e livrarias — e virou, ninguém sabe bem por quê, a capital do curry de Tóquio. Do Yushima Seidō é ladeira abaixo; se pularam a manhã, é metrô direto de Ginza. A jogada é almoçar **cedo**: às 12h30 as filas dobram.',
         ],
         eat: [
           {
@@ -184,14 +184,39 @@ export const tokyo2Days: Day[] = [
         ],
       },
       {
+        id: 'd02-tekki',
+        time: '17:45',
+        timeLabel: 'ferro',
+        kind: 'shopping',
+        name: 'Chaleira nambu tekki na Iwate Ginga Plaza',
+        jp: '南部鉄器 · いわて銀河プラザ',
+        facts: '**10:30–19:00** · Ginza 5-15-1, térreo do Nankai Tokyo Building, **na saída da Higashi-Ginza** · loja oficial da província de Iwate · tax-free',
+        paragraphs: [
+          'A melhor seleção de ferro de Nambu em Tóquio não está no Loft: está na **antena de Iwate**, a província de onde ele vem — peças da Iwachu e de oficinas menores de Morioka, com gente que sabe explicar. Comprar hoje, e não antes, é de propósito: a chaleira pesa de 1,4 a 2 kg e vai direto para a mala, que já está no hotel a seis minutos daqui.',
+          'Se preferirem o bule colorido de catálogo, o **Loft Ginza** (Ginza 2-4-6, 11:00–21:00) fica a 8 min e vende o Iwachu 5型 (¥11.000), mas o estoque por filial não aparece online.',
+        ],
+        eat: [
+          {
+            label: 'O que é o quê',
+            items: [
+              { name: 'Tetsubin — a chaleira', specialty: true, note: 'ferro nu por dentro, vai ao fogo ou indução, solta um pouco de ferro na água. Precisa secar depois de cada uso, senão enferruja. ¥20.000–50.000+; 1 L ≈ 2 kg.' },
+              { name: 'Tetsu kyūsu — o bule', note: 'esmaltado por dentro, colorido, com filtro de inox. Não enferruja e **não vai ao fogo**: só recebe água já fervida. É o da maioria das fotos. 0,25–0,65 L, ¥12.000–19.000.' },
+              { name: 'Iwachu 5型, o híbrido', note: '¥11.000 · 0,65 L e 1,4 kg, sem esmalte, com filtro: ferve água e serve chá. O meio-termo honesto.' },
+            ],
+          },
+        ],
+        mapQuery: 'Iwate Ginga Plaza Ginza',
+      },
+      {
         id: 'd02-compras-finais',
-        time: '18:00',
+        time: '18:15',
         timeLabel: 'compras',
         kind: 'shopping',
-        name: 'Última varredura em Ginza',
+        name: 'Última varredura em Ginza — e o Oura Ring',
         facts: 'Ginza **11:00–21:00** · Bic Camera Yūrakuchō **10:00–22:00**',
         paragraphs: [
           'O que faltou de Muji e Uniqlo, presentes, doces do depachika — e o **missô artesanal**, se ficou para a última hora (balcões do depachika do Mitsukoshi). O **Bic Camera Yūrakuchō** fica a dois minutos de Ginza e tem os andares de eletrodoméstico com modelos de exportação, caso algo tenha escapado em Akihabara.',
+          'É aqui que se compra o **Oura Ring**, com o número que o kit do dia 21 indicou: Ring 4 a ¥52.800 (prata, preto, stealth) ou ¥59.800 (dourado, rosé); Ring 5, lançado em junho, ¥65.800–81.800. Sai tax-free (restituição em Haneda amanhã). Antes de pagar, saibam o ponto fraco: o **Brasil não está na lista de países da assinatura** (¥999/mês, obrigatória para os dados), que exige cartão com endereço de cobrança num país suportado — há brasileiros usando com cartão internacional, mas não há garantia oficial, e a garantia do produto pode não valer fora dessas regiões. Em iene custa o mesmo que nos EUA; contra o Brasil, onde não há venda oficial, é bem mais barato.',
         ],
         mapQuery: 'Bic Camera Yurakucho',
       },
@@ -305,7 +330,7 @@ export const tokyo2Days: Day[] = [
         name: 'Haneda, Terminal 3 — a ordem das coisas',
         facts: 'Voo JL7014 às **20:25** · deixem **3h20** de margem — com o sistema novo de reembolso, a fila pode ser bem maior que antes',
         paragraphs: [
-          '1. **Reembolso do imposto primeiro**, antes do check-in de bagagem. Desde **1º de novembro de 2026** o Japão mudou de sistema: vocês pagaram o imposto em todas as lojas e recebem tudo de volta aqui. Escaneiem o passaporte no **terminal de autoatendimento na área pública** (antes do despacho). Verde: acabou. Vermelho: a alfândega quer ver as mercadorias — por isso elas não podem estar dentro da mala despachada.',
+          '1. **Reembolso do imposto primeiro**, antes do check-in de bagagem. Desde **1º de novembro de 2026** o Japão mudou de sistema: vocês pagaram o imposto em todas as lojas e recebem tudo de volta aqui. O balcão de isenção fica no **3º andar, no saguão de partidas, em frente ao check-in K** — e a JAL fica nas ilhas F a K, ali mesmo. Escaneiem o passaporte: verde, acabou; vermelho, a alfândega quer ver as mercadorias — por isso elas não podem estar dentro da mala despachada.',
           '2. **Check-in e despacho** — só depois de liberadas as mercadorias inspecionadas.',
           '3. **Imigração e segurança.**',
           "4. **Última compra** na área livre de impostos — é aí que entra o Royce' Nama Chocolate, logo abaixo.",

@@ -4,7 +4,7 @@
  */
 export const COORDS: Record<string, { lat: number; lng: number }> = {
   // ── Tóquio I ──
-  'd18-haneda': { lat: 35.5494, lng: 139.7798 },
+  'd18-haneda': { lat: 35.5449, lng: 139.7678 }, // Terminal 3 (internacional)
   'd18-ramen': { lat: 35.6938, lng: 139.6994 }, // Omoide Yokochō
   'd19-sensoji': { lat: 35.7148, lng: 139.7967 },
   'd19-kuramae': { lat: 35.7118, lng: 139.7955 }, // Kissaten Tomorrow, Asakusa
@@ -26,7 +26,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd20-hasedera': { lat: 35.3126, lng: 139.533 },
   'd21-tsukiji': { lat: 35.6654, lng: 139.7707 },
   'd21-hamarikyu': { lat: 35.6604, lng: 139.7633 },
-  'd21-almoco-ginza': { lat: 35.6717, lng: 139.765 }, // Ginza Kagari
+  'd21-almoco-ginza': { lat: 35.6717, lng: 139.765 }, // Mitsukoshi Ginza, depachika
   'd21-ginza': { lat: 35.6712, lng: 139.764 },
   'd21-kitte': { lat: 35.6796, lng: 139.7645 },
   'd21-jantar-estacao': { lat: 35.6812, lng: 139.7671 }, // Estação de Tóquio
@@ -41,14 +41,14 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
 
   // ── Hiroshima ──
   'd23-pokemon-center': { lat: 34.3982, lng: 132.4747 }, // ekie 2F, saída norte
-  'd23-chegada': { lat: 34.3978, lng: 132.4754 }, // Estação de Hiroshima
+  'd23-chegada': { lat: 34.395, lng: 132.4731 }, // APA Ekimae Ōhashi, Kyōbashi-chō 2-26, do outro lado da ponte
   'd23-museu-paz': { lat: 34.3917, lng: 132.4525 },
   'd23-parque-domo': { lat: 34.3955, lng: 132.4536 },
   'd23-okonomiyaki': { lat: 34.3947, lng: 132.4531 }, // Nagataya
   'd24-itsukushima': { lat: 34.296, lng: 132.3198 },
   'd24-daishoin': { lat: 34.2926, lng: 132.3175 },
   'd24-momijidani': { lat: 34.2934, lng: 132.323 },
-  'd24-misen': { lat: 34.2886, lng: 132.3199 },
+  'd24-misen': { lat: 34.2888, lng: 132.3275 }, // Miyajima Ropeway, estação Momijidani
   'd24-shukkeien': { lat: 34.4013, lng: 132.4677 },
 
   // ── Osaka ──
@@ -58,13 +58,13 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd25-dotonbori': { lat: 34.6687, lng: 135.5013 },
   'd26-castelo-osaka': { lat: 34.6873, lng: 135.5262 },
   'd26-kuromon': { lat: 34.6654, lng: 135.5062 },
-  'd26-shitennoji': { lat: 34.6533, lng: 135.5164 },
-  'd26-shinsekai': { lat: 34.6525, lng: 135.5063 }, // Tsūtenkaku
-  'd26-umeda': { lat: 34.7052, lng: 135.4903 }, // Umeda Sky
 
   // ── Kyoto & Nara ──
   'd27-sumiyoshi': { lat: 34.6124, lng: 135.4932 },
   'd27-fushimi-inari': { lat: 34.9671, lng: 135.7727 },
+  'd27-jantar': { lat: 34.9311, lng: 135.7621 }, // Torisei Honten, Fushimi
+  'd27-sushi-musashi': { lat: 35.0089, lng: 135.7688 }, // Sushi no Musashi Sanjō Honten
+  'd26-konbini': { lat: 34.6633, lng: 135.5027 }, // 7-Eleven Nankai Namba, 2F
   'd28-kiyomizu': { lat: 34.9949, lng: 135.785 },
   'd28-sannenzaka': { lat: 34.9966, lng: 135.781 },
   'd28-kodaiji': { lat: 35.0007, lng: 135.781 },
@@ -72,6 +72,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd28-filosofo': { lat: 35.0192, lng: 135.7955 },
   'd28-nanzenji': { lat: 35.0116, lng: 135.7943 },
   'd28-eikando': { lat: 35.0146, lng: 135.7942 },
+  'd28-kitagawa': { lat: 35.0027, lng: 135.7765 }, // Gion Kitagawa Hanbee, Hanamikōji
   'd28-gion': { lat: 35.0037, lng: 135.771 },
   'd29-bambu': { lat: 35.017, lng: 135.671 },
   'd29-tenryuji': { lat: 35.0158, lng: 135.6737 },
@@ -88,14 +89,18 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd30-naramachi': { lat: 34.6788, lng: 135.8306 },
   'd01-tofukuji': { lat: 34.9764, lng: 135.774 },
   'd01-sanjusangendo': { lat: 34.988, lng: 135.7715 },
-  'd01-checkin-compras': { lat: 35.6712, lng: 139.764 }, // Ginza
+  'd01-nijo': { lat: 35.0142, lng: 135.7513 }, // Castelo de Nijō, portão Higashi-Ōtemon
+  'd01-checkin-compras': { lat: 35.6719, lng: 139.7677 }, // Sotetsu Fresa Inn Ginza 3-chōme
+  'd01-rikugien': { lat: 35.7331, lng: 139.746 }, // Rikugien, portão principal
   'd01-gachapon-ikebukuro': { lat: 35.729, lng: 139.719 }, // Sunshine City World Import Mart
 
   // ── Tóquio II ──
-  'd02-jardim-imperial': { lat: 35.6863, lng: 139.7573 },
+  'd02-kanda-myojin': { lat: 35.7019, lng: 139.7677 },
+  'd02-yushima-seido': { lat: 35.7004, lng: 139.7666 },
   'd02-jimbocho': { lat: 35.6958, lng: 139.7576 }, // Bondy, Jimbōchō
   'd02-akihabara-missoes': { lat: 35.6987, lng: 139.7745 }, // Yodobashi-Akiba
   'd02-nihonbashi': { lat: 35.684, lng: 139.7745 },
+  'd02-tekki': { lat: 35.6693, lng: 139.7677 }, // Iwate Ginga Plaza, Ginza 5-15-1
   'd02-compras-finais': { lat: 35.6749, lng: 139.7628 }, // Bic Camera Yūrakuchō
-  'd03-haneda': { lat: 35.5494, lng: 139.7798 },
+  'd03-haneda': { lat: 35.5449, lng: 139.7678 }, // Terminal 3 (internacional)
 };

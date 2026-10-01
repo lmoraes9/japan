@@ -38,7 +38,7 @@ export const BASE_DA_ETAPA: Record<string, string> = {
   tokyo1: 'HOTEL AMANEK Shinjuku Kabukicho',
   hiroshima: 'APA Hotel Hiroshima Ekimae Ohashi',
   osaka: 'KOKO HOTEL Osaka Namba Sennichimae',
-  koyasan: 'Kumagaiji, Koyasan',
+  koyasan: 'Fumonin, Koyasan',
   kyoto: 'Travelodge Kyoto Shijo Kawaramachi',
   tokyo2: 'Sotetsu Fresa Inn Ginza Sanchome',
 };
@@ -53,7 +53,7 @@ const BASE_DA_MANHA: Record<string, string> = {
   'd2026-11-23': 'HOTEL AMANEK Shinjuku Kabukicho',
   'd2026-11-25': 'APA Hotel Hiroshima Ekimae Ohashi',
   'd2026-11-26': 'KOKO HOTEL Osaka Namba Sennichimae',
-  'd2026-11-27': 'Kumagaiji, Koyasan',
+  'd2026-11-27': 'Fumonin, Koyasan',
   'd2026-12-01': 'Travelodge Kyoto Shijo Kawaramachi',
 };
 

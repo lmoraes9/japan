@@ -63,13 +63,13 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
   {
     name: 'KOKO HOTEL Osaka Namba Sennichimae',
     city: 'Osaka · Namba',
-    datas: '25 → 27 de novembro',
-    noites: 2,
+    datas: '25 → 26 de novembro',
+    noites: 1,
     preco: 'R$ 1.084',
-    status: 'refazer',
+    status: 'confirmada',
     acao:
-      'Precisa virar **25 → 26, uma noite só**, para abrir espaço para Kōyasan. Reservem a noite nova **antes** de cancelar esta: diária avulsa em novembro costuma subir.',
-    mapQuery: 'KOKO HOTEL Osaka Namba Sennichimae',
+      'Já refeita para **uma noite só**, 25 → 26 (confirmação em Reservas). Saída 2 da Nippombashi, a 1 min; Kuromon a 4 min.',
+    mapQuery: 'KOKO HOTEL Osaka Namba Sennichimae, Chuo-ku Sennichimae 1-3-7',
   },
   {
     name: '高野山 宿坊 熊谷寺 · Koyasan Shukubo Kumagaiji',
@@ -81,7 +81,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     status: 'decidir',
     codigo: '5897947836',
     acao:
-      'Quarto de luxo em estilo japonês, com jantar e café. Fica na ponta **leste** da montanha, a 5 min do Ichinohashi (a boca do Okunoin) e 10 min do Kongōbu-ji — bem colocado para as duas metades do programa. O site deles anuncia **oração matinal com ritual do fogo**, que é justamente o que a Priscila lembra do Ekō-in. Check-in 14:00–17:00, check-out **09:00**.',
+      '**Cancelar, se ainda estiver ativa** — a reserva que vale é a do Fumon-in, logo abaixo. Era: quarto de luxo em estilo japonês, com jantar e café. Fica na ponta **leste** da montanha, a 5 min do Ichinohashi (a boca do Okunoin) e 10 min do Kongōbu-ji — bem colocado para as duas metades do programa. O site deles anuncia **oração matinal com ritual do fogo**, que é justamente o que a Priscila lembra do Ekō-in. Check-in 14:00–17:00, check-out **09:00**.',
     mapQuery: 'Kumagaiji Koyasan',
   },
   {
@@ -90,10 +90,10 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     city: 'Kōyasan',
     datas: '26 → 27 de novembro',
     noites: 1,
-    preco: '—',
-    status: 'decidir',
+    preco: 'R$ 1.921',
+    status: 'confirmada',
     acao:
-      'A outra opção, reservada pela Priscila. Fica no **Senjuinbashi**, o centro exato da montanha: 3 min do Kongōbu-ji, ao lado do correio e do mercadinho, e todos os ônibus param ali. Templo de 824, com **jardim atribuído a Kobori Enshū** e hondō do começo do período Edo. Check-in **15:00–16:30**, jantar **17:30** servido em mesa e cadeira, oração **06:30** (35–40 min). Um dos dois tem que ser cancelado.',
+      'A reserva que vale (Booking 6795.779.568). Fica no **Senjuinbashi**, o centro exato da montanha: 3 min do Kongōbu-ji, ao lado do correio e do mercadinho, e todos os ônibus param ali. Templo de 824, com **jardim atribuído a Kobori Enshū** e hondō do começo do período Edo. Check-in **15:00–16:30**, jantar **17:30** servido em mesa e cadeira, oração **06:30** (35–40 min). Cancelamento grátis só até 11/11.',
     mapQuery: 'Fumonin Koyasan',
   },
   {
@@ -104,7 +104,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     preco: 'R$ 3.920',
     status: 'confirmada',
     acao:
-      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e na melhor posição — Nishiki na esquina, Gion a 15 min a pé pela ponte, Keihan direto para Fushimi e Hankyu direto para Arashiyama. **É aqui que as malas do dia 23 estão esperando** — confirmem por escrito que o hotel guarda bagagem antes do check-in.',
+      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e bem colocada. Atenção ao endereço, que o nome esconde: é na **Kawaramachi abaixo de Sanjō** (Yamazaki-chō 220), e não na esquina de Shijō — a Keihan Sanjō fica a 5 min, a Hankyu Kyoto-Kawaramachi a 7, o Nishiki a 6 e o Umezono na mesma quadra. **É aqui que as malas do dia 24 estão esperando** — confirmem por escrito que o hotel guarda bagagem antes do check-in.',
     mapQuery: 'Travelodge Kyoto Shijo Kawaramachi',
   },
   {

@@ -109,26 +109,25 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
   },
   {
     id: 'macbook',
-    title: '3 · MacBook — Neo ou M5',
+    title: '3 · MacBook Pro 14" M5 Pro',
     checklistItemId: 'macbook',
     blocks: [
       {
         type: 'table',
         table: {
-          headers: ['', 'MacBook Neo', 'MacBook Air M5'],
+          headers: ['', 'MacBook Pro 14" M5 Pro (entrada)'],
           rows: [
-            ['Chip', 'A18 Pro (de iPhone)', 'M5, 10 núcleos'],
-            ['Tela', '13" Liquid Retina, 500 nits', '13,6" ou 15,3"'],
-            ['Memória', 'pouca — o gargalo', '16 GB de série'],
-            ['Armazenamento', 'base pequena', '512 GB de série'],
-            ['Preço base (EUA)', 'US$599', 'US$1.099'],
-            ['Serve para você?', '**Não.** É máquina de navegador e documento.', '**Sim.** Godot, containers, CLI, planilha pesada.'],
+            ['Chip', 'M5 Pro, 15 núcleos de CPU e 16 de GPU'],
+            ['Memória', '24 GB'],
+            ['Armazenamento', '1 TB'],
+            ['Japão', '**¥429.800** · ~¥390.700 sem os 10% (tax-free)'],
+            ['Brasil', 'R$ 30.999'],
           ],
         },
       },
       {
         type: 'p',
-        text: '**O M5 compensa muito mais.** O Neo é uma boa máquina para quem usa navegador e Pages; ele não foi feito para compilar projeto de jogo nem rodar ambiente de desenvolvimento. Se o orçamento permitir, considerem subir a RAM para 24 GB — é a única coisa que não dá para mudar depois.',
+        text: '**Por que o Pro e não o Air:** ventoinha (não diminui o ritmo em compilação longa), tela melhor e mais portas. Para Godot, Docker, CLI do Salesforce e planilha pesada, os 24 GB de série bastam.',
       },
       {
         type: 'note',
@@ -148,7 +147,31 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
       },
       {
         type: 'p',
-        text: '**Alfândega brasileira:** a cota de isenção é de **US$1.000 por pessoa** em viagem aérea, e ela é individual e não somável para um mesmo item. Um MacBook Air sozinho já passa da cota. O que exceder é tributado em **50%**. Vale entrar na conta antes de decidir — mesmo com o imposto, o Japão costuma sair na frente do preço brasileiro, mas a diferença é menor do que parece.',
+        text: '**E o MacBook Pro 14" M5 Pro?** Lançou em março/2026. O de entrada (15 núcleos de CPU, 16 de GPU, **24 GB / 1 TB**) custa **¥429.800** no Japão, igual na Apple, na Bic e na Yodobashi. Sem os 10% de imposto, que voltam pelo tax-free, fica em **~¥390.700 — uns R$ 13 mil**. No Brasil o mesmo modelo está a **R$ 30.999**. Mesmo pagando a alfândega sobre o que passa da cota (conta abaixo, ~R$ 4 mil), sai por volta de **R$ 17 mil**: quase metade do preço daqui.',
+      },
+      {
+        type: 'note',
+        note: {
+          label: 'Usado compensa? No Japão, não',
+          tone: 'info',
+          paragraphs: [
+            'O M5 Pro é recente demais para ter caído de preço: em setembro/2026 a Janpara vendia o 14" 24 GB/1 TB **sem uso (未使用品) a partir de ¥398.980**, e a Iosys o **usado nota A a ¥419.800** — os dois já acima dos ~¥390.700 do novo com tax-free, e sem garantia cheia. Usado só vale para modelo um ou dois anos mais velho (um M4 Pro, por exemplo), e aí a conta precisa ser feita na hora.',
+            'Se mesmo assim forem olhar usado: só loja (Janpara, Iosys, Sofmap, Mac専門店 Akibakan em Akihabara), nunca Mercari ou Yahoo Auctions (exigem endereço japonês, não dão tax-free e podem vir com bloqueio de ativação). Na loja, peçam para ver a **contagem de ciclos da bateria**, confiram a garantia restante pelo número de série em checkcoverage.apple.com e prefiram 未使用品 (sem uso) ou ランクA. Quase todo usado japonês é **teclado JIS**.',
+          ],
+        },
+      },
+      {
+        type: 'bullets',
+        items: [
+          '**Preço não muda entre lojas** — a Apple fixa. O que muda é o brinde: a **Bic Camera e a Yodobashi dão pontos** sobre Mac (confirmem a porcentagem no balcão), que dá para gastar na mesma viagem no robô, no Oura ou em presentes. Pagar no cartão costuma dar menos pontos que em dinheiro.',
+          '**Tax-free:** levem o **passaporte físico**. No sistema novo vocês pagam o preço cheio e os 10% voltam depois da inspeção em Haneda (tabela acima) — por isso o Mac vai **na mala de mão**, com a caixa e o recibo, para mostrar se pedirem.',
+          '**Cartão:** num valor desses, comparem antes o câmbio e o IOF do cartão de crédito com os de uma conta global (Wise, Nomad): 1 ou 2 pontos de diferença no câmbio já são R$ 150–300.',
+          '**Se quiserem mais memória** (36 ou 48 GB) é configuração sob encomenda: só online, sem tax-free. Para Godot, Docker e Salesforce, 24 GB resolvem.',
+        ],
+      },
+      {
+        type: 'p',
+        text: '**Alfândega brasileira:** a cota de isenção é de **US$1.000 por pessoa** em viagem aérea, e ela é individual e não somável para um mesmo item. Um MacBook sozinho já passa da cota. O que exceder é tributado em **50%**. Vale entrar na conta antes de decidir — mesmo com o imposto, o Japão costuma sair na frente do preço brasileiro, mas a diferença é menor do que parece.',
       },
     ],
   },

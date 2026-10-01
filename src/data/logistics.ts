@@ -39,10 +39,10 @@ export const ALERTS: InfoBlock[] = [
     ],
   },
   {
-    label: '3 · MacBook: o M5 compensa, mas o teclado é o problema',
+    label: '3 · MacBook Pro M5 Pro: compensa, mas o teclado é o problema',
     tone: 'warn',
     paragraphs: [
-      'O **MacBook Neo** existe mesmo (lançou em março/2026, chip A18 Pro de iPhone, a partir de US$599). Ele é uma máquina de navegador. Para Godot, Docker, CLI do Salesforce e planilha pesada, **o M5 compensa muito mais**. O Air M5 já vem com 16 GB e 512 GB de série.',
+      'O escolhido é o **MacBook Pro 14" M5 Pro** (24 GB / 1 TB): **¥429.800**, uns R$ 13 mil depois do tax-free, contra R$ 30.999 no Brasil. Usado não compensa: no Japão o seminovo ainda sai mais caro que o novo sem imposto.',
       'O nó é outro: **as Apple Stores japonesas estocam teclado JIS japonês.** Teclado US é configuração sob encomenda, feita só na loja online — e compra online não entra no reembolso de imposto. Detalhes e as saídas possíveis estão na seção de compras.',
     ],
   },
