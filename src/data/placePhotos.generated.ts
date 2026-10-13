@@ -1102,6 +1102,34 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Dfuku-ji_temple_IMG_5486.jpg",
     "title": "Tōfuku-ji temple IMG 5486.jpg"
   },
+  "stops/d01-toji": {
+    "src": "/lugares/stops/d01-toji.jpg",
+    "credit": "Kakidai",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toji_-_Five-storied_Pagoda.JPG",
+    "title": "Toji - Five-storied Pagoda.JPG"
+  },
+  "stops/d01-toji-2": {
+    "src": "/lugares/stops/d01-toji-2.jpg",
+    "credit": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Kyoto_Toji_Pagoda_C0938.jpg",
+    "title": "Kyoto Toji Pagoda C0938.jpg"
+  },
+  "stops/d01-toji-3": {
+    "src": "/lugares/stops/d01-toji-3.jpg",
+    "credit": "平摊蛋卷",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Five-storied_Pagoda,_Sensoji_2019.jpg",
+    "title": "Five-storied Pagoda, Sensoji 2019.jpg"
+  },
+  "stops/d01-toji-4": {
+    "src": "/lugares/stops/d01-toji-4.jpg",
+    "credit": "gtknj",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toji_Five-storied_Pagoda_%E6%9D%B1%E5%AF%BA%E4%BA%94%E9%87%8D%E5%A1%94_01_-_Apr_14,_2012.jpg",
+    "title": "Toji Five-storied Pagoda 東寺五重塔 01 - Apr 14, 2012.jpg"
+  },
   "stops/d02-akihabara-missoes": {
     "src": "/lugares/stops/d02-akihabara-missoes.jpg",
     "credit": "Jmho",
