@@ -1008,6 +1008,11 @@ export const tokyo1Days: Day[] = [
                 note: '11:00–23:00 · sushi que chega em trenzinho de esteira alta, ¥130 o par. Divertido e rápido.',
               },
               {
+                name: 'Tonki — o tonkatsu de Meguro',
+                specialty: true,
+                note: '16:00–21:30 (último pedido 21:00), **fecha ter** — domingo abre · Shimo-Meguro 1-1-2, **3 min da estação Meguro**, que fica a 2 paradas de Shibuya pela Yamanote (5 min). Casa de **1939**, frequentada pelo bairro: um balcão comprido de frente para a cozinha aberta, rōsu ou hire por **~¥2.000**, arroz, repolho e sopa à vontade. Sem reserva; a fila anda rápido. É a alternativa ao sushi da noite — e se o Marugo do dia 19 tiver esgotado, é o tonkatsu da viagem. Na volta, Yamanote de Meguro direto até Shinjuku, 20 min.',
+              },
+              {
                 name: 'Golden Gai (Shinjuku)',
                 note: 'a partir das 20:00 · 200 bares de 5 lugares em seis vielas. Alguns cobram couvert de ¥500–1.000 e alguns não aceitam estrangeiro — respeitem a placa. Sobreviveu porque os donos se recusaram a vender nos anos 1980.',
               },

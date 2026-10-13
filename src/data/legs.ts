@@ -69,8 +69,9 @@ export const START: Record<string, Leg[]> = {
     walk(5, 'saída Hijiribashi; o santuário fica subindo, atrás do Yushima Seidō'),
   ],
   'd2026-12-03': [
-    { mode: 'metro', line: 'Hibiya Line', board: 'Ginza', direction: 'Naka-Meguro', alight: 'Tsukiji, saída 1', minutes: 3, cost: '¥180' },
-    walk(3, 'o mercado externo fica atrás do templo Hongan-ji'),
+    walk(3, 'saída A13 da Ginza, com o check-out já feito e as malas na recepção'),
+    { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro (池袋)', alight: 'Shin-Ōtsuka (新大塚)', minutes: 17, cost: '¥210' },
+    walk(5, 'o Nakiryu fica uns 300 m ao norte da estação, numa rua residencial — sigam o mapa; cheguem às 7:30'),
   ],
 };
 
@@ -319,7 +320,7 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd27-jantar': [
     walk(7, 'de volta à Keihan Fushimi-Momoyama'),
-    { mode: 'train', line: 'Keihan Main Line (準急 ou local)', board: 'Fushimi-Momoyama', direction: 'Demachiyanagi · Sanjō', alight: 'Sanjō', minutes: 22, cost: '¥280', note: 'desçam em **Sanjō**, não em Gion-Shijō: o Musashi e o hotel ficam na Kawaramachi logo abaixo da ponte Sanjō. Últimos trens 23:26 e 00:08; confirmar na placa, a Keihan mudou o horário em agosto' },
+    { mode: 'train', line: 'Keihan Main Line (準急 ou local)', board: 'Fushimi-Momoyama', direction: 'Demachiyanagi · Sanjō', alight: 'Sanjō (京阪三条)', minutes: 22, cost: '¥280', note: 'desçam em **Sanjō**, não em Gion-Shijō: o Musashi e o hotel ficam na Kawaramachi logo abaixo da ponte Sanjō. Últimos trens 23:26 e 00:08; confirmar na placa, a Keihan mudou o horário em agosto' },
     walk(5, 'saindo da Keihan Sanjō, atravessem a ponte Sanjō para o oeste: o Musashi é a esquina da Kawaramachi com a Sanjō, com a placa de sushi girando'),
   ],
   'd27-sushi-musashi': [walk(3, 'descendo a Kawaramachi uma quadra e meia para o sul, até o hotel')],
@@ -347,14 +348,17 @@ export const LEGS: Record<string, Leg[]> = {
   // ── 29 nov · Arashiyama, Kinkaku-ji ────────────────────────────────
   'd29-konbini': [
     walk(7, 'descendo a Kawaramachi para o sul até a Shijō; a Hankyu Kyoto-Kawaramachi é a estação subterrânea da esquina (entrem pela saída 3 ou 10)'),
-    { mode: 'train', line: 'Hankyu Kyoto Line', board: 'Kyoto-Kawaramachi', direction: 'Osaka-Umeda', alight: 'Ōmiya', minutes: 4, cost: '¥170', note: 'qualquer trem; são duas paradas' },
+    { mode: 'train', line: 'Hankyu Kyoto Line', board: 'Kyoto-Kawaramachi', direction: 'Osaka-Umeda', alight: 'Ōmiya (阪急大宮)', minutes: 4, cost: '¥170', note: 'qualquer trem; são duas paradas' },
     { mode: 'tram', line: 'Randen (Keifuku) Arashiyama Line', board: 'Shijō-Ōmiya', direction: 'Arashiyama', alight: 'Arashiyama (final)', minutes: 22, cost: '¥250', note: 'o bondinho de Kyoto; passa a cada ~10 min desde as 6h. A estação fica a 3 min do portão do Tenryū-ji' },
     walk(8, 'pela lateral do Tenryū-ji até o portão norte; o bambuzal começa ali'),
   ],
   'd29-bambu': [walk(5, 'o portão norte do Tenryū-ji abre para dentro do bambuzal')],
   'd29-tenryuji': [walk(10, 'de volta ao bambuzal e subindo até o fim da trilha; a villa é o portão à direita')],
-  'd29-okochi-sanso': [walk(15, 'descendo até o rio; a ponte é o marco')],
-  'd29-togetsukyo': [walk(5, 'o Yoshimura fica na cabeceira norte da ponte, com a varanda para o rio')],
+  'd29-okochi-sanso': [walk(5, 'de volta ao bambuzal: a estação **Torokko Arashiyama** (トロッコ嵐山) é a plataforma de madeira na beira da trilha. Estejam lá 10 min antes do trem das 11:05')],
+  'd29-sagano': [
+    { mode: 'train', line: 'Sagano 5 · Sagano 6 (ida e volta)', board: 'Torokko Arashiyama', direction: 'Torokko Kameoka', alight: 'Torokko Arashiyama', minutes: 45, cost: '¥880 por trecho', note: 'ida 11:05 → 11:25, volta 11:30 → 11:50: em Kameoka são 5 min para embarcar no segundo trem' },
+    walk(15, 'descendo pelo bambuzal e pela rua do Tenryū-ji até o rio; o Yoshimura fica na cabeceira norte da ponte Togetsukyō, com a varanda para o rio'),
+  ],
   'd29-almoco': [
     { mode: 'taxi', board: 'ponto de táxi na frente da estação Randen Arashiyama', alight: 'Kinkaku-ji (金閣寺)', minutes: 20, cost: '~¥2.500', note: 'o jeito que poupa uma hora. Alternativa: bonde Randen até Kitano-Hakubaichō (troca em Katabiranotsuji, 25 min ¥250) e ônibus 205 até Kinkakuji-michi' },
   ],
@@ -369,19 +373,24 @@ export const LEGS: Record<string, Leg[]> = {
 
   // ── 30 nov · Nara ──────────────────────────────────────────────────
   'd30-trem-nara': [
-    { mode: 'train', line: 'Kintetsu Limited Express (特急)', board: 'Kintetsu Kyoto, plataformas 1–4', direction: 'Kintetsu-Nara (近鉄奈良)', alight: 'Kintetsu-Nara (final), saída 2', minutes: 35, cost: '¥1.280 (¥760 + ¥520 do assento reservado)', note: 'comprem o assento na máquina ou no guichê; o expresso comum (急行) leva 45 min e não precisa de reserva' },
-    walk(5, 'saída 2, reto pela Sanjō-dōri para o leste; os cervos aparecem antes do parque'),
+    { mode: 'train', line: 'Kintetsu Limited Express (特急)', board: 'Kintetsu Kyoto, plataformas 1–4', direction: 'Kintetsu-Nara (近鉄奈良)', alight: 'Kintetsu-Nara (final)', minutes: 35, cost: '¥1.280 (¥760 + ¥520 do assento reservado)', note: 'comprem o assento na máquina ou no guichê; o expresso comum (急行) leva 45 min e não precisa de reserva' },
+    walk(8, 'sigam a placa 東大寺・奈良公園 até a rua e vão para o leste pela Noborioji-dōri, a avenida larga; os cervos aparecem na altura do Kōfuku-ji, à direita'),
   ],
-  'd30-parque-nara': [walk(10, 'para o norte pelo parque até o portão Nandaimon')],
+  'd30-parque-nara': [walk(12, 'continuem pela Noborioji e virem à esquerda na rua das barracas: o portão Nandaimon aparece no fim dela')],
   'd30-todaiji': [walk(10, 'saindo pelo lado leste do salão, subida pela escada de pedra')],
-  'd30-nigatsudo': [walk(20, 'para o sul pela trilha na borda da floresta (Kasuga-yama), passando o Tamukeyama Hachiman-gū')],
-  'd30-kasuga-taisha': [walk(15, 'de volta pela alameda de lanternas até a rua Sanjō; a loja de kakinoha-zushi fica perto da galeria Higashimuki')],
+  'd30-nigatsudo': [walk(22, 'para o sul, plano: Hokke-dō, Tamukeyama Hachiman-gū, o pé do monte Wakakusa, a casa de chá Mizuya e a entrada norte do Kasuga (北参道)')],
+  'd30-kasuga-taisha': [
+    walk(3, 'o ponto final do ônibus fica a poucos minutos do portão — sigam a placa バスのりば'),
+    { mode: 'bus', line: 'Nara Kōtsū 77 ou 97', board: 'Kasuga Taisha Honden (春日大社本殿)', direction: 'Kintetsu Nara · JR Nara', alight: 'Himuro-jinja · Kokuritsu-hakubutsukan (氷室神社・国立博物館)', minutes: 6, cost: '¥250 · Suica/ICOCA', note: 'passa ~3 vezes por hora e o horário da volta está afixado no ponto. Em vez dos 2 km de volta a pé, são 6 min sentados' },
+    walk(3, 'para o norte, atravessando a avenida: o portão do Isui-en fica atrás do santuário Himuro'),
+  ],
+  'd30-isuien': [walk(10, 'para o oeste pela Noborioji até a galeria Higashimuki, ao lado da estação: o Nakatanidō fica na esquina da Sanjō-dōri')],
   'd30-almoco': [walk(5, 'o pagode está à vista, subindo a rua')],
   'd30-kofukuji': [walk(8, 'descendo até o lago Sarusawa e continuando para o sul: Naramachi são as ruas de casas antigas atrás do lago')],
   'd30-naramachi': [
     walk(10, 'até a estação Kintetsu-Nara'),
     { mode: 'train', line: 'Kintetsu (特急 ou 急行)', board: 'Kintetsu-Nara', direction: 'Kyoto (京都)', alight: 'Kyoto (final)', minutes: 40, cost: '¥1.280 reservado · ¥760 no expresso comum', note: 'confiram que o trem vai a KYOTO: metade vai para Osaka-Namba' },
-    { mode: 'metro', line: 'Karasuma Line', board: 'Kyoto (metrô, lado norte da estação)', direction: 'Kokusaikaikan', alight: 'Shijō', minutes: 4, cost: '¥220' },
+    { mode: 'metro', line: 'Karasuma Line', board: 'Kyoto (metrô, lado norte da estação)', direction: 'Kokusaikaikan', alight: 'Shijō (四条)', minutes: 4, cost: '¥220' },
     walk(12, 'pela Shijō-dōri para o leste até a Kawaramachi, e então para o norte até o hotel, acima da Sanjō'),
   ],
 
@@ -442,9 +451,22 @@ export const LEGS: Record<string, Leg[]> = {
   'd02-konbini': [walk(5, 'até o hotel: arrumar as malas hoje, amanhã não vai dar tempo')],
 
   // ── 3 dez · volta ──────────────────────────────────────────────────
-  'd03-ultima-manha': [
-    { mode: 'metro', line: 'Hibiya Line', board: 'Tsukiji', direction: 'Kita-Senju', alight: 'Ginza', minutes: 3, cost: '¥180' },
-    walk(5, 'de volta ao hotel; check-out até as 11h, as malas ficam na recepção até a hora de sair'),
+  'd03-nakiryu-senha': [
+    walk(5, 'senha na mão, café da manhã por perto e de volta à estação Shin-Ōtsuka por volta das 9:15'),
+    { mode: 'metro', line: 'Marunouchi Line', board: 'Shin-Ōtsuka (新大塚)', direction: 'Ginza · Ogikubo', alight: 'Ochanomizu', minutes: 9, cost: '¥180' },
+    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Ochanomizu (JR, do outro lado da rua do metrô) — plataforma do 総武線 千葉方面', direction: 'Chiba (千葉)', alight: 'Kameido (亀戸)', minutes: 12, cost: '~¥180' },
+    walk(4, 'uns 300 m para o sul, do outro lado da Keiyō-dōri, a avenida larga — sigam o mapa'),
+  ],
+  'd03-sano-miso': [
+    walk(4, 'de volta à JR Kameido'),
+    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Kameido', direction: 'Mitaka · Nakano (三鷹方面)', alight: 'Ochanomizu', minutes: 12, cost: '~¥180' },
+    { mode: 'metro', line: 'Marunouchi Line', board: 'Ochanomizu', direction: 'Ikebukuro (池袋)', alight: 'Shin-Ōtsuka (新大塚)', minutes: 9, cost: '¥180', note: 'saiam de Kameido até as 10:50 para chegar ao turno das 11:30' },
+    walk(5, 'mesmo caminho da manhã'),
+  ],
+  'd03-nakiryu': [
+    walk(5, 'de volta à estação Shin-Ōtsuka'),
+    { mode: 'metro', line: 'Marunouchi Line', board: 'Shin-Ōtsuka (新大塚)', direction: 'Ginza · Ogikubo', alight: 'Ginza', minutes: 17, cost: '¥210' },
+    walk(3, 'saída A13 e o hotel; as malas esperam na recepção até as 15:30'),
   ],
   'd03-sair-hotel': [
     walk(4, 'com as malas até a estação Higashi-Ginza pela **saída A8**, que é a do hotel, ou táxi na porta (~¥7.000, 30 min)'),

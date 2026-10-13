@@ -53,7 +53,7 @@ export const TOKYO: MapaEstacoes = {
       cor: '#FFD400',
       modo: 'jr',
       casa: /Sōbu/,
-      tracado: ['akihabara', [440, 250], [500, 250], 'kinshicho'],
+      tracado: ['akihabara', [440, 250], [500, 250], 'kinshicho', 'kameido'],
     },
     {
       id: 'shonan',
@@ -87,7 +87,7 @@ export const TOKYO: MapaEstacoes = {
       cor: '#F62E36',
       modo: 'metro',
       casa: /Marunouchi/,
-      tracado: ['ikebukuro', [232, 148], 'korakuen', 'ochanomizu', [392, 322], 'tokyo', 'ginza', [330, 430], 'akasaka-mitsuke', [205, 346], 'shinjuku'],
+      tracado: ['ikebukuro', 'shin-otsuka', [232, 148], 'korakuen', 'ochanomizu', [392, 322], 'tokyo', 'ginza', [330, 430], 'akasaka-mitsuke', [205, 346], 'shinjuku'],
     },
     {
       id: 'ginza-line',
@@ -151,6 +151,8 @@ export const TOKYO: MapaEstacoes = {
     { id: 'tawaramachi', nome: 'Tawaramachi', jp: '田原町', x: 480, y: 160, lado: 't' },
     { id: 'oshiage', nome: 'Oshiage', jp: '押上', x: 568, y: 200, lado: 'b', nota: 'Skytree-mae' },
     { id: 'kinshicho', nome: 'Kinshichō', jp: '錦糸町', x: 565, y: 280, lado: 'b' },
+    { id: 'kameido', nome: 'Kameido', jp: '亀戸', x: 590, y: 318, lado: 'l', nota: 'Sano Miso, 4 min a pé' },
+    { id: 'shin-otsuka', nome: 'Shin-Ōtsuka', jp: '新大塚', x: 188, y: 128, lado: 'b', nota: 'Nakiryu, 5 min a pé' },
     { id: 'mitsukoshimae', nome: 'Mitsukoshimae', jp: '三越前', x: 432, y: 325, lado: 'r' },
     { id: 'jimbocho', nome: 'Jimbōchō', jp: '神保町', x: 330, y: 282, lado: 'r' },
     { id: 'kamiyacho', nome: 'Kamiyachō', jp: '神谷町', x: 300, y: 492, lado: 'b', nota: 'Tokyo Tower' },
@@ -213,7 +215,9 @@ export const TOKYO: MapaEstacoes = {
     { id: 'p-d02-compras-finais', nome: 'Bic Camera', estacaoId: 'yurakucho', dx: -74, dy: -2, stopId: 'd02-compras-finais', lado: 'l' },
     { id: 'p-d02-jantar-despedida', nome: 'Sushi no Midori', estacaoId: 'yurakucho', dx: -66, dy: 26, stopId: 'd02-jantar-despedida', lado: 'l' },
     // 3 dez
-    { id: 'p-d03-ultima-manha', nome: 'Café em Tsukiji', estacaoId: 'tsukiji', dx: 40, dy: 42, stopId: 'd03-ultima-manha' },
+    { id: 'p-d03-nakiryu-senha', nome: 'Nakiryu · senha', estacaoId: 'shin-otsuka', dx: 30, dy: -34, stopId: 'd03-nakiryu-senha' },
+    { id: 'p-d03-sano-miso', nome: 'Sano Miso', estacaoId: 'kameido', dx: -10, dy: 44, stopId: 'd03-sano-miso', lado: 'l' },
+    { id: 'p-d03-nakiryu', nome: 'Nakiryu · ramen', estacaoId: 'shin-otsuka', dx: 62, dy: -10, stopId: 'd03-nakiryu' },
     { id: 'p-d03-haneda', nome: 'Haneda · tax-free', estacaoId: 'haneda', dx: 34, dy: 4, stopId: 'd03-haneda' },
     { id: 'p-d03-duty-free', nome: "Royce' no duty free", estacaoId: 'haneda', dx: 34, dy: 34, stopId: 'd03-duty-free' },
     { id: 'p-d02-tekki', nome: 'Nambu tekki · Ginga Plaza', estacaoId: 'higashi-ginza', dx: 56, dy: 22, stopId: 'd02-tekki' },

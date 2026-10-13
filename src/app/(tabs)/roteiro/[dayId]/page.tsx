@@ -12,7 +12,7 @@ import { LastReturn } from '@/components/LastReturn';
 import { LegsConnector } from '@/components/LegsConnector';
 import { legsFrom, legsToFirst } from '@/data/legs';
 import { stopsEmOrdem } from '@/lib/now';
-import { BASE_DA_ETAPA, baseDaManha } from '@/lib/mapsLinks';
+import { BASE_DA_ETAPA, baseDaManha, pontoDe, regiaoDoDia } from '@/lib/mapsLinks';
 import { BookOpen } from 'lucide-react';
 
 /** a cidade cuja história abre em cada dia */
@@ -131,7 +131,8 @@ export default async function DayPage({
             legs={legsToFirst(day.id)!}
             title="Do hotel até a primeira parada"
             origem={baseDaManha(day.id, day.stageId)}
-            destino={stopsEmOrdem(day.stops)[0]?.mapQuery ?? stopsEmOrdem(day.stops)[0]?.name}
+            destino={stopsEmOrdem(day.stops)[0] && pontoDe(stopsEmOrdem(day.stops)[0])}
+            regiao={regiaoDoDia(day.id)}
           />
         )}
         {stopsEmOrdem(day.stops).map((stop, i, ordenadas) => {
@@ -144,8 +145,9 @@ export default async function DayPage({
                 <LegsConnector
                   legs={legs}
                   title={next ? `Até ${next.name}` : 'De volta ao hotel'}
-                  origem={stop.mapQuery ?? stop.name}
-                  destino={next ? next.mapQuery ?? next.name : BASE_DA_ETAPA[day.stageId]}
+                  origem={pontoDe(stop)}
+                  destino={next ? pontoDe(next) : BASE_DA_ETAPA[day.stageId]}
+                  regiao={regiaoDoDia(day.id)}
                 />
               )}
             </div>

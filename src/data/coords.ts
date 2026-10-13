@@ -77,7 +77,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd29-bambu': { lat: 35.017, lng: 135.671 },
   'd29-tenryuji': { lat: 35.0158, lng: 135.6737 },
   'd29-okochi-sanso': { lat: 35.0186, lng: 135.669 },
-  'd29-togetsukyo': { lat: 35.0125, lng: 135.6779 },
+  'd29-sagano': { lat: 35.0171, lng: 135.6702 }, // estação Torokko Arashiyama
   'd29-kinkakuji': { lat: 35.0394, lng: 135.7292 },
   'd29-ryoanji': { lat: 35.0345, lng: 135.7183 },
   'd29-nishiki': { lat: 35.005, lng: 135.7649 },
@@ -85,6 +85,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd30-todaiji': { lat: 34.689, lng: 135.8398 },
   'd30-nigatsudo': { lat: 34.6891, lng: 135.8465 },
   'd30-kasuga-taisha': { lat: 34.6813, lng: 135.8484 },
+  'd30-isuien': { lat: 34.6855, lng: 135.8379 },
   'd30-kofukuji': { lat: 34.683, lng: 135.8318 },
   'd30-naramachi': { lat: 34.6788, lng: 135.8306 },
   'd01-tofukuji': { lat: 34.9764, lng: 135.774 },
@@ -102,5 +103,8 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd02-nihonbashi': { lat: 35.684, lng: 139.7745 },
   'd02-tekki': { lat: 35.6693, lng: 139.7677 }, // Iwate Ginga Plaza, Ginza 5-15-1
   'd02-compras-finais': { lat: 35.6749, lng: 139.7628 }, // Bic Camera Yūrakuchō
+  'd03-nakiryu-senha': { lat: 35.7287, lng: 139.7304 }, // Nakiryu, Minami-Ōtsuka 2-34-4
+  'd03-sano-miso': { lat: 35.6956, lng: 139.8257 }, // Sano Miso, Kameido 1-35-8
+  'd03-nakiryu': { lat: 35.7287, lng: 139.7304 },
   'd03-haneda': { lat: 35.5449, lng: 139.7678 }, // Terminal 3 (internacional)
 };

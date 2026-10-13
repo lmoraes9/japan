@@ -246,7 +246,7 @@ export const kyotoDays: Day[] = [
     ],
     date: '2026-11-28',
     stageId: 'kyoto',
-    title: 'Higashiyama de ponta a ponta, terminando na iluminação noturna',
+    title: 'Higashiyama de ponta a ponta, e a noite em Gion',
     subtitle: 'Kiyomizu-dera às 6h da manhã. É a coisa mais importante deste roteiro inteiro.',
     chips: ['história', 'momiji', 'unesco', 'iluminação'],
     notes: [
@@ -263,7 +263,7 @@ export const kyotoDays: Day[] = [
       {
         label: 'A noite de hoje: chá em Gion OU a iluminação do Eikan-dō',
         tone: 'warn',
-        text: 'O Eikan-dō **esvazia o templo às 17:00** e reabre às 17:30 com ingresso separado para a iluminação — e no pico essa fila passa de uma hora. O roteiro escolheu a **visita diurna às 15h45** e o **chá no Kitagawa Hanbee às 18h**, que só abre até as 20h por ser sábado.\n\nSe preferirem a iluminação, troquem: fiquem no Eikan-dō até ~19h e joguem Gion para depois — mas então cancelem a reserva do chá, porque a última chamada dele é 19:30. Os dois na mesma noite não cabem, e o Kōdai-ji iluminado (até 21:30) seria um terceiro.',
+        text: 'O Eikan-dō **esvazia o templo às 17:00** e reabre às 17:30 com ingresso separado para a iluminação — e no pico essa fila passa de uma hora. O roteiro escolheu a **visita diurna às 15h15** (a bilheteria do dia fecha às 16:00) e o **chá no Kitagawa Hanbee às 18h**, que só abre até as 20h por ser sábado.\n\nSe preferirem a iluminação, troquem: fiquem no Eikan-dō até ~19h e joguem Gion para depois — mas então cancelem a reserva do chá, porque a última chamada dele é 19:30. Os dois na mesma noite não cabem, e o Kōdai-ji iluminado (até 21:30) seria um terceiro.',
       },
     ],
     stops: [
@@ -413,15 +413,15 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd28-eikando',
-        time: '15:45',
+        time: '15:15',
         timeLabel: 'momiji',
         kind: 'temple',
         name: 'Eikan-dō Zenrin-ji',
         jp: '永観堂禅林寺',
-        facts: 'Dia **09:00–17:00** ¥600 · **iluminação noturna 17:30–21:00** (entrada até 20:30), ingresso separado ~¥600',
+        facts: 'Dia **09:00–17:00**, **bilheteria até 16:00** · ¥600 · **iluminação noturna 17:30–21:00** (entrada até 20:30), ingresso separado ~¥600',
         paragraphs: [
           'Há um ditado em Kyoto: **"momiji no Eikandō"** — para bordo, é Eikandō. São cerca de 3.000 árvores num terreno em encosta, com lago, pagode no alto e um corredor coberto que sobe a montanha. Se vocês forem a um único templo de momiji em Kyoto, é este.',
-          'Estratégia: entrem por volta das 15h45 com o ingresso de dia, saiam às 17h, comam alguma coisa por perto, e voltem com o ingresso noturno. A iluminação refletida no lago é outro programa.',
+          'Entrem até as 15h30 com o ingresso de dia — **a bilheteria fecha às 16:00** e, num sábado de pico, a fila da porta come esses minutos. Às 17:00 o templo esvazia todo mundo para preparar a iluminação; é a hora de seguir para o chá em Gion.',
         ],
         history: {
           label: 'A estátua que olha para trás',
@@ -502,7 +502,7 @@ export const kyotoDays: Day[] = [
   {
     id: 'd2026-11-29',
     lastReturn: [
-      { label: 'Torokko Kameoka → Saga — último trem', time: '16:32', from: 'Torokko Kameoka', note: 'aprox. · só vale se acrescentarem o Torokko: ele não está no plano deste dia, que sai de Arashiyama às 12:15' },
+      { label: 'Sagano 6 · Kameoka → Torokko Arashiyama', time: '11:30', from: 'Torokko Kameoka', note: 'o trem de volta reservado: chegando às 11:25, são só 5 minutos para embarcar de novo — não saiam da estação', critical: true },
       { label: 'Hankyu Arashiyama → Katsura → Kyoto-Kawaramachi', time: '23:20', from: 'Estação Hankyu Arashiyama', note: 'aprox. · a linha que chega a 7 min do hotel; rede de segurança se ficarem em Arashiyama' },
       { label: 'JR Sagano Saga-Arashiyama → Kyoto + metrô até Shijō', time: '23:35', from: 'Estação Saga-Arashiyama', note: 'aprox. · plano B, com uma baldeação a mais' },
     ],
@@ -531,13 +531,13 @@ export const kyotoDays: Day[] = [
     stops: [
       {
         id: 'd29-konbini',
-        time: '06:30',
+        time: '06:15',
         timeLabel: 'konbini',
         kind: 'food',
         name: '7-Eleven a caminho de Arashiyama — parada 3 de 4',
         facts: 'esquina do hotel e Saga-Arashiyama têm lojas 24h',
         paragraphs: [
-          'Saindo às 6h30 nada está aberto, e é exatamente para isso que o konbini existe. Hoje: **café da máquina** — pega-se o copo vazio no caixa (o gelado já vem lacrado com gelo na geladeira), paga, e só então põe na máquina, botão R ou L.',
+          'Saindo às 6h15 nada está aberto, e é exatamente para isso que o konbini existe. Hoje: **café da máquina** — pega-se o copo vazio no caixa (o gelado já vem lacrado com gelo na geladeira), paga, e só então põe na máquina, botão R ou L.',
           'E, se a loja tiver a máquina branca de **smoothie** ao lado do caixa, é a hora: copo de fruta congelada do freezer, tira o lacre, encaixa, 40 segundos. Nem toda loja tem — se não achar, fica para a repescagem do dia 2.',
         ],
         mapQuery: '7-Eleven Kawaramachi Shijo Kyoto',
@@ -550,7 +550,7 @@ export const kyotoDays: Day[] = [
         kind: 'sight',
         name: 'Bosque de bambu de Arashiyama',
         jp: '嵯峨野竹林',
-        facts: '**24h · grátis** · Hankyu Kyoto-Kawaramachi → Katsura → Arashiyama, **~20 min**, e 18 min a pé pela ponte Togetsukyō · (JR Saga-Arashiyama é a alternativa, saindo da Estação de Kyoto)',
+        facts: '**24h · grátis** · Hankyu Kyoto-Kawaramachi → Ōmiya e o bondinho **Randen** até Arashiyama, **~35 min** · a estação fica a 8 min do bambuzal, pela lateral do Tenryū-ji',
         paragraphs: [
           'Às 7h vocês têm o caminho quase vazio; às 9h30 é um corredor de gente. O bambu *moso* daqui cresce até 1 metro por dia na primavera e o bosque é gerenciado há séculos — cada haste é colhida depois de 3 a 5 anos. O som do vento nas hastes está na lista oficial dos **100 sons a preservar do Japão**.',
         ],
@@ -586,31 +586,19 @@ export const kyotoDays: Day[] = [
         mapQuery: 'Okochi Sanso Villa Arashiyama',
       },
       {
-        id: 'd29-togetsukyo',
-        time: '11:00',
-        timeLabel: 'rio',
+        id: 'd29-sagano',
+        time: '11:05',
+        timeLabel: 'trem',
         kind: 'sight',
-        name: 'Ponte Togetsukyō & Hōgon-in',
-        facts: 'Ponte **24h** · Hōgon-in abre especialmente no outono, **09:00–17:00**, ¥700',
+        name: 'Trem Sagano pelo desfiladeiro do Hozu — ida e volta',
+        jp: '嵯峨野トロッコ列車',
+        facts: '**Sagano 5**: Torokko Arashiyama **11:05** → Kameoka 11:25 · **Sagano 6**: Kameoka **11:30** → Torokko Arashiyama 11:50 · **¥880 por trecho** · reserva obrigatória',
         paragraphs: [
-          'A "ponte que cruza a lua" tem esse nome desde o século XIV, de um comentário de um imperador sobre a lua atravessando o céu por cima dela. O jardim do **Hōgon-in** só abre no outono e na primavera, e é um dos mais bonitos de Arashiyama.',
+          'Um trem de madeira, lento de propósito (25 km/h), na linha que a JR abandonou em 1989 quando furou um túnel reto pela montanha. São 7 km colados no rio Hozu, com as encostas inteiras em bordo — e no fim de novembro é **o** passeio de Arashiyama. Este é o último outono dos vagões atuais: eles se aposentam em 29 de dezembro e a frota nova estreia em 2027.',
+          'A estação **Torokko Arashiyama** fica colada no bambuzal, a 5 min do Ōkōchi Sansō — por isso o trem entra exatamente aqui. Vocês descem em Kameoka e **embarcam no Sagano 6, que sai 5 minutos depois** — o assento é o do segundo bilhete. É o mesmo desfiladeiro duas vezes, cada vez de um lado. Saindo da estação às 11:50, a ponte Togetsukyō e o almoço ficam 15 min a pé, descendo.',
+          'O **5º vagão ("Rich")** é o aberto, sem janela: o melhor para foto, o mais frio. Com chuva, fiquem num dos fechados. Se não conseguirem lugar, a manhã continua igual e o tempo vira o jardim do **Hōgon-in** (só abre no outono, 09:00–17:00, ¥700), ao lado da ponte.',
         ],
-        eat: [
-          {
-            label: 'Duas experiências opcionais, ambas precisam de reserva',
-            items: [
-              {
-                name: 'Trem panorâmico Sagano (Torokko)',
-                note: '09:00–16:00, ~¥880 · 25 min de vagão aberto pelo desfiladeiro do rio Hozu. Em novembro é **a** atração da região e os assentos esgotam com semanas de antecedência. Reservem agora se quiserem.',
-              },
-              {
-                name: 'Barco do rio Hozu',
-                note: '~2h, ¥6.000 · descida de Kameoka até Arashiyama em barco de fundo chato conduzido a vara. Espetacular no outono.',
-              },
-            ],
-          },
-        ],
-        mapQuery: 'Togetsukyo Bridge Arashiyama',
+        mapQuery: 'Torokko Arashiyama Station',
       },
       {
         id: 'd29-almoco',
@@ -779,7 +767,7 @@ export const kyotoDays: Day[] = [
       {
         id: 'd30-parque-nara',
         placeMapId: 'nara',
-        time: '09:00',
+        time: '08:45',
         timeLabel: 'parque',
         kind: 'sight',
         name: 'Parque de Nara & os cervos',
@@ -801,13 +789,14 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd30-todaiji',
-        time: '09:30',
+        time: '09:00',
         timeLabel: 'templo',
         kind: 'temple',
         name: 'Tōdai-ji & o Grande Buda',
         jp: '東大寺',
         facts: '**08:00–17:00** em novembro (7:30–17:30 é só de abril a outubro) · ¥800 · Patrimônio Mundial',
         paragraphs: [
+          'Cedo é o ponto: o Tōdai-ji abre às 8h e **das 10h às 15h** é a hora dos ônibus de excursão e das escolas — fim de novembro é temporada de viagem escolar. Às 9h vocês ainda pegam o salão respirável.',
           'Atrás do Buda há um **pilar com um buraco** do mesmo tamanho da narina da estátua. Diz a tradição que quem passar por ele alcança a iluminação. Crianças passam fácil; adultos, com esforço e público.',
         ],
         history: {
@@ -821,7 +810,7 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd30-nigatsudo',
-        time: '11:00',
+        time: '10:15',
         timeLabel: 'templo',
         kind: 'temple',
         name: 'Nigatsu-dō',
@@ -835,12 +824,12 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd30-kasuga-taisha',
-        time: '11:45',
+        time: '11:00',
         timeLabel: 'santuário',
         kind: 'temple',
         name: 'Kasuga Taisha',
         jp: '春日大社',
-        facts: '**07:00–17:00** em novembro · pátio grátis · área interna ¥700 · Patrimônio Mundial',
+        facts: '**07:00–17:00** em novembro · pátio grátis · área interna **09:00–16:00**, ¥700 · Patrimônio Mundial',
         paragraphs: [
           'Fundado em **768** pelo clã Fujiwara. Cerca de **3.000 lanternas**: 2.000 de pedra ao longo do caminho na floresta, cobertas de musgo, e 1.000 de bronze penduradas nos beirais, todas doadas por fiéis ao longo de mil anos. Dentro há um corredor escuro onde algumas ficam acesas o ano inteiro com espelhos — dá uma noção do que é o festival de lanternas.',
           'Por mais de mil anos o santuário foi **totalmente reconstruído a cada vinte anos**, sempre idêntico, para manter viva a técnica de construção. A floresta ao redor, o Kasugayama, é proibida de corte desde **841** — é uma floresta primária de 1.200 anos dentro de uma cidade.',
@@ -848,8 +837,22 @@ export const kyotoDays: Day[] = [
         mapQuery: 'Kasuga Taisha Nara',
       },
       {
+        id: 'd30-isuien',
+        time: '12:15',
+        timeLabel: 'jardim',
+        kind: 'sight',
+        name: 'Isui-en',
+        jp: '依水園',
+        facts: '**09:30–16:30**, última entrada **16:00** · **fecha terça** (segunda abre) · ¥1.200 · 2 min da parada 氷室神社・国立博物館',
+        paragraphs: [
+          'Um jardim de passeio do período Meiji que usa como paisagem emprestada o **portão Nandaimon do Tōdai-ji** e as montanhas Wakakusa e Kasuga — o mesmo morro de onde vocês acabaram de descer. Tem casa de chá e quase nenhum turista.',
+          'Ele não fica em Naramachi, onde estava antes no roteiro: fica a 5 min do Tōdai-ji, no caminho de volta para a estação. Por isso entra aqui, saindo do Kasuga de ônibus — e não às 15:45, quando sobrariam 15 minutos até a última entrada.',
+        ],
+        mapQuery: 'Isuien Garden Nara',
+      },
+      {
         id: 'd30-almoco',
-        time: '13:00',
+        time: '13:15',
         timeLabel: 'almoço',
         kind: 'food',
         name: 'Almoço em Nara',
@@ -897,15 +900,14 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd30-naramachi',
-        time: '15:45',
+        time: '15:30',
         timeLabel: 'bairro',
         kind: 'sight',
-        name: 'Naramachi & Isui-en',
-        jp: 'ならまち・依水園',
-        facts: 'Naramachi **grátis** · Isui-en **09:30–16:30 · fecha terça** · ¥1.200',
+        name: 'Naramachi',
+        jp: 'ならまち',
+        facts: '**grátis** · as ruas ao sul do lago Sarusawa, 10 min a pé do Kōfuku-ji',
         paragraphs: [
           'Naramachi é o antigo bairro de mercadores, com casas *machiya* estreitas e fundas (o imposto era cobrado pela largura da fachada, então todo mundo construía para trás). Vejam os *migawari-zaru*, macaquinhos de tecido vermelho pendurados nas portas para absorver o azar da casa.',
-          'O **Isui-en** é um jardim que usa o portão do Tōdai-ji e as montanhas como paisagem emprestada, e tem casa de chá. Segunda-feira ele está aberto (fecha às terças) — aproveitem.',
         ],
         mapQuery: 'Naramachi Nara',
       },
@@ -1051,7 +1053,7 @@ export const kyotoDays: Day[] = [
         kind: 'sight',
         name: 'Rikugien iluminado — o bordo de Tóquio',
         jp: '六義園 夜間特別観賞',
-        facts: 'Iluminação de outono **25/11 a 6/12 · 18:00–20:30, última entrada 19:30** · ¥1.000 antecipado (só online) ou ¥1.200 no dia · entrada pelo **portão principal (正門)**, 7 min da saída sul de Komagome (Yamanote)',
+        facts: 'Iluminação de outono · **18:00–20:30**, última entrada 20:00 · as datas de 2026 ainda não saíram — em 2025 foi de **28/11 a 9/12**, e o dia 1º cai dentro · ¥1.000 antecipado (só online) ou ¥1.200 no dia · entrada pelo **portão principal (正門)**, 7 min da saída sul de Komagome (Yamanote)',
         paragraphs: [
           'O jardim de 1702 que os Tokugawa mandaram fazer para um daimyō poeta — 88 cenas de poemas clássicos ao redor de um lago — e o melhor bordo dentro da Yamanote. Nesta noite ele reabre só para a iluminação: as árvores refletidas no lago, projeções no armazém e no bambuzal, e as casas de chá servindo matcha. Meia hora de volta ao lago já vale; uma hora se pararem no chá.',
           'É a ida rápida que cabe: de Ginza, Marunouchi até Tokyo e Yamanote até Komagome, 25 minutos, e de lá o gachapon fica a três estações. Comprem o ingresso antecipado assim que a venda abrir (em 2025 abriu 1º de novembro): no dia a fila da bilheteria passa de 30 min e o limite diário esgota.',

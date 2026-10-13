@@ -1017,5 +1017,25 @@
   "hacks/yukimi-curry": [
     "雪見だいふく",
     "Yukimi Daifuku"
+  ],
+  "stops/d29-sagano": [
+    "嵯峨野観光鉄道 紅葉",
+    "Sagano Scenic Railway"
+  ],
+  "stops/d30-isuien": [
+    "依水園",
+    "Isuien Garden"
+  ],
+  "stops/d03-nakiryu-senha": [
+    "鳴龍 ラーメン",
+    "Nakiryu ramen"
+  ],
+  "stops/d03-sano-miso": [
+    "味噌 樽",
+    "miso barrels"
+  ],
+  "stops/d03-nakiryu": [
+    "担々麺",
+    "tantanmen"
   ]
 }

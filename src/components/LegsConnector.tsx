@@ -9,7 +9,7 @@ import { Legs } from './Legs';
 const ICON: Record<LegMode, typeof Footprints> = { walk: Footprints, train: TrainFront, metro: TrainFront, shinkansen: Zap, bus: Bus, tram: TramFront, ferry: Ship, taxi: Car, cable: CableCar, plane: Plane };
 
 /** a linha fina entre duas paradas do roteiro: resumo do trajeto, toca para abrir o detalhe */
-export function LegsConnector({ legs, title, origem, destino }: { legs: Leg[]; title: string; origem?: string; destino?: string }) {
+export function LegsConnector({ legs, title, origem, destino, regiao }: { legs: Leg[]; title: string; origem?: string; destino?: string; regiao?: string }) {
   const [open, setOpen] = useState(false);
   const total = legsMinutes(legs);
   const main = legs.find((l) => l.mode !== 'walk') ?? legs[0];
@@ -32,7 +32,7 @@ export function LegsConnector({ legs, title, origem, destino }: { legs: Leg[]; t
       </button>
       {open && (
         <div className="pb-1 pl-3">
-          <Legs legs={legs} title={title} origem={origem} destino={destino} />
+          <Legs legs={legs} title={title} origem={origem} destino={destino} regiao={regiao} />
         </div>
       )}
     </div>

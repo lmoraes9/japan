@@ -3,7 +3,7 @@ import { Navigation, ChevronRight, Footprints } from 'lucide-react';
 import type { Stop } from '@/data/types';
 import { Legs } from '@/components/Legs';
 import { legsFrom, legsToFirst, legsMinutes } from '@/data/legs';
-import { navigateUrl } from '@/lib/mapsLinks';
+import { navigateUrl, pontoDe, regiaoDoDia } from '@/lib/mapsLinks';
 import { formatCountdown } from '@/lib/now';
 
 /**
@@ -64,7 +64,7 @@ export function ProximaParada({
 
       {legs && (
         <div className="px-4 pb-3">
-          <Legs legs={legs} title="Como chegar lá" destino={stop.mapQuery ?? stop.name} />
+          <Legs legs={legs} title="Como chegar lá" destino={pontoDe(stop)} regiao={regiaoDoDia(dayId)} />
         </div>
       )}
 

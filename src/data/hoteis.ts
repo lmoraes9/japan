@@ -57,7 +57,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     noites: 2,
     preco: 'R$ 953',
     status: 'confirmada',
-    acao: 'É daqui que as malas grandes já saíram para Kyoto, no dia 23.',
+    acao: 'Vocês chegam só de mochila: as malas grandes saíram do Amanek, em Tóquio, direto para o hotel de Kyoto, no dia 23.',
     mapQuery: 'APA Hotel Hiroshima Ekimae Ohashi',
   },
   {
@@ -104,7 +104,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     preco: 'R$ 3.920',
     status: 'confirmada',
     acao:
-      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e bem colocada. Atenção ao endereço, que o nome esconde: é na **Kawaramachi abaixo de Sanjō** (Yamazaki-chō 220), e não na esquina de Shijō — a Keihan Sanjō fica a 5 min, a Hankyu Kyoto-Kawaramachi a 7, o Nishiki a 6 e o Umezono na mesma quadra. **É aqui que as malas do dia 24 estão esperando** — confirmem por escrito que o hotel guarda bagagem antes do check-in.',
+      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e bem colocada. Atenção ao endereço, que o nome esconde: é na **Kawaramachi abaixo de Sanjō** (Yamazaki-chō 240), e não na esquina de Shijō — a Keihan Sanjō fica a 5 min, a Hankyu Kyoto-Kawaramachi a 7, o Nishiki a 6 e o Umezono na mesma quadra. **É aqui que as malas do dia 24 estão esperando** — confirmem por escrito que o hotel guarda bagagem antes do check-in.',
     mapQuery: 'Travelodge Kyoto Shijo Kawaramachi',
   },
   {

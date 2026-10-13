@@ -1,7 +1,7 @@
 import { Footprints, TrainFront, TramFront, Bus, Ship, Car, CableCar, Plane, Zap, Navigation } from 'lucide-react';
 import type { Leg, LegMode } from '@/data/types';
 import { legsMinutes } from '@/data/legs';
-import { directionsUrl, type ModoRota } from '@/lib/mapsLinks';
+import { directionsUrl, pontoDoTrecho, type ModoRota } from '@/lib/mapsLinks';
 
 const ICON: Record<LegMode, typeof Footprints> = {
   walk: Footprints,
@@ -38,6 +38,7 @@ export function Legs({
   big,
   origem,
   destino,
+  regiao,
 }: {
   legs: Leg[];
   title?: string;
@@ -46,19 +47,32 @@ export function Legs({
   origem?: string;
   /** aonde chega */
   destino?: string;
+  /** cidade dos ônibus e bondes do dia, para desambiguar o nome da parada */
+  regiao?: string;
 }) {
   if (!legs.length) return null;
   const total = legsMinutes(legs);
 
   // a cadeia de pontos do percurso: hotel → estação → baldeação → templo.
-  // É ela que dá a cada linha o seu próprio botão de navegar.
+  // É ela que dá a cada linha o seu próprio botão de navegar. As pontas são
+  // as coordenadas das paradas; no meio, o nome da estação vira algo que o
+  // Google Maps não confunde com a cidade ("Kyoto" → "Kyoto Station").
   const pontos: (string | undefined)[] = [origem];
   legs.forEach((l, i) => {
     const proximo = legs[i + 1];
-    pontos.push(l.alight ?? proximo?.board ?? (i === legs.length - 1 ? destino : undefined));
+    if (!proximo) pontos.push(destino);
+    else if (l.alight) pontos.push(pontoDoTrecho(l.alight, l.mode, regiao));
+    else if (proximo.board) pontos.push(pontoDoTrecho(proximo.board, proximo.mode, regiao));
+    else pontos.push(undefined);
   });
   const modoDe = (m: LegMode): ModoRota => (m === 'walk' ? 'walking' : m === 'taxi' ? 'driving' : 'transit');
-  const limpar = (s: string) => s.replace(/\s*\([^)]*\)/g, '').trim();
+  // o trecho inteiro: se tem trem no meio, é transporte público — e não a pé
+  // só porque começa andando até a estação
+  const modoGeral: ModoRota = legs.some((l) => l.mode !== 'walk' && l.mode !== 'taxi')
+    ? 'transit'
+    : legs.some((l) => l.mode === 'taxi')
+      ? 'driving'
+      : 'walking';
   return (
     <div className={`overflow-hidden rounded-2xl border border-hairline bg-surface ${big ? '' : 'text-[13px]'}`}>
       <div className="flex items-center justify-between gap-2 border-b border-hairline bg-surface-2/70 px-4 py-2">
@@ -66,7 +80,7 @@ export function Legs({
         <span className="font-mono text-[11px] tabular-nums text-muted">~{total} min</span>
         {destino && (
           <a
-            href={directionsUrl(origem ? limpar(origem) : undefined, limpar(destino), modoDe(legs[0].mode))}
+            href={directionsUrl(origem, destino, modoGeral)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[11.5px] font-semibold text-white"
@@ -125,12 +139,12 @@ export function Legs({
                 {l.note && <p className={`mt-0.5 leading-snug text-muted ${big ? 'text-[14px]' : 'text-[12px]'}`}>{l.note}</p>}
               </div>
               {/* cada linha tem a sua própria rota: este pedaço do caminho */}
-              {pontos[i + 1] && (
+              {pontos[i + 1] && l.mode !== 'plane' && (
                 <a
-                  href={directionsUrl(pontos[i] ? limpar(pontos[i]!) : undefined, limpar(pontos[i + 1]!), modoDe(l.mode))}
+                  href={directionsUrl(pontos[i], pontos[i + 1]!, modoDe(l.mode))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`navegar até ${pontos[i + 1]}`}
+                  aria-label={`navegar: ${l.line ?? LABEL[l.mode]}`}
                   className="tappable flex shrink-0 items-center justify-center self-center rounded-full border border-hairline bg-surface-2 text-accent"
                   style={{ width: big ? 44 : 34, height: big ? 44 : 34 }}
                 >

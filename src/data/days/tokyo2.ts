@@ -215,7 +215,7 @@ export const tokyo2Days: Day[] = [
         name: 'Última varredura em Ginza — e o Oura Ring',
         facts: 'Ginza **11:00–21:00** · Bic Camera Yūrakuchō **10:00–22:00**',
         paragraphs: [
-          'O que faltou de Muji e Uniqlo, presentes, doces do depachika — e o **missô artesanal**, se ficou para a última hora (balcões do depachika do Mitsukoshi). O **Bic Camera Yūrakuchō** fica a dois minutos de Ginza e tem os andares de eletrodoméstico com modelos de exportação, caso algo tenha escapado em Akihabara.',
+          'O que faltou de Muji e Uniqlo, presentes, doces do depachika. No caminho entre a Iwate Ginga Plaza e o Bic Camera, na Ginza 5-3-16 (saída B9 da Ginza), fica o **Ginza Kumamotokan**, a loja da província de Kumamoto, **11:00–19:00**: é onde se procura a *Maboroshi no Miso* (まぼろしの味噌) do **Yamauchi Honten**, missô de cevada e arroz de uma casa de 1751, ~¥800 o pacote de 500 g, já lacrado e rotulado. Não deu para confirmar o estoque — liguem antes, **03-3572-1147**; se não tiver, a casa vende online e o Sano Miso de amanhã cobre o resto. O **Bic Camera Yūrakuchō** fica a dois minutos de Ginza e tem os andares de eletrodoméstico com modelos de exportação, caso algo tenha escapado em Akihabara.',
           'É aqui que se compra o **Oura Ring**, com o número que o kit do dia 21 indicou: Ring 4 a ¥52.800 (prata, preto, stealth) ou ¥59.800 (dourado, rosé); Ring 5, lançado em junho, ¥65.800–81.800. Sai tax-free (restituição em Haneda amanhã). Antes de pagar, saibam o ponto fraco: o **Brasil não está na lista de países da assinatura** (¥999/mês, obrigatória para os dados), que exige cartão com endereço de cobrança num país suportado — há brasileiros usando com cartão internacional, mas não há garantia oficial, e a garantia do produto pode não valer fora dessas regiões. Em iene custa o mesmo que nos EUA; contra o Brasil, onde não há venda oficial, é bem mais barato.',
         ],
         mapQuery: 'Bic Camera Yurakucho',
@@ -279,40 +279,51 @@ export const tokyo2Days: Day[] = [
     id: 'd2026-12-03',
     date: '2026-12-03',
     stageId: 'tokyo2',
-    title: 'Manhã livre e Haneda',
-    subtitle: 'Voo às 20:25. Estejam no aeroporto às 17:00 — o reembolso do imposto leva tempo.',
-    chips: ['partida', 'tax refund', 'duty free'],
+    title: 'Nakiryu, o missô do Sano, e Haneda',
+    subtitle: 'Senha do ramen às 8h, missô em Kameido às 10h, o último ramen ao meio-dia. Voo às 20:25 — estejam no aeroporto às 17:00.',
+    chips: ['ramen', 'missô', 'partida', 'tax refund'],
     stops: [
       {
-        id: 'd03-ultima-manha',
-        time: '08:00',
-        timeLabel: 'livre',
+        id: 'd03-nakiryu-senha',
+        time: '07:30',
+        timeLabel: 'senha',
         kind: 'food',
-        name: 'Última manhã',
-        eat: [
-          {
-            label: 'Quatro jeitos de gastar bem',
-            items: [
-              {
-                name: 'Café da manhã em Tsukiji',
-                note: '05:00–14:00 · se quiserem repetir. Quinta-feira o mercado está cheio e bom.',
-              },
-              {
-                name: 'Mercado de Toyosu',
-                note: '05:00–15:00, fecha dom · o mercado atacadista novo. Dá para ver os leilões de atum da galeria envidraçada se chegarem antes das 6h30 — e o sushi do prédio 6 é excelente.',
-              },
-              {
-                name: 'Shinjuku Gyoen',
-                note: '**09:00–16:30** (out–mar), última entrada 16:00, **fecha seg** — quinta está aberto · **¥500** · o jardim imperial de 58 hectares que virou parque nacional: um jardim japonês, um francês e um inglês no mesmo terreno, e no início de dezembro ainda com bordo vermelho. É o melhor lugar de Tóquio para uma manhã sem pressa. Metrô Marunouchi de Ginza até Shinjuku-Gyoenmae, 15 min; a estufa tropical fecha meia hora antes do parque.',
-              },
-              {
-                name: 'Nada',
-                note: 'arrumar mala com calma também é uma escolha legítima no décimo quinto dia',
-              },
-            ],
-          },
+        name: 'Nakiryu — pegar a senha do ramen',
+        jp: '創作麺工房 鳴龍',
+        facts: 'Minami-Ōtsuka 2-34-4 · **senhas a partir das 08:00** num tablet na porta · turnos de 30 min entre 11:00 e 15:30 · **fecha dom e feriado** (desde abril de 2026; quinta abre) · só dinheiro',
+        paragraphs: [
+          'O ramen mais disputado de Tóquio entre os que custam menos de ¥1.500. Teve estrela Michelin de 2017 a 2023 e hoje está no **Bib Gourmand**; está no top-100 de ramen do Tabelog todo ano desde 2018. O famoso é o **tantanmen** — gergelim, pimenta sichuan e um caldo de frango e mariscos que não pesa —, e o shoyu é o que os japoneses defendem.',
+          'O sistema mudou em 2024: não há mais fila de horas, mas **a senha é presencial, no próprio dia**, e os primeiros horários acabam em minutos. Cheguem às 7:30, peguem um turno de **11:30 ou 12:00** (dá tempo do Sano Miso no meio) e voltem na hora marcada. Fazer check-out antes de sair às 7h: as malas, arrumadas ontem, ficam na recepção.',
+          'Se por azar não sobrar senha, a manhã vira o plano de antes: Marunouchi de volta até Ginza e **café da manhã em Tsukiji**, Hibiya Line, 3 min. Confiram o X **@NAKIRYU** na véspera — eles avisam fechamento extra por lá.',
         ],
-        mapQuery: 'Tsukiji Outer Market',
+        mapQuery: 'Nakiryu Minami-Otsuka',
+      },
+      {
+        id: 'd03-sano-miso',
+        time: '10:00',
+        timeLabel: 'missô',
+        kind: 'shopping',
+        name: 'Sano Miso — o missô para levar',
+        jp: '佐野みそ 亀戸本店',
+        facts: 'Kameido 1-35-8 · **10:00–18:30, todos os dias** · 4 min da JR Kameido · ~70 missôs do Japão inteiro, vendidos a peso',
+        paragraphs: [
+          'Casa de 1934 especializada só em missô: uns setenta tipos de todas as regiões do Japão, do branco e doce ao escuro e envelhecido, e as misturas da casa — a assinatura é o **金亀子みそ 赤**, feito com *koji* de arroz glutinoso. Os vendedores deixam provar e ajudam a escolher.',
+          'Para a alfândega brasileira, o que passa sem discussão é alimento **lacrado e com rótulo** (nome, ingredientes, origem). Como aqui se compra a peso, peçam embalado para viagem: **海外に持って帰るので、密封してラベルを付けてください** ("vou levar para o exterior, podem lacrar e pôr rótulo?"). Missô cru (生) continua fermentando e estufa: prefiram o pote ou o saco com válvula, e de pé na mala.',
+        ],
+        mapQuery: 'Sano Miso Kameido',
+      },
+      {
+        id: 'd03-nakiryu',
+        time: '11:30',
+        timeLabel: 'ramen',
+        kind: 'food',
+        name: 'Nakiryu — o último ramen',
+        jp: '鳴龍',
+        facts: 'tantanmen ou shoyu, **~¥1.300** · 12 lugares · máquina de tíquete, só dinheiro · contem 30–60 min entre a hora da senha e sentar',
+        paragraphs: [
+          'Na hora da senha, entrem na fila curta da porta e comprem o tíquete na máquina. Peçam um tantanmen e um shoyu para dividir o veredito. Depois, Marunouchi direto até Ginza (25 min): no hotel antes das 13:00, com duas horas e meia para respirar antes de sair para Haneda.',
+        ],
+        mapQuery: 'Nakiryu Minami-Otsuka',
       },
       {
         id: 'd03-sair-hotel',
