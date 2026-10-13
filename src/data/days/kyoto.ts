@@ -22,7 +22,7 @@ export const kyotoDays: Day[] = [
       {
         label: 'malas em Kyoto',
         tone: 'ok',
-        text: 'As malas grandes estão esperando no hotel do Shijō-Kawaramachi desde o dia 24. Hoje vocês chegam só com a mochila.',
+        text: 'As malas grandes chegam hoje ao hotel da Kawaramachi, pelo takuhaibin com entrega marcada para 27/11. Vocês chegam só com a mochila.',
       },
     ],
     stops: [
@@ -51,7 +51,7 @@ export const kyotoDays: Day[] = [
         paragraphs: [
           'Este é o lugar que Kūkai desenhou primeiro, em 819: não um templo, mas um **mandala construído em tamanho real**. As construções estão dispostas no chão como as figuras de um diagrama sagrado, e quem anda entre elas está atravessando o mandala.',
           'O **Konpon Daitō** é a torre vermelha de 48 metros que vocês viram na foto. Por dentro, as colunas são pintadas como bodhisattvas e no centro está o Buda Dainichi cercado por outros quatro — de modo que **a estatuária inteira forma um mandala tridimensional**. É a única coisa dessas no mundo. Vale os ¥500.',
-          'Ao lado, o **Miedō** guarda o retrato de Kūkai e só abre uma vez por ano. E há o cedro do **Sanko-no-matsu**: a lenda diz que Kūkai, ainda na China, atirou um objeto ritual de três pontas para o Japão pedindo que caísse no lugar certo de fundar o Shingon — e o achou preso neste pinheiro. Procurem as agulhas: dizem que aqui elas nascem em três, não em duas.',
+          'Ao lado, o **Miedō** guarda o retrato de Kūkai e só abre uma vez por ano. E há o pinheiro **Sanko-no-matsu**: a lenda diz que Kūkai, ainda na China, atirou um objeto ritual de três pontas para o Japão pedindo que caísse no lugar certo de fundar o Shingon — e o achou preso neste pinheiro. Procurem as agulhas: dizem que aqui elas nascem em três, não em duas.',
         ],
         mapQuery: 'Danjo Garan Koyasan',
       },
@@ -171,7 +171,7 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd27-fushimi-inari',
-        time: '16:15',
+        time: '16:35',
         timeLabel: 'santuário',
         kind: 'temple',
         name: 'Fushimi Inari Taisha',
@@ -198,7 +198,7 @@ export const kyotoDays: Day[] = [
         kind: 'food',
         name: 'Saquê em Fushimi, no armazém do Yamamoto Honke',
         jp: '鳥せい本店',
-        facts: '**Ter–sáb 11:30–23:00** (última comanda 22:30) · **fecha segunda** — dia 27 é sexta · 8 min a pé da estação Keihan Fushimi-Momoyama',
+        facts: '**11:00–22:00** (última comanda 21:30) · **fecha segunda** — dia 27 é sexta · 8 min a pé da estação Keihan Fushimi-Momoyama',
         paragraphs: [
           'Vocês estão em Fushimi, que é uma das duas capitais do saquê do Japão por causa da água subterrânea daqui — e o jeito de aproveitar isso à noite não é o museu. **O Museu Gekkeikan Ōkura fecha às 16:30**, e a essa altura vocês ainda estão subindo o monte Inari. A degustação de hoje é no balcão.',
           'O **Torisei** é o restaurante da cervejaria **Yamamoto Honke, de 1677**, que faz o saquê *Shinsei*. Fica dentro de um armazém de saquê reformado, com as vigas pretas originais. Peçam o *kuradashi nama-genshu*, o saquê não pasteurizado tirado direto do tanque: ele não é engarrafado nem sai daqui, então só se bebe nesta sala. Acompanha espetinho de frango na brasa.',
@@ -258,7 +258,7 @@ export const kyotoDays: Day[] = [
       {
         label: 'de Gion ao Ginkaku-ji: táxi',
         tone: 'warn',
-        text: 'Os ônibus 100 e 206 fazem esse trajeto em 15 min num dia comum e em **40 a 50 min** num sábado de pico — e vocês podem não entrar no primeiro que passar. **Peguem táxi** (¥1.500–2.000, 15 min). É o ponto do roteiro inteiro com maior chance de quebrar o cronograma.',
+        text: 'Os ônibus 100 e 203 fazem esse trajeto em 15–20 min num dia comum e em **40 a 50 min** num sábado de pico — e vocês podem não entrar no primeiro que passar. **Peguem táxi** (¥1.500–2.000, 15 min). É o ponto do roteiro inteiro com maior chance de quebrar o cronograma.',
       },
       {
         label: 'A noite de hoje: chá em Gion OU a iluminação do Eikan-dō',
@@ -337,7 +337,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Ginkaku-ji, o Pavilhão de Prata',
         jp: '銀閣寺',
-        facts: '**08:30–17:00** · ¥500 · ônibus 15 min desde Gion',
+        facts: '**08:30–17:00** · ¥500 · táxi 15 min desde o Kōdai-ji',
         paragraphs: [
           'Ele nunca foi prateado. Ashikaga Yoshimasa começou a construir em 1482 como retiro, imitando o Pavilhão Dourado do avô, mas o país estava em guerra civil e o dinheiro nunca apareceu — a folha de prata jamais foi aplicada.',
         ],
@@ -352,7 +352,7 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd28-filosofo',
-        time: '11:30',
+        time: '12:30',
         timeLabel: 'caminhada',
         kind: 'sight',
         name: 'Caminho do Filósofo',
@@ -365,7 +365,7 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd28-almoco',
-        time: '12:30',
+        time: '11:30',
         timeLabel: 'almoço',
         kind: 'food',
         name: 'Almoço',
@@ -376,10 +376,6 @@ export const kyotoDays: Day[] = [
               {
                 name: 'Omen Ginkaku-ji',
                 note: '11:00–21:00, fecha qui · udon servido com uma bandeja de legumes e gergelim para você montar. Instituição local desde 1967.',
-              },
-              {
-                name: 'Hisago (Higashiyama)',
-                note: '11:30–19:30, fecha seg · *oyakodon* lendário, ¥1.200. Fila.',
               },
               {
                 name: 'Yudōfu',
@@ -418,7 +414,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Eikan-dō Zenrin-ji',
         jp: '永観堂禅林寺',
-        facts: 'Dia **09:00–17:00**, **bilheteria até 16:00** · ¥600 · **iluminação noturna 17:30–21:00** (entrada até 20:30), ingresso separado ~¥600',
+        facts: 'Dia **09:00–17:00**, **bilheteria até 16:00** · **¥1.000** no período especial de outono · **iluminação noturna 17:30–21:00** (entrada até 20:30), ingresso separado ~¥600',
         paragraphs: [
           'Há um ditado em Kyoto: **"momiji no Eikandō"** — para bordo, é Eikandō. São cerca de 3.000 árvores num terreno em encosta, com lago, pagode no alto e um corredor coberto que sobe a montanha. Se vocês forem a um único templo de momiji em Kyoto, é este.',
           'Entrem até as 15h30 com o ingresso de dia — **a bilheteria fecha às 16:00** e, num sábado de pico, a fila da porta come esses minutos. Às 17:00 o templo esvazia todo mundo para preparar a iluminação; é a hora de seguir para o chá em Gion.',
@@ -519,7 +515,7 @@ export const kyotoDays: Day[] = [
       {
         label: 'de Arashiyama ao Kinkaku-ji',
         tone: 'warn',
-        text: 'Os "35 min de ônibus 205/12" viram **60 a 90 min** hoje, e o ônibus passa cheio. Use o **Randen** (bondinho) até Kitano-Hakubaichō + 10 min a pé, ou táxi (~¥3.000, 25 min). E conte **30 a 45 min de fila só para entrar** no Kinkaku-ji à tarde de domingo.',
+        text: 'Não há ônibus direto de Arashiyama ao Kinkaku-ji, e num domingo de pico qualquer combinação leva **60 a 90 min**. Use o **táxi** (~¥2.500–3.000, 20–25 min) ou o **Randen** (bondinho) até Kitano-Hakubaichō + ônibus 205 (ou 20 min a pé). E conte **30 a 45 min de fila só para entrar** no Kinkaku-ji à tarde de domingo.',
       },
       {
         label: 'o Nishiki fecha antes de vocês chegarem',
@@ -637,7 +633,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Kinkaku-ji, o Pavilhão Dourado',
         jp: '金閣寺',
-        facts: '**09:00–17:00** · ¥500 · ônibus 205/12, ~35 min de Arashiyama · Patrimônio Mundial',
+        facts: '**09:00–17:00** · ¥500 · de Arashiyama: táxi ~20 min, ou Randen + ônibus 205 · Patrimônio Mundial',
         paragraphs: [
           'É pequeno, a visita é um circuito de mão única de 30 minutos, e ainda assim é impossível não parar. Os dois andares superiores são cobertos de folha de ouro puro e o reflexo no lago é o ponto inteiro do projeto.',
         ],
@@ -891,7 +887,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Kōfuku-ji',
         jp: '興福寺',
-        facts: 'Pátio **24h grátis** · Salão dos Tesouros Nacionais **09:00–17:00** ¥700',
+        facts: 'Pátio **24h grátis** · Salão dos Tesouros Nacionais **09:00–17:00** ¥700 · **o pagode de cinco andares está coberto por andaimes de restauro até ~2031** — não aparece',
         paragraphs: [
           'O templo do clã Fujiwara, que governou o Japão nos bastidores por quatro séculos casando filhas com imperadores. O pagode de cinco andares de **1426** é o segundo mais alto do Japão.',
           'No Salão dos Tesouros está o **Ashura** — uma estátua de 734, em laca seca, de um jovem de três rostos e seis braços, com uma expressão que não se parece com nenhuma outra escultura budista: em vez de serenidade, angústia adolescente. É provavelmente a escultura mais amada do Japão, e vê-la de perto vale sozinha o ingresso.',
@@ -924,7 +920,7 @@ export const kyotoDays: Day[] = [
       {
         label: 'Antes de sair',
         tone: 'warn',
-        text: 'Despachem as malas grandes pelo takuhaibin do hotel de Kyoto para o hotel de Tóquio logo cedo — chegam no fim da tarde ou no dia seguinte. **Em cada volume, escrever "Priscila Werneck" e "check-in 1/12"**: é a regra do Sotetsu para aceitar bagagem enviada antes. **As malas de mão vão com vocês até a Estação de Kyoto e ficam nos armários** (moeda ou IC, ao lado das catracas centrais): o hotel fica em Kawaramachi, longe demais para voltar buscar antes do Shinkansen. A manhã inteira é feita sem peso.',
+        text: 'As malas grandes vão pelo takuhaibin do hotel de Kyoto para o de Tóquio — o ideal é tê-las deixado na recepção **na manhã do dia 30**, antes de Nara, para chegarem hoje junto com vocês; despachadas hoje cedo, chegam só amanhã. **Em cada volume, escrever "Priscila Werneck" e "check-in 1/12"**: é a regra do Sotetsu para aceitar bagagem enviada antes. **As malas de mão vão com vocês até a Estação de Kyoto e ficam nos armários** (moeda ou IC, ao lado das catracas centrais): o hotel fica em Kawaramachi, longe demais para voltar buscar antes do Shinkansen. A manhã inteira é feita sem peso.',
       },
     ],
     stops: [
@@ -936,7 +932,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Tōfuku-ji',
         jp: '東福寺',
-        facts: 'No período de outono (**11/nov a 3/dez**) abre **08:30–16:00** · ¥600 para a ponte Tsūtenkyō + ¥500 para os jardins Hōjō · 2 estações da Estação de Kyoto · **sem fotos na ponte** no pico',
+        facts: 'No período de outono (**14/nov a 6/dez**) a ponte Tsūtenkyō abre às **08:30** e os jardins Hōjō às **09:00**, até 16:00 · **¥1.000 + ¥1.000**, sem ingresso combinado · 2 estações da Estação de Kyoto · **sem fotos na ponte** no pico',
         paragraphs: [
           'Cheguem na abertura. A ponte coberta **Tsūtenkyō** atravessa um vale com cerca de 2.000 bordos plantados abaixo — quando você olha por cima do parapeito, é uma superfície contínua de vermelho e laranja. Em novembro forma-se fila para entrar na ponte e é proibido parar para fotografar em cima dela justamente por isso.',
         ],
@@ -955,7 +951,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Sanjūsangen-dō',
         jp: '三十三間堂',
-        facts: '**08:30–17:00** · ¥600 · 10 min da Estação de Kyoto · sem fotos dentro',
+        facts: 'De 16/nov a março **09:00–16:00**, entrada até 15:30 · ¥600 · 10 min da Estação de Kyoto · sem fotos dentro',
         paragraphs: [
           'Um salão de madeira de **120 metros** de comprimento com **1.001 estátuas de Kannon** de mil braços, cobertas de folha de ouro, em fileiras. Cada rosto é diferente — a tradição diz que qualquer pessoa encontra ali o rosto de alguém que perdeu. Na frente delas, 28 divindades guardiãs esculpidas com um realismo de tirar o fôlego, incluindo uma com olhos de cristal incrustado.',
           '124 das estátuas são originais de **1164**; as outras 876 foram refeitas no século XIII depois de um incêndio, por uma escola inteira de escultores trabalhando em série. O nome significa "salão de 33 vãos", pelos espaços entre as colunas. Sem fotografia lá dentro — o que, honestamente, melhora a visita.',
@@ -999,7 +995,7 @@ export const kyotoDays: Day[] = [
             items: [
               {
                 name: 'Sushi no Musashi — Kyoto Station (Asty Road, lado Hachijō)',
-                note: '10:30–21:45 · a filial da esteira do dia 29, a 2 min das catracas do Shinkansen. Sempre cheia, mas gira.',
+                note: '10:30–21:45 · a filial da esteira do dia 27, a 2 min das catracas do Shinkansen. Sempre cheia, mas gira.',
               },
               {
                 name: 'Kyoto Ramen Kōji — 10º andar',
@@ -1041,7 +1037,7 @@ export const kyotoDays: Day[] = [
         name: 'Check-in em Ginza/Nihonbashi + primeira rodada de compras',
         facts: 'Lojas **10:00–21:00**',
         paragraphs: [
-          'O hotel é o **Sotetsu Fresa Inn Ginza 3-chōme**: 5 min a pé da estação Ginza e 6 da Higashi-Ginza, de onde sai o trem direto para Haneda no dia 3. As malas do takuhaibin chegam hoje ou amanhã — confiram na recepção.',
+          'O hotel é o **Sotetsu Fresa Inn Ginza 3-chōme**: 3 min da saída A13 da Ginza e 2 da saída A8 da Higashi-Ginza, de onde sai o trem direto para Haneda no dia 3. As malas do takuhaibin chegam hoje ou amanhã — confiram na recepção.',
           'Hoje é o dia de **fechar as compras grandes** — MacBook, iPhone, robô aspirador — e não amanhã. Se der algum problema de estoque ou de configuração, vocês ainda têm um dia inteiro de margem. Saiam de Ginza às **17:50**: a noite tem hora marcada num jardim.',
         ],
         mapQuery: 'Sotetsu Fresa Inn Ginza Sanchome',
@@ -1053,7 +1049,7 @@ export const kyotoDays: Day[] = [
         kind: 'sight',
         name: 'Rikugien iluminado — o bordo de Tóquio',
         jp: '六義園 夜間特別観賞',
-        facts: 'Iluminação de outono · **18:00–20:30**, última entrada 20:00 · as datas de 2026 ainda não saíram — em 2025 foi de **28/11 a 9/12**, e o dia 1º cai dentro · ¥1.000 antecipado (só online) ou ¥1.200 no dia · entrada pelo **portão principal (正門)**, 7 min da saída sul de Komagome (Yamanote)',
+        facts: 'Iluminação de outono **25/11 a 6/12 · 18:00–20:30, última entrada 19:30** · ¥1.000 antecipado (só online) ou ¥1.200 no dia · entrada pelo **portão principal (正門)**, 7 min da saída sul de Komagome (Yamanote)',
         paragraphs: [
           'O jardim de 1702 que os Tokugawa mandaram fazer para um daimyō poeta — 88 cenas de poemas clássicos ao redor de um lago — e o melhor bordo dentro da Yamanote. Nesta noite ele reabre só para a iluminação: as árvores refletidas no lago, projeções no armazém e no bambuzal, e as casas de chá servindo matcha. Meia hora de volta ao lago já vale; uma hora se pararem no chá.',
           'É a ida rápida que cabe: de Ginza, Marunouchi até Tokyo e Yamanote até Komagome, 25 minutos, e de lá o gachapon fica a três estações. Comprem o ingresso antecipado assim que a venda abrir (em 2025 abriu 1º de novembro): no dia a fila da bilheteria passa de 30 min e o limite diário esgota.',
@@ -1070,7 +1066,7 @@ export const kyotoDays: Day[] = [
         facts: '**~3.000 máquinas — a maior loja de gachapon do mundo** · Sunshine City, World Import Mart 3F · normalmente até 21h/22h — confirmem no site do Sunshine City · de Komagome: Yamanote, 3 estações, 8 min',
         paragraphs: [
           'Saindo do Rikugien, o gachapon está a três estações: um andar inteiro com cerca de **3.000 máquinas de cápsula**, de franquia de anime a miniaturas absurdas de utensílio de cozinha. Levem moedas de ¥100 (tem trocador na loja).',
-          'A volta para Ginza é direta pela Marunouchi, 25 min. Se estiverem mortos das compras, pulem sem culpa — é diversão, não obrigação.',
+          'A volta para Ginza é direta pela Yūrakuchō Line, de Higashi-Ikebukuro (colada no Sunshine City) até Ginza-itchōme, 20 min. Se estiverem mortos das compras, pulem sem culpa — é diversão, não obrigação.',
         ],
         mapQuery: 'Gashapon Department Store Ikebukuro Sunshine City',
       },

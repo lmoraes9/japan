@@ -104,7 +104,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     preco: 'R$ 3.920',
     status: 'confirmada',
     acao:
-      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e bem colocada. Atenção ao endereço, que o nome esconde: é na **Kawaramachi abaixo de Sanjō** (Yamazaki-chō 240), e não na esquina de Shijō — a Keihan Sanjō fica a 5 min, a Hankyu Kyoto-Kawaramachi a 7, o Nishiki a 6 e o Umezono na mesma quadra. **É aqui que as malas do dia 24 estão esperando** — confirmem por escrito que o hotel guarda bagagem antes do check-in.',
+      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e bem colocada. Atenção ao endereço, que o nome esconde: é na **Kawaramachi abaixo de Sanjō** (Yamazaki-chō 240), e não na esquina de Shijō — a Keihan Sanjō fica a 5 min, a Hankyu Kyoto-Kawaramachi a 7, o Nishiki a 6 e o Umezono na mesma quadra. **As malas grandes chegam aqui por takuhaibin, com entrega marcada para 27/11**, o dia do check-in — confirmem por escrito que o hotel recebe bagagem enviada antes de vocês chegarem.',
     mapQuery: 'Travelodge Kyoto Shijo Kawaramachi',
   },
   {

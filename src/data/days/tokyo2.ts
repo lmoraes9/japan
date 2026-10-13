@@ -12,7 +12,7 @@ export const tokyo2Days: Day[] = [
       {
         label: 'A manhã é opcional — decidam na hora',
         tone: 'info',
-        text: 'O dia **começa de verdade no curry, às 11:20**. O que vem antes disso é um passeio curto de graça, para o caso de vocês acordarem com pique. Se não acordarem, durmam: é o décimo quinto dia de viagem, vocês têm mala para fechar e recibo para separar, e amanhã a manhã some no aeroporto por causa do reembolso do imposto. **Pular não custa nada ao roteiro.**',
+        text: 'O dia **começa de verdade no curry, às 11:00**. O que vem antes disso é um passeio curto de graça, para o caso de vocês acordarem com pique. Se não acordarem, durmam: é o décimo quinto dia de viagem, vocês têm mala para fechar e recibo para separar, e amanhã a manhã some no aeroporto por causa do reembolso do imposto. **Pular não custa nada ao roteiro.**',
       },
     ],
     stops: [
@@ -53,14 +53,14 @@ export const tokyo2Days: Day[] = [
       },
       {
         id: 'd02-jimbocho',
-        time: '11:20',
+        time: '11:00',
         timeLabel: 'almoço',
         kind: 'food',
         name: 'Curry em Jimbōchō — o bairro do curry',
         jp: '神保町',
-        facts: '400+ casas de curry no bairro · **cheguem na abertura, 11:00**, para furar a fila · 14 min ladeira abaixo do Yushima Seidō, ou metrô direto de Ginza',
+        facts: '400+ casas de curry no bairro · **cheguem na abertura, 11:00**, para furar a fila · 14 min ladeira abaixo do Yushima Seidō, ou, de Ginza, Toei Mita de Hibiya, 2 paradas',
         paragraphs: [
-          'Jimbōchō é o bairro dos sebos e livrarias — e virou, ninguém sabe bem por quê, a capital do curry de Tóquio. Do Yushima Seidō é ladeira abaixo; se pularam a manhã, é metrô direto de Ginza. A jogada é almoçar **cedo**: às 12h30 as filas dobram.',
+          'Jimbōchō é o bairro dos sebos e livrarias — e virou, ninguém sabe bem por quê, a capital do curry de Tóquio. Do Yushima Seidō é ladeira abaixo; se pularam a manhã, é a Toei Mita de Hibiya, duas paradas. A jogada é almoçar **cedo**: às 12h30 as filas dobram.',
         ],
         eat: [
           {
@@ -113,7 +113,7 @@ export const tokyo2Days: Day[] = [
               {
                 name: 'Nihonbashi Tamai',
                 specialty: true,
-                note: '11:00–22:00 · *anago* (enguia-do-mar), a versão de Tóquio. Mais leve que o unagi, e muito bom.',
+                note: 'dia útil 11:00–14:30 (último pedido 14:00) e 17:00–21:30 · *anago* (enguia-do-mar), a versão de Tóquio. Mais leve que o unagi, e muito bom.',
               },
               {
                 name: 'Taimeiken',
@@ -233,7 +233,7 @@ export const tokyo2Days: Day[] = [
               {
                 name: 'Umegaoka Sushi no Midori Ginza',
                 specialty: true,
-                note: '11:00–21:00 · o melhor custo-benefício de Ginza, ~¥3.000. Peguem senha cedo pelo painel eletrônico.',
+                note: '11:00–15:00 e 17:00–21:00, **último pedido 20:30** · Ginza 8-chōme, térreo do prédio Yamashita, debaixo da via expressa · o melhor custo-benefício de Ginza, ~¥3.000. **Peguem a senha na máquina da porta quando chegarem a Ginza, por volta das 17:45** e voltem na hora chamada: às 19:30, com fila, o último pedido aperta.',
               },
               {
                 name: 'Sushi Azabu',
@@ -242,7 +242,7 @@ export const tokyo2Days: Day[] = [
               },
               {
                 name: 'Kyūbey Ginza',
-                note: '17:00–22:00, fecha dom · omakase de balcão desde 1935, ~¥20.000. Reserva.',
+                note: '17:00–22:00, fecha dom e seg · omakase de balcão desde 1935, ~¥20.000. Reserva.',
               },
               {
                 name: 'Sushi Ginza Onodera',
@@ -331,7 +331,7 @@ export const tokyo2Days: Day[] = [
         timeLabel: 'hotel',
         kind: 'hotel',
         name: 'Sair do hotel',
-        facts: 'Ginza → Haneda T3: **~35 min** de metrô/monotrilho, ou táxi ~¥7.000',
+        facts: 'Ginza → Haneda T3: **~40 min** no trem direto Toei Asakusa/Keikyu, ou táxi ~¥7.000',
       },
       {
         id: 'd03-haneda',
@@ -341,7 +341,7 @@ export const tokyo2Days: Day[] = [
         name: 'Haneda, Terminal 3 — a ordem das coisas',
         facts: 'Voo JL7014 às **20:25** · deixem **3h20** de margem — com o sistema novo de reembolso, a fila pode ser bem maior que antes',
         paragraphs: [
-          '1. **Reembolso do imposto primeiro**, antes do check-in de bagagem. Desde **1º de novembro de 2026** o Japão mudou de sistema: vocês pagaram o imposto em todas as lojas e recebem tudo de volta aqui. O balcão de isenção fica no **3º andar, no saguão de partidas, em frente ao check-in K** — e a JAL fica nas ilhas F a K, ali mesmo. Escaneiem o passaporte: verde, acabou; vermelho, a alfândega quer ver as mercadorias — por isso elas não podem estar dentro da mala despachada.',
+          '1. **Reembolso do imposto primeiro**, antes do check-in de bagagem. Desde **1º de novembro de 2026** o Japão mudou de sistema: vocês pagaram o imposto em todas as lojas e recebem tudo de volta aqui. O balcão de isenção fica no **3º andar, no saguão de partidas, em frente ao check-in K**. O voo é operado pela **American**: o check-in é no balcão dela, não no da JAL — confiram a letra no painel. Escaneiem o passaporte: verde, acabou; vermelho, a alfândega quer ver as mercadorias — por isso elas não podem estar dentro da mala despachada.',
           '2. **Check-in e despacho** — só depois de liberadas as mercadorias inspecionadas.',
           '3. **Imigração e segurança.**',
           "4. **Última compra** na área livre de impostos — é aí que entra o Royce' Nama Chocolate, logo abaixo.",

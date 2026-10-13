@@ -12,24 +12,24 @@ export const START: Record<string, Leg[]> = {
   'd2026-11-19': [
     walk(7, 'do Kabukichō pela Yasukuni-dōri até a entrada leste do metrô (Subnade, embaixo da avenida)'),
     { mode: 'metro', line: 'Marunouchi Line', board: 'Shinjuku, entrada leste', direction: 'Ikebukuro', alight: 'Akasaka-mitsuke', minutes: 10 },
-    { mode: 'metro', line: 'Ginza Line', board: 'Akasaka-mitsuke (mesma plataforma, do outro lado)', direction: 'Asakusa', alight: 'Asakusa (final)', minutes: 17, cost: '¥260 no total' },
+    { mode: 'metro', line: 'Ginza Line', board: 'Akasaka-mitsuke (mesma plataforma, do outro lado)', direction: 'Asakusa', alight: 'Asakusa (final)', minutes: 26, cost: '¥260 no total' },
     walk(3, 'saída 1 e o Kaminarimon está na frente'),
   ],
   'd2026-11-20': [walk(12, 'do Kabukichō até a entrada sul da JR Shinjuku (pela Shinjuku-dōri); plataformas 1 e 2 (Shōnan-Shinjuku Line)')],
   'd2026-11-21': [
     walk(8, 'do Kabukichō até a estação Shinjuku-sanchōme (entrada ao lado do Isetan)'),
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Shinjuku-sanchōme', direction: 'Ikebukuro', alight: 'Ginza', minutes: 16, cost: '¥210' },
-    { mode: 'metro', line: 'Hibiya Line', board: 'Ginza (troca pelo corredor, siga a placa 日比谷線)', direction: 'Kita-Senju', alight: 'Tsukiji, saída 1', minutes: 3, cost: '¥180' },
+    { mode: 'metro', line: 'Marunouchi Line', board: 'Shinjuku-sanchōme', direction: 'Ikebukuro', alight: 'Ginza', minutes: 16 },
+    { mode: 'metro', line: 'Hibiya Line', board: 'Ginza (troca pelo corredor, siga a placa 日比谷線)', direction: 'Kita-Senju', alight: 'Tsukiji, saída 1', minutes: 3, cost: '¥210 no total (o metrô cobra uma tarifa só)' },
     walk(3, 'o mercado externo fica atrás do templo Hongan-ji, do outro lado da avenida'),
   ],
   'd2026-11-22': [
     walk(10, 'do Kabukichō até a saída leste da JR Shinjuku'),
-    { mode: 'train', line: 'JR Yamanote', board: 'Shinjuku', direction: 'Shibuya · Shinagawa (sentido anti-horário)', alight: 'Harajuku, saída oeste (Meiji-jingū)', minutes: 4, cost: '¥150' },
+    { mode: 'train', line: 'JR Yamanote', board: 'Shinjuku', direction: 'Shibuya · Shinagawa (sentido anti-horário)', alight: 'Harajuku, saída oeste (Meiji-jingū)', minutes: 4, cost: '¥155' },
     walk(2, 'o grande torii fica na saída'),
   ],
   'd2026-11-23': [
     walk(10, 'do Kabukichō até a saída leste da JR Shinjuku, só com a mochila: as malas grandes já foram de takuhaibin'),
-    { mode: 'train', line: 'JR Chūō (rápido)', board: 'Shinjuku, plataformas 7–8 (東京方面)', direction: 'Tokyo', alight: 'Tokyo (final)', minutes: 15, cost: '¥210' },
+    { mode: 'train', line: 'JR Chūō (rápido)', board: 'Shinjuku, plataformas 7–8 (東京方面)', direction: 'Tokyo', alight: 'Tokyo (final)', minutes: 15, cost: '¥253' },
   ],
   'd2026-11-24': [
     walk(5, 'o hotel fica na frente da estação: entrem pela saída sul e sigam a placa JR 山陽線; plataforma 1'),
@@ -53,19 +53,19 @@ export const START: Record<string, Leg[]> = {
   'd2026-11-30': [
     walk(6, 'subindo a Kawaramachi até a Oike-dōri: a estação **Kyoto-Shiyakusho-mae** (metrô Tōzai) fica na frente da prefeitura'),
     { mode: 'metro', line: 'Tōzai Line', board: 'Kyoto-Shiyakusho-mae', direction: 'Uzumasa-Tenjingawa', alight: 'Karasuma-Oike', minutes: 2 },
-    { mode: 'metro', line: 'Karasuma Line', board: 'Karasuma-Oike (baldeação no mesmo prédio, um andar abaixo)', direction: 'Takeda', alight: 'Kyoto', minutes: 6, cost: '¥260 no total' },
+    { mode: 'metro', line: 'Karasuma Line', board: 'Karasuma-Oike (sigam a placa 烏丸線, baldeação no mesmo prédio)', direction: 'Takeda', alight: 'Kyoto', minutes: 6, cost: '¥260 no total' },
     walk(6, 'a Kintetsu fica **no 2º andar**, do lado Hachijō (sul), logo abaixo do Shinkansen — atravessem a estação pela passagem livre. Plataformas 1 a 4, e as máquinas de assento reservado ficam ao lado da catraca'),
   ],
   'd2026-12-01': [
     walk(6, 'check-out feito e as malas grandes já despachadas do hotel para Ginza; com as malas de mão, subam a Kawaramachi até a Oike-dōri: a estação **Kyoto-Shiyakusho-mae** (metrô Tōzai) fica na frente da prefeitura'),
     { mode: 'metro', line: 'Tōzai Line', board: 'Kyoto-Shiyakusho-mae', direction: 'Uzumasa-Tenjingawa', alight: 'Karasuma-Oike', minutes: 2 },
-    { mode: 'metro', line: 'Karasuma Line', board: 'Karasuma-Oike (baldeação no mesmo prédio, um andar abaixo)', direction: 'Takeda', alight: 'Kyoto', minutes: 6, cost: '¥260 no total' },
+    { mode: 'metro', line: 'Karasuma Line', board: 'Karasuma-Oike (sigam a placa 烏丸線, baldeação no mesmo prédio)', direction: 'Takeda', alight: 'Kyoto', minutes: 6, cost: '¥260 no total' },
     walk(4, 'armários ao lado das catracas centrais: deixem as malas de mão aqui (¥400–700, moeda ou Suica) e guardem a chave/recibo'),
     { mode: 'train', line: 'JR Nara Line (local, 普通)', board: 'Estação de Kyoto, plataformas 8 a 10', direction: 'Nara', alight: 'Tōfukuji (1ª parada)', minutes: 2, cost: '¥150', note: 'só o local para em Tōfukuji' },
     walk(10, 'saindo, siga o fluxo para o sul até a ponte Gaun-kyō'),
   ],
   'd2026-12-02': [
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro', alight: 'Ochanomizu', minutes: 12, cost: '¥210', note: 'se pularem a manhã opcional, o dia começa direto no curry: Marunouchi até Ōtemachi e baldeação para a Hanzōmon até Jimbōchō' },
+    { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro', alight: 'Ochanomizu', minutes: 12, cost: '¥210', note: 'se pularem a manhã opcional, o dia começa direto no curry: da Ginza, a pé pelo subsolo até Hibiya e a Toei Mita até Jimbōchō, 2 paradas, sem baldeação' },
     walk(5, 'saída Hijiribashi; o santuário fica subindo, atrás do Yushima Seidō'),
   ],
   'd2026-12-03': [
@@ -80,15 +80,16 @@ export const LEGS: Record<string, Leg[]> = {
   'd18-haneda': [walk(5, 'siga as placas Keikyu Line, no sub-solo do T3; antes, comprem a Suica na máquina (ou usem a do celular)')],
   'd18-trem-shinjuku': [
     { mode: 'train', line: 'Keikyu Airport Line', board: 'Haneda T3, Keikyu no **B2** — do saguão de chegadas (2º) a escada desce direto no lado certo, o **trilho 2**', direction: 'Shinagawa · Higashi-Ginza · Asakusa', alight: 'Shinagawa', minutes: 15, cost: '¥330', note: 'as duas plataformas não se comunicam por dentro: se errar o lado, é sair e entrar de novo' },
-    { mode: 'train', line: 'JR Yamanote', board: 'Shinagawa, plataforma 3 (pela catraca de baldeação Keikyu ⇄ JR, sem sair para a rua)', direction: 'Shibuya · Shinjuku', alight: 'Shinjuku', minutes: 19, cost: '¥210' },
-    walk(3, 'saída oeste: o Omoide Yokochō fica colado à estação. O hotel é do outro lado, no Kabukichō — 8 min pela passagem sob os trilhos, na Yasukuni-dōri'),
+    { mode: 'train', line: 'JR Yamanote', board: 'Shinagawa, plataforma 3 (pela catraca de baldeação Keikyu ⇄ JR, sem sair para a rua)', direction: 'Shibuya · Shinjuku', alight: 'Shinjuku', minutes: 19, cost: '¥253' },
+    walk(10, 'saída leste e pela Yasukuni-dōri até o hotel, no Kabukichō: check-in e as malas grandes ficam no quarto'),
+    walk(10, 'do hotel ao jantar sem mala: o Omoide Yokochō fica do lado oeste da estação, pela passagem sob os trilhos na Yasukuni-dōri'),
   ],
   'd18-ramen': [walk(3)],
   'd18-konbini': [walk(8, 'pela Yasukuni-dōri para o leste até o Kabukichō; o hotel fica a 3 min da Seibu-Shinjuku')],
 
   // ── 19 nov · Asakusa, Ueno, Akihabara ─────────────────────────────
-  'd19-kuramae': [walk(6, 'para o norte até o Kaminarimon — a lanterna vermelha gigante é impossível de errar')],
-  'd19-sensoji': [walk(10, 'saindo pela Nakamise, passa no Kagetsudō pelo melonpan e segue pela Asakusa-dōri para o oeste; a rua das panelas começa no cozinheiro gigante do prédio Niimi')],
+  'd19-kuramae': [walk(3, 'o café fica na galeria Shin-Nakamise; o Kaminarimon, com a lanterna vermelha gigante, está uns 150 m a sudeste')],
+  'd19-sensoji': [walk(12, 'saindo pelo lado oeste do salão principal: o Kagetsudō (melonpan, ¥280, abre às 9h) fica logo atrás do templo. Daí para o oeste até a Kappabashi-dōri; o cozinheiro gigante do prédio Niimi marca a ponta sul da rua')],
   'd19-kappabashi': [
     walk(5, 'até a estação Tawaramachi'),
     { mode: 'metro', line: 'Ginza Line', board: 'Tawaramachi', direction: 'Shibuya', alight: 'Ueno', minutes: 4, cost: '¥180', note: 'ou 20 min a pé pela Asakusa-dōri, se as pernas estiverem boas' },
@@ -97,20 +98,20 @@ export const LEGS: Record<string, Leg[]> = {
   'd19-museu-nacional': [walk(8, 'dentro do parque, descendo na direção do lago Shinobazu')],
   'd19-almoco-ueno': [walk(6, 'saída sul do parque; a rua é debaixo dos trilhos')],
   'd19-ameyoko': [
-    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Okachimachi', direction: 'Tokyo · Shinagawa', alight: 'Akihabara, saída Electric Town', minutes: 3, cost: '¥150', note: 'ou 15 min a pé seguindo os trilhos para o sul' },
+    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Okachimachi', direction: 'Tokyo · Shinagawa', alight: 'Akihabara, saída Electric Town', minutes: 3, cost: '¥155', note: 'ou 15 min a pé seguindo os trilhos para o sul' },
   ],
   'd19-akihabara': [walk(1, 'o Radio Kaikan está na frente da saída Electric Town')],
   'd19-radio-kaikan': [walk(6, 'pela Chūō-dōri para o norte, atrás do quarteirão do Don Quijote')],
   'd19-hanabusa': [walk(5, 'de volta à estação; o JINS fica no Atre, colado à estação')],
   'd19-oculos': [walk(10, 'para o sul pela rua paralela aos trilhos até Kanda; o Kikanbō fica a 3 min da estação Kanda')],
   'd19-jantar': [
-    { mode: 'train', line: 'JR Chūō (rápido)', board: 'Kanda, plataforma do Chūō', direction: 'Shinjuku · Takao', alight: 'Shinjuku', minutes: 13, cost: '¥210' },
+    { mode: 'train', line: 'JR Chūō (rápido)', board: 'Kanda, plataforma do Chūō', direction: 'Shinjuku · Takao', alight: 'Shinjuku', minutes: 13, cost: '¥209' },
     walk(10, 'saída leste e pela Yasukuni-dōri até o Kabukichō'),
   ],
 
   // ── 20 nov · Kamakura ─────────────────────────────────────────────
   'd20-trem-kamakura': [
-    { mode: 'train', line: 'JR Shōnan-Shinjuku Line', board: 'Shinjuku, plataformas 1 e 2 (confirmem no painel: 大崎・横浜・大船・逗子方面)', direction: 'Zushi (逗子)', alight: 'Kita-Kamakura', minutes: 55, cost: '¥950', note: 'só o trem que vai a ZUSHI passa por Kamakura; o que vai a Odawara não. Desçam uma estação antes de Kamakura' },
+    { mode: 'train', line: 'JR Shōnan-Shinjuku Line', board: 'Shinjuku, plataformas 1 e 2 (confirmem no painel: 大崎・横浜・大船・逗子方面)', direction: 'Zushi (逗子)', alight: 'Kita-Kamakura', minutes: 55, cost: '~¥1.000', note: 'só o trem que vai a ZUSHI passa por Kamakura; o que vai a Odawara não. Desçam uma estação antes de Kamakura' },
     walk(1, 'o Engaku-ji fica colado à estação: há uma catraca extra na ponta da plataforma (6:30–21:30, **só cartão IC**) que sai quase no portão do templo'),
   ],
   'd20-engakuji': [walk(15, 'pela rua principal (Kenchō-ji fica no caminho para Kamakura), calçada à direita')],
@@ -125,13 +126,13 @@ export const LEGS: Record<string, Leg[]> = {
   'd20-hasedera': [walk(5, 'até a estação Hase')],
   'd20-volta': [
     { mode: 'train', line: 'Enoden', board: 'Hase', direction: 'Kamakura', alight: 'Kamakura (final)', minutes: 5, cost: '¥200' },
-    { mode: 'train', line: 'JR Shōnan-Shinjuku Line', board: 'Kamakura', direction: 'Shinjuku · Ōmiya', alight: 'Shinjuku', minutes: 60, cost: '¥950', note: 'se o próximo for só até Ōfuna, troquem lá para o Shōnan-Shinjuku' },
+    { mode: 'train', line: 'JR Shōnan-Shinjuku Line', board: 'Kamakura', direction: 'Shinjuku · Ōmiya', alight: 'Shinjuku', minutes: 60, cost: '~¥1.000', note: 'se o próximo for só até Ōfuna, troquem lá para o Shōnan-Shinjuku' },
     walk(12, 'saída leste e pela Yasukuni-dōri até o Kabukichō'),
   ],
 
   // ── 21 nov · Tsukiji, Ginza, Estação de Tóquio ─────────────────────
   'd21-tsukiji': [walk(10, 'para o sul, atravessando a avenida; a entrada do jardim é o portão Ōtemon')],
-  'd21-hamarikyu': [walk(15, 'pela saída Ōtemon, passando por Shiodome, até a Ginza; o Kagari fica numa galeria perto da Ginza-Itchōme')],
+  'd21-hamarikyu': [walk(15, 'pela saída Ōtemon, passando por Shiodome, até a Ginza 4-chōme: o Mitsukoshi é a esquina em frente ao relógio do Wakō, e o depachika é no subsolo')],
   'd21-almoco-ginza': [walk(3, 'o quadrilátero é a avenida Chūō e as paralelas')],
   'd21-ginza': [
     { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro', alight: 'Tokyo', minutes: 2, cost: '¥180', note: 'ou 15 min a pé pela Yūrakuchō, passando debaixo dos trilhos' },
@@ -139,11 +140,11 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd21-kitte': [walk(8, 'se forem à Ramen Street: atravessem a estação pela **passagem livre norte**, no nível da rua, do lado Marunouchi ao Yaesu — é grátis e não passa catraca. A Ramen Street fica no B1 do First Avenue, também fora das catracas')],
   'd21-jantar-estacao': [
-    { mode: 'train', line: 'JR Yamanote', board: 'Tokyo', direction: 'Shinagawa · Shibuya', alight: 'Ebisu', minutes: 20, cost: '¥210' },
+    { mode: 'train', line: 'JR Yamanote', board: 'Tokyo', direction: 'Shinagawa · Shibuya', alight: 'Ebisu', minutes: 20, cost: '¥253' },
     walk(5, 'saída oeste; o Uchino Building fica na Ebisu-Nishi, e o bar é no 4º andar'),
   ],
   'd21-bar-triad': [
-    { mode: 'train', line: 'JR Yamanote', board: 'Ebisu', direction: 'Shibuya · Shinjuku', alight: 'Shinjuku', minutes: 11, cost: '¥180', note: 'passa da meia-noite? O último trem da Yamanote sai por volta de 00:30; depois disso é táxi (~¥2.500 até o Kabukichō)' },
+    { mode: 'train', line: 'JR Yamanote', board: 'Ebisu', direction: 'Shibuya · Shinjuku', alight: 'Shinjuku', minutes: 11, cost: '¥199', note: 'passa da meia-noite? O último trem da Yamanote sai por volta de 00:30; depois disso é táxi (~¥2.500 até o Kabukichō)' },
     walk(10, 'saída leste e pela Yasukuni-dōri até o Kabukichō'),
   ],
 
@@ -163,7 +164,7 @@ export const LEGS: Record<string, Leg[]> = {
   'd22-parco': [walk(5, 'desce a Center-gai de volta; o cruzamento está no fim dela')],
   'd22-cruzamento': [walk(5, 'o Mark City é o prédio colado à saída oeste da estação (o sushi fica no 4º)')],
   'd22-jantar': [
-    { mode: 'train', line: 'JR Yamanote', board: 'Shibuya', direction: 'Shinjuku · Ikebukuro', alight: 'Shinjuku', minutes: 7, cost: '¥170' },
+    { mode: 'train', line: 'JR Yamanote', board: 'Shibuya', direction: 'Shinjuku · Ikebukuro', alight: 'Shinjuku', minutes: 7, cost: '¥199' },
     walk(10, 'saída leste e pela Yasukuni-dōri até o Kabukichō'),
   ],
 
@@ -230,7 +231,7 @@ export const LEGS: Record<string, Leg[]> = {
     walk(12, 'a catraca é no 2º andar; os armários ficam no corredor, do lado da saída norte (ao lado da padaria Little Mermaid). Depois saída sul, e reto pela Kurashiki Chūō-dōri até o canal'),
   ],
   'd25-bikan': [walk(3, 'o museu é o prédio de colunas gregas na margem do canal')],
-  'd25-ohara': [walk(5, 'o Kamoi fica na margem oposta, perto da ponte Nakabashi')],
+  'd25-ohara': [walk(3, 'o Tsurugata fica na beira do canal, a poucos passos do museu')],
   'd25-almoco-kurashiki': [walk(12, 'de volta pela mesma rua até a estação; pegar a mochila no armário')],
   'd25-trem-himeji': [
     { mode: 'train', line: 'JR Sanyō Line', board: 'Kurashiki, plataforma 3', direction: 'Okayama', alight: 'Okayama', minutes: 17, cost: '¥330' },
@@ -273,7 +274,7 @@ export const LEGS: Record<string, Leg[]> = {
     walk(2, 'até o templo'),
   ],
   'd26-jantar-shojin': [
-    walk(15, 'para o leste pela rua principal até a recepção Taira, ao lado do Ekō-in, perto do Ichinohashi — saiam até as 18:40, o passe tem de ser retirado até as 19:00. À noite o ônibus é raro; táxi só chamando pelo templo'),
+    walk(10, 'para o leste pela rua principal até a recepção Taira, ao lado do Ekō-in, perto do Ichinohashi — saiam às 18:30, o passe tem de ser retirado até as 19:00. À noite o ônibus é raro; táxi só chamando pelo templo'),
   ],
   'd26-okunoin-noite': [
     walk(15, 'o tour termina no Gobyō e o ônibus grátis devolve o grupo perto do Ekō-in; dali, 15 min para o oeste pela rua principal até o Fumon-in'),
@@ -290,8 +291,8 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd27-descida': [
     { mode: 'cable', line: 'funicular de Kōyasan', board: 'Estação de Kōyasan', direction: 'Gokurakubashi', alight: 'Gokurakubashi', minutes: 5, cost: 'no passe' },
-    { mode: 'train', line: 'Nankai Kōya Line', board: 'Gokurakubashi (mesma plataforma)', direction: 'Namba (なんば)', alight: 'Sumiyoshi-Higashi (住吉東)', minutes: 80, cost: 'no passe', note: 'quase sempre é preciso trocar em Hashimoto; Sumiyoshi-Higashi é parada de local, então pode haver mais uma troca em Kishinosato-Tamade' },
-    walk(10, 'para o oeste até o santuário; a ponte curva vermelha aparece antes do portão'),
+    { mode: 'train', line: 'Nankai Kōya Line', board: 'Gokurakubashi (mesma plataforma)', direction: 'Namba (なんば)', alight: 'Sumiyoshi-Higashi (住吉東)', minutes: 80, cost: 'no passe', note: 'quase sempre é preciso trocar em Hashimoto; Sumiyoshi-Higashi é parada de local, então pode haver mais uma troca para o local (普通) em Sakai-Higashi' },
+    walk(10, 'para o oeste até o santuário — por este lado se entra pelos fundos; a ponte curva vermelha, a Sorihashi, fica na entrada oeste'),
   ],
   'd27-sumiyoshi': [
     walk(10, 'de volta à estação Sumiyoshi-Higashi'),
@@ -329,20 +330,19 @@ export const LEGS: Record<string, Leg[]> = {
   'd28-kiyomizu': [walk(5, 'descendo pela ladeira das lojas (Matsubara-dōri); a Sannenzaka é a escada à direita')],
   'd28-sannenzaka': [walk(8, 'pela Ninenzaka e depois pelo Nene-no-michi; o Kōdai-ji fica no alto, à direita')],
   'd28-kodaiji': [
-    walk(10, 'descendo até a parada de ônibus Gion, na avenida Shijō'),
-    { mode: 'bus', line: 'ônibus 203', board: 'parada Gion (祇園), lado norte da Shijō', direction: 'Ginkakuji-michi · Kinrin-shako', alight: 'Ginkakuji-michi', minutes: 20, cost: '¥230, paga ao descer', note: 'táxi ~¥1.800 e 12 min, se a fila do ônibus estiver grande' },
-    walk(8, 'subindo a rua das lojas até o templo'),
+    walk(10, 'descendo até a Higashiōji-dōri, a avenida larga: táxi livre tem a luz vermelha 空車 no para-brisa'),
+    { mode: 'taxi', board: 'na Higashiōji-dōri, perto do Yasaka', alight: 'Ginkaku-ji (銀閣寺)', minutes: 15, cost: '~¥1.800', note: 'num sábado de pico o ônibus 203 leva 40–50 min e passa lotado; o táxi deixa vocês no pé da rua do templo' },
+    walk(5, 'subindo a rua das lojas até o portão'),
   ],
-  'd28-ginkakuji': [walk(2, 'o caminho começa no fim da rua do templo, ao longo do canal')],
-  'd28-filosofo': [walk(5, 'o Omen fica na entrada norte do caminho, perto do Ginkaku-ji')],
-  'd28-almoco': [walk(30, 'o caminho inteiro para o sul, 2 km ao longo do canal; termina nas costas do Nanzen-ji')],
+  'd28-ginkakuji': [walk(5, 'descendo a rua do templo: o Omen fica na entrada norte do caminho, a poucos passos do canal')],
+  'd28-almoco': [walk(2, 'o caminho começa ali, ao longo do canal')],
+  'd28-filosofo': [walk(30, 'o caminho inteiro para o sul, 2 km ao longo do canal; termina nas costas do Nanzen-ji')],
   'd28-nanzenji': [walk(8, 'para o norte pela rua atrás do aqueduto')],
   'd28-eikando': [
-    walk(4, 'até a parada Nanzenji-Eikandō-michi'),
-    { mode: 'bus', line: 'ônibus 5', board: 'Nanzenji-Eikandō-michi', direction: 'Kyoto Station (京都駅)', alight: 'Shijō-Kawaramachi', minutes: 20, cost: '¥230' },
-    walk(10, 'atravessa o rio pela ponte Shijō: Pontochō é a viela à esquerda antes do rio, Gion é do outro lado'),
+    walk(4, 'até a avenida em frente ao Eikan-dō, onde passam os táxis'),
+    { mode: 'taxi', board: 'na saída do Eikan-dō', alight: 'Hanamikōji, Gion (花見小路)', minutes: 15, cost: '~¥1.500', note: 'às 17h de sábado o ônibus 5 vem lotado e desce até a Kawaramachi, do outro lado do rio — seriam mais 10 min voltando a pé' },
   ],
-  'd28-kitagawa': [walk(5, 'pela Hanamikōji de volta à Shijō-dōri: Izuju fica na frente do santuário Yasaka, Pontochō do outro lado da ponte')],
+  'd28-kitagawa': [walk(5, 'pela Hanamikōji de volta à Shijō-dōri: o Izuu fica em Gion Shinchi, ao norte da Shijō; Pontochō é do outro lado da ponte')],
   'd28-gion': [walk(15, 'a pé mesmo: pela Shijō-dōri para o oeste, atravessando a ponte, e na Kawaramachi virem à direita (norte) até o hotel, entre a Shijō e a Sanjō. Não depende de ônibus nenhum')],
 
   // ── 29 nov · Arashiyama, Kinkaku-ji ────────────────────────────────
@@ -385,13 +385,14 @@ export const LEGS: Record<string, Leg[]> = {
     walk(3, 'para o norte, atravessando a avenida: o portão do Isui-en fica atrás do santuário Himuro'),
   ],
   'd30-isuien': [walk(10, 'para o oeste pela Noborioji até a galeria Higashimuki, ao lado da estação: o Nakatanidō fica na esquina da Sanjō-dōri')],
-  'd30-almoco': [walk(5, 'o pagode está à vista, subindo a rua')],
+  'd30-almoco': [walk(5, 'subindo a rua para o leste: o Kōfuku-ji é o pátio aberto à direita, antes do parque')],
   'd30-kofukuji': [walk(8, 'descendo até o lago Sarusawa e continuando para o sul: Naramachi são as ruas de casas antigas atrás do lago')],
   'd30-naramachi': [
     walk(10, 'até a estação Kintetsu-Nara'),
     { mode: 'train', line: 'Kintetsu (特急 ou 急行)', board: 'Kintetsu-Nara', direction: 'Kyoto (京都)', alight: 'Kyoto (final)', minutes: 40, cost: '¥1.280 reservado · ¥760 no expresso comum', note: 'confiram que o trem vai a KYOTO: metade vai para Osaka-Namba' },
-    { mode: 'metro', line: 'Karasuma Line', board: 'Kyoto (metrô, lado norte da estação)', direction: 'Kokusaikaikan', alight: 'Shijō (四条)', minutes: 4, cost: '¥220' },
-    walk(12, 'pela Shijō-dōri para o leste até a Kawaramachi, e então para o norte até o hotel, acima da Sanjō'),
+    { mode: 'metro', line: 'Karasuma Line', board: 'Kyoto (metrô, lado norte da estação)', direction: 'Kokusaikaikan', alight: 'Karasuma-Oike', minutes: 6 },
+    { mode: 'metro', line: 'Tōzai Line', board: 'Karasuma-Oike (sigam a placa 東西線, baldeação no mesmo prédio)', direction: 'Rokujizō', alight: 'Kyoto-Shiyakusho-mae', minutes: 2, cost: '¥260 no total' },
+    walk(6, 'descendo a Kawaramachi para o sul até o hotel, logo abaixo da Sanjō'),
   ],
 
   // ── 1 dez · Tōfuku-ji e o Shinkansen ───────────────────────────────
@@ -406,23 +407,24 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd01-almoco': [walk(6, 'catracas do Shinkansen, lado Hachijō (sul); plataformas 11 a 14. Cheguem 15 min antes')],
   'd01-shinkansen': [
-    { mode: 'shinkansen', line: 'Nozomi', board: 'Kyoto, plataformas 11–12', direction: 'Tokyo (東京)', alight: 'Tokyo (final)', minutes: 135, cost: '¥14.200 reservado', note: 'Fuji do lado ESQUERDO nesse sentido: assentos A ou B, uns 40 min antes de chegar' },
+    { mode: 'shinkansen', line: 'Nozomi', board: 'Kyoto, plataformas 11–12', direction: 'Tokyo (東京)', alight: 'Tokyo (final)', minutes: 135, cost: '¥14.200 reservado', note: 'Fuji do lado ESQUERDO nesse sentido, que é a janela **E** (A–C ficam sempre do lado do mar). Aparece uns 40 min antes de chegar' },
     { mode: 'metro', line: 'Marunouchi Line', board: 'Tokyo', direction: 'Ginza · Shinjuku', alight: 'Ginza', minutes: 2, cost: '¥180', note: 'ou táxi ~¥1.200 com as malas de mão' },
     walk(5, 'check-in; as malas do takuhaibin chegam hoje ou amanhã'),
   ],
   'd01-checkin-compras': [
     { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro (池袋)', alight: 'Tokyo', minutes: 2, cost: '¥180' },
-    { mode: 'train', line: 'JR Yamanote', board: 'Tokyo, plataforma 4 (上野・池袋方面)', direction: 'Ueno · Ikebukuro', alight: 'Komagome (駒込), saída sul', minutes: 18, cost: '¥210' },
+    { mode: 'train', line: 'JR Yamanote', board: 'Tokyo, plataforma 4 (上野・池袋方面)', direction: 'Ueno · Ikebukuro', alight: 'Komagome (駒込), saída sul', minutes: 18, cost: '¥209' },
     walk(7, 'da saída sul até o **portão principal (正門)**, na Hongō-dōri — é o que abre à noite. O portão Somei, mais perto da estação, só abre em algumas temporadas'),
   ],
   'd01-rikugien': [
     walk(7, 'de volta à estação Komagome'),
-    { mode: 'train', line: 'JR Yamanote', board: 'Komagome', direction: 'Ikebukuro · Shinjuku', alight: 'Ikebukuro (3ª parada)', minutes: 8, cost: '¥170' },
+    { mode: 'train', line: 'JR Yamanote', board: 'Komagome', direction: 'Ikebukuro · Shinjuku', alight: 'Ikebukuro (3ª parada)', minutes: 8, cost: '¥199' },
     walk(8, 'saída 35 (fica à direita ao passar a catraca, com escada rolante e elevador), depois a Sunshine 60-dōri reto; o Sunshine City é o complexo no fim. World Import Mart, 3º andar'),
   ],
   'd01-gachapon-ikebukuro': [
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Ikebukuro (catraca leste da passagem central)', direction: 'Ginza · Ogikubo', alight: 'Ginza', minutes: 16, cost: '¥210' },
-    walk(5, 'até o hotel'),
+    walk(6, 'pela passagem subterrânea do Sunshine City até a estação Higashi-Ikebukuro'),
+    { mode: 'metro', line: 'Yūrakuchō Line', board: 'Higashi-Ikebukuro (東池袋)', direction: 'Shin-Kiba (新木場)', alight: 'Ginza-itchōme (銀座一丁目)', minutes: 20, cost: '¥260', note: 'sem baldeação e sem voltar até a estação de Ikebukuro' },
+    walk(5, 'pela Chūō-dōri para o sul até a Ginza 3-chōme e o hotel'),
   ],
 
   // ── 2 dez · Tóquio, último dia inteiro ─────────────────────────────
@@ -434,10 +436,10 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd02-nihonbashi': [
     { mode: 'metro', line: 'Ginza Line', board: 'Mitsukoshimae', direction: 'Asakusa', alight: 'Kanda', minutes: 2, cost: '¥180' },
-    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Kanda', direction: 'Ueno', alight: 'Akihabara, saída Electric Town', minutes: 2, cost: '¥150', note: 'ou 18 min a pé reto pela Chūō-dōri, que é a mesma rua' },
+    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Kanda', direction: 'Ueno', alight: 'Akihabara, saída Electric Town', minutes: 2, cost: '¥155', note: 'ou 18 min a pé reto pela Chūō-dōri, que é a mesma rua' },
   ],
   'd02-akihabara-missoes': [
-    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Akihabara, plataforma 6 — no **3º andar**, por cima das outras (千葉・船橋方面)', direction: 'Chiba', alight: 'Kinshichō', minutes: 5, cost: '¥150' },
+    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Akihabara, plataforma 6 — no **3º andar**, por cima das outras (千葉・船橋方面)', direction: 'Chiba', alight: 'Kinshichō', minutes: 5, cost: '¥199' },
     { mode: 'metro', line: 'Hanzōmon Line', board: 'Kinshichō', direction: 'Oshiage', alight: 'Oshiage (Skytree-mae)', minutes: 3, cost: '¥180', note: 'isto é para a Skytree. Tokyo Tower: Hibiya Line até Kamiyachō. Prédio do Governo: Chūō até Shinjuku' },
     walk(3, 'a torre é a saída da estação; bilheteria no 4º andar'),
   ],
@@ -445,8 +447,8 @@ export const LEGS: Record<string, Leg[]> = {
     { mode: 'metro', line: 'Toei Asakusa Line', board: 'Oshiage', direction: 'Nishi-Magome · Haneda', alight: 'Higashi-Ginza', minutes: 20, cost: '¥280', note: 'da Skytree, direto. Da Tokyo Tower: Hibiya Line de Kamiyachō até Higashi-Ginza, 9 min' },
     walk(1, 'saída **A1** (ou saída 6, se vierem pela Hibiya): a Iwate Ginga Plaza fica em frente ao Kabuki-za, no térreo do Nankai Tokyo Building'),
   ],
-  'd02-tekki': [walk(6, 'pela Harumi-dōri até a Ginza 4-chōme e uma quadra além; o Bic Camera é o prédio grande de Yūrakuchō')],
-  'd02-compras-finais': [walk(8, 'o Sushi no Midori fica na Ginza Corridor, debaixo dos trilhos')],
+  'd02-tekki': [walk(11, 'pela Harumi-dōri até a Ginza 4-chōme e além, passando pelo Kumamotokan (Ginza 5-3-16, perto da saída B9); o Bic Camera é o prédio grande de Yūrakuchō, do outro lado dos trilhos')],
+  'd02-compras-finais': [walk(8, 'o Sushi no Midori fica na Ginza 8-chōme, no térreo do prédio Yamashita, debaixo da via expressa')],
   'd02-jantar-despedida': [walk(5, 'qualquer 7-Eleven da Ginza; tem um a cada quarteirão')],
   'd02-konbini': [walk(5, 'até o hotel: arrumar as malas hoje, amanhã não vai dar tempo')],
 
@@ -454,12 +456,12 @@ export const LEGS: Record<string, Leg[]> = {
   'd03-nakiryu-senha': [
     walk(5, 'senha na mão, café da manhã por perto e de volta à estação Shin-Ōtsuka por volta das 9:15'),
     { mode: 'metro', line: 'Marunouchi Line', board: 'Shin-Ōtsuka (新大塚)', direction: 'Ginza · Ogikubo', alight: 'Ochanomizu', minutes: 9, cost: '¥180' },
-    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Ochanomizu (JR, do outro lado da rua do metrô) — plataforma do 総武線 千葉方面', direction: 'Chiba (千葉)', alight: 'Kameido (亀戸)', minutes: 12, cost: '~¥180' },
+    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Ochanomizu (JR, do outro lado da rua do metrô) — plataforma do 総武線 千葉方面', direction: 'Chiba (千葉)', alight: 'Kameido (亀戸)', minutes: 12, cost: '¥199' },
     walk(4, 'uns 300 m para o sul, do outro lado da Keiyō-dōri, a avenida larga — sigam o mapa'),
   ],
   'd03-sano-miso': [
     walk(4, 'de volta à JR Kameido'),
-    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Kameido', direction: 'Mitaka · Nakano (三鷹方面)', alight: 'Ochanomizu', minutes: 12, cost: '~¥180' },
+    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Kameido', direction: 'Mitaka · Nakano (三鷹方面)', alight: 'Ochanomizu', minutes: 12, cost: '¥199' },
     { mode: 'metro', line: 'Marunouchi Line', board: 'Ochanomizu', direction: 'Ikebukuro (池袋)', alight: 'Shin-Ōtsuka (新大塚)', minutes: 9, cost: '¥180', note: 'saiam de Kameido até as 10:50 para chegar ao turno das 11:30' },
     walk(5, 'mesmo caminho da manhã'),
   ],
@@ -471,7 +473,7 @@ export const LEGS: Record<string, Leg[]> = {
   'd03-sair-hotel': [
     walk(4, 'com as malas até a estação Higashi-Ginza pela **saída A8**, que é a do hotel, ou táxi na porta (~¥7.000, 30 min)'),
     { mode: 'train', line: 'Toei Asakusa Line → Keikyu (trem direto)', board: 'Higashi-Ginza, **plataforma 1** (B2), sentido Nishi-Magome · Haneda', direction: 'Haneda Airport (羽田空港第1・第2ターミナル)', alight: 'Haneda Airport Terminal 3', minutes: 40, cost: '¥620', note: 'a maioria dos trens da plataforma 1 só vai até Nishi-Magome. Esperem um **快特** ou **エアポート急行** com 羽田空港 no painel — o エアポート快特, que é o mais rápido, NÃO para em Higashi-Ginza' },
-    walk(5, 'o trem para no trilho 1 e a saída dá direto no **saguão de partidas, 3º andar**; a JAL fica nas ilhas F a K'),
+    walk(5, 'a catraca da Keikyu dá no **saguão de chegadas, 2º andar**: escada rolante para o **3º, partidas**. O voo é operado pela **American** — procurem o balcão dela no painel, não o da JAL'),
   ],
   'd03-haneda': [walk(10, 'check-in, despacho das malas, tax-free na alfândega se pedirem, imigração; a Royce\' é depois da imigração')],
   'd03-duty-free': [walk(10, 'até o portão indicado no cartão de embarque; os portões 140+ ficam longe, contem 15 min')],

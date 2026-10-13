@@ -12,7 +12,7 @@ export const hiroshimaDays: Day[] = [
       {
         label: 'Antes de sair do hotel',
         tone: 'info',
-        text: 'Deixem as malas grandes na recepção com etiqueta de **takuhaibin para o hotel de Kyoto** (chegada 27/11). Levem só mochila de dois dias. Vocês vão agradecer nas escadarias de Miyajima e no castelo de Himeji.',
+        text: 'Deixem as malas grandes na recepção com etiqueta de **takuhaibin para o hotel de Kyoto**, com **entrega marcada para 27/11**, o dia do check-in. Levem só mochila de dois dias. Vocês vão agradecer nas escadarias de Miyajima e no castelo de Himeji.',
       },
     ],
     stops: [
@@ -50,7 +50,7 @@ export const hiroshimaDays: Day[] = [
         jp: 'ポケモンセンターヒロシマ',
         facts: '**ekie 2º andar, saída norte da estação** · ~10:00–20:00 · mudou para cá em abril/2025 (não é mais no Sogo)',
         paragraphs: [
-          'Vocês desembarcam do Shinkansen e a loja está no mesmo prédio — desçam antes de pegar o bonde. A entrada tem um **Gyarados vermelho shiny em tamanho real** (referência ao lago de Kaminari, para quem jogou Gold/Silver).',
+          'Vocês desembarcam do Shinkansen e a loja está no mesmo prédio — desçam antes de pegar o bonde. E no terraço do **minamoa**, o prédio novo da estação, fica um **Gyarados vermelho shiny em tamanho real** (referência ao lago de Kaminari, para quem jogou Gold/Silver).',
           'A missão: o **Pikachu mascote com momiji manjū** (~¥1.650), exclusivo daqui — e a linha regional com okonomiyaki e limão de Setouchi. 20–30 min resolvem; guardem fome e pernas para o resto do dia.',
         ],
         mapQuery: 'Pokemon Center Hiroshima ekie',
@@ -75,7 +75,7 @@ export const hiroshimaDays: Day[] = [
         kind: 'sight',
         name: 'Museu Memorial da Paz',
         jp: '広島平和記念資料館',
-        facts: '**08:30–18:00** em novembro (última entrada 17:30) · **¥200** · reservem 1h30–2h',
+        facts: '**07:30–19:00** de setembro a novembro (última entrada 18:30) · aberto no feriado · **¥200** · reservem 1h30–2h',
         paragraphs: [
           'Comecem pelo museu e não pelo Domo — a ordem importa. O prédio principal, reformado em 2019, é conduzido por objetos e por histórias individuais, não por números. É pesado, e é feito para ser. Vale pegar o audioguia (¥400).',
         ],
@@ -121,7 +121,7 @@ export const hiroshimaDays: Day[] = [
               {
                 name: 'Nagataya',
                 specialty: true,
-                note: '11:00–20:00, fecha qua · ao lado do Parque da Paz, qualidade acima da média turística. ~¥1.300.',
+                note: '11:00–20:00, fecha ter · ao lado do Parque da Paz, qualidade acima da média turística. ~¥1.300.',
               },
               {
                 name: 'Okonomimura',
@@ -190,7 +190,7 @@ export const hiroshimaDays: Day[] = [
         kind: 'temple',
         name: 'Santuário Itsukushima',
         jp: '厳島神社',
-        facts: '**06:30–18:00** em novembro · ¥300 · Patrimônio Mundial',
+        facts: '**06:30–17:30** de meados de outubro a novembro · ¥300 · Patrimônio Mundial',
         history: {
           paragraphs: [
             'A ilha inteira era considerada divindade. Por isso ninguém podia pisar nela: nem nascer, nem morrer, nem sequer plantar arroz. A solução, quando quiseram construir um santuário, foi genial — **construir sobre a água**, na faixa de maré, para que nenhuma fundação profanasse o solo sagrado. Até hoje não existe cemitério na ilha, e mulheres grávidas e doentes terminais eram historicamente levados ao continente.',
@@ -297,17 +297,17 @@ export const hiroshimaDays: Day[] = [
               {
                 name: 'Bakudan-ya',
                 specialty: true,
-                note: '11:00–02:00 · *tsukemen* estilo Hiroshima: macarrão gelado, molho apimentado, repolho e pepino. Você escolhe de 0 a 20 no picante — 2 já arde. Nada a ver com o tsukemen de Tóquio.',
+                note: '11:30–14:30 e 18:00–21:30 (confiram na porta) · *tsukemen* estilo Hiroshima: macarrão gelado, molho apimentado, repolho e pepino. Você escolhe de 0 a 20 no picante — 2 já arde. Nada a ver com o tsukemen de Tóquio.',
               },
               {
                 name: 'Ramen Suzumeya',
-                note: '11:30–15:00 · shoyu de Hiroshima, caldo limpo, casa pequena',
+                note: '**só almoço, 11:30–15:00** — não serve para este jantar; fica para o almoço do dia 23, se der · shoyu de Hiroshima, caldo limpo, casa pequena',
               },
             ],
           },
         ],
         paragraphs: [
-          '**Castelo de Hiroshima:** reconstruído em concreto em 1958, com um museu de história local dentro. Confiram no site se o torreão está aberto — há um projeto em curso para fechá-lo e reconstruí-lo em madeira, e as datas mudam. Se estiver fechado, o parque e os fossos continuam abertos e valem a caminhada.',
+          '**Castelo de Hiroshima:** reconstruído em concreto em 1958, com um museu de história local dentro. O torreão **fechou em 22 de março de 2026**, para a reconstrução em madeira; o parque e os fossos continuam abertos e valem a caminhada.',
         ],
         mapQuery: 'Bakudan-ya Hiroshima',
       },

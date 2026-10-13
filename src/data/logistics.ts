@@ -121,7 +121,7 @@ export const TAKUHAIBIN: InfoBlock = {
   ],
   bullets: [
     'Dia 23, saindo de Tóquio: mandem as malas grandes direto para o hotel de **Kyoto** e viajem leves para Hiroshima com uma mochila de 2 dias. Vocês reencontram as malas no dia 27.',
-    'Dia 1º de dezembro, saindo de Kyoto: mandem tudo para o hotel de Tóquio pela manhã e passem o dia sem peso.',
+    'Saindo de Kyoto: o melhor é despachar na **manhã do dia 30**, antes de Nara — chega a Ginza no dia 1º, junto com vocês. Despachando na manhã do dia 1º, chega só no dia 2.',
   ],
 };
 

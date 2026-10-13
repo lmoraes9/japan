@@ -199,18 +199,6 @@ export const COMIDA_ITENS: ComidaItem[] = [
     nota: 'Rede, mas honesta. Resolve quando tudo mais fechou — e no dia 19 tudo mais fecha cedo.',
   },
   {
-    id: 'midori-shinjuku',
-    nome: 'Sushi no Midori Shinjuku',
-    cat: 'sushi',
-    estilo: ['nigiri'],
-    formato: ['balcão'],
-    avisos: ['fila'],
-    preco: '¥¥',
-    plano: 'escolha',
-    stopId: 'd20-volta',
-    nota: '11:00–22:00 · relação qualidade-preço absurda para sushi de balcão. Peguem senha e voltem depois.',
-  },
-  {
     id: 'midori-shibuya',
     nome: 'Sushi no Midori Umegaoka',
     jp: '梅丘寿司の美登利',
@@ -281,9 +269,9 @@ export const COMIDA_ITENS: ComidaItem[] = [
     formato: ['casa antiga'],
     preco: '¥¥',
     local: true,
-    plano: 'escolha',
+    plano: 'desvio',
     stopId: 'd25-almoco-kurashiki',
-    nota: '11:00–17:00 · dentro de um armazém convertido, de frente para o canal. Peçam o *mamakari-zushi* — a sardinha local que, diz a lenda, é tão boa que você pede arroz emprestado ao vizinho.',
+    nota: '**fecha às quartas — no dia 25 está fechado.** 10:00–18:00 nos outros dias · dentro de um armazém convertido, de frente para o canal, com o *mamakari-zushi* — a sardinha local que, diz a lenda, é tão boa que você pede arroz emprestado ao vizinho.',
   },
   {
     id: 'musashi',
@@ -336,7 +324,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     preco: '¥¥',
     plano: 'escolha',
     stopId: 'd02-jantar-despedida',
-    nota: '11:00–21:00 · o melhor custo-benefício de Ginza, ~¥3.000. Peguem senha cedo pelo painel eletrônico.',
+    nota: '11:00–15:00 e 17:00–21:00, último pedido 20:30 · o melhor custo-benefício de Ginza, ~¥3.000. Peguem a senha na máquina da porta ao chegar a Ginza, por volta das 17:45.',
   },
   {
     id: 'kyubey',
@@ -349,7 +337,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     preco: '¥¥¥¥',
     plano: 'escolha',
     stopId: 'd02-jantar-despedida',
-    nota: '17:00–22:00, fecha dom · omakase de balcão **desde 1935**, ~¥20.000. Se for para fazer o jantar de despedida virar a refeição da viagem, é aqui — com reserva.',
+    nota: '17:00–22:00, fecha dom e seg · omakase de balcão **desde 1935**, ~¥20.000. Se for para fazer o jantar de despedida virar a refeição da viagem, é aqui — com reserva.',
   },
   {
     id: 'onodera',
@@ -476,7 +464,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     local: true,
     plano: 'escolha',
     stopId: 'd24-jantar',
-    nota: '11:00–02:00 · *tsukemen* estilo Hiroshima: macarrão **gelado**, molho apimentado, repolho e pepino. Escolham de 0 a 20 no picante — 2 já arde. Nada a ver com o tsukemen de Tóquio.',
+    nota: '11:30–14:30 e 18:00–21:30 · *tsukemen* estilo Hiroshima: macarrão **gelado**, molho apimentado, repolho e pepino. Escolham de 0 a 20 no picante — 2 já arde. Nada a ver com o tsukemen de Tóquio.',
   },
   {
     id: 'suzumeya',
@@ -526,7 +514,8 @@ export const COMIDA_ITENS: ComidaItem[] = [
     preco: '¥¥',
     plano: 'escolha',
     stopId: 'd20-komachi',
-    nota: '11:30–14:30 / 17:30–20:00 · soba artesanal numa casa antiga com jardim. O melhor almoço de Kamakura. Reservem.',
+    bairro: 'Yuigahama',
+    nota: '11:00–21:30 · soba artesanal numa casa antiga com jardim, em **Yuigahama**, a 3 min da estação do Enoden — não na Komachi-dōri. Dá para almoçar descendo do Enoden ali, no caminho para Hase.',
   },
   {
     id: 'omen',
@@ -566,7 +555,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     local: true,
     plano: 'escolha',
     stopId: 'd23-okonomiyaki',
-    nota: '11:00–20:00, fecha qua · okonomiyaki **estilo Hiroshima** (camadas, com macarrão, não misturado) ao lado do Parque da Paz, qualidade acima da média turística. ~¥1.300.',
+    nota: '11:00–20:00, fecha ter · okonomiyaki **estilo Hiroshima** (camadas, com macarrão, não misturado) ao lado do Parque da Paz, qualidade acima da média turística. ~¥1.300.',
   },
   {
     id: 'okonomimura',
@@ -633,7 +622,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     local: true,
     plano: 'marcado',
     stopId: 'd25-dotonbori',
-    nota: '11:00–22:00, fecha seg · Bib Gourmand do Michelin. Versão **de Osaka**: tudo misturado na massa, ao contrário da de Hiroshima do dia 23. Fila.',
+    nota: '11:00–22:00, fecha qui · Bib Gourmand do Michelin. Versão **de Osaka**: tudo misturado na massa, ao contrário da de Hiroshima do dia 23. Fila.',
   },
   {
     id: 'gyoza-ro',
@@ -846,22 +835,9 @@ export const COMIDA_ITENS: ComidaItem[] = [
     formato: ['casa antiga'],
     avisos: ['só almoço'],
     preco: '¥¥¥',
-    plano: 'escolha',
+    plano: 'marcado',
     stopId: 'd25-almoco-kurashiki',
-    nota: '11:00–14:00 · pousada **de 1744** no bairro Bikan, almoço servido em bandeja. A versão formal do almoço de Kurashiki.',
-  },
-  {
-    id: 'hisago',
-    nome: 'Hisago (Higashiyama)',
-    jp: 'ひさご',
-    cat: 'arroz',
-    estilo: ['donburi'],
-    formato: [],
-    avisos: ['fila'],
-    preco: '¥',
-    plano: 'escolha',
-    stopId: 'd28-almoco',
-    nota: '11:30–19:30, fecha seg · *oyakodon* lendário — frango e ovo sobre arroz, "pai e filho" —, ¥1.200. Fila.',
+    nota: '11:00–14:00, fecha seg · pousada **de 1744** no bairro Bikan, almoço servido em bandeja. É o almoço do dia 25, já que o Kamoi fecha às quartas.',
   },
   {
     id: 'tengyokudo',
@@ -901,7 +877,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     preco: '¥¥',
     plano: 'plano B',
     stopId: 'd02-nihonbashi',
-    nota: '11:00–22:00 · *anago* — a enguia-do-mar na versão de Tóquio. Mais leve que o unagi, e muito bom. É o clássico de Edo, se preferirem ao curry de Jimbōchō.',
+    nota: 'dia útil 11:00–14:30 e 17:00–21:30 · *anago* — a enguia-do-mar na versão de Tóquio. Mais leve que o unagi, e muito bom. É o clássico de Edo, se preferirem ao curry de Jimbōchō.',
   },
 
   // ─── Cozinha de templo ────────────────────────────────────────────────────
@@ -978,7 +954,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     preco: '¥',
     plano: 'marcado',
     stopId: 'd27-nishiki-rapido',
-    nota: '09:00–18:00, lojas fecham escalonado · 400 m cobertos a **3 min do hotel**. Meia hora de passagem na sexta, porque no domingo 29 ele já estará fechando quando vocês chegarem.',
+    nota: '09:00–18:00, lojas fecham escalonado · 400 m cobertos a **6 min do hotel**. Meia hora de passagem na sexta, porque no domingo 29 ele já estará fechando quando vocês chegarem.',
   },
   {
     id: 'depachika-ginza',
@@ -1249,7 +1225,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     preco: '¥¥',
     plano: 'marcado',
     stopId: 'd21-bar-triad',
-    nota: '19:00–02:00, **fecha domingo e segunda** · terceira casa do Bar Tram, a mais descontraída das três. Clássicos bem-feitos e coquetéis com licor de ervas — e **dá para pedir mais doce ou mais forte**, o que resolve a vida de quem não é de bar de coquetel.',
+    nota: '19:00–02:00, todos os dias · terceira casa do Bar Tram, a mais descontraída das três. Clássicos bem-feitos e coquetéis com licor de ervas — e **dá para pedir mais doce ou mais forte**, o que resolve a vida de quem não é de bar de coquetel.',
   },
   {
     id: 'golden-gai',
@@ -1284,7 +1260,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     local: true,
     plano: 'marcado',
     stopId: 'd27-jantar',
-    nota: 'Ter–sáb 11:30–23:00, **fecha segunda** · o restaurante da cervejaria de saquê **Yamamoto Honke, de 1677**, dentro de um armazém com as vigas pretas originais. Peçam o *kuradashi nama-genshu*, tirado direto do tanque: **não é engarrafado e não sai daqui**.',
+    nota: '11:00–22:00, **fecha segunda** · o restaurante da cervejaria de saquê **Yamamoto Honke, de 1677**, dentro de um armazém com as vigas pretas originais. Peçam o *kuradashi nama-genshu*, tirado direto do tanque: **não é engarrafado e não sai daqui**.',
   },
   {
     id: 'kizakura',
@@ -1355,7 +1331,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     busca: '7-Eleven Saga Arashiyama Station',
     plano: 'marcado',
     stopId: 'd29-konbini',
-    nota: 'O da esquina do hotel, na Kawaramachi, é 24h. Saída às 6h30 para o bambuzal vazio pede café e algo na mão — e o Randen não tem nada no caminho.',
+    nota: 'O da esquina do hotel, na Kawaramachi, é 24h. Saída às 6h15 para o bambuzal vazio pede café e algo na mão — e o Randen não tem nada no caminho.',
   },
   {
     id: 'konbini-4',
