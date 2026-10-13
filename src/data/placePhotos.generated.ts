@@ -1298,6 +1298,20 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:FamilyMart_food_vending_machines_at_Haneda_Airport_Terminal_3.jpg",
     "title": "FamilyMart food vending machines at Haneda Airport Terminal 3.jpg"
   },
+  "stops/d03-nakiryu": {
+    "src": "/lugares/stops/d03-nakiryu.jpg",
+    "credit": "毒島みるく",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:175do_DENO_Tantanmen_TOKYO.jpg",
+    "title": "175do DENO Tantanmen TOKYO.jpg"
+  },
+  "stops/d03-sano-miso": {
+    "src": "/lugares/stops/d03-sano-miso.jpg",
+    "credit": "Evelyn-rose",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hatcho-Miso-Kakukyu-4.jpg",
+    "title": "Hatcho-Miso-Kakukyu-4.jpg"
+  },
   "stops/d18-haneda": {
     "src": "/lugares/stops/d18-haneda.jpg",
     "credit": "AMANO Jun-ichi",
@@ -3286,6 +3300,34 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Ryoanji_Temple_@_Kyoto_(13406277163).jpg",
     "title": "Ryoanji Temple @ Kyoto (13406277163).jpg"
   },
+  "stops/d29-sagano": {
+    "src": "/lugares/stops/d29-sagano.jpg",
+    "credit": "Toshinori baba",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sagano_scenic_railway_hotsukyo.jpg",
+    "title": "Sagano scenic railway hotsukyo.jpg"
+  },
+  "stops/d29-sagano-2": {
+    "src": "/lugares/stops/d29-sagano-2.jpg",
+    "credit": "pang yu liu from Taoyuan, TW",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sagano_Scenic_Railway_Hozu_River_2016-08-26.jpg",
+    "title": "Sagano Scenic Railway Hozu River 2016-08-26.jpg"
+  },
+  "stops/d29-sagano-3": {
+    "src": "/lugares/stops/d29-sagano-3.jpg",
+    "credit": "pang yu liu from Taoyuan, TW",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hozukyo_Station_seen_from_Sagano_Scenic_Railway_train_2016-08-26.jpg",
+    "title": "Hozukyo Station seen from Sagano Scenic Railway train 2016-08-26.jpg"
+  },
+  "stops/d29-sagano-4": {
+    "src": "/lugares/stops/d29-sagano-4.jpg",
+    "credit": "Streetdeck",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sagano_Romantic_Train.jpg",
+    "title": "Sagano Romantic Train.jpg"
+  },
   "stops/d29-tenryuji": {
     "src": "/lugares/stops/d29-tenryuji.jpg",
     "credit": "osakaosaka",
@@ -3341,6 +3383,34 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Togetsukyo_Bridge_and_Mount_Arashiyama.JPG",
     "title": "Togetsukyo Bridge and Mount Arashiyama.JPG"
+  },
+  "stops/d30-isuien": {
+    "src": "/lugares/stops/d30-isuien.jpg",
+    "credit": "Tomi Mäkitalo",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Isuien_Garden_-_panoramio.jpg",
+    "title": "Isuien Garden - panoramio.jpg"
+  },
+  "stops/d30-isuien-2": {
+    "src": "/lugares/stops/d30-isuien-2.jpg",
+    "credit": "Tomi Mäkitalo",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Isuien_Garden_-_panoramio_-_Tomi_M%C3%A4kitalo.jpg",
+    "title": "Isuien Garden - panoramio - Tomi Mäkitalo.jpg"
+  },
+  "stops/d30-isuien-3": {
+    "src": "/lugares/stops/d30-isuien-3.jpg",
+    "credit": "KimonBerlin",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Isuien_garden_in_Nara_(11140703813).jpg",
+    "title": "Isuien garden in Nara (11140703813).jpg"
+  },
+  "stops/d30-isuien-4": {
+    "src": "/lugares/stops/d30-isuien-4.jpg",
+    "credit": "KimonBerlin",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Isuien_garden_in_Nara_(11140572716).jpg",
+    "title": "Isuien garden in Nara (11140572716).jpg"
   },
   "stops/d30-kasuga-taisha": {
     "src": "/lugares/stops/d30-kasuga-taisha.jpg",
