@@ -398,12 +398,11 @@ export const LEGS: Record<string, Leg[]> = {
   // ── 1 dez · Tōfuku-ji e o Shinkansen ───────────────────────────────
   'd01-tofukuji': [walk(20, 'para o norte pela Higashiōji-dōri; o Sanjūsangen-dō fica atrás do Museu Nacional. Táxi ~¥1.000 se estiverem cansados')],
   'd01-sanjusangendo': [
-    { mode: 'taxi', board: 'na porta do Sanjūsangen-dō', alight: 'Castelo de Nijō, portão Higashi-Ōtemon (東大手門)', minutes: 20, cost: '~¥2.000', note: 'é atravessar a cidade de sudeste a noroeste; de ônibus seriam duas trocas e 45 min. Hoje o táxi é o certo' },
+    { mode: 'taxi', board: 'na porta do Sanjūsangen-dō', alight: 'Tō-ji, portão leste Keigamon (東寺 慶賀門)', minutes: 12, cost: '~¥1.500', note: 'de ônibus seria baldeação na Estação de Kyoto; o táxi leva direto' },
   ],
-  'd01-nijo': [
-    { mode: 'metro', line: 'Tōzai Line', board: 'Nijōjō-mae', direction: 'Rokujizō', alight: 'Karasuma-Oike', minutes: 3, cost: '¥220' },
-    { mode: 'metro', line: 'Karasuma Line', board: 'Karasuma-Oike', direction: 'Takeda', alight: 'Kyoto', minutes: 6, cost: 'mesmo bilhete', note: 'baldeação no mesmo andar; 15 min de porta a porta' },
-    walk(4, 'armários primeiro — peguem as malas de mão — depois o Isetan (ekiben) ou o Ramen Kōji no 10º'),
+  'd01-toji': [
+    walk(15, 'saindo pelo portão norte (Kitadaimon), para o nordeste até a saída **Hachijō** da Estação de Kyoto, a do Shinkansen'),
+    walk(5, 'atravessem a estação pela passagem livre até os armários das catracas centrais: peguem as malas de mão — e então o Isetan (ekiben) ou o Ramen Kōji no 10º'),
   ],
   'd01-almoco': [walk(6, 'catracas do Shinkansen, lado Hachijō (sul); plataformas 11 a 14. Cheguem 15 min antes')],
   'd01-shinkansen': [

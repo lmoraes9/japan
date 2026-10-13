@@ -63,7 +63,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     addressJp: '東京都新宿区歌舞伎町2-24-10 ホテルアマネク新宿歌舞伎町',
     phone: '+81 3 6265 9140',
     code: 'Booking 5265.153.174 · PIN 9439',
-    notes: 'R$ 5.953 (¥179.785), já pago · 5 noites · twin standard · em nome de Priscila Werneck · cancelamento grátis até 10/11 23:59 · wi-fi grátis',
+    notes: '¥179.785 (R$ 5.686 na Booking), já pago · 5 noites · twin standard · em nome de Priscila Werneck · cancelamento grátis até 10/11 23:59 · wi-fi grátis',
     done: true,
   },
   {
@@ -77,7 +77,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     addressJp: '広島市南区京橋町2-26 アパホテル〈広島駅前大橋〉',
     phone: '+81 82 568 6111',
     code: 'Booking 5265.160.121 · PIN 2855',
-    notes: '¥28.620 (R$ 948) — paga-se em iene no hotel · cama king · em nome de Priscila Werneck · cancelamento grátis até 21/11 · recepção cheia depois das 22:00 · tatuagem visível não entra no banho público · as malas grandes vão de takuhaibin direto para Kyoto; aqui só a mochila',
+    notes: '¥28.620 (R$ 905 na Booking) — paga-se em iene no hotel · cama king · em nome de Priscila Werneck · cancelamento grátis até 21/11 · recepção cheia depois das 22:00 · tatuagem visível não entra no banho público · as malas grandes vão de takuhaibin direto para Kyoto; aqui só a mochila',
     done: true,
   },
   {
@@ -91,7 +91,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     addressJp: '大阪市中央区千日前1丁目3-7 KOKO HOTEL 大阪なんば千日前',
     phone: '+81 6 6211 1001',
     code: 'Booking 6533.407.981 · PIN 8635',
-    notes: '¥16.968 (R$ 562) — paga-se em iene no hotel, mais a taxa de hospedagem por pessoa · UMA noite, como planejado · twin · em nome de Priscila Werneck · cancelamento grátis até 23/11 · SEM internet no hotel: usem o eSIM · a reserva antiga de duas noites (25–27) precisa estar cancelada',
+    notes: '¥16.968 (R$ 537 na Booking) — paga-se em iene no hotel, mais a taxa de hospedagem por pessoa · UMA noite, como planejado · twin · em nome de Priscila Werneck · cancelamento grátis até 23/11 · SEM internet no hotel: usem o eSIM',
     done: true,
   },
   {
@@ -105,7 +105,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     addressJp: '和歌山県伊都郡高野町高野山608 普門院',
     phone: '+81 736 56 2224',
     code: 'Booking 6795.779.568 · PIN 5372',
-    notes: 'R$ 1.921 (¥58.000) · JANTAR E CAFÉ DA MANHÃ INCLUÍDOS · twin de futon em tatame, banho compartilhado · em nome de Priscila Werneck · cancelamento grátis só até 11/11 — depois cobra 100% · sem internet · subir com dinheiro vivo. A confirmação enviada é a do Fumon-in: se a do Kumagai-ji (5897947836) ainda estiver de pé, cancelar.',
+    notes: '¥58.000 (R$ 1.834 na Booking) · JANTAR E CAFÉ DA MANHÃ INCLUÍDOS · twin de futon em tatame, banho compartilhado · em nome de Priscila Werneck · cancelamento grátis só até 11/11 — depois cobra 100% · sem internet · subir com dinheiro vivo.',
     done: true,
     hint: 'A resposta do templo sobre o goma da manhã',
   },
@@ -120,7 +120,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     addressJp: '京都市中京区河原町通三条下る2丁目山崎町240 トラベロッジ京都四条河原町',
     phone: '+81 75 255 8811',
     code: 'Booking 5757.199.584 · PIN 8938',
-    notes: '¥117.725 (R$ 3.898) — paga-se em iene no hotel, mais a taxa de hospedagem por pessoa · 4 noites, queen · em nome de Priscila Werneck · cancelamento grátis até 24/11 · café da manhã NÃO incluído (buffet ¥1.300, 07:00–10:00) · sem arrumação de quarto em estadias de até 4 noites · pedem documento com foto e cartão de crédito no check-in. As malas do takuhaibin de Tóquio chegam aqui no dia 24 — avisar a recepção por escrito ANTES de despachar. O Carta Hotel Kyoto Gion está reservado nas mesmas datas e precisa ser cancelado.',
+    notes: '¥117.725 (R$ 3.723 na Booking) — paga-se em iene no hotel, mais a taxa de hospedagem por pessoa · 4 noites, queen · em nome de Priscila Werneck · cancelamento grátis até 24/11 · café da manhã NÃO incluído (buffet ¥1.300, 07:00–10:00) · sem arrumação de quarto em estadias de até 4 noites · pedem documento com foto e cartão de crédito no check-in. As malas do takuhaibin de Tóquio chegam aqui no dia 27 (entrega marcada) — avisar a recepção por escrito ANTES de despachar.',
     done: true,
   },
   {
@@ -134,7 +134,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     addressJp: '東京都中央区銀座3-8-4 相鉄フレッサイン銀座三丁目',
     phone: '+81 3 3538 3397',
     code: 'Booking 5265.113.417 · PIN 2723',
-    notes: '¥47.917 (R$ 1.587) — paga-se em iene no hotel · duplo não fumante · em nome de Priscila Werneck · cancelamento grátis até 29/11 · recebe bagagem enviada antes: escrever NOME DO HÓSPEDE e DATA DO CHECK-IN em cada volume (guardam até 1 semana) — é assim que as malas do takuhaibin de Kyoto chegam · guarda-volumes só nos dias de check-in e check-out · há vários Sotetsu Fresa Inn em Tóquio: é o de GINZA SANCHOME',
+    notes: '¥47.917 (R$ 1.516 na Booking) — paga-se em iene no hotel · duplo não fumante · em nome de Priscila Werneck · cancelamento grátis até 29/11 · recebe bagagem enviada antes: escrever NOME DO HÓSPEDE e DATA DO CHECK-IN em cada volume (guardam até 1 semana) — é assim que as malas do takuhaibin de Kyoto chegam · guarda-volumes só nos dias de check-in e check-out · há vários Sotetsu Fresa Inn em Tóquio: é o de GINZA SANCHOME',
     done: true,
   },
 

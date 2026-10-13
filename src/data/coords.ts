@@ -90,7 +90,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd30-naramachi': { lat: 34.6788, lng: 135.8306 },
   'd01-tofukuji': { lat: 34.9764, lng: 135.774 },
   'd01-sanjusangendo': { lat: 34.988, lng: 135.7715 },
-  'd01-nijo': { lat: 35.0142, lng: 135.7513 }, // Castelo de Nijō, portão Higashi-Ōtemon
+  'd01-toji': { lat: 34.9808, lng: 135.7478 }, // Tō-ji, Kondō / Kōdō
   'd01-checkin-compras': { lat: 35.6719, lng: 139.7677 }, // Sotetsu Fresa Inn Ginza 3-chōme
   'd01-rikugien': { lat: 35.7324, lng: 139.7484 }, // Rikugien, portão principal (正門), Hongō-dōri
   'd01-gachapon-ikebukuro': { lat: 35.729, lng: 139.719 }, // Sunshine City World Import Mart

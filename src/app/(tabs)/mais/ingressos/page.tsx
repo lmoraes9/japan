@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ExternalLink, CalendarDays } from 'lucide-react';
+import { ExternalLink, CalendarDays, BellRing } from 'lucide-react';
 import { SubpageHeader } from '@/components/SubpageHeader';
 import { Rich } from '@/components/Rich';
 import { INGRESSOS, STATUS_LABEL, type IngressoStatus } from '@/data/ingressos';
@@ -19,8 +19,22 @@ export default function IngressosPage() {
     <div className="space-y-5">
       <SubpageHeader title="Ingressos e reservas" subtitle="O que precisa ser comprado antes, o que só convém, e o que é chegar e entrar" />
       <div className="rounded-2xl border border-hairline bg-surface-2/70 p-3.5 text-[13px] leading-relaxed">
-        Conferido em setembro de 2026. Duas coisas realmente esgotam: os <strong>assentos de Shinkansen</strong> no fim de novembro e o <strong>Torokko</strong>, se decidirem fazer. O <strong>tour noturno do Okunoin</strong> não esgota em minutos, mas lota de março a novembro — reservem cedo. O resto é fila, não falta de vaga.
+        Conferido em outubro de 2026. Duas coisas realmente esgotam: os <strong>assentos de Shinkansen</strong> no fim de novembro e o <strong>trem Sagano</strong> do dia 29. O resto é fila, não falta de vaga.
       </div>
+      <a
+        href="/alertas.ics"
+        className="flex items-center gap-3 rounded-2xl border border-hairline bg-surface px-4 py-3"
+      >
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-white">
+          <BellRing size={17} />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="block text-[14px] font-semibold leading-snug">Pôr os prazos no calendário do celular</span>
+          <span className="block text-[12px] leading-snug text-muted">
+            Cada abertura de venda e cada prazo da checklist vira um evento com aviso. No iPhone, toquem e escolham “Adicionar tudo”.
+          </span>
+        </span>
+      </a>
       {ORDER.map((status) => {
         const items = INGRESSOS.filter((i) => i.status === status).sort((a, b) => a.date.localeCompare(b.date));
         if (!items.length) return null;

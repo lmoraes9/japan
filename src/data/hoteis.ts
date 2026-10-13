@@ -23,8 +23,11 @@ export interface HotelSugestao {
 }
 
 /**
- * O que está de fato reservado. Esta lista manda: a de sugestões, abaixo,
- * virou histórico de como se chegou até aqui.
+ * O que está de fato reservado — conferido contra a Booking em 13/10/2026: seis
+ * hotéis, sem duplicatas (Kumagai-ji e Carta Hotel Gion foram cancelados).
+ * Os valores em reais são os da Booking nessa data; as reservas são em iene,
+ * então o real oscila com o câmbio. A lista de sugestões, abaixo, virou
+ * histórico de como se chegou até aqui.
  */
 export interface ReservaHotel {
   name: string;
@@ -46,7 +49,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     city: 'Tóquio',
     datas: '18 → 23 de novembro',
     noites: 5,
-    preco: 'R$ 5.987',
+    preco: 'R$ 5.686',
     status: 'confirmada',
     mapQuery: 'HOTEL AMANEK Shinjuku Kabukicho',
   },
@@ -55,7 +58,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     city: 'Hiroshima',
     datas: '23 → 25 de novembro',
     noites: 2,
-    preco: 'R$ 953',
+    preco: 'R$ 905',
     status: 'confirmada',
     acao: 'Vocês chegam só de mochila: as malas grandes saíram do Amanek, em Tóquio, direto para o hotel de Kyoto, no dia 23.',
     mapQuery: 'APA Hotel Hiroshima Ekimae Ohashi',
@@ -65,24 +68,11 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     city: 'Osaka · Namba',
     datas: '25 → 26 de novembro',
     noites: 1,
-    preco: 'R$ 1.084',
+    preco: 'R$ 537',
     status: 'confirmada',
     acao:
-      'Já refeita para **uma noite só**, 25 → 26 (confirmação em Reservas). Saída 2 da Nippombashi, a 1 min; Kuromon a 4 min.',
+      '**Uma noite só**, 25 → 26 — a reserva antiga de duas noites já não aparece na Booking. Saída 2 da Nippombashi, a 1 min; Kuromon a 4 min.',
     mapQuery: 'KOKO HOTEL Osaka Namba Sennichimae, Chuo-ku Sennichimae 1-3-7',
-  },
-  {
-    name: '高野山 宿坊 熊谷寺 · Koyasan Shukubo Kumagaiji',
-    jp: '熊谷寺',
-    city: 'Kōyasan',
-    datas: '26 → 27 de novembro',
-    noites: 1,
-    preco: 'R$ 1.861',
-    status: 'decidir',
-    codigo: '5897947836',
-    acao:
-      '**Cancelar, se ainda estiver ativa** — a reserva que vale é a do Fumon-in, logo abaixo. Era: quarto de luxo em estilo japonês, com jantar e café. Fica na ponta **leste** da montanha, a 5 min do Ichinohashi (a boca do Okunoin) e 10 min do Kongōbu-ji — bem colocado para as duas metades do programa. O site deles anuncia **oração matinal com ritual do fogo**, que é justamente o que a Priscila lembra do Ekō-in. Check-in 14:00–17:00, check-out **09:00**.',
-    mapQuery: 'Kumagaiji Koyasan',
   },
   {
     name: '高野山 宿坊 普門院 · Koyasan Shukubo Fumonin',
@@ -90,7 +80,7 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     city: 'Kōyasan',
     datas: '26 → 27 de novembro',
     noites: 1,
-    preco: 'R$ 1.921',
+    preco: 'R$ 1.834',
     status: 'confirmada',
     acao:
       'A reserva que vale (Booking 6795.779.568). Fica no **Senjuinbashi**, o centro exato da montanha: 3 min do Kongōbu-ji, ao lado do correio e do mercadinho, e todos os ônibus param ali. Templo de 824, com **jardim atribuído a Kobori Enshū** e hondō do começo do período Edo. Check-in **15:00–16:30**, jantar **17:30** servido em mesa e cadeira, oração **06:30** (35–40 min). Cancelamento grátis só até 11/11.',
@@ -101,28 +91,18 @@ export const RESERVAS_HOTEL: ReservaHotel[] = [
     city: 'Kyoto · Shijō-Kawaramachi',
     datas: '27 de novembro → 1º de dezembro',
     noites: 4,
-    preco: 'R$ 3.920',
+    preco: 'R$ 3.723',
     status: 'confirmada',
     acao:
-      'A escolha certa entre as duas de Kyoto: R$ 461 mais barata e bem colocada. Atenção ao endereço, que o nome esconde: é na **Kawaramachi abaixo de Sanjō** (Yamazaki-chō 240), e não na esquina de Shijō — a Keihan Sanjō fica a 5 min, a Hankyu Kyoto-Kawaramachi a 7, o Nishiki a 6 e o Umezono na mesma quadra. **As malas grandes chegam aqui por takuhaibin, com entrega marcada para 27/11**, o dia do check-in — confirmem por escrito que o hotel recebe bagagem enviada antes de vocês chegarem.',
+      'Atenção ao endereço, que o nome esconde: é na **Kawaramachi abaixo de Sanjō** (Yamazaki-chō 240), e não na esquina de Shijō — a Keihan Sanjō fica a 5 min, a Hankyu Kyoto-Kawaramachi a 7, o Nishiki a 6 e o Umezono na mesma quadra. **As malas grandes chegam aqui por takuhaibin, com entrega marcada para 27/11**, o dia do check-in — confirmem por escrito que o hotel recebe bagagem enviada antes de vocês chegarem.',
     mapQuery: 'Travelodge Kyoto Shijo Kawaramachi',
-  },
-  {
-    name: 'Carta Hotel Kyoto Gion',
-    city: 'Kyoto · Gion',
-    datas: '27 de novembro → 1º de dezembro',
-    noites: 4,
-    preco: 'R$ 4.381',
-    status: 'decidir',
-    acao: 'Duplicata exata do Travelodge, dia por dia. Cancelar libera **R$ 4.381**.',
-    mapQuery: 'Carta Hotel Kyoto Gion',
   },
   {
     name: 'Sotetsu Fresa Inn Ginza Sanchome',
     city: 'Tóquio · Ginza',
     datas: '1º → 3 de dezembro',
     noites: 2,
-    preco: 'R$ 1.596',
+    preco: 'R$ 1.516',
     status: 'confirmada',
     acao: 'Endereço de Ginza pelas duas últimas noites, com as compras finais a pé e o trem direto para Haneda em Higashi-Ginza.',
     mapQuery: 'Sotetsu Fresa Inn Ginza Sanchome',

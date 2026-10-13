@@ -210,6 +210,7 @@ export const KYOTO: MapaEstacoes = {
     // 1 dez
     { id: 'p-d01-tofukuji', nome: 'Tōfuku-ji', estacaoId: 'tofukuji', dx: -44, dy: 18, stopId: 'd01-tofukuji', lado: 'l' },
     { id: 'p-d01-sanjusangendo', nome: 'Sanjūsangen-dō', estacaoId: 'sanjusangendo-mae', dx: 36, dy: 30, stopId: 'd01-sanjusangendo' },
+    { id: 'p-d01-toji', nome: 'Tō-ji', estacaoId: 'kyoto', dx: -56, dy: 6, stopId: 'd01-toji', lado: 'l' },
     { id: 'p-d01-almoco', nome: 'Almoço + Black Thunder', estacaoId: 'kyoto', dx: -46, dy: 30, stopId: 'd01-almoco', lado: 'l' },
     { id: 'p-d01-shinkansen', nome: 'Shinkansen → Tóquio', estacaoId: 'kyoto', dx: -30, dy: -48, stopId: 'd01-shinkansen', lado: 'l' },
   ],

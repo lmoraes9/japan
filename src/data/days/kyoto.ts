@@ -913,8 +913,8 @@ export const kyotoDays: Day[] = [
     id: 'd2026-12-01',
     date: '2026-12-01',
     stageId: 'kyoto',
-    title: 'Tōfuku-ji na abertura, 1.001 Kannons, Nijō, e Shinkansen para Tóquio',
-    subtitle: 'Três últimas paradas de Kyoto, com o castelo no meio. Depois, oeste para leste.',
+    title: 'Tōfuku-ji na abertura, 1.001 Kannons, Tō-ji, e Shinkansen para Tóquio',
+    subtitle: 'Três últimas paradas de Kyoto, todas no sul da cidade, a caminho da estação. Depois, oeste para leste.',
     chips: ['momiji', 'história', 'shinkansen'],
     notes: [
       {
@@ -968,19 +968,26 @@ export const kyotoDays: Day[] = [
         mapQuery: 'Sanjusangendo Kyoto',
       },
       {
-        id: 'd01-nijo',
+        id: 'd01-toji',
         time: '11:15',
-        timeLabel: 'castelo',
-        kind: 'sight',
-        name: 'Castelo de Nijō',
-        jp: '二条城',
-        facts: '**08:45–17:00**, última entrada 16:00 · ¥800 o recinto · **terça-feira em dezembro o Palácio Ninomaru fecha** — e 1º de dezembro é terça',
+        timeLabel: 'templo',
+        kind: 'temple',
+        name: 'Tō-ji — o pagode e o mandala de Kūkai',
+        jp: '東寺',
+        facts: '**08:00–17:00**, entrada até 16:30 · Kondō e Kōdō ~¥500–1.000 (o preço sobe em período especial) · pátio grátis · **15 min a pé da saída Hachijō da Estação de Kyoto** · Patrimônio Mundial',
         paragraphs: [
-          'O castelo que o xogum construiu em **1603** para se hospedar quando vinha a Kyoto — e para lembrar ao imperador, que morava a dez quadras dali, quem mandava. Muralha, fosso, e por dentro o **Palácio Ninomaru**, com os pisos "de rouxinol" que chiam a cada passo justamente para que ninguém se aproximasse em silêncio. Foi nesta sala que, em 1867, o último xogum devolveu o poder ao imperador. O Japão moderno começou aqui.',
-          '**Aviso que muda a visita:** em dezembro o Palácio Ninomaru fecha **às terças**, e o dia 1º cai numa terça. Vocês entram no recinto, andam pelos jardins Ninomaru e Seiryū-en, sobem a base do torreão para ver a cidade, e veem o palácio **por fora**. Ainda vale: o jardim de Kobori Enshū e a escala do lugar são metade da experiência. Mas se o que vocês querem é o piso de rouxinol, a chance é trocar por um dos dias anteriores em Kyoto — me avisem.',
-          '**Uma hora aqui é o teto.** O Shinkansen é às 13:20 e ainda tem o metrô até a estação e o ekiben. Saiam do castelo até as 12:20.',
+          'Entrou no lugar do Castelo de Nijō, cujo palácio fecha às terças de dezembro — e 1º de dezembro é terça. O Tō-ji fica do lado certo da cidade: a quinze minutos a pé do Shinkansen, em vez de atravessar Kyoto de táxi e voltar de metrô.',
+          'O que ver, nesta ordem: o **Kōdō**, com 21 estátuas dispostas como um **mandala em três dimensões** — a doutrina esotérica do Shingon posta de pé, para quem não sabia ler os sutras —; o **Kondō**, o salão do Buda da Medicina; e o **pagode de cinco andares**, de fora, com o lago Hyōtan-ike e os bordos na frente. Uma hora basta. O interior do pagode só abre em temporada especial, e a de outono de 2026 termina em 25/11.',
         ],
-        mapQuery: 'Nijo Castle Kyoto',
+        history: {
+          label: 'O templo que fecha o círculo de Kōyasan',
+          paragraphs: [
+            'Quando a capital veio para Kyoto, em 794, o imperador só permitiu **dois templos** dentro da cidade nova — o Tō-ji, "templo do leste", e o Sai-ji, "templo do oeste", um de cada lado do portão principal, Rashōmon. Os mosteiros de Nara tinham ficado poderosos demais; em Kyoto, o budismo ia ficar do lado de fora.',
+            'Em **823** o imperador entregou o Tō-ji a **Kūkai** — o mesmo monge do Okunoin, onde vocês andaram no escuro no dia 26. Kūkai fez dele a base do Shingon na capital, enquanto Kōyasan era o retiro na montanha. O Sai-ji desapareceu séculos atrás; o Tō-ji continua de pé no mesmo lugar desde o século IX.',
+            'O pagode, de **55 metros**, é a torre de madeira mais alta do Japão. O atual é a quinta versão — os anteriores caíram com raios e incêndios — e foi reconstruído em **1644** pelo xogum Tokugawa Iemitsu. Durante séculos foi a primeira coisa que se via de Kyoto chegando pelo sul; hoje ainda é a primeira coisa que se vê da janela do Shinkansen.',
+          ],
+        },
+        mapQuery: 'Toji Temple Kyoto',
       },
       {
         id: 'd01-almoco',
