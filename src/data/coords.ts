@@ -12,7 +12,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd19-museu-nacional': { lat: 35.7188, lng: 139.7765 },
   'd19-almoco-ueno': { lat: 35.7126, lng: 139.7731 }, // Innsyōtei, Ueno Park
   'd19-ameyoko': { lat: 35.7104, lng: 139.7745 },
-  'd19-akihabara': { lat: 35.7022, lng: 139.7741 },
+  'd19-akihabara': { lat: 35.6987, lng: 139.7714 }, // saída Electric Town
   'd19-oculos': { lat: 35.6984, lng: 139.7731 }, // JINS Atré Akihabara
   'd19-radio-kaikan': { lat: 35.6985, lng: 139.7714 }, // saída Electric Town
   'd19-hanabusa': { lat: 35.7005, lng: 139.7714 }, // Hanabusa Inari, Sotokanda 4-4
@@ -29,11 +29,11 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd21-almoco-ginza': { lat: 35.6717, lng: 139.765 }, // Mitsukoshi Ginza, depachika
   'd21-ginza': { lat: 35.6712, lng: 139.764 },
   'd21-kitte': { lat: 35.6796, lng: 139.7645 },
-  'd21-jantar-estacao': { lat: 35.6812, lng: 139.7671 }, // Estação de Tóquio
+  'd21-jantar-estacao': { lat: 35.6797, lng: 139.7648 }, // KITTE (Nemuro Hanamaru, 5º)
   'd22-meiji-jingu': { lat: 35.6764, lng: 139.6993 },
   'd22-omotesando': { lat: 35.667, lng: 139.71 },
-  'd21-bar-triad': { lat: 35.6467, lng: 139.7086 }, // Bar TRIAD, Ebisu-Nishi
-  'd22-almoco': { lat: 35.6698, lng: 139.7065 }, // Afuri Harajuku
+  'd21-bar-triad': { lat: 35.6485, lng: 139.7082 }, // Bar TRIAD, Ebisu-Nishi 1-4-1
+  'd22-almoco': { lat: 35.673, lng: 139.7037 }, // Afuri Harajuku, Sendagaya 3-63-1
   'd22-gaien': { lat: 35.6745, lng: 139.7174 },
   'd22-parco': { lat: 35.6619, lng: 139.6987 },
   'd22-cruzamento': { lat: 35.6595, lng: 139.7005 },
@@ -76,22 +76,23 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd28-gion': { lat: 35.0037, lng: 135.771 },
   'd29-bambu': { lat: 35.017, lng: 135.671 },
   'd29-tenryuji': { lat: 35.0158, lng: 135.6737 },
-  'd29-okochi-sanso': { lat: 35.0186, lng: 135.669 },
-  'd29-togetsukyo': { lat: 35.0125, lng: 135.6779 },
+  'd29-okochi-sanso': { lat: 35.0168, lng: 135.6694 },
+  'd29-sagano': { lat: 35.0171, lng: 135.6702 }, // estação Torokko Arashiyama
   'd29-kinkakuji': { lat: 35.0394, lng: 135.7292 },
   'd29-ryoanji': { lat: 35.0345, lng: 135.7183 },
   'd29-nishiki': { lat: 35.005, lng: 135.7649 },
   'd30-parque-nara': { lat: 34.6851, lng: 135.843 },
   'd30-todaiji': { lat: 34.689, lng: 135.8398 },
-  'd30-nigatsudo': { lat: 34.6891, lng: 135.8465 },
+  'd30-nigatsudo': { lat: 34.6893, lng: 135.8443 },
   'd30-kasuga-taisha': { lat: 34.6813, lng: 135.8484 },
+  'd30-isuien': { lat: 34.6855, lng: 135.8379 },
   'd30-kofukuji': { lat: 34.683, lng: 135.8318 },
   'd30-naramachi': { lat: 34.6788, lng: 135.8306 },
   'd01-tofukuji': { lat: 34.9764, lng: 135.774 },
   'd01-sanjusangendo': { lat: 34.988, lng: 135.7715 },
-  'd01-nijo': { lat: 35.0142, lng: 135.7513 }, // Castelo de Nijō, portão Higashi-Ōtemon
+  'd01-toji': { lat: 34.9808, lng: 135.7478 }, // Tō-ji, Kondō / Kōdō
   'd01-checkin-compras': { lat: 35.6719, lng: 139.7677 }, // Sotetsu Fresa Inn Ginza 3-chōme
-  'd01-rikugien': { lat: 35.7331, lng: 139.746 }, // Rikugien, portão principal
+  'd01-rikugien': { lat: 35.7324, lng: 139.7484 }, // Rikugien, portão principal (正門), Hongō-dōri
   'd01-gachapon-ikebukuro': { lat: 35.729, lng: 139.719 }, // Sunshine City World Import Mart
 
   // ── Tóquio II ──
@@ -102,5 +103,8 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd02-nihonbashi': { lat: 35.684, lng: 139.7745 },
   'd02-tekki': { lat: 35.6693, lng: 139.7677 }, // Iwate Ginga Plaza, Ginza 5-15-1
   'd02-compras-finais': { lat: 35.6749, lng: 139.7628 }, // Bic Camera Yūrakuchō
+  'd03-nakiryu-senha': { lat: 35.7287, lng: 139.7304 }, // Nakiryu, Minami-Ōtsuka 2-34-4
+  'd03-sano-miso': { lat: 35.6956, lng: 139.8257 }, // Sano Miso, Kameido 1-35-8
+  'd03-nakiryu': { lat: 35.7287, lng: 139.7304 },
   'd03-haneda': { lat: 35.5449, lng: 139.7678 }, // Terminal 3 (internacional)
 };

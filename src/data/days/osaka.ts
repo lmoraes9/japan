@@ -72,18 +72,18 @@ export const osakaDays: Day[] = [
             label: 'Sabores do Mar Interior',
             items: [
               {
-                name: 'Kamoi',
+                name: 'Tsurugata',
                 specialty: true,
-                note: '11:00–17:00 · sushi dentro de um armazém convertido, de frente para o canal. Peçam o *mamakari-zushi* — a sardinha local que, diz a lenda, é tão boa que você pede arroz emprestado ao vizinho.',
+                note: '11:00–14:00, **fecha seg** — quarta abre · pousada **de 1744** na beira do canal, a poucos passos do Ōhara; almoço em bandeja com o peixe do Mar Interior. É o almoço do dia.',
               },
               {
-                name: 'Tsurugata',
-                note: '11:00–14:00 · pousada de 1744, almoço em bandeja',
+                name: 'Kamoi — hoje não',
+                note: '**fecha às quartas**, e o dia 25 é quarta. Era o sushi num armazém convertido, com o *mamakari-zushi* — a sardinha local que, diz a lenda, é tão boa que você pede arroz emprestado ao vizinho. Fica para quem voltar a Kurashiki noutro dia da semana.',
               },
             ],
           },
         ],
-        mapQuery: 'Kamoi Kurashiki Bikan',
+        mapQuery: 'Ryokan Kurashiki Tsurugata',
       },
       {
         id: 'd25-trem-himeji',
@@ -102,10 +102,10 @@ export const osakaDays: Day[] = [
         kind: 'sight',
         name: 'Castelo de Himeji',
         jp: '姫路城',
-        facts: '**09:00–17:00 · última entrada 16:00** · ¥1.000 (¥1.050 com o jardim Kōko-en) · 15 min a pé em linha reta da estação · reservem **2h**',
+        facts: '**09:00–17:00 · última entrada 16:00** · **¥2.500** para estrangeiros desde março de 2026 (¥2.600 com o jardim Kōko-en) · 15 min a pé em linha reta da estação · reservem **2h**',
         paragraphs: [
           'Vocês vão ver a avenida da estação e o castelo lá no fundo, exatamente no eixo. A subida até o torreão tem escadas de madeira muito íngremes e vocês vão descalçar o sapato — meias de novo.',
-          '**Kōko-en**, ao lado (09:00–17:00, ¥310), são nove jardins reconstruídos sobre as fundações das antigas residências de samurai. Em novembro, o bordo está no auge e tem casa de chá. Se sobrar meia hora, vale.',
+          '**Kōko-en**, ao lado (09:00–17:00, ¥400), são nove jardins reconstruídos sobre as fundações das antigas residências de samurai. Em novembro, o bordo está no auge e tem casa de chá. Se sobrar meia hora, vale.',
         ],
         history: {
           paragraphs: [
@@ -160,7 +160,7 @@ export const osakaDays: Day[] = [
               {
                 name: 'Okonomiyaki Mizuno',
                 specialty: true,
-                note: '11:00–22:00, fecha seg · Bib Gourmand do Michelin. Versão de Osaka, tudo misturado na massa. Fila.',
+                note: '11:00–22:00, fecha qui · Bib Gourmand do Michelin. Versão de Osaka, tudo misturado na massa. Fila.',
               },
               {
                 name: 'Hōzenji Yokochō',

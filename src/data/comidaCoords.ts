@@ -10,14 +10,12 @@
 export const COMIDA_COORDS: Record<string, { lat: number; lng: number }> = {
   // ── Tóquio · sushi ──
   'sushi-zanmai-akiba': { lat: 35.699, lng: 139.7717 },
-  'midori-shinjuku': { lat: 35.6907, lng: 139.702 },
   'midori-shibuya': { lat: 35.6582, lng: 139.6993 }, // Shibuya Mark City
   uobei: { lat: 35.6577, lng: 139.6985 },
   'tsukiji-sushisei': { lat: 35.6653, lng: 139.7715 },
   'sushizanmai-honten': { lat: 35.6656, lng: 139.7708 },
   hanamaru: { lat: 35.6796, lng: 139.7645 }, // KITTE 5F
-  'toyosu-sushi': { lat: 35.645, lng: 139.786 }, // prédio 6
-  'midori-ginza': { lat: 35.6708, lng: 139.7635 },
+  'midori-ginza': { lat: 35.669, lng: 139.7592 }, // Ginza 8-3, prédio Yamashita
   kyubey: { lat: 35.669, lng: 139.7616 },
   onodera: { lat: 35.6695, lng: 139.766 },
   'sushi-azabu': { lat: 35.6605, lng: 139.7415 }, // Azabudai Hills Tower Plaza
@@ -29,6 +27,7 @@ export const COMIDA_COORDS: Record<string, { lat: number; lng: number }> = {
   ichiran: { lat: 35.6945, lng: 139.7013 },
   fuunji: { lat: 35.687, lng: 139.6998 },
   kikanbo: { lat: 35.6936, lng: 139.7705 },
+  nakiryu: { lat: 35.7287, lng: 139.7304 }, // Minami-Ōtsuka 2-34-4
   kagari: { lat: 35.6717, lng: 139.765 },
   'tokyo-ramen-street': { lat: 35.6809, lng: 139.7681 }, // First Avenue, lado Yaesu
   afuri: { lat: 35.6698, lng: 139.7065 },
@@ -36,6 +35,7 @@ export const COMIDA_COORDS: Record<string, { lat: number; lng: number }> = {
   'gyoza-ro': { lat: 35.6683, lng: 139.706 },
   mansei: { lat: 35.6963, lng: 139.7708 },
   marugo: { lat: 35.6994, lng: 139.773 },
+  tonki: { lat: 35.6337, lng: 139.7143 }, // Shimo-Meguro 1-1-2
   'gyukatsu-depachika': { lat: 35.6716, lng: 139.7647 }, // Mitsukoshi Ginza
   maisen: { lat: 35.6688, lng: 139.7092 },
   wagyumafia: { lat: 35.644, lng: 139.699 }, // Nakameguro
@@ -50,7 +50,6 @@ export const COMIDA_COORDS: Record<string, { lat: number; lng: number }> = {
   'tsukiji-manha': { lat: 35.6654, lng: 139.7707 },
   marutake: { lat: 35.666, lng: 139.77 },
   'ostras-tsukiji': { lat: 35.6657, lng: 139.7702 },
-  toyosu: { lat: 35.645, lng: 139.786 },
   'depachika-ginza': { lat: 35.6716, lng: 139.7647 },
   'depachika-nihonbashi': { lat: 35.6866, lng: 139.7737 },
   'ameyoko-rua': { lat: 35.7104, lng: 139.7745 },
@@ -69,7 +68,7 @@ export const COMIDA_COORDS: Record<string, { lat: number; lng: number }> = {
   // ── Hiroshima e Miyajima ──
   nagataya: { lat: 34.3947, lng: 132.4531 },
   okonomimura: { lat: 34.3925, lng: 132.463 },
-  hassei: { lat: 34.387, lng: 132.463 },
+  hassei: { lat: 34.3894, lng: 132.4652 },
   bakudanya: { lat: 34.3948, lng: 132.4608 },
   suzumeya: { lat: 34.3945, lng: 132.4575 },
   'anago-ueno': { lat: 34.3116, lng: 132.303 }, // Miyajimaguchi
@@ -96,14 +95,13 @@ export const COMIDA_COORDS: Record<string, { lat: number; lng: number }> = {
   pontocho: { lat: 35.006, lng: 135.771 },
   omen: { lat: 35.0244, lng: 135.7935 },
   yoshimura: { lat: 35.013, lng: 135.6775 },
-  hisago: { lat: 35.0, lng: 135.779 },
   okutan: { lat: 35.011, lng: 135.7935 },
   shigetsu: { lat: 35.0158, lng: 135.6737 },
   nishiki: { lat: 35.005, lng: 135.7649 },
   'tako-tamago': { lat: 35.005, lng: 135.7649 },
   tsukemono: { lat: 35.005, lng: 135.7649 },
   'donut-konnamonja': { lat: 35.005, lng: 135.761 },
-  torisei: { lat: 34.9325, lng: 135.7585 },
+  torisei: { lat: 34.9311, lng: 135.7621 },
   kizakura: { lat: 34.9325, lng: 135.7595 },
   otesuji: { lat: 34.9335, lng: 135.7575 },
   'kyoto-ramen-koji': { lat: 34.9858, lng: 135.7588 },

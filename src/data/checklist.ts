@@ -50,7 +50,7 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'miso',
     group: 'compras',
     title: 'Missô artesanal (p/ Priscila)',
-    subtitle: 'Kuradai Miso (perto do Nishiki, dia 29) · Honda Miso (Kyoto, fecha dom) · Sano Miso (Tóquio/Kameido, tem orgânico)',
+    subtitle: '**Sano Miso** (Kameido, dia 3 de manhã, ~70 tipos) · **Maboroshi no Miso** do Yamauchi Honten no Ginza Kumamotokan (dia 2, ligar antes: 03-3572-1147) · em Kyoto: Kuradai Miso (Rokkaku, 15 min do hotel, fecha qui) e o branco (Saikyō) do Honda Miso, no depachika do Takashimaya de Shijō-Kawaramachi, a 10 min do hotel · **lacrado e com rótulo**, por causa da alfândega',
   },
   {
     id: 'royce',
@@ -186,8 +186,8 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'reserva-torokko',
     dueAt: '2026-10-29T00:00:00+09:00',
     group: 'pretrip',
-    title: 'Reservar trem panorâmico Sagano (Torokko)',
-    subtitle: 'Arashiyama, dia 29/11 · assentos esgotam com semanas de antecedência em novembro',
+    title: 'Reservar o trem Sagano (Torokko), ida e volta',
+    subtitle: 'Abre **28/10 ao meio-dia em Brasília** (0:00 em Tóquio) · Sagano 5 às 11:05 e Sagano 6 às 11:30 do dia 29/11 · só online, esgota rápido',
   },
   {
     id: 'reserva-shinkansen',

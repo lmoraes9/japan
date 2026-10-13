@@ -115,7 +115,8 @@ const BAIRRO_DA_PARADA: Record<string, string> = {
   'd02-nihonbashi': 'Nihonbashi',
   'd02-jantar-despedida': 'Ginza',
   'd02-konbini': 'Ginza',
-  'd03-ultima-manha': 'Tsukiji e Toyosu',
+  'd03-nakiryu-senha': 'Ōtsuka',
+  'd03-nakiryu': 'Ōtsuka',
 
   // Kamakura
   'd20-komachi': 'Komachi-dōri',

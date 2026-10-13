@@ -12,7 +12,7 @@ export const tokyo2Days: Day[] = [
       {
         label: 'A manhã é opcional — decidam na hora',
         tone: 'info',
-        text: 'O dia **começa de verdade no curry, às 11:20**. O que vem antes disso é um passeio curto de graça, para o caso de vocês acordarem com pique. Se não acordarem, durmam: é o décimo quinto dia de viagem, vocês têm mala para fechar e recibo para separar, e amanhã a manhã some no aeroporto por causa do reembolso do imposto. **Pular não custa nada ao roteiro.**',
+        text: 'O dia **começa de verdade no curry, às 11:00**. O que vem antes disso é um passeio curto de graça, para o caso de vocês acordarem com pique. Se não acordarem, durmam: é o décimo quinto dia de viagem, vocês têm mala para fechar e recibo para separar, e amanhã a manhã some no aeroporto por causa do reembolso do imposto. **Pular não custa nada ao roteiro.**',
       },
     ],
     stops: [
@@ -53,14 +53,14 @@ export const tokyo2Days: Day[] = [
       },
       {
         id: 'd02-jimbocho',
-        time: '11:20',
+        time: '11:00',
         timeLabel: 'almoço',
         kind: 'food',
         name: 'Curry em Jimbōchō — o bairro do curry',
         jp: '神保町',
-        facts: '400+ casas de curry no bairro · **cheguem na abertura, 11:00**, para furar a fila · 14 min ladeira abaixo do Yushima Seidō, ou metrô direto de Ginza',
+        facts: '400+ casas de curry no bairro · **cheguem na abertura, 11:00**, para furar a fila · 14 min ladeira abaixo do Yushima Seidō, ou, de Ginza, Toei Mita de Hibiya, 2 paradas',
         paragraphs: [
-          'Jimbōchō é o bairro dos sebos e livrarias — e virou, ninguém sabe bem por quê, a capital do curry de Tóquio. Do Yushima Seidō é ladeira abaixo; se pularam a manhã, é metrô direto de Ginza. A jogada é almoçar **cedo**: às 12h30 as filas dobram.',
+          'Jimbōchō é o bairro dos sebos e livrarias — e virou, ninguém sabe bem por quê, a capital do curry de Tóquio. Do Yushima Seidō é ladeira abaixo; se pularam a manhã, é a Toei Mita de Hibiya, duas paradas. A jogada é almoçar **cedo**: às 12h30 as filas dobram.',
         ],
         eat: [
           {
@@ -113,7 +113,7 @@ export const tokyo2Days: Day[] = [
               {
                 name: 'Nihonbashi Tamai',
                 specialty: true,
-                note: '11:00–22:00 · *anago* (enguia-do-mar), a versão de Tóquio. Mais leve que o unagi, e muito bom.',
+                note: 'dia útil 11:00–14:30 (último pedido 14:00) e 17:00–21:30 · *anago* (enguia-do-mar), a versão de Tóquio. Mais leve que o unagi, e muito bom.',
               },
               {
                 name: 'Taimeiken',
@@ -215,7 +215,7 @@ export const tokyo2Days: Day[] = [
         name: 'Última varredura em Ginza — e o Oura Ring',
         facts: 'Ginza **11:00–21:00** · Bic Camera Yūrakuchō **10:00–22:00**',
         paragraphs: [
-          'O que faltou de Muji e Uniqlo, presentes, doces do depachika — e o **missô artesanal**, se ficou para a última hora (balcões do depachika do Mitsukoshi). O **Bic Camera Yūrakuchō** fica a dois minutos de Ginza e tem os andares de eletrodoméstico com modelos de exportação, caso algo tenha escapado em Akihabara.',
+          'O que faltou de Muji e Uniqlo, presentes, doces do depachika. No caminho entre a Iwate Ginga Plaza e o Bic Camera, na Ginza 5-3-16 (saída B9 da Ginza), fica o **Ginza Kumamotokan**, a loja da província de Kumamoto, **11:00–19:00**: é onde se procura a *Maboroshi no Miso* (まぼろしの味噌) do **Yamauchi Honten**, missô de cevada e arroz de uma casa de 1751, ~¥800 o pacote de 500 g, já lacrado e rotulado. Não deu para confirmar o estoque — liguem antes, **03-3572-1147**; se não tiver, a casa vende online e o Sano Miso de amanhã cobre o resto. O **Bic Camera Yūrakuchō** fica a dois minutos de Ginza e tem os andares de eletrodoméstico com modelos de exportação, caso algo tenha escapado em Akihabara.',
           'É aqui que se compra o **Oura Ring**, com o número que o kit do dia 21 indicou: Ring 4 a ¥52.800 (prata, preto, stealth) ou ¥59.800 (dourado, rosé); Ring 5, lançado em junho, ¥65.800–81.800. Sai tax-free (restituição em Haneda amanhã). Antes de pagar, saibam o ponto fraco: o **Brasil não está na lista de países da assinatura** (¥999/mês, obrigatória para os dados), que exige cartão com endereço de cobrança num país suportado — há brasileiros usando com cartão internacional, mas não há garantia oficial, e a garantia do produto pode não valer fora dessas regiões. Em iene custa o mesmo que nos EUA; contra o Brasil, onde não há venda oficial, é bem mais barato.',
         ],
         mapQuery: 'Bic Camera Yurakucho',
@@ -233,7 +233,7 @@ export const tokyo2Days: Day[] = [
               {
                 name: 'Umegaoka Sushi no Midori Ginza',
                 specialty: true,
-                note: '11:00–21:00 · o melhor custo-benefício de Ginza, ~¥3.000. Peguem senha cedo pelo painel eletrônico.',
+                note: '11:00–15:00 e 17:00–21:00, **último pedido 20:30** · Ginza 8-chōme, térreo do prédio Yamashita, debaixo da via expressa · o melhor custo-benefício de Ginza, ~¥3.000. **Peguem a senha na máquina da porta quando chegarem a Ginza, por volta das 17:45** e voltem na hora chamada: às 19:30, com fila, o último pedido aperta.',
               },
               {
                 name: 'Sushi Azabu',
@@ -242,7 +242,7 @@ export const tokyo2Days: Day[] = [
               },
               {
                 name: 'Kyūbey Ginza',
-                note: '17:00–22:00, fecha dom · omakase de balcão desde 1935, ~¥20.000. Reserva.',
+                note: '17:00–22:00, fecha dom e seg · omakase de balcão desde 1935, ~¥20.000. Reserva.',
               },
               {
                 name: 'Sushi Ginza Onodera',
@@ -279,40 +279,51 @@ export const tokyo2Days: Day[] = [
     id: 'd2026-12-03',
     date: '2026-12-03',
     stageId: 'tokyo2',
-    title: 'Manhã livre e Haneda',
-    subtitle: 'Voo às 20:25. Estejam no aeroporto às 17:00 — o reembolso do imposto leva tempo.',
-    chips: ['partida', 'tax refund', 'duty free'],
+    title: 'Nakiryu, o missô do Sano, e Haneda',
+    subtitle: 'Senha do ramen às 8h, missô em Kameido às 10h, o último ramen ao meio-dia. Voo às 20:25 — estejam no aeroporto às 17:00.',
+    chips: ['ramen', 'missô', 'partida', 'tax refund'],
     stops: [
       {
-        id: 'd03-ultima-manha',
-        time: '08:00',
-        timeLabel: 'livre',
+        id: 'd03-nakiryu-senha',
+        time: '07:30',
+        timeLabel: 'senha',
         kind: 'food',
-        name: 'Última manhã',
-        eat: [
-          {
-            label: 'Quatro jeitos de gastar bem',
-            items: [
-              {
-                name: 'Café da manhã em Tsukiji',
-                note: '05:00–14:00 · se quiserem repetir. Quinta-feira o mercado está cheio e bom.',
-              },
-              {
-                name: 'Mercado de Toyosu',
-                note: '05:00–15:00, fecha dom · o mercado atacadista novo. Dá para ver os leilões de atum da galeria envidraçada se chegarem antes das 6h30 — e o sushi do prédio 6 é excelente.',
-              },
-              {
-                name: 'Shinjuku Gyoen',
-                note: '**09:00–16:30** (out–mar), última entrada 16:00, **fecha seg** — quinta está aberto · **¥500** · o jardim imperial de 58 hectares que virou parque nacional: um jardim japonês, um francês e um inglês no mesmo terreno, e no início de dezembro ainda com bordo vermelho. É o melhor lugar de Tóquio para uma manhã sem pressa. Metrô Marunouchi de Ginza até Shinjuku-Gyoenmae, 15 min; a estufa tropical fecha meia hora antes do parque.',
-              },
-              {
-                name: 'Nada',
-                note: 'arrumar mala com calma também é uma escolha legítima no décimo quinto dia',
-              },
-            ],
-          },
+        name: 'Nakiryu — pegar a senha do ramen',
+        jp: '創作麺工房 鳴龍',
+        facts: 'Minami-Ōtsuka 2-34-4 · **senhas a partir das 08:00** num tablet na porta · turnos de 30 min entre 11:00 e 15:30 · **fecha dom e feriado** (desde abril de 2026; quinta abre) · só dinheiro',
+        paragraphs: [
+          'O ramen mais disputado de Tóquio entre os que custam menos de ¥1.500. Teve estrela Michelin de 2017 a 2023 e hoje está no **Bib Gourmand**; está no top-100 de ramen do Tabelog todo ano desde 2018. O famoso é o **tantanmen** — gergelim, pimenta sichuan e um caldo de frango e mariscos que não pesa —, e o shoyu é o que os japoneses defendem.',
+          'O sistema mudou em 2024: não há mais fila de horas, mas **a senha é presencial, no próprio dia**, e os primeiros horários acabam em minutos. Cheguem às 7:30, peguem um turno de **11:30 ou 12:00** (dá tempo do Sano Miso no meio) e voltem na hora marcada. Fazer check-out antes de sair às 7h: as malas, arrumadas ontem, ficam na recepção.',
+          'Se por azar não sobrar senha, a manhã vira o plano de antes: Marunouchi de volta até Ginza e **café da manhã em Tsukiji**, Hibiya Line, 3 min. Confiram o X **@NAKIRYU** na véspera — eles avisam fechamento extra por lá.',
         ],
-        mapQuery: 'Tsukiji Outer Market',
+        mapQuery: 'Nakiryu Minami-Otsuka',
+      },
+      {
+        id: 'd03-sano-miso',
+        time: '10:00',
+        timeLabel: 'missô',
+        kind: 'shopping',
+        name: 'Sano Miso — o missô para levar',
+        jp: '佐野みそ 亀戸本店',
+        facts: 'Kameido 1-35-8 · **10:00–18:30, todos os dias** · 4 min da JR Kameido · ~70 missôs do Japão inteiro, vendidos a peso',
+        paragraphs: [
+          'Casa de 1934 especializada só em missô: uns setenta tipos de todas as regiões do Japão, do branco e doce ao escuro e envelhecido, e as misturas da casa — a assinatura é o **金亀子みそ 赤**, feito com *koji* de arroz glutinoso. Os vendedores deixam provar e ajudam a escolher.',
+          'Para a alfândega brasileira, o que passa sem discussão é alimento **lacrado e com rótulo** (nome, ingredientes, origem). Como aqui se compra a peso, peçam embalado para viagem: **海外に持って帰るので、密封してラベルを付けてください** ("vou levar para o exterior, podem lacrar e pôr rótulo?"). Missô cru (生) continua fermentando e estufa: prefiram o pote ou o saco com válvula, e de pé na mala.',
+        ],
+        mapQuery: 'Sano Miso Kameido',
+      },
+      {
+        id: 'd03-nakiryu',
+        time: '11:30',
+        timeLabel: 'ramen',
+        kind: 'food',
+        name: 'Nakiryu — o último ramen',
+        jp: '鳴龍',
+        facts: 'tantanmen ou shoyu, **~¥1.300** · 12 lugares · máquina de tíquete, só dinheiro · contem 30–60 min entre a hora da senha e sentar',
+        paragraphs: [
+          'Na hora da senha, entrem na fila curta da porta e comprem o tíquete na máquina. Peçam um tantanmen e um shoyu para dividir o veredito. Depois, Marunouchi direto até Ginza (25 min): no hotel antes das 13:00, com duas horas e meia para respirar antes de sair para Haneda.',
+        ],
+        mapQuery: 'Nakiryu Minami-Otsuka',
       },
       {
         id: 'd03-sair-hotel',
@@ -320,7 +331,7 @@ export const tokyo2Days: Day[] = [
         timeLabel: 'hotel',
         kind: 'hotel',
         name: 'Sair do hotel',
-        facts: 'Ginza → Haneda T3: **~35 min** de metrô/monotrilho, ou táxi ~¥7.000',
+        facts: 'Ginza → Haneda T3: **~40 min** no trem direto Toei Asakusa/Keikyu, ou táxi ~¥7.000',
       },
       {
         id: 'd03-haneda',
@@ -330,7 +341,7 @@ export const tokyo2Days: Day[] = [
         name: 'Haneda, Terminal 3 — a ordem das coisas',
         facts: 'Voo JL7014 às **20:25** · deixem **3h20** de margem — com o sistema novo de reembolso, a fila pode ser bem maior que antes',
         paragraphs: [
-          '1. **Reembolso do imposto primeiro**, antes do check-in de bagagem. Desde **1º de novembro de 2026** o Japão mudou de sistema: vocês pagaram o imposto em todas as lojas e recebem tudo de volta aqui. O balcão de isenção fica no **3º andar, no saguão de partidas, em frente ao check-in K** — e a JAL fica nas ilhas F a K, ali mesmo. Escaneiem o passaporte: verde, acabou; vermelho, a alfândega quer ver as mercadorias — por isso elas não podem estar dentro da mala despachada.',
+          '1. **Reembolso do imposto primeiro**, antes do check-in de bagagem. Desde **1º de novembro de 2026** o Japão mudou de sistema: vocês pagaram o imposto em todas as lojas e recebem tudo de volta aqui. O balcão de isenção fica no **3º andar, no saguão de partidas, em frente ao check-in K**. O voo é operado pela **American**: o check-in é no balcão dela, não no da JAL — confiram a letra no painel. Escaneiem o passaporte: verde, acabou; vermelho, a alfândega quer ver as mercadorias — por isso elas não podem estar dentro da mala despachada.',
           '2. **Check-in e despacho** — só depois de liberadas as mercadorias inspecionadas.',
           '3. **Imigração e segurança.**',
           "4. **Última compra** na área livre de impostos — é aí que entra o Royce' Nama Chocolate, logo abaixo.",

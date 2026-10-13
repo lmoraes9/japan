@@ -11,7 +11,7 @@ import { STAGES } from '@/data/trip';
 import { START, LEGS } from '@/data/legs';
 import { formatDayLabel, itineraryDate } from '@/lib/now';
 import { ALL_DAYS } from '@/data/days';
-import { baseDaManha, navigateUrl } from '@/lib/mapsLinks';
+import { baseDaManha, navigateUrl, pontoDe, regiaoDoDia } from '@/lib/mapsLinks';
 import { diasDoMapa, infoDaParada, linhasDoDia } from '@/lib/estacoes/dias';
 import { usePanZoom } from '@/lib/estacoes/usePanZoom';
 import { Legs } from '../Legs';
@@ -675,8 +675,8 @@ function FolhaDoPonto({ ponto, mapa, corDoDia }: { ponto: Ponto; mapa: Mapa; cor
   const cor = corDoDia.get(day.id) ?? 'var(--accent)';
   const dias = ALL_DAYS.findIndex((d) => d.id === day.id) + 1;
   const legs = anterior ? LEGS[anterior.id] ?? [] : START[day.id] ?? [];
-  const origem = anterior ? anterior.mapQuery ?? anterior.name : baseDaManha(day.id, day.stageId);
-  const destino = stop.mapQuery ?? stop.name;
+  const origem = anterior ? pontoDe(anterior) : baseDaManha(day.id, day.stageId);
+  const destino = pontoDe(stop);
   const nav = navigateUrl(stop);
   const interno = estacao ? internoById(estacao.id) : undefined;
 
@@ -711,7 +711,7 @@ function FolhaDoPonto({ ponto, mapa, corDoDia }: { ponto: Ponto; mapa: Mapa; cor
           <Rich text={stop.paragraphs[0]} />
         </p>
       )}
-      {legs.length > 0 && <Legs legs={legs} title={anterior ? `De ${anterior.name.split(' — ')[0]} até aqui` : 'Do hotel até aqui'} origem={origem} destino={destino} />}
+      {legs.length > 0 && <Legs legs={legs} title={anterior ? `De ${anterior.name.split(' — ')[0]} até aqui` : 'Do hotel até aqui'} origem={origem} destino={destino} regiao={regiaoDoDia(day.id)} />}
       {stop.eat && <EatBlocks blocks={stop.eat} stopId={stop.id} dayId={day.id} />}
       <div className="flex flex-wrap gap-2">
         <Link href={`/roteiro/${day.id}#${stop.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-hairline px-4 py-2 text-[13px] font-medium text-foreground/80">

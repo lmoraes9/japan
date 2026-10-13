@@ -108,11 +108,11 @@ export const tokyo1Days: Day[] = [
     stops: [
       {
         id: 'd19-kuramae',
-        time: '07:00',
+        time: '07:30',
         timeLabel: 'café',
         kind: 'food',
         name: 'Café da manhã em Asakusa, antes do templo',
-        facts: 'Saindo de Kabukichō ~06:50 · Shinjuku → Asakusa **~40 min**',
+        facts: 'Saindo do hotel **~06:40** · Shinjuku → Asakusa **~50 min** (a Ginza Line sozinha leva 26)',
         paragraphs: [
           'O café vem **antes** do templo de propósito: as barracas da Nakamise só levantam a porta às 09:00, e não faz sentido chegar ao Sensō-ji cedo demais para ter de sair justamente quando ele fica interessante.',
         ],
@@ -123,7 +123,7 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Kissaten Tomorrow',
                 specialty: true,
-                note: '**abre 06:30** · conjunto de café da manhã a partir de **¥740**: torrada com ovo, ou onigiri, com bebida. É *kissaten* de verdade — o café antigo japonês, de balcão de fórmica e cadeira de veludo. Chegando 07:40 vocês comem sem pressa e entram no templo às 08:00.',
+                note: '**abre 06:30** · conjunto de café da manhã a partir de **¥740**: torrada com ovo, ou onigiri, com bebida. É *kissaten* de verdade — o café antigo japonês, de balcão de fórmica e cadeira de veludo. Chegando 07:30 vocês comem sem pressa e entram no templo às 08:00.',
               },
               {
                 name: 'MISOJYU',
@@ -174,7 +174,7 @@ export const tokyo1Days: Day[] = [
         jp: 'かっぱ橋道具街',
         facts: 'Maioria **09:00–17:00** · muitas lojas fecham domingo · 800 m de rua',
         paragraphs: [
-          'Saindo do templo, parem no **Kagetsudō** (abre 09:00) pelo melonpan gigante de ¥250 e venham comendo pelo caminho — são 10 minutos a pé até aqui. A fila do Kagetsudō começa por volta das 10:00 e ele fecha quando acaba, então 09:15 é a hora exata.',
+          'Saindo do templo, parem no **Kagetsudō** (abre 09:00) pelo melonpan gigante de ¥280 e venham comendo pelo caminho — são 10 minutos a pé até aqui. A fila do Kagetsudō começa por volta das 10:00 e ele fecha quando acaba, então 09:15 é a hora exata.',
           'A rua de utensílios que abastece todo restaurante de Tóquio. É aqui que vocês compram **facas japonesas** — e onde a loja afia e grava o nome de vocês em japonês na lâmina, geralmente de graça.',
           '**Qual comprar:** um *gyuto* de 210 mm resolve 90% da cozinha; um *petty* de 150 mm resolve o resto. Aço carbono corta melhor e enferruja se você deixar molhado — inox (VG-10, SG2) é mais realista para o dia a dia. **Faca vai despachada, nunca na bagagem de mão.**',
         ],
@@ -373,7 +373,7 @@ export const tokyo1Days: Day[] = [
         facts: 'Exame **grátis, ~10 min, sem receita** · armação + lentes desde **¥5.900–8.000** (≈ R$210–290) · pronto em **30–60 min** · tax-free',
         paragraphs: [
           'O "lugar que mede o grau e faz na hora" é isto: as redes **JINS, Zoff e OWNDAYS** fazem exatamente esse serviço, e há loja aqui em Akihabara — a **JINS fica no Atré, colado na saída da estação**, e a **OWNDAYS na Chūō-dōri**. Levem o óculos atual para calibrar.',
-          'A jogada: façam o exame **agora**, escolham a armação, e deixem fazendo enquanto vocês terminam o Super Potato e o Gachapon Kaikan. Retirem ~18:45 e sigam para o jantar de óculos novo.',
+          'A jogada: façam o exame **agora**, escolham a armação, e deixem fazendo: usem a espera no que ficou pela metade no bairro (o Yodobashi, do outro lado da estação, vai até as 22h). Retirem ~18:45 e sigam para o jantar de óculos novo.',
           'Grau muito alto pode pedir lente fina (custo extra) ou uns dias de espera — por isso este stop está no dia 19: sobra viagem inteira para retirar. **Plano B:** as três redes têm lojas em Shinjuku, perto do hotel, abertas até ~21h — o botão Navegar acha a mais próxima de onde estiverem.',
         ],
         mapQuery: 'JINS Atre Akihabara',
@@ -421,7 +421,7 @@ export const tokyo1Days: Day[] = [
     date: '2026-11-20',
     stageId: 'tokyo1',
     title: 'Kamakura — a primeira capital dos samurais',
-    subtitle: '1h de Tóquio. Bate-volta em dia de semana, com o momiji de Kamakura no pico exato.',
+    subtitle: '1h de Tóquio. Bate-volta em dia de semana, com o momiji de Kamakura começando a virar — o pico lá costuma ser do fim de novembro ao começo de dezembro.',
     chips: ['história', 'bate-volta', 'momiji'],
     notes: [
       {
@@ -504,7 +504,7 @@ export const tokyo1Days: Day[] = [
             items: [
               {
                 name: 'Kamakura Matsubara-an',
-                note: '11:30–14:30 / 17:30–20:00 · soba artesanal numa casa antiga com jardim. O melhor almoço da cidade. Reservem.',
+                note: '11:00–21:30 · soba artesanal numa casa antiga com jardim. **Não fica na Komachi-dōri**: é em Yuigahama 4-10-3, a 3 min da estação Yuigahama do Enoden. Se escolherem, almocem no caminho para Hase — desçam do Enoden em Yuigahama (2ª parada) e sigam depois para Hase.',
               },
               {
                 name: 'Shirasu-don',
@@ -574,10 +574,6 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Omoide Yokochō',
                 note: '17:00–00:00 · yakitori em banquinho, fumaça, cerveja. Os becos de 1946.',
-              },
-              {
-                name: 'Sushi no Midori Shinjuku',
-                note: '11:00–22:00 · relação qualidade-preço absurda, fila longa; peguem senha e voltem depois',
               },
             ],
           },
@@ -669,7 +665,7 @@ export const tokyo1Days: Day[] = [
         name: 'Almoço em Ginza — o katsu sando',
         facts: 'Depachika do Mitsukoshi **10:00–20:00** · o sanduíche vai na mão, o almoço é no jardim',
         paragraphs: [
-          'O almoço aqui é o sanduíche, não um restaurante: desçam ao **depachika do Mitsukoshi**, peguem um **gyūkatsu sando** de casa de carne (¥1.500–3.000) e comam nos Jardins Hamarikyū ou num banco da Namiki-dōri. O Shima, que era o plano original, **exige encomenda por telefone** — saiu do roteiro por isso. O depachika não exige nada, e o sanduíche é a versão sensata do mesmo prato.',
+          'O almoço aqui é o sanduíche, não um restaurante: desçam ao **depachika do Mitsukoshi**, peguem um **gyūkatsu sando** de casa de carne (¥1.500–3.000) e comam num banco da Namiki-dōri. O Shima, que era o plano original, **exige encomenda por telefone** — saiu do roteiro por isso. O depachika não exige nada, e o sanduíche é a versão sensata do mesmo prato.',
         ],
         eat: [
           {
@@ -700,7 +696,7 @@ export const tokyo1Days: Day[] = [
         kind: 'shopping',
         name: 'Ginza — o quadrilátero das compras',
         jp: '銀座',
-        facts: 'Quase tudo **11:00–21:00** · sábado das 12:00 às 18:00 a avenida Chūō vira **calçadão**',
+        facts: 'Quase tudo **11:00–21:00** · sábado das 12:00 às 17:00 (de outubro a março) a avenida Chūō vira **calçadão**',
         paragraphs: [
           'Tudo que está na lista de vocês, exceto o robô aspirador, cabe num raio de 500 metros. A ordem sugerida abaixo é por quanto tempo cada coisa toma.',
         ],
@@ -745,12 +741,12 @@ export const tokyo1Days: Day[] = [
       },
       {
         id: 'd21-kitte',
-        time: '17:00',
+        time: '16:15',
         timeLabel: 'vista',
         kind: 'view',
         name: 'Estação de Tóquio + terraço do KITTE',
         jp: '東京駅',
-        facts: 'Terraço do KITTE **11:00–23:00** · **grátis** · pôr do sol ~16:30',
+        facts: 'Terraço do KITTE **11:00–23:00** · **grátis** · pôr do sol ~16:30 — estejam lá em cima às 16:15',
         paragraphs: [
           'A fachada de tijolo de 1914 do lado Marunouchi foi restaurada em 2012 de volta às três cúpulas originais (perdidas no bombardeio de 1945). O melhor lugar para vê-la de graça é o terraço do KITTE, do outro lado da praça — vale mais que qualquer observatório pago da cidade nesse horário.',
         ],
@@ -773,7 +769,7 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Nemuro Hanamaru — KITTE 5º andar',
                 specialty: true,
-                note: '11:00–22:00 · **o sushi de esteira que vale a pena**: kaiten de Hokkaidō, peixe muito acima da média para um giratório, ¥150–500 o par. Peguem senha na entrada. É subir do terraço do KITTE, onde vocês já vão estar às 17:00.',
+                note: '11:00–22:00 · **o sushi de esteira que vale a pena**: kaiten de Hokkaidō, peixe muito acima da média para um giratório, ¥150–500 o par. Peguem senha na entrada. É descer do terraço do KITTE, onde vocês já vão estar.',
               },
               {
                 name: 'Tokyo Ramen Street — B1 do First Avenue',
@@ -791,11 +787,10 @@ export const tokyo1Days: Day[] = [
         kind: 'food',
         name: 'Bar TRIAD, em Ebisu',
         jp: 'バー トライアド',
-        facts: '**19:00–02:00 · fecha domingo e segunda** · 4º andar do Uchino Building, Ebisu-Nishi 1-4-1 · ~5 min a pé da estação de Ebisu',
+        facts: '**19:00–02:00, todos os dias** · 4º andar do Uchino Building, Ebisu-Nishi 1-4-1 · ~5 min a pé da estação de Ebisu',
         paragraphs: [
-          'Apesar de ser endereço de Shibuya-ku, o TRIAD fica em **Ebisu**, não no Shibuya do cruzamento — são duas paradas da Yamanote a partir de Shibuya, e da Estação de Tóquio dá uns 20 minutos pela mesma linha.',
+          'Apesar de ser endereço de Shibuya-ku, o TRIAD fica em **Ebisu**, não no Shibuya do cruzamento — é a parada seguinte a Shibuya na Yamanote, e da Estação de Tóquio dá uns 20 minutos pela mesma linha.',
           'Abriu em 2017 como a terceira casa do Bar Tram, e é a mais descontraída e a maior das três. O nome é o acorde de três notas — a ideia é a harmonia entre gente, bebida e música. O forte são os clássicos bem-feitos e os coquetéis com licor de ervas, e **dá para pedir mais doce ou mais forte**, o que resolve a vida de quem não é de bar de coquetel.',
-          'Está hoje porque hoje é **sábado**: eles fecham domingo e segunda, e o domingo é justamente o dia de Shibuya no roteiro.',
         ],
         mapQuery: 'Bar TRIAD Ebisu Nishi Shibuya',
       },
@@ -806,7 +801,7 @@ export const tokyo1Days: Day[] = [
     date: '2026-11-22',
     stageId: 'tokyo1',
     title: 'Meiji Jingū → Gaien dourado → Shibuya no pôr do sol',
-    subtitle: 'Domingo é o melhor dia para o santuário. E os ginkgos da avenida Gaien estarão no ouro exato.',
+    subtitle: 'Domingo é o melhor dia para o santuário. E os ginkgos da avenida Gaien já estarão amarelando — o ouro pleno costuma vir no fim de novembro.',
     chips: ['história', 'momiji', 'compras', 'ramen'],
     stops: [
       {
@@ -1001,11 +996,16 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Sushi no Midori Umegaoka (Shibuya Mark City)',
                 specialty: true,
-                note: '11:00–21:00 · o melhor custo-benefício de sushi de balcão de Tóquio. Peguem senha eletrônica e voltem depois — a espera pode passar de 1h.',
+                note: '11:00–21:00, **último pedido 20:30** · o melhor custo-benefício de sushi de balcão de Tóquio. **Peguem a senha eletrônica quando chegarem a Shibuya, às 16:00** — no domingo a espera passa de 1h e a máquina pode parar de dar senha antes do fim da noite.',
               },
               {
                 name: 'Uobei Shibuya',
                 note: '11:00–23:00 · sushi que chega em trenzinho de esteira alta, ¥130 o par. Divertido e rápido.',
+              },
+              {
+                name: 'Tonki — o tonkatsu de Meguro',
+                specialty: true,
+                note: '16:00–21:30 (último pedido 21:00), **fecha ter** — domingo abre · Shimo-Meguro 1-1-2, **3 min da estação Meguro**, que fica a 2 paradas de Shibuya pela Yamanote (5 min). Casa de **1939**, frequentada pelo bairro: um balcão comprido de frente para a cozinha aberta, rōsu ou hire por **~¥2.000**, arroz, repolho e sopa à vontade. Sem reserva; a fila anda rápido. É a alternativa ao sushi da noite — e se o Marugo do dia 19 tiver esgotado, é o tonkatsu da viagem. Na volta, Yamanote de Meguro direto até Shinjuku, 20 min.',
               },
               {
                 name: 'Golden Gai (Shinjuku)',

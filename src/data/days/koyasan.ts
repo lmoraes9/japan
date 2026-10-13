@@ -21,7 +21,7 @@ export const koyasanDays: Day[] = [
       {
         label: 'malas',
         tone: 'warn',
-        text: 'Hoje vocês saem do hotel de Namba **com tudo**. As malas grandes já estão em Kyoto desde o dia 24; a mochila de dois dias sobe com vocês. Se ela estiver pesada, há armários com moeda na estação de Kōyasan e no ponto Senjuinbashi.',
+        text: 'Hoje vocês saem do hotel de Namba **com tudo**. As malas grandes chegam ao hotel de Kyoto amanhã, dia 27 (entrega marcada); a mochila de dois dias sobe com vocês. Se ela estiver pesada, há armários com moeda na estação de Kōyasan e no ponto Senjuinbashi.',
       },
       {
         label: 'horário',
@@ -48,7 +48,7 @@ export const koyasanDays: Day[] = [
         kind: 'sight',
         name: 'Castelo de Osaka',
         jp: '大阪城',
-        facts: 'Parque e fossos **24h, grátis** · torreão **09:00–17:00**, ¥600 · hoje vocês têm **2h**, não o dia inteiro',
+        facts: 'Parque e fossos **24h, grátis** · torreão **09:00–17:00**, ¥1.200 · hoje vocês têm **2h**, não o dia inteiro',
         paragraphs: [
           'Chegando às 08:30 vocês pegam os fossos e as muralhas na melhor luz do dia e sem ninguém, e a bilheteria do torreão abre às 09:00. Subam, deem a volta no jardim Nishinomaru (¥200, com bordo em novembro) e **saiam às 10:30** — hoje o dia tem hora marcada mais adiante.',
           'Sejamos honestos: o torreão atual é de **1931**, de concreto, com elevador. Mas as muralhas e os fossos são originais do século XVII, e há pedras de **mais de 100 toneladas** na base do portão Sakuramon, arrastadas de ilhas do Mar Interior por corda e tronco.',
@@ -69,7 +69,7 @@ export const koyasanDays: Day[] = [
         kind: 'food',
         name: 'Kuromon Ichiba — e o almoço é aqui',
         jp: '黒門市場',
-        facts: 'Maioria **09:00–18:00** · 580 m de galeria coberta · Nippombashi Stn · 8 min a pé do hotel',
+        facts: 'Maioria **09:00–18:00** · 580 m de galeria coberta · Nippombashi Stn · 4 min a pé do hotel',
         paragraphs: [
           'Mercado de rua desde cerca de 1822, hoje bem turístico mas ainda excelente: atum cortado na hora, uni, vieira grelhada, espetinho de wagyu, caranguejo, fugu na temporada. **Hoje ele é o almoço** — o restaurante de sushi sentado não cabe mais no dia. Comam pouco em cada banca e sigam andando.',
           'Aproveitem para comer bem: o jantar de hoje é *shōjin ryōri*, a cozinha vegetariana dos monges. Sem carne, sem peixe, sem caldo de bonito, sem cebola nem alho. É delicioso e é pouco.',
@@ -162,7 +162,7 @@ export const koyasanDays: Day[] = [
         kind: 'temple',
         name: 'Okunoin no escuro — a parte que importa',
         jp: '奥之院ナイトツアー',
-        facts: '**Reservado: Awesome Tours**, passe na recepção Taira até 19:00, saída 19:00, ~90 min · lanterna e flash proibidos · por conta própria também é grátis e aberto · (o Ekō-in tem um tour parecido, mas o de vocês é o da Awesome, e **aceita quem não está hospedado lá** — reservar antes',
+        facts: '**Reservado: Awesome Tours**, passe na recepção Taira até 19:00, saída 19:00, ~90 min · lanterna e flash proibidos · por conta própria também é grátis e aberto · o ponto é o café **Taira**, colado ao Ekō-in, e o tour **aceita quem não está hospedado lá**',
         paragraphs: [
           'Se vocês fizerem uma coisa só em Kōyasan, é esta. O caminho tem lanternas de pedra acesas de ponta a ponta, a neblina desce entre os cedros e não há mais ninguém. É completamente diferente do mesmo caminho de dia.',
           'O tour noturno é o do **Ekō-in** — onde a Priscila ficou da outra vez — mas quem opera é a AWESOME TOURS, e a reserva é à parte, no site deles (night.koyasan-okunoin.com), inclusive para hóspede do próprio Ekō-in. **Qualquer templo serve** (só Renge-in e Sainan-in não podem, pelo horário do jantar). O ponto de encontro é o balcão dentro do café **TAIRA**, colado ao Ekō-in; o jantar das 17:30 termina lá pelas 18:30, dá tempo. Vale muito: o guia conta quem está enterrado em cada canto, e isso é metade do lugar.',

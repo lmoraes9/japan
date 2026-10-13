@@ -7,7 +7,7 @@ import { X, ChevronLeft, ChevronRight, Navigation, Compass, Clock, Footprints, L
 import { ALL_DAYS } from '@/data/days';
 import { placeMapByStopId, thumbOf } from '@/data/placeMaps';
 import { resolvePosition, formatCountdown } from '@/lib/now';
-import { navigateUrl, baseDaManha } from '@/lib/mapsLinks';
+import { navigateUrl, baseDaManha, pontoDe, regiaoDoDia } from '@/lib/mapsLinks';
 import { stopPhoto } from '@/lib/covers';
 import { Rich } from '@/components/Rich';
 import { LastReturn } from '@/components/LastReturn';
@@ -93,7 +93,8 @@ function Rua() {
 
   const nav = navigateUrl(stop);
   // como o Google Maps encontra cada ponta do caminho
-  const alvo = (s?: { mapQuery?: string; name: string }) => (s ? s.mapQuery ?? s.name : undefined);
+  const alvo = (s?: Parameters<typeof pontoDe>[0]) => (s ? pontoDe(s) : undefined);
+  const regiao = regiaoDoDia(day.id);
   const base = baseDaManha(day.id, day.stageId) ?? 'Tokyo Station';
   const map = placeMapByStopId(stop.id);
   const photo = stopPhoto(stop);
@@ -179,7 +180,7 @@ function Rua() {
 
         {fromHotel && (
           <div className="mt-5">
-            <Legs legs={fromHotel} title="Do hotel até aqui" big origem={base} destino={alvo(stop)} />
+            <Legs legs={fromHotel} title="Do hotel até aqui" big origem={base} destino={alvo(stop)} regiao={regiao} />
           </div>
         )}
 
@@ -189,12 +190,12 @@ function Rua() {
               Depois: <strong className="text-foreground">{next.time}</strong> · {next.name}
               {toNext && <span> · saia daqui até <strong className="text-foreground">{minusMin(next.time, legsMinutes(toNext))}</strong></span>}
             </p>
-            {toNext && <Legs legs={toNext} title={`Daqui até ${next.name}`} big origem={alvo(stop)} destino={alvo(next)} />}
+            {toNext && <Legs legs={toNext} title={`Daqui até ${next.name}`} big origem={alvo(stop)} destino={alvo(next)} regiao={regiao} />}
           </div>
         )}
         {!next && toNext && (
           <div className="mt-5">
-            <Legs legs={toNext} title="Daqui de volta ao hotel" big origem={alvo(stop)} destino={base} />
+            <Legs legs={toNext} title="Daqui de volta ao hotel" big origem={alvo(stop)} destino={base} regiao={regiao} />
           </div>
         )}
 

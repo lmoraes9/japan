@@ -1102,6 +1102,34 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Dfuku-ji_temple_IMG_5486.jpg",
     "title": "Tōfuku-ji temple IMG 5486.jpg"
   },
+  "stops/d01-toji": {
+    "src": "/lugares/stops/d01-toji.jpg",
+    "credit": "Kakidai",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toji_-_Five-storied_Pagoda.JPG",
+    "title": "Toji - Five-storied Pagoda.JPG"
+  },
+  "stops/d01-toji-2": {
+    "src": "/lugares/stops/d01-toji-2.jpg",
+    "credit": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Kyoto_Toji_Pagoda_C0938.jpg",
+    "title": "Kyoto Toji Pagoda C0938.jpg"
+  },
+  "stops/d01-toji-3": {
+    "src": "/lugares/stops/d01-toji-3.jpg",
+    "credit": "平摊蛋卷",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Five-storied_Pagoda,_Sensoji_2019.jpg",
+    "title": "Five-storied Pagoda, Sensoji 2019.jpg"
+  },
+  "stops/d01-toji-4": {
+    "src": "/lugares/stops/d01-toji-4.jpg",
+    "credit": "gtknj",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toji_Five-storied_Pagoda_%E6%9D%B1%E5%AF%BA%E4%BA%94%E9%87%8D%E5%A1%94_01_-_Apr_14,_2012.jpg",
+    "title": "Toji Five-storied Pagoda 東寺五重塔 01 - Apr 14, 2012.jpg"
+  },
   "stops/d02-akihabara-missoes": {
     "src": "/lugares/stops/d02-akihabara-missoes.jpg",
     "credit": "Jmho",
@@ -1297,6 +1325,20 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:FamilyMart_food_vending_machines_at_Haneda_Airport_Terminal_3.jpg",
     "title": "FamilyMart food vending machines at Haneda Airport Terminal 3.jpg"
+  },
+  "stops/d03-nakiryu": {
+    "src": "/lugares/stops/d03-nakiryu.jpg",
+    "credit": "毒島みるく",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:175do_DENO_Tantanmen_TOKYO.jpg",
+    "title": "175do DENO Tantanmen TOKYO.jpg"
+  },
+  "stops/d03-sano-miso": {
+    "src": "/lugares/stops/d03-sano-miso.jpg",
+    "credit": "Evelyn-rose",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hatcho-Miso-Kakukyu-4.jpg",
+    "title": "Hatcho-Miso-Kakukyu-4.jpg"
   },
   "stops/d18-haneda": {
     "src": "/lugares/stops/d18-haneda.jpg",
@@ -3286,6 +3328,34 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "source": "https://commons.wikimedia.org/wiki/File:Ryoanji_Temple_@_Kyoto_(13406277163).jpg",
     "title": "Ryoanji Temple @ Kyoto (13406277163).jpg"
   },
+  "stops/d29-sagano": {
+    "src": "/lugares/stops/d29-sagano.jpg",
+    "credit": "Toshinori baba",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sagano_scenic_railway_hotsukyo.jpg",
+    "title": "Sagano scenic railway hotsukyo.jpg"
+  },
+  "stops/d29-sagano-2": {
+    "src": "/lugares/stops/d29-sagano-2.jpg",
+    "credit": "pang yu liu from Taoyuan, TW",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sagano_Scenic_Railway_Hozu_River_2016-08-26.jpg",
+    "title": "Sagano Scenic Railway Hozu River 2016-08-26.jpg"
+  },
+  "stops/d29-sagano-3": {
+    "src": "/lugares/stops/d29-sagano-3.jpg",
+    "credit": "pang yu liu from Taoyuan, TW",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hozukyo_Station_seen_from_Sagano_Scenic_Railway_train_2016-08-26.jpg",
+    "title": "Hozukyo Station seen from Sagano Scenic Railway train 2016-08-26.jpg"
+  },
+  "stops/d29-sagano-4": {
+    "src": "/lugares/stops/d29-sagano-4.jpg",
+    "credit": "Streetdeck",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sagano_Romantic_Train.jpg",
+    "title": "Sagano Romantic Train.jpg"
+  },
   "stops/d29-tenryuji": {
     "src": "/lugares/stops/d29-tenryuji.jpg",
     "credit": "osakaosaka",
@@ -3341,6 +3411,34 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Togetsukyo_Bridge_and_Mount_Arashiyama.JPG",
     "title": "Togetsukyo Bridge and Mount Arashiyama.JPG"
+  },
+  "stops/d30-isuien": {
+    "src": "/lugares/stops/d30-isuien.jpg",
+    "credit": "Tomi Mäkitalo",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Isuien_Garden_-_panoramio.jpg",
+    "title": "Isuien Garden - panoramio.jpg"
+  },
+  "stops/d30-isuien-2": {
+    "src": "/lugares/stops/d30-isuien-2.jpg",
+    "credit": "Tomi Mäkitalo",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Isuien_Garden_-_panoramio_-_Tomi_M%C3%A4kitalo.jpg",
+    "title": "Isuien Garden - panoramio - Tomi Mäkitalo.jpg"
+  },
+  "stops/d30-isuien-3": {
+    "src": "/lugares/stops/d30-isuien-3.jpg",
+    "credit": "KimonBerlin",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Isuien_garden_in_Nara_(11140703813).jpg",
+    "title": "Isuien garden in Nara (11140703813).jpg"
+  },
+  "stops/d30-isuien-4": {
+    "src": "/lugares/stops/d30-isuien-4.jpg",
+    "credit": "KimonBerlin",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Isuien_garden_in_Nara_(11140572716).jpg",
+    "title": "Isuien garden in Nara (11140572716).jpg"
   },
   "stops/d30-kasuga-taisha": {
     "src": "/lugares/stops/d30-kasuga-taisha.jpg",
