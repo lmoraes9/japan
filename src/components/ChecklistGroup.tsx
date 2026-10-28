@@ -1,6 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import type { ChecklistItem } from '@/data/types';
+import { RESERVA_DO_CHECKLIST } from '@/data/comoReservar';
 import { useSyncStore } from '@/lib/store';
 import { faltam } from '@/lib/janelas';
 
@@ -77,6 +79,14 @@ export function ChecklistGroup({
                 {item.subtitle}
               </span>
               {item.dueAt && <Prazo iso={item.dueAt} checked={checked} />}
+              {RESERVA_DO_CHECKLIST[item.id] && (
+                <Link
+                  href={`/mais/reservas#${RESERVA_DO_CHECKLIST[item.id]}`}
+                  className="tappable mt-1.5 block text-[12px] font-semibold text-accent"
+                >
+                  {checked ? 'Ver reserva e anexos →' : 'Como reservar →'}
+                </Link>
+              )}
             </span>
           </label>
         );
