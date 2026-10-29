@@ -1,0 +1,5 @@
+node_modules/
+# mídia de verdade e tudo que é gerado a partir dela
+entrada/
+trabalho/
+saida/

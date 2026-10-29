@@ -1,0 +1,8 @@
+{
+  "_sobre": "Lugares fora do roteiro do app que aparecem nos vídeos: aeroportos das conexões. tz é o fuso em novembro.",
+  "lugares": [
+    { "id": "gru", "nome": "Guarulhos", "cidade": "São Paulo", "sigla": "GRU", "lat": -23.4356, "lng": -46.4731, "tz": "-03:00", "raioM": 3000 },
+    { "id": "jfk", "nome": "JFK", "cidade": "Nova York", "sigla": "JFK", "lat": 40.6413, "lng": -73.7781, "tz": "-05:00", "raioM": 3000 },
+    { "id": "dfw", "nome": "Dallas/Fort Worth", "cidade": "Dallas", "sigla": "DFW", "lat": 32.8998, "lng": -97.0403, "tz": "-06:00", "raioM": 3000 }
+  ]
+}

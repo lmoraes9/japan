@@ -21,6 +21,8 @@ Deploy na Vercel a partir de `main`; branches geram preview URL.
 - Nenhuma variável de ambiente é necessária para buildar: todas têm fallback.
   Elas vivem só no painel da Vercel — mapa e sync só funcionam de verdade no deploy.
 - `.env.example` documenta as variáveis.
+- `editor/` — editor de vídeo da viagem (Remotion), pacote à parte, fora do `tsconfig` e do
+  build do Next. Lê o roteiro de `src/data`. Ver `editor/CLAUDE.md`.
 
 ## Sessões na nuvem (claude.ai/code)
 

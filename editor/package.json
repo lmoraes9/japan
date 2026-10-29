@@ -1,0 +1,37 @@
+{
+  "name": "japan-editor",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "roteiro": "tsx scripts/roteiro.ts",
+    "importar": "tsx scripts/importar.ts",
+    "rascunho": "tsx scripts/rascunho.ts",
+    "render": "tsx scripts/render.ts",
+    "demo:midia": "tsx demo/gerar-midia.ts",
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/zen-kaku-gothic-new": "^5.3.1",
+    "@remotion/bundler": "4.0.539",
+    "@remotion/cli": "4.0.539",
+    "@remotion/renderer": "4.0.539",
+    "@remotion/transitions": "4.0.539",
+    "d3-geo": "^3.1.1",
+    "exiftool-vendored": "^39.1.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "4.0.539",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.1",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/topojson-client": "^3.1.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
