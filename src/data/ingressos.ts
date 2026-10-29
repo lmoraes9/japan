@@ -4,7 +4,7 @@
  * oficiais e em guias recentes; regras de pico de outono mudam de ano para
  * ano, então a coluna "quando" é a que importa.
  */
-export type IngressoStatus = 'obrigatorio' | 'recomendado' | 'chegar-cedo' | 'livre';
+export type IngressoStatus = 'obrigatorio' | 'recomendado' | 'na-hora' | 'chegar-cedo' | 'livre';
 
 export interface Ingresso {
   id: string;
@@ -31,7 +31,8 @@ export interface Ingresso {
 
 export const STATUS_LABEL: Record<IngressoStatus, string> = {
   obrigatorio: 'Reserva obrigatória',
-  recomendado: 'Comprar antes',
+  recomendado: 'Vale reservar',
+  'na-hora': 'Compre na hora',
   'chegar-cedo': 'Sem reserva · chegar cedo',
   livre: 'Chegar e entrar',
 };
@@ -40,14 +41,13 @@ export const INGRESSOS: Ingresso[] = [
   // ── transporte e logística ──
   {
     id: 'shinkansen-hiroshima',
-    opensAt: '2026-10-23T10:00:00+09:00',
     checklistItemId: 'reserva-shinkansen',
     title: 'Shinkansen Tóquio → Hiroshima',
     jp: 'のぞみ',
-    status: 'obrigatorio',
+    status: 'recomendado',
     date: '2026-11-23',
-    action: 'Reservar assento no Nozomi das ~07:00 (carro reservado; fim de novembro é pico de outono e os trens lotam).',
-    when: 'A venda abre 1 mês antes, às 10:00 JST: 23 de outubro',
+    action: 'Vale reservar o Nozomi das ~07:00: 23/11 é feriado e, segundo guias de viagem, de 21 a 23/11 todos os Nozomi têm só assento reservado. **Pelo Smart EX dá para mudar o horário de graça até poucos minutos antes da partida** (cancelar custa ¥320), então reservar cedo quase não tira flexibilidade.',
+    when: 'A venda já está aberta (abriu em 23/10). Até 15/11, antes do embarque no dia 16, ou no balcão JR entre 18 e 22/11, com o risco de o horário preferido já ter acabado',
     where: 'SmartEX (app, cartão internacional) ou guichê JR',
     url: 'https://smart-ex.jp/en/',
     cost: '¥19.800 por pessoa',
@@ -56,14 +56,12 @@ export const INGRESSOS: Ingresso[] = [
   },
   {
     id: 'shinkansen-tokyo',
-    opensAt: '2026-11-01T10:00:00+09:00',
-    checklistItemId: 'reserva-shinkansen',
     title: 'Shinkansen Kyoto → Tóquio',
     jp: 'のぞみ',
-    status: 'obrigatorio',
+    status: 'na-hora',
     date: '2026-12-01',
-    action: 'Reservar o Nozomi das 13:20; assentos A ou B (lado esquerdo) para o Fuji.',
-    when: '1º de novembro, 10:00 JST',
+    action: 'Não precisa reservar agora. 1/12 é terça comum: o Nozomi tem carros sem reserva e o balcão vende até minutos antes. Reservem só se fizerem questão do lado do Fuji (assentos A ou B), e aí o Nozomi das 13:20.',
+    when: 'Na hora, no balcão ou no Smart EX. Se reservarem antes, a troca de horário é grátis até poucos minutos antes da partida',
     where: 'SmartEX',
     url: 'https://smart-ex.jp/en/',
     cost: '¥14.200 por pessoa',
@@ -71,14 +69,12 @@ export const INGRESSOS: Ingresso[] = [
   },
   {
     id: 'shinkansen-kansai',
-    opensAt: '2026-10-25T10:00:00+09:00',
-    checklistItemId: 'reserva-shinkansen',
     title: 'Hiroshima → Okayama → Himeji (dia 25)',
-    status: 'recomendado',
+    status: 'na-hora',
     date: '2026-11-25',
-    action: 'Os dois trechos curtos de Shinkansen podem ser não reservados (carros 1–3), mas reservar tira a dúvida num dia de três trens.',
-    when: 'Junto com os outros, 25 de outubro',
-    where: 'SmartEX ou guichê na hora',
+    action: 'Compre na hora, na máquina ou no balcão da estação (ou entrem num carro de assento livre). Reservar antes só amarra o horário num dia de três trens.',
+    when: 'No dia, na estação',
+    where: 'Máquina ou balcão da estação (SmartEX também serve)',
     cost: '~¥6.000 + ~¥3.500',
     stopId: 'd25-trem-kurashiki',
   },
@@ -86,7 +82,7 @@ export const INGRESSOS: Ingresso[] = [
     id: 'koyasan-kippu',
     title: 'Kōyasan World Heritage Ticket',
     jp: '高野山・世界遺産きっぷ',
-    status: 'recomendado',
+    status: 'na-hora',
     date: '2026-11-26',
     action: 'Comprar no balcão da Nankai em Namba: ida e volta Namba–Kōyasan, funicular e **2 dias de ônibus ilimitado** na montanha, tudo num bilhete.',
     when: 'No próprio dia, no balcão. A versão digital só é vendida **até as 15:00** — depois disso, só papel no guichê.',
@@ -115,7 +111,7 @@ export const INGRESSOS: Ingresso[] = [
     id: 'kintetsu-nara',
     title: 'Kintetsu Limited Express Kyoto → Nara',
     jp: '近鉄特急',
-    status: 'recomendado',
+    status: 'na-hora',
     date: '2026-11-30',
     action: 'Assento reservado ¥520 além da passagem; compra na máquina da estação na hora ou no site da Kintetsu. Sem reserva, o expresso comum leva 10 min a mais.',
     where: 'Máquina da Kintetsu Kyoto ou kintetsu.co.jp',
@@ -204,8 +200,8 @@ export const INGRESSOS: Ingresso[] = [
     jp: '六義園 夜間特別観賞',
     status: 'recomendado',
     date: '2026-12-01',
-    action: 'Comprar o ingresso antecipado online (¥1.000) para a noite de 1º de dezembro assim que a venda abrir. No dia custa ¥1.200, a fila da bilheteria passa de 30 min e o limite diário esgota.',
-    when: 'A venda de 2026 ainda não tem data; em 2025 abriu em 1º de novembro às 9:00 (JST). Conferir a página oficial no fim de outubro.',
+    action: 'Vale o ingresso antecipado online (¥1.000) para a noite de 1º de dezembro, mas **comprem na véspera ou na manhã do dia, depois de ver a previsão**: ingresso de evento costuma não ser reembolsável. No dia custa ¥1.200, a fila da bilheteria passa de 30 min e o limite diário esgota.',
+    when: 'Na véspera (30/11) ou na manhã de 1/12, pela previsão. A venda online de 2026 ainda não tinha data na última conferência (em 2025 abriu em 1º de novembro)',
     where: 'Site dos parques de Tóquio (tokyo-park.or.jp)',
     url: 'https://www.tokyo-park.or.jp/park/rikugien/news/2026/rikugiengardens.html',
     cost: '¥1.000 antecipado · ¥1.200 no dia',
@@ -232,7 +228,6 @@ export const INGRESSOS: Ingresso[] = [
   // ── Hiroshima e Miyajima ──
   {
     id: 'museu-paz',
-    opensAt: '2026-08-25T00:00:00+09:00',
     checklistItemId: 'reserva-museu-paz',
     title: 'Museu Memorial da Paz',
     jp: '広島平和記念資料館',
@@ -249,10 +244,10 @@ export const INGRESSOS: Ingresso[] = [
     id: 'miyajima-teleferico',
     title: 'Teleférico do Monte Misen',
     jp: '宮島ロープウエー',
-    status: 'recomendado',
+    status: 'na-hora',
     date: '2026-11-24',
-    action: 'Reservar horário de subida pelo site — o teleférico passou a ter reserva online.',
-    when: 'Assim que souberem o plano do dia; no pico do momiji a fila sem reserva come o tempo do cume.',
+    action: 'O teleférico passou a ter reserva online, mas **decidam só depois da previsão da véspera**: vento forte fecha tudo. No pico do momiji a fila sem reserva come o tempo do cume.',
+    when: 'Na noite de 23/11, com a previsão na mão',
     where: 'miyajima-rw.info',
     url: 'https://www.miyajima-rw.info/system/web_date_select/index',
     cost: '¥2.000 ida e volta',
@@ -289,13 +284,11 @@ export const INGRESSOS: Ingresso[] = [
   },
   {
     id: 'himeji',
-    opensAt: '2026-08-27T00:00:00+09:00',
-    checklistItemId: 'reserva-himeji',
     title: 'Castelo de Himeji',
     jp: '姫路城',
-    status: 'recomendado',
+    status: 'na-hora',
     date: '2026-11-25',
-    action: 'Comprar o ingresso digital com horário (entrada 14:00) para pular a fila do guichê, que em fins de semana de outono passa de 40 min. Não há reserva obrigatória; o ingresso online é um QR que entra direto.',
+    action: 'Não precisa antes: o guichê vende no dia. O ingresso digital com horário (entrada 14:00) só pula a fila, que em fins de semana de outono passa de 40 min; numa quarta poupa uns 15.',
     when: 'Abre 90 dias antes; em novembro escolham o horário certo (chegada ~13:55)',
     where: 'himejicastle-ticket.jp (oficial)',
     url: 'https://himejicastle-ticket.jp/',
@@ -322,7 +315,7 @@ export const INGRESSOS: Ingresso[] = [
     status: 'obrigatorio',
     date: '2026-11-29',
     action: 'Dois bilhetes por pessoa: **Sagano 5** (Torokko Arashiyama 11:05 → Kameoka) e **Sagano 6** (Kameoka 11:30 → Torokko Arashiyama). Novembro esgota rápido, e este é o último outono dos vagões atuais.',
-    when: 'Abre 29/10 à 0:00 de Tóquio = **28/10 ao meio-dia em Brasília**',
+    when: 'A venda **já abriu**: 29/10 à 0:00 de Tóquio (28/10, meio-dia em Brasília). Cancelamento grátis até a véspera',
     where: 'site oficial de reservas (ars-saganokanko.triplabo.jp, link na página oficial) · cadastro grátis + cartão',
     url: 'https://www.sagano-kanko.co.jp/en/',
     cost: '¥880 por trecho · ¥3.520 o casal, ida e volta',

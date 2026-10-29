@@ -1672,7 +1672,7 @@ const himeji: PlaceMap = {
       facts: 'Recinto externo (Sannomaru) **grátis** · bilheteria do castelo lá dentro, ¥1.000 (¥1.050 com o jardim)',
       paragraphs: [
         'A ponte de madeira sobre o fosso e o portão de entrada. O que se vê daqui — o gramado imenso do **Sannomaru**, com o castelo ao fundo — é a área onde ficavam os palácios dos vassalos, demolidos na era Meiji. Sobrou o vazio, que hoje é o lugar da foto de corpo inteiro com o torreão.',
-        'Em dias de pico (feriados, cerejeira) o castelo limita a entrada a 15.000 pessoas e distribui senhas por horário. Numa terça de fim de novembro, não haverá fila.',
+        'Em dias de pico (feriados, cerejeira) o castelo limita a entrada a 15.000 pessoas e distribui senhas por horário. Numa quarta de fim de novembro, não haverá fila.',
       ],
     },
     {

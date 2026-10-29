@@ -8,6 +8,7 @@ import { Rich } from '@/components/Rich';
 import { dayCover } from '@/lib/covers';
 import { DayConditions } from '@/components/DayConditions';
 import { DayReservas } from '@/components/DayReservas';
+import { PlanoChuva } from '@/components/PlanoChuva';
 import { LastReturn } from '@/components/LastReturn';
 import { LegsConnector } from '@/components/LegsConnector';
 import { legsFrom, legsToFirst } from '@/data/legs';
@@ -102,6 +103,7 @@ export default async function DayPage({
       <DayConditions date={day.date} stageId={day.stageId} />
       <DayReservas date={day.date} />
       {day.lastReturn && <LastReturn items={day.lastReturn} />}
+      <PlanoChuva dayId={day.id} date={day.date} stageId={day.stageId} />
 
       {day.notes?.map((n, i) => (
         <div
