@@ -8,10 +8,11 @@ import { ALL_DAYS } from '@/data/days';
 const TONE: Record<IngressoStatus, string> = {
   obrigatorio: 'bg-accent text-white',
   recomendado: 'bg-gold/20 text-foreground ring-1 ring-gold/50',
+  'na-hora': 'bg-matcha/25 text-foreground',
   'chegar-cedo': 'bg-surface-2 text-foreground/80',
   livre: 'bg-matcha/15 text-foreground/80',
 };
-const ORDER: IngressoStatus[] = ['obrigatorio', 'recomendado', 'chegar-cedo', 'livre'];
+const ORDER: IngressoStatus[] = ['obrigatorio', 'recomendado', 'na-hora', 'chegar-cedo', 'livre'];
 const dayOf = (stopId?: string) => stopId && ALL_DAYS.find((d) => d.stops.some((s) => s.id === stopId));
 
 export default function IngressosPage() {
@@ -19,7 +20,7 @@ export default function IngressosPage() {
     <div className="space-y-5">
       <SubpageHeader title="Ingressos e reservas" subtitle="O que precisa ser comprado antes, o que só convém, e o que é chegar e entrar" />
       <div className="rounded-2xl border border-hairline bg-surface-2/70 p-3.5 text-[13px] leading-relaxed">
-        Conferido em outubro de 2026. Duas coisas realmente esgotam: os <strong>assentos de Shinkansen</strong> no fim de novembro e o <strong>trem Sagano</strong> do dia 29. O resto é fila, não falta de vaga.
+        Conferido em outubro de 2026. Só duas coisas pedem pressa: o <strong>trem Sagano</strong> do dia 29 e o <strong>omakase</strong>. O Shinkansen de 23/11 (feriado) vale reservar, porque o Smart EX troca de horário de graça. Os outros trens e a maioria dos ingressos <strong>compre na hora</strong>: antecipar só tira flexibilidade. O passo a passo de cada um está em <Link href="/mais/reservas" className="font-semibold text-accent underline">Reservas</Link>.
       </div>
       <a
         href="/alertas.ics"

@@ -50,7 +50,7 @@ const ITEMS = [
     href: '/mais/ingressos',
     icon: TicketCheck,
     title: 'Ingressos e reservas necessárias',
-    subtitle: 'O que esgota (Shinkansen, Torokko), o que convém comprar antes e o que é só chegar',
+    subtitle: 'O que precisa ser feito antes (Torokko, omakase), o que vale reservar e o que se compra na hora',
   },
   {
     href: '/mais/hoteis',

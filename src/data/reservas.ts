@@ -145,7 +145,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     title: 'Nozomi Tóquio → Hiroshima',
     date: '2026-11-23',
     time: '07:00 · 3h50',
-    notes: 'Feriado nacional: assento reservado. Lado direito para o Fuji (uns 40 min após a saída).',
+    notes: 'Feriado nacional: os Nozomi só têm assento reservado. Lado direito para o Fuji (uns 40 min após a saída).',
     hint: 'Número do trem, vagão e assentos (smartEX ou bilhete físico)',
   },
   {
@@ -154,7 +154,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     title: 'Sanyo Shinkansen Hiroshima → Okayama',
     date: '2026-11-25',
     time: '08:20',
-    notes: 'Depois local até Kurashiki; à tarde Himeji e Osaka',
+    notes: 'Compre na estação, na hora. Depois local até Kurashiki; à tarde Himeji e Osaka',
   },
   {
     id: 'trem-koyasan',
@@ -171,7 +171,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     title: 'Nozomi Kyoto → Tóquio',
     date: '2026-12-01',
     time: '13:20 · 2h15',
-    notes: 'Fuji do lado esquerdo desta vez',
+    notes: 'Compre na hora (não precisa reservar). Fuji do lado esquerdo desta vez',
   },
 
   // ── ingressos e mesas ──

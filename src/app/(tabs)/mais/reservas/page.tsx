@@ -7,7 +7,7 @@ import {
 import { SubpageHeader } from '@/components/SubpageHeader';
 import { Rich } from '@/components/Rich';
 import { AnexosReserva } from '@/components/AnexosReserva';
-import { GUIAS, type GuiaReserva } from '@/data/comoReservar';
+import { GUIAS, PRIORIDADE, type GuiaReserva, type Prioridade } from '@/data/comoReservar';
 import { RESERVA_SEEDS, RESERVA_KIND_LABEL, RESERVA_KINDS } from '@/data/reservas';
 import type { Reserva, ReservaKind } from '@/data/types';
 import { useSyncStore } from '@/lib/store';
@@ -49,7 +49,7 @@ type Urgencia = { texto: string; tom: 'agora' | 'perto' | 'calmo' | 'atrasado' }
 
 /** o que diz o selo de prazo de uma reserva ainda pendente */
 function urgenciaDe(g: GuiaReserva | undefined): Urgencia | null {
-  if (!g) return null;
+  if (!g || g.prioridade === 'na-hora') return null;
   const agora = Date.now();
   const min = (iso: string) => Math.round((new Date(iso).getTime() - agora) / 60000);
   if (g.abreEm && min(g.abreEm) > 0) {
@@ -72,12 +72,18 @@ const TOM: Record<Urgencia['tom'], string> = {
   calmo: 'bg-surface-2 text-muted',
 };
 
+const ORDEM: Record<Prioridade, number> = { antes: 0, vale: 1, 'na-hora': 2 };
+/** o que não tem guia (hotel, táxi, reserva sua) entra junto do "vale reservar" */
+const prioridadeDe = (r: Reserva): Prioridade => GUIAS[r.id]?.prioridade ?? 'vale';
+
 /** a chave de ordenação das pendentes: o que vence ou abre primeiro vem primeiro */
 function chaveUrgencia(r: Reserva): number {
   const g = GUIAS[r.id];
   const iso = g?.ate ?? g?.abreEm;
   return iso ? new Date(iso).getTime() : new Date(`${r.date}T12:00:00-03:00`).getTime() + 1e12;
 }
+
+const porUrgencia = (a: Reserva, b: Reserva) => chaveUrgencia(a) - chaveUrgencia(b);
 
 function Guia({ g }: { g: GuiaReserva }) {
   return (
@@ -238,6 +244,11 @@ function ReservaCard({ r, marcar, aberta }: { r: Reserva; marcar: (r: Reserva, d
             {r.done && <span className="ml-2 text-matcha">✓ feita</span>}
           </p>
           <h2 className="text-[15px] font-semibold leading-snug"><span className="mr-1">{meta.emoji}</span>{r.title}</h2>
+          {guia && (
+            <span className={`mt-1 mr-1.5 inline-block rounded-full px-2 py-0.5 text-[10.5px] font-bold uppercase tracking-wide ${PRIORIDADE[guia.prioridade].pill}`}>
+              {r.done ? PRIORIDADE[guia.prioridade].curto : PRIORIDADE[guia.prioridade].titulo}
+            </span>
+          )}
           {urg && (
             <span className={`mt-1 inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-mono text-[10.5px] font-semibold ${TOM[urg.tom]}`}>
               <Clock size={10} /> {urg.texto}
@@ -253,6 +264,12 @@ function ReservaCard({ r, marcar, aberta }: { r: Reserva; marcar: (r: Reserva, d
           {r.address && <p className="mt-1.5 text-[12.5px] leading-snug text-foreground/85">{r.address}</p>}
           {r.addressJp && <p className="font-jp text-[12.5px] leading-snug text-muted">{r.addressJp}</p>}
           {r.phone && <p className="mt-0.5 font-mono text-[12px] text-muted">{r.phone}</p>}
+          {guia && !r.done && (
+            <div className="mt-2 space-y-1 rounded-xl bg-surface-2 p-2.5 text-[12.5px] leading-snug">
+              <p className="text-foreground/90">{guia.porque}</p>
+              {guia.flex && <p className="text-muted"><span className="font-semibold">Flexibilidade · </span>{guia.flex}</p>}
+            </div>
+          )}
           {r.notes && <p className="mt-1.5 text-[12.5px] leading-snug text-muted">{r.notes}</p>}
           {!filled && seed?.hint && (
             <p className="mt-1.5 text-[12px] italic text-accent/80">Falta preencher: {seed.hint}</p>
@@ -275,12 +292,12 @@ function ReservaCard({ r, marcar, aberta }: { r: Reserva; marcar: (r: Reserva, d
       )}
       {guia && (
         <div className="mt-3 flex flex-wrap gap-2">
-          {!r.done && guia.telefone && (
+          {!r.done && guia.prioridade !== 'na-hora' && guia.telefone && (
             <a href={`tel:${guia.telefone.numero.replace(/[^+\d]/g, '')}`} className="tappable inline-flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-[12.5px] font-semibold text-white">
               <Phone size={13} /> Ligar para reservar
             </a>
           )}
-          {!r.done && !guia.telefone && guia.links[0] && (
+          {!r.done && guia.prioridade !== 'na-hora' && !guia.telefone && guia.links[0] && (
             <a href={guia.links[0].url} target="_blank" rel="noopener noreferrer" className="tappable inline-flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-[12.5px] font-semibold text-white">
               <ExternalLink size={13} /> Reservar agora
             </a>
@@ -291,7 +308,7 @@ function ReservaCard({ r, marcar, aberta }: { r: Reserva; marcar: (r: Reserva, d
             aria-expanded={guiaAberto}
             className="tappable inline-flex items-center gap-1.5 rounded-full border border-hairline px-3 py-1.5 text-[12.5px] font-medium"
           >
-            Passo a passo <ChevronDown size={13} className={guiaAberto ? 'rotate-180' : ''} />
+            {guia.prioridade === 'na-hora' ? 'Como comprar na hora' : 'Passo a passo'} <ChevronDown size={13} className={guiaAberto ? 'rotate-180' : ''} />
           </button>
         </div>
       )}
@@ -344,12 +361,17 @@ export default function ReservasPage() {
 
   const feitas = reservas.filter((r) => r.done).length;
   const pendentes = reservas.length - feitas;
-  // hotéis e táxis não têm "passo a passo": o que tem guia ou ainda falta vem primeiro
+  // o que se compra na hora não conta como "falta": antecipar não é o objetivo
+  const naHoraPendentes = reservas.filter((r) => !r.done && prioridadeDe(r) === 'na-hora').length;
+  const contam = reservas.length - naHoraPendentes;
+
   const lista = useMemo(() => {
     const base = filtro === 'faltam' ? reservas.filter((r) => !r.done) : filtro === 'feitas' ? reservas.filter((r) => r.done) : reservas;
     if (filtro !== 'faltam') return base;
-    return [...base].sort((a, b) => chaveUrgencia(a) - chaveUrgencia(b));
+    return [...base].sort((a, b) => ORDEM[prioridadeDe(a)] - ORDEM[prioridadeDe(b)] || porUrgencia(a, b));
   }, [reservas, filtro]);
+
+  const porTier = (t: Prioridade) => reservas.filter((r) => !r.done && prioridadeDe(r) === t).length;
 
   // link de fora ("Como reservar →" na checklist) cai direto no cartão, com o guia aberto
   useEffect(() => {
@@ -371,11 +393,23 @@ export default function ReservasPage() {
     <div className="space-y-3.5">
       <SubpageHeader
         title="Reservas"
-        subtitle={`${feitas} de ${reservas.length} feitas · o status sincroniza entre os celulares, os anexos ficam em cada um`}
+        subtitle={`${feitas} de ${contam} feitas · ${naHoraPendentes} ficam para comprar na hora · o status sincroniza entre os celulares, os anexos ficam em cada um`}
       />
 
-      <div className="h-1.5 overflow-hidden rounded-full bg-surface-2" role="progressbar" aria-valuenow={feitas} aria-valuemax={reservas.length}>
-        <div className="h-full rounded-full bg-matcha transition-all" style={{ width: `${reservas.length ? (feitas / reservas.length) * 100 : 0}%` }} />
+      <div className="h-1.5 overflow-hidden rounded-full bg-surface-2" role="progressbar" aria-valuenow={feitas} aria-valuemax={contam}>
+        <div className="h-full rounded-full bg-matcha transition-all" style={{ width: `${contam ? Math.min(100, (feitas / contam) * 100) : 0}%` }} />
+      </div>
+
+      <div className="space-y-2 rounded-2xl border border-hairline bg-surface p-3.5">
+        <p className="text-[13px] font-semibold">Quanto antes comprar? Cada cartão diz qual é o caso.</p>
+        {(['antes', 'vale', 'na-hora'] as Prioridade[]).map((t) => (
+          <div key={t} className="flex items-start gap-2.5">
+            <span className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-[10.5px] font-bold uppercase tracking-wide ${PRIORIDADE[t].pill}`}>
+              {PRIORIDADE[t].titulo} · {porTier(t)}
+            </span>
+            <span className="text-[12.5px] leading-snug text-muted">{PRIORIDADE[t].explica}</span>
+          </div>
+        ))}
       </div>
 
       <p className="rounded-2xl bg-surface-2 p-3.5 text-[12.5px] leading-relaxed text-muted">
@@ -410,9 +444,25 @@ export default function ReservasPage() {
         </p>
       )}
 
-      {lista.map((r) => (
-        <ReservaCard key={r.id} r={r} marcar={marcar} aberta={alvo === r.id} />
-      ))}
+      {lista.map((r, i) => {
+        // no "Falta fazer" os cartões vêm em três blocos, cada um com o seu cabeçalho
+        const tier = prioridadeDe(r);
+        const abreBloco = filtro === 'faltam' && (i === 0 || prioridadeDe(lista[i - 1]) !== tier);
+        return (
+          <div key={r.id} className="space-y-3.5">
+            {abreBloco && (
+              <div className="pt-1.5">
+                <p className="flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-widest text-muted">
+                  <span className={`rounded-full px-2 py-0.5 text-[10.5px] font-bold ${PRIORIDADE[tier].pill}`}>{PRIORIDADE[tier].titulo}</span>
+                  {porTier(tier)} {porTier(tier) === 1 ? 'item' : 'itens'}
+                </p>
+                <p className="mt-1 text-[12.5px] leading-snug text-muted">{PRIORIDADE[tier].explica}</p>
+              </div>
+            )}
+            <ReservaCard r={r} marcar={marcar} aberta={alvo === r.id} />
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -23,7 +23,41 @@ export interface FraseTelefone {
   leitura: string;
 }
 
+/**
+ * O quanto vale antecipar. O critério é o que se perde:
+ * - antes: sem reserva o programa pode simplesmente não acontecer
+ * - vale: reservar custa pouco (muda ou cancela de graça) e evita fila ou aperto
+ * - na-hora: não esgota, então comprar antes só amarra o horário e tira flexibilidade
+ */
+export type Prioridade = 'antes' | 'vale' | 'na-hora';
+
+export const PRIORIDADE: Record<Prioridade, { titulo: string; curto: string; explica: string; pill: string }> = {
+  antes: {
+    titulo: 'Faça antes',
+    curto: 'faça antes',
+    explica: 'Esgota ou não dá para comprar na hora. Sem isso o programa pode não acontecer.',
+    pill: 'bg-accent text-white',
+  },
+  vale: {
+    titulo: 'Vale reservar',
+    curto: 'vale reservar',
+    explica: 'Dá para mudar ou cancelar de graça, ou o risco é só fila. Reservar custa pouca flexibilidade.',
+    pill: 'bg-gold/25 text-foreground ring-1 ring-gold/50',
+  },
+  'na-hora': {
+    titulo: 'Compre na hora',
+    curto: 'compre na hora',
+    explica: 'Não esgota. Comprar antes só amarra o horário e tira a flexibilidade do dia.',
+    pill: 'bg-matcha/15 text-foreground/80',
+  },
+};
+
 export interface GuiaReserva {
+  /** quanto vale antecipar, e por quê (aparece sem abrir o passo a passo) */
+  prioridade: Prioridade;
+  porque: string;
+  /** o que se perde, ou se mantém, comprando antes */
+  flex?: string;
   /** o que se reserva, numa frase */
   oQue: string;
   /** quando abre e até quando vale a pena, em texto */
@@ -49,11 +83,10 @@ export interface GuiaReserva {
 
 /** Quais reservas fecham cada item da checklist: o item só marca quando todas estão feitas */
 export const CHECKLIST_DAS_RESERVAS: Record<string, string[]> = {
-  'reserva-shinkansen': ['trem-nozomi-hiroshima', 'trem-nozomi-tokyo'],
+  'reserva-shinkansen': ['trem-nozomi-hiroshima'],
   'reserva-torokko': ['ingresso-torokko'],
   'reserva-omakase': ['mesa-omakase'],
   'reserva-museu-paz': ['ingresso-museu-paz'],
-  'reserva-himeji': ['ingresso-himeji'],
   'reserva-rikugien': ['ingresso-rikugien'],
   'reserva-kitagawa': ['mesa-kitagawa'],
   'reserva-torisei': ['mesa-torisei'],
@@ -72,8 +105,11 @@ const SMART_EX_PASSOS_BASE = [
 export const GUIAS: Record<string, GuiaReserva> = {
   // ── trens ──────────────────────────────────────────────────────────
   'trem-nozomi-hiroshima': {
+    prioridade: 'vale',
+    porque: '23/11 é feriado de três dias e, segundo guias de viagem, todos os Nozomi de 21 a 23/11 só têm assento reservado. Sem reserva o horário das ~07:00 pode acabar; confirmem no site da JR Central.',
+    flex: 'Pelo Smart EX a troca de horário é grátis até poucos minutos antes da partida, e cancelar custa ¥320. Reservar cedo quase não tira flexibilidade.',
     oQue: 'Dois assentos reservados no Nozomi das ~07:00, Tóquio → Hiroshima, dia 23/11.',
-    quando: 'A venda abriu em **23/10 às 10:00 (Tóquio)**. É feriado nacional (Labor Thanksgiving): no fim de semana prolongado **todos os Nozomi são só de assento reservado** — sem reserva não há "vagão livre" para entrar.',
+    quando: 'A venda abriu em **23/10 às 10:00 (Tóquio)**. É o feriado do Labor Thanksgiving: segundo guias de viagem, de 21 a 23/11 **todos os Nozomi têm só assento reservado** (confirmem na página do Nozomi da JR Central).',
     abreEm: '2026-10-23T10:00:00+09:00',
     ate: '2026-11-10T23:59:00-03:00',
     custo: 'cerca de ¥19.800 por pessoa',
@@ -89,10 +125,13 @@ export const GUIAS: Record<string, GuiaReserva> = {
     ],
     planoB: 'Se o cartão não passar no Smart EX: balcão **Midori no Madoguchi** da estação de Shinjuku ou de Tóquio, com os **passaportes**, qualquer dia entre 18 e 22/11. Mesmo trem, mesmo preço, e aceita cartão estrangeiro.',
     depois: 'Anexem o print da confirmação aqui e marquem como feita. Se a entrada for por QR, deixem o print salvo também nas fotos do celular: é o que se mostra na catraca.',
-    cuidado: 'O Nozomi sai às 07:00 e o 7-Eleven da estação está marcado para as 06:30: o trem não espera, e sem assento reservado no feriado não há plano B no mesmo horário.',
+    cuidado: 'O Nozomi sai às 07:00 e o 7-Eleven da estação está marcado para as 06:30: o trem não espera.',
     checklistItemId: 'reserva-shinkansen',
   },
   'trem-hiroshima-okayama': {
+    prioridade: 'na-hora',
+    porque: 'Não esgota: há carros de assento livre (1–3) e é só chegar na estação. É um dia de três trens, e reservar amarra o horário.',
+    flex: 'Comprar na máquina ou no balcão sai o mesmo preço, e vocês escolhem o horário do dia de acordo com o ritmo da manhã.',
     oQue: 'Os dois trechos curtos de Shinkansen do dia 25: Hiroshima → Okayama (08:20) e depois Okayama → Himeji.',
     quando: 'A venda abre 1 mês antes, às 10:00 (Tóquio): **25/10**. Não é obrigatório — há carros de assento livre (o app indica os carros 1–3) —, mas reservar tira a dúvida num dia de três trens.',
     abreEm: '2026-10-25T10:00:00+09:00',
@@ -106,6 +145,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
     depois: 'Print das duas reservas, anexado aqui. Se optarem por assento livre, marquem como feita e escrevam em Observações "assento livre, carros 1–3".',
   },
   'trem-nozomi-tokyo': {
+    prioridade: 'na-hora',
+    porque: '1/12 é terça comum: o Nozomi tem carros sem reserva e o balcão vende até minutos antes. Só reservem se fizerem questão do lado do Fuji.',
+    flex: 'Se mesmo assim reservarem, o Smart EX troca de horário de graça até poucos minutos antes da partida.',
     oQue: 'Dois assentos reservados no Nozomi das 13:20, Kyoto → Tóquio, dia 1/12.',
     quando: 'A venda abre em **1/11 às 10:00 (Tóquio)** = **sábado 31/10 às 22:00 em Brasília**. É um dia útil, mas é o dia da volta a Tóquio: o horário das 13:20 amarra o resto do dia.',
     abreEm: '2026-11-01T10:00:00+09:00',
@@ -127,6 +169,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
     checklistItemId: 'reserva-shinkansen',
   },
   'trem-koyasan': {
+    prioridade: 'na-hora',
+    porque: 'Não esgota. Compra-se no dia, na Nankai de Namba, e o bilhete digital sai até as 15:00.',
+    flex: 'Comprar antes não dá desconto e prende vocês ao trem do dia.',
     oQue: 'O bilhete da Nankai para Kōyasan: ida e volta Namba–Kōyasan, funicular e 2 dias de ônibus ilimitado na montanha.',
     quando: 'Não esgota. Compra-se **no dia 26/11, antes do trem das 13:20**; a versão digital só é vendida **até as 15:00** do próprio dia, e depois disso só papel no guichê.',
     ate: '2026-11-26T13:00:00+09:00',
@@ -144,6 +189,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
 
   // ── ingressos ──────────────────────────────────────────────────────
   'ingresso-torokko': {
+    prioridade: 'antes',
+    porque: 'Só vende online e novembro esgota rápido. Sem o ingresso, o plano B é a venda do dia nas estações, em pé, quando sobra.',
+    flex: 'Cancelamento grátis até a véspera: reservem agora e decidam na noite de 28/11 pela previsão. Sem custo de flexibilidade.',
     oQue: 'Dois trechos do trem panorâmico de Sagano, por pessoa: **Sagano 5** (Torokko Arashiyama 11:05 → Kameoka) e **Sagano 6** (Kameoka 11:30 → Torokko Arashiyama), dia 29/11.',
     quando: 'A venda abre **29/10 à 0:00 de Tóquio, ou seja, hoje, 28/10, ao meio-dia em Brasília**. É um mês antes, na mesma data. Novembro esgota rápido, e este é o último outono dos vagões atuais.',
     abreEm: '2026-10-29T00:00:00+09:00',
@@ -166,6 +214,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
     checklistItemId: 'reserva-torokko',
   },
   'ingresso-museu-paz': {
+    prioridade: 'vale',
+    porque: 'A entrada às 13:00 está fora das janelas obrigatórias, mas 23/11 é feriado e a fila do guichê passa de 30 min.',
+    flex: 'Custa ¥200 por pessoa. Não confirmei a política de reembolso: leiam antes de pagar e comprem depois de fechar o trem.',
     oQue: 'A entrada do Museu Memorial da Paz de Hiroshima, às 13:00 do dia 23/11.',
     quando: 'A venda abre 90 dias antes e já está aberta desde 25/8. O museu exige reserva **na primeira hora** e **nos últimos 90 minutos** do dia, e recomenda para o resto: a fila do guichê passa de 30 min.',
     abreEm: '2026-08-25T00:00:00+09:00',
@@ -184,6 +235,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
     checklistItemId: 'reserva-museu-paz',
   },
   'ingresso-himeji': {
+    prioridade: 'na-hora',
+    porque: 'Não é obrigatório. O QR só poupa uns 15 minutos de fila numa quarta-feira.',
+    flex: 'Comprar no guichê no dia deixa o horário aberto.',
     oQue: 'O ingresso digital do Castelo de Himeji, com horário de entrada às 14:00, dia 25/11.',
     quando: 'A venda abre 90 dias antes e já está aberta desde 27/8. Não há reserva obrigatória; o QR online evita a fila do guichê, que em fins de semana de outono passa de 40 min. O dia 25 é quarta: a fila é menor, mas o QR ainda poupa uns 15 min.',
     abreEm: '2026-08-27T00:00:00+09:00',
@@ -200,6 +254,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
     checklistItemId: 'reserva-himeji',
   },
   'ingresso-rikugien': {
+    prioridade: 'vale',
+    porque: 'O limite diário esgota e a fila passa de 30 min. Mas ingresso de evento costuma não ser reembolsável.',
+    flex: 'Comprem na véspera (30/11) ou na manhã de 1/12, depois de ver a previsão, e não semanas antes.',
     oQue: 'O ingresso antecipado do Rikugien iluminado, noite de 1/12 (evento de 25/11 a 6/12, 18:00–20:30, última entrada 19:30).',
     quando: 'A venda de 2026 **ainda não tinha data** na última conferência; em 2025 abriu em **1º de novembro às 9:00 (Tóquio)**. Conferir a página oficial **agora, no fim de outubro**. No dia custa ¥1.200, a fila passa de 30 min e o limite diário esgota.',
     abreEm: '2026-11-01T09:00:00+09:00',
@@ -220,6 +277,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
     checklistItemId: 'reserva-rikugien',
   },
   'ingresso-miyajima-teleferico': {
+    prioridade: 'na-hora',
+    porque: 'Depende do tempo: vento forte fecha o teleférico. Decidam só depois da previsão da véspera.',
+    flex: 'Reservar antes só funciona se o tempo ajudar, e o horário aperta o resto do dia.',
     oQue: 'O horário de subida do teleférico do Monte Misen, em Miyajima, dia 24/11 (por volta das 12:00).',
     quando: 'O teleférico passou a ter reserva online. No pico do momiji a fila sem reserva come o tempo do cume. **Decidam depois da previsão da véspera**: vento forte fecha o teleférico.',
     ate: '2026-11-23T20:00:00+09:00',
@@ -236,6 +296,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
 
   // ── mesas ──────────────────────────────────────────────────────────
   'mesa-omakase': {
+    prioridade: 'antes',
+    porque: 'Balcões de omakase têm poucos lugares e quase não aceitam ninguém na hora. Sem reserva este jantar não existe.',
+    flex: 'Leiam a política de cancelamento na tela antes de pagar: restaurante assim costuma cobrar se desistirem.',
     oQue: 'Uma mesa para dois no jantar de despedida, quarta 2/12, ~19:30: omakase de balcão em Ginza ou arredores.',
     quando: 'O prazo recomendado de 18/10 **já passou**, mas ainda dá para o **Sushi Azabu** (que reserva online) e quase nunca para o Kyūbey de última hora. Quanto antes, melhor.',
     ate: '2026-10-18T23:59:00-03:00',
@@ -266,6 +329,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
     checklistItemId: 'reserva-omakase',
   },
   'mesa-kitagawa': {
+    prioridade: 'vale',
+    porque: 'Gion lota no fim de semana do momiji. A reserva é por telefone e sem pagamento adiantado.',
+    flex: 'Sem custo: se mudarem de ideia, é só ligar e avisar.',
     oQue: 'Uma mesa para o chá no Gion Kitagawa Hanbee, sábado 28/11, às 18:00.',
     quando: 'Uma ou duas semanas antes. Em fim de semana de momiji Gion lota e sem reserva espera-se por telefone. Sábado e domingo ficam abertos até 20:00 (último pedido 19:30); em dia útil fecham às 18:00 — por isso o chá está no sábado.',
     ate: '2026-11-20T23:59:00-03:00',
@@ -289,6 +355,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
     checklistItemId: 'reserva-kitagawa',
   },
   'mesa-torisei': {
+    prioridade: 'vale',
+    porque: 'Sem reserva a fila é de 1 a 2 horas na sexta à noite. A reserva é por telefone e grátis.',
+    flex: 'Sem custo: se mudarem de ideia, é só ligar e avisar.',
     oQue: 'Uma mesa para o jantar no Torisei, em Fushimi, sexta 27/11, por volta das 18:30.',
     quando: 'Até 13/11. **Sem reserva, a fila é de 1 a 2 horas** — e vocês chegam de Fushimi Inari ao entardecer.',
     ate: '2026-11-13T23:59:00-03:00',
