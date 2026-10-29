@@ -156,7 +156,6 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'reserva-ekoin',
-    dueAt: '2026-10-15T00:00:00+09:00',
     group: 'pretrip',
     title: 'Tour noturno do Okunoin — FEITO (Awesome Tours)',
     subtitle: 'Voucher RZ260913CQ7084-1, 2 adultos, 26/11 · retirar o passe na recepção Taira até 19:00 · lanterna proibida',
@@ -170,7 +169,7 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'reserva-rikugien',
-    dueAt: '2026-11-05T23:59:00-03:00',
+    dueAt: '2026-11-30T23:59:00+09:00',
     group: 'pretrip',
     title: 'Ingresso do Rikugien iluminado (na véspera)',
     subtitle: 'Noite de 1/12 · ¥1.000 online · compre na véspera, depois de ver a previsão: ingresso de evento costuma não ser reembolsável',
@@ -184,14 +183,14 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'reserva-torokko',
-    dueAt: '2026-10-29T00:00:00+09:00',
+    dueAt: '2026-11-15T23:59:00-03:00',
     group: 'pretrip',
     title: 'Reservar o trem Sagano (Torokko), ida e volta',
-    subtitle: 'Abre **28/10 ao meio-dia em Brasília** (0:00 em Tóquio) · Sagano 5 às 11:05 e Sagano 6 às 11:30 do dia 29/11 · só online, esgota rápido',
+    subtitle: 'A venda **já abriu** (28/10, meio-dia em Brasília) · Sagano 5 às 11:05 e Sagano 6 às 11:30 do dia 29/11 · só online, esgota rápido · cancelamento grátis até a véspera',
   },
   {
     id: 'reserva-shinkansen',
-    dueAt: '2026-11-17T23:59:00-03:00',
+    dueAt: '2026-11-15T23:59:00-03:00',
     group: 'pretrip',
     title: 'Reservar só o Shinkansen de 23/11 (Tóquio → Hiroshima)',
     subtitle: 'Feriado de três dias, os Nozomi só têm assento reservado · Smart EX troca de horário de graça · os outros trens (25/11, 1/12) compre na hora, sem reservar',
@@ -205,10 +204,10 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'reserva-omakase',
-    dueAt: '2026-10-18T23:59:00-03:00',
+    dueAt: '2026-11-10T23:59:00-03:00',
     group: 'pretrip',
     title: 'Reservar sushi omakase de balcão',
-    subtitle: 'Kyūbey ou similar — reserva obrigatória com antecedência',
+    subtitle: 'Quarta 2/12, ~19:30 · Sushi Azabu (online, TableCheck) ou Kyūbey (telefone) · sem reserva não tem lugar · passo a passo em Reservas',
   },
   {
     id: 'adaptador',
@@ -234,7 +233,7 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'visto-eua',
-    dueAt: '2026-09-30T23:59:00-03:00',
+    dueAt: '2026-11-05T23:59:00-03:00',
     group: 'pretrip',
     title: 'Conferir visto B1/B2 válido',
     subtitle: 'A conexão em JFK e DFW exige entrada nos EUA mesmo só em trânsito',

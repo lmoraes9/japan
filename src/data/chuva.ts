@@ -160,7 +160,7 @@ export const PLANO_CHUVA: Record<string, PlanoChuva> = {
     resumo: 'Sanjūsangen-dō e a estação são fechados; Tōfuku-ji e o Rikugien noturno são ao ar livre, e o Rikugien é o que mais custa decidir.',
     mantem: 'Sanjūsangen-dō (todo por dentro), Tō-ji (o salão principal), almoço e Shinkansen.',
     trocas: [
-      { sai: 'Rikugien iluminado à noite (18:30)', entra: 'o ingresso antecipado costuma não ser reembolsável (confirmem a regra no site): decidam à tarde, pela previsão, e o Gashapon de Ikebukuro, que já é a parada seguinte, vira o plano da noite' },
+      { sai: 'Rikugien iluminado à noite (18:30)', entra: 'o ingresso antecipado costuma não ser reembolsável (confirmem a regra no site): por isso só se compra na véspera, se a previsão for boa. Com chuva, o Gashapon de Ikebukuro, que já é a parada seguinte, vira o plano da noite' },
     ],
   },
   'd2026-12-02': {

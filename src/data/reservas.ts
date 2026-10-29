@@ -16,7 +16,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     date: '2026-11-16',
     time: '22:50 → 06:40 (17/11)',
     code: 'C7RR2K',
-    notes: 'GRU T3 → JFK T4 · op. Japan Airlines · 9h50 de voo · conexão de 6h no JFK, com imigração dos EUA · 2 malas por pessoa · bilhetes 131-4894258722 (Leonardo) e 131-4894258723 (Priscila)',
+    notes: 'GRU T3 → JFK T4 · op. LATAM (código JAL) · 9h50 de voo · conexão de 6h no JFK, com imigração dos EUA · 2 malas por pessoa · bilhetes 131-4894258722 (Leonardo) e 131-4894258723 (Priscila)',
     done: true,
     hint: 'Assentos, se escolherem no check-in',
   },

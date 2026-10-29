@@ -25,11 +25,15 @@ export interface Alerta {
 
 const semMarkdown = (s: string) => s.replace(/\*\*/g, '').replace(/\*/g, '');
 
-/** o dia do prazo, às 9h de Brasília — um 23:59 no calendário não ajuda ninguém */
+/**
+ * O dia do prazo, às 9h — um 23:59 no calendário não ajuda ninguém. Antes do
+ * embarque são 9h de Brasília; com vocês já no Japão (do dia 17 em diante),
+ * 9h de Tóquio, senão o aviso chega às 21h, tarde demais para ligar.
+ */
 function manhaDoPrazo(iso: string): string {
   const brasilia = new Date(new Date(iso).getTime() - 3 * 3600_000);
   const dia = brasilia.toISOString().slice(0, 10);
-  return `${dia}T09:00:00-03:00`;
+  return dia >= '2026-11-17' ? `${dia}T09:00:00+09:00` : `${dia}T09:00:00-03:00`;
 }
 
 const dataCurta = (iso: string) =>
