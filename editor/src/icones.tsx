@@ -24,11 +24,21 @@ export const Icone: React.FC<{ modo: Modo; tam: number; cor: string; giro?: numb
 );
 
 /** o "selo" que anda na ponta da rota: círculo vermelho com o ícone branco */
-export const Selo: React.FC<{ modo: Modo; x: number; y: number; giro?: number; escala?: number }> = ({ modo, x, y, giro = 0, escala = 1 }) => (
+export const Selo: React.FC<{ modo: Modo; x: number; y: number; giro?: number; escala?: number; cor?: string; corIcone?: string; borda?: string; halo?: boolean }> = ({
+  modo,
+  x,
+  y,
+  giro = 0,
+  escala = 1,
+  cor = '#ff5a36',
+  corIcone = '#fff',
+  borda = '#fff',
+  halo = true,
+}) => (
   <g transform={`translate(${x},${y}) scale(${escala})`}>
-    <circle r={40} fill="#ff5a36" opacity={0.25} />
-    <circle r={31} fill="#ff5a36" stroke="#fff" strokeWidth={4} />
-    <Icone modo={modo} tam={36} cor="#fff" giro={modo === 'aviao' ? giro : 0} />
+    {halo ? <circle r={40} fill={cor} opacity={0.25} /> : null}
+    <circle r={31} fill={cor} stroke={borda} strokeWidth={4} />
+    <Icone modo={modo} tam={36} cor={corIcone} giro={modo === 'aviao' ? giro : 0} />
   </g>
 );
 

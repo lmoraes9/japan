@@ -1,0 +1,318 @@
+{
+  "titulo": "Reel primeira semana",
+  "formato": "reel",
+  "segmentos": [
+    {
+      "tipo": "mapa",
+      "escala": "globo",
+      "quando": "16 → 18 nov",
+      "titulo": "São Paulo → Tóquio",
+      "legenda": "2 voos · 24h25 no ar",
+      "modos": [
+        "aviao"
+      ],
+      "pontos": [
+        {
+          "nome": "São Paulo",
+          "sub": "GRU · 16 nov, 22:50",
+          "lat": -23.4356,
+          "lng": -46.4731,
+          "foto": "entrada/pri-iphone/IMG_4101.JPG"
+        },
+        {
+          "nome": "Nova York",
+          "sub": "JFK · 6h de conexão",
+          "lat": 40.6413,
+          "lng": -73.7781,
+          "foto": "entrada/leo-android/IMG_20261117_100544.jpg"
+        },
+        {
+          "nome": "Tóquio",
+          "jp": "東京",
+          "sub": "HND · 18 nov, 17:15",
+          "lat": 35.5449,
+          "lng": 139.7678
+        }
+      ],
+      "segundos": 7.5
+    },
+    {
+      "tipo": "clipe",
+      "arquivo": "entrada/pri-iphone/IMG_4127.MOV",
+      "de": 2.0,
+      "ate": 6.5,
+      "largura": 1080,
+      "altura": 1920,
+      "lugar": {
+        "nome": "Omoide Yokochō",
+        "jp": "思い出横丁",
+        "linha": "Shinjuku · 18 nov, 20:41",
+        "lat": 35.6938,
+        "lng": 139.6994
+      }
+    },
+    {
+      "tipo": "mapa",
+      "escala": "local",
+      "quando": "19 nov · 7h da manhã",
+      "titulo": "Shinjuku → Asakusa",
+      "legenda": "metrô Marunouchi + Ginza · 46 min",
+      "modos": [
+        "metro"
+      ],
+      "pontos": [
+        {
+          "nome": "Shinjuku",
+          "jp": "新宿",
+          "sub": "hotel",
+          "lat": 35.6938,
+          "lng": 139.6994
+        },
+        {
+          "nome": "Asakusa",
+          "jp": "浅草",
+          "sub": "Kaminarimon",
+          "lat": 35.7111,
+          "lng": 139.7963
+        }
+      ],
+      "segundos": 4
+    },
+    {
+      "tipo": "clipe",
+      "arquivo": "entrada/leo-android/VID_20261119_081207.mp4",
+      "de": 3.0,
+      "ate": 8.0,
+      "largura": 1080,
+      "altura": 1920,
+      "lugar": {
+        "nome": "Sensō-ji",
+        "jp": "浅草寺",
+        "linha": "Asakusa · 19 nov, 08:12",
+        "lat": 35.7111,
+        "lng": 139.7963
+      },
+      "nota": {
+        "titulo": "desde 628",
+        "texto": "Dois pescadores tiraram do rio Sumida uma estatueta de Kannon, e o templo nasceu em volta dela."
+      }
+    },
+    {
+      "tipo": "mapa",
+      "escala": "local",
+      "quando": "19 nov · mesmo dia",
+      "titulo": "Asakusa → Akihabara",
+      "legenda": "a pé, metrô e JR, passando por Ueno",
+      "modos": [
+        "ape",
+        "metro",
+        "ape",
+        "trem"
+      ],
+      "pontos": [
+        {
+          "nome": "Sensō-ji",
+          "jp": "浅草寺",
+          "lat": 35.7148,
+          "lng": 139.7967
+        },
+        {
+          "nome": "Kappabashi",
+          "lat": 35.7139,
+          "lng": 139.7886,
+          "passagem": true
+        },
+        {
+          "nome": "Museu Nacional",
+          "lat": 35.7188,
+          "lng": 139.7765,
+          "passagem": true
+        },
+        {
+          "nome": "Ameyoko",
+          "lat": 35.7104,
+          "lng": 139.7745,
+          "passagem": true
+        },
+        {
+          "nome": "Akihabara",
+          "jp": "秋葉原",
+          "sub": "16:30",
+          "lat": 35.6987,
+          "lng": 139.7714
+        }
+      ],
+      "segundos": 5
+    },
+    {
+      "tipo": "clipe",
+      "arquivo": "entrada/pri-iphone/IMG_4188.MOV",
+      "de": 0.2,
+      "ate": 4.2,
+      "largura": 1080,
+      "altura": 1920,
+      "lugar": {
+        "nome": "Akihabara",
+        "jp": "秋葉原",
+        "linha": "Tóquio · 19 nov, 16:48",
+        "lat": 35.6987,
+        "lng": 139.7714
+      }
+    },
+    {
+      "tipo": "mapa",
+      "escala": "regiao",
+      "quando": "23 nov",
+      "titulo": "Tóquio → Hiroshima",
+      "legenda": "Shinkansen Nozomi · 3h55",
+      "modos": [
+        "shinkansen"
+      ],
+      "pontos": [
+        {
+          "nome": "Tóquio",
+          "jp": "東京",
+          "lat": 35.6812,
+          "lng": 139.7671
+        },
+        {
+          "nome": "Hiroshima",
+          "jp": "広島",
+          "sub": "11:00",
+          "lat": 34.3977,
+          "lng": 132.4753
+        }
+      ],
+      "contexto": [
+        {
+          "nome": "Nagoya",
+          "lat": 35.1709,
+          "lng": 136.8815
+        },
+        {
+          "nome": "Kyoto",
+          "lat": 34.9858,
+          "lng": 135.7588
+        },
+        {
+          "nome": "Osaka",
+          "lat": 34.7335,
+          "lng": 135.5003
+        }
+      ],
+      "segundos": 5
+    },
+    {
+      "tipo": "clipe",
+      "arquivo": "entrada/leo-android/VID_20261123_155210.mp4",
+      "de": 1.0,
+      "ate": 7.0,
+      "largura": 1080,
+      "altura": 1920,
+      "lugar": {
+        "nome": "Domo da Bomba Atômica",
+        "jp": "原爆ドーム",
+        "linha": "Hiroshima · 23 nov, 15:52",
+        "lat": 34.3955,
+        "lng": 132.4536
+      },
+      "nota": {
+        "titulo": "6 de agosto de 1945",
+        "texto": "A bomba explodiu 600 m acima e quase ao lado. A onda veio de cima, e por isso as paredes ficaram de pé."
+      }
+    },
+    {
+      "tipo": "clipe",
+      "arquivo": "entrada/pri-iphone/IMG_4302.JPG",
+      "segundos": 2.5,
+      "largura": 1080,
+      "altura": 1920,
+      "lugar": {
+        "nome": "Okonomiyaki",
+        "jp": "お好み焼き",
+        "linha": "Hiroshima · 23 nov, 18:41",
+        "lat": 34.3947,
+        "lng": 132.4531
+      }
+    },
+    {
+      "tipo": "mapa",
+      "escala": "local",
+      "quando": "24 nov",
+      "titulo": "Hiroshima → Miyajima",
+      "legenda": "JR Sanyō + balsa JR · 1h",
+      "modos": [
+        "trem",
+        "balsa"
+      ],
+      "pontos": [
+        {
+          "nome": "Hiroshima",
+          "jp": "広島",
+          "lat": 34.3977,
+          "lng": 132.4753
+        },
+        {
+          "nome": "Miyajimaguchi",
+          "lat": 34.3117,
+          "lng": 132.3036,
+          "passagem": true
+        },
+        {
+          "nome": "Miyajima",
+          "jp": "宮島",
+          "sub": "Itsukushima",
+          "lat": 34.296,
+          "lng": 132.3198
+        }
+      ],
+      "segundos": 5
+    },
+    {
+      "tipo": "clipe",
+      "arquivo": "entrada/pri-iphone/IMG_4315.MOV",
+      "de": 2.0,
+      "ate": 8.0,
+      "largura": 1080,
+      "altura": 1920,
+      "lugar": {
+        "nome": "Itsukushima",
+        "jp": "厳島神社",
+        "linha": "Miyajima · 24 nov, 09:05",
+        "lat": 34.296,
+        "lng": 132.3198
+      },
+      "nota": {
+        "titulo": "o torii de 1875",
+        "texto": "Tem 16 metros e não está enterrado: fica de pé pelo próprio peso, com o topo cheio de pedras."
+      }
+    },
+    {
+      "tipo": "fim",
+      "titulo": "primeira semana",
+      "sub": "16 – 24 nov",
+      "pontos": [
+        {
+          "nome": "Tóquio",
+          "jp": "東京",
+          "lat": 35.6812,
+          "lng": 139.7671
+        },
+        {
+          "nome": "Hiroshima",
+          "jp": "広島",
+          "sub": "e Miyajima",
+          "lat": 34.3977,
+          "lng": 132.4753
+        }
+      ],
+      "numeros": [
+        "18.540 km de avião",
+        "1 Shinkansen",
+        "1 balsa",
+        "1 cervo"
+      ],
+      "segundos": 4.5
+    }
+  ]
+}

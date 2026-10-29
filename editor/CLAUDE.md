@@ -64,11 +64,32 @@ Tipos em `src/plano.ts`. Regras da casa:
 - Sem música no Reel: o áudio do Instagram entra pelo app. Sugira o clima da música na
   legenda do post.
 
+### Estilos
+
+O mesmo plano sai em visuais diferentes: `"estilo"` no plano ou `--estilo` no render.
+Cada um é um arquivo em `src/estilos/`, registrado em `src/estilos/index.ts`. O motor
+dos mapas (tempo da rota, câmera) é comum, em `src/rota.ts` e `src/Mapa.tsx`; o estilo
+só define a aparência (`VisualMapa`) e os componentes de clipe, título e fecho.
+
+| estilo    | ideia |
+|-----------|-------|
+| `noite`   | o primeiro: azul-marinho, rota vermelha brilhante, sem serifa (padrão) |
+| `outono`  | mapa antigo em papel creme, mincho, folhas de bordo caindo, rajada de folhas nas trocas |
+| `caderno` | página quadriculada, mapa à caneta, fotos com fita washi, carimbo de estação por lugar, página virando |
+| `ukiyoe`  | gravura de Hiroshige: mar seigaiha, céu em degradê, cartucho vermelho, selo, rolo desenrolando |
+| `linha`   | a viagem como linha de trem: painel 次は da porta, placa de estação, painel de partidas, portas fechando |
+| `aovivo`  | tela dividida: vídeo em cima, um mapa contínuo embaixo com o pontinho azul e os km rodados |
+
+O `aovivo` usa `lugar.lat`/`lugar.lng` dos clipes (o rascunho já preenche) para saber
+onde vocês estavam em cada vídeo.
+
 ### 4. Conferir e renderizar
 
 Sempre rode `--previa` antes do render longo e olhe a imagem: texto cortado, rótulo
 sobreposto, polaroid cobrindo a rota. Para olhar uma animação de perto:
 `--quadros 30,60,90` (quadros absolutos). O render completo leva ~4 min por minuto de vídeo.
+Renderize um de cada vez: dois em paralelo estouram a memória (o render limita o cache de
+quadros de vídeo a 512 MB, mas cada um ainda abre um Chrome e um decodificador).
 
 ## Instalação no PC (Windows)
 
@@ -85,6 +106,10 @@ sobreposto, polaroid cobrindo a rota. Para olhar uma animação de perto:
 `npm run demo:midia` gera em `entrada/` fotos e vídeos falsos, desenhados em SVG
 (`demo/cenas.tsx`), com os metadados que um iPhone e um Android gravariam. Cada vídeo tem um
 trecho ruim de propósito. Depois é o fluxo normal: importar, rascunho, plano, render.
+
+`demo/plano-demo.json` é o plano que o Claude escreveu revisando essa mídia falsa (o
+"Reel da primeira semana"); serve de exemplo de plano acabado:
+`npm run render -- demo/plano-demo.json --estilo ukiyoe`.
 
 ## Dados
 

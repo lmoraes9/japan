@@ -6,23 +6,32 @@
  *     (um quadro do meio de cada segmento, lado a lado: para conferir antes do render longo)
  *   npm run render -- trabalho/plano.json --quadros 30,60,90
  *     (esses quadros específicos, lado a lado — para olhar uma animação de perto)
+ *   --estilo outono   troca o visual (noite, outono, caderno, ukiyoe, linha, aovivo)
  */
 import { copyFileSync, existsSync, linkSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { bundle } from '@remotion/bundler';
 import { renderMedia, renderStill, selectComposition } from '@remotion/renderer';
-import { FPS, TRANSICAO, quadrosDe, type Plano } from '../src/plano.ts';
+import { FPS, TRANSICAO, quadrosDe, type Estilo, type Plano } from '../src/plano.ts';
 import { ffmpeg, navegador } from './lib/ferramentas.ts';
 
-const arquivoPlano = process.argv.slice(2).find((a) => !a.startsWith('--')) ?? 'trabalho/plano.json';
-const iq = process.argv.indexOf('--quadros');
-const quadrosPedidos = iq > 0 ? process.argv[iq + 1].split(',').map(Number) : undefined;
-const previa = process.argv.includes('--previa') || !!quadrosPedidos;
+const args = process.argv.slice(2);
+const valor = (flag: string) => {
+  const i = args.indexOf(flag);
+  return i >= 0 ? args[i + 1] : undefined;
+};
+const COM_VALOR = new Set(['--quadros', '--estilo']);
+const arquivoPlano = args.find((a, i) => !a.startsWith('--') && !COM_VALOR.has(args[i - 1])) ?? 'trabalho/plano.json';
+const quadrosPedidos = valor('--quadros')?.split(',').map(Number);
+const previa = args.includes('--previa') || !!quadrosPedidos;
 const plano = JSON.parse(readFileSync(arquivoPlano, 'utf8')) as Plano;
-const nome = plano.titulo.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\w-]+/g, '-').toLowerCase();
+const estilo = (valor('--estilo') as Estilo | undefined) ?? plano.estilo;
+if (estilo) plano.estilo = estilo;
+const nome = [plano.titulo, estilo].filter(Boolean).join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w-]+/g, '-').toLowerCase();
 
 // pasta pública só com o que o plano usa (hard link quando dá, para não copiar gigas)
-const publico = resolve('trabalho/publico');
+// uma pasta por render, para dois renders em paralelo não se atropelarem
+const publico = resolve(`trabalho/publico-${nome}${previa ? '-previa' : ''}`);
 rmSync(publico, { recursive: true, force: true });
 const usados = new Set<string>();
 for (const s of plano.segmentos) {
@@ -78,6 +87,9 @@ if (previa) {
     inputProps,
     codec: 'h264',
     crf: 20,
+    // o cache de quadros de vídeo cresce sem limite e derruba o PC por falta de memória
+    offthreadVideoCacheSizeInBytes: 512 * 1024 * 1024,
+    concurrency: 2,
     outputLocation: out,
     browserExecutable: navegador,
     onProgress: ({ progress }) => {

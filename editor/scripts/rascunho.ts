@@ -82,7 +82,7 @@ for (const m of midias) {
     });
   }
   const linha = `${l.cidade} · ${dia(m.quando!)}, ${m.quando!.slice(11, 16)}`;
-  const base = { arquivo: m.arquivo, largura: m.largura, altura: m.altura, lugar: { nome: l.nome, jp: l.jp, linha } };
+  const base = { arquivo: m.arquivo, largura: m.largura, altura: m.altura, lugar: { nome: l.nome, jp: l.jp, linha, lat: m.gps?.lat ?? l.lat, lng: m.gps?.lng ?? l.lng } };
   const nota = l.historia ? { titulo: l.historia.titulo, texto: `ESCREVER (1–2 frases, até ~110 caracteres): ${l.historia.paragrafos[0].slice(0, 160)}…` } : undefined;
   if (m.tipo === 'video') {
     const d = m.duracao ?? 4;

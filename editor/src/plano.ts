@@ -47,7 +47,8 @@ export interface SegClipe {
   segundos?: number;
   largura?: number;
   altura?: number;
-  lugar?: { nome: string; jp?: string; linha?: string };
+  /** lat/lng: onde foi gravado (o estilo mapa ao vivo usa para o pontinho azul) */
+  lugar?: { nome: string; jp?: string; linha?: string; lat?: number; lng?: number };
   /** a notinha de história, discreta, embaixo */
   nota?: { titulo?: string; texto: string };
   /** volume do som ambiente (0–1); padrão 1 */
@@ -66,9 +67,13 @@ export interface SegFim {
 
 export type Segmento = SegMapa | SegClipe | SegFim;
 
+export type Estilo = 'noite' | 'outono' | 'caderno' | 'ukiyoe' | 'linha' | 'aovivo';
+
 export interface Plano {
   titulo: string;
   formato: 'reel' | 'story' | 'familia';
+  /** o visual (src/estilos/); padrão: noite */
+  estilo?: Estilo;
   segmentos: Segmento[];
   /** trilha opcional (arquivo em entrada/ ou dados/); no Instagram a música entra pelo app */
   trilha?: string;
@@ -88,4 +93,14 @@ export const quadrosDe = (s: Segmento) => Math.round(segundosDe(s) * FPS);
 export function duracaoTotal(p: Plano): number {
   const soma = p.segmentos.reduce((n, s) => n + quadrosDe(s), 0);
   return soma - TRANSICAO * Math.max(0, p.segmentos.length - 1);
+}
+
+/** quadro em que cada segmento começa no vídeo final (já descontadas as transições) */
+export function inicios(p: Plano): number[] {
+  let q = 0;
+  return p.segmentos.map((s) => {
+    const ini = q;
+    q += quadrosDe(s) - TRANSICAO;
+    return ini;
+  });
 }
