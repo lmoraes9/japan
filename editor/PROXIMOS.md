@@ -28,8 +28,10 @@ Resumo do que foi decidido, para quem continua (na nuvem ou no PC).
   para o canto. O trajeto ganha o tempo inteiro do mapa (a foto de chegada espera).
 - Importador: lugares fora do roteiro (cidade pelo GPS, offline), fuso pela mídia
   vizinha / roteiro / PC, HEIC → JPG, Live Photo e lixeira do Android de fora, tempo
-  escrito nas folhas de contato no Windows.
-- Sincronização do Android do Leonardo pelo Syncthing, ver
+  escrito nas folhas de contato no Windows. HEIC conferido com uma foto de verdade do
+  Samsung do Leonardo (sai em pé, com data, fuso e GPS) e aberto no render.
+- Sincronização do Android do Leonardo pelo Syncthing funcionando (a foto chega em ~2 s
+  no Wi-Fi de casa), ver
   "Fotos chegando sozinhas no PC" no CLAUDE.md.
 
 ## Próximos passos
@@ -38,7 +40,7 @@ Resumo do que foi decidido, para quem continua (na nuvem ou no PC).
   folhas de contato, rascunho, plano, render no globinho e no globinho-viagem.
 - iPhone da Priscila: entrar no iCloud para Windows com o Apple ID dela, ligar
   `entrada/pri-iphone` à pasta do iCloud Fotos (ver CLAUDE.md), ver se o iCloud tem espaço
-  (5 GB não dá) e conferir uma foto HEIC de verdade (orientação e GPS depois da conversão).
+  (5 GB não dá) e conferir uma foto HEIC do iPhone (a do Samsung já foi conferida).
 - Entregar as versões no celular para aprovarem (eles querem aprovar antes de postar).
 - Versão Stories e resumo do dia para a família no WhatsApp.
 - Rodada automática toda noite (por volta das 23 h do Japão) com o Claude Code em modo

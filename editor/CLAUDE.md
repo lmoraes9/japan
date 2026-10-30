@@ -138,7 +138,12 @@ quadros de vídeo a 512 MB, mas cada um ainda abre um Chrome e um decodificador)
   na pasta Inicializar; painel em http://127.0.0.1:8384) e Syncthing-Fork no celular. A pasta
   da câmera é "só enviar" no celular e "só receber" no PC, com `ignoreDelete` (apagar no
   celular não apaga no PC), só no Wi-Fi. O `.stignore` da pasta deixa passar só arquivos com
-  data a partir de 30/10/2026 no nome, para não baixar a câmera inteira.
+  data a partir de 30/10/2026 no nome, para não baixar a câmera inteira. Mude os padrões
+  pela API (`POST /rest/db/ignores?folder=et1ic-68qr8`) ou pelo painel, e sem acento: um
+  `.stignore` gravado pelo PowerShell 5.1 com acento sai com a codificação errada e o
+  filtro para de valer (quase baixou 493 fotos antigas). O celular é um Galaxy S22 Ultra
+  e fotografa em **HEIC** (`20261030_143005.heic`): a conversão do importador já foi
+  conferida com uma foto de verdade (em pé, com data, fuso e GPS).
 - **iPhone da Priscila → `entrada/pri-iphone`** (a fazer): iCloud Fotos + iCloud para Windows
   (já instalado no PC, falta ela entrar com o Apple ID). Plano: a pasta vira um atalho
   (`mklink /J`) para a pasta do iCloud Fotos. Cuidado: no iCloud para Windows as fotos são
