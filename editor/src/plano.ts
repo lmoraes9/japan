@@ -67,7 +67,7 @@ export interface SegFim {
 
 export type Segmento = SegMapa | SegClipe | SegFim;
 
-export type Estilo = 'noite' | 'outono' | 'caderno' | 'ukiyoe' | 'linha' | 'aovivo';
+export type Estilo = 'noite' | 'outono' | 'caderno' | 'ukiyoe' | 'linha' | 'aovivo' | 'globinho';
 
 export interface Plano {
   titulo: string;

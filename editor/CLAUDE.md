@@ -79,9 +79,16 @@ só define a aparência (`VisualMapa`) e os componentes de clipe, título e fech
 | `ukiyoe`  | gravura de Hiroshige: mar seigaiha, céu em degradê, cartucho vermelho, selo, rolo desenrolando |
 | `linha`   | a viagem como linha de trem: painel 次は da porta, placa de estação, painel de partidas, portas fechando |
 | `aovivo`  | tela dividida: vídeo em cima, um mapa contínuo embaixo com o pontinho azul e os km rodados |
+| `globinho`| foto/vídeo em tela cheia o tempo todo, globo 3D sem fundo no canto de baixo à direita; tempero de outono |
 
-O `aovivo` usa `lugar.lat`/`lugar.lng` dos clipes (o rascunho já preenche) para saber
-onde vocês estavam em cada vídeo.
+O `aovivo` e o `globinho` usam `lugar.lat`/`lugar.lng` dos clipes (o rascunho já
+preenche) para saber onde vocês estavam em cada vídeo.
+
+O `globinho` remonta a linha do tempo (`src/estilos/globinhoTempo.ts`): mapas com fotos
+viram essas fotos no fundo enquanto o avião anda no globo; mapas sem fotos saem da tela
+e o trajeto acontece no globo durante o começo do vídeo seguinte. Por isso o vídeo fica
+mais curto que nos outros estilos (≈ 38 s contra 55 s no plano de exemplo). Duração e
+quadros de prévia por estilo ficam em `src/estilos/tempos.ts`.
 
 ### 4. Conferir e renderizar
 

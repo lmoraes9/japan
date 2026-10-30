@@ -6,6 +6,7 @@ import { ReelCaderno } from './caderno.tsx';
 import { ReelUkiyoe } from './ukiyoe.tsx';
 import { ReelLinha } from './linha.tsx';
 import { ReelAoVivo } from './aovivo.tsx';
+import { ReelGlobinho } from './globinho.tsx';
 
 export const ESTILOS: Record<Estilo, React.FC<Plano>> = {
   noite: ReelNoite,
@@ -14,4 +15,5 @@ export const ESTILOS: Record<Estilo, React.FC<Plano>> = {
   ukiyoe: ReelUkiyoe,
   linha: ReelLinha,
   aovivo: ReelAoVivo,
+  globinho: ReelGlobinho,
 };

@@ -6,13 +6,14 @@
  *     (um quadro do meio de cada segmento, lado a lado: para conferir antes do render longo)
  *   npm run render -- trabalho/plano.json --quadros 30,60,90
  *     (esses quadros específicos, lado a lado — para olhar uma animação de perto)
- *   --estilo outono   troca o visual (noite, outono, caderno, ukiyoe, linha, aovivo)
+ *   --estilo outono   troca o visual (noite, outono, caderno, ukiyoe, linha, aovivo, globinho)
  */
 import { copyFileSync, existsSync, linkSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { bundle } from '@remotion/bundler';
 import { renderMedia, renderStill, selectComposition } from '@remotion/renderer';
-import { FPS, TRANSICAO, quadrosDe, type Estilo, type Plano } from '../src/plano.ts';
+import { FPS, type Estilo, type Plano } from '../src/plano.ts';
+import { amostras } from '../src/estilos/tempos.ts';
 import { ffmpeg, navegador } from './lib/ferramentas.ts';
 
 const args = process.argv.slice(2);
@@ -56,15 +57,8 @@ const composition = await selectComposition({ serveUrl, id: 'Reel', inputProps, 
 mkdirSync('saida', { recursive: true });
 
 if (previa) {
-  const alvos: number[] = [];
-  let ini = 0;
-  for (const s of plano.segmentos) {
-    const n = quadrosDe(s);
-    alvos.push(ini + Math.round(n * (s.tipo === 'clipe' ? 0.55 : 0.7)));
-    ini += n - TRANSICAO;
-  }
   const quadros: string[] = [];
-  for (const [i, q] of (quadrosPedidos ?? alvos).entries()) {
+  for (const [i, q] of (quadrosPedidos ?? amostras(plano)).entries()) {
     const out = join('trabalho', `previa-${i}.png`);
     await renderStill({ composition, serveUrl, inputProps, frame: Math.min(q, composition.durationInFrames - 1), output: out, scale: 0.25, browserExecutable: navegador });
     quadros.push(out);
