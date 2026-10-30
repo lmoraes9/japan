@@ -24,6 +24,7 @@
     "@remotion/cli": "4.0.539",
     "@remotion/renderer": "4.0.539",
     "@remotion/transitions": "4.0.539",
+    "all-the-cities": "^3.1.0",
     "d3-geo": "^3.1.1",
     "exiftool-vendored": "^39.1.0",
     "react": "^19.2.8",

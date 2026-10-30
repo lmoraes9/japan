@@ -16,7 +16,8 @@ export interface Lugar {
   id: string;
   nome: string;
   jp?: string;
-  tipo: 'parada' | 'comida' | 'aeroporto';
+  /** fora = lugar que não está no roteiro, achado pelo GPS da foto (só no catálogo) */
+  tipo: 'parada' | 'comida' | 'aeroporto' | 'fora';
   /** cidade/etapa: 'Tóquio', 'Hiroshima', 'Nova York' */
   cidade: string;
   /** 'YYYY-MM-DD' (JST) e 'HH:mm' do roteiro, quando é parada */

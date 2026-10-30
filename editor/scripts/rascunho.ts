@@ -23,11 +23,19 @@ const arg = (n: string) => {
   return i > 0 ? process.argv[i + 1] : undefined;
 };
 
-const catalogo = (JSON.parse(readFileSync('trabalho/catalogo.json', 'utf8')) as Midia[]).filter((m) => m.lugar && m.quando);
+const lido = JSON.parse(readFileSync('trabalho/catalogo.json', 'utf8')) as Midia[];
+const catalogo = lido.filter((m) => m.lugar && m.quando);
 const soDia = arg('--dia');
 const midias = soDia ? catalogo.filter((m) => m.quando!.startsWith(soDia)) : catalogo;
 const lugares = new Map(carregarLugares().map((l) => [l.id, l]));
 const todos = [...lugares.values()];
+
+/** o lugar do roteiro; fora dele, o que o importador achou pelo GPS (o Claude acerta o nome olhando a imagem) */
+const lugarDe = (m: Midia): Lugar =>
+  lugares.get(m.lugar!.id) ?? { ...m.lugar!, tipo: 'fora', tz: m.quando!.slice(19), raioM: 300 };
+
+const semLugar = lido.filter((m) => !m.lugar || !m.quando);
+if (semLugar.length) console.log(`sem lugar nem hora, ficaram de fora: ${semLugar.map((m) => m.arquivo).join(', ')}\n`);
 
 const ponto = (l: Lugar, extra: Partial<Ponto> = {}): Ponto => ({ nome: l.sigla ? l.cidade : l.nome, jp: l.jp, lat: l.lat, lng: l.lng, ...extra });
 
@@ -35,19 +43,19 @@ const segs: Segmento[] = [];
 
 // 1. aeroportos do começo viram um globo só, com as fotos de polaroid
 const aeroportos: Midia[] = [];
-while (midias.length && lugares.get(midias[0].lugar!.id)?.tipo === 'aeroporto') aeroportos.push(midias.shift()!);
+while (midias.length && lugarDe(midias[0]).tipo === 'aeroporto') aeroportos.push(midias.shift()!);
 if (aeroportos.length && midias.length) {
-  const chegada = todos.find((l) => l.id === 'd18-haneda') ?? lugares.get(midias[0].lugar!.id)!;
+  const chegada = todos.find((l) => l.id === 'd18-haneda') ?? lugarDe(midias[0]);
   segs.push({
     tipo: 'mapa',
     escala: 'globo',
     modos: ['aviao'],
     quando: `${dia(aeroportos[0].quando!)} → ${dia(midias[0].quando!)}`,
-    titulo: `${lugares.get(aeroportos[0].lugar!.id)!.cidade} → Tóquio`,
+    titulo: `${lugarDe(aeroportos[0]).cidade} → Tóquio`,
     legenda: `${aeroportos.length} voos`,
     pontos: [
       ...aeroportos.map((m) => {
-        const l = lugares.get(m.lugar!.id)!;
+        const l = lugarDe(m);
         return ponto(l, { sub: `${l.sigla} · ${dia(m.quando!)}`, foto: m.tipo === 'foto' ? m.arquivo : undefined });
       }),
       { nome: 'Tóquio', jp: '東京', sub: `HND · ${dia(midias[0].quando!)}`, lat: chegada.lat, lng: chegada.lng },
@@ -59,12 +67,12 @@ if (aeroportos.length && midias.length) {
 // 2. um mapa a cada mudança de lugar, um trecho de cada mídia
 let antes: { l: Lugar; quando: string } | undefined;
 for (const m of midias) {
-  const l = lugares.get(m.lugar!.id)!;
+  const l = lugarDe(m);
   if (antes && distM(antes.l, l) > 150) {
     const km = distM(antes.l, l) / 1000;
     const escala = km > 1500 ? 'globo' : km > 30 ? 'regiao' : 'local';
     const tr = trajeto(antes.l.id, l.id);
-    const modos: Modo[] = tr ? tr.modos.map((x) => MODO[x] ?? 'trem') : [escala === 'globo' ? 'aviao' : escala === 'regiao' ? 'shinkansen' : km < 1.5 ? 'ape' : 'metro'];
+    const modos: Modo[] = tr ? tr.modos.map((x) => MODO[x] ?? 'trem') : [escala === 'globo' ? 'aviao' : escala === 'regiao' ? 'shinkansen' : km < 1.5 ? 'ape' : l.tipo === 'fora' || antes.l.tipo === 'fora' ? 'taxi' : 'metro'];
     const mesmoDia = antes.quando.slice(0, 10) === m.quando!.slice(0, 10);
     // no mesmo dia, as paradas do roteiro no meio do caminho viram pontos de passagem
     const meio = mesmoDia
@@ -95,7 +103,7 @@ for (const m of midias) {
 }
 
 // 3. fecho com a rota no Japão
-const noJapao = midias.map((m) => lugares.get(m.lugar!.id)!).filter((l) => l.tz === '+09:00');
+const noJapao = midias.map(lugarDe).filter((l) => l.tz === '+09:00');
 const cidades = noJapao.filter((l, i) => noJapao.findIndex((x) => x.cidade === l.cidade) === i);
 if (cidades.length > 1) {
   segs.push({ tipo: 'fim', titulo: 'até aqui', sub: `${dia(midias[0].quando!)} – ${dia(midias[midias.length - 1].quando!)}`, pontos: cidades.map((l) => ({ nome: l.cidade, lat: l.lat, lng: l.lng })), numeros: [`${cidades.length} cidades`], segundos: 4 });

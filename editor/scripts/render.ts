@@ -6,7 +6,7 @@
  *     (um quadro do meio de cada segmento, lado a lado: para conferir antes do render longo)
  *   npm run render -- trabalho/plano.json --quadros 30,60,90
  *     (esses quadros específicos, lado a lado — para olhar uma animação de perto)
- *   --estilo outono   troca o visual (noite, outono, caderno, ukiyoe, linha, aovivo, globinho)
+ *   --estilo outono   troca o visual (noite, outono, caderno, ukiyoe, linha, aovivo, globinho, globinho-viagem)
  */
 import { copyFileSync, existsSync, linkSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -69,7 +69,9 @@ if (previa) {
   const ins = quadros.flatMap((q) => ['-i', q]);
   const pads = Array.from({ length: vazios }, () => ['-f', 'lavfi', '-i', 'color=c=black:s=270x480']).flat();
   const total = quadros.length + vazios;
-  ffmpeg([...ins, ...pads, '-filter_complex', `xstack=inputs=${total}:layout=${Array.from({ length: total }, (_, k) => `${(k % colunas) * 270}_${Math.floor(k / colunas) * 480}`).join('|')}`, '-frames:v', '1', '-update', '1', join('saida', `${nome}-previa.jpg`)]);
+  // o xstack só junta 2 ou mais; um quadro só vai direto
+  const juntar = total > 1 ? ['-filter_complex', `xstack=inputs=${total}:layout=${Array.from({ length: total }, (_, k) => `${(k % colunas) * 270}_${Math.floor(k / colunas) * 480}`).join('|')}`] : [];
+  ffmpeg([...ins, ...pads, ...juntar, '-frames:v', '1', '-update', '1', join('saida', `${nome}-previa.jpg`)]);
   quadros.forEach((q) => rmSync(q));
   console.log(`saida/${nome}-previa.jpg`);
 } else {
