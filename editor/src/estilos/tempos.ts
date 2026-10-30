@@ -6,12 +6,12 @@ import { TRANSICAO, duracaoTotal, quadrosDe, type Plano } from '../plano.ts';
 import { linhaGlobinho } from './globinhoTempo.ts';
 
 export function duracaoDoReel(p: Plano): number {
-  return p.estilo === 'globinho' ? linhaGlobinho(p).total : duracaoTotal(p);
+  return p.estilo?.startsWith('globinho') ? linhaGlobinho(p).total : duracaoTotal(p);
 }
 
 /** um quadro representativo de cada trecho, para a prévia lado a lado */
 export function amostras(p: Plano): number[] {
-  if (p.estilo === 'globinho') {
+  if (p.estilo?.startsWith('globinho')) {
     const l = linhaGlobinho(p);
     const q = l.itens.map((it) => it.ini + Math.round(it.dur * 0.5));
     // nos vídeos com trajeto, mostra também o globo no meio do caminho

@@ -16,4 +16,5 @@ export const ESTILOS: Record<Estilo, React.FC<Plano>> = {
   linha: ReelLinha,
   aovivo: ReelAoVivo,
   globinho: ReelGlobinho,
+  'globinho-viagem': ReelGlobinho,
 };

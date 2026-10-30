@@ -7,6 +7,10 @@
  *
  * Com o tempero do estilo outono: tom quente nas imagens, mincho, rota carmim
  * e umas poucas folhas de bordo caindo.
+ *
+ * Variante "globinho-viagem": a cada mudança de lugar o globo vem para o meio
+ * da tela, maior, faz o trajeto e volta para o canto, para o caminho ficar
+ * claro para quem assiste.
  */
 import '@fontsource/shippori-mincho/500.css';
 import '@fontsource/shippori-mincho/700.css';
@@ -41,9 +45,22 @@ const C = {
 };
 const GRADE_QUENTE = 'sepia(0.18) saturate(1.22) contrast(1.04) brightness(1.02)';
 
-/** onde o globo fica: no canto, e no fecho, grande no meio */
-const CANTO = { cx: 792, cy: 1288, r: 172 };
-const CENTRO = { cx: 540, cy: 1060, r: 330 };
+/**
+ * onde o globo fica: no canto, e no fecho, grande no meio. O canto depende do
+ * formato: no Reels a faixa de baixo (≈430 px) tem o perfil e a legenda, nos
+ * Stories só a caixa de resposta (≈250 px); para a família não há nada por cima.
+ */
+interface Lente {
+  cx: number;
+  cy: number;
+  r: number;
+}
+const CANTOS: Record<Plano['formato'], Lente> = {
+  reel: { cx: 792, cy: 1380, r: 172 },
+  story: { cx: 792, cy: 1490, r: 172 },
+  familia: { cx: 844, cy: 1648, r: 172 },
+};
+const CENTRO: Lente = { cx: 540, cy: 1060, r: 330 };
 
 /**
  * zoom relativo ao raio do globo: 1 = o globo inteiro cabe no círculo;
@@ -90,7 +107,7 @@ interface ViagemComAgenda extends Viagem {
   kmAntes: number;
 }
 
-function montar(l: LinhaGlobinho, fps: number) {
+function montar(l: LinhaGlobinho, fps: number, plano: Plano) {
   let km = 0;
   const viagens: ViagemComAgenda[] = l.viagens.map((v) => {
     const len = v.fim - v.ini;
@@ -101,9 +118,24 @@ function montar(l: LinhaGlobinho, fps: number) {
     km += ag.kmTotal;
     return out;
   });
-  return { ...l, viagens };
+  // globinho-viagem: a cada viagem o globo vem para o meio da tela e depois volta
+  return { ...l, viagens, canto: CANTOS[plano.formato] ?? CANTOS.reel, viagemNoMeio: plano.estilo === 'globinho-viagem' };
 }
 type Modelo = ReturnType<typeof montar>;
+
+/** 0 = globo no canto, 1 = no meio da tela (no fecho e, no globinho-viagem, durante cada viagem) */
+function noMeio(m: Modelo, f: number): number {
+  if (m.fecho && f >= m.fecho.ini) return suave(interpolate(f, [m.fecho.ini, m.fecho.ini + 24], [0, 1], clamp));
+  const v = m.viagemNoMeio ? m.viagens.find((x) => f >= x.ini && f <= x.fim) : undefined;
+  if (!v) return 0;
+  return suave(interpolate(f, [v.ini, v.a], [0, 1], clamp)) * (1 - suave(interpolate(f, [v.b, v.fim], [0, 1], clamp)));
+}
+
+function lente(m: Modelo, f: number): Lente {
+  const t = noMeio(m, f);
+  const a = m.canto;
+  return { cx: a.cx + (CENTRO.cx - a.cx) * t, cy: a.cy + (CENTRO.cy - a.cy) * t, r: a.r + (CENTRO.r - a.r) * t };
+}
 
 const itemEm = (m: Modelo, f: number) => {
   let k = 0;
@@ -146,6 +178,8 @@ function estado(m: Modelo, f: number, fps: number) {
       geral = { c: [alvo[0], Math.max(-25, Math.min(40, alvo[1] * 0.7))], z: Z_GLOBO };
     } else {
       geral = enquadrar(ativa.seg.pontos.map(ll));
+      // globo grande no meio: de perto demais só se vê terra; um pouco mais longe aparece a costa
+      if (m.viagemNoMeio) geral.z = Math.min(geral.z, Z_LUGAR);
     }
     if (f < ativa.a) cam = misturar(antes, geral, suave((f - ativa.ini) / (ativa.a - ativa.ini)));
     else if (f > ativa.b) cam = misturar(geral, depois, suave((f - ativa.b) / (ativa.fim - ativa.b)));
@@ -164,10 +198,7 @@ const Globo: React.FC<{ m: Modelo }> = ({ m }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const e = estado(m, f, fps);
-  const tf = m.fecho ? suave(interpolate(f, [m.fecho.ini, m.fecho.ini + 24], [0, 1], clamp)) : 0;
-  const cx = CANTO.cx + (CENTRO.cx - CANTO.cx) * tf;
-  const cy = CANTO.cy + (CENTRO.cy - CANTO.cy) * tf;
-  const r = CANTO.r + (CENTRO.r - CANTO.r) * tf;
+  const { cx, cy, r } = lente(m, f);
   const k = e.cam.z * r;
   const proj = geoOrthographic()
     .rotate([-e.cam.c[0], -e.cam.c[1]])
@@ -217,7 +248,7 @@ const Globo: React.FC<{ m: Modelo }> = ({ m }) => {
   }
   const d = linhas.map((pts) => caminho({ type: 'LineString', coordinates: pts }) ?? '').join(' ');
   const visitados = [...e.feitas.flatMap((v) => v.seg.pontos), ...(e.ativa ? e.ativa.seg.pontos.filter((_, i) => f >= e.ativa!.ag.chegada[i]) : [])].filter((p) => !p.passagem);
-  const esc = r / CANTO.r;
+  const esc = r / m.canto.r;
 
   const pa = e.ponta ? proj(e.ponta.pos) : null;
   const pb = e.ponta ? proj(e.ponta.giro) : null;
@@ -310,17 +341,21 @@ const Info: React.FC<{ m: Modelo }> = ({ m }) => {
   const lugar = it.seg.lugar;
   if (!v && !lugar) return null;
   const modos = v ? v.seg.modos.filter((x, i, arr) => arr.indexOf(x) === i) : [];
+  // globinho-viagem: o trajeto aparece centrado em cima do globo grande, quando ele chega ao meio
+  const g = lente(m, f);
+  const centrado = m.viagemNoMeio && !!v;
+  const op = centrado ? interpolate(noMeio(m, f), [0.55, 1], [0, 1], clamp) : a;
+  const lugarDoTexto: React.CSSProperties = centrado
+    ? { left: SEGURO.esquerda, right: SEGURO.esquerda, bottom: 1920 - (g.cy - g.r - 26), textAlign: 'center' }
+    : { right: W - (m.canto.cx + m.canto.r), bottom: 1920 - (m.canto.cy - m.canto.r - 22), maxWidth: 820, textAlign: 'right' };
   return (
     <div
       style={{
         position: 'absolute',
-        right: W - (CANTO.cx + CANTO.r),
-        bottom: 1920 - (CANTO.cy - CANTO.r - 22),
-        maxWidth: 820,
-        textAlign: 'right',
+        ...lugarDoTexto,
         fontFamily: SERIFA,
-        opacity: a,
-        transform: `translateY(${(1 - a) * 14}px)`,
+        opacity: op,
+        transform: `translateY(${(1 - op) * 14}px)`,
         textShadow: '0 2px 12px rgba(30,10,0,0.85), 0 0 3px rgba(30,10,0,0.6)',
       }}
     >
@@ -377,11 +412,11 @@ const Nota: React.FC<{ titulo?: string; texto: string }> = ({ titulo, texto }) =
   );
 };
 
-const Fundo: React.FC<{ seg: SegClipe }> = ({ seg }) => (
+const Fundo: React.FC<{ seg: SegClipe; canto: Lente }> = ({ seg, canto }) => (
   <AbsoluteFill style={{ background: '#1a0d06' }}>
     <MidiaCheia seg={seg} filtro={GRADE_QUENTE} />
     {/* escurece só o canto do globo e o topo, para o texto ler sem precisar de caixa */}
-    <AbsoluteFill style={{ background: 'radial-gradient(circle at 74% 66%, rgba(25,10,2,0.6) 0%, rgba(25,10,2,0.25) 28%, rgba(0,0,0,0) 48%)' }} />
+    <AbsoluteFill style={{ background: `radial-gradient(circle at ${canto.cx + 7}px ${canto.cy - 21}px, rgba(25,10,2,0.6) 0%, rgba(25,10,2,0.25) 28%, rgba(0,0,0,0) 48%)` }} />
     <AbsoluteFill style={{ background: 'linear-gradient(180deg, rgba(40,15,2,0.35) 0%, rgba(0,0,0,0) 22%)' }} />
     {seg.nota ? <Nota {...seg.nota} /> : null}
   </AbsoluteFill>
@@ -420,12 +455,19 @@ const Mosaico: React.FC<{ seg: SegFim; clipes: SegClipe[] }> = ({ seg, clipes })
   );
 };
 
+/** globinho-viagem: escurece as fotos enquanto o globo está no meio, para o trajeto saltar aos olhos */
+const Escurece: React.FC<{ m: Modelo }> = ({ m }) => {
+  const f = useCurrentFrame();
+  const t = m.fecho && f >= m.fecho.ini ? 0 : noMeio(m, f);
+  return t > 0 ? <AbsoluteFill style={{ background: `rgba(25,10,2,${0.4 * t})` }} /> : null;
+};
+
 const FONTES = ['500 40px "Shippori Mincho"', '700 40px "Shippori Mincho"', '800 40px "Shippori Mincho"'];
 
 export const ReelGlobinho: React.FC<Plano> = (plano) => {
   useFontes(plano, FONTES);
   const { fps } = useVideoConfig();
-  const m = useMemo(() => montar(linhaGlobinho(plano), fps), [plano, fps]);
+  const m = useMemo(() => montar(linhaGlobinho(plano), fps, plano), [plano, fps]);
   const clipes = plano.segmentos.filter((s): s is SegClipe => s.tipo === 'clipe');
   const transicao = fade() as TransitionPresentation<Record<string, unknown>>;
   return (
@@ -434,7 +476,7 @@ export const ReelGlobinho: React.FC<Plano> = (plano) => {
         {m.itens.flatMap((it, i) => [
           ...(i > 0 ? [<TransitionSeries.Transition key={`t${i}`} presentation={transicao} timing={linearTiming({ durationInFrames: TRANSICAO })} />] : []),
           <TransitionSeries.Sequence key={`s${i}`} durationInFrames={it.dur}>
-            <Fundo seg={it.seg} />
+            <Fundo seg={it.seg} canto={m.canto} />
           </TransitionSeries.Sequence>,
         ])}
         {m.fecho
@@ -446,6 +488,7 @@ export const ReelGlobinho: React.FC<Plano> = (plano) => {
             ]
           : null}
       </TransitionSeries>
+      <Escurece m={m} />
       <Folhas quantas={4} />
       <Globo m={m} />
       <Info m={m} />

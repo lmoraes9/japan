@@ -36,6 +36,23 @@ GPS cai na parada do mesmo dia com horário mais próximo (`metodo: 'roteiro'`).
 folha de contato e confira: o Kaminarimon fica a 100 m de um café do roteiro e a 400 m do
 ponto do Sensō-ji, e só a imagem resolve.
 
+**Fora do roteiro** (o teste em casa, um lugar que surgiu na viagem): o que foi feito a
+menos de 300 m vira um lugar só, `lugar.fora: true`, com o nome da cidade pelo GPS
+(GeoNames offline, pacote `all-the-cities`; perto do roteiro a cidade fica com o nome do
+app). O nome é provisório: olhe a imagem e troque no plano pelo que ela mostra ("Parque
+Ibirapuera", não "São Paulo"). Sem GPS, a mídia pega o lugar da vizinha no tempo
+(`metodo: 'vizinha'`, mesmo dia, até 2 h).
+
+**Fuso**: quando o arquivo não traz fuso (foto sem GPS, vídeo do Android sem GPS, que só
+tem UTC), vale o da mídia vizinha no tempo; sem vizinha, hora do Japão nos dias do roteiro
+e a do PC fora deles. `fusoDeduzido` diz de onde veio.
+
+**HEIC** (iPhone em "Alta Eficiência", alguns Android): o Chrome do render não abre, então o
+importador converte para `trabalho/jpg/<aparelho>/` com ffmpeg e copia os metadados com o
+exiftool; `arquivo` aponta para o JPG e `original` para o HEIC. O `.MOV` de Live Photo (mesmo
+nome da foto) fica de fora, e também os arquivos que começam com `.` ou `~` (lixeira do
+Android, temporários do Syncthing).
+
 ### 2. Olhar os vídeos
 
 Abra cada `trabalho/quadros/*.jpg` (Read na imagem). Os quadros vão da esquerda para a
@@ -83,6 +100,10 @@ só define a aparência (`VisualMapa`) e os componentes de clipe, título e fech
 | `linha`   | a viagem como linha de trem: painel 次は da porta, placa de estação, painel de partidas, portas fechando |
 | `aovivo`  | tela dividida: vídeo em cima, um mapa contínuo embaixo com o pontinho azul e os km rodados |
 | `globinho`| foto/vídeo em tela cheia o tempo todo, globo 3D sem fundo no canto de baixo à direita; tempero de outono |
+| `globinho-viagem` | o globinho, mas a cada mudança de lugar o globo vem para o meio, maior, faz o trajeto e volta para o canto |
+
+O canto do globo depende de `plano.formato` (`CANTOS` em `globinho.tsx`): no Reels fica acima
+da legenda, nos Stories mais embaixo, na versão da família quase no canto da tela.
 
 O `aovivo` e o `globinho` usam `lugar.lat`/`lugar.lng` dos clipes (o rascunho já
 preenche) para saber onde vocês estavam em cada vídeo.
@@ -110,6 +131,20 @@ quadros de vídeo a 512 MB, mas cada um ainda abre um Chrome e um decodificador)
 3. `npm run importar` com algum vídeo em `entrada/teste/` para conferir.
 
 `REMOTION_BROWSER` aponta para um Chrome já instalado, se o download automático falhar.
+
+## Fotos chegando sozinhas no PC
+
+- **Android do Leonardo → `entrada/leo-android`**: Syncthing no PC (abre com o Windows, atalho
+  na pasta Inicializar; painel em http://127.0.0.1:8384) e Syncthing-Fork no celular. A pasta
+  da câmera é "só enviar" no celular e "só receber" no PC, com `ignoreDelete` (apagar no
+  celular não apaga no PC), só no Wi-Fi. O `.stignore` da pasta deixa passar só arquivos com
+  data a partir de 30/10/2026 no nome, para não baixar a câmera inteira.
+- **iPhone da Priscila → `entrada/pri-iphone`** (a fazer): iCloud Fotos + iCloud para Windows
+  (já instalado no PC, falta ela entrar com o Apple ID). Plano: a pasta vira um atalho
+  (`mklink /J`) para a pasta do iCloud Fotos. Cuidado: no iCloud para Windows as fotos são
+  arquivos "na nuvem" que baixam quando alguém lê; o importador lê tudo de `entrada/`, então
+  é preciso filtrar pela data do arquivo antes de ler, ou ele baixa a biblioteca inteira.
+- **Nunca pelo WhatsApp**: ele apaga o GPS e a data. Sem sincronização, é por cabo.
 
 ## Testar sem mídia de verdade
 

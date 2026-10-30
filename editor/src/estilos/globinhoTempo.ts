@@ -56,11 +56,25 @@ export function linhaGlobinho(p: Plano): LinhaGlobinho {
         pendente = s;
       }
     } else if (s.tipo === 'clipe') {
-      const dur = quadrosDe(s);
+      let dur = quadrosDe(s);
       if (pendente) {
-        // o trajeto ocupa o começo do vídeo de chegada
-        const len = Math.min(Math.round(pendente.segundos * FPS * 0.65), Math.round(dur * 0.62));
-        viagens.push({ seg: pendente, ini: q, fim: q + len });
+        if (p.estilo === 'globinho-viagem') {
+          // o globo vai ao meio e volta, então o trajeto leva o tempo inteiro do mapa:
+          // começa no fim do vídeo anterior (saindo de lá) e termina no de chegada,
+          // deixando pelo menos 1 s do lugar novo com o globo de volta no canto.
+          // A foto de chegada espera o quanto precisar; o vídeo tem o tamanho que tem.
+          const quer = Math.round(pendente.segundos * FPS);
+          const anterior = itens[itens.length - 1];
+          // e 1,5 s do lugar anterior no canto, desde a viagem de antes
+          const livre = q - ((viagens[viagens.length - 1]?.fim ?? 0) + 45);
+          const antes = Math.max(0, Math.min(Math.round(quer * 0.4), livre, anterior ? Math.round(anterior.dur * 0.5) : 0));
+          if (s.de === undefined) dur = Math.max(dur, quer - antes + 40);
+          viagens.push({ seg: pendente, ini: q - antes, fim: q - antes + Math.min(quer, antes + dur - 40) });
+        } else {
+          // o trajeto ocupa o começo do vídeo de chegada
+          const len = Math.min(Math.round(pendente.segundos * FPS * 0.65), Math.round(dur * 0.62));
+          viagens.push({ seg: pendente, ini: q, fim: q + len });
+        }
         pendente = undefined;
       }
       empurra(s, dur, s.lugar?.lat !== undefined && s.lugar.lng !== undefined ? [s.lugar.lng, s.lugar.lat] : undefined);

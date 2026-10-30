@@ -1,14 +1,17 @@
-# Onde paramos (passagem do chat na nuvem para o chat local)
+# Onde paramos
 
-Resumo da conversa que criou o editor, para quem continua no PC.
+Resumo do que foi decidido, para quem continua (na nuvem ou no PC).
 
 ## O que existe
 
 - Fluxo completo com mídia falsa: `npm run demo:midia` → `npm run importar` →
   plano (`demo/plano-demo.json` é o plano pronto) → `npm run render`.
-- 7 estilos (`src/estilos/`): noite, outono, caderno, ukiyoe, linha, aovivo, globinho.
+- 8 estilos (`src/estilos/`): noite, outono, caderno, ukiyoe, linha, aovivo, globinho,
+  globinho-viagem.
 - Mídia falsa, vídeos renderizados e `trabalho/` **não** estão no git (ficam no
   `.gitignore`); tudo se refaz com os comandos acima.
+- O PC de casa (Windows) já tem tudo instalado e roda o fluxo: Node 22, ffmpeg (Gyan),
+  Syncthing e iCloud para Windows.
 
 ## O que eles gostaram
 
@@ -16,28 +19,26 @@ Resumo da conversa que criou o editor, para quem continua no PC.
   **globinho**: foto/vídeo em tela cheia o tempo todo e um globo 3D sem fundo no canto
   de baixo à direita. O tamanho do globo (raio 172 px) está bom.
 
-## Próximos passos pedidos
+## Feito no PC (29/10/2026)
 
-1. **Globinho mais para baixo.** Hoje o centro está em `CANTO = { cx: 792, cy: 1288 }`
-   em `src/estilos/globinho.tsx` (o globo termina em y≈1460) e acham que ocupa espaço
-   demais das fotos. Descer o globo e o texto que fica em cima dele.
-   Atenção: no Reels, a faixa de baixo (≈430 px) tem o nome do perfil e a legenda, e a
-   coluna da direita tem os botões; descer muito joga o globo para baixo disso. Nos
-   Stories a faixa de baixo é menor (≈250 px, a caixa de resposta). Talvez valha uma
-   posição por formato (`plano.formato`).
-2. **Variante nova, sem mexer na atual** (deixar o `globinho` como está para teste;
-   criar um estilo novo, por exemplo `globinho-viagem`): na hora de cada mudança de
-   lugar (São Paulo → Nova York, Tóquio → Hiroshima…), o globo **vem para o meio da
-   tela, maior**, o avião ou o trem faz o trajeto, e depois o globo **volta para o
-   canto** enquanto as fotos e vídeos do lugar seguem rolando. A ideia é deixar o
-   trajeto bem claro para quem assiste. Hoje o globo só vai para o meio no fecho
-   (`CENTRO` e `tf` em `Globo`); dá para reaproveitar essa interpolação usando as
-   janelas de cada `viagem` (`ini`, `a`, `b`, `fim` em `montar`).
+- Globinho mais para baixo, com posição por formato (`CANTOS` em `globinho.tsx`):
+  Reels `cy` 1288 → 1380, Stories 1490, família 1648. Esperando eles verem no celular.
+- Variante **globinho-viagem**: a cada viagem o globo vem para o meio (raio 330),
+  as fotos escurecem um pouco, o trajeto aparece centrado em cima do globo, e ele volta
+  para o canto. O trajeto ganha o tempo inteiro do mapa (a foto de chegada espera).
+- Importador: lugares fora do roteiro (cidade pelo GPS, offline), fuso pela mídia
+  vizinha / roteiro / PC, HEIC → JPG, Live Photo e lixeira do Android de fora, tempo
+  escrito nas folhas de contato no Windows.
+- Sincronização do Android do Leonardo pelo Syncthing, ver
+  "Fotos chegando sozinhas no PC" no CLAUDE.md.
 
-## Depois disso (conversado, ainda não feito)
+## Próximos passos
 
-- Sincronizar as fotos dos celulares com o PC: Android do Leonardo com FolderSync ou
-  Syncthing; iPhone da Priscila com o iCloud para Windows. Mandar pelo WhatsApp apaga o GPS.
+- Teste de verdade em casa com as fotos que chegarem pelo Syncthing/iCloud: importar,
+  folhas de contato, rascunho, plano, render no globinho e no globinho-viagem.
+- iPhone da Priscila: entrar no iCloud para Windows com o Apple ID dela, ligar
+  `entrada/pri-iphone` à pasta do iCloud Fotos (ver CLAUDE.md), ver se o iCloud tem espaço
+  (5 GB não dá) e conferir uma foto HEIC de verdade (orientação e GPS depois da conversão).
 - Entregar as versões no celular para aprovarem (eles querem aprovar antes de postar).
 - Versão Stories e resumo do dia para a família no WhatsApp.
 - Rodada automática toda noite (por volta das 23 h do Japão) com o Claude Code em modo
