@@ -9,6 +9,9 @@ como rascunho para o Leonardo e a Priscila aprovarem.
 Pacote separado do app: tem o próprio `package.json` e está fora do `tsconfig` e do build
 do Next.
 
+**Antes de começar, leia `PROXIMOS.md`**: o que foi decidido até aqui e os próximos
+passos pedidos.
+
 ## Fluxo
 
 ```
