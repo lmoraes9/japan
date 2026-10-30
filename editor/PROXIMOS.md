@@ -41,6 +41,17 @@ Resumo do que foi decidido, para quem continua (na nuvem ou no PC).
 - iPhone da Priscila: entrar no iCloud para Windows com o Apple ID dela, ligar
   `entrada/pri-iphone` à pasta do iCloud Fotos (ver CLAUDE.md), ver se o iCloud tem espaço
   (5 GB não dá) e conferir uma foto HEIC do iPhone (a do Samsung já foi conferida).
+- Testar o Syncthing fora do Wi-Fi de casa (o celular em outra rede): no Japão as fotos
+  vêm pela internet. O PC já anuncia no descobrimento global e tem relay. O celular está
+  "só no Wi-Fi": qualquer rede serve, mas o hotspot do iPhone o Android trata como rede
+  medida, e aí a opção de Wi-Fi medido do Syncthing-Fork também precisa estar ligada.
+- Antes de viajar, com o PC de casa: na tomada ele nunca dorme (conferido), mas na
+  bateria dorme em 1 h e não volta sozinho quando a luz volta (pôr "nunca" na bateria
+  também); pausar o Windows Update por 5 semanas (depois de um reinício ninguém entra, e o
+  Syncthing e o Claude só abrem depois do login); deixar a tampa aberta.
+- Escolha das fotos: o Claude escolhe e manda a prévia numerada no chat; eles respondem em
+  palavras ("tira a 3", "põe o vídeo do cervo") e só depois sai o render. O coração da
+  Galeria do Samsung não vai junto com o arquivo, então não serve de sinal.
 - Entregar as versões no celular para aprovarem (eles querem aprovar antes de postar).
 - Versão Stories e resumo do dia para a família no WhatsApp.
 - Rodada automática toda noite (por volta das 23 h do Japão) com o Claude Code em modo
