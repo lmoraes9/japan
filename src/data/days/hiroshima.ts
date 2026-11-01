@@ -75,7 +75,7 @@ export const hiroshimaDays: Day[] = [
         kind: 'sight',
         name: 'Museu Memorial da Paz',
         jp: '広島平和記念資料館',
-        facts: '**07:30–19:00** de setembro a novembro (última entrada 18:30) · aberto no feriado · **¥200** · reservem 1h30–2h',
+        facts: '**Ingresso reservado: entrar entre 13:00 e 13:30** (voucher N9QNMRY2OBE8, tela do ingresso no celular) · 07:30–19:00 de setembro a novembro · aberto no feriado · reservem 1h30–2h',
         paragraphs: [
           'Comecem pelo museu e não pelo Domo — a ordem importa. O prédio principal, reformado em 2019, é conduzido por objetos e por histórias individuais, não por números. É pesado, e é feito para ser. Vale pegar o audioguia (¥400).',
         ],
