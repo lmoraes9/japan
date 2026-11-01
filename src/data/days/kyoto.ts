@@ -434,10 +434,10 @@ export const kyotoDays: Day[] = [
         kind: 'food',
         name: 'Chá no Gion Kitagawa Hanbee',
         jp: '祇園 北川半兵衛',
-        facts: 'Sábado **11:00–20:00**, último pedido 19:30 (dia útil só até 18:00) · **reservar por telefone: 075-205-0880** · Hanamikōji, 6 min da Keihan Gion-Shijō · ~¥2.300–2.900 por pessoa',
+        facts: '**Mesa reservada às 18:00** (TableCheck UFR7CG, 2 pessoas; 15 min de atraso cancelam) · sábado 11:00–20:00, último pedido 19:30 · Hanamikōji, 6 min da Keihan Gion-Shijō · ~¥2.300–2.900 por pessoa',
         paragraphs: [
           'Casa de chá da família Kitagawa Hanbee, de Uji, que planta e torra chá desde 1861 — a *noren* é discreta, numa casa de madeira da Hanamikōji, e é fácil passar direto. Hoje é sábado, por isso ela fica aberta até as 20h; em dia útil fecharia às 18h, antes de vocês chegarem de Higashiyama.',
-          'Reservem: no fim de semana do momiji Gion lota, e sem reserva deixa-se o nome e eles ligam quando vaga. Uma hora aqui é a transição perfeita entre a maratona de templos e o jantar em Gion, do lado.',
+          'A mesa está reservada: no fim de semana do momiji Gion lota, e sem reserva deixa-se o nome e eles ligam quando vaga. É sistema de um pedido por pessoa: cada um escolhe pelo menos um item. Uma hora aqui é a transição perfeita entre a maratona de templos e o jantar em Gion, do lado.',
         ],
         eat: [
           {

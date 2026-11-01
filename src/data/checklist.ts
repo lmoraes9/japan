@@ -176,10 +176,9 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'reserva-kitagawa',
-    dueAt: '2026-11-20T23:59:00-03:00',
     group: 'pretrip',
     title: 'Reservar o chá no Gion Kitagawa Hanbee',
-    subtitle: 'Sábado 28/11 às 18:00 · por telefone (075-205-0880) ou pelo Hitosara · Gion lota no fim de semana do momiji',
+    subtitle: 'Reservado em 1/11 pelo TableCheck (UFR7CG): sábado 28/11 às 18:00, 2 pessoas',
   },
   {
     id: 'reserva-torokko',
@@ -197,10 +196,9 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'reserva-museu-paz',
-    dueAt: '2026-11-15T23:59:00-03:00',
     group: 'pretrip',
     title: 'Ingresso do Museu Memorial da Paz',
-    subtitle: 'Hiroshima, 23/11, entrada 13:00 · já está à venda · não é obrigatório nesse horário, mas é feriado e a fila do guichê passa de 30 min · ¥200',
+    subtitle: 'Comprado em 1/11: Hiroshima, 23/11, entrada entre 13:00 e 13:30 · voucher N9QNMRY2OBE8, em Reservas',
   },
   {
     id: 'reserva-omakase',
