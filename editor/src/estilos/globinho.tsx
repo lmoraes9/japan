@@ -185,7 +185,10 @@ function estado(m: Modelo, f: number, fps: number) {
     else if (f > ativa.b) cam = misturar(geral, depois, suave((f - ativa.b) / (ativa.fim - ativa.b)));
     else cam = geral;
   } else if (m.fecho && f >= m.fecho.ini) {
-    const japao = m.viagens.flatMap((v) => v.seg.pontos).filter((p) => !p.passagem && p.lng > 120 && p.lng < 150).map(ll);
+    const paradas = m.viagens.flatMap((v) => v.seg.pontos).filter((p) => !p.passagem);
+    const noJapao = paradas.filter((p) => p.lng > 120 && p.lng < 150);
+    // fora do Japão (teste em casa) o fecho enquadra o que houver
+    const japao = (noJapao.length ? noJapao : paradas).map(ll);
     const t = suave(interpolate(f, [m.fecho.ini, m.fecho.ini + m.fecho.dur * 0.45], [0, 1], clamp));
     cam = misturar({ c: posicaoEm(m, m.fecho.ini - 1), z: Z_LUGAR }, enquadrar(japao, 0.8), t);
   }
