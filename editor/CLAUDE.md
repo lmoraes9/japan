@@ -167,5 +167,6 @@ trecho ruim de propósito. Depois é o fluxo normal: importar, rascunho, plano, 
   (Kokudo Sūchi Jōhō, MLIT), com a precisão reduzida para 4 casas.
 - Mundo: `world-atlas` (Natural Earth, domínio público).
 - `dados/extras.json`: aeroportos das conexões, com o fuso de novembro.
+- `dados/sp-municipios.geo.json`: municípios do estado de São Paulo (IBGE, malha intermediária), para o globo não ficar vazio nos testes em casa.
 
 `entrada/`, `trabalho/` e `saida/` ficam fora do git: são mídia pessoal e coisas geradas.

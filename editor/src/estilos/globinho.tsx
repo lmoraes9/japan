@@ -16,7 +16,7 @@ import '@fontsource/shippori-mincho/500.css';
 import '@fontsource/shippori-mincho/700.css';
 import '@fontsource/shippori-mincho/800.css';
 import React, { useMemo } from 'react';
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Audio, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { TransitionSeries, linearTiming, type TransitionPresentation } from '@remotion/transitions';
 import { fade } from '@remotion/transitions/fade';
 import { geoCentroid, geoDistance, geoGraticule10, geoInterpolate, geoOrthographic, geoPath } from 'd3-geo';
@@ -469,8 +469,10 @@ const FONTES = ['500 40px "Shippori Mincho"', '700 40px "Shippori Mincho"', '800
 
 export const ReelGlobinho: React.FC<Plano> = (plano) => {
   useFontes(plano, FONTES);
-  const { fps } = useVideoConfig();
+  const { fps, durationInFrames: n } = useVideoConfig();
   const m = useMemo(() => montar(linhaGlobinho(plano), fps, plano), [plano, fps]);
+  // a música some nos últimos 2 s em vez de cortar seco
+  const volumeTrilha = (f: number) => 0.8 * interpolate(f, [n - 2 * fps, n - 1], [1, 0], clamp);
   const clipes = plano.segmentos.filter((s): s is SegClipe => s.tipo === 'clipe');
   const transicao = fade() as TransitionPresentation<Record<string, unknown>>;
   return (
@@ -495,6 +497,7 @@ export const ReelGlobinho: React.FC<Plano> = (plano) => {
       <Folhas quantas={4} />
       <Globo m={m} />
       <Info m={m} />
+      {plano.trilha ? <Audio src={staticFile(plano.trilha)} volume={volumeTrilha} /> : null}
     </AbsoluteFill>
   );
 };
