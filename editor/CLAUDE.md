@@ -120,6 +120,29 @@ e o trajeto acontece no globo durante o começo do vídeo seguinte. Por isso o v
 mais curto que nos outros estilos (≈ 38 s contra 55 s no plano de exemplo). Duração e
 quadros de prévia por estilo ficam em `src/estilos/tempos.ts`.
 
+### Ilha de Edição (eles montam pelo celular)
+
+Painel no claude.ai (`painel/ilha.html`, artefato privado
+https://claude.ai/artifact/LTGmEH6XDhDamBUQfitfK4) onde eles escolhem, para cada edit, a
+música, o tema, o estilo e as fotos e vídeos na ordem (e de que segundo cada vídeo começa,
+tocando na folha de contato). Abre de qualquer lugar, então funciona do Japão com o PC em casa.
+O banco do artefato tem três coleções: `midias` e `musicas` (o Claude grava) e `edits`
+(eles gravam; `estado` vai de `rascunho` → `pedido`, e o Claude passa para `renderizando` →
+`pronto`, com um recado em `resposta`).
+
+- **Fotos novas**: `npm run painel` gera em `trabalho/painel/` miniaturas de 360 px e as
+  folhas de contato reduzidas (só elas sobem; o original fica no PC). Suba os jpg novos como
+  assets do artefato e grave as linhas em `midias` com a url de cada um (`mini`, `folha`);
+  `trabalho/painel/assets.txt` guarda o id do asset de cada miniatura já enviada.
+- **Música nova**: ponha o mp3 em `entrada/extras/musicas/` e rode `python scripts/musica.py`
+  (andamento e trecho mais forte, em `trabalho/musicas.json`; confira o bpm de ouvido). Grave
+  a linha em `musicas` com `nome`, `tema` sugerido, `bpm`, `unidade` e `dur`.
+- **Edit pedido**: leia `edits` (ArtifactData), salve o edit em `trabalho/edits/<id>.json`,
+  rode `npm run edit -- trabalho/edits/<id>.json` (monta com o mesmo `montar` do rascunho e
+  corta na batida: abertura e vídeo 8 unidades, foto 4, fecho 16), revise o plano como
+  sempre (notas, nomes, o `recado` deles), prévia, render, e mande o vídeo. Marque o estado
+  no banco a cada passo.
+
 ### 4. Conferir e renderizar
 
 Sempre rode `--previa` antes do render longo e olhe a imagem: texto cortado, rótulo
