@@ -8,13 +8,14 @@
  *     (esses quadros específicos, lado a lado — para olhar uma animação de perto)
  *   --estilo outono   troca o visual (noite, outono, caderno, ukiyoe, linha, aovivo, globinho, globinho-viagem)
  */
-import { copyFileSync, existsSync, linkSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
+import { copyFileSync, existsSync, linkSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { bundle } from '@remotion/bundler';
 import { renderMedia, renderStill, selectComposition } from '@remotion/renderer';
 import { FPS, type Estilo, type Plano } from '../src/plano.ts';
 import { amostras } from '../src/estilos/tempos.ts';
 import { ffmpeg, navegador } from './lib/ferramentas.ts';
+import { ruasDoPlano } from './lib/ruas.ts';
 
 const args = process.argv.slice(2);
 const valor = (flag: string) => {
@@ -50,6 +51,9 @@ for (const u of usados) {
     copyFileSync(u, destino);
   }
 }
+
+// o globinho mostra as ruas em volta das paradas na saída e na chegada
+writeFileSync(join(publico, 'ruas.json'), JSON.stringify(estilo?.startsWith('globinho') ? await ruasDoPlano(plano) : {}));
 
 const serveUrl = await bundle({ entryPoint: resolve('src/index.ts'), publicDir: publico });
 const inputProps = plano as unknown as Record<string, unknown>;

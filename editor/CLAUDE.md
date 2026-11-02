@@ -100,7 +100,7 @@ só define a aparência (`VisualMapa`) e os componentes de clipe, título e fech
 | `linha`   | a viagem como linha de trem: painel 次は da porta, placa de estação, painel de partidas, portas fechando |
 | `aovivo`  | tela dividida: vídeo em cima, um mapa contínuo embaixo com o pontinho azul e os km rodados |
 | `globinho`| foto/vídeo em tela cheia o tempo todo, globo 3D sem fundo no canto de baixo à direita; tempero de outono |
-| `globinho-viagem` | o globinho, mas a cada mudança de lugar o globo vem para o meio, maior, faz o trajeto e volta para o canto |
+| `globinho-viagem` | o globinho, mas a cada mudança de lugar o globo vem para o meio, maior, mergulha nas ruas da saída, abre para o caminho, mergulha nas ruas da chegada e volta para o canto |
 
 O canto do globo depende de `plano.formato` (`CANTOS` em `globinho.tsx`): no Reels fica acima
 da legenda, nos Stories mais embaixo, na versão da família quase no canto da tela.
@@ -167,6 +167,9 @@ trecho ruim de propósito. Depois é o fluxo normal: importar, rascunho, plano, 
   (Kokudo Sūchi Jōhō, MLIT), com a precisão reduzida para 4 casas.
 - Mundo: `world-atlas` (Natural Earth, domínio público).
 - `dados/extras.json`: aeroportos das conexões, com o fuso de novembro.
+- Ruas do bairro no globinho: o render baixa do OpenStreetMap (Overpass) as ruas e trilhos num raio
+  de 2,2 km de cada parada dos trajetos e guarda em `trabalho/ruas/` (uma vez por lugar; sem
+  internet o vídeo sai sem ruas). O crédito "© OpenStreetMap" aparece embaixo do globo.
 - `dados/sp-municipios.geo.json`: municípios do estado de São Paulo (IBGE, malha intermediária), para o globo não ficar vazio nos testes em casa.
 
 `entrada/`, `trabalho/` e `saida/` ficam fora do git: são mídia pessoal e coisas geradas.

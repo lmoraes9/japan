@@ -9,14 +9,15 @@
  * e umas poucas folhas de bordo caindo.
  *
  * Variante "globinho-viagem": a cada mudança de lugar o globo vem para o meio
- * da tela, maior, faz o trajeto e volta para o canto, para o caminho ficar
- * claro para quem assiste.
+ * da tela, maior, e faz o trajeto em três tempos: mergulha nas ruas do lugar de
+ * saída (OpenStreetMap), abre para mostrar o caminho inteiro, mergulha nas ruas
+ * da chegada e volta para o canto.
  */
 import '@fontsource/shippori-mincho/500.css';
 import '@fontsource/shippori-mincho/700.css';
 import '@fontsource/shippori-mincho/800.css';
-import React, { useMemo } from 'react';
-import { AbsoluteFill, Audio, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
+import React, { useEffect, useMemo, useState } from 'react';
+import { AbsoluteFill, Audio, Sequence, continueRender, delayRender, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { TransitionSeries, linearTiming, type TransitionPresentation } from '@remotion/transitions';
 import { fade } from '@remotion/transitions/fade';
 import { geoCentroid, geoDistance, geoGraticule10, geoInterpolate, geoOrthographic, geoPath } from 'd3-geo';
@@ -25,6 +26,7 @@ import { Icone } from '../icones.tsx';
 import { Midia } from '../Midia.tsx';
 import { fmtKm } from '../Mapa.tsx';
 import { TRANSICAO, type Modo, type Plano, type SegClipe, type SegFim } from '../plano.ts';
+import type { Ruas } from '../ruas.ts';
 import { clamp, ll, montarAgenda, naPerna, rotaAte, suave, type Agenda, type LngLat } from '../rota.ts';
 import { SEGURO, W } from '../tema.ts';
 import { useFontes } from './base.tsx';
@@ -69,6 +71,15 @@ const CENTRO: Lente = { cx: 540, cy: 1060, r: 330 };
 const Z_GLOBO = 1;
 const Z_LUGAR = 350;
 const Z_MAX = 3000;
+/** as ruas do bairro: uns 3 km de largura no globo */
+const Z_RUA = 4200;
+
+/**
+ * globinho-viagem, em fração do trajeto: o globo cresce enquanto mergulha nas
+ * ruas da saída, abre para o caminho inteiro, o veículo anda, mergulha nas ruas
+ * da chegada e encolhe de volta para o canto
+ */
+const T = { cresceu: 0.15, abre: 0.3, aberto: 0.42, anda: 0.62, desce: 0.74, encolhe: 0.86 };
 
 const MODO_JP: Record<Modo, string> = {
   aviao: '飛行機',
@@ -111,8 +122,9 @@ function montar(l: LinhaGlobinho, fps: number, plano: Plano) {
   let km = 0;
   const viagens: ViagemComAgenda[] = l.viagens.map((v) => {
     const len = v.fim - v.ini;
-    const a = v.ini + Math.round(len * 0.2);
-    const b = v.ini + Math.round(len * 0.8);
+    const noMeio = plano.estilo === 'globinho-viagem';
+    const a = v.ini + Math.round(len * (noMeio ? T.aberto : 0.2));
+    const b = v.ini + Math.round(len * (noMeio ? T.anda : 0.8));
     const ag = montarAgenda(v.seg.pontos, v.seg.escala, a, b, fps);
     const out = { ...v, ag, a, b, kmAntes: km };
     km += ag.kmTotal;
@@ -128,7 +140,8 @@ function noMeio(m: Modelo, f: number): number {
   if (m.fecho && f >= m.fecho.ini) return suave(interpolate(f, [m.fecho.ini, m.fecho.ini + 24], [0, 1], clamp));
   const v = m.viagemNoMeio ? m.viagens.find((x) => f >= x.ini && f <= x.fim) : undefined;
   if (!v) return 0;
-  return suave(interpolate(f, [v.ini, v.a], [0, 1], clamp)) * (1 - suave(interpolate(f, [v.b, v.fim], [0, 1], clamp)));
+  const t = (f - v.ini) / (v.fim - v.ini);
+  return suave(interpolate(t, [0, T.cresceu], [0, 1], clamp)) * (1 - suave(interpolate(t, [T.encolhe, 1], [0, 1], clamp)));
 }
 
 function lente(m: Modelo, f: number): Lente {
@@ -166,7 +179,9 @@ function estado(m: Modelo, f: number, fps: number) {
     const pos = naPerna(ativa.ag.pernas[perna], u, ativa.seg.escala);
     const frente = naPerna(ativa.ag.pernas[perna], Math.min(1, u + 0.03), ativa.seg.escala);
     const modo = ativa.seg.modos[Math.min(perna, ativa.seg.modos.length - 1)] ?? 'trem';
-    if (f >= ativa.a - 2 && f <= ativa.b + 4) ponta = { pos, modo, giro: frente };
+    const t = (f - ativa.ini) / (ativa.fim - ativa.ini);
+    // no globinho-viagem o veículo já espera na rua de saída e fica na de chegada
+    if (m.viagemNoMeio ? t >= 0.08 && t <= 0.9 : f >= ativa.a - 2 && f <= ativa.b + 4) ponta = { pos, modo, giro: frente };
 
     const primeira = ativa.ini === 0;
     const antes: Camera = primeira ? { c: ll(ativa.seg.pontos[0]), z: ativa.seg.escala === 'globo' ? Z_GLOBO : Z_LUGAR } : { c: posicaoEm(m, ativa.ini - TRANSICAO - 1), z: Z_LUGAR };
@@ -181,7 +196,19 @@ function estado(m: Modelo, f: number, fps: number) {
       // globo grande no meio: de perto demais só se vê terra; um pouco mais longe aparece a costa
       if (m.viagemNoMeio) geral.z = Math.min(geral.z, Z_LUGAR);
     }
-    if (f < ativa.a) cam = misturar(antes, geral, suave((f - ativa.ini) / (ativa.a - ativa.ini)));
+    if (m.viagemNoMeio && ativa.seg.escala !== 'globo') {
+      const ps = ativa.seg.pontos;
+      const ruaA: Camera = { c: ll(ps[0]), z: Z_RUA };
+      const ruaB: Camera = { c: ll(ps[ps.length - 1]), z: Z_RUA };
+      const fase = (x: number, y: number) => suave(interpolate(t, [x, y], [0, 1], clamp));
+      if (t < T.cresceu) cam = misturar(antes, ruaA, fase(0, T.cresceu));
+      else if (t < T.abre) cam = ruaA;
+      else if (t < T.aberto) cam = misturar(ruaA, geral, fase(T.abre, T.aberto));
+      else if (t < T.anda) cam = geral;
+      else if (t < T.desce) cam = misturar(geral, ruaB, fase(T.anda, T.desce));
+      else if (t < T.encolhe) cam = ruaB;
+      else cam = misturar(ruaB, depois, fase(T.encolhe, 1));
+    } else if (f < ativa.a) cam = misturar(antes, geral, suave((f - ativa.ini) / (ativa.a - ativa.ini)));
     else if (f > ativa.b) cam = misturar(geral, depois, suave((f - ativa.b) / (ativa.fim - ativa.b)));
     else cam = geral;
   } else if (m.fecho && f >= m.fecho.ini) {
@@ -197,7 +224,7 @@ function estado(m: Modelo, f: number, fps: number) {
 
 // ─── o globo ─────────────────────────────────────────────────────────────
 
-const Globo: React.FC<{ m: Modelo }> = ({ m }) => {
+const Globo: React.FC<{ m: Modelo; ruas: Ruas }> = ({ m, ruas }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const e = estado(m, f, fps);
@@ -240,6 +267,25 @@ const Globo: React.FC<{ m: Modelo }> = ({ m }) => {
           <path key={`p${i}`} d={caminho(ft as any) ?? ''} fill={C.terra} stroke="rgba(169,135,106,0.35)" strokeWidth={0.8} />
         ))}
       </>
+    );
+  }
+
+  // de muito perto, as ruas do bairro (OpenStreetMap) por cima da terra
+  const opRuas = interpolate(Math.log(e.cam.z), [Math.log(1100), Math.log(3000)], [0, 1], clamp);
+  let bairro: React.ReactNode = null;
+  if (opRuas > 0) {
+    const perto = Object.entries(ruas).filter(([k]) => {
+      const [lat, lng] = k.split('_').map(Number);
+      return geoDistance([lng, lat], e.cam.c) < 3 / e.cam.z;
+    });
+    const linhas = (tipo: 'grandes' | 'pequenas' | 'trilhos') => caminho({ type: 'MultiLineString', coordinates: perto.flatMap(([, r]) => r[tipo]) }) ?? '';
+    bairro = (
+      <g opacity={opRuas}>
+        <path d={linhas('pequenas')} fill="none" stroke="rgba(150,115,85,0.8)" strokeWidth={1.8} strokeLinecap="round" />
+        <path d={linhas('grandes')} fill="none" stroke="#fffaf0" strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" />
+        <path d={linhas('grandes')} fill="none" stroke="#c99a62" strokeWidth={3.8} strokeLinecap="round" strokeLinejoin="round" />
+        <path d={linhas('trilhos')} fill="none" stroke="#5a4636" strokeWidth={2.4} strokeDasharray="10 6" />
+      </g>
     );
   }
 
@@ -292,6 +338,7 @@ const Globo: React.FC<{ m: Modelo }> = ({ m }) => {
       <g clipPath="url(#lente)">
         {e.cam.z <= 1.02 ? <path d={caminho({ type: 'Sphere' }) ?? ''} fill="url(#oceano)" /> : <circle cx={cx} cy={cy} r={r} fill="url(#oceano)" />}
         {terra}
+        {bairro}
         <path d={d} fill="none" stroke={C.creme} strokeWidth={7 * Math.max(0.8, esc)} strokeLinecap="round" strokeLinejoin="round" opacity={0.9} />
         <path d={d} fill="none" stroke={C.carmim} strokeWidth={4 * Math.max(0.8, esc)} strokeLinecap="round" strokeLinejoin="round" />
         {visitados.map((p, i) => {
@@ -303,6 +350,11 @@ const Globo: React.FC<{ m: Modelo }> = ({ m }) => {
         <circle cx={cx} cy={cy} r={r} fill="url(#brilho)" />
       </g>
       <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(255,240,215,0.55)" strokeWidth={2} />
+      {bairro ? (
+        <text x={cx} y={cy + r + 26} textAnchor="middle" fontFamily="sans-serif" fontSize={15} fill={C.cremeSuave} opacity={opRuas * 0.8}>
+          © OpenStreetMap
+        </text>
+      ) : null}
 
       {/* parado num lugar: pontinho pulsando onde vocês estão */}
       {!e.ponta && !(m.fecho && f >= m.fecho.ini)
@@ -421,7 +473,6 @@ const Fundo: React.FC<{ seg: SegClipe; canto: Lente }> = ({ seg, canto }) => (
     {/* escurece só o canto do globo e o topo, para o texto ler sem precisar de caixa */}
     <AbsoluteFill style={{ background: `radial-gradient(circle at ${canto.cx + 7}px ${canto.cy - 21}px, rgba(25,10,2,0.6) 0%, rgba(25,10,2,0.25) 28%, rgba(0,0,0,0) 48%)` }} />
     <AbsoluteFill style={{ background: 'linear-gradient(180deg, rgba(40,15,2,0.35) 0%, rgba(0,0,0,0) 22%)' }} />
-    {seg.nota ? <Nota {...seg.nota} /> : null}
   </AbsoluteFill>
 );
 
@@ -458,6 +509,31 @@ const Mosaico: React.FC<{ seg: SegFim; clipes: SegClipe[] }> = ({ seg, clipes })
   );
 };
 
+/**
+ * as notas de história ficam o tempo de ler (2 s + 1 s a cada 18 letras), mesmo
+ * que as fotos troquem atrás; se o globo estiver no meio, esperam ele voltar
+ */
+const Notas: React.FC<{ m: Modelo }> = ({ m }) => {
+  const { fps } = useVideoConfig();
+  return (
+    <>
+      {m.itens.map((it, i) => {
+        if (!it.seg.nota) return null;
+        const v = m.viagemNoMeio ? m.viagens.find((x) => x.ini <= it.ini + fps && x.fim > it.ini) : undefined;
+        const entra = Math.max(it.ini + Math.round(fps * 0.7), v ? v.ini + Math.round((v.fim - v.ini) * T.encolhe) : 0);
+        const ler = Math.round(fps * (2 + it.seg.nota.texto.length / 18));
+        const proxima = Math.min(...m.viagens.filter((x) => x.ini > entra).map((x) => x.ini), m.fecho?.ini ?? Infinity);
+        const de = entra - Math.round(fps * 0.7);
+        return (
+          <Sequence key={i} from={de} durationInFrames={Math.min(entra + ler, proxima) - de} layout="none">
+            <Nota {...it.seg.nota} />
+          </Sequence>
+        );
+      })}
+    </>
+  );
+};
+
 /** globinho-viagem: escurece as fotos enquanto o globo está no meio, para o trajeto saltar aos olhos */
 const Escurece: React.FC<{ m: Modelo }> = ({ m }) => {
   const f = useCurrentFrame();
@@ -471,6 +547,18 @@ export const ReelGlobinho: React.FC<Plano> = (plano) => {
   useFontes(plano, FONTES);
   const { fps, durationInFrames: n } = useVideoConfig();
   const m = useMemo(() => montar(linhaGlobinho(plano), fps, plano), [plano, fps]);
+  // ruas.json: o render baixa as ruas em volta das paradas (scripts/lib/ruas.ts)
+  const [ruas, setRuas] = useState<Ruas>({});
+  const [espera] = useState(() => delayRender('ruas'));
+  useEffect(() => {
+    fetch(staticFile('ruas.json'))
+      .then((r) => (r.ok ? r.json() : {}))
+      .catch(() => ({}))
+      .then((j) => {
+        setRuas(j as Ruas);
+        continueRender(espera);
+      });
+  }, [espera]);
   // a música some nos últimos 2 s em vez de cortar seco
   const volumeTrilha = (f: number) => 0.8 * interpolate(f, [n - 2 * fps, n - 1], [1, 0], clamp);
   const clipes = plano.segmentos.filter((s): s is SegClipe => s.tipo === 'clipe');
@@ -494,8 +582,9 @@ export const ReelGlobinho: React.FC<Plano> = (plano) => {
           : null}
       </TransitionSeries>
       <Escurece m={m} />
+      <Notas m={m} />
       <Folhas quantas={4} />
-      <Globo m={m} />
+      <Globo m={m} ruas={ruas} />
       <Info m={m} />
       {plano.trilha ? <Audio src={staticFile(plano.trilha)} volume={volumeTrilha} /> : null}
     </AbsoluteFill>
