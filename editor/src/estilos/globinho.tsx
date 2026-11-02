@@ -47,7 +47,7 @@ const GRADE_QUENTE = 'sepia(0.18) saturate(1.22) contrast(1.04) brightness(1.02)
 
 /**
  * onde o globo fica: no canto, e no fecho, grande no meio. O canto depende do
- * formato: no Reels a faixa de baixo (≈430 px) tem o perfil e a legenda, nos
+ * formato: no Reels fica baixo, por cima do comecinho da legenda (pedido do Leonardo), nos
  * Stories só a caixa de resposta (≈250 px); para a família não há nada por cima.
  */
 interface Lente {
@@ -56,7 +56,7 @@ interface Lente {
   r: number;
 }
 const CANTOS: Record<Plano['formato'], Lente> = {
-  reel: { cx: 792, cy: 1380, r: 172 },
+  reel: { cx: 792, cy: 1560, r: 172 },
   story: { cx: 792, cy: 1490, r: 172 },
   familia: { cx: 844, cy: 1648, r: 172 },
 };
