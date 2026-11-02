@@ -29,7 +29,7 @@ const previa = args.includes('--previa') || !!quadrosPedidos;
 const plano = JSON.parse(readFileSync(arquivoPlano, 'utf8')) as Plano;
 const estilo = (valor('--estilo') as Estilo | undefined) ?? plano.estilo;
 if (estilo) plano.estilo = estilo;
-const nome = [plano.titulo, estilo].filter(Boolean).join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w-]+/g, '-').toLowerCase();
+const nome = [plano.titulo, estilo, plano.tema].filter(Boolean).join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w-]+/g, '-').toLowerCase();
 
 // pasta pública só com o que o plano usa (hard link quando dá, para não copiar gigas)
 // uma pasta por render, para dois renders em paralelo não se atropelarem

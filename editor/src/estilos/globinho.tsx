@@ -30,22 +30,10 @@ import type { Ruas } from '../ruas.ts';
 import { clamp, ll, montarAgenda, naPerna, rotaAte, suave, type Agenda, type LngLat } from '../rota.ts';
 import { SEGURO, W } from '../tema.ts';
 import { useFontes } from './base.tsx';
-import { Folhas } from './folhas.tsx';
+import { Particulas, TEMAS, TemaProvider, useTema, type Tema } from './globinhoTemas.tsx';
 import { linhaGlobinho, type LinhaGlobinho, type Viagem } from './globinhoTempo.ts';
 import { MidiaCheia } from './noite.tsx';
 
-const SERIFA = '"Shippori Mincho", "Hiragino Mincho ProN", serif';
-const C = {
-  carmim: '#c8321f',
-  creme: '#fff6e6',
-  cremeSuave: 'rgba(255,246,230,0.82)',
-  ambar: '#ffc98a',
-  terra: '#f4ead6',
-  costa: '#a9876a',
-  marCentro: '#2f6f8f',
-  marBorda: '#0d2b40',
-};
-const GRADE_QUENTE = 'sepia(0.18) saturate(1.22) contrast(1.04) brightness(1.02)';
 
 /**
  * onde o globo fica: no canto, e no fecho, grande no meio. O canto depende do
@@ -225,6 +213,7 @@ function estado(m: Modelo, f: number, fps: number) {
 // ─── o globo ─────────────────────────────────────────────────────────────
 
 const Globo: React.FC<{ m: Modelo; ruas: Ruas }> = ({ m, ruas }) => {
+  const C = useTema();
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const e = estado(m, f, fps);
@@ -246,7 +235,7 @@ const Globo: React.FC<{ m: Modelo; ruas: Ruas }> = ({ m, ruas }) => {
       <>
         {e.cam.z < 4 ? <path d={caminho(geoGraticule10()) ?? ''} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth={1} /> : null}
         <path d={caminho(terraGlobo as any) ?? ''} fill={C.terra} stroke={C.costa} strokeWidth={1} />
-        <path d={caminho(divisasGlobo) ?? ''} fill="none" stroke="rgba(169,135,106,0.45)" strokeWidth={0.8} />
+        <path d={caminho(divisasGlobo) ?? ''} fill="none" stroke={C.divisa} strokeWidth={0.8} />
       </>
     );
   } else {
@@ -264,7 +253,7 @@ const Globo: React.FC<{ m: Modelo; ruas: Ruas }> = ({ m, ruas }) => {
           <path key={`c${i}`} d={caminho(ft as any) ?? ''} fill="none" stroke={C.costa} strokeWidth={2.4} />
         ))}
         {provs.map((ft, i) => (
-          <path key={`p${i}`} d={caminho(ft as any) ?? ''} fill={C.terra} stroke="rgba(169,135,106,0.35)" strokeWidth={0.8} />
+          <path key={`p${i}`} d={caminho(ft as any) ?? ''} fill={C.terra} stroke={C.divisa} strokeWidth={0.8} />
         ))}
       </>
     );
@@ -281,10 +270,10 @@ const Globo: React.FC<{ m: Modelo; ruas: Ruas }> = ({ m, ruas }) => {
     const linhas = (tipo: 'grandes' | 'pequenas' | 'trilhos') => caminho({ type: 'MultiLineString', coordinates: perto.flatMap(([, r]) => r[tipo]) }) ?? '';
     bairro = (
       <g opacity={opRuas}>
-        <path d={linhas('pequenas')} fill="none" stroke="rgba(150,115,85,0.8)" strokeWidth={1.8} strokeLinecap="round" />
-        <path d={linhas('grandes')} fill="none" stroke="#fffaf0" strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" />
-        <path d={linhas('grandes')} fill="none" stroke="#c99a62" strokeWidth={3.8} strokeLinecap="round" strokeLinejoin="round" />
-        <path d={linhas('trilhos')} fill="none" stroke="#5a4636" strokeWidth={2.4} strokeDasharray="10 6" />
+        <path d={linhas('pequenas')} fill="none" stroke={C.ruaPequena} strokeWidth={1.8} strokeLinecap="round" />
+        <path d={linhas('grandes')} fill="none" stroke={C.ruaGrandeBorda} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" />
+        <path d={linhas('grandes')} fill="none" stroke={C.ruaGrande} strokeWidth={3.8} strokeLinecap="round" strokeLinejoin="round" />
+        <path d={linhas('trilhos')} fill="none" stroke={C.trilho} strokeWidth={2.4} strokeDasharray="10 6" />
       </g>
     );
   }
@@ -322,9 +311,9 @@ const Globo: React.FC<{ m: Modelo; ruas: Ruas }> = ({ m, ruas }) => {
           <stop offset="1" stopColor="#000" stopOpacity={0.45} />
         </radialGradient>
         <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-          <stop offset="0.86" stopColor="#ffe3b8" stopOpacity={0} />
-          <stop offset="0.92" stopColor="#ffe3b8" stopOpacity={0.35} />
-          <stop offset="1" stopColor="#ffe3b8" stopOpacity={0} />
+          <stop offset="0.86" stopColor={C.halo} stopOpacity={0} />
+          <stop offset="0.92" stopColor={C.halo} stopOpacity={0.35} />
+          <stop offset="1" stopColor={C.halo} stopOpacity={0} />
         </radialGradient>
         <filter id="sombraGlobo" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation={14 * esc} />
@@ -384,6 +373,7 @@ const Globo: React.FC<{ m: Modelo; ruas: Ruas }> = ({ m, ruas }) => {
 // ─── as informações ao lado do globo ─────────────────────────────────────
 
 const Info: React.FC<{ m: Modelo }> = ({ m }) => {
+  const C = useTema();
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const e = estado(m, f, fps);
@@ -408,10 +398,10 @@ const Info: React.FC<{ m: Modelo }> = ({ m }) => {
       style={{
         position: 'absolute',
         ...lugarDoTexto,
-        fontFamily: SERIFA,
+        fontFamily: C.fonte,
         opacity: op,
         transform: `translateY(${(1 - op) * 14}px)`,
-        textShadow: '0 2px 12px rgba(30,10,0,0.85), 0 0 3px rgba(30,10,0,0.6)',
+        textShadow: `0 2px 12px rgba(${C.sombra},0.85), 0 0 3px rgba(${C.sombra},0.6)`,
       }}
     >
       {v ? (
@@ -419,7 +409,7 @@ const Info: React.FC<{ m: Modelo }> = ({ m }) => {
           <div style={{ fontSize: 28, fontWeight: 700, color: C.ambar, letterSpacing: 4 }}>
             {modos.map((x) => MODO_JP[x]).join('・')} · {v.seg.quando}
           </div>
-          <div style={{ fontSize: 58, fontWeight: 800, color: C.creme, lineHeight: 1.08 }}>{v.seg.titulo}</div>
+          <div style={{ fontSize: 58, fontWeight: 800, color: C.creme, lineHeight: 1.08, ...alta(C) }}>{v.seg.titulo}</div>
           <div style={{ fontSize: 28, fontWeight: 500, color: C.cremeSuave, marginTop: 6 }}>
             {v.seg.legenda}
             {v.seg.escala === 'globo' ? <span style={{ color: C.ambar, fontWeight: 700 }}> · {fmtKm(e.km)} km</span> : null}
@@ -428,7 +418,7 @@ const Info: React.FC<{ m: Modelo }> = ({ m }) => {
       ) : (
         <>
           {lugar?.jp ? <div style={{ fontSize: 32, fontWeight: 700, color: C.ambar, letterSpacing: 6 }}>{lugar.jp}</div> : null}
-          <div style={{ fontSize: 62, fontWeight: 800, color: C.creme, lineHeight: 1.06 }}>{lugar?.nome}</div>
+          <div style={{ fontSize: 62, fontWeight: 800, color: C.creme, lineHeight: 1.06, ...alta(C) }}>{lugar?.nome}</div>
           {lugar?.linha ? <div style={{ fontSize: 28, fontWeight: 500, color: C.cremeSuave, marginTop: 6, fontStyle: 'italic' }}>{lugar.linha}</div> : null}
         </>
       )}
@@ -439,6 +429,7 @@ const Info: React.FC<{ m: Modelo }> = ({ m }) => {
 // ─── fundo: os vídeos e fotos em sequência ───────────────────────────────
 
 const Nota: React.FC<{ titulo?: string; texto: string }> = ({ titulo, texto }) => {
+  const C = useTema();
   const f = useCurrentFrame();
   const { durationInFrames: n, fps } = useVideoConfig();
   const entra = interpolate(f, [fps * 0.7, fps * 1.1], [0, 1], clamp);
@@ -451,55 +442,60 @@ const Nota: React.FC<{ titulo?: string; texto: string }> = ({ titulo, texto }) =
         left: SEGURO.esquerda,
         right: SEGURO.direita,
         padding: '18px 26px 22px',
-        background: 'rgba(250,243,228,0.9)',
+        background: C.notaFundo,
         borderRadius: 6,
         boxShadow: '0 12px 30px rgba(40,15,0,0.35)',
-        fontFamily: SERIFA,
+        fontFamily: C.fonte,
         opacity: entra * sai,
         transform: `translateY(${(1 - entra) * -16}px)`,
       }}
     >
       <div style={{ fontSize: 21, fontWeight: 700, letterSpacing: 4, color: C.carmim, marginBottom: 6 }}>
-        歴史 · HISTÓRIA{titulo ? <span style={{ color: 'rgba(58,36,22,0.62)', letterSpacing: 1, marginLeft: 10, fontStyle: 'italic' }}>{titulo}</span> : null}
+        歴史 · HISTÓRIA{titulo ? <span style={{ color: C.notaTexto, opacity: 0.62, letterSpacing: 1, marginLeft: 10, fontStyle: 'italic' }}>{titulo}</span> : null}
       </div>
-      <div style={{ fontSize: 30, fontWeight: 500, color: '#3a2416', lineHeight: 1.4 }}>{texto}</div>
+      <div style={{ fontSize: 30, fontWeight: 500, color: C.notaTexto, lineHeight: 1.4 }}>{texto}</div>
     </div>
   );
 };
 
-const Fundo: React.FC<{ seg: SegClipe; canto: Lente }> = ({ seg, canto }) => (
-  <AbsoluteFill style={{ background: '#1a0d06' }}>
-    <MidiaCheia seg={seg} filtro={GRADE_QUENTE} />
+const Fundo: React.FC<{ seg: SegClipe; canto: Lente }> = ({ seg, canto }) => {
+  const C = useTema();
+  return (
+  <AbsoluteFill style={{ background: C.fundo }}>
+    <MidiaCheia seg={seg} filtro={C.grade} />
+    {C.veu ? <AbsoluteFill style={{ background: C.veu }} /> : null}
     {/* escurece só o canto do globo e o topo, para o texto ler sem precisar de caixa */}
-    <AbsoluteFill style={{ background: `radial-gradient(circle at ${canto.cx + 7}px ${canto.cy - 21}px, rgba(25,10,2,0.6) 0%, rgba(25,10,2,0.25) 28%, rgba(0,0,0,0) 48%)` }} />
-    <AbsoluteFill style={{ background: 'linear-gradient(180deg, rgba(40,15,2,0.35) 0%, rgba(0,0,0,0) 22%)' }} />
+    <AbsoluteFill style={{ background: `radial-gradient(circle at ${canto.cx + 7}px ${canto.cy - 21}px, rgba(${C.sombra},0.6) 0%, rgba(${C.sombra},0.25) 28%, rgba(0,0,0,0) 48%)` }} />
+    <AbsoluteFill style={{ background: `linear-gradient(180deg, rgba(${C.sombra},0.35) 0%, rgba(0,0,0,0) 22%)` }} />
   </AbsoluteFill>
-);
+  );
+};
 
 /** fecho: mosaico com todos os lugares, o globo grande no meio e o título */
 const Mosaico: React.FC<{ seg: SegFim; clipes: SegClipe[] }> = ({ seg, clipes }) => {
   const f = useCurrentFrame();
   const a = interpolate(f, [8, 26], [0, 1], clamp);
   const tiles = clipes.slice(0, 6);
+  const C = useTema();
   return (
-    <AbsoluteFill style={{ background: '#1a0d06' }}>
+    <AbsoluteFill style={{ background: C.fundo }}>
       <div style={{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: 'repeat(3, 1fr)' }}>
         {tiles.map((c, i) => (
-          <div key={i} style={{ position: 'relative', overflow: 'hidden', filter: GRADE_QUENTE }}>
+          <div key={i} style={{ position: 'relative', overflow: 'hidden', filter: C.grade }}>
             <Midia seg={c} />
           </div>
         ))}
       </div>
-      <AbsoluteFill style={{ background: 'rgba(25,10,2,0.55)' }} />
-      <div style={{ position: 'absolute', top: SEGURO.topo, left: 0, right: 0, textAlign: 'center', fontFamily: SERIFA, opacity: a, textShadow: '0 2px 16px rgba(30,10,0,0.8)' }}>
-        <div style={{ fontSize: 32, fontWeight: 700, letterSpacing: 12, color: C.ambar }}>日本の秋</div>
-        <div style={{ fontSize: 84, fontWeight: 800, color: C.creme, lineHeight: 1.05, marginTop: 6 }}>{seg.titulo}</div>
+      <AbsoluteFill style={{ background: `rgba(${C.sombra},0.55)` }} />
+      <div style={{ position: 'absolute', top: SEGURO.topo, left: 0, right: 0, textAlign: 'center', fontFamily: C.fonte, opacity: a, textShadow: `0 2px 16px rgba(${C.sombra},0.8)` }}>
+        <div style={{ fontSize: 32, fontWeight: 700, letterSpacing: 12, color: C.ambar }}>{C.selo}</div>
+        <div style={{ fontSize: 84, fontWeight: 800, color: C.creme, lineHeight: 1.05, marginTop: 6, ...alta(C) }}>{seg.titulo}</div>
         {seg.sub ? <div style={{ fontSize: 30, fontWeight: 500, color: C.cremeSuave, marginTop: 8, fontStyle: 'italic' }}>{seg.sub} · outono de 2026</div> : null}
       </div>
       {seg.numeros ? (
-        <div style={{ position: 'absolute', bottom: SEGURO.base + 10, left: SEGURO.esquerda, right: SEGURO.esquerda, display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center', fontFamily: SERIFA }}>
+        <div style={{ position: 'absolute', bottom: SEGURO.base + 10, left: SEGURO.esquerda, right: SEGURO.esquerda, display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center', fontFamily: C.fonte }}>
           {seg.numeros.map((n, i) => (
-            <div key={i} style={{ fontSize: 28, fontWeight: 700, color: C.creme, border: `2px solid ${C.ambar}`, background: 'rgba(30,10,0,0.45)', borderRadius: 999, padding: '8px 22px', opacity: interpolate(f, [30 + i * 6, 40 + i * 6], [0, 1], clamp) }}>
+            <div key={i} style={{ fontSize: 28, fontWeight: 700, color: C.creme, border: `2px solid ${C.ambar}`, background: `rgba(${C.sombra},0.45)`, borderRadius: 999, padding: '8px 22px', opacity: interpolate(f, [30 + i * 6, 40 + i * 6], [0, 1], clamp) }}>
               {n}
             </div>
           ))}
@@ -536,15 +532,18 @@ const Notas: React.FC<{ m: Modelo }> = ({ m }) => {
 
 /** globinho-viagem: escurece as fotos enquanto o globo está no meio, para o trajeto saltar aos olhos */
 const Escurece: React.FC<{ m: Modelo }> = ({ m }) => {
+  const C = useTema();
   const f = useCurrentFrame();
   const t = m.fecho && f >= m.fecho.ini ? 0 : noMeio(m, f);
-  return t > 0 ? <AbsoluteFill style={{ background: `rgba(25,10,2,${0.4 * t})` }} /> : null;
+  return t > 0 ? <AbsoluteFill style={{ background: `rgba(${C.sombra},${0.4 * t})` }} /> : null;
 };
 
-const FONTES = ['500 40px "Shippori Mincho"', '700 40px "Shippori Mincho"', '800 40px "Shippori Mincho"'];
+/** títulos em caixa alta nos temas que pedem (jazz) */
+const alta = (C: Tema): React.CSSProperties => (C.caixaAlta ? { textTransform: 'uppercase', letterSpacing: 1 } : {});
 
 export const ReelGlobinho: React.FC<Plano> = (plano) => {
-  useFontes(plano, FONTES);
+  const tema = TEMAS[plano.tema ?? 'outono'];
+  useFontes(plano, tema.fontes);
   const { fps, durationInFrames: n } = useVideoConfig();
   const m = useMemo(() => montar(linhaGlobinho(plano), fps, plano), [plano, fps]);
   // ruas.json: o render baixa as ruas em volta das paradas (scripts/lib/ruas.ts)
@@ -564,7 +563,8 @@ export const ReelGlobinho: React.FC<Plano> = (plano) => {
   const clipes = plano.segmentos.filter((s): s is SegClipe => s.tipo === 'clipe');
   const transicao = fade() as TransitionPresentation<Record<string, unknown>>;
   return (
-    <AbsoluteFill style={{ background: '#1a0d06' }}>
+    <TemaProvider value={tema}>
+    <AbsoluteFill style={{ background: tema.fundo }}>
       <TransitionSeries>
         {m.itens.flatMap((it, i) => [
           ...(i > 0 ? [<TransitionSeries.Transition key={`t${i}`} presentation={transicao} timing={linearTiming({ durationInFrames: TRANSICAO })} />] : []),
@@ -583,10 +583,11 @@ export const ReelGlobinho: React.FC<Plano> = (plano) => {
       </TransitionSeries>
       <Escurece m={m} />
       <Notas m={m} />
-      <Folhas quantas={4} />
+      <Particulas />
       <Globo m={m} ruas={ruas} />
       <Info m={m} />
-      {plano.trilha ? <Audio src={staticFile(plano.trilha)} volume={volumeTrilha} /> : null}
+      {plano.trilha ? <Audio src={staticFile(plano.trilha)} volume={volumeTrilha} trimBefore={Math.round((plano.trilhaDe ?? 0) * fps)} /> : null}
     </AbsoluteFill>
+    </TemaProvider>
   );
 };

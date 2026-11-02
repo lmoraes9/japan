@@ -67,6 +67,9 @@ export interface SegFim {
 
 export type Segmento = SegMapa | SegClipe | SegFim;
 
+/** temas do globinho (src/estilos/globinhoTemas.tsx): a cara de cada música */
+export type NomeTema = 'outono' | 'citypop' | 'neon' | 'jazz' | 'sereno' | 'sumi' | 'ouro';
+
 export type Estilo = 'noite' | 'outono' | 'caderno' | 'ukiyoe' | 'linha' | 'aovivo' | 'globinho' | 'globinho-viagem';
 
 export interface Plano {
@@ -77,6 +80,10 @@ export interface Plano {
   segmentos: Segmento[];
   /** trilha opcional (arquivo em entrada/ ou dados/); no Instagram a música entra pelo app */
   trilha?: string;
+  /** de que segundo da trilha o vídeo começa */
+  trilhaDe?: number;
+  /** tema do globinho; padrão: outono */
+  tema?: NomeTema;
 }
 
 export const FPS = 30;

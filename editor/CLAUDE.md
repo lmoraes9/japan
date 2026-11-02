@@ -102,6 +102,12 @@ só define a aparência (`VisualMapa`) e os componentes de clipe, título e fech
 | `globinho`| foto/vídeo em tela cheia o tempo todo, globo 3D sem fundo no canto de baixo à direita; tempero de outono |
 | `globinho-viagem` | o globinho, mas a cada mudança de lugar o globo vem para o meio, maior, mergulha nas ruas da saída, abre para o caminho, mergulha nas ruas da chegada e volta para o canto |
 
+O `globinho` aceita `plano.tema` (`src/estilos/globinhoTemas.tsx`) para combinar com a música:
+`outono` (padrão, folhas de bordo), `citypop` (pôr do sol rosa), `neon` (noite, magenta e
+ciano), `jazz` (cartaz preto e mostarda, caixa alta), `sereno` (céu azul, pontinhos de luz),
+`sumi` (nanquim, brasas) e `ouro` (preto e dourado, faíscas). Com `trilha`, `trilhaDe` diz de
+que segundo da música o vídeo começa.
+
 O canto do globo depende de `plano.formato` (`CANTOS` em `globinho.tsx`): no Reels fica acima
 da legenda, nos Stories mais embaixo, na versão da família quase no canto da tela.
 
