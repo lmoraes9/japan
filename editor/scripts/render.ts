@@ -102,3 +102,5 @@ if (previa) {
   });
   console.log(`\n${out} · ${(composition.durationInFrames / FPS).toFixed(1)} s`);
 }
+// o bundle copia a pasta pública inteira para o %TEMP% (~1 GB com as fotos): apaga ao terminar
+rmSync(serveUrl, { recursive: true, force: true });
