@@ -22,7 +22,7 @@ const valor = (flag: string) => {
   const i = args.indexOf(flag);
   return i >= 0 ? args[i + 1] : undefined;
 };
-const COM_VALOR = new Set(['--quadros', '--estilo']);
+const COM_VALOR = new Set(['--quadros', '--estilo', '--escala']);
 const arquivoPlano = args.find((a, i) => !a.startsWith('--') && !COM_VALOR.has(args[i - 1])) ?? 'trabalho/plano.json';
 const quadrosPedidos = valor('--quadros')?.split(',').map(Number);
 const previa = args.includes('--previa') || !!quadrosPedidos;
@@ -90,6 +90,8 @@ if (previa) {
     // o cache de quadros de vídeo cresce sem limite e derruba o PC por falta de memória
     offthreadVideoCacheSizeInBytes: 512 * 1024 * 1024,
     concurrency: 2,
+    // --escala 0.33: as amostras pequenas da Ilha de Edição
+    scale: Number(valor('--escala') ?? 1),
     outputLocation: out,
     browserExecutable: navegador,
     onProgress: ({ progress }) => {

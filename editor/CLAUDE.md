@@ -142,6 +142,11 @@ O banco do artefato tem três coleções: `midias` e `musicas` (o Claude grava) 
   corta na batida: abertura e vídeo 8 unidades, foto 4, fecho 16), revise o plano como
   sempre (notas, nomes, o `recado` deles), prévia, render, e mande o vídeo. Marque o estado
   no banco a cada passo.
+- **Amostras de estilo e tema**: a ficha mostra um vídeo curto (o mesmo trecho em cada
+  visual: `trabalho/edits/amostra.json`) do estilo e tema escolhidos. Se um estilo ou tema
+  novo entrar ou mudar, refaça a amostra dele: `npm run edit` desse json com o estilo/tema,
+  `npm run render -- <plano> --escala 0.4`, reduza a 360 px sem som, suba como asset e troque
+  a url em `AMOSTRAS` no `ilha.html`.
 
 ### 4. Conferir e renderizar
 

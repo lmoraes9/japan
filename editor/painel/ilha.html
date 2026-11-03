@@ -70,7 +70,13 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .chip .bpm { font-family: var(--font-mono); font-size: .75rem; opacity: .7; }
 .amostra { width: 22px; height: 14px; border-radius: 3px; flex: 0 0 auto; border: 1px solid rgba(0,0,0,.15); }
 .dica { font-size: .82rem; color: var(--muted); margin: 6px 0 0; }
-.linha2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
+/* prévia: o mesmo trecho curto (vídeo, mapa, fotos) renderizado em cada estilo e tema */
+.visual { display: grid; grid-template-columns: clamp(130px, 30vw, 200px) 1fr; gap: 18px; align-items: start; }
+.tela { margin: 0; position: sticky; top: 12px; }
+.tela video { width: 100%; aspect-ratio: 9 / 16; background: var(--film); border-radius: 10px; display: block; object-fit: cover; }
+.tela figcaption { font-size: .75rem; color: var(--muted); margin-top: 6px; line-height: 1.35; }
+.visual-op { display: grid; gap: 18px; min-width: 0; }
+.chip:disabled { opacity: .45; cursor: default; }
 select { font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); width: 100%; }
 
 /* a fita */
@@ -143,15 +149,22 @@ textarea { width: 100%; min-height: 70px; font: inherit; padding: 10px; border-r
       <p class="dica">Os cortes caem na batida. O Claude escolhe o trecho mais forte da música.</p>
     </div>
 
-    <div class="linha2">
-      <div>
-        <h2>Tema</h2>
-        <div class="chips" id="temas"></div>
-      </div>
-      <div>
-        <h2 id="h-estilo">Estilo</h2>
-        <select id="estilo" aria-labelledby="h-estilo"></select>
-        <p class="dica" id="estilo-dica"></p>
+    <div class="visual">
+      <figure class="tela">
+        <video id="amostra" muted loop playsinline autoplay preload="auto" aria-label="Prévia do estilo escolhido"></video>
+        <figcaption id="amostra-leg"></figcaption>
+      </figure>
+      <div class="visual-op">
+        <div>
+          <h2>Estilo</h2>
+          <div class="chips" id="estilos"></div>
+          <p class="dica" id="estilo-dica"></p>
+        </div>
+        <div>
+          <h2>Tema</h2>
+          <div class="chips" id="temas"></div>
+          <p class="dica" id="tema-dica"></p>
+        </div>
       </div>
     </div>
 
@@ -206,6 +219,23 @@ const ESTILOS = [
   ['aovivo', 'Ao vivo', 'Vídeo em cima, mapa com o pontinho azul embaixo.'],
   ['noite', 'Noite', 'Azul-marinho com a rota vermelha.'],
 ];
+// amostras: o mesmo trecho (vídeo de Santo André, mapa, fotos de SP e Jacareí) em cada visual
+const AMOSTRAS = {
+  'globinho-viagem-outono': '/_blob/1fd781022749943fea87fe4aa369fa14',
+  'globinho-viagem-citypop': '/_blob/3d5c063071aae9b4854621a67b8ef618',
+  'globinho-viagem-neon': '/_blob/97d233adb7de979d5529092bb3419930',
+  'globinho-viagem-jazz': '/_blob/8a7e0808d36616d9e9fe7c28583a30ae',
+  'globinho-viagem-sereno': '/_blob/4f54132180cb1aed61a5358f652a17ef',
+  'globinho-viagem-sumi': '/_blob/d873c0e7a31f56ba6841a85437d046d2',
+  'globinho-viagem-ouro': '/_blob/8cb5e94e5090141219ca563166eaec80',
+  'globinho-outono': '/_blob/2800c26eb57daaf847b9d67a9e3379ab',
+  outono: '/_blob/13ca6088582a4f465406767718e0a974',
+  caderno: '/_blob/c54eba2e938e5a828c599200a8ddc60e',
+  ukiyoe: '/_blob/28027f88f87ffb7212e7faa3237def58',
+  linha: '/_blob/0044a9ccb7416277646d25b765eaab42',
+  aovivo: '/_blob/7308cf23b6cd0af6de703faff21ad1d1',
+  noite: '/_blob/fd3e8fed6dcd2858bf460dcc2caa56d0',
+};
 const ESTADOS = { rascunho: 'rascunho', pedido: 'pedido', renderizando: 'renderizando', pronto: 'pronto' };
 const MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
 const SEMANA = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
@@ -272,8 +302,11 @@ function desenharFicha() {
   const comTema = (e.estilo || 'globinho-viagem').startsWith('globinho');
   $('temas').innerHTML = TEMAS.map(([id, nome, a, b]) =>
     `<button class="chip" data-tema="${id}" aria-pressed="${id === (e.tema || 'outono')}" ${comTema ? '' : 'disabled'}><span class="amostra" style="background:linear-gradient(90deg,${a} 50%,${b} 50%)"></span>${nome}</button>`).join('');
-  $('estilo').innerHTML = ESTILOS.map(([id, nome]) => `<option value="${id}" ${id === (e.estilo || 'globinho-viagem') ? 'selected' : ''}>${nome}</option>`).join('');
-  $('estilo-dica').textContent = (ESTILOS.find((x) => x[0] === (e.estilo || 'globinho-viagem')) || [])[2] || '';
+  const estilo = e.estilo || 'globinho-viagem';
+  $('estilos').innerHTML = ESTILOS.map(([id, nome]) => `<button class="chip" data-estilo="${id}" aria-pressed="${id === estilo}">${nome}</button>`).join('');
+  $('estilo-dica').textContent = (ESTILOS.find((x) => x[0] === estilo) || [])[2] || '';
+  $('tema-dica').textContent = comTema ? 'O tema muda as cores, as letras e o globo.' : 'Este estilo tem o visual dele; o tema só vale nos dois Globinhos.';
+  desenharAmostra(estilo, e.tema || 'outono');
   desenharFita();
   const travado = e.estado === 'renderizando';
   $('pedir').disabled = !podeEscrever || !(e.itens || []).length || travado || e.estado === 'pedido';
@@ -282,6 +315,22 @@ function desenharFicha() {
   $('resposta').textContent = e.resposta || '';
   $('apagar').textContent = confirmarApagar ? 'Toque de novo para apagar' : 'Apagar este edit';
   $('apagar').hidden = !podeEscrever;
+}
+
+// a prévia segue o que está escolhido; o Globinho de canto só tem amostra no tema Outono
+function desenharAmostra(estilo, tema) {
+  const chave = estilo === 'globinho-viagem' ? `${estilo}-${tema}` : estilo === 'globinho' ? 'globinho-outono' : estilo;
+  const url = AMOSTRAS[chave];
+  const v = $('amostra');
+  if (v.dataset.chave !== chave) {
+    v.dataset.chave = chave;
+    if (url) { v.src = url; v.play().catch(() => {}); } else v.removeAttribute('src');
+  }
+  const nome = (ESTILOS.find((x) => x[0] === estilo) || [])[1] || estilo;
+  const nomeTema = (TEMAS.find((x) => x[0] === tema) || [])[1] || tema;
+  $('amostra-leg').textContent = !url ? 'Prévia ainda não gerada.'
+    : estilo === 'globinho-viagem' ? `${nome} · ${nomeTema}`
+    : estilo === 'globinho' ? `${nome} · Outono${tema !== 'outono' ? ` (no seu, ${nomeTema})` : ''}` : nome;
 }
 
 function desenharFita() {
@@ -424,6 +473,7 @@ document.addEventListener('click', async (ev) => {
     const m = musicas.find((x) => x.id === rascunho.musica);
     if (m?.tema) rascunho.tema = m.tema;
   } else if (b.dataset.tema) rascunho.tema = b.dataset.tema;
+  else if (b.dataset.estilo) rascunho.estilo = b.dataset.estilo;
   else if (b.dataset.midia) {
     const k = rascunho.itens.findIndex((it) => it.id === b.dataset.midia);
     if (k >= 0) { rascunho.itens.splice(k, 1); if (selecionado >= rascunho.itens.length) selecionado = -1; }
@@ -460,12 +510,6 @@ document.addEventListener('input', (ev) => {
   mudou();
   if (ev.target.id === 'titulo') desenharEdits();
   if (ev.target.id === 'de') { const { ini } = tempos(); document.querySelectorAll('.quadro .tc').forEach((el, k) => (el.textContent = tc(ini[k]))); }
-});
-document.addEventListener('change', (ev) => {
-  if (ev.target.id !== 'estilo' || !rascunho || !podeEscrever) return;
-  rascunho.estilo = ev.target.value;
-  mudou();
-  desenharFicha();
 });
 
 // ---- dados
