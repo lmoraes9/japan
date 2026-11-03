@@ -84,6 +84,8 @@ export interface Plano {
   trilhaDe?: number;
   /** tema do globinho; padrão: outono */
   tema?: NomeTema;
+  /** sem as folhas ou brilhos caindo por cima (globinho e outono) */
+  semParticulas?: boolean;
 }
 
 export const FPS = 30;

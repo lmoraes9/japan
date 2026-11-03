@@ -583,7 +583,7 @@ export const ReelGlobinho: React.FC<Plano> = (plano) => {
       </TransitionSeries>
       <Escurece m={m} />
       <Notas m={m} />
-      <Particulas />
+      {plano.semParticulas ? null : <Particulas />}
       <Globo m={m} ruas={ruas} />
       <Info m={m} />
       {plano.trilha ? <Audio src={staticFile(plano.trilha)} volume={volumeTrilha} trimBefore={Math.round((plano.trilhaDe ?? 0) * fps)} /> : null}

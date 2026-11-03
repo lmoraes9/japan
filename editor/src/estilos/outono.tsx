@@ -269,5 +269,5 @@ export const ReelOutono: React.FC<Plano> = (plano) => {
   // rajada de folhas em toda troca entre mapa e vídeo
   const ini = inicios(plano);
   const rajadas = plano.segmentos.map((s, i) => (i > 0 && s.tipo !== plano.segmentos[i - 1].tipo ? ini[i] : -1)).filter((q) => q > 0);
-  return <ReelPadrao plano={plano} fontes={FONTES} Segmento={Segm} fundo="#1a0d06" sobre={<Folhas quantas={8} rajadas={rajadas} />} />;
+  return <ReelPadrao plano={plano} fontes={FONTES} Segmento={Segm} fundo="#1a0d06" sobre={plano.semParticulas ? undefined : <Folhas quantas={8} rajadas={rajadas} />} />;
 };

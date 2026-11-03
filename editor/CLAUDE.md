@@ -146,7 +146,8 @@ O banco do artefato tem três coleções: `midias` e `musicas` (o Claude grava) 
   visual: `trabalho/edits/amostra.json`) do estilo e tema escolhidos. Se um estilo ou tema
   novo entrar ou mudar, refaça a amostra dele: `npm run edit` desse json com o estilo/tema,
   `npm run render -- <plano> --escala 0.4`, reduza a 360 px sem som, suba como asset e troque
-  a url em `AMOSTRAS` no `ilha.html`.
+  a url em `AMOSTRAS` no `ilha.html`. As `-limpo` são as mesmas com `"semParticulas": true`
+  (sem folhas nem brilhos), só para os visuais que têm alguma coisa caindo.
 
 ### 4. Conferir e renderizar
 

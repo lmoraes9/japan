@@ -165,6 +165,11 @@ textarea { width: 100%; min-height: 70px; font: inherit; padding: 10px; border-r
           <div class="chips" id="temas"></div>
           <p class="dica" id="tema-dica"></p>
         </div>
+        <div>
+          <h2>Partículas</h2>
+          <div class="chips" id="particulas"></div>
+          <p class="dica" id="particulas-dica"></p>
+        </div>
       </div>
     </div>
 
@@ -200,14 +205,15 @@ textarea { width: 100%; min-height: 70px; font: inherit; padding: 10px; border-r
 </div>
 
 <script>
+// id, nome, cores da amostra, o que cai por cima (vazio: nada)
 const TEMAS = [
-  ['outono', 'Outono', '#b4532a', '#efe2c4'],
-  ['citypop', 'City pop', '#ff6f9f', '#ffb867'],
-  ['neon', 'Neon', '#ff2bd6', '#1ee0ff'],
-  ['jazz', 'Jazz', '#141414', '#e5ad2a'],
-  ['sereno', 'Sereno', '#4f8fdc', '#e8f3ff'],
-  ['sumi', 'Sumi', '#222222', '#c2302a'],
-  ['ouro', 'Ouro', '#0c0b09', '#d4ae3a'],
+  ['outono', 'Outono', '#b4532a', '#efe2c4', 'folhas'],
+  ['citypop', 'City pop', '#ff6f9f', '#ffb867', ''],
+  ['neon', 'Neon', '#ff2bd6', '#1ee0ff', ''],
+  ['jazz', 'Jazz', '#141414', '#e5ad2a', ''],
+  ['sereno', 'Sereno', '#4f8fdc', '#e8f3ff', 'brilhos'],
+  ['sumi', 'Sumi', '#222222', '#c2302a', 'brilhos'],
+  ['ouro', 'Ouro', '#0c0b09', '#d4ae3a', 'brilhos'],
 ];
 const ESTILOS = [
   ['globinho-viagem', 'Globinho viagem', 'Foto e vídeo na tela toda; a cada troca de cidade o globo vem para o meio e mostra o caminho. Os temas valem aqui.'],
@@ -235,6 +241,13 @@ const AMOSTRAS = {
   linha: '/_blob/0044a9ccb7416277646d25b765eaab42',
   aovivo: '/_blob/7308cf23b6cd0af6de703faff21ad1d1',
   noite: '/_blob/fd3e8fed6dcd2858bf460dcc2caa56d0',
+  // sem partículas (só onde cai alguma coisa)
+  'globinho-viagem-outono-limpo': '/_blob/23e4db62caccfe17d4841240a6f49ddc',
+  'globinho-viagem-sereno-limpo': '/_blob/b18991b9b228929497e210d5b619f103',
+  'globinho-viagem-sumi-limpo': '/_blob/d0bfab5414e869c72e049a6ac02d43ff',
+  'globinho-viagem-ouro-limpo': '/_blob/26f79e8e0d269514d3c71f3f8581b46c',
+  'globinho-outono-limpo': '/_blob/707629b0c12eaa3dd97721103cd941c4',
+  'outono-limpo': '/_blob/6c24fd2aa2990d89427cbba7cf657753',
 };
 const ESTADOS = { rascunho: 'rascunho', pedido: 'pedido', renderizando: 'renderizando', pronto: 'pronto' };
 const MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
@@ -306,7 +319,12 @@ function desenharFicha() {
   $('estilos').innerHTML = ESTILOS.map(([id, nome]) => `<button class="chip" data-estilo="${id}" aria-pressed="${id === estilo}">${nome}</button>`).join('');
   $('estilo-dica').textContent = (ESTILOS.find((x) => x[0] === estilo) || [])[2] || '';
   $('tema-dica').textContent = comTema ? 'O tema muda as cores, as letras e o globo.' : 'Este estilo tem o visual dele; o tema só vale nos dois Globinhos.';
-  desenharAmostra(estilo, e.tema || 'outono');
+  // o que cai por cima: as folhas do estilo Outono ou o enfeite do tema nos Globinhos
+  const cai = estilo === 'outono' ? 'folhas' : comTema ? (TEMAS.find((x) => x[0] === (e.tema || 'outono')) || [])[4] : '';
+  $('particulas').innerHTML = [['com', `Com ${cai || 'partículas'}`], ['sem', 'Sem nenhuma']].map(([v, nome]) =>
+    `<button class="chip" data-particulas="${v}" aria-pressed="${(v === 'sem') === !!e.semParticulas}" ${cai ? '' : 'disabled'}>${nome}</button>`).join('');
+  $('particulas-dica').textContent = cai ? `As ${cai} que caem por cima das fotos.` : 'Este visual já não tem nada caindo por cima.';
+  desenharAmostra(estilo, e.tema || 'outono', !!cai && !!e.semParticulas);
   desenharFita();
   const travado = e.estado === 'renderizando';
   $('pedir').disabled = !podeEscrever || !(e.itens || []).length || travado || e.estado === 'pedido';
@@ -318,8 +336,9 @@ function desenharFicha() {
 }
 
 // a prévia segue o que está escolhido; o Globinho de canto só tem amostra no tema Outono
-function desenharAmostra(estilo, tema) {
-  const chave = estilo === 'globinho-viagem' ? `${estilo}-${tema}` : estilo === 'globinho' ? 'globinho-outono' : estilo;
+function desenharAmostra(estilo, tema, limpo) {
+  const base = estilo === 'globinho-viagem' ? `${estilo}-${tema}` : estilo === 'globinho' ? 'globinho-outono' : estilo;
+  const chave = limpo && AMOSTRAS[`${base}-limpo`] ? `${base}-limpo` : base;
   const url = AMOSTRAS[chave];
   const v = $('amostra');
   if (v.dataset.chave !== chave) {
@@ -474,6 +493,7 @@ document.addEventListener('click', async (ev) => {
     if (m?.tema) rascunho.tema = m.tema;
   } else if (b.dataset.tema) rascunho.tema = b.dataset.tema;
   else if (b.dataset.estilo) rascunho.estilo = b.dataset.estilo;
+  else if (b.dataset.particulas) { if (b.dataset.particulas === 'sem') rascunho.semParticulas = true; else delete rascunho.semParticulas; }
   else if (b.dataset.midia) {
     const k = rascunho.itens.findIndex((it) => it.id === b.dataset.midia);
     if (k >= 0) { rascunho.itens.splice(k, 1); if (selecionado >= rascunho.itens.length) selecionado = -1; }

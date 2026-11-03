@@ -20,6 +20,7 @@ interface Edit {
   tema?: NomeTema;
   estilo?: Estilo;
   formato?: Plano['formato'];
+  semParticulas?: boolean;
   /** id da mídia (do painel.json) e, nos vídeos, de que segundo começar */
   itens: { id: string; de?: number }[];
 }
@@ -110,6 +111,7 @@ const plano: Plano = {
   formato: edit.formato ?? 'reel',
   estilo,
   ...(edit.tema && { tema: edit.tema }),
+  ...(edit.semParticulas && { semParticulas: true }),
   ...(musica && { trilha: musica.arquivo, trilhaDe: +trilhaDe.toFixed(3) }),
   segmentos: final,
 };
