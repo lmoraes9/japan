@@ -199,6 +199,10 @@ export interface Reserva {
   /** código/localizador da reserva */
   code?: string;
   phone?: string;
+  /** como apresentar no balcão: onde abre o ingresso, o que dizer, o que levar */
+  comoMostrar?: string;
+  /** link que abre o ingresso / a reserva (e-mail, app, página do pedido) */
+  link?: string;
   notes?: string;
   /** já confirmada/comprada? */
   done?: boolean;

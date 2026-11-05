@@ -1056,10 +1056,10 @@ export const kyotoDays: Day[] = [
         kind: 'sight',
         name: 'Rikugien iluminado — o bordo de Tóquio',
         jp: '六義園 夜間特別観賞',
-        facts: 'Iluminação de outono **25/11 a 6/12 · 18:00–20:30, última entrada 19:30** · ¥1.000 antecipado (só online) ou ¥1.200 no dia · entrada pelo **portão principal (正門)**, 7 min da saída sul de Komagome (Yamanote)',
+        facts: 'Iluminação de outono **25/11 a 6/12 · 18:00–20:30, última entrada 19:30** · **ingresso já comprado** (Asoview MGSCRPR3CGT1, entrada 18:00–19:30) · entrada pelo **portão principal (正門)**, 7 min da saída sul de Komagome (Yamanote)',
         paragraphs: [
           'O jardim de 1702 que os Tokugawa mandaram fazer para um daimyō poeta — 88 cenas de poemas clássicos ao redor de um lago — e o melhor bordo dentro da Yamanote. Nesta noite ele reabre só para a iluminação: as árvores refletidas no lago, projeções no armazém e no bambuzal, e as casas de chá servindo matcha. Meia hora de volta ao lago já vale; uma hora se pararem no chá.',
-          'É a ida rápida que cabe: de Ginza, Marunouchi até Tokyo e Yamanote até Komagome, 25 minutos, e de lá o gachapon fica a três estações. Vale o ingresso antecipado, comprado na véspera depois de ver a previsão (ingresso de evento costuma não ser reembolsável): no dia a fila da bilheteria passa de 30 min e o limite diário esgota.',
+          'É a ida rápida que cabe: de Ginza, Marunouchi até Tokyo e Yamanote até Komagome, 25 minutos, e de lá o gachapon fica a três estações. O ingresso já está comprado, e **não tem QR**: no portão, abram a página do ingresso na Asoview (link do e-mail de confirmação, com internet) e entreguem o celular ao funcionário, que valida na tela. Print não vale.',
         ],
         mapQuery: 'Rikugien Garden Tokyo',
       },

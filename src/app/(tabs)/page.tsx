@@ -20,6 +20,7 @@ import { StopCard } from '@/components/StopCard';
 import { Rich } from '@/components/Rich';
 import { SyncBadge } from '@/components/SyncBadge';
 import { useSyncStore, activeExpenses } from '@/lib/store';
+import { useChecklistFeito } from '@/lib/reservas';
 import { useSettings, effectiveRate, fmtBrl, fmtJpy } from '@/lib/settings';
 import { DayConditions } from '@/components/DayConditions';
 import { Janelas } from '@/components/Janelas';
@@ -106,7 +107,7 @@ function RateWidget() {
 }
 
 function BeforeTrip({ pos }: { pos: TripPosition }) {
-  const checklist = useSyncStore((s) => s.state.checklist);
+  const checklist = useChecklistFeito();
   const done = PRETRIP_ITEMS.filter((i) => checklist[i.id]?.checked).length;
   const departure = new Date(TRIP.departureFromBrazil);
   const days = Math.ceil((departure.getTime() - Date.now()) / 86_400_000);

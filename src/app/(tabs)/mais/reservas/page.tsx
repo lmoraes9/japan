@@ -2,11 +2,12 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import {
-  Pencil, Check, X, Plus, Trash2, Car, Copy, Navigation, ExternalLink, ChevronDown, Phone, Circle, CheckCircle2, Clock,
+  Pencil, Check, X, Plus, Trash2, Car, Copy, Navigation, ExternalLink, ChevronDown, ChevronRight, Phone, Circle, CheckCircle2, Clock, Maximize2, Wallet,
 } from 'lucide-react';
 import { SubpageHeader } from '@/components/SubpageHeader';
 import { Rich } from '@/components/Rich';
 import { AnexosReserva } from '@/components/AnexosReserva';
+import { MostrarReserva } from '@/components/MostrarReserva';
 import { GUIAS, PRIORIDADE, type GuiaReserva, type Prioridade } from '@/data/comoReservar';
 import { RESERVA_SEEDS, RESERVA_KIND_LABEL, RESERVA_KINDS } from '@/data/reservas';
 import type { Reserva, ReservaKind } from '@/data/types';
@@ -23,6 +24,8 @@ const FIELDS: { key: keyof Reserva; label: string; placeholder: string; multilin
   { key: 'address', label: 'Endereço', placeholder: 'ex.: 1-19-1 Kabukicho, Shinjuku-ku' },
   { key: 'addressJp', label: 'Endereço em japonês (para o taxista)', placeholder: 'ex.: 新宿区歌舞伎町1-19-1', jp: true },
   { key: 'phone', label: 'Telefone', placeholder: 'ex.: +81 3-1234-5678' },
+  { key: 'comoMostrar', label: 'Como apresentar no balcão', placeholder: 'ex.: mostrar o QR do app; dizer o nome da reserva', multiline: true },
+  { key: 'link', label: 'Link do ingresso / da reserva', placeholder: 'ex.: link do e-mail de confirmação' },
   { key: 'notes', label: 'Observações', placeholder: 'o que for útil na hora', multiline: true },
 ];
 
@@ -152,6 +155,7 @@ function ReservaCard({ r, marcar, aberta }: { r: Reserva; marcar: (r: Reserva, d
   const remove = useSyncStore((s) => s.removeReserva);
   const [editing, setEditing] = useState(false);
   const [taxi, setTaxi] = useState(false);
+  const [mostrar, setMostrar] = useState(false);
   const [draft, setDraft] = useState<Reserva>(r);
   const [copied, setCopied] = useState(false);
   const guia = GUIAS[r.id];
@@ -261,6 +265,11 @@ function ReservaCard({ r, marcar, aberta }: { r: Reserva; marcar: (r: Reserva, d
               {copied && <span className="text-[10px] font-sans font-normal text-matcha">copiado</span>}
             </button>
           )}
+          {r.comoMostrar && (
+            <p className="mt-1.5 rounded-lg bg-matcha/10 px-2.5 py-1.5 text-[12.5px] leading-snug text-foreground/90">
+              <span className="font-semibold">Como apresentar · </span>{r.comoMostrar}
+            </p>
+          )}
           {r.address && <p className="mt-1.5 text-[12.5px] leading-snug text-foreground/85">{r.address}</p>}
           {r.addressJp && <p className="font-jp text-[12.5px] leading-snug text-muted">{r.addressJp}</p>}
           {r.phone && <p className="mt-0.5 font-mono text-[12px] text-muted">{r.phone}</p>}
@@ -280,6 +289,18 @@ function ReservaCard({ r, marcar, aberta }: { r: Reserva; marcar: (r: Reserva, d
         </button>
       </div>
 
+      {(r.done || r.code) && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button onClick={() => setMostrar(true)} className="tappable inline-flex items-center gap-1.5 rounded-full bg-matcha px-3 py-1.5 text-[12px] font-semibold text-white">
+            <Maximize2 size={13} /> Mostrar no balcão
+          </button>
+          {r.link && (
+            <a href={r.link} target="_blank" rel="noopener noreferrer" className="tappable inline-flex items-center gap-1.5 rounded-full border border-hairline px-3 py-1.5 text-[12px] font-medium text-foreground/80">
+              <ExternalLink size={13} /> Abrir o ingresso
+            </a>
+          )}
+        </div>
+      )}
       {(r.addressJp || r.address) && (
         <div className="mt-3 flex flex-wrap gap-2">
           <button onClick={() => setTaxi(true)} className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-[12px] font-medium text-white">
@@ -316,6 +337,7 @@ function ReservaCard({ r, marcar, aberta }: { r: Reserva; marcar: (r: Reserva, d
 
       <AnexosReserva reservaId={r.id} />
       {taxi && <TaxiCard r={r} onClose={() => setTaxi(false)} />}
+      {mostrar && <MostrarReserva r={r} onClose={() => setMostrar(false)} />}
     </div>
   );
 }
@@ -347,6 +369,59 @@ function NewReserva({ onDone }: { onDone: () => void }) {
         <button onClick={save} disabled={!title.trim()} className="flex-1 rounded-xl bg-accent py-2.5 text-[13px] font-semibold text-white disabled:opacity-40">Criar</button>
       </div>
     </div>
+  );
+}
+
+/**
+ * Tudo o que já está reservado, em ordem de data, numa linha por reserva:
+ * é a lista que se abre quando alguém no balcão pede o número ou o QR.
+ */
+function Carteira({ reservas }: { reservas: Reserva[] }) {
+  const [aberta, setAberta] = useState<Reserva | null>(null);
+  const [todas, setTodas] = useState(false);
+  const todasFeitas = reservas.filter((r) => r.done);
+  // primeiro as próximas: o que já passou fica atrás do "ver todas"
+  const hoje = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo' }).format(new Date());
+  const proximas = todasFeitas.filter((r) => (r.dateEnd ?? r.date) >= hoje);
+  const MAX = 5;
+  const feitas = todas ? todasFeitas : proximas.slice(0, MAX);
+  const escondidas = todasFeitas.length - feitas.length;
+  if (!todasFeitas.length) return null;
+  return (
+    <section className="overflow-hidden rounded-2xl border border-matcha/50 bg-surface">
+      <div className="flex items-center gap-2 border-b border-hairline bg-matcha/10 px-4 py-2.5">
+        <Wallet size={14} className="text-matcha" />
+        <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground/80">
+          Já reservado · {todasFeitas.length}
+        </span>
+        <span className="ml-auto text-[11px] text-muted">toque para mostrar no balcão</span>
+      </div>
+      <ul className="divide-y divide-hairline">
+        {feitas.map((r) => (
+          <li key={r.id}>
+            <button type="button" onClick={() => setAberta(r)} className="tappable flex w-full items-center gap-3 px-4 py-2.5 text-left active:bg-surface-2">
+              <CheckCircle2 size={17} className="shrink-0 text-matcha" />
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-[13px] font-semibold leading-snug">
+                  {RESERVA_KIND_LABEL[r.kind].emoji} {r.title}
+                </span>
+                <span className="block truncate font-mono text-[11px] text-muted">
+                  {formatDayLabel(r.date)}{r.code ? ` · ${r.code}` : ''}
+                </span>
+              </span>
+              <ChevronRight size={15} className="shrink-0 text-muted" />
+            </button>
+          </li>
+        ))}
+      </ul>
+      {(escondidas > 0 || todas) && (
+        <button type="button" onClick={() => setTodas((v) => !v)} className="tappable flex w-full items-center justify-center gap-1 border-t border-hairline py-2.5 text-[12.5px] font-medium text-muted">
+          {todas ? 'Mostrar só as próximas' : `Ver todas as ${todasFeitas.length} reservadas`}
+          <ChevronDown size={13} className={todas ? 'rotate-180' : ''} />
+        </button>
+      )}
+      {aberta && <MostrarReserva r={aberta} onClose={() => setAberta(null)} />}
+    </section>
   );
 }
 
@@ -384,8 +459,8 @@ export default function ReservasPage() {
   }, []);
 
   const chips: { k: Filtro; label: string; n: number }[] = [
-    { k: 'faltam', label: 'Falta fazer', n: pendentes },
-    { k: 'feitas', label: 'Feitas', n: feitas },
+    { k: 'faltam', label: 'Pendentes', n: pendentes },
+    { k: 'feitas', label: 'Já reservadas', n: feitas },
     { k: 'todas', label: 'Todas', n: reservas.length },
   ];
 
@@ -393,12 +468,27 @@ export default function ReservasPage() {
     <div className="space-y-3.5">
       <SubpageHeader
         title="Reservas"
-        subtitle={`${feitas} de ${contam} feitas · ${naHoraPendentes} ficam para comprar na hora · o status sincroniza entre os celulares, os anexos ficam em cada um`}
+        subtitle="O status sincroniza entre os celulares; os anexos (QR, PDF) ficam em cada um"
       />
+
+      <div className="grid grid-cols-3 gap-2">
+        {([
+          { k: 'feitas' as Filtro, n: feitas, label: 'já reservadas', cls: 'border-matcha/50 bg-matcha/10 text-matcha' },
+          { k: 'faltam' as Filtro, n: contam - feitas, label: 'falta reservar', cls: contam - feitas ? 'border-accent/50 bg-accent-soft text-accent' : 'border-hairline bg-surface text-muted' },
+          { k: 'faltam' as Filtro, n: naHoraPendentes, label: 'compra na hora', cls: 'border-hairline bg-surface text-muted' },
+        ]).map((t) => (
+          <button key={t.label} type="button" onClick={() => setFiltro(t.k)} className={`tappable rounded-2xl border px-2 py-2.5 text-center ${t.cls}`}>
+            <span className="block font-mono text-[22px] font-bold leading-none">{t.n}</span>
+            <span className="mt-1 block text-[11px] font-medium leading-tight text-foreground/75">{t.label}</span>
+          </button>
+        ))}
+      </div>
 
       <div className="h-1.5 overflow-hidden rounded-full bg-surface-2" role="progressbar" aria-valuenow={feitas} aria-valuemax={contam}>
         <div className="h-full rounded-full bg-matcha transition-all" style={{ width: `${contam ? Math.min(100, (feitas / contam) * 100) : 0}%` }} />
       </div>
+
+      <Carteira reservas={reservas} />
 
       <div className="space-y-2 rounded-2xl border border-hairline bg-surface p-3.5">
         <p className="text-[13px] font-semibold">Quanto antes comprar? Cada cartão diz qual é o caso.</p>
@@ -413,7 +503,7 @@ export default function ReservasPage() {
       </div>
 
       <p className="rounded-2xl bg-surface-2 p-3.5 text-[12.5px] leading-relaxed text-muted">
-        Toque no <strong>círculo</strong> para marcar como feita, em <strong>Passo a passo</strong> para ver como reservar, e em <strong>Anexar</strong> para guardar o print do QR ou o PDF da confirmação, que depois abrem sem internet. O lápis edita nome, código e <strong>endereço em japonês</strong> para o taxista.
+        Toque no <strong>círculo</strong> para marcar como reservada, em <strong>Passo a passo</strong> para ver como reservar, em <strong>Anexar</strong> para guardar o print do QR ou o PDF da confirmação (abrem sem internet) e em <strong>Mostrar no balcão</strong> para o código e o QR em tela cheia. O lápis edita nome, código e <strong>endereço em japonês</strong> para o taxista.
       </p>
 
       <div className="no-scrollbar -mx-1 flex gap-1.5 overflow-x-auto px-1">
