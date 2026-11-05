@@ -24,6 +24,31 @@ export function useReservas(): Reserva[] {
   }, [synced]);
 }
 
+/**
+ * A checklist com as reservas feitas por cima: um item ligado a reservas
+ * (CHECKLIST_DAS_RESERVAS) conta como feito quando todas elas estão feitas,
+ * mesmo que ninguém tenha tocado no item. Assim uma reserva cadastrada já
+ * feita (o ingresso do Rikugien, a mesa do Kitagawa) some das pendências.
+ */
+export function useChecklistFeito(): Record<string, { checked?: boolean } | undefined> {
+  const checklist = useSyncStore((s) => s.state.checklist);
+  const reservas = useReservas();
+  return useMemo(() => {
+    const feitas = new Set(reservas.filter((r) => r.done).map((r) => r.id));
+    const out: Record<string, { checked?: boolean } | undefined> = { ...checklist };
+    for (const [item, ids] of Object.entries(CHECKLIST_DAS_RESERVAS)) {
+      if (ids.every((id) => feitas.has(id))) out[item] = { ...checklist[item], checked: true };
+    }
+    return out;
+  }, [checklist, reservas]);
+}
+
+/** o checklist item está feito por causa das reservas (e não por um toque)? */
+export function itemFeitoPorReserva(item: string, reservas: Reserva[]): boolean {
+  const ids = CHECKLIST_DAS_RESERVAS[item];
+  return !!ids && ids.every((id) => reservas.some((r) => r.id === id && r.done));
+}
+
 /** o hotel onde se dorme na noite de uma data ('2026-11-20' → hotel de Tóquio) */
 export function hotelFor(reservas: Reserva[], date: string): Reserva | undefined {
   return reservas.find((r) => r.kind === 'hotel' && r.date <= date && (r.dateEnd ?? r.date) > date);

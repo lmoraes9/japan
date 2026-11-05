@@ -36,7 +36,7 @@ export function DayReservas({ date, prevDate }: { date: string; prevDate?: strin
               {RESERVA_KIND_LABEL[r.kind].emoji} {r.title}
             </span>
             <span className="block truncate font-mono text-[11px] text-muted">
-              {r.time ?? ''}{r.code ? ` · ${r.code}` : ''}{!r.done ? ' · sem confirmação' : ''}
+              {r.done ? '✓ reservado' : 'falta reservar'}{r.code ? ` · ${r.code}` : ''}{r.time ? ` · ${r.time}` : ''}
             </span>
           </span>
         </div>

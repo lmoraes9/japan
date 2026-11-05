@@ -169,10 +169,9 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'reserva-rikugien',
-    dueAt: '2026-11-30T23:59:00+09:00',
     group: 'pretrip',
-    title: 'Ingresso do Rikugien iluminado (na véspera)',
-    subtitle: 'Noite de 1/12 · ¥1.000 online · compre na véspera, depois de ver a previsão: ingresso de evento costuma não ser reembolsável',
+    title: 'Ingresso do Rikugien iluminado',
+    subtitle: 'Comprado em 5/11 pela Asoview (MGSCRPR3CGT1): 1/12, entrada entre 18:00 e 19:30, 2 adultos · sem QR, abre na página da Asoview no dia',
   },
   {
     id: 'reserva-kitagawa',

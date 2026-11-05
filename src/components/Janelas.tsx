@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { AlarmClock, ChevronRight, CircleAlert } from 'lucide-react';
 import { janelasPendentes, janelaQuando, faltam } from '@/lib/janelas';
-import { useSyncStore } from '@/lib/store';
+import { useChecklistFeito } from '@/lib/reservas';
 
 /**
  * As compras que têm hora marcada para abrir: Shinkansen, Torokko.
@@ -11,7 +11,7 @@ import { useSyncStore } from '@/lib/store';
  * que não tem conserto.
  */
 export function Janelas({ max = 3 }: { max?: number }) {
-  const checklist = useSyncStore((s) => s.state.checklist);
+  const checklist = useChecklistFeito();
   const pendentes = janelasPendentes(checklist);
   if (!pendentes.length) return null;
   const lista = pendentes.slice(0, max);

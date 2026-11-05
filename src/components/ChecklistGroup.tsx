@@ -5,6 +5,7 @@ import type { ChecklistItem } from '@/data/types';
 import { RESERVA_DO_CHECKLIST } from '@/data/comoReservar';
 import { useSyncStore } from '@/lib/store';
 import { faltam } from '@/lib/janelas';
+import { useChecklistFeito, useReservas, itemFeitoPorReserva } from '@/lib/reservas';
 
 // todos estes prazos caem antes do embarque, então a data é a de Brasília
 const dataCurta = (iso: string) =>
@@ -40,7 +41,8 @@ export function ChecklistGroup({
   items: ChecklistItem[];
   title?: string;
 }) {
-  const checklist = useSyncStore((s) => s.state.checklist);
+  const checklist = useChecklistFeito();
+  const reservas = useReservas();
   const toggle = useSyncStore((s) => s.toggleChecklist);
   const done = items.filter((i) => checklist[i.id]?.checked).length;
 
@@ -56,6 +58,8 @@ export function ChecklistGroup({
       </div>
       {items.map((item) => {
         const checked = checklist[item.id]?.checked ?? false;
+        // feito porque a reserva está feita: desmarcar é lá em Reservas
+        const travado = itemFeitoPorReserva(item.id, reservas);
         return (
           <label
             key={item.id}
@@ -64,7 +68,8 @@ export function ChecklistGroup({
             <input
               type="checkbox"
               checked={checked}
-              onChange={() => toggle(item.id)}
+              onChange={() => { if (!travado) toggle(item.id); }}
+              disabled={travado}
               className="mt-0.5 w-[18px] h-[18px] shrink-0 accent-[var(--matcha)]"
             />
             <span className="min-w-0">
@@ -84,7 +89,7 @@ export function ChecklistGroup({
                   href={`/mais/reservas#${RESERVA_DO_CHECKLIST[item.id]}`}
                   className="tappable mt-1.5 block text-[12px] font-semibold text-accent"
                 >
-                  {checked ? 'Ver reserva e anexos →' : 'Como reservar →'}
+                  {checked ? 'Reservado · ver código e anexos →' : 'Como reservar →'}
                 </Link>
               )}
             </span>
