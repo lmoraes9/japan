@@ -266,10 +266,17 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
   {
     id: 'mesa-omakase',
     kind: 'restaurante',
-    title: 'Jantar de despedida (omakase)',
+    title: 'Jantar de despedida · Mantensushi Hibiya',
     date: '2026-12-02',
-    time: '19:30',
-    notes: 'Kyūbey Ginza ou Sushi Ginza Onodera — reserva com antecedência',
+    time: '20:30 · balcão, 120 min · 15 min de atraso cancela a mesa',
+    address: '1-7-1 Uchisaiwai-cho, Hibiya OKUROJI G24, Chiyoda-ku, Tokyo 100-0011',
+    addressJp: '東京都千代田区内幸町1-7-1 日比谷OKUROJI G24 まんてん鮨 日比谷',
+    phone: '+81 3-6811-2300',
+    code: 'TableCheck 9D6VHU',
+    comoMostrar: 'Na porta: "Moraes, 20:30, 2 pessoas" e, se pedirem, o código TableCheck 9D6VHU (e-mail do TableCheck ou tablecheck.com → Minhas Reservas). Paga-se no fim, SÓ cartão ou celular — não aceitam dinheiro.',
+    link: 'https://www.tablecheck.com/pt/',
+    notes: 'Reservado em 8/11, em nome de Leonardo Moraes · 2 × 【Balcão】 omakase do chef ("Cardápio à sua escolha" no site, 120 min), ¥8.800 por pessoa, ¥17.600 o casal, bebida à parte · cada um pede pelo menos uma bebida · nada foi cobrado: o cartão do TableCheck é só garantia, a conta se paga no fim com qualquer cartão ou celular · cancelar ou mudar o número de pessoas com 24 h ou menos cobra 100% do curso — para não haver dúvida, decidam até 30/11 · a primeira reserva (J2GJCR, all-inclusive) foi cancelada · no OKUROJI, a galeria debaixo dos trilhos da JR entre Yūrakuchō e Shinbashi',
+    done: true,
   },
 ];
 
