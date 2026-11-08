@@ -10,6 +10,7 @@ import { DayConditions } from '@/components/DayConditions';
 import { DayReservas } from '@/components/DayReservas';
 import { PlanoChuva } from '@/components/PlanoChuva';
 import { LastReturn } from '@/components/LastReturn';
+import { HotelDaNoite } from '@/components/HotelDaNoite';
 import { LegsConnector } from '@/components/LegsConnector';
 import { legsFrom, legsToFirst } from '@/data/legs';
 import { stopsEmOrdem } from '@/lib/now';
@@ -155,6 +156,7 @@ export default async function DayPage({
             </div>
           );
         })}
+        <HotelDaNoite date={day.date} />
       </div>
 
       <nav className="flex justify-between pt-2 pb-4 text-[13px] font-medium">

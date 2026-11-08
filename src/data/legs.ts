@@ -448,8 +448,8 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd02-tekki': [walk(11, 'pela Harumi-dōri até a Ginza 4-chōme e além, passando pelo Kumamotokan (Ginza 5-3-16, perto da saída B9); o Bic Camera é o prédio grande de Yūrakuchō, do outro lado dos trilhos')],
   'd02-compras-finais': [walk(8, 'do Bic Camera Yūrakuchō, sigam os trilhos da JR no sentido de Shinbashi: o **OKUROJI** é a galeria debaixo dos arcos, e o Manten fica na loja **G24**. Cheguem às 20:20 — 15 min de atraso cancelam a mesa')],
-  'd02-jantar-despedida': [walk(12, 'de volta para Ginza pela Harumi-dōri, com um 7-Eleven no caminho; o hotel fica na Ginza 3-chōme')],
-  'd02-konbini': [walk(5, 'até o hotel: arrumar as malas hoje, amanhã não vai dar tempo')],
+  'd02-jantar-despedida': [walk(17, 'pela Harumi-dōri para o leste, cruzando a Chūō-dōri no cruzamento de Ginza 4-chōme (Wakō) e depois a Shōwa-dōri; a loja fica na **Ginza 3-15-10**, logo ao norte da Harumi-dōri, a 2 min da estação Higashi-Ginza (o caminho passa perto do hotel: a loja fica uns 5 min depois dele). De táxi são 5 min — mostrem o endereço 中央区銀座3-15-10')],
+  'd02-konbini': [walk(5, 'de volta para o oeste, atravessando a Shōwa-dōri: o hotel fica na **Ginza 3-8-4** (Sotetsu Fresa Inn Ginza Sanchome). Arrumar as malas hoje, amanhã não vai dar tempo')],
 
   // ── 3 dez · volta ──────────────────────────────────────────────────
   'd03-nakiryu-senha': [
