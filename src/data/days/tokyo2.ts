@@ -227,7 +227,7 @@ export const tokyo2Days: Day[] = [
         kind: 'food',
         name: 'Jantar de despedida — Mantensushi Hibiya',
         jp: 'まんてん鮨 日比谷',
-        facts: '**Reservado: 20:30, TableCheck J2GJCR**, 2 pessoas, balcão, 120 min · all-inclusive ¥12.100 por pessoa, com bebida por 90 min · **15 min de atraso cancela a mesa** · paga-se no fim, **só cartão ou celular** (não aceitam dinheiro) · OKUROJI G24, debaixo dos trilhos entre Yūrakuchō e Shinbashi',
+        facts: '**Reservado: 20:30, TableCheck 9D6VHU**, 2 pessoas, balcão, 120 min · omakase do chef **¥8.800 por pessoa**, bebida à parte (cada um pede pelo menos uma) · **15 min de atraso cancela a mesa** · paga-se no fim, **só cartão ou celular** (não aceitam dinheiro) · OKUROJI G24, debaixo dos trilhos entre Yūrakuchō e Shinbashi',
         eat: [
           {
             label: 'Reservado',

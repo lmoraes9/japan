@@ -326,7 +326,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     plano: 'marcado',
     stopId: 'd02-jantar-despedida',
     busca: 'Manten Sushi Hibiya OKUROJI',
-    nota: '**Reservado: 2/12 às 20:30, TableCheck J2GJCR.** Omakase de balcão no OKUROJI, debaixo dos trilhos de Yūrakuchō: ¥8.800 só a comida ou ¥12.100 com bebida por 90 min (o escolhido). Não aceita dinheiro.',
+    nota: '**Reservado: 2/12 às 20:30, TableCheck 9D6VHU.** Omakase do chef no balcão, no OKUROJI, debaixo dos trilhos de Yūrakuchō: **¥8.800**, bebida à parte (pelo menos uma por pessoa). Não aceita dinheiro.',
   },
   {
     id: 'midori-ginza',

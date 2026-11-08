@@ -203,7 +203,7 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'reserva-omakase',
     group: 'pretrip',
     title: 'Reservar sushi omakase de balcão',
-    subtitle: 'Reservado em 8/11 pelo TableCheck (J2GJCR): Mantensushi Hibiya, quarta 2/12 às 20:30, 2 pessoas · cancelamento grátis até 24 h antes',
+    subtitle: 'Reservado em 8/11 pelo TableCheck (9D6VHU): Mantensushi Hibiya, quarta 2/12 às 20:30, 2 pessoas · cancelamento grátis até 24 h antes',
   },
   {
     id: 'adaptador',

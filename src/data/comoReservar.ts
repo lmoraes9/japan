@@ -298,9 +298,9 @@ export const GUIAS: Record<string, GuiaReserva> = {
     prioridade: 'antes',
     porque: 'Balcões de omakase têm poucos lugares e quase não aceitam ninguém na hora. Sem reserva este jantar não existe.',
     flex: 'Leiam a política de cancelamento na tela antes de pagar: restaurante assim costuma cobrar se desistirem.',
-    oQue: 'Uma mesa para dois no jantar de despedida, quarta 2/12: omakase de balcão em Ginza ou arredores. **Feito: Mantensushi Hibiya, 20:30, TableCheck J2GJCR.**',
+    oQue: 'Uma mesa para dois no jantar de despedida, quarta 2/12: omakase de balcão em Ginza ou arredores. **Feito: Mantensushi Hibiya, 20:30, TableCheck 9D6VHU.**',
     quando: 'Reservado em 8/11. O Sushi Azabu não vendia curso de jantar no horário, então ficou o **Manten** de Hibiya, a 12–15 min a pé do hotel.',
-    custo: 'Manten ¥8.800 (só comida) ou ¥12.100 (com bebida, o escolhido) · Azabu ~¥9.800 · Kyūbey ~¥20.000 por pessoa',
+    custo: 'Manten ¥8.800 (o escolhido; bebida à parte) ou ¥12.100 (com bebida por 90 min) · Azabu ~¥9.800 · Kyūbey ~¥20.000 por pessoa',
     passos: [
       '**O que foi feito — Mantensushi Hibiya**, pelo **TableCheck**: 2/12, 20:30, 2 pessoas, balcão. Atenção: o TableCheck só libera o "Próximo" depois que se escolhe um **curso** ("Pedidos"); se nenhum curso aparece debaixo da grade, aquele horário não tem jantar à venda, mesmo com ○ na grade.',
       '**Opção mais fácil — Sushi Azabu**, Azabudai Hills, 3º andar: omakase de ~17 peças por ~¥9.800 no jantar, com peixe de Toyosu. A reserva é pelo **TableCheck** (o site da casa tem o link). Procurem "Sushi Azabu TableCheck", escolham **2/12**, **2 pessoas**, jantar, e confirmem.',
@@ -324,7 +324,7 @@ export const GUIAS: Record<string, GuiaReserva> = {
       ],
     },
     planoB: 'Se não conseguirem nenhuma das duas, o **Sushi no Midori Umegaoka** de Ginza não pede reserva (só senha eletrônica) e o jantar sai por ~¥3.000. É o plano que sempre funciona.',
-    depois: 'Feito: TableCheck J2GJCR. Alterar ou cancelar pelo e-mail do TableCheck ou em tablecheck.com → Minhas Reservas, com mais de 24 h de antecedência.',
+    depois: 'Feito: TableCheck 9D6VHU (a primeira reserva, J2GJCR, foi cancelada). Alterar ou cancelar pelo e-mail do TableCheck ou em tablecheck.com → Minhas Reservas, com mais de 24 h de antecedência.',
     checklistItemId: 'reserva-omakase',
   },
   'mesa-kitagawa': {
