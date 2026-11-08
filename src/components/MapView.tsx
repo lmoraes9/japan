@@ -14,7 +14,10 @@ import { ALL_DAYS } from '@/data/days';
 import { STAGES } from '@/data/trip';
 import type { Day, Stop } from '@/data/types';
 import { itineraryDate, stopsEmOrdem } from '@/lib/now';
-import { navigateUrl, photosUrl } from '@/lib/mapsLinks';
+import { navigateUrl, photosUrl, searchUrl, BASE_DA_ETAPA, baseDaManha } from '@/lib/mapsLinks';
+import { emojiDaParada, EMOJI_CAT, pontoLatLng } from '@/lib/mapIcons';
+import { useReservas, hotelFor } from '@/lib/reservas';
+import type { Reserva } from '@/data/types';
 import { comidaResolvida, type ComidaResolvida } from '@/lib/comida';
 import { cidadeDe } from '@/lib/places';
 import { Rich } from './Rich';
@@ -56,7 +59,9 @@ function DaySelector({
   );
 }
 
-function FitBounds({ stops, focus }: { stops: Stop[]; focus?: Stop }) {
+type LatLng = { lat: number; lng: number };
+
+function FitBounds({ stops, focus, extra = [] }: { stops: Stop[]; focus?: Stop; extra?: LatLng[] }) {
   const map = useMap();
   useEffect(() => {
     if (!map) return;
@@ -65,17 +70,18 @@ function FitBounds({ stops, focus }: { stops: Stop[]; focus?: Stop }) {
       map.setZoom(16);
       return;
     }
-    const pts = stops.filter((s) => s.coords);
+    const pts: LatLng[] = [...stops.filter((s) => s.coords).map((s) => s.coords!), ...extra];
     if (pts.length === 0) return;
     if (pts.length === 1) {
-      map.panTo(pts[0].coords!);
+      map.panTo(pts[0]);
       map.setZoom(14);
       return;
     }
     const bounds = new google.maps.LatLngBounds();
-    pts.forEach((s) => bounds.extend(s.coords!));
+    pts.forEach((p) => bounds.extend(p));
     map.fitBounds(bounds, 48);
-  }, [map, stops, focus]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map, stops, focus, JSON.stringify(extra)]);
   return null;
 }
 
@@ -137,6 +143,33 @@ function ComidaSheet({ item, onClose }: { item: ComidaResolvida; onClose: () => 
           <ImageIcon size={14} />
           Fotos
         </a>
+      </div>
+    </div>
+  );
+}
+
+function HotelSheet({ hotel, papel, onClose }: { hotel: Reserva; papel: string; onClose: () => void }) {
+  return (
+    <div className="absolute bottom-0 inset-x-0 z-10 rounded-t-3xl bg-surface border-t border-hairline p-4 shadow-2xl max-h-[70%] overflow-y-auto">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-rail font-semibold">🏠 {papel}</p>
+          <h3 className="font-semibold text-[15px] leading-snug">{hotel.title}</h3>
+          {hotel.addressJp && <p className="mt-1 font-jp text-[13px] leading-snug">{hotel.addressJp}</p>}
+          {hotel.address && <p className="text-[12px] text-muted">{hotel.address}</p>}
+          {hotel.time && <p className="mt-1 font-mono text-[11px] text-muted">{hotel.time}</p>}
+        </div>
+        <button onClick={onClose} aria-label="Fechar" className="text-muted">
+          <X size={18} />
+        </button>
+      </div>
+      <div className="mt-3 flex flex-wrap gap-2">
+        <a href={searchUrl(hotel.address || hotel.addressJp || hotel.title)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-accent text-white text-[13px] font-medium px-4 py-2">
+          <Navigation size={14} /> Navegar até o hotel
+        </a>
+        <Link href={`/mais/reservas#${hotel.id}`} className="inline-flex items-center gap-1.5 rounded-full border border-hairline text-[13px] font-medium px-4 py-2">
+          Ver a reserva
+        </Link>
       </div>
     </div>
   );
@@ -269,7 +302,11 @@ export function MapScreen() {
   const [dayId, setDayId] = useState(defaultDay);
   const [selectedStop, setSelectedStop] = useState<Stop | null>(null);
   const [selectedComida, setSelectedComida] = useState<ComidaResolvida | null>(null);
-  const [estrelas, setEstrelas] = useState(true);
+  // desligado por padrão: com as dezenas de lugares de comer acesas, o
+  // roteiro do dia some no meio delas
+  const [estrelas, setEstrelas] = useState(false);
+  const [hotelAberto, setHotelAberto] = useState<{ r: Reserva; papel: string } | null>(null);
+  const reservas = useReservas();
   const comida = useMemo(() => comidaResolvida(), []);
 
   const day = ALL_DAYS.find((d) => d.id === dayId)!;
@@ -279,6 +316,16 @@ export function MapScreen() {
   // qualquer dia — é o que responde "o lugar de hoje fechou, o que tem aqui perto?"
   const cidadeDoDia = cidadeDe('', day.id);
   const estrelasDoDia = estrelas ? comida.filter((c) => c.coords && c.cidade === cidadeDoDia) : [];
+
+  // o hotel da noite e, nos dias de mudança, o de onde a manhã sai
+  const prevDate = new Date(new Date(`${day.date}T12:00:00Z`).getTime() - 86400000).toISOString().slice(0, 10);
+  const hoteis: { r: Reserva; papel: string; pos: LatLng }[] = [];
+  const noite = hotelFor(reservas, day.date);
+  const posNoite = pontoLatLng(BASE_DA_ETAPA[day.stageId]);
+  if (noite && posNoite) hoteis.push({ r: noite, papel: 'hotel desta noite', pos: posNoite });
+  const manha = hotelFor(reservas, prevDate);
+  const posManha = pontoLatLng(baseDaManha(day.id, day.stageId));
+  if (manha && posManha && manha.id !== noite?.id) hoteis.push({ r: manha, papel: 'hotel de onde a manhã sai', pos: posManha });
 
   const focusStopId = searchParams.get('stop');
   const focusStop = focusStopId
@@ -308,6 +355,7 @@ export function MapScreen() {
     setDayId(id);
     setSelectedStop(null);
     setSelectedComida(null);
+    setHotelAberto(null);
     router.replace(`/mapa?day=${id}`, { scroll: false });
   };
 
@@ -364,7 +412,7 @@ export function MapScreen() {
               disableDefaultUI
               className="w-full h-full absolute inset-0"
             >
-              <FitBounds stops={pinStops} focus={focusStop} />
+              <FitBounds stops={pinStops} focus={focusStop} extra={hoteis.map((h) => h.pos)} />
               {estrelasDoDia.map((c) => (
                 <AdvancedMarker
                   key={c.id}
@@ -372,14 +420,32 @@ export function MapScreen() {
                   title={c.nome}
                   onClick={() => {
                     setSelectedStop(null);
+                    setHotelAberto(null);
                     setSelectedComida(c);
                   }}
                 >
                   <div
-                    className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white text-white shadow-md"
-                    style={{ background: c.pedido ? 'var(--matcha)' : 'var(--gold)' }}
+                    className="flex h-7 w-7 items-center justify-center rounded-full border-2 bg-white text-[14px] leading-none shadow-md"
+                    style={{ borderColor: c.pedido ? 'var(--matcha)' : 'var(--gold)' }}
                   >
-                    <Star size={12} fill="currentColor" />
+                    {EMOJI_CAT[c.cat]}
+                  </div>
+                </AdvancedMarker>
+              ))}
+              {hoteis.map((h) => (
+                <AdvancedMarker
+                  key={h.r.id}
+                  position={h.pos}
+                  title={h.r.title}
+                  zIndex={1000}
+                  onClick={() => {
+                    setSelectedStop(null);
+                    setSelectedComida(null);
+                    setHotelAberto({ r: h.r, papel: h.papel });
+                  }}
+                >
+                  <div className="flex items-center gap-1 rounded-full border-2 border-white bg-[#1f2937] py-1 pl-1.5 pr-2.5 text-[12px] font-bold text-white shadow-lg">
+                    <span className="text-[15px] leading-none">🏠</span> hotel
                   </div>
                 </AdvancedMarker>
               ))}
@@ -387,16 +453,19 @@ export function MapScreen() {
                 <AdvancedMarker
                   key={s.id}
                   position={s.coords!}
+                  zIndex={500}
                   onClick={() => {
                     setSelectedComida(null);
+                    setHotelAberto(null);
                     setSelectedStop(s);
                   }}
                 >
                   <div
-                    className="w-7 h-7 rounded-full text-white text-[12px] font-bold flex items-center justify-center border-2 border-white shadow-md"
+                    className="flex items-center gap-0.5 rounded-full border-2 border-white py-0.5 pl-1.5 pr-1 text-[12px] font-bold text-white shadow-md"
                     style={{ background: stage.color }}
                   >
                     {day.stops.indexOf(s) + 1}
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[12px] leading-none">{emojiDaParada(s)}</span>
                   </div>
                 </AdvancedMarker>
               ))}
@@ -412,11 +481,25 @@ export function MapScreen() {
           {selectedComida && !selectedStop && (
             <ComidaSheet item={selectedComida} onClose={() => setSelectedComida(null)} />
           )}
-          {estrelas && !selectedStop && !selectedComida && estrelasDoDia.length > 0 && (
+          {hotelAberto && !selectedStop && !selectedComida && (
+            <HotelSheet hotel={hotelAberto.r} papel={hotelAberto.papel} onClose={() => setHotelAberto(null)} />
+          )}
+          {estrelas && !selectedStop && !selectedComida && !hotelAberto && estrelasDoDia.length > 0 && (
             <p className="pointer-events-none absolute bottom-2 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/55 px-3 py-1 text-[11px] text-white backdrop-blur">
-              ★ {estrelasDoDia.length} lugares de comer em {cidadeDoDia}, de todos os dias
+              {estrelasDoDia.length} lugares de comer em {cidadeDoDia}, de todos os dias
             </p>
           )}
+        </div>
+      ) : null}
+      {showMap ? (
+        <div className="space-y-1 rounded-2xl border border-hairline bg-surface px-3.5 py-2.5 text-[11.5px] leading-snug text-muted">
+          <p>
+            <span className="font-semibold text-foreground">🏠 hotel</span> · <span className="font-semibold text-foreground">número colorido</span> = parada do dia, na ordem, com o tipo ao lado:
+            {' '}🍣 sushi · 🍜 ramen · 🍽️ refeição · 🍵 café/chá · 🍡 doce · 🏪 konbini · ⛩️ santuário · 🛕 templo · 🛍️ compras · 🚆 trem
+          </p>
+          <p>
+            Ícones em <span className="font-semibold text-foreground">círculo branco</span> só aparecem com &ldquo;comida por perto&rdquo; ligado: outros lugares de comer da cidade, de qualquer dia.
+          </p>
         </div>
       ) : (
         <OfflineList day={day} />
