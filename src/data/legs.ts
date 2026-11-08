@@ -447,8 +447,8 @@ export const LEGS: Record<string, Leg[]> = {
     walk(1, 'saída **A1** (ou saída 6, se vierem pela Hibiya): a Iwate Ginga Plaza fica em frente ao Kabuki-za, no térreo do Nankai Tokyo Building'),
   ],
   'd02-tekki': [walk(11, 'pela Harumi-dōri até a Ginza 4-chōme e além, passando pelo Kumamotokan (Ginza 5-3-16, perto da saída B9); o Bic Camera é o prédio grande de Yūrakuchō, do outro lado dos trilhos')],
-  'd02-compras-finais': [walk(8, 'o Sushi no Midori fica na Ginza 8-chōme, no térreo do prédio Yamashita, debaixo da via expressa')],
-  'd02-jantar-despedida': [walk(5, 'qualquer 7-Eleven da Ginza; tem um a cada quarteirão')],
+  'd02-compras-finais': [walk(8, 'do Bic Camera Yūrakuchō, sigam os trilhos da JR no sentido de Shinbashi: o **OKUROJI** é a galeria debaixo dos arcos, e o Manten fica na loja **G24**. Cheguem às 20:20 — 15 min de atraso cancelam a mesa')],
+  'd02-jantar-despedida': [walk(12, 'de volta para Ginza pela Harumi-dōri, com um 7-Eleven no caminho; o hotel fica na Ginza 3-chōme')],
   'd02-konbini': [walk(5, 'até o hotel: arrumar as malas hoje, amanhã não vai dar tempo')],
 
   // ── 3 dez · volta ──────────────────────────────────────────────────

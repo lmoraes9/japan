@@ -222,13 +222,25 @@ export const tokyo2Days: Day[] = [
       },
       {
         id: 'd02-jantar-despedida',
-        time: '19:30',
+        time: '20:30',
         timeLabel: 'jantar',
         kind: 'food',
-        name: 'Jantar de despedida',
+        name: 'Jantar de despedida — Mantensushi Hibiya',
+        jp: 'まんてん鮨 日比谷',
+        facts: '**Reservado: 20:30, TableCheck J2GJCR**, 2 pessoas, balcão, 120 min · all-inclusive ¥12.100 por pessoa, com bebida por 90 min · **15 min de atraso cancela a mesa** · paga-se no fim, **só cartão ou celular** (não aceitam dinheiro) · OKUROJI G24, debaixo dos trilhos entre Yūrakuchō e Shinbashi',
         eat: [
           {
-            label: 'Sushi, do acessível ao especial',
+            label: 'Reservado',
+            items: [
+              {
+                name: 'Mantensushi Hibiya',
+                specialty: true,
+                note: 'O omakase de custo-benefício mais conhecido de Tóquio: uma sequência de petiscos e nigiri com peixe da estação, no balcão, por menos da metade de um Kyūbey. Fica no **OKUROJI**, a galeria de bares e restaurantes nos arcos de tijolo debaixo da linha da JR — a 5–8 min a pé do Bic Camera Yūrakuchō, a última parada de compras, e a 12–15 min do hotel.',
+              },
+            ],
+          },
+          {
+            label: 'Se algo der errado: plano B',
             items: [
               {
                 name: 'Umegaoka Sushi no Midori Ginza',
@@ -258,7 +270,7 @@ export const tokyo2Days: Day[] = [
         paragraphs: [
           '**Antes de dormir:** Juntem **todos os recibos** num envelope só, na ordem, e confiram que o registro no J-TaxRefund está completo. · Arrumem a mala deixando **MacBook, iPhone, robô e roupa de cama acessíveis** — a alfândega pode pedir para ver na inspeção. · **Facas vão na mala despachada**, nunca na de mão. · Confiram a etiqueta da bateria do robô: **até 100 Wh** pode ir despachado com o aparelho.',
         ],
-        mapQuery: 'Umegaoka Sushi no Midori Ginza',
+        mapQuery: 'Manten Sushi Hibiya OKUROJI',
       },
       {
         id: 'd02-konbini',

@@ -201,10 +201,9 @@ export const CHECKLIST: ChecklistItem[] = [
   },
   {
     id: 'reserva-omakase',
-    dueAt: '2026-11-10T23:59:00-03:00',
     group: 'pretrip',
     title: 'Reservar sushi omakase de balcão',
-    subtitle: 'Quarta 2/12, ~19:30 · Sushi Azabu (online, TableCheck) ou Kyūbey (telefone) · sem reserva não tem lugar · passo a passo em Reservas',
+    subtitle: 'Reservado em 8/11 pelo TableCheck (J2GJCR): Mantensushi Hibiya, quarta 2/12 às 20:30, 2 pessoas · cancelamento grátis até 24 h antes',
   },
   {
     id: 'adaptador',
