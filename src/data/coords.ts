@@ -103,6 +103,8 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd02-nihonbashi': { lat: 35.684, lng: 139.7745 },
   'd02-tekki': { lat: 35.6693, lng: 139.7677 }, // Iwate Ginga Plaza, Ginza 5-15-1
   'd02-compras-finais': { lat: 35.6749, lng: 139.7628 }, // Bic Camera Yūrakuchō
+  'd02-jantar-despedida': { lat: 35.6695, lng: 139.7597 }, // Mantensushi Hibiya, OKUROJI G24 (aprox.)
+  'd02-konbini': { lat: 35.6712, lng: 139.769 }, // 7-Eleven Ginza 3-chōme, Ginza 3-15-10 (aprox.)
   'd03-nakiryu-senha': { lat: 35.7287, lng: 139.7304 }, // Nakiryu, Minami-Ōtsuka 2-34-4
   'd03-sano-miso': { lat: 35.6956, lng: 139.8257 }, // Sano Miso, Kameido 1-35-8
   'd03-nakiryu': { lat: 35.7287, lng: 139.7304 },
