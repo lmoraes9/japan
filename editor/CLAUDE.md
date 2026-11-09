@@ -179,11 +179,18 @@ quadros de vídeo a 512 MB, mas cada um ainda abre um Chrome e um decodificador)
   filtro para de valer (quase baixou 493 fotos antigas). O celular é um Galaxy S22 Ultra
   e fotografa em **HEIC** (`20261030_143005.heic`): a conversão do importador já foi
   conferida com uma foto de verdade (em pé, com data, fuso e GPS).
-- **iPhone da Priscila → `entrada/pri-iphone`** (a fazer): iCloud Fotos + iCloud para Windows
-  (já instalado no PC, falta ela entrar com o Apple ID). Plano: a pasta vira um atalho
-  (`mklink /J`) para a pasta do iCloud Fotos. Cuidado: no iCloud para Windows as fotos são
-  arquivos "na nuvem" que baixam quando alguém lê; o importador lê tudo de `entrada/`, então
-  é preciso filtrar pela data do arquivo antes de ler, ou ele baixa a biblioteca inteira.
+- **iPhone da Priscila (15 Pro Max) → `entrada/pri-iphone`**: iCloud Fotos + iCloud para
+  Windows (Store, entrou com o Apple ID dela em 08/11/2026, só "Sync Photos"). A pasta é uma
+  junção (`mklink /J`) para `C:\Users\Leonardo\Pictures\iCloud Photos\Photos`. Lá os arquivos
+  ficam "na nuvem" e baixam quando alguém os lê; o `stat` não baixa. A data do arquivo é a da
+  sincronização (muitos com o mesmo horário), nunca antes da foto: o importador descarta pela
+  data do arquivo antes de ler (`DESDE`) e depois pela data do EXIF (foto antiga editada).
+  Chegam `.JPEG` e `.MOV` com data, fuso e GPS (conferido); `.PNG` são capturas de tela e
+  ficam de fora; os `<uuid>.jpg` sem EXIF são imagens recebidas e ficam sem data (fora da Ilha).
+  Vídeo grande na nuvem estoura o limite de 60 s do Windows na primeira leitura (exiftool dá
+  "Invalid argument"), mas o download segue por trás: `lerTags` tenta de novo a cada 15 s.
+  Na Ilha cada mídia leva o selo **Leo** (azul) ou **Pri** (rosa), pelo campo `aparelho` do
+  banco, e o acervo filtra "Dos dois / Só do Leo / Só da Pri"; a fita mistura à vontade.
 - **Nunca pelo WhatsApp**: ele apaga o GPS e a data. Sem sincronização, é por cabo.
 
 ## Testar sem mídia de verdade

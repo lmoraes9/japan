@@ -35,6 +35,8 @@ const midias = catalogo.map((m) => {
     id,
     arquivo: m.arquivo,
     tipo: m.tipo,
+    /** de que celular veio: 'leo-android', 'pri-iphone' (a Ilha mostra Leo / Pri) */
+    aparelho: m.aparelho,
     quando: m.quando,
     lugar: m.lugar?.nome ?? '',
     cidade: m.lugar?.cidade ?? '',

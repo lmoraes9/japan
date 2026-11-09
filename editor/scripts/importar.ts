@@ -7,24 +7,48 @@
  */
 import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join, relative } from 'node:path';
-import { exiftool, type Tags } from 'exiftool-vendored';
+import { ExifTool, type Tags } from 'exiftool-vendored';
 import { carregarLugares, distM, type Lugar } from './lib/lugares.ts';
 import { cidadePerto } from './lib/cidades.ts';
 import type { Candidato, Midia } from './lib/catalogo.ts';
 import { ffmpeg } from './lib/ferramentas.ts';
 
-const FOTO = new Set(['.jpg', '.jpeg', '.heic', '.heif', '.png']);
+// png fica de fora: no celular é sempre captura de tela
+const FOTO = new Set(['.jpg', '.jpeg', '.heic', '.heif']);
 const VIDEO = new Set(['.mp4', '.mov', '.m4v']);
 const HEIC = new Set(['.heic', '.heif']);
 const ext = (f: string) => extname(f).toLowerCase();
 const semExt = (f: string) => f.slice(0, f.length - extname(f).length).toLowerCase();
 
+/**
+ * Nada de antes da viagem. entrada/pri-iphone é um atalho para o iCloud Fotos, onde os arquivos
+ * ficam na nuvem e baixam quando alguém os lê: a data do arquivo (que o stat dá sem baixar) é
+ * a da foto, então filtrar por ela antes do exiftool evita baixar a biblioteca inteira.
+ */
+const DESDE = new Date('2026-10-29T00:00:00-03:00').getTime();
+// ler um vídeo do iCloud é baixá-lo inteiro primeiro (800 MB passa fácil dos 30 s padrão)
+const exiftool = new ExifTool({ taskTimeoutMillis: 15 * 60 * 1000 });
+
+/**
+ * O Windows desiste de esperar um arquivo da nuvem em 60 s e a leitura volta com erro
+ * ("Invalid argument"), mas o download segue por trás: tenta de novo até ele terminar.
+ */
+async function lerTags(f: string): Promise<Tags> {
+  for (let i = 0; ; i++) {
+    const t = await exiftool.read(f);
+    if (!t.Error || i >= 40) return t;
+    await new Promise((r) => setTimeout(r, 15000));
+  }
+}
+
 function listar(dir: string): string[] {
   return readdirSync(dir).flatMap((n) => {
     // .stfolder, .trashed-…, ~syncthing~….tmp: coisas do Syncthing e da lixeira do Android
-    if (n.startsWith('.') || n.startsWith('~')) return [];
+    if (n.startsWith('.') || n.startsWith('~') || n === 'desktop.ini') return [];
     const p = join(dir, n);
-    return statSync(p).isDirectory() ? listar(p) : [p];
+    const s = statSync(p);
+    if (s.isDirectory()) return listar(p);
+    return s.mtimeMs >= DESDE ? [p] : [];
   });
 }
 
@@ -208,7 +232,11 @@ async function main() {
 
   const lidos: { m: Midia; d?: Data }[] = [];
   for (const f of arquivos) {
-    const t = await exiftool.read(f);
+    const t = await lerTags(f);
+    // foto antiga editada ou recém-sincronizada passa pelo filtro do arquivo: a data dela não
+    const d = dataDe(t);
+    const dia = d?.local ?? (d?.utc !== undefined ? new Date(d.utc).toISOString() : undefined);
+    if (dia && Date.parse(dia.slice(0, 10)) < DESDE - 86400000) continue;
     const video = VIDEO.has(ext(f));
     const aparelho = relative('entrada', f).split(/[\\/]/)[0];
     const lat = typeof t.GPSLatitude === 'number' ? t.GPSLatitude : undefined;
@@ -230,7 +258,7 @@ async function main() {
       altura,
       gps: lat !== undefined && lng !== undefined ? { lat, lng } : undefined,
     };
-    lidos.push({ m, d: dataDe(t) });
+    lidos.push({ m, d });
   }
   await exiftool.end();
   comFuso(lidos, [datas[0], datas[datas.length - 1]]);

@@ -18,6 +18,7 @@
   --film: #202625;
   --film-hole: #eceeed;
   --ok: #2f7a4a;
+  --leo: #2c4a8f; --leo-ink: #ffffff; --pri: #b8336a; --pri-ink: #ffffff;
   --warn: #a8611b;
   --font-display: "Shippori Mincho B1", "Hiragino Mincho ProN", Georgia, serif;
   --font-body: "Zen Kaku Gothic New", "Hiragino Sans", system-ui, sans-serif;
@@ -27,13 +28,13 @@
   :root:not([data-theme="light"]) {
     --bg: #131716; --surface: #1c2120; --ink: #e5eae8; --muted: #95a19e; --line: #2f3735;
     --accent: #93a9ff; --accent-ink: #0d1430; --marker: #e7c23e; --marker-ink: #221d05;
-    --film: #0b0e0d; --film-hole: #2a312f; --ok: #6fc28c; --warn: #e2a25c; color-scheme: dark;
+    --film: #0b0e0d; --film-hole: #2a312f; --ok: #6fc28c; --warn: #e2a25c; --leo: #93a9ff; --leo-ink: #0d1430; --pri: #f28bb5; --pri-ink: #3a0a1e; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #131716; --surface: #1c2120; --ink: #e5eae8; --muted: #95a19e; --line: #2f3735;
   --accent: #93a9ff; --accent-ink: #0d1430; --marker: #e7c23e; --marker-ink: #221d05;
-  --film: #0b0e0d; --film-hole: #2a312f; --ok: #6fc28c; --warn: #e2a25c; color-scheme: dark;
+  --film: #0b0e0d; --film-hole: #2a312f; --ok: #6fc28c; --warn: #e2a25c; --leo: #93a9ff; --leo-ink: #0d1430; --pri: #f28bb5; --pri-ink: #3a0a1e; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body {
@@ -116,7 +117,8 @@ textarea { width: 100%; min-height: 70px; font: inherit; padding: 10px; border-r
 .resposta { border-left: 3px solid var(--ok); padding: 6px 12px; background: var(--surface); border-radius: 0 8px 8px 0; }
 
 /* acervo */
-.filtros { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.filtros { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
+.filtros .sep { width: 1px; height: 22px; background: var(--line); margin: 0 4px; }
 .dia { margin-bottom: 18px; }
 .dia h3 { font-size: .9rem; margin: 0 0 8px; font-weight: 700; }
 .dia h3 span { color: var(--muted); font-weight: 400; }
@@ -125,6 +127,11 @@ textarea { width: 100%; min-height: 70px; font: inherit; padding: 10px; border-r
 .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .tile .vid { position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,.65); color: #fff; font-family: var(--font-mono); font-size: .68rem; padding: 0 4px; border-radius: 3px; }
 .tile .hora { position: absolute; bottom: 4px; left: 4px; background: rgba(0,0,0,.5); color: #fff; font-family: var(--font-mono); font-size: .66rem; padding: 0 4px; border-radius: 3px; }
+/* de quem é: Leo (Android) e Pri (iPhone), para misturar sabendo de onde veio */
+.dono { position: absolute; top: 5px; right: 5px; font-size: .66rem; font-weight: 700; padding: 0 6px; border-radius: 99px; line-height: 1.5; }
+.dono.leo { background: var(--leo); color: var(--leo-ink); }
+.dono.pri { background: var(--pri); color: var(--pri-ink); }
+.quadro .dono { top: auto; bottom: 24px; right: 4px; }
 .tile .sel { position: absolute; top: 5px; left: 5px; width: 24px; height: 24px; border-radius: 50%; background: var(--marker); color: var(--marker-ink); font-family: var(--font-mono); font-weight: 500; font-size: .78rem; display: grid; place-items: center; }
 .tile[aria-pressed="true"] img { opacity: .55; }
 @media (prefers-reduced-motion: no-preference) { .quadro, .tile, .chip { transition: transform .12s; } .tile:active, .quadro:active { transform: scale(.97); } }
@@ -266,6 +273,9 @@ let atual = ler('edit-atual');
 let rascunho = null; // cópia editável do edit aberto
 let selecionado = -1;
 let filtro = ler('filtro') || 'todos';
+let quem = ler('quem') || 'todos';
+const DONOS = { 'leo-android': ['leo', 'Leo'], 'pri-iphone': ['pri', 'Pri'] };
+const dono = (m) => { const d = DONOS[m?.aparelho]; return d ? `<span class="dono ${d[0]}">${d[1]}</span>` : ''; };
 let confirmarApagar = false;
 
 // ---- tempo estimado (o mesmo do scripts/edit.ts): abertura e vídeo 8 unidades, foto 4
@@ -364,7 +374,7 @@ function desenharFita() {
     ant = lugar || ant;
     return `${troca}<button class="quadro" data-k="${k}" aria-pressed="${k === selecionado}" aria-label="Item ${k + 1}">
       <img src="${esc(m?.mini || '')}" alt="" loading="lazy">
-      <span class="num">${k + 1}</span>${m?.tipo === 'video' ? `<span class="vid">▶ ${Math.round(m.duracao || 0)}s</span>` : ''}
+      <span class="num">${k + 1}</span>${dono(m)}${m?.tipo === 'video' ? `<span class="vid">▶ ${Math.round(m.duracao || 0)}s</span>` : ''}
       <span class="tc">${tc(ini[k])}</span></button>`;
   });
   $('fita').innerHTML = partes.length ? partes.join('') : '<div class="fita-vazia">A fita está vazia. Escolha fotos e vídeos no acervo, aqui embaixo.</div>';
@@ -407,12 +417,16 @@ function desenharFerramentas() {
 
 function desenharAcervo() {
   $('filtros').innerHTML = [['todos', 'Tudo'], ['foto', 'Fotos'], ['video', 'Vídeos']]
-    .map(([id, nome]) => `<button class="chip" data-filtro="${id}" aria-pressed="${filtro === id}">${nome}</button>`).join('');
+    .map(([id, nome]) => `<button class="chip" data-filtro="${id}" aria-pressed="${filtro === id}">${nome}</button>`).join('')
+    + '<span class="sep" aria-hidden="true"></span>'
+    + [['todos', 'Dos dois'], ['leo-android', 'Só do Leo'], ['pri-iphone', 'Só da Pri']]
+      .map(([id, nome]) => `<button class="chip" data-quem="${id}" aria-pressed="${quem === id}">${nome}</button>`).join('');
   if (!midias.length) { $('acervo').innerHTML = '<div class="aviso">Nenhuma foto ou vídeo por aqui ainda. O Claude sobe as miniaturas quando as fotos chegam no PC.</div>'; return; }
   const usados = new Map((rascunho?.itens || []).map((it, k) => [it.id, k + 1]));
   const dias = new Map();
   for (const m of midias) {
     if (filtro !== 'todos' && m.tipo !== filtro) continue;
+    if (quem !== 'todos' && m.aparelho !== quem) continue;
     const d = (m.quando || '').slice(0, 10);
     if (!dias.has(d)) dias.set(d, []);
     dias.get(d).push(m);
@@ -423,6 +437,7 @@ function desenharAcervo() {
     return `<div class="dia"><h3>${Number(d.slice(8))} ${MESES[Number(d.slice(5, 7)) - 1]} · ${SEMANA[dt.getDay()]} <span>${esc(lugares)}</span></h3><div class="grade">${
       ms.map((m) => `<button class="tile" data-midia="${esc(m.id)}" aria-pressed="${usados.has(m.id)}" aria-label="${m.tipo === 'video' ? 'Vídeo' : 'Foto'} de ${esc(m.quando?.slice(11, 16))}" ${rascunho && podeEscrever ? '' : 'disabled'}>
         <img src="${esc(m.mini)}" alt="" loading="lazy">
+        ${dono(m)}
         ${usados.has(m.id) ? `<span class="sel">${usados.get(m.id)}</span>` : ''}
         <span class="hora">${esc(m.quando?.slice(11, 16))}</span>
         ${m.tipo === 'video' ? `<span class="vid">▶ ${Math.round(m.duracao || 0)}s</span>` : ''}</button>`).join('')
@@ -485,6 +500,7 @@ document.addEventListener('click', async (ev) => {
     return;
   }
   if (b.classList.contains('edit-card')) return abrir(b.dataset.id);
+  if (b.dataset.quem) { quem = b.dataset.quem; gravar('quem', quem); return desenharAcervo(); }
   if (b.dataset.filtro) { filtro = b.dataset.filtro; gravar('filtro', filtro); return desenharAcervo(); }
   if (!rascunho || !podeEscrever) return;
   if (b.dataset.musica !== undefined) {
