@@ -157,6 +157,23 @@ sobreposto, polaroid cobrindo a rota. Para olhar uma animação de perto:
 Renderize um de cada vez: dois em paralelo estouram a memória (o render limita o cache de
 quadros de vídeo a 512 MB, mas cada um ainda abre um Chrome e um decodificador).
 
+## Edits avulsos (fora da viagem)
+
+`src/natal/Natal.tsx` (composição `Natal`) é um visual próprio, sem nada da viagem: cartão vermelho,
+moldura creme, letra de mão, neve. `npm run natal -- trabalho/natal.json [--previa]` → `saida/natal.mp4`.
+O plano lista `itens` ({arquivo, dur, de?, legenda?, largura, altura}), `trilha`/`trilhaDe` e a
+duração dos cartões (`intro`, `fimDur`). Para cortar na batida, cada item dura n batidas + 12 quadros
+(a transição come 12). Gravações longas de câmera parada viram timelapse com
+`ffmpeg -vf setpts=PTS/k,fps=30` antes de entrar no plano.
+
+Fotos antigas do iCloud da Pri: a pasta tem ~95 mil arquivos, quase todos só na nuvem. A data de
+criação do arquivo é a da foto (não precisa baixar para filtrar por dia); nunca rode exiftool na
+pasta inteira, cada leitura vira download e a Apple passa a limitar (HTTP 429/503 no log em
+`%LOCALAPPDATA%\Packages\AppleInc.iCloud_*\LocalCache\Local\Logs`). Para baixar, fixe com
+`attrib +P -U` e espere o atributo O sumir; depois de copiar, `attrib -P +U` devolve à nuvem.
+Se o log repete "deferred or failed" para os mesmos arquivos, desafixe esses: eles ocupam as quatro
+vagas de download e travam a fila.
+
 ## Instalação no PC (Windows)
 
 1. Node 22 LTS.

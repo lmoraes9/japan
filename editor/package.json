@@ -8,6 +8,7 @@
     "rascunho": "tsx scripts/rascunho.ts",
     "render": "tsx scripts/render.ts",
     "painel": "tsx scripts/painel.ts",
+    "natal": "tsx scripts/natal.ts",
     "edit": "tsx scripts/edit.ts",
     "demo:midia": "tsx demo/gerar-midia.ts",
     "studio": "remotion studio src/index.ts",
