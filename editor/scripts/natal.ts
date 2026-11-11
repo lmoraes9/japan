@@ -9,7 +9,6 @@ import { dirname, join, resolve } from 'node:path';
 import { bundle } from '@remotion/bundler';
 import { renderMedia, renderStill, selectComposition } from '@remotion/renderer';
 import type { PlanoNatal } from '../src/natal/Natal.tsx';
-const FPS_NATAL = 30;
 import { ffmpeg, navegador } from './lib/ferramentas.ts';
 
 const args = process.argv.slice(2);
@@ -36,17 +35,13 @@ const composition = await selectComposition({ serveUrl, id: 'Natal', inputProps,
 mkdirSync('saida', { recursive: true });
 
 if (previa) {
-  // meio de cada cena (o cartão de abertura e o de fim entram também)
-  const TRANS = 12;
+  // um quadro de cada cena, já com o texto inteiro na tela
   const marcos: number[] = [];
-  let t = Math.round((plano.intro ?? 2.6) * FPS_NATAL);
-  marcos.push(40);
+  let t = 0;
   for (const i of plano.itens) {
-    const n = Math.round(i.dur * FPS_NATAL);
-    marcos.push(t - TRANS + Math.round(n / 2));
-    t += n - TRANS;
+    marcos.push(t + Math.min(i.q - 1, 24));
+    t += i.q;
   }
-  marcos.push(composition.durationInFrames - 20);
   const quadros: string[] = [];
   for (const [k, q] of marcos.entries()) {
     const out = join('trabalho', `previa-natal-${k}.png`);
@@ -82,6 +77,6 @@ if (previa) {
       }
     },
   });
-  console.log(`\n${out} · ${(composition.durationInFrames / FPS_NATAL).toFixed(1)} s`);
+  console.log(`\n${out} · ${(composition.durationInFrames / 30).toFixed(1)} s`);
 }
 rmSync(serveUrl, { recursive: true, force: true });

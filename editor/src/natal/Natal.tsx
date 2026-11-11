@@ -1,182 +1,131 @@
 /**
- * "Preparando o Natal": edit avulso, sem nada da viagem. Cartão vermelho com moldura creme,
- * letra de mão, neve caindo devagar. Fotos e vídeos em pé ocupam a moldura inteira; os deitados
- * viram uma polaroid inclinada sobre a própria imagem desfocada.
+ * Edit avulso de Natal, sem nada da viagem. Linguagem de Reels de decoração atual: tela cheia,
+ * cortes secos na batida, um "punch" curto de zoom em cada corte, cor única e suave em tudo,
+ * texto pequeno em minúsculas (palavra por palavra) e o horário de cada etapa num selo discreto.
+ * Abre com o resultado (gancho) e segura a revelação no fim.
  *
  *   npm run natal -- trabalho/natal.json [--previa]
  */
 import React from 'react';
-import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, random, staticFile, useCurrentFrame, useVideoConfig, Easing } from 'remotion';
-import { TransitionSeries, linearTiming, type TransitionPresentation } from '@remotion/transitions';
-import { fade } from '@remotion/transitions/fade';
-import '@fontsource/caveat/500.css';
-import '@fontsource/caveat/700.css';
-import '@fontsource/shippori-mincho/500.css';
-import '@fontsource/shippori-mincho/800.css';
+import { AbsoluteFill, Audio, Easing, Img, OffthreadVideo, Series, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
 
 export const FPS_NATAL = 30;
-const TRANS = 12;
-const INTRO = 2.6;
-const FIM = 2.8;
 
 export type ItemNatal = {
   arquivo: string;
   /** vídeo: segundo onde começa o trecho; foto: ausente */
   de?: number;
-  dur: number;
-  largura?: number;
-  altura?: number;
+  /** quadros */
+  q: number;
   legenda?: string;
+  /** selo pequeno acima da legenda, ex. "10:20" */
+  hora?: string;
   volume?: number;
 };
-export type PlanoNatal = { titulo: string; subtitulo?: string; fim?: string; itens: ItemNatal[]; trilha?: string; /** segundo da música onde o vídeo começa */ trilhaDe?: number; /** segundos do cartão de abertura e do de fim */ intro?: number; fimDur?: number };
+export type PlanoNatal = {
+  /** texto grande sobre a primeira cena (o gancho) */
+  titulo?: string;
+  subtitulo?: string;
+  /** texto sobre a última cena */
+  fim?: string;
+  itens: ItemNatal[];
+  trilha?: string;
+  /** segundo da música onde o vídeo começa */
+  trilhaDe?: number;
+};
 
-const VERMELHO = '#7d1622';
-const CREME = '#f6ecd9';
-const OURO = '#d9b26a';
-const MOLDURA = 34;
+export const duracaoNatal = (p: PlanoNatal) => Math.max(1, p.itens.reduce((s, i) => s + i.q, 0));
 
-export const duracaoNatal = (p: PlanoNatal) =>
-  Math.round((p.intro ?? INTRO) * FPS_NATAL) + p.itens.reduce((s, i) => s + Math.round(i.dur * FPS_NATAL), 0) + Math.round((p.fimDur ?? FIM) * FPS_NATAL) - TRANS * (p.itens.length + 1);
+const GRADE = 'contrast(1.07) saturate(0.9) sepia(0.07) brightness(1.02)';
+const sai = (f: number, a: number, b: number) => interpolate(f, [a, b], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic) });
 
-const Neve: React.FC<{ n?: number }> = ({ n = 46 }) => {
+const Cena: React.FC<{ item: ItemNatal }> = ({ item }) => {
   const f = useCurrentFrame();
-  const { width, height } = useVideoConfig();
+  const { durationInFrames: n } = useVideoConfig();
+  // zoom lento + punch de entrada (começa 6% mais perto e assenta em 5 quadros)
+  const escala = interpolate(f, [0, n], [1.0, 1.045]) + 0.06 * (1 - sai(f, 0, 5));
+  const css: React.CSSProperties = { width: '100%', height: '100%', objectFit: 'cover', filter: GRADE, transform: `scale(${escala})` };
+  const src = staticFile(item.arquivo);
   return (
-    <AbsoluteFill style={{ pointerEvents: 'none' }}>
-      {Array.from({ length: n }, (_, k) => {
-        const r = random(`neve${k}`);
-        const v = 0.6 + random(`v${k}`) * 1.4;
-        const tam = 3 + random(`t${k}`) * 7;
-        const y = ((r * height + f * v * 2.2) % (height + 40)) - 20;
-        const x = random(`x${k}`) * width + Math.sin(f / (40 + k) + k) * 18;
-        return <div key={k} style={{ position: 'absolute', left: x, top: y, width: tam, height: tam, borderRadius: '50%', background: CREME, opacity: 0.35 + random(`o${k}`) * 0.4, filter: tam > 7 ? 'blur(1.5px)' : undefined }} />;
-      })}
+    <AbsoluteFill style={{ background: '#000', overflow: 'hidden' }}>
+      {item.de === undefined ? <Img src={src} style={css} /> : <OffthreadVideo src={src} trimBefore={Math.round(item.de * FPS_NATAL)} volume={item.volume ?? 0} style={css} />}
+      {/* vinheta leve e um véu escuro no alto, onde fica o texto */}
+      <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 50% 55%, rgba(0,0,0,0) 55%, rgba(0,0,0,.28) 100%)' }} />
+      <AbsoluteFill style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,.46), rgba(0,0,0,.18) 18%, rgba(0,0,0,0) 34%)' }} />
     </AbsoluteFill>
   );
 };
 
-const Midia: React.FC<{ item: ItemNatal; style?: React.CSSProperties }> = ({ item, style }) => {
+/** palavras entram uma a uma, subindo 12 px */
+const Palavras: React.FC<{ texto: string; tam: number; peso: number; atraso?: number }> = ({ texto, tam, peso, atraso = 0 }) => {
   const f = useCurrentFrame();
-  const { durationInFrames: n } = useVideoConfig();
-  const css: React.CSSProperties = { width: '100%', height: '100%', objectFit: 'cover', ...style };
-  const src = staticFile(item.arquivo);
-  if (item.de === undefined) {
-    const kb = interpolate(f, [0, n], [1.02, 1.1]);
-    return <Img src={src} style={{ ...css, transform: `scale(${kb})` }} />;
-  }
-  return <OffthreadVideo src={src} trimBefore={Math.round(item.de * FPS_NATAL)} volume={item.volume ?? 0} style={css} />;
-};
-
-const Legenda: React.FC<{ texto: string; naPolaroid?: boolean }> = ({ texto, naPolaroid }) => {
-  const f = useCurrentFrame();
-  const o = interpolate(f, [8, 22], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
-  const y = interpolate(f, [8, 22], [14, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic) });
+  const linhas = texto.split('\n');
+  let k = 0;
   return (
-    <div style={{ position: 'absolute', left: 0, right: 0, bottom: naPolaroid ? 14 : 150, display: 'flex', justifyContent: 'center', opacity: o, transform: `translateY(${y}px)` }}>
-      <div style={{ fontFamily: 'Caveat', fontWeight: 700, fontSize: naPolaroid ? 72 : 84, color: naPolaroid ? VERMELHO : CREME, textShadow: naPolaroid ? undefined : '0 3px 18px rgba(0,0,0,.55)', transform: 'rotate(-2deg)' }}>{texto}</div>
+    <div style={{ fontFamily: 'Inter', fontWeight: peso, fontSize: tam, lineHeight: 1.12, letterSpacing: '-0.025em', color: '#fff', textAlign: 'center', textShadow: '0 1px 3px rgba(0,0,0,.45), 0 2px 18px rgba(0,0,0,.4)' }}>
+      {linhas.map((l, i) => (
+        <div key={i}>
+          {l.split(' ').map((w, j) => {
+            const a = atraso + 2 * k++;
+            return (
+              <span key={j} style={{ display: 'inline-block', opacity: sai(f, a, a + 6), transform: `translateY(${12 * (1 - sai(f, a, a + 8))}px)`, marginRight: '0.26em' }}>
+                {w}
+              </span>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 };
 
-const Cena: React.FC<{ item: ItemNatal }> = ({ item }) => {
-  const deitado = (item.largura ?? 9) > (item.altura ?? 16);
+const Selo: React.FC<{ texto: string }> = ({ texto }) => {
+  const f = useCurrentFrame();
   return (
-    <AbsoluteFill style={{ background: VERMELHO }}>
-      {deitado ? (
-        <>
-          <AbsoluteFill style={{ filter: 'blur(40px) brightness(.55)', transform: 'scale(1.2)' }}>
-            <Midia item={item} />
-          </AbsoluteFill>
-          <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ position: 'relative', background: CREME, padding: '26px 26px 120px', transform: 'rotate(-2.5deg)', boxShadow: '0 30px 60px rgba(0,0,0,.45)', width: 960 }}>
-              <div style={{ width: 908, height: 908 * ((item.altura ?? 9) / (item.largura ?? 16)), overflow: 'hidden' }}>
-                <Midia item={item} />
-              </div>
-              {item.legenda && <Legenda texto={item.legenda} naPolaroid />}
-            </div>
-          </AbsoluteFill>
-        </>
-      ) : (
-        <AbsoluteFill style={{ padding: MOLDURA, background: CREME }}>
-          <div style={{ width: '100%', height: '100%', overflow: 'hidden', borderRadius: 26, position: 'relative' }}>
-            <Midia item={item} style={{ filter: 'saturate(1.06) contrast(1.03)' }} />
-            <AbsoluteFill style={{ background: 'linear-gradient(to top, rgba(40,6,10,.55), rgba(40,6,10,0) 35%)' }} />
-          </div>
-        </AbsoluteFill>
-      )}
-      {item.legenda && !deitado && <Legenda texto={item.legenda} />}
-    </AbsoluteFill>
+    <div style={{ display: 'inline-block', opacity: sai(f, 0, 5), padding: '8px 20px', borderRadius: 40, background: 'rgba(255,255,255,.18)', backdropFilter: 'blur(10px)', border: '1.5px solid rgba(255,255,255,.35)', color: '#fff', fontFamily: 'Inter', fontWeight: 600, fontSize: 30, letterSpacing: '0.04em', fontVariantNumeric: 'tabular-nums', marginBottom: 22 }}>
+      {texto}
+    </div>
   );
 };
 
-const Estrela: React.FC<{ size: number; style?: React.CSSProperties }> = ({ size, style }) => (
-  <svg width={size} height={size} viewBox="-10 -10 20 20" style={style}>
-    <path d="M0,-10 L2.2,-2.2 L10,0 L2.2,2.2 L0,10 L-2.2,2.2 L-10,0 L-2.2,-2.2 Z" fill={OURO} />
-  </svg>
-);
-
-const Cartao: React.FC<{ grande: string; pequeno?: string; serif?: boolean }> = ({ grande, pequeno, serif }) => {
-  const f = useCurrentFrame();
-  const o = (a: number) => interpolate(f, [a, a + 16], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
-  const y = (a: number) => interpolate(f, [a, a + 20], [24, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic) });
+/** texto na faixa segura do Reels: abaixo da barra do topo, longe dos botões de baixo e da direita */
+const Texto: React.FC<{ item: ItemNatal; titulo?: string; subtitulo?: string; fim?: string }> = ({ item, titulo, subtitulo, fim }) => {
+  if (!item.legenda && !item.hora && !titulo && !fim) return null;
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 42%, #9a2230 0%, ${VERMELHO} 55%, #4e0c14 100%)`, justifyContent: 'center', alignItems: 'center' }}>
-      <AbsoluteFill style={{ border: `3px solid ${OURO}`, margin: 46, borderRadius: 30, opacity: 0.55 }} />
-      <div style={{ textAlign: 'center', color: CREME, padding: '0 90px' }}>
-        <Estrela size={70} style={{ opacity: o(0), transform: `rotate(${f * 0.6}deg)` }} />
-        <div
-          style={{
-            fontFamily: serif ? 'Shippori Mincho' : 'Caveat',
-            fontWeight: serif ? 800 : 700,
-            fontSize: serif ? 118 : 190,
-            lineHeight: serif ? 1.12 : 1,
-            letterSpacing: serif ? -1 : 0,
-            marginTop: 30,
-            whiteSpace: 'pre-line',
-            opacity: o(4),
-            transform: `translateY(${y(4)}px)`,
-          }}
-        >
-          {grande}
+    <AbsoluteFill style={{ alignItems: 'center', paddingTop: titulo || fim ? 300 : 250, paddingLeft: 90, paddingRight: 120 }}>
+      {item.hora && <Selo texto={item.hora} />}
+      {subtitulo && (
+        <div style={{ marginBottom: 18 }}>
+          <Palavras texto={subtitulo} tam={30} peso={600} />
         </div>
-        {pequeno && <div style={{ fontFamily: 'Caveat', fontWeight: 500, fontSize: 76, color: OURO, marginTop: 34, opacity: o(14), transform: `translateY(${y(14)}px)` }}>{pequeno}</div>}
-      </div>
+      )}
+      {(titulo || fim) && <Palavras texto={(titulo ?? fim)!} tam={74} peso={600} atraso={titulo ? 3 : 4} />}
+      {item.legenda && <Palavras texto={item.legenda} tam={52} peso={600} atraso={item.hora ? 3 : 0} />}
     </AbsoluteFill>
   );
 };
 
 export const Natal: React.FC<PlanoNatal> = (p) => {
-  const fade_ = fade() as TransitionPresentation<Record<string, unknown>>;
-  const t = linearTiming({ durationInFrames: TRANS });
+  const n = duracaoNatal(p);
   return (
-    <AbsoluteFill style={{ background: VERMELHO }}>
-      <TransitionSeries>
-        <TransitionSeries.Sequence durationInFrames={Math.round((p.intro ?? INTRO) * FPS_NATAL)}>
-          <Cartao grande={p.titulo} pequeno={p.subtitulo} serif />
-        </TransitionSeries.Sequence>
-        {p.itens.flatMap((item, i) => [
-          <TransitionSeries.Transition key={`t${i}`} presentation={fade_} timing={t} />,
-          <TransitionSeries.Sequence key={`s${i}`} durationInFrames={Math.round(item.dur * FPS_NATAL)}>
+    <AbsoluteFill style={{ background: '#000' }}>
+      <Series>
+        {p.itens.map((item, i) => (
+          <Series.Sequence key={i} durationInFrames={item.q}>
             <Cena item={item} />
-          </TransitionSeries.Sequence>,
-        ])}
-        <TransitionSeries.Transition presentation={fade_} timing={t} />
-        <TransitionSeries.Sequence durationInFrames={Math.round((p.fimDur ?? FIM) * FPS_NATAL)}>
-          <Cartao grande={p.fim ?? 'Feliz Natal'} />
-        </TransitionSeries.Sequence>
-      </TransitionSeries>
-      <Neve />
+            <Texto item={item} titulo={i === 0 ? p.titulo : undefined} subtitulo={i === 0 ? p.subtitulo : undefined} fim={i === p.itens.length - 1 ? p.fim : undefined} />
+          </Series.Sequence>
+        ))}
+      </Series>
       {p.trilha && (
-        <Sequence>
-          <AudioTrilha src={p.trilha} de={p.trilhaDe ?? 0} />
-        </Sequence>
+        <Audio
+          src={staticFile(p.trilha)}
+          trimBefore={Math.round((p.trilhaDe ?? 0) * FPS_NATAL)}
+          volume={(f) => interpolate(f, [0, 4, n - 40, n], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })}
+        />
       )}
     </AbsoluteFill>
   );
-};
-
-const AudioTrilha: React.FC<{ src: string; de: number }> = ({ src, de }) => {
-  const { durationInFrames: n } = useVideoConfig();
-  return <Audio src={staticFile(src)} trimBefore={Math.round(de * FPS_NATAL)} volume={(f) => interpolate(f, [0, 15, n - 45, n], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })} />;
 };

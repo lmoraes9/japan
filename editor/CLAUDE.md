@@ -159,12 +159,15 @@ quadros de vídeo a 512 MB, mas cada um ainda abre um Chrome e um decodificador)
 
 ## Edits avulsos (fora da viagem)
 
-`src/natal/Natal.tsx` (composição `Natal`) é um visual próprio, sem nada da viagem: cartão vermelho,
-moldura creme, letra de mão, neve. `npm run natal -- trabalho/natal.json [--previa]` → `saida/natal.mp4`.
-O plano lista `itens` ({arquivo, dur, de?, legenda?, largura, altura}), `trilha`/`trilhaDe` e a
-duração dos cartões (`intro`, `fimDur`). Para cortar na batida, cada item dura n batidas + 12 quadros
-(a transição come 12). Gravações longas de câmera parada viram timelapse com
-`ffmpeg -vf setpts=PTS/k,fps=30` antes de entrar no plano.
+`src/natal/Natal.tsx` (composição `Natal`) é um visual próprio, sem nada da viagem, na linguagem dos
+Reels de decoração: tela cheia, cortes secos na batida com um punch curto de zoom, cor única suave,
+texto pequeno em minúsculas (Inter, palavra por palavra) na faixa segura do topo e um selo com o horário
+de cada etapa. Abre com o resultado pronto (gancho), mostra o processo, um antes/depois no mesmo
+ângulo e segura a revelação no fim. (A primeira versão, com cartão vermelho, moldura e neve, ficou
+"cafona": não volte a ela.) `npm run natal -- trabalho/natal.json [--previa]` → `saida/natal.mp4`.
+O plano lista `itens` ({arquivo, q (quadros), de?, legenda?, hora?}), `titulo`/`subtitulo` sobre a
+primeira cena, `fim` sobre a última, `trilha`/`trilhaDe`. Cada item dura n batidas (sem transição).
+Gravações longas de câmera parada viram timelapse com `ffmpeg -vf setpts=PTS/k,fps=30`.
 
 Fotos antigas do iCloud da Pri: a pasta tem ~95 mil arquivos, quase todos só na nuvem. A data de
 criação do arquivo é a da foto (não precisa baixar para filtrar por dia); nunca rode exiftool na
