@@ -18,7 +18,7 @@ const plano = JSON.parse(readFileSync(arquivo, 'utf8')) as PlanoNatal;
 
 const publico = resolve(`trabalho/publico-natal${previa ? '-previa' : ''}`);
 rmSync(publico, { recursive: true, force: true });
-for (const u of [...plano.itens.map((i) => i.arquivo), ...(plano.trilha ? [plano.trilha] : [])]) {
+for (const u of new Set([...plano.itens.flatMap((i) => [i.arquivo, ...(i.abaixo ? [i.abaixo.arquivo] : [])]), ...(plano.trilha ? [plano.trilha] : [])])) {
   if (!existsSync(u)) throw new Error(`não existe: ${u}`);
   const d = join(publico, u);
   mkdirSync(dirname(d), { recursive: true });

@@ -159,15 +159,17 @@ quadros de vídeo a 512 MB, mas cada um ainda abre um Chrome e um decodificador)
 
 ## Edits avulsos (fora da viagem)
 
-`src/natal/Natal.tsx` (composição `Natal`) é um visual próprio, sem nada da viagem, na linguagem dos
-Reels de decoração: tela cheia, cortes secos na batida com um punch curto de zoom, cor única suave,
-texto pequeno em minúsculas (Inter, palavra por palavra) na faixa segura do topo e um selo com o horário
-de cada etapa. Abre com o resultado pronto (gancho), mostra o processo, um antes/depois no mesmo
-ângulo e segura a revelação no fim. (A primeira versão, com cartão vermelho, moldura e neve, ficou
-"cafona": não volte a ela.) `npm run natal -- trabalho/natal.json [--previa]` → `saida/natal.mp4`.
-O plano lista `itens` ({arquivo, q (quadros), de?, legenda?, hora?}), `titulo`/`subtitulo` sobre a
-primeira cena, `fim` sobre a última, `trilha`/`trilhaDe`. Cada item dura n batidas (sem transição).
-Gravações longas de câmera parada viram timelapse com `ffmpeg -vf setpts=PTS/k,fps=30`.
+`src/natal/Natal.tsx` (composição `Natal`) é um visual próprio, sem nada da viagem, copiado de um
+Reel de "receber em casa" que a Pri gosta: cortes secos em cenas reais (sem timelapse, sem zoom de
+impacto), ~2 batidas por cena, muito close de mão trabalhando, empurrão lento de câmera, cor dourada e
+quente. Texto só na abertura (Bodoni Moda em caixa alta, em escada, e uma linha cursiva em Sacramento
+que "se escreve") e no fim (cursiva). Perto do fim, tela dividida (`abaixo`: duas cenas empilhadas).
+Versões rejeitadas, não volte a elas: cartão vermelho/moldura/neve ("cafona") e a "moderna" com punch
+de zoom, timelapses e legenda com horário ("cortes grosseiros").
+`npm run natal -- trabalho/natal.json [--previa]` → `saida/natal.mp4`. O plano lista `itens`
+({arquivo, de?, q (quadros), abaixo?: {arquivo, de?}}), `titulo` (linhas com 
+), `subtitulo`, `fim`,
+`trilha`/`trilhaDe`. Material: `entrada/natal` (24/12) e `entrada/natal18` (lembrancinhas de 18/12).
 
 Fotos antigas do iCloud da Pri: a pasta tem ~95 mil arquivos, quase todos só na nuvem. A data de
 criação do arquivo é a da foto (não precisa baixar para filtrar por dia); nunca rode exiftool na
