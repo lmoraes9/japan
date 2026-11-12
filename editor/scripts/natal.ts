@@ -5,7 +5,7 @@
  *   npm run natal -- trabalho/natal.json --previa   → saida/natal-previa.jpg (um quadro por cena)
  */
 import { copyFileSync, existsSync, linkSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import { bundle } from '@remotion/bundler';
 import { renderMedia, renderStill, selectComposition } from '@remotion/renderer';
 import type { PlanoNatal } from '../src/natal/Natal.tsx';
@@ -14,9 +14,10 @@ import { ffmpeg, navegador } from './lib/ferramentas.ts';
 const args = process.argv.slice(2);
 const arquivo = args.find((a) => !a.startsWith('--')) ?? 'trabalho/natal.json';
 const previa = args.includes('--previa');
+const nome = basename(arquivo, '.json'); // natal.json → saida/natal.mp4, natal-longo.json → saida/natal-longo.mp4
 const plano = JSON.parse(readFileSync(arquivo, 'utf8')) as PlanoNatal;
 
-const publico = resolve(`trabalho/publico-natal${previa ? '-previa' : ''}`);
+const publico = resolve(`trabalho/publico-${nome}${previa ? '-previa' : ''}`);
 rmSync(publico, { recursive: true, force: true });
 for (const u of new Set([...plano.itens.flatMap((i) => [i.arquivo, ...(i.abaixo ? [i.abaixo.arquivo] : [])]), ...(plano.trilha ? [plano.trilha] : [])])) {
   if (!existsSync(u)) throw new Error(`não existe: ${u}`);
@@ -53,11 +54,11 @@ if (previa) {
   const pads = Array.from({ length: col * lin - quadros.length }, () => ['-f', 'lavfi', '-i', 'color=c=black:s=270x480']).flat();
   const total = col * lin;
   const layout = Array.from({ length: total }, (_, k) => `${(k % col) * 270}_${Math.floor(k / col) * 480}`).join('|');
-  ffmpeg([...quadros.flatMap((q) => ['-i', q]), ...pads, '-filter_complex', `xstack=inputs=${total}:layout=${layout}`, '-frames:v', '1', '-update', '1', join('saida', 'natal-previa.jpg')]);
+  ffmpeg([...quadros.flatMap((q) => ['-i', q]), ...pads, '-filter_complex', `xstack=inputs=${total}:layout=${layout}`, '-frames:v', '1', '-update', '1', join('saida', `${nome}-previa.jpg`)]);
   quadros.forEach((q) => rmSync(q));
-  console.log('saida/natal-previa.jpg');
+  console.log(`saida/${nome}-previa.jpg`);
 } else {
-  const out = join('saida', 'natal.mp4');
+  const out = join('saida', `${nome}.mp4`);
   let ultimo = -1;
   await renderMedia({
     composition,
