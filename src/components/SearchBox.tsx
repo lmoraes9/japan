@@ -2,103 +2,42 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { Search, X, MapPinned } from 'lucide-react';
-import { ALL_DAYS } from '@/data/days';
-import { PLACE_MAPS } from '@/data/placeMaps';
-import { formatDayLabel } from '@/lib/now';
+import { Search, X, MapPinned, CalendarDays, UtensilsCrossed, BedDouble, TicketCheck, ShoppingBag, Sandwich, Pill } from 'lucide-react';
+import { aquecerBusca, buscar, MAX_RESULTADOS, TIPO_ROTULO, type RespostaBusca, type TipoResultado } from '@/lib/busca';
 
-interface Hit {
-  key: string;
-  href: string;
-  title: string;
-  sub: string;
-  /** trecho do texto onde bateu */
-  snippet?: string;
-  kind: 'stop' | 'map';
-}
+const ICONE: Record<TipoResultado, typeof Search> = {
+  parada: CalendarDays,
+  dia: CalendarDays,
+  comida: UtensilsCrossed,
+  mapa: MapPinned,
+  hotel: BedDouble,
+  ingresso: TicketCheck,
+  compras: ShoppingBag,
+  konbini: Sandwich,
+  truque: Pill,
+};
 
-const norm = (t: string) =>
-  t
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/\*\*|\*|`/g, '');
+/** As paradas e os dias são "o roteiro"; o resto é página de apoio. */
+const NO_ROTEIRO: TipoResultado[] = ['parada', 'dia', 'comida', 'mapa'];
 
-/** trecho de ~90 caracteres em volta da primeira ocorrência */
-function snippetOf(text: string, q: string): string | undefined {
-  const i = norm(text).indexOf(q);
-  if (i < 0) return undefined;
-  const start = Math.max(0, i - 36);
-  const end = Math.min(text.length, i + q.length + 54);
-  return (start > 0 ? '…' : '') + text.slice(start, end).replace(/\*\*|\*|`/g, '') + (end < text.length ? '…' : '');
-}
-
-function buildIndex() {
-  const items: { hit: Hit; haystack: string; strong: string; body: string }[] = [];
-  for (const day of ALL_DAYS) {
-    for (const stop of day.stops) {
-      const eat = (stop.eat ?? []).flatMap((b) => b.items.map((i) => `${i.name} ${i.note}`));
-      const body = [
-        stop.facts ?? '',
-        ...(stop.paragraphs ?? []),
-        ...(stop.history?.paragraphs ?? []),
-        ...eat,
-      ].join(' ');
-      const strong = `${stop.name} ${stop.jp ?? ''} ${day.title}`;
-      items.push({
-        hit: {
-          key: stop.id,
-          href: `/roteiro/${day.id}#${stop.id}`,
-          title: stop.name,
-          sub: `${formatDayLabel(day.date)} · ${stop.time}`,
-          kind: 'stop',
-        },
-        haystack: norm(`${strong} ${body}`),
-        strong: norm(strong),
-        body,
-      });
-    }
-  }
-  for (const map of PLACE_MAPS) {
-    for (const h of map.hotspots) {
-      const body = [h.facts ?? '', ...h.paragraphs].join(' ');
-      const strong = `${h.title} ${h.jp ?? ''} ${h.label} ${map.title}`;
-      items.push({
-        hit: {
-          key: `${map.id}/${h.id}`,
-          href: `/lugar/${map.id}`,
-          title: h.title,
-          sub: `Mapa ilustrado · ${map.title}`,
-          kind: 'map',
-        },
-        haystack: norm(`${strong} ${body}`),
-        strong: norm(strong),
-        body,
-      });
-    }
-  }
-  return items;
-}
-
+/**
+ * Busca no roteiro e nas páginas de apoio. A lógica mora em `lib/busca`; aqui
+ * é só a caixa e a lista. Um erro na busca vira uma linha de aviso, e nunca
+ * derruba a tela onde a caixa está.
+ */
 export function SearchBox() {
   const [q, setQ] = useState('');
-  const index = useMemo(buildIndex, []);
-  const query = norm(q.trim());
+  const pergunta = q.trim();
+  const ativa = pergunta.length >= 2;
 
-  const hits = useMemo(() => {
-    if (query.length < 2) return [];
-    const terms = query.split(/\s+/);
-    return index
-      .filter((it) => terms.every((t) => it.haystack.includes(t)))
-      .map((it) => ({
-        ...it.hit,
-        // bateu no nome pesa mais que bateu no texto
-        score: terms.reduce((s, t) => s + (it.strong.includes(t) ? 2 : 1), 0),
-        snippet: it.strong.includes(terms[0]) ? undefined : snippetOf(it.body, terms[0]),
-      }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 30);
-  }, [index, query]);
+  const resposta = useMemo((): RespostaBusca | 'erro' | null => {
+    if (!ativa) return null;
+    try {
+      return buscar(pergunta);
+    } catch {
+      return 'erro';
+    }
+  }, [ativa, pergunta]);
 
   return (
     <div className="space-y-2">
@@ -107,39 +46,87 @@ export function SearchBox() {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Buscar no roteiro: ramen, Muji, torii, tax-free…"
+          onFocus={() => setTimeout(aquecerBusca, 0)}
+          placeholder="Tem no roteiro? Nishiki, ramen, Muji…"
+          aria-label="Buscar no roteiro"
           className="min-w-0 flex-1 bg-transparent text-[14px] outline-none placeholder:text-muted/70"
           type="text"
           enterKeyHint="search"
+          maxLength={80}
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="none"
+          spellCheck={false}
         />
         {q && (
-          <button onClick={() => setQ('')} aria-label="Limpar" className="text-muted">
+          <button type="button" onClick={() => setQ('')} aria-label="Limpar" className="text-muted">
             <X size={16} />
           </button>
         )}
       </label>
 
-      {query.length >= 2 && (
+      {resposta === 'erro' && (
+        <p className="rounded-2xl border border-hairline bg-surface px-4 py-3 text-[13px] text-muted">
+          A busca falhou desta vez. O roteiro continua aí embaixo, dia por dia.
+        </p>
+      )}
+
+      {resposta && resposta !== 'erro' && (
         <div className="overflow-hidden rounded-2xl border border-hairline bg-surface">
-          {hits.length === 0 && (
-            <p className="px-4 py-3 text-[13px] text-muted">Nada com “{q.trim()}” no roteiro.</p>
+          {resposta.total === 0 ? (
+            <p className="px-4 py-3 text-[13px] leading-snug text-muted">
+              <strong className="font-semibold text-foreground">Não tem “{pergunta}”</strong> no roteiro nem nas
+              páginas de apoio. Vale tentar só um pedaço do nome.
+            </p>
+          ) : (
+            <p className="border-b border-hairline bg-surface-2 px-4 py-2 text-[12px] leading-snug text-muted">
+              {resposta.parecidos.length > 0 ? (
+                <>
+                  Nada escrito “{pergunta}”. O mais parecido é{' '}
+                  <strong className="font-semibold text-foreground">{resposta.parecidos.join(', ')}</strong>:
+                </>
+              ) : resposta.resultados.some((r) => NO_ROTEIRO.includes(r.tipo)) ? (
+                <>
+                  <strong className="font-semibold text-foreground">Tem no roteiro.</strong>{' '}
+                  {resposta.total === 1 ? '1 lugar' : `${resposta.total} lugares`}
+                  {resposta.total > MAX_RESULTADOS && `, os ${MAX_RESULTADOS} primeiros abaixo`}
+                </>
+              ) : (
+                <>
+                  Não aparece nos dias do roteiro, mas está nas páginas de apoio (
+                  {resposta.total === 1 ? '1 lugar' : `${resposta.total} lugares`})
+                </>
+              )}
+            </p>
           )}
-          {hits.map((h) => (
-            <Link
-              key={h.key}
-              href={h.href}
-              className="flex items-start gap-3 border-b border-hairline px-4 py-2.5 last:border-b-0 active:bg-surface-2"
-            >
-              {h.kind === 'map' && <MapPinned size={15} className="mt-0.5 shrink-0 text-accent" />}
-              <span className="min-w-0 flex-1">
-                <span className="block text-[13.5px] font-medium leading-snug">{h.title}</span>
-                <span className="block text-[11px] text-muted">{h.sub}</span>
-                {h.snippet && (
-                  <span className="mt-0.5 block text-[12px] leading-snug text-foreground/70">{h.snippet}</span>
-                )}
-              </span>
-            </Link>
-          ))}
+
+          {resposta.resultados.map((r) => {
+            const Icone = ICONE[r.tipo];
+            return (
+              <Link
+                key={r.key}
+                href={r.href}
+                className="flex items-start gap-3 border-b border-hairline px-4 py-2.5 last:border-b-0 active:bg-surface-2"
+              >
+                <Icone size={15} className="mt-0.5 shrink-0 text-accent" />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[13.5px] font-medium leading-snug">{r.title}</span>
+                  <span className="block text-[11px] text-muted">
+                    {r.tipo === 'parada' || r.tipo === 'dia' ? `${TIPO_ROTULO[r.tipo]} · ${r.sub}` : r.sub}
+                  </span>
+                  {r.trecho && (
+                    <span className="mt-0.5 block text-[12px] leading-snug text-foreground/70">
+                      {r.trecho.antes}
+                      <mark className="rounded bg-accent-soft px-0.5 font-semibold text-foreground">
+                        {r.trecho.achado}
+                      </mark>
+                      {r.trecho.depois}
+                    </span>
+                  )}
+                </span>
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>

@@ -31,6 +31,7 @@ import { dayCover } from '@/lib/covers';
 import { placeMapByStopId } from '@/data/placeMaps';
 import { Compass, Sunrise } from 'lucide-react';
 import { sunFor } from '@/lib/sun';
+import { SearchBox } from '@/components/SearchBox';
 
 const sunriseOf = (date: string, stageId: Parameters<typeof sunFor>[1]) => sunFor(date, stageId).sunrise;
 
@@ -354,6 +355,7 @@ export default function AgoraPage() {
   return (
     <div className="space-y-4">
       <Clocks pos={pos} />
+      <SearchBox />
       {pos.phase === 'before' && <BeforeTrip pos={pos} />}
       {pos.phase === 'during' && <DuringTrip pos={pos} />}
       {pos.phase === 'after' && <AfterTrip />}
