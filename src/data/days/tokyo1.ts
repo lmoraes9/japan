@@ -714,7 +714,7 @@ export const tokyo1Days: Day[] = [
               },
               {
                 name: 'Apple Ginza',
-                note: '10:00–21:00 · a primeira Apple Store fora dos EUA (2003). Confiram estoque de teclado antes de decidir — veja a seção de compras.',
+                note: '10:00–21:00 · a primeira Apple Store fora dos EUA (2003). Aqui é só para ver: iPhone e RedMagic se compram no dia 1º/12.',
               },
               {
                 name: 'Itōya — 12 andares de papelaria',

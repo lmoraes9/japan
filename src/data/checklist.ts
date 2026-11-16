@@ -72,10 +72,10 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: 'Só o 18 Pro/Pro Max existe em novembro · som do obturador travado',
   },
   {
-    id: 'macbook',
+    id: 'redmagic',
     group: 'compras',
-    title: 'MacBook Pro 14" M5 Pro',
-    subtitle: '24 GB / 1 TB: ¥429.800, ~¥390.700 com o tax-free · novo compensa mais que usado · teclado JIS vs. US · dia 1º, Bic Camera ou Apple Ginza',
+    title: 'RedMagic (celular gamer)',
+    subtitle: 'Dia 1º/12, junto com o iPhone · Bic Camera Yūrakuchō ou Yodobashi · **12 Pro se já tiver saído no Japão, senão 11S Pro** (¥149.800) · não abrir: lacrado e na mala de mão',
   },
   {
     id: 'robo',
@@ -390,7 +390,7 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'mala-mala-vazia',
     group: 'mala',
     title: 'Uma mala grande vazia dentro da outra (ou comprar lá)',
-    subtitle: 'MacBook, robô, roupa de cama e presentes não cabem na de ida',
+    subtitle: 'Robô, roupa de cama, eletrônicos e presentes não cabem na de ida',
   },
   {
     id: 'mala-sacola',

@@ -153,11 +153,11 @@ export const PHRASES: Phrase[] = [
     showable: true,
   },
   {
-    id: 'teclado-us',
+    id: 'redmagic-estoque',
     situation: 'compras',
-    pt: 'Vocês têm MacBook com teclado US (americano) em estoque?',
-    jp: 'USキーボードのMacBookの在庫はありますか？',
-    romaji: 'US kībōdo no MacBook no zaiko wa arimasu ka?',
+    pt: 'Vocês têm o celular REDMAGIC em estoque?',
+    jp: 'REDMAGICのスマホの在庫はありますか？',
+    romaji: 'REDMAGIC no sumaho no zaiko wa arimasu ka?',
     showable: true,
   },
   {
