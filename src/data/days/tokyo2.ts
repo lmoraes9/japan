@@ -382,7 +382,7 @@ export const tokyo2Days: Day[] = [
         timeLabel: 'voo',
         kind: 'flight',
         name: 'HND → DFW → GRU',
-        facts: 'Conexão de **2h15** em Dallas · assentos na frente ajudam · ver a nota da seção de logística',
+        facts: 'Haneda **T3** → Dallas **Terminal D** → Guarulhos **T3** · conexão de **2h15** em Dallas, chegada e saída no mesmo terminal · portão no app da American · assentos na frente ajudam',
         paragraphs: ['Chegada em Guarulhos **4/12 às 08:30**.'],
         mapQuery: 'Haneda Airport Terminal 3',
       },

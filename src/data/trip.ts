@@ -122,13 +122,13 @@ export const FLIGHTS = [
     leg: 'HND → DFW',
     flight: 'JL7014',
     operator: 'op. American',
-    detail: '3/12 20:25 → 3/12 17:05 · 11h40',
+    detail: '3/12 20:25 → 3/12 17:05 · T3 → Terminal D · 11h40',
   },
   {
     leg: 'DFW → GRU',
     flight: 'JL7204',
     operator: 'op. American',
-    detail: '3/12 19:20 → 4/12 08:30 · 10h10',
+    detail: '3/12 19:20 → 4/12 08:30 · Terminal D → T3 · 10h10',
   },
 ];
 

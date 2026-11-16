@@ -16,7 +16,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     date: '2026-11-16',
     time: '22:50 → 06:40 (17/11)',
     code: 'C7RR2K',
-    notes: 'GRU T3 → JFK T4 · op. LATAM (código JAL) · 9h50 de voo · conexão de 6h no JFK, com imigração dos EUA · 2 malas por pessoa · bilhetes 131-4894258722 (Leonardo) e 131-4894258723 (Priscila)',
+    notes: 'GRU Terminal 3 → JFK Terminal 4 · op. LATAM (código JAL) · 9h50 de voo · portão: só sai no dia, no app da LATAM e nos painéis · conexão de 6h no JFK, com imigração dos EUA · 2 malas por pessoa · bilhetes 131-4894258722 (Leonardo) e 131-4894258723 (Priscila)',
     done: true,
     hint: 'Assentos, se escolherem no check-in',
   },
@@ -27,7 +27,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     date: '2026-11-17',
     time: '12:40 → 17:15 (18/11)',
     code: 'C7RR2K',
-    notes: 'JFK T8 · 14h35 de voo · pouso em Haneda T3 · mesmo localizador da ida',
+    notes: 'JFK Terminal 8 (JAL) · do T4 ao T8 pelo AirTrain · 14h35 de voo · pouso em Haneda Terminal 3 · mesmo localizador da ida · portão: só sai no dia, no app da JAL e nos painéis',
     done: true,
   },
   {
@@ -37,7 +37,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     date: '2026-12-03',
     time: '20:25 → 17:05 (mesmo dia, fuso)',
     code: 'C7RR2K',
-    notes: 'Operado pela American · 11h40 · conexão de 2h15 em Dallas com imigração dos EUA, mala e redespacho · 2 malas por pessoa',
+    notes: 'Operado pela American · Haneda Terminal 3, check-in no balcão da American (não da JAL), a letra está no painel · 11h40 · chega em DFW no Terminal D · conexão de 2h15 com imigração dos EUA, mala e redespacho · 2 malas por pessoa · portão no app da American',
     done: true,
   },
   {
@@ -47,7 +47,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     date: '2026-12-03',
     time: '19:20 → 08:30 (4/12)',
     code: 'C7RR2K',
-    notes: 'Operado pela American · 10h10 · chegada em Guarulhos na manhã de sexta',
+    notes: 'Operado pela American · sai de DFW pelo Terminal D, o mesmo da chegada: não precisa trocar de terminal (se o portão mudar, o Skylink liga todos os terminais por dentro) · 10h10 · chegada em Guarulhos Terminal 3 na manhã de sexta',
     done: true,
   },
 

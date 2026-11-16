@@ -54,8 +54,8 @@ export const FLIGHTS_TABLE: TableBlock = {
   rows: [
     ['GRU → JFK', 'JL5501 (op. Latam)', '16/11 22:50 → 17/11 06:40 · T3 → T4 · 9h50'],
     ['JFK → HND', 'JL005 (op. JAL A350)', '17/11 12:40 → 18/11 17:15 · T8 → T3 · 14h35'],
-    ['HND → DFW', 'JL7014 (op. American)', '3/12 20:25 → 3/12 17:05 · 11h40'],
-    ['DFW → GRU', 'JL7204 (op. American)', '3/12 19:20 → 4/12 08:30 · 10h10'],
+    ['HND → DFW', 'JL7014 (op. American)', '3/12 20:25 → 3/12 17:05 · T3 → Terminal D · 11h40'],
+    ['DFW → GRU', 'JL7204 (op. American)', '3/12 19:20 → 4/12 08:30 · Terminal D → T3 · 10h10'],
   ],
 };
 
@@ -69,8 +69,15 @@ export const FLIGHT_NOTES: InfoBlock[] = [
     bullets: [
       'Peçam assentos na **frente da cabine** no voo de Tóquio. Sair 10 minutos antes vale muito na fila da imigração.',
       'Confirmem se as malas vão **etiquetadas até GRU** — mesmo assim vocês precisam retirá-las em DFW e recolocar na esteira de reconexão.',
-      'Chegada e saída são as duas no terminal internacional da American. Confirmem o terminal no app na véspera; o "Terminal 0" do print é só um placeholder do sistema.',
+      'Chegada e saída são as duas no **Terminal D**, o internacional da American em Dallas: a reconexão é no mesmo prédio. Se o portão de saída mudar para outro terminal, o **Skylink** (trem interno, depois da segurança) leva em poucos minutos. Confirmem no app da American na véspera.',
       'Se o voo de Haneda atrasar mais de 40 minutos, procurem o balcão de conexões ainda no avião/na chegada.',
+    ],
+  },
+  {
+    label: 'Terminais e portões',
+    tone: 'info',
+    paragraphs: [
+      'Os **terminais** já se sabem: Guarulhos T3 → JFK T4 · JFK T8 → Haneda T3 · Haneda T3 → Dallas Terminal D → Guarulhos T3. Os **portões** não: a companhia só define no dia, e eles mudam. Vejam no app da companhia que opera o trecho (LATAM, JAL, American) e confiram no painel do aeroporto ao chegar.',
     ],
   },
   {

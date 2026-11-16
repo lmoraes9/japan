@@ -41,6 +41,30 @@ export const koyasanDays: Day[] = [
     ],
     stops: [
       {
+        id: 'd26-cafe',
+        time: '07:20',
+        timeLabel: 'café',
+        kind: 'food',
+        name: 'Café da manhã no Ibuki, um kissaten de Osaka',
+        jp: '伊吹珈琲店',
+        facts: 'A ~4 min a pé do hotel, perto da Nippombashi · torrada grossa e café de coador · **saiam às 07:55** para o castelo · horário a confirmar no Google Maps na noite do dia 25',
+        paragraphs: [
+          'É o café da família do **Marufuku**, o kissaten clássico mais famoso de Osaka. A casa do Kuromon abriu em 1982 como Marufuku e virou Ibuki com o filho do fundador. É o café da manhã de Osaka de verdade: café forte de coador, torrada grossa com manteiga, ovo, balcão antigo.',
+          'Peçam pouco: **o almoço é o Kuromon, às 11:00**, e é lá que se come de verdade hoje.',
+          'Um guia antigo diz que abre às **7:00 nos dias úteis** (26/11 é quinta), mas não há confirmação recente. Se estiver fechado ou com fila, o plano B é o konbini do caminho: onigiri e café em 10 minutos, e o dia não atrasa.',
+        ],
+        eat: [
+          {
+            label: 'Onde',
+            items: [
+              { name: 'Ibuki Coffee (伊吹珈琲店)', note: 'Kissaten clássico, perto da Nippombashi. Torrada, ovo e café de coador. Tel. 06-6632-0141.', specialty: true },
+              { name: 'Plano B: konbini', note: 'Qualquer 7-Eleven, Lawson ou FamilyMart do caminho até a estação: onigiri, pão e café gelado.' },
+            ],
+          },
+        ],
+        mapQuery: '伊吹珈琲店 大阪 日本橋',
+      },
+      {
         id: 'd26-castelo-osaka',
         placeMapId: 'castelo-osaka',
         time: '08:30',
