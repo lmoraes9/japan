@@ -18,7 +18,7 @@ export const ALERTS: InfoBlock[] = [
     tone: 'warn',
     paragraphs: [
       'A partir de **1º de novembro de 2026** o Japão acabou com o desconto no caixa. Vocês viajam dia 18 — pegam o sistema novo, sem período de transição.',
-      '**Consequência prática:** guardem todos os recibos juntos, num envelope só, e cheguem em Haneda no dia 3 às **17:00** (voo 20:25). E deixem MacBook, iPhone e o robô acessíveis — não no fundo da mala despachada antes da inspeção.',
+      '**Consequência prática:** guardem todos os recibos juntos, num envelope só, e cheguem em Haneda no dia 3 às **17:00** (voo 20:25). E deixem iPhone, RedMagic e o robô acessíveis — não no fundo da mala despachada antes da inspeção.',
     ],
     bullets: [
       'Você paga o preço cheio, **com os 10% de imposto**, na loja.',
@@ -39,11 +39,10 @@ export const ALERTS: InfoBlock[] = [
     ],
   },
   {
-    label: '3 · MacBook Pro M5 Pro: compensa, mas o teclado é o problema',
+    label: '3 · Eletrônicos da volta: lacrados e na mala de mão',
     tone: 'warn',
     paragraphs: [
-      'O escolhido é o **MacBook Pro 14" M5 Pro** (24 GB / 1 TB): **¥429.800**, uns R$ 13 mil depois do tax-free, contra R$ 30.999 no Brasil. Usado não compensa: no Japão o seminovo ainda sai mais caro que o novo sem imposto.',
-      'O nó é outro: **as Apple Stores japonesas estocam teclado JIS japonês.** Teclado US é configuração sob encomenda, feita só na loja online — e compra online não entra no reembolso de imposto. Detalhes e as saídas possíveis estão na seção de compras.',
+      'iPhone e RedMagic se compram no **dia 1º/12**, em Ginza, e **não se abrem**: caixa lacrada, recibo junto, mala de mão. A alfândega japonesa pode pedir para ver na inspeção do tax-free em Haneda, e a brasileira conta a cota de **US$1.000 por pessoa**, então cada um de vocês declara um aparelho.',
     ],
   },
 ];

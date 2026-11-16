@@ -1045,7 +1045,7 @@ export const kyotoDays: Day[] = [
         facts: 'Lojas **10:00–21:00**',
         paragraphs: [
           'O hotel é o **Sotetsu Fresa Inn Ginza 3-chōme**: 3 min da saída A13 da Ginza e 2 da saída A8 da Higashi-Ginza, de onde sai o trem direto para Haneda no dia 3. As malas do takuhaibin chegam hoje ou amanhã — confiram na recepção.',
-          'Hoje é o dia de **fechar as compras grandes** — MacBook, iPhone, robô aspirador — e não amanhã. Se der algum problema de estoque ou de configuração, vocês ainda têm um dia inteiro de margem. Saiam de Ginza às **17:50**: a noite tem hora marcada num jardim.',
+          'Hoje é o dia de **fechar as compras grandes** — iPhone, RedMagic (Bic Camera Yūrakuchō, 5 min a pé), robô aspirador — e não amanhã. Se der algum problema de estoque ou de configuração, vocês ainda têm um dia inteiro de margem. Saiam de Ginza às **17:50**: a noite tem hora marcada num jardim.',
         ],
         mapQuery: 'Sotetsu Fresa Inn Ginza Sanchome',
       },

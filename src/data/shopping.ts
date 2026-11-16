@@ -103,75 +103,44 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
       },
       {
         type: 'p',
-        text: '**Garantia:** o reparo de iPhone é, na prática, atrelado ao país de compra em muitos casos. Um iPhone japonês com defeito no Brasil pode virar dor de cabeça. O MacBook não tem esse problema — a garantia de Mac é internacional.',
+        text: '**Garantia:** o reparo de iPhone é, na prática, atrelado ao país de compra em muitos casos. Um iPhone japonês com defeito no Brasil pode virar dor de cabeça.',
       },
     ],
   },
   {
-    id: 'macbook',
-    title: '3 · MacBook Pro 14" M5 Pro',
-    checklistItemId: 'macbook',
+    id: 'redmagic',
+    title: '3 · RedMagic',
+    checklistItemId: 'redmagic',
     blocks: [
+      {
+        type: 'p',
+        text: '**Quando:** dia **1º/12**, na mesma rodada do iPhone, a primeira tarde de volta a Tóquio. É o dia de fechar os eletrônicos: se faltar estoque, ainda sobra o dia 2.',
+      },
       {
         type: 'table',
         table: {
-          headers: ['', 'MacBook Pro 14" M5 Pro (entrada)'],
+          title: 'Qual modelo',
+          headers: ['Modelo', 'No Japão', 'Sem os 10%'],
           rows: [
-            ['Chip', 'M5 Pro, 15 núcleos de CPU e 16 de GPU'],
-            ['Memória', '24 GB'],
-            ['Armazenamento', '1 TB'],
-            ['Japão', '**¥429.800** · ~¥390.700 sem os 10% (tax-free)'],
-            ['Brasil', 'R$ 30.999'],
+            ['RedMagic 12 Pro', 'Ainda sem lançamento no Japão (em 15/11). Global: US$ 899', '—'],
+            ['RedMagic 11S Pro 12+256 GB', '¥149.800', '~¥136.200'],
+            ['RedMagic 11S Pro 16+512 GB', '¥172.800', '~¥157.100'],
+            ['RedMagic 11 Pro 12+256 GB (Bic Camera)', '¥129.800', '~¥118.000'],
           ],
         },
       },
       {
         type: 'p',
-        text: '**Por que o Pro e não o Air:** ventoinha (não diminui o ritmo em compilação longa), tela melhor e mais portas. Para Godot, Docker, CLI do Salesforce e planilha pesada, os 24 GB de série bastam.',
-      },
-      {
-        type: 'note',
-        note: {
-          label: 'O problema do teclado',
-          tone: 'warn',
-          paragraphs: [
-            'As Apple Stores japonesas estocam **teclado JIS japonês**. Ele tem teclas a mais perto da barra de espaço, o Enter tem outro formato e vários símbolos estão em posições diferentes. Teclado **US é configuração sob encomenda**, feita só na loja online — e **compra online não entra no reembolso de imposto**, que exige transação em loja credenciada.',
-            '**Decidam isso no dia 1º de dezembro**, não no dia 2. Se der problema de estoque, ainda sobra um dia.',
-          ],
-          bullets: [
-            '**Checar Bic Camera e Yodobashi.** As duas às vezes têm MacBook com teclado US (USキーボード) em estoque, coisa que a Apple Store física não costuma ter. Vale ligar ou passar antes. É a melhor combinação: teclado certo + reembolso do imposto.',
-            '**Comprar com JIS e remapear.** O layout físico continua japonês, mas o macOS permite trocar o mapeamento. Muita gente se adapta em uma semana. Vocês pagam menos e levam o reembolso.',
-            '**Encomendar online na Apple Japan** com entrega no hotel (avisem a recepção com antecedência). Vocês ficam com o teclado que querem, mas **abrem mão dos 10%**.',
-          ],
-        },
-      },
-      {
-        type: 'p',
-        text: '**E o MacBook Pro 14" M5 Pro?** Lançou em março/2026. O de entrada (15 núcleos de CPU, 16 de GPU, **24 GB / 1 TB**) custa **¥429.800** no Japão, igual na Apple, na Bic e na Yodobashi. Sem os 10% de imposto, que voltam pelo tax-free, fica em **~¥390.700 — uns R$ 13 mil**. No Brasil o mesmo modelo está a **R$ 30.999**. Mesmo pagando a alfândega sobre o que passa da cota (conta abaixo, ~R$ 4 mil), sai por volta de **R$ 17 mil**: quase metade do preço daqui.',
-      },
-      {
-        type: 'note',
-        note: {
-          label: 'Usado compensa? No Japão, não',
-          tone: 'info',
-          paragraphs: [
-            'O M5 Pro é recente demais para ter caído de preço: em setembro/2026 a Janpara vendia o 14" 24 GB/1 TB **sem uso (未使用品) a partir de ¥398.980**, e a Iosys o **usado nota A a ¥419.800** — os dois já acima dos ~¥390.700 do novo com tax-free, e sem garantia cheia. Usado só vale para modelo um ou dois anos mais velho (um M4 Pro, por exemplo), e aí a conta precisa ser feita na hora.',
-            'Se mesmo assim forem olhar usado: só loja (Janpara, Iosys, Sofmap, Mac専門店 Akibakan em Akihabara), nunca Mercari ou Yahoo Auctions (exigem endereço japonês, não dão tax-free e podem vir com bloqueio de ativação). Na loja, peçam para ver a **contagem de ciclos da bateria**, confiram a garantia restante pelo número de série em checkcoverage.apple.com e prefiram 未使用品 (sem uso) ou ランクA. Quase todo usado japonês é **teclado JIS**.',
-          ],
-        },
+        text: 'Se o **12 Pro** tiver saído no Japão até lá, é ele: a GPU é 16–28% mais rápida que a do 11S Pro. Se não, o **11S Pro** é o mesmo chip do 11 Pro com clock maior, e roda tudo no máximo.',
       },
       {
         type: 'bullets',
         items: [
-          '**Preço não muda entre lojas** — a Apple fixa. O que muda é o brinde: a **Bic Camera e a Yodobashi dão pontos** sobre Mac (confirmem a porcentagem no balcão), que dá para gastar na mesma viagem no robô, no Oura ou em presentes. Pagar no cartão costuma dar menos pontos que em dinheiro.',
-          '**Tax-free:** levem o **passaporte físico**. No sistema novo vocês pagam o preço cheio e os 10% voltam depois da inspeção em Haneda (tabela acima) — por isso o Mac vai **na mala de mão**, com a caixa e o recibo, para mostrar se pedirem.',
-          '**Cartão:** num valor desses, comparem antes o câmbio e o IOF do cartão de crédito com os de uma conta global (Wise, Nomad): 1 ou 2 pontos de diferença no câmbio já são R$ 150–300.',
-          '**Se quiserem mais memória** (36 ou 48 GB) é configuração sob encomenda: só online, sem tax-free. Para Godot, Docker e Salesforce, 24 GB resolvem.',
+          '**Onde:** a **Bic Camera** vende o RedMagic (o 11 Pro está no site, biccamera.com) e a **Yodobashi** tem o 11S Pro. A Bic Camera Yūrakuchō fica a 5 min a pé de Ginza. Confiram o estoque no site ou liguem antes.',
+          '**Não abrir:** fica lacrado na caixa, com o recibo, **na mala de mão**. No sistema novo do tax-free, a alfândega de Haneda pode pedir para ver o aparelho antes de devolver os 10%.',
+          '**Funciona no Brasil:** tem as bandas do 5G brasileiro (n78 e n28) e do 4G (B1, B3, B7, B28). Não tem selo da Anatel. Hoje celular importado com IMEI válido costuma funcionar, mas não há garantia de que continue.',
+          '**Alfândega brasileira:** a cota é de **US$1.000 por pessoa**. iPhone e RedMagic juntos passam disso: declarem um em nome de cada um de vocês. O que passar da cota paga 50% sobre o excedente.',
         ],
-      },
-      {
-        type: 'p',
-        text: '**Alfândega brasileira:** a cota de isenção é de **US$1.000 por pessoa** em viagem aérea, e ela é individual e não somável para um mesmo item. Um MacBook sozinho já passa da cota. O que exceder é tributado em **50%**. Vale entrar na conta antes de decidir — mesmo com o imposto, o Japão costuma sair na frente do preço brasileiro, mas a diferença é menor do que parece.',
       },
     ],
   },
