@@ -130,6 +130,7 @@ const BAIRRO_DA_PARADA: Record<string, string> = {
   // Okayama e Osaka
   'd25-almoco-kurashiki': 'Bikan, em Kurashiki',
   'd25-dotonbori': 'Dōtonbori',
+  'd26-cafe': 'Nippombashi',
   'd26-kuromon': 'Kuromon Ichiba',
   'd26-jantar-shojin': 'Kōyasan',
   'd27-almoco': 'Namba',

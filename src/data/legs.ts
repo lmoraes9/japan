@@ -37,8 +37,9 @@ export const START: Record<string, Leg[]> = {
   'd2026-11-25': [
     walk(5, 'do hotel às catracas do Shinkansen (lado norte da estação), com a mochila; check-out feito'),
   ],
-  'd2026-11-26': [
-    walk(1, 'o hotel fica na saída 2 da **Nippombashi** — é a estação da porta, não a Namba'),
+  'd2026-11-26': [walk(4, 'do hotel ao Ibuki, para o lado da Nippombashi')],
+  'd26-cafe': [
+    walk(3, 'de volta à **Nippombashi** — é a estação da porta, não a Namba'),
     { mode: 'metro', line: 'Sakaisuji Line (marrom)', board: 'Nippombashi', direction: 'Tenjimbashisuji 6-chōme', alight: 'Sakaisuji-Hommachi', minutes: 5 },
     { mode: 'metro', line: 'Chūō Line (verde)', board: 'Sakaisuji-Hommachi', direction: 'Nagata · Gakken-Nara-Tomigaoka', alight: 'Tanimachi 4-chōme, saída 1-B', minutes: 3, cost: '¥240 no total' },
     walk(12, 'reto até o portão Ōtemon, sobre o fosso'),
