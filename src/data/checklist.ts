@@ -99,7 +99,7 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'colher',
     group: 'compras',
     title: 'Colher de madeira',
-    subtitle: 'Kappabashi, dia 19 · as lojas de utensílio (Kama-Asa, Niimi) têm de todo tamanho e madeira',
+    subtitle: 'Kappabashi, dia 20 · as lojas de utensílio (Kama-Asa, Niimi) têm de todo tamanho e madeira',
   },
   {
     id: 'oura-kit',
@@ -269,7 +269,7 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'konbini-melon-pan',
     group: 'konbini',
     title: 'Melon bread',
-    subtitle: 'Prateleira de pães · versão definitiva na Kagetsudō, Asakusa (dia 19)',
+    subtitle: 'Prateleira de pães · versão definitiva na Kagetsudō, Asakusa (dia 20)',
   },
   {
     id: 'konbini-mochi-ice',
@@ -366,7 +366,7 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'mala-roupa-min',
     group: 'mala',
     title: 'Roupa para 4–5 dias, não para 16',
-    subtitle: 'Lavanderia no hotel + UNIQLO/GU no dia 19; a mala tem que voltar vazia',
+    subtitle: 'Lavanderia no hotel + UNIQLO/GU no dia 20; a mala tem que voltar vazia',
   },
   {
     id: 'mala-remedios',
@@ -378,7 +378,7 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'mala-oculos',
     group: 'mala',
     title: 'Óculos atual (para calibrar o novo na JINS) e lente de reserva',
-    subtitle: 'Dia 19 em Akihabara',
+    subtitle: 'Dia 20 em Akihabara',
   },
   {
     id: 'mala-medidas',

@@ -196,7 +196,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     preco: '¥¥',
     plano: 'plano B',
     stopId: 'd19-jantar',
-    nota: 'Rede, mas honesta. Resolve quando tudo mais fechou — e no dia 19 tudo mais fecha cedo.',
+    nota: 'Rede, mas honesta. Resolve quando tudo mais fechou — e no dia 20 tudo mais fecha cedo.',
   },
   {
     id: 'midori-shibuya',

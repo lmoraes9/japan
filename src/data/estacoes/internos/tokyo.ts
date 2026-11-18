@@ -101,7 +101,7 @@ export const INTERNOS_TOKYO: Interno[] = [
       { id: 'p14', nome: 'Plat. 14 · Yamanote 内回り → Harajuku · Shibuya', x: 34, y: 56, w: 270, h: 30, tipo: 'plataforma', cor: '#8FC31F', nota: 'Dia 22, para o Meiji Jingū. O painel diz 渋谷・品川方面.' },
       { id: 'p15', nome: 'Plat. 15 · Yamanote 外回り → Ikebukuro', x: 320, y: 56, w: 250, h: 30, tipo: 'plataforma', cor: '#8FC31F', nota: 'O sentido contrário. Não é o de vocês em nenhum dia.' },
       { id: 'p78', nome: 'Plat. 7·8 · Chūō rápido → Tokyo', x: 34, y: 94, w: 270, h: 30, tipo: 'plataforma', cor: '#F15A22', nota: 'Dia 23, para o Shinkansen. O painel diz 東京方面. As plataformas 11 e 12 são o sentido oposto (Takao) — não entrem nelas.' },
-      { id: 'p12', nome: 'Plat. 1·2 · Shōnan-Shinjuku → Kamakura', x: 320, y: 94, w: 250, h: 30, tipo: 'plataforma', cor: '#1B4F9C', nota: 'Dia 20. Confirmem no painel: **大崎・横浜・大船・逗子方面**. Só o trem que vai a Zushi passa por Kamakura — o de Odawara não.' },
+      { id: 'p12', nome: 'Plat. 1·2 · Shōnan-Shinjuku → Kamakura', x: 320, y: 94, w: 250, h: 30, tipo: 'plataforma', cor: '#1B4F9C', nota: 'Dia 19. Confirmem no painel: **大崎・横浜・大船・逗子方面**. Só o trem que vai a Zushi passa por Kamakura — o de Odawara não.' },
       { id: 'leste', nome: '東口 · catraca leste (Kabukichō)', x: 34, y: 212, w: 250, h: 34, tipo: 'catraca', nota: 'A catraca do hotel. Saindo, a Yasukuni-dōri leva ao Kabukichō em 8 a 10 minutos. É por aqui nos dias 22 e 23.' },
       { id: 'oeste', nome: '西口 · catraca oeste (Omoide Yokochō)', x: 300, y: 212, w: 270, h: 34, tipo: 'catraca', nota: 'Saindo, o Omoide Yokochō está colado à estação, sob o viaduto, na direção da Seibu-Shinjuku. Dia 18: é aqui que vocês jantam.' },
       { id: 'sul', nome: '南口 · catraca sul (Busta, Takashimaya)', x: 34, y: 254, w: 250, h: 34, tipo: 'catraca', nota: 'O terminal rodoviário Busta fica aqui. Se vierem do aeroporto de ônibus, é neste lado que desembarcam — e o hotel fica do lado oposto, 12 min a pé.' },
@@ -136,8 +136,8 @@ export const INTERNOS_TOKYO: Interno[] = [
         titulo: 'Os quatro trens que vocês pegam aqui',
         areas: ['p14', 'p78', 'p12', 'marunouchi'],
         passos: [
-          '**Dia 19 e 21 · metrô.** Do Kabukichō, use a entrada leste (dia 19) ou vá a pé até **Shinjuku-sanchōme** (dia 21): são 8 minutos e evita a estação grande.',
-          '**Dia 20 · Kamakura.** Entrada sul da JR, plataformas **1 e 2**. Confirme 大船・逗子方面 no painel.',
+          '**Dia 20 e 21 · metrô.** Do Kabukichō, use a entrada leste (dia 20) ou vá a pé até **Shinjuku-sanchōme** (dia 21): são 8 minutos e evita a estação grande.',
+          '**Dia 19 · Kamakura.** Entrada sul da JR, plataformas **1 e 2**. Confirme 大船・逗子方面 no painel.',
           '**Dia 22 · Harajuku.** Saída leste, plataforma **14** (Yamanote, sentido Shibuya).',
           '**Dia 23 · Shinkansen.** Saída leste, plataformas **7 e 8** (Chūō rápido, sentido Tokyo).',
         ],
@@ -251,7 +251,7 @@ export const INTERNOS_TOKYO: Interno[] = [
       { id: 'radio', nome: 'Radio Kaikan · 10 andares, colado à saída', x: 34, y: 312, w: 250, h: 34, tipo: 'loja', nota: 'AmiAmi no 4º, Yellow Submarine no 6º, Kaiyodo e Uchūsen no 5º, Jungle no 7º. Menos de um minuto da saída sul do Electric Town.' },
       { id: 'figure', nome: 'AmiAmi Figure Tower · 8 andares, 2 min', x: 300, y: 312, w: 270, h: 34, tipo: 'loja', nota: 'Sotokanda 1-15-3, de frente para a Chūō-dōri. Um prédio inteiro só de figure, novo e usado, 10:00–21:00. É a primeira parada se a figure for para presente.' },
       { id: 'yodobashi', nome: 'Yodobashi-Akiba · ligado por passarela', x: 34, y: 350, w: 250, h: 30, tipo: 'loja', nota: 'Nove andares, 9:30–22:00. O robô aspirador e qualquer eletrônico que tenha ficado para trás.' },
-      { id: 'jins', nome: 'JINS · dentro do Atre Akihabara', x: 300, y: 350, w: 270, h: 30, tipo: 'loja', nota: 'Dia 19, para os óculos: o Atre fica colado à estação, no lado Electric Town. O andar não foi confirmado — pergunte no balcão.' },
+      { id: 'jins', nome: 'JINS · dentro do Atre Akihabara', x: 300, y: 350, w: 270, h: 30, tipo: 'loja', nota: 'Dia 20, para os óculos: o Atre fica colado à estação, no lado Electric Town. O andar não foi confirmado — pergunte no balcão.' },
     ],
     ligacoes: [
       { de: 'electric', para: 'radio' },
@@ -261,8 +261,8 @@ export const INTERNOS_TOKYO: Interno[] = [
     ],
     usos: [
       {
-        dayId: 'd2026-11-19',
-        titulo: 'Dia 19 · óculos, Radio Kaikan e a figure',
+        dayId: 'd2026-11-20',
+        titulo: 'Dia 20 · óculos, Radio Kaikan e a figure',
         areas: ['electric', 'radio', 'figure', 'jins'],
         passos: [
           'Saída **Electric Town**. O Radio Kaikan está na porta, à direita da saída sul.',

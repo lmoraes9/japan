@@ -17,7 +17,7 @@ export const tokyo1Days: Day[] = [
       {
         label: 'Chegando sem roupa',
         tone: 'info',
-        text: 'Se precisarem de qualquer coisa ainda hoje (camiseta, meia, escova), o **Don Quijote de Shinjuku é 24h** e tem de tudo. UNIQLO e GU fecham às 21:00 — as compras de roupa de verdade estão programadas para amanhã, no caminho do roteiro.',
+        text: 'Se precisarem de qualquer coisa ainda hoje (camiseta, meia, escova), o **Don Quijote de Shinjuku é 24h** e tem de tudo. UNIQLO e GU fecham às 21:00 — as compras de roupa de verdade estão programadas para o dia 20 (Ameyoko e Akihabara), no caminho do roteiro. Amanhã é Kamakura, com muita caminhada e escada: se o calçado não aguentar, o Don Quijote resolve um tênis básico hoje.',
       },
     ],
     stops: [
@@ -93,7 +93,177 @@ export const tokyo1Days: Day[] = [
   },
   {
     id: 'd2026-11-19',
+    lastReturn: [
+      { label: 'Enoden Hase → Kamakura', time: '23:07', from: 'Estação Hase', note: 'aprox. · a cada 12 min até ~22h, depois rareia' },
+      { label: 'JR Yokosuka Line Kamakura → Tóquio', time: '23:11', from: 'Estação Kamakura', note: 'aprox. · último direto; até 22:30 tem a cada 15 min' },
+    ],
     date: '2026-11-19',
+    stageId: 'tokyo1',
+    title: 'Kamakura — a primeira capital dos samurais',
+    subtitle: '1h de Tóquio. Bate-volta em dia de semana, com o momiji de Kamakura começando a virar — o pico lá costuma ser do fim de novembro ao começo de dezembro.',
+    chips: ['história', 'bate-volta', 'momiji'],
+    notes: [
+      {
+        label: 'Por que Kamakura está aqui',
+        tone: 'ok',
+        text: 'Vocês vão ver Nara (capital imperial, século VIII), Kyoto (corte aristocrática, séculos IX–XVI) e Tóquio (poder dos Tokugawa, século XVII em diante). Falta a peça do meio: **Kamakura, onde os guerreiros tomaram o poder do imperador em 1185 e inventaram o xogunato**. É o elo que fecha a linha do tempo. E fica a 1h de trem, com folhagem no auge exatamente nesta semana. **Alternativa:** se preferirem grandiosidade barroca a Zen sóbrio, troquem por **Nikkō** — está descrita na seção de extras.',
+      },
+    ],
+    stops: [
+      {
+        id: 'd20-trem-kamakura',
+        time: '07:30',
+        timeLabel: 'trem',
+        kind: 'transit',
+        name: 'Shinjuku → Kita-Kamakura',
+        facts: '**~1h · ¥950** · JR Shōnan-Shinjuku Line direto · desçam **uma estação antes** de Kamakura',
+        paragraphs: [
+          'A jogada é entrar por Kita-Kamakura, visitar os templos Zen de cima para baixo e chegar a pé na cidade — em vez de fazer o caminho inverso junto com todo mundo.',
+        ],
+        mapQuery: 'Shinjuku Station JR South Exit',
+      },
+      {
+        id: 'd20-engakuji',
+        placeMapId: 'kamakura',
+        time: '08:45',
+        timeLabel: 'templo',
+        kind: 'temple',
+        name: 'Engaku-ji',
+        jp: '円覚寺',
+        facts: '**08:00–16:30** · ¥500 · saída da estação Kita-Kamakura',
+        paragraphs: [
+          'Templo de montanha, escadaria de pedra entre cedros, e um dos poucos lugares onde dá para entender o que "Zen" queria dizer antes de virar palavra de decoração. O sino de bronze de 1301 é Tesouro Nacional.',
+        ],
+        history: {
+          paragraphs: [
+            'Fundado em 1282 pelo regente Hōjō Tokimune — e este é o detalhe que muda tudo: ele mandou construir para rezar pelos mortos **dos dois lados** das invasões mongóis de 1274 e 1281, inclusive os invasores. Foi o primeiro grande gesto público desse tipo no Japão.',
+          ],
+        },
+        mapQuery: 'Engakuji Temple Kamakura',
+      },
+      {
+        id: 'd20-kenchoji',
+        time: '10:00',
+        timeLabel: 'templo',
+        kind: 'temple',
+        name: 'Kenchō-ji',
+        jp: '建長寺',
+        facts: '**08:30–16:30** · ¥500 · 15 min a pé de Engaku-ji',
+        paragraphs: [
+          'O templo Zen nº 1 dos "Cinco Grandes" de Kamakura, fundado em 1253 — o mais antigo mosteiro de treinamento Zen do Japão, e ainda funciona como tal. Os zimbros do pátio foram plantados por volta de 1250, das sementes trazidas da China pelo monge fundador. São as mesmas árvores.',
+          'Se tiverem fôlego: a trilha atrás do templo sobe até o santuário Hansōbō e a um mirante com vista para o mar — 25 min de subida, vale.',
+        ],
+        mapQuery: 'Kenchoji Temple Kamakura',
+      },
+      {
+        id: 'd20-hachimangu',
+        time: '11:45',
+        timeLabel: 'santuário',
+        kind: 'temple',
+        name: 'Tsurugaoka Hachimangū',
+        jp: '鶴岡八幡宮',
+        facts: '**06:00–20:30** · grátis · fim da avenida Wakamiya-ōji',
+        history: {
+          paragraphs: [
+            'O santuário do clã Minamoto e o centro cerimonial do xogunato. A avenida reta que leva até ele foi mandada construir por Minamoto no Yoritomo em 1182 como oferenda pelo parto da esposa — é praticamente a primeira obra de urbanismo planejado do Japão feudal.',
+            'Na escadaria de pedra, em 1219, o terceiro xogum Sanetomo foi assassinado pelo próprio sobrinho durante uma cerimônia. Com ele acabou a linhagem Minamoto, e o poder real passou aos regentes Hōjō — que nunca mais devolveram. O ginkgo gigante ao lado da escada, sob o qual o assassino teria se escondido, caiu numa tempestade em 2010; o toco rebrotou e está ali.',
+          ],
+        },
+        mapQuery: 'Tsurugaoka Hachimangu Kamakura',
+      },
+      {
+        id: 'd20-komachi',
+        time: '12:30',
+        timeLabel: 'almoço',
+        kind: 'food',
+        name: 'Komachi-dōri',
+        eat: [
+          {
+            label: 'Comer em Kamakura',
+            items: [
+              {
+                name: 'Kamakura Matsubara-an',
+                note: '11:00–21:30 · soba artesanal numa casa antiga com jardim. **Não fica na Komachi-dōri**: é em Yuigahama 4-10-3, a 3 min da estação Yuigahama do Enoden. Se escolherem, almocem no caminho para Hase — desçam do Enoden em Yuigahama (2ª parada) e sigam depois para Hase.',
+              },
+              {
+                name: 'Shirasu-don',
+                note: 'a especialidade local é *shirasu*, sardinha-branquinha bebê, servida crua ou cozida sobre arroz. Várias casas na Komachi-dōri fazem.',
+              },
+              { name: 'Kamakura Kōhī', note: 'para o café antes de seguir' },
+            ],
+          },
+        ],
+        mapQuery: 'Komachi-dori Kamakura',
+      },
+      {
+        id: 'd20-enoden',
+        time: '14:00',
+        timeLabel: 'trem local',
+        kind: 'transit',
+        name: 'Enoden até Hase',
+        jp: '江ノ電',
+        facts: '**¥200 · 5 min** · trenzinho de 1902 que passa entre quintais e depois beira o mar',
+        mapQuery: 'Hase Station Enoden Kamakura',
+      },
+      {
+        id: 'd20-daibutsu',
+        time: '14:20',
+        timeLabel: 'templo',
+        kind: 'temple',
+        name: 'Kōtoku-in — o Grande Buda',
+        jp: '鎌倉大仏',
+        facts: '**08:00–17:00** · ¥300 (+¥50 para entrar **dentro** da estátua)',
+        history: {
+          paragraphs: [
+            '13,35 m e 121 toneladas de bronze, fundido em 1252. Ele ficou dentro de um salão de madeira por 250 anos — até que um tsunami em 1498 levou o prédio inteiro embora e deixou o Buda sentado ao relento. Ele está assim desde então, e é justamente por isso que a imagem é tão forte: nenhuma arquitetura entre vocês e ele.',
+            'Por ¥50 dá para entrar na estátua e ver as marcas de solda das 30 camadas de bronze fundidas separadamente e unidas no lugar. Rudyard Kipling escreveu um poema sobre ele em 1892.',
+          ],
+        },
+        mapQuery: 'Kotokuin Great Buddha Kamakura',
+      },
+      {
+        id: 'd20-hasedera',
+        time: '15:15',
+        timeLabel: 'templo',
+        kind: 'temple',
+        name: 'Hase-dera',
+        jp: '長谷寺',
+        facts: '**08:00–16:30** · ¥400 · 5 min a pé do Grande Buda',
+        paragraphs: [
+          'Jardim em terraços na encosta, com vista para a baía de Sagami, e uma Kannon de onze cabeças de 9 metros esculpida em um único tronco de cânfora. No fim de novembro o jardim está vermelho. Tem também a caverna Benten, baixa, escavada na rocha, cheia de velas.',
+        ],
+        mapQuery: 'Hasedera Temple Kamakura',
+      },
+      {
+        id: 'd20-volta',
+        time: '17:30',
+        timeLabel: 'volta',
+        kind: 'transit',
+        name: 'Volta para Tóquio',
+        facts: 'Kamakura → Shinjuku, **~1h**',
+        eat: [
+          {
+            label: 'Jantar em Shinjuku',
+            items: [
+              {
+                name: 'Fuunji',
+                specialty: true,
+                note: '17:00–21:00, fecha dom · agora dá: tsukemen (invenção de Tóquio) de caldo grosso de peixe e frango. Fila de 20–40 min. Vale.',
+              },
+              {
+                name: 'Omoide Yokochō',
+                note: '17:00–00:00 · yakitori em banquinho, fumaça, cerveja. Os becos de 1946.',
+              },
+            ],
+          },
+        ],
+        mapQuery: 'Kamakura Station',
+      },
+    ],
+  },
+  {
+    id: 'd2026-11-20',
+    date: '2026-11-20',
     stageId: 'tokyo1',
     title: 'Edo antigo: Asakusa → Kappabashi → Ueno → Akihabara',
     subtitle: 'Café cedo em Asakusa, o templo mais antigo da cidade ainda vazio, e sair dele quando a Nakamise acorda.',
@@ -374,7 +544,7 @@ export const tokyo1Days: Day[] = [
         paragraphs: [
           'O "lugar que mede o grau e faz na hora" é isto: as redes **JINS, Zoff e OWNDAYS** fazem exatamente esse serviço, e há loja aqui em Akihabara — a **JINS fica no Atré, colado na saída da estação**, e a **OWNDAYS na Chūō-dōri**. Levem o óculos atual para calibrar.',
           'A jogada: façam o exame **agora**, escolham a armação, e deixem fazendo: usem a espera no que ficou pela metade no bairro (o Yodobashi, do outro lado da estação, vai até as 22h). Retirem ~18:45 e sigam para o jantar de óculos novo.',
-          'Grau muito alto pode pedir lente fina (custo extra) ou uns dias de espera — por isso este stop está no dia 19: sobra viagem inteira para retirar. **Plano B:** as três redes têm lojas em Shinjuku, perto do hotel, abertas até ~21h — o botão Navegar acha a mais próxima de onde estiverem.',
+          'Grau muito alto pode pedir lente fina (custo extra) ou uns dias de espera — por isso este stop está no dia 20: sobra viagem inteira para retirar. **Plano B:** as três redes têm lojas em Shinjuku, perto do hotel, abertas até ~21h — o botão Navegar acha a mais próxima de onde estiverem.',
         ],
         mapQuery: 'JINS Atre Akihabara',
       },
@@ -409,176 +579,6 @@ export const tokyo1Days: Day[] = [
           },
         ],
         mapQuery: 'Kikanbo Ramen Kanda',
-      },
-    ],
-  },
-  {
-    id: 'd2026-11-20',
-    lastReturn: [
-      { label: 'Enoden Hase → Kamakura', time: '23:07', from: 'Estação Hase', note: 'aprox. · a cada 12 min até ~22h, depois rareia' },
-      { label: 'JR Yokosuka Line Kamakura → Tóquio', time: '23:11', from: 'Estação Kamakura', note: 'aprox. · último direto; até 22:30 tem a cada 15 min' },
-    ],
-    date: '2026-11-20',
-    stageId: 'tokyo1',
-    title: 'Kamakura — a primeira capital dos samurais',
-    subtitle: '1h de Tóquio. Bate-volta em dia de semana, com o momiji de Kamakura começando a virar — o pico lá costuma ser do fim de novembro ao começo de dezembro.',
-    chips: ['história', 'bate-volta', 'momiji'],
-    notes: [
-      {
-        label: 'Por que Kamakura está aqui',
-        tone: 'ok',
-        text: 'Vocês vão ver Nara (capital imperial, século VIII), Kyoto (corte aristocrática, séculos IX–XVI) e Tóquio (poder dos Tokugawa, século XVII em diante). Falta a peça do meio: **Kamakura, onde os guerreiros tomaram o poder do imperador em 1185 e inventaram o xogunato**. É o elo que fecha a linha do tempo. E fica a 1h de trem, com folhagem no auge exatamente nesta semana. **Alternativa:** se preferirem grandiosidade barroca a Zen sóbrio, troquem por **Nikkō** — está descrita na seção de extras.',
-      },
-    ],
-    stops: [
-      {
-        id: 'd20-trem-kamakura',
-        time: '07:30',
-        timeLabel: 'trem',
-        kind: 'transit',
-        name: 'Shinjuku → Kita-Kamakura',
-        facts: '**~1h · ¥950** · JR Shōnan-Shinjuku Line direto · desçam **uma estação antes** de Kamakura',
-        paragraphs: [
-          'A jogada é entrar por Kita-Kamakura, visitar os templos Zen de cima para baixo e chegar a pé na cidade — em vez de fazer o caminho inverso junto com todo mundo.',
-        ],
-        mapQuery: 'Shinjuku Station JR South Exit',
-      },
-      {
-        id: 'd20-engakuji',
-        placeMapId: 'kamakura',
-        time: '08:45',
-        timeLabel: 'templo',
-        kind: 'temple',
-        name: 'Engaku-ji',
-        jp: '円覚寺',
-        facts: '**08:00–16:30** · ¥500 · saída da estação Kita-Kamakura',
-        paragraphs: [
-          'Templo de montanha, escadaria de pedra entre cedros, e um dos poucos lugares onde dá para entender o que "Zen" queria dizer antes de virar palavra de decoração. O sino de bronze de 1301 é Tesouro Nacional.',
-        ],
-        history: {
-          paragraphs: [
-            'Fundado em 1282 pelo regente Hōjō Tokimune — e este é o detalhe que muda tudo: ele mandou construir para rezar pelos mortos **dos dois lados** das invasões mongóis de 1274 e 1281, inclusive os invasores. Foi o primeiro grande gesto público desse tipo no Japão.',
-          ],
-        },
-        mapQuery: 'Engakuji Temple Kamakura',
-      },
-      {
-        id: 'd20-kenchoji',
-        time: '10:00',
-        timeLabel: 'templo',
-        kind: 'temple',
-        name: 'Kenchō-ji',
-        jp: '建長寺',
-        facts: '**08:30–16:30** · ¥500 · 15 min a pé de Engaku-ji',
-        paragraphs: [
-          'O templo Zen nº 1 dos "Cinco Grandes" de Kamakura, fundado em 1253 — o mais antigo mosteiro de treinamento Zen do Japão, e ainda funciona como tal. Os zimbros do pátio foram plantados por volta de 1250, das sementes trazidas da China pelo monge fundador. São as mesmas árvores.',
-          'Se tiverem fôlego: a trilha atrás do templo sobe até o santuário Hansōbō e a um mirante com vista para o mar — 25 min de subida, vale.',
-        ],
-        mapQuery: 'Kenchoji Temple Kamakura',
-      },
-      {
-        id: 'd20-hachimangu',
-        time: '11:45',
-        timeLabel: 'santuário',
-        kind: 'temple',
-        name: 'Tsurugaoka Hachimangū',
-        jp: '鶴岡八幡宮',
-        facts: '**06:00–20:30** · grátis · fim da avenida Wakamiya-ōji',
-        history: {
-          paragraphs: [
-            'O santuário do clã Minamoto e o centro cerimonial do xogunato. A avenida reta que leva até ele foi mandada construir por Minamoto no Yoritomo em 1182 como oferenda pelo parto da esposa — é praticamente a primeira obra de urbanismo planejado do Japão feudal.',
-            'Na escadaria de pedra, em 1219, o terceiro xogum Sanetomo foi assassinado pelo próprio sobrinho durante uma cerimônia. Com ele acabou a linhagem Minamoto, e o poder real passou aos regentes Hōjō — que nunca mais devolveram. O ginkgo gigante ao lado da escada, sob o qual o assassino teria se escondido, caiu numa tempestade em 2010; o toco rebrotou e está ali.',
-          ],
-        },
-        mapQuery: 'Tsurugaoka Hachimangu Kamakura',
-      },
-      {
-        id: 'd20-komachi',
-        time: '12:30',
-        timeLabel: 'almoço',
-        kind: 'food',
-        name: 'Komachi-dōri',
-        eat: [
-          {
-            label: 'Comer em Kamakura',
-            items: [
-              {
-                name: 'Kamakura Matsubara-an',
-                note: '11:00–21:30 · soba artesanal numa casa antiga com jardim. **Não fica na Komachi-dōri**: é em Yuigahama 4-10-3, a 3 min da estação Yuigahama do Enoden. Se escolherem, almocem no caminho para Hase — desçam do Enoden em Yuigahama (2ª parada) e sigam depois para Hase.',
-              },
-              {
-                name: 'Shirasu-don',
-                note: 'a especialidade local é *shirasu*, sardinha-branquinha bebê, servida crua ou cozida sobre arroz. Várias casas na Komachi-dōri fazem.',
-              },
-              { name: 'Kamakura Kōhī', note: 'para o café antes de seguir' },
-            ],
-          },
-        ],
-        mapQuery: 'Komachi-dori Kamakura',
-      },
-      {
-        id: 'd20-enoden',
-        time: '14:00',
-        timeLabel: 'trem local',
-        kind: 'transit',
-        name: 'Enoden até Hase',
-        jp: '江ノ電',
-        facts: '**¥200 · 5 min** · trenzinho de 1902 que passa entre quintais e depois beira o mar',
-        mapQuery: 'Hase Station Enoden Kamakura',
-      },
-      {
-        id: 'd20-daibutsu',
-        time: '14:20',
-        timeLabel: 'templo',
-        kind: 'temple',
-        name: 'Kōtoku-in — o Grande Buda',
-        jp: '鎌倉大仏',
-        facts: '**08:00–17:00** · ¥300 (+¥50 para entrar **dentro** da estátua)',
-        history: {
-          paragraphs: [
-            '13,35 m e 121 toneladas de bronze, fundido em 1252. Ele ficou dentro de um salão de madeira por 250 anos — até que um tsunami em 1498 levou o prédio inteiro embora e deixou o Buda sentado ao relento. Ele está assim desde então, e é justamente por isso que a imagem é tão forte: nenhuma arquitetura entre vocês e ele.',
-            'Por ¥50 dá para entrar na estátua e ver as marcas de solda das 30 camadas de bronze fundidas separadamente e unidas no lugar. Rudyard Kipling escreveu um poema sobre ele em 1892.',
-          ],
-        },
-        mapQuery: 'Kotokuin Great Buddha Kamakura',
-      },
-      {
-        id: 'd20-hasedera',
-        time: '15:15',
-        timeLabel: 'templo',
-        kind: 'temple',
-        name: 'Hase-dera',
-        jp: '長谷寺',
-        facts: '**08:00–16:30** · ¥400 · 5 min a pé do Grande Buda',
-        paragraphs: [
-          'Jardim em terraços na encosta, com vista para a baía de Sagami, e uma Kannon de onze cabeças de 9 metros esculpida em um único tronco de cânfora. No fim de novembro o jardim está vermelho. Tem também a caverna Benten, baixa, escavada na rocha, cheia de velas.',
-        ],
-        mapQuery: 'Hasedera Temple Kamakura',
-      },
-      {
-        id: 'd20-volta',
-        time: '17:30',
-        timeLabel: 'volta',
-        kind: 'transit',
-        name: 'Volta para Tóquio',
-        facts: 'Kamakura → Shinjuku, **~1h**',
-        eat: [
-          {
-            label: 'Jantar em Shinjuku',
-            items: [
-              {
-                name: 'Fuunji',
-                specialty: true,
-                note: '17:00–21:00, fecha dom · agora dá: tsukemen (invenção de Tóquio) de caldo grosso de peixe e frango. Fila de 20–40 min. Vale.',
-              },
-              {
-                name: 'Omoide Yokochō',
-                note: '17:00–00:00 · yakitori em banquinho, fumaça, cerveja. Os becos de 1946.',
-              },
-            ],
-          },
-        ],
-        mapQuery: 'Kamakura Station',
       },
     ],
   },
@@ -1005,7 +1005,7 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Tonki — o tonkatsu de Meguro',
                 specialty: true,
-                note: '16:00–21:30 (último pedido 21:00), **fecha ter** — domingo abre · Shimo-Meguro 1-1-2, **3 min da estação Meguro**, que fica a 2 paradas de Shibuya pela Yamanote (5 min). Casa de **1939**, frequentada pelo bairro: um balcão comprido de frente para a cozinha aberta, rōsu ou hire por **~¥2.000**, arroz, repolho e sopa à vontade. Sem reserva; a fila anda rápido. É a alternativa ao sushi da noite — e se o Marugo do dia 19 tiver esgotado, é o tonkatsu da viagem. Na volta, Yamanote de Meguro direto até Shinjuku, 20 min.',
+                note: '16:00–21:30 (último pedido 21:00), **fecha ter** — domingo abre · Shimo-Meguro 1-1-2, **3 min da estação Meguro**, que fica a 2 paradas de Shibuya pela Yamanote (5 min). Casa de **1939**, frequentada pelo bairro: um balcão comprido de frente para a cozinha aberta, rōsu ou hire por **~¥2.000**, arroz, repolho e sopa à vontade. Sem reserva; a fila anda rápido. É a alternativa ao sushi da noite — e se o Marugo do dia 20 tiver esgotado, é o tonkatsu da viagem. Na volta, Yamanote de Meguro direto até Shinjuku, 20 min.',
               },
               {
                 name: 'Golden Gai (Shinjuku)',

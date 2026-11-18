@@ -9,13 +9,13 @@ import type { Leg } from './types';
 const walk = (minutes: number, note?: string): Leg => ({ mode: 'walk', minutes, note });
 
 export const START: Record<string, Leg[]> = {
-  'd2026-11-19': [
+  'd2026-11-20': [
     walk(7, 'do Kabukichō pela Yasukuni-dōri até a entrada leste do metrô (Subnade, embaixo da avenida)'),
     { mode: 'metro', line: 'Marunouchi Line', board: 'Shinjuku, entrada leste', direction: 'Ikebukuro', alight: 'Akasaka-mitsuke', minutes: 10 },
     { mode: 'metro', line: 'Ginza Line', board: 'Akasaka-mitsuke (mesma plataforma, do outro lado)', direction: 'Asakusa', alight: 'Asakusa (final)', minutes: 26, cost: '¥260 no total' },
     walk(3, 'saída 1 e o Kaminarimon está na frente'),
   ],
-  'd2026-11-20': [walk(12, 'do Kabukichō até a entrada sul da JR Shinjuku (pela Shinjuku-dōri); plataformas 1 e 2 (Shōnan-Shinjuku Line)')],
+  'd2026-11-19': [walk(12, 'do Kabukichō até a entrada sul da JR Shinjuku (pela Shinjuku-dōri); plataformas 1 e 2 (Shōnan-Shinjuku Line)')],
   'd2026-11-21': [
     walk(8, 'do Kabukichō até a estação Shinjuku-sanchōme (entrada ao lado do Isetan)'),
     { mode: 'metro', line: 'Marunouchi Line', board: 'Shinjuku-sanchōme', direction: 'Ikebukuro', alight: 'Ginza', minutes: 16 },

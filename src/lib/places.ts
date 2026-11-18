@@ -2,8 +2,8 @@
 
 const DAY_CITY: Record<string, string> = {
   'd2026-11-18': 'Tokyo',
-  'd2026-11-19': 'Tokyo',
-  'd2026-11-20': 'Kamakura',
+  'd2026-11-20': 'Tokyo',
+  'd2026-11-19': 'Kamakura',
   'd2026-11-21': 'Ginza Tokyo',
   'd2026-11-22': 'Tokyo',
   'd2026-11-23': 'Hiroshima',
@@ -56,8 +56,8 @@ export function itemMapsUrl(itemName: string, stopId: string, dayId: string): st
  */
 const CIDADE_DO_DIA: Record<string, string> = {
   'd2026-11-18': 'Tóquio',
-  'd2026-11-19': 'Tóquio',
-  'd2026-11-20': 'Kamakura',
+  'd2026-11-20': 'Tóquio',
+  'd2026-11-19': 'Kamakura',
   'd2026-11-21': 'Tóquio',
   'd2026-11-22': 'Tóquio',
   'd2026-11-23': 'Hiroshima',

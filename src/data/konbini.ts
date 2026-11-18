@@ -104,7 +104,7 @@ export const KONBINI_ITEMS: KonbiniItem[] = [
     where: 'prateleira de pães, temperatura ambiente',
     paragraphs: [
       'Pão doce macio com uma casca de biscoito por cima, riscada em quadriculado. **Não leva melão**: o nome vem do desenho, que lembra a casca da fruta. É doce de café da manhã e existe desde os anos 1930.',
-      'A versão do konbini é ótima e custa ¥150. Mas se quiserem a versão definitiva, ela já está no roteiro: a **Kagetsudō de Asakusa** (dia 19) faz o melon pan mais famoso do Japão, saído do forno, ¥250 — e o de sorvete de baunilha no meio no verão.',
+      'A versão do konbini é ótima e custa ¥150. Mas se quiserem a versão definitiva, ela já está no roteiro: a **Kagetsudō de Asakusa** (dia 20) faz o melon pan mais famoso do Japão, saído do forno, ¥250 — e o de sorvete de baunilha no meio no verão.',
     ],
   },
   {

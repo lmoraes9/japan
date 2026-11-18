@@ -117,7 +117,7 @@ export const CITY_HISTORIES: CityHistory[] = [
     name: 'Tóquio',
     jp: '東京',
     lead: 'Edo, a cidade do xogum, destruída e refeita quatro vezes, e ainda organizada pelo castelo que já não existe.',
-    dayIds: ['d2026-11-18', 'd2026-11-19', 'd2026-11-21', 'd2026-11-22', 'd2026-12-01', 'd2026-12-02'],
+    dayIds: ['d2026-11-18', 'd2026-11-20', 'd2026-11-21', 'd2026-11-22', 'd2026-12-01', 'd2026-12-02'],
     paragraphs: [
       'Até 1590, Edo era um vilarejo de pescadores num estuário pantanoso, com um castelo abandonado num morro. Naquele ano, Toyotomi Hideyoshi deu as províncias do leste a Tokugawa Ieyasu, em parte para mantê-lo longe. Ieyasu drenou o pântano, desviou rios, cavou um sistema de canais em espiral em volta do castelo e, quando virou xogum em 1603, fez de Edo a capital de facto de um país cujo imperador continuava em Kyoto. Os daimyō foram obrigados a manter residências ali, com suas famílias como reféns, e cada residência era um bairro: os altos, a oeste do castelo (Yamanote, "o lado da mão da montanha"), para os senhores; os baixos, a leste, no aterro (Shitamachi, "a cidade de baixo"), para os artesãos e mercadores. A divisão sobrevive: Ginza, Marunouchi e Shinjuku são Yamanote; Asakusa, Ueno e Kuramae são Shitamachi.',
       'Por volta de 1720 Edo tinha um milhão de habitantes e era a maior cidade do mundo. Era também a mais inflamável: casas de madeira e papel, coladas, e ventos secos de inverno. O incêndio de Meireki, em 1657, matou 100.000 pessoas e destruiu o torreão do castelo, que nunca foi reconstruído; é a base de pedra vazia que vocês vão ver no Jardim Leste. O Sensō-ji, o Nihonbashi (a ponte de onde se mediam todas as distâncias do país) e os bairros de prazer eram os centros da vida popular, e a cultura de Edo (kabuki, ukiyo-e, sushi, soba, as estampas de Hokusai com o Fuji) é a cultura que o mundo chama de japonesa.',
@@ -130,7 +130,7 @@ export const CITY_HISTORIES: CityHistory[] = [
     name: 'Kamakura',
     jp: '鎌倉',
     lead: 'A capital dos samurais por 150 anos, protegida por morros e pelo mar, com o zen, o Grande Buda e um trem de 1902.',
-    dayIds: ['d2026-11-20'],
+    dayIds: ['d2026-11-19'],
     paragraphs: [
       'Minamoto no Yoritomo escolheu Kamakura em 1180 por razões militares: um vale fechado por morros em três lados, com o mar no quarto, acessível só por sete passagens cortadas na rocha, os *kiridōshi*. Ali instalou o primeiro governo de guerreiros do Japão, o *bakufu* ("governo da tenda"), e por 150 anos Kamakura foi a capital real do país, enquanto Kyoto ficava com a cerimônia. O Tsurugaoka Hachimangū, dedicado ao deus da guerra, patrono dos Minamoto, era o centro: a avenida Wakamiya-ōji, que vai do santuário ao mar, foi construída por Yoritomo em 1182 para a mulher rezar por um parto seguro.',
       'Depois da morte de Yoritomo, sua viúva Hōjō Masako e o clã dela governaram como regentes. Foram os Hōjō que trouxeram o zen: o Kenchō-ji (1253) foi o primeiro mosteiro zen do Japão, com um abade vindo da China, e o Engaku-ji (1282) foi fundado depois da segunda invasão mongol, para rezar pelos mortos dos dois lados, coisa rara. A cidade, austera e militar, produziu uma arte própria: as esculturas realistas de Buda, com olhos de cristal, e o Grande Buda de bronze (c. 1252), que perdeu o salão num tsunami em 1498 e desde então fica ao ar livre.',
