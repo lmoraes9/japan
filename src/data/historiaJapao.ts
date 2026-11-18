@@ -66,7 +66,7 @@ export const JAPAN_CHAPTERS: LongChapter[] = [
     noRoteiro: [
       { label: 'Sumiyoshi Taisha, o estilo de antes do budismo', href: '/lugar/sumiyoshi' },
       { label: 'Kasuga Taisha e os cervos, em Nara', href: '/lugar/nara' },
-      { label: 'As dogū e os haniwa, no Museu Nacional de Tóquio', href: '/roteiro/d2026-11-19#d19-museu-nacional' },
+      { label: 'As dogū e os haniwa, no Museu Nacional de Tóquio', href: '/roteiro/d2026-11-20#d19-museu-nacional' },
       { label: 'Itsukushima, o santuário dos deuses do mar', href: '/lugar/miyajima' },
     ],
   },
@@ -214,7 +214,7 @@ export const JAPAN_CHAPTERS: LongChapter[] = [
     ],
     noRoteiro: [
       { label: 'Kamakura, o dia inteiro, em 3D', href: '/3d/kamakura' },
-      { label: 'Kenchō-ji, o primeiro mosteiro zen', href: '/roteiro/d2026-11-20#d20-kenchoji' },
+      { label: 'Kenchō-ji, o primeiro mosteiro zen', href: '/roteiro/d2026-11-19#d20-kenchoji' },
       { label: 'O Grande Buda', href: '/mais/historia/d20-daibutsu' },
       { label: 'Hachimangū, o santuário de Yoritomo', href: '/mais/historia/d20-hachimangu' },
       { label: 'Os Niō de Nara, a escultura de Kamakura', href: '/mais/historia/d30-todaiji' },

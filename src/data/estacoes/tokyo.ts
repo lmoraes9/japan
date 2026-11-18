@@ -20,7 +20,7 @@ export const TOKYO: MapaEstacoes = {
     { d: 'M 480 520 Q 545 478 600 468 L 600 800 L 445 800 Q 448 660 480 520 Z', nome: 'Baía de Tóquio', x: 545, y: 600 },
     { d: 'M 548 0 Q 540 110 512 205 Q 488 290 474 380 Q 466 445 480 520', nome: 'rio Sumida', x: 548, y: 60 },
   ],
-  caixas: [{ titulo: 'Kamakura · dia 20 · 1h de trem', x: 10, y: 690, w: 255, h: 108 }],
+  caixas: [{ titulo: 'Kamakura · dia 19 · 1h de trem', x: 10, y: 690, w: 255, h: 108 }],
   oficiais: [
     { nome: 'Mapa do metrô de Tóquio (Tokyo Metro)', url: 'https://www.tokyometro.jp/en/subwaymap/' },
     { nome: 'Mapa das linhas JR de Tóquio', url: 'https://www.jreast.co.jp/e/routemaps/' },

@@ -171,7 +171,7 @@ export const HOTEIS: EtapaHoteis[] = [
     stageId: 'tokyo1',
     city: 'Tóquio · Shinjuku',
     nights: '18 a 23 de novembro · 5 noites',
-    criteria: 'É a etapa mais longa, então cada ¥3.000 por noite valem ¥15.000. Ficar a menos de 10 minutos a pé da Estação Shinjuku, do lado sul ou leste, porque saem cedo todos os dias e o dia 20 e o 23 começam com trem.',
+    criteria: 'É a etapa mais longa, então cada ¥3.000 por noite valem ¥15.000. Ficar a menos de 10 minutos a pé da Estação Shinjuku, do lado sul ou leste, porque saem cedo todos os dias e o dia 19 e o 23 começam com trem.',
     hotels: [
       {
         name: 'Super Hotel Shinjuku Kabukichō',
@@ -180,7 +180,7 @@ export const HOTEIS: EtapaHoteis[] = [
         price: '¥11.000–15.000',
         why: 'A melhor combinação de preço e o que se ganha: **café da manhã e banho grande incluídos**, num raio de 8 minutos da JR. Depois de um dia de Asakusa a pé, o banho no térreo é o que faz diferença. Cinco noites aqui custam menos que três no hotel de antes.',
         mobility: '8 min da saída leste da JR · 3 min da Seibu-Shinjuku · Omoide Yokochō a 6 min',
-        caveat: 'Kabukichō é barulhento e a saída leste é a mais distante das plataformas de Kamakura: contem 12 minutos até a plataforma no dia 20.',
+        caveat: 'Kabukichō é barulhento e a saída leste é a mais distante das plataformas de Kamakura: contem 12 minutos até a plataforma no dia 19.',
         mapQuery: 'Super Hotel Shinjuku Kabukicho',
         pick: true,
       },

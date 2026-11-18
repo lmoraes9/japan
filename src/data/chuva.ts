@@ -44,7 +44,7 @@ export const PLANO_CHUVA: Record<string, PlanoChuva> = {
     mantem: 'Tudo: ônibus até o hotel, ramen perto, 7-Eleven.',
     dica: 'Se chover forte, o 7-Eleven da esquina vende o guarda-chuva de vinil — é o primeiro item da lista de compras sem querer.',
   },
-  'd2026-11-19': {
+  'd2026-11-20': {
     impacto: 'pouco',
     resumo: 'O dia mais à prova de chuva da viagem: a Nakamise, o museu, a Ameya-Yokochō e Akihabara têm cobertura ou são fechados.',
     mantem: 'Tudo. O Sensō-ji molhado fica mais bonito e menos cheio; o Museu Nacional de Tóquio vira o centro do dia.',
@@ -52,7 +52,7 @@ export const PLANO_CHUVA: Record<string, PlanoChuva> = {
       { sai: 'Almoço no Parque de Ueno, se for para comer ao ar livre', entra: 'o Innsyōtei ou o Yabu Soba, as duas casas fechadas, sem sair da chuva para comer' },
     ],
   },
-  'd2026-11-20': {
+  'd2026-11-19': {
     impacto: 'muito',
     resumo: 'Kamakura é trilha, escada e templo ao ar livre; com chuva o chão vira lama e o Hase-dera perde o motivo, que é a vista do mar.',
     mantem: 'Engaku-ji e Kenchō-ji, que têm salões onde se fica por dentro; Komachi-dōri tem lojas e as casas de comer.',

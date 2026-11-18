@@ -8,7 +8,7 @@ export interface ExtraPlace {
 
 export const EXTRAS_IN_ITINERARY = [
   '**Miyajima** (dia 24) — inegociável. Ir a Hiroshima e não atravessar para a ilha do torii flutuante seria um erro. Patrimônio Mundial, vale dos bordos no pico exato da folhagem, ostras e o templo Daishō-in.',
-  '**Kamakura** (dia 20) — a peça que faltava na linha do tempo de vocês: onde os guerreiros tomaram o poder em 1185. Templos zen, o Grande Buda ao ar livre desde 1498, e folhagem no auge. 1h de Tóquio.',
+  '**Kamakura** (dia 19) — a peça que faltava na linha do tempo de vocês: onde os guerreiros tomaram o poder em 1185. Templos zen, o Grande Buda ao ar livre desde 1498, e folhagem no auge. 1h de Tóquio.',
   '**Kurashiki** (dia 25) — o bairro de canais e armazéns brancos, no caminho entre Hiroshima e Himeji. Custa 40 minutos de desvio e é uma das cidades mais bonitas do Japão.',
 ];
 
@@ -16,7 +16,7 @@ export const EXTRAS: ExtraPlace[] = [
   {
     id: 'nikko',
     title: 'Nikkō',
-    subtitle: 'No lugar de Kamakura, dia 20 · 1h50 de Asakusa pelo Tobu Limited Express, ~¥3.050',
+    subtitle: 'No lugar de Kamakura, dia 19 · 1h50 de Asakusa pelo Tobu Limited Express, ~¥3.050',
     paragraphs: [
       'Se vocês preferem esplendor barroco a sobriedade zen, Nikkō ganha de longe.',
       'O **Tōshō-gū** (08:00–17:00, ¥1.600) é o mausoléu de **Tokugawa Ieyasu**, construído em 1636 pelo neto Iemitsu num nível de ostentação que era, ele próprio, uma mensagem política: o portão **Yōmeimon** tem 508 esculturas e é apelidado de "o portão do crepúsculo" porque as pessoas ficavam até anoitecer olhando. Ali estão os três macacos originais ("não vejo, não ouço, não falo") e o *nemuri-neko*, o gato dorminhoco. Da porta atrás dele, 207 degraus de pedra sobem até o túmulo simples de Ieyasu — o contraste é o ponto inteiro.',
@@ -59,7 +59,7 @@ export const EXTRAS: ExtraPlace[] = [
     paragraphs: [
       'O templo das fotos: **Risshaku-ji**, fundado em 860, agarrado num paredão de rocha em Yamagata, no Tōhoku. São **1.015 degraus** de pedra subindo por uma floresta de cedros, entre rochas cheias de nichos e pequenos budas, até o mirante do **Godaidō**, suspenso sobre o vale. A subida leva de 40 minutos a 1 hora, a descida menos, e a entrada custa ¥500. Foi aqui que **Bashō** escreveu, em 1689, o haicai do silêncio: "quietude — penetrando na rocha, o canto das cigarras".',
       '**A conta fria:** Yamadera fica a **3 horas de trem de Tóquio** (Shinkansen Yamagata até Yamagata, ~2h30, e mais 20 min de linha Senzan), a uns **¥11.000 por pessoa só de ida**. Ida, subida e volta consomem **um dia inteiro** e uns ¥45.000 a dois. O roteiro de vocês não tem dia livre em Tóquio: os cinco primeiros dias já estão cheios e as duas últimas noites são de compras. E o Tōhoku fica no sentido oposto de tudo o mais que vocês fazem, que é sul e oeste.',
-      '**A resposta honesta: é fora de mão, sim.** Para caber, teria que sair um dia inteiro do roteiro atual, e o candidato mais provável seria Kamakura (dia 20) ou o dia de Yokohama e Shibuya. Não vale a troca: Kamakura entrega templos, Buda gigante e folhagem a 1 hora de Tóquio, e Yamadera custaria seis horas de trem para uma subida de uma hora.',
+      '**A resposta honesta: é fora de mão, sim.** Para caber, teria que sair um dia inteiro do roteiro atual, e o candidato mais provável seria Kamakura (dia 19) ou o dia de Yokohama e Shibuya. Não vale a troca: Kamakura entrega templos, Buda gigante e folhagem a 1 hora de Tóquio, e Yamadera custaria seis horas de trem para uma subida de uma hora.',
       '**O que fazer no lugar:** se o que atrai é *templo em penhasco, com escadaria e vista de vale*, vocês já têm duas doses disso no roteiro. O **Kiyomizu-dera** (dia 28) é um palco de madeira suspenso sobre a encosta, sem um prego. E o **Daishō-in** de Miyajima (dia 24) sobe a montanha em terraços cheios de estátuas, com os cilindros de oração ao longo dos degraus — é o parente próximo de Yamadera, na ilha. Se um dia voltarem para o Tōhoku, Yamadera combina com Ginzan Onsen numa viagem de dois dias, que é como ele deve ser feito.',
     ],
     mapQuery: 'Yamadera Risshakuji Temple Yamagata',

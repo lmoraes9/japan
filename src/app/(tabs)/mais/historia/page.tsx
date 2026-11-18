@@ -5,7 +5,12 @@ import { Chapters } from '@/components/Chapters';
 import { JAPAN_CHAPTERS, THEMES, CITY_HISTORIES, PLACE_HISTORIES } from '@/data/historia';
 import { ALL_DAYS } from '@/data/days';
 
-const stopName = (id: string) => ALL_DAYS.flatMap((d) => d.stops).find((s) => s.id === id);
+const stopName = (id: string) => {
+  for (const d of ALL_DAYS) {
+    const s = d.stops.find((x) => x.id === id);
+    if (s) return { ...s, dia: d.date.slice(8, 10) };
+  }
+};
 
 export default function HistoriaPage() {
   const places = Object.entries(PLACE_HISTORIES);
@@ -55,7 +60,7 @@ export default function HistoriaPage() {
               <Link key={id} href={`/mais/historia/${id}`} className="flex items-center gap-3 border-b border-hairline px-4 py-2.5 last:border-b-0 active:bg-surface-2">
                 <span className="min-w-0 flex-1">
                   <span className="block text-[13.5px] font-semibold leading-snug">{p.title}</span>
-                  {s && <span className="block font-mono text-[10.5px] uppercase tracking-wider text-muted">dia {s.id.slice(1, 3)} · {s.time}</span>}
+                  {s && <span className="block font-mono text-[10.5px] uppercase tracking-wider text-muted">dia {s.dia} · {s.time}</span>}
                 </span>
                 <ChevronRight size={16} className="shrink-0 text-muted" />
               </Link>

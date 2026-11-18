@@ -6,7 +6,7 @@ import { CLIMATE } from '@/data/logistics';
 
 const REGRAS = [
   'A mala **volta cheia**: robô, roupa de cama, facas, presentes. Ir com ela pela metade não é economia, é planejamento.',
-  'Roupa para **4 ou 5 dias**, não 16. Camiseta e meia se compram no dia 19 e lavam no hotel; casaco bom, um só.',
+  'Roupa para **4 ou 5 dias**, não 16. Camiseta e meia se compram no dia 20 e lavam no hotel; casaco bom, um só.',
   'Tudo que é **eletrônico com bateria** vai na mão: power bank, câmera, e na volta o iPhone e o RedMagic lacrados.',
   'Facas e o que for cortante, **despachado**. Líquido acima de 100 ml, despachado.',
 ];
