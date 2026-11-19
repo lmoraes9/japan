@@ -10,10 +10,26 @@ const walk = (minutes: number, note?: string): Leg => ({ mode: 'walk', minutes, 
 
 export const START: Record<string, Leg[]> = {
   'd2026-11-20': [
-    walk(7, 'do Kabukichō pela Yasukuni-dōri até a entrada leste do metrô (Subnade, embaixo da avenida)'),
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Shinjuku, entrada leste', direction: 'Ikebukuro', alight: 'Akasaka-mitsuke', minutes: 10 },
-    { mode: 'metro', line: 'Ginza Line', board: 'Akasaka-mitsuke (mesma plataforma, do outro lado)', direction: 'Asakusa', alight: 'Asakusa (final)', minutes: 26, cost: '¥260 no total' },
-    walk(3, 'saída 1 e o Kaminarimon está na frente'),
+    walk(8, 'do hotel para o sul pela Meiji-dōri até o cruzamento com a Shinjuku-dōri, na esquina do Isetan: é ali a estação **Shinjuku-sanchōme**, bem menor e mais fácil que a de Shinjuku'),
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Shinjuku-sanchōme (新宿三丁目)', boardPoint: '新宿三丁目駅',
+      direction: '池袋 Ikebukuro', alight: 'Akasaka-mitsuke (赤坂見附), 4ª parada', minutes: 10,
+      steps: [
+        'Desçam a escada com o círculo **vermelho M** (丸ノ内線). Na mesma estação passam a Fukutoshin (marrom, F) e a Toei Shinjuku (verde, S): não sigam essas.',
+        'Passem a Suica e escolham a plataforma **池袋方面 (Ikebukuro)**.',
+        'Contem: Shinjuku-gyoemmae, Yotsuya-sanchōme, Yotsuya e **Akasaka-mitsuke**, a 4ª. Desçam.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Ginza Line (laranja, G)', board: 'Akasaka-mitsuke, do outro lado da mesma plataforma', direction: '浅草 Asakusa',
+      alight: 'Asakusa (浅草), fim da linha', alightPoint: '浅草駅 1番出口', minutes: 26, cost: '¥260 no total',
+      steps: [
+        'Não precisa subir nem descer escada: o trem **laranja** da Ginza Line para do **outro lado da mesma plataforma**. Confiram no painel **浅草 Asakusa**.',
+        'Fiquem até o **fim da linha** (Asakusa, ~26 min).',
+        'Na plataforma, sigam as placas amarelas de saída até **1番出口 (saída 1) · 雷門 Kaminarimon**.',
+      ],
+    },
+    walk(3, 'saindo da saída 1, o Kaminarimon (a lanterna vermelha gigante) está a poucos passos; o café fica na galeria Shin-Nakamise'),
   ],
   'd2026-11-19': [walk(12, 'do Kabukichō até a entrada sul da JR Shinjuku (pela Shinjuku-dōri); plataformas 1 e 2 (Shōnan-Shinjuku Line)')],
   'd2026-11-21': [
@@ -92,27 +108,60 @@ export const LEGS: Record<string, Leg[]> = {
   'd19-kuramae': [walk(3, 'o café fica na galeria Shin-Nakamise; o Kaminarimon, com a lanterna vermelha gigante, está uns 150 m a sudeste')],
   'd19-sensoji': [walk(12, 'saindo pelo lado oeste do salão principal: o Kagetsudō (melonpan, ¥280, abre às 9h) fica logo atrás do templo. Daí para o oeste até a Kappabashi-dōri; o cozinheiro gigante do prédio Niimi marca a ponta sul da rua')],
   'd19-kappabashi': [
-    walk(5, 'até a estação Tawaramachi'),
-    { mode: 'metro', line: 'Ginza Line', board: 'Tawaramachi', direction: 'Shibuya', alight: 'Ueno', minutes: 4, cost: '¥180', note: 'ou 20 min a pé pela Asakusa-dōri, se as pernas estiverem boas' },
-    walk(15, 'da Ginza Line as saídas 7 e 9 levam ao parque, mas ficam longe do museu. Se puderem, troquem para a JR e usem a **saída do parque (公園口)**: dela ao museu são 4 min em linha reta'),
+    walk(5, 'da ponta sul da Kappabashi-dōri (o chef gigante) até a avenida Asakusa-dōri: a estação Tawaramachi fica embaixo dela'),
+    {
+      mode: 'metro', line: 'Ginza Line (laranja, G)', board: 'Tawaramachi (田原町)', boardPoint: '田原町駅',
+      direction: '渋谷 Shibuya · 上野 Ueno', alight: 'Ueno (上野), 2ª parada', alightPoint: '上野駅 不忍口', minutes: 4, cost: '¥180',
+      note: 'ou 20 min a pé pela Asakusa-dōri, se as pernas estiverem boas',
+      steps: [
+        '**Atenção:** em Tawaramachi cada sentido tem a sua escada, em lados opostos da avenida. Antes de descer, leiam a placa da entrada: tem que dizer **渋谷・上野方面 (Shibuya/Ueno)**. Se disser 浅草方面, é a escada do outro lado.',
+        'Desçam na **2ª parada, Ueno**.',
+        'Sigam as placas de saída para **上野公園 (Ueno Park)** e saiam do lado do **不忍口 (Shinobazu)**, de frente para a escadaria do parque.',
+      ],
+    },
+    walk(15, 'subam a escadaria do parque (a estátua de Saigō Takamori com o cachorro fica lá no alto) e sigam reto pelo meio do parque, passando pela fonte, até o portão do museu no fundo'),
   ],
   'd19-museu-nacional': [walk(8, 'dentro do parque, descendo na direção do lago Shinobazu')],
   'd19-almoco-ueno': [walk(6, 'saída sul do parque; a rua é debaixo dos trilhos')],
   'd19-ameyoko': [
-    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Okachimachi ou Ueno', direction: 'Ikebukuro · Tabata (norte)', alight: 'Nippori (日暮里), saída oeste (西口)', minutes: 6, cost: '¥155' },
-    walk(5, 'subindo a rua da saída oeste; a escadaria fica no começo da Yanaka Ginza'),
+    {
+      mode: 'train', line: 'JR Yamanote (verde-claro)', board: 'Okachimachi (御徒町), saída norte', boardPoint: '御徒町駅 北口',
+      direction: '上野・池袋方面 (Ueno/Ikebukuro)', alight: 'Nippori (日暮里), 3ª parada, saída oeste (西口)', alightPoint: '日暮里駅 西口', minutes: 6, cost: '¥155',
+      steps: [
+        'Na JR Okachimachi, sigam a placa **山手線 Yamanote** (verde-claro), plataforma **上野・池袋方面**. Peguem a **Yamanote**, não a Keihin-Tōhoku azul: à tarde ela corre como rápido e pode pular estações.',
+        'Contem: Ueno, Uguisudani e **Nippori**, a 3ª. Desçam.',
+        'Subam a escada e sigam a placa amarela **西口 West Exit**. Não usem a saída leste nem a área da Keisei (a linha do aeroporto).',
+      ],
+    },
+    walk(5, 'saindo do 西口, sigam a rua em frente, subindo, com o cemitério de Yanaka à direita; no fim da subida a rua desce numa escadaria curta — é a Yūyake Dandan, com a Yanaka Ginza embaixo'),
   ],
   'd19-yanaka': [
-    walk(5, 'de volta à estação Nippori'),
-    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Nippori', direction: 'Ueno · Tokyo (sul)', alight: 'Akihabara, saída Electric Town', minutes: 8, cost: '¥170' },
+    walk(5, 'subam de volta a escadaria e a rua pelo mesmo caminho até a estação Nippori, saída oeste'),
+    {
+      mode: 'train', line: 'JR Yamanote (verde-claro)', board: 'Nippori (日暮里), saída oeste', boardPoint: '日暮里駅 西口',
+      direction: '上野・東京方面 (Ueno/Tokyo)', alight: 'Akihabara (秋葉原), 4ª parada, saída Electric Town (電気街口)', alightPoint: '秋葉原駅 電気街口', minutes: 8, cost: '¥170',
+      steps: [
+        'Passem a Suica na catraca do **西口** e sigam a placa **山手線 Yamanote** (verde-claro), plataforma **上野・東京方面**.',
+        'Contem: Uguisudani, Ueno, Okachimachi e **Akihabara**, a 4ª. Desçam.',
+        'Sigam a placa amarela **電気街口 Electric Town**. Saindo, o Radio Kaikan fica bem na frente.',
+      ],
+    },
   ],
   'd19-akihabara': [walk(1, 'o Radio Kaikan está na frente da saída Electric Town')],
   'd19-radio-kaikan': [walk(6, 'pela Chūō-dōri para o norte, atrás do quarteirão do Don Quijote')],
   'd19-hanabusa': [walk(5, 'de volta à estação; o JINS fica no Atre, colado à estação')],
   'd19-oculos': [walk(10, 'para o sul pela rua paralela aos trilhos até Kanda; o Kikanbō fica a 3 min da estação Kanda')],
   'd19-jantar': [
-    { mode: 'train', line: 'JR Chūō (rápido)', board: 'Kanda, plataforma do Chūō', direction: 'Shinjuku · Takao', alight: 'Shinjuku', minutes: 13, cost: '¥209' },
-    walk(10, 'saída leste e pela Yasukuni-dōri até o Kabukichō'),
+    {
+      mode: 'train', line: 'JR Chūō rápido (laranja)', board: 'Kanda (神田)', boardPoint: '神田駅 西口',
+      direction: '新宿・八王子方面 (Shinjuku)', alight: 'Shinjuku (新宿), saída leste (東口)', alightPoint: '新宿駅 東口', minutes: 13, cost: '¥209',
+      steps: [
+        'Na JR Kanda, sigam a placa **中央線 Chūō Line** (laranja), plataforma **新宿方面 (Shinjuku)**. O trem do outro lado da mesma plataforma vai para Tokyo: confiram o painel.',
+        'São 3 paradas (Ochanomizu, Yotsuya, **Shinjuku**). Desçam em Shinjuku.',
+        'Em Shinjuku, sigam **só** as placas amarelas **東口 East Exit**. A estação é enorme: não saiam por outra.',
+      ],
+    },
+    walk(10, 'saindo do 東口, atravessem a praça e sigam pela rua em frente até a Yasukuni-dōri; do outro lado começa o Kabukichō. O hotel fica no lado leste do bairro, perto da Meiji-dōri'),
   ],
 
   // ── 19 nov · Kamakura ─────────────────────────────────────────────

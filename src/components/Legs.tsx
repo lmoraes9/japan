@@ -2,6 +2,7 @@ import { Footprints, TrainFront, TramFront, Bus, Ship, Car, CableCar, Plane, Zap
 import type { Leg, LegMode } from '@/data/types';
 import { legsMinutes } from '@/data/legs';
 import { directionsUrl, pontoDoTrecho, type ModoRota } from '@/lib/mapsLinks';
+import { Rich } from './Rich';
 
 const ICON: Record<LegMode, typeof Footprints> = {
   walk: Footprints,
@@ -58,9 +59,13 @@ export function Legs({
   // as coordenadas das paradas; no meio, o nome da estação vira algo que o
   // Google Maps não confunde com a cidade ("Kyoto" → "Kyoto Station").
   const pontos: (string | undefined)[] = [origem];
+  // A entrada ou saída exata (boardPoint/alightPoint) vence o nome da estação:
+  // é ela que leva até a porta certa, e não ao meio de uma estação de 200 saídas.
   legs.forEach((l, i) => {
     const proximo = legs[i + 1];
     if (!proximo) pontos.push(destino);
+    else if (l.alightPoint) pontos.push(l.alightPoint);
+    else if (proximo.boardPoint) pontos.push(proximo.boardPoint);
     else if (l.alight) pontos.push(pontoDoTrecho(l.alight, l.mode, regiao));
     else if (proximo.board) pontos.push(pontoDoTrecho(proximo.board, proximo.mode, regiao));
     else pontos.push(undefined);
@@ -136,7 +141,21 @@ export function Legs({
                     )}
                   </p>
                 )}
-                {l.note && <p className={`mt-0.5 leading-snug text-muted ${big ? 'text-[14px]' : 'text-[12px]'}`}>{l.note}</p>}
+                {l.note && (
+                  <p className={`mt-0.5 leading-snug text-muted ${big ? 'text-[14px]' : 'text-[12px]'}`}>
+                    <Rich text={l.note} />
+                  </p>
+                )}
+                {l.steps && l.steps.length > 0 && (
+                  <ol className={`mt-1.5 space-y-1 ${big ? 'text-[14.5px]' : 'text-[12.5px]'}`}>
+                    {l.steps.map((s, k) => (
+                      <li key={k} className="flex gap-2 leading-snug">
+                        <span className="mt-[1px] flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full bg-accent-soft font-mono text-[10.5px] font-semibold text-accent">{k + 1}</span>
+                        <Rich text={s} className="min-w-0 flex-1" />
+                      </li>
+                    ))}
+                  </ol>
+                )}
               </div>
               {/* cada linha tem a sua própria rota: este pedaço do caminho */}
               {pontos[i + 1] && l.mode !== 'plane' && (
