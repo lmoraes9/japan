@@ -34,7 +34,7 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Chegando sem roupa, o plano é resolver tudo no **dia 20**, que já passa pelos lugares certos (Ameyoko às 15:30). Lembrete: o tax-free vale para tudo isso — **mínimo de ¥5.000 por loja por dia**, então concentrem as compras numa loja só quando der.',
+        text: 'Chegando sem roupa, o plano é resolver tudo no **dia 20**, que já passa pelos lugares certos (Ameyoko às 15:00). Lembrete: o tax-free vale para tudo isso — **mínimo de ¥5.000 por loja por dia**, então concentrem as compras numa loja só quando der.',
       },
       {
         type: 'note',
@@ -44,7 +44,7 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
           paragraphs: [
             'O que você viu no Instagram é quase certamente uma destas três redes, que fazem exatamente isso: **JINS**, **Zoff** e **OWNDAYS**. O processo é igual nas três: exame de vista **grátis na própria loja** (~10 minutos, não precisa de receita — mas levar o óculos atual ajuda a calibrar), armação escolhida na hora com **lentes já incluídas no preço**, e o óculos sai pronto em **30 a 60 minutos** na maioria dos graus.',
             '**Preço:** a partir de ¥5.900 (JINS/Zoff) a ¥8.000 (OWNDAYS) — de fato uns R$210–290. Grau muito alto pode pedir lente fina (custo extra) ou alguns dias de espera; nesse caso façam logo no dia 20 que sobra viagem inteira para retirar.',
-            '**Onde e quando:** já está no roteiro — **dia 20 às 17:45, em Akihabara** (JINS no Atré, colado na estação; OWNDAYS na Chūō-dōri): exame, o resto do bairro enquanto fica pronto, retirada antes do jantar no Kikanbō. Plano B: as três redes têm lojas em Shinjuku (perto do hotel, até ~21h), Shibuya e Ginza. A OWNDAYS costuma ter o melhor atendimento em inglês. E vale tax-free.',
+            '**Onde e quando:** já está no roteiro — **dia 20 às 18:00, em Akihabara** (JINS no Atré, colado na estação; OWNDAYS na Chūō-dōri): exame, o resto do bairro enquanto fica pronto, retirada antes do jantar no Kikanbō. Plano B: as três redes têm lojas em Shinjuku (perto do hotel, até ~21h), Shibuya e Ginza. A OWNDAYS costuma ter o melhor atendimento em inglês. E vale tax-free.',
           ],
         },
       },
