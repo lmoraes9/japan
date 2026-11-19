@@ -88,7 +88,7 @@ export const LEGS: Record<string, Leg[]> = {
   'd18-ramen': [walk(3)],
   'd18-konbini': [walk(8, 'pela Yasukuni-dōri para o leste até o Kabukichō; o hotel fica a 3 min da Seibu-Shinjuku')],
 
-  // ── 19 nov · Asakusa, Ueno, Akihabara ─────────────────────────────
+  // ── 20 nov · Asakusa, Ueno, Yanaka, Akihabara ─────────────────────
   'd19-kuramae': [walk(3, 'o café fica na galeria Shin-Nakamise; o Kaminarimon, com a lanterna vermelha gigante, está uns 150 m a sudeste')],
   'd19-sensoji': [walk(12, 'saindo pelo lado oeste do salão principal: o Kagetsudō (melonpan, ¥280, abre às 9h) fica logo atrás do templo. Daí para o oeste até a Kappabashi-dōri; o cozinheiro gigante do prédio Niimi marca a ponta sul da rua')],
   'd19-kappabashi': [
@@ -99,7 +99,12 @@ export const LEGS: Record<string, Leg[]> = {
   'd19-museu-nacional': [walk(8, 'dentro do parque, descendo na direção do lago Shinobazu')],
   'd19-almoco-ueno': [walk(6, 'saída sul do parque; a rua é debaixo dos trilhos')],
   'd19-ameyoko': [
-    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Okachimachi', direction: 'Tokyo · Shinagawa', alight: 'Akihabara, saída Electric Town', minutes: 3, cost: '¥155', note: 'ou 15 min a pé seguindo os trilhos para o sul' },
+    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Okachimachi ou Ueno', direction: 'Ikebukuro · Tabata (norte)', alight: 'Nippori (日暮里), saída oeste (西口)', minutes: 6, cost: '¥155' },
+    walk(5, 'subindo a rua da saída oeste; a escadaria fica no começo da Yanaka Ginza'),
+  ],
+  'd19-yanaka': [
+    walk(5, 'de volta à estação Nippori'),
+    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Nippori', direction: 'Ueno · Tokyo (sul)', alight: 'Akihabara, saída Electric Town', minutes: 8, cost: '¥170' },
   ],
   'd19-akihabara': [walk(1, 'o Radio Kaikan está na frente da saída Electric Town')],
   'd19-radio-kaikan': [walk(6, 'pela Chūō-dōri para o norte, atrás do quarteirão do Don Quijote')],
@@ -110,7 +115,7 @@ export const LEGS: Record<string, Leg[]> = {
     walk(10, 'saída leste e pela Yasukuni-dōri até o Kabukichō'),
   ],
 
-  // ── 20 nov · Kamakura ─────────────────────────────────────────────
+  // ── 19 nov · Kamakura ─────────────────────────────────────────────
   'd20-trem-kamakura': [
     { mode: 'train', line: 'JR Shōnan-Shinjuku Line', board: 'Shinjuku, plataformas 1 e 2 (confirmem no painel: 大崎・横浜・大船・逗子方面)', direction: 'Zushi (逗子)', alight: 'Kita-Kamakura', minutes: 55, cost: '~¥1.000', note: 'só o trem que vai a ZUSHI passa por Kamakura; o que vai a Odawara não. Desçam uma estação antes de Kamakura' },
     walk(1, 'o Engaku-ji fica colado à estação: há uma catraca extra na ponta da plataforma (6:30–21:30, **só cartão IC**) que sai quase no portão do templo'),

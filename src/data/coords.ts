@@ -12,6 +12,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd19-museu-nacional': { lat: 35.7188, lng: 139.7765 },
   'd19-almoco-ueno': { lat: 35.7126, lng: 139.7731 }, // Innsyōtei, Ueno Park
   'd19-ameyoko': { lat: 35.7104, lng: 139.7745 },
+  'd19-yanaka': { lat: 35.7277, lng: 139.7676 }, // Yūyake Dandan
   'd19-akihabara': { lat: 35.6987, lng: 139.7714 }, // saída Electric Town
   'd19-oculos': { lat: 35.6984, lng: 139.7731 }, // JINS Atré Akihabara
   'd19-radio-kaikan': { lat: 35.6985, lng: 139.7714 }, // saída Electric Town

@@ -272,7 +272,7 @@ export const tokyo1Days: Day[] = [
       {
         label: 'Compras dos primeiros dias — resolve tudo hoje',
         tone: 'ok',
-        text: 'O trajeto de hoje passa exatamente onde se resolve o kit de chegada, cada coisa no seu horário:\n\n**15:30 · Camisetas e tênis** — na parada da Ameyoko: London Sports, Mita Sneakers e ABC-Mart para tênis; UNIQLO Okachimachi / GU a um quarteirão para as camisetas da semana.\n\n**17:45 · Óculos de grau** — parada própria em Akihabara: exame grátis na hora, óculos pronto enquanto vocês varrem o resto do bairro, retirada antes do jantar. Detalhes lá embaixo e na seção Compras.',
+        text: 'O trajeto de hoje passa exatamente onde se resolve o kit de chegada, cada coisa no seu horário:\n\n**15:00 · Camisetas e tênis** — na parada da Ameyoko: London Sports, Mita Sneakers e ABC-Mart para tênis de marca; para um tênis simples de caminhada, a **GU** a um quarteirão tem por ¥2.000–3.000, junto com as camisetas da semana.\n\n**16:10 · Pôr do sol em Yanaka** — a escadaria Yūyake Dandan, 2 estações de trem depois de Ueno.\n\n**18:00 · Óculos de grau** — parada própria em Akihabara: exame grátis na hora, óculos pronto enquanto vocês varrem o resto do bairro, retirada antes do jantar. Detalhes lá embaixo e na seção Compras.',
       },
     ],
     stops: [
@@ -320,6 +320,8 @@ export const tokyo1Days: Day[] = [
         paragraphs: [
           'Às 8h o pátio ainda está quase vazio e a luz entra baixa por trás do pagode — vocês têm o Kaminarimon quase só para vocês. Às 9h e meia isto aqui é uma multidão.',
           'Fiquem **até umas 09:15**: por volta das 09:00 as portas de aço pintadas da Nakamise sobem uma a uma e a rua vira o que ela é de verdade, com o cheiro de senbei na chapa e os doces saindo quentes. Sair antes disso é ver só metade do lugar.',
+          '**Antes de seguir, 10 minutos que valem a foto do dia:** o **terraço do Centro de Turismo de Asakusa** (浅草文化観光センター), em frente ao Kaminarimon, no **8º andar** — elevador, **grátis**, abre às 09:00. Lá de cima se vê a Nakamise inteira até o templo, com a **Skytree** do lado.',
+          'Se quiserem mais uma: a **ponte Azuma-bashi**, a 5 min do Kaminarimon, sobre o rio Sumida — a Skytree de um lado e o prédio da Asahi com a "chama dourada" no topo do outro.',
         ],
         history: {
           paragraphs: [
@@ -417,7 +419,7 @@ export const tokyo1Days: Day[] = [
       },
       {
         id: 'd19-ameyoko',
-        time: '15:30',
+        time: '15:00',
         timeLabel: 'rua',
         kind: 'sight',
         name: 'Ameya-Yokochō',
@@ -446,7 +448,7 @@ export const tokyo1Days: Day[] = [
               },
               {
                 name: 'UNIQLO Okachimachi / GU',
-                note: 'a um quarteirão · camisetas para os primeiros dias (GU a ¥590–990), e **meias** — vale levar um pacote hoje para testar durante a viagem antes de comprar pesado.',
+                note: 'a um quarteirão · **tênis simples de caminhada na GU por ¥2.000–3.000** — bem mais barato que a ABC-Mart, que é quase só marca famosa · camisetas para os primeiros dias (GU a ¥590–990), e **meias** — vale levar um pacote hoje para testar durante a viagem antes de comprar pesado.',
               },
               {
                 name: 'MUJI — Ueno Marui, B2',
@@ -456,13 +458,28 @@ export const tokyo1Days: Day[] = [
           },
         ],
         paragraphs: [
-          'Se sobrar pernas: a 15 min a pé (ou 1 estação até Nippori), **Yanaka Ginza** é a rua de comércio antiga que sobreviveu — croquete de menchi-katsu na mão, quase nenhum turista, o "shitamachi" de verdade. Fecha cedo (~18h).',
+          'Saiam daqui **até 15:50**: a próxima parada é o pôr do sol em Yanaka, e o sol não espera.',
         ],
         mapQuery: 'Ameya Yokocho Ueno',
       },
       {
+        id: 'd19-yanaka',
+        time: '16:10',
+        timeLabel: 'pôr do sol',
+        kind: 'view',
+        name: 'Yanaka — o pôr do sol da Yūyake Dandan',
+        jp: '夕やけだんだん',
+        facts: '**Grátis** · pôr do sol **~16:30** · saída oeste da estação **Nippori**, 5 min a pé · Yanaka Ginza fecha **~18h**',
+        paragraphs: [
+          'O nome quer dizer **"a escadaria do pôr do sol"**: uns poucos degraus no alto da Yanaka Ginza, de onde o sol desce por trás de um bairro de casas baixas que escapou dos bombardeios e dos prédios. É o ponto mais famoso de Tóquio para isso — e quase só tem morador e gato.',
+          'Cheguem às **16:10** para pegar lugar no alto da escada; o sol vai embora por volta das 16:30. Depois, desçam a escada pela **Yanaka Ginza**, a rua de comércio antiga: **croquete de menchi-katsu** na mão (~¥200) e os doces das lojinhas, até umas 17:00.',
+          'Se o céu fechar, a rua continua valendo — e o caminho até Akihabara é o mesmo.',
+        ],
+        mapQuery: 'Yuyake Dandan Yanaka Ginza',
+      },
+      {
         id: 'd19-akihabara',
-        time: '16:30',
+        time: '17:00',
         timeLabel: 'compras',
         kind: 'shopping',
         name: 'Akihabara',
@@ -508,7 +525,7 @@ export const tokyo1Days: Day[] = [
       },
       {
         id: 'd19-radio-kaikan',
-        time: '17:05',
+        time: '17:30',
         timeLabel: 'steins;gate',
         kind: 'sight',
         name: 'Radio Kaikan — o prédio do Steins;Gate',
@@ -522,7 +539,7 @@ export const tokyo1Days: Day[] = [
       },
       {
         id: 'd19-hanabusa',
-        time: '17:25',
+        time: '17:50',
         timeLabel: 'santuário',
         kind: 'temple',
         name: 'Hanabusa Inari — o santuário escondido',
@@ -536,21 +553,21 @@ export const tokyo1Days: Day[] = [
       },
       {
         id: 'd19-oculos',
-        time: '17:45',
+        time: '18:00',
         timeLabel: 'óculos',
         kind: 'shopping',
         name: 'Óculos de grau — exame agora, retirada antes do jantar',
         facts: 'Exame **grátis, ~10 min, sem receita** · armação + lentes desde **¥5.900–8.000** (≈ R$210–290) · pronto em **30–60 min** · tax-free',
         paragraphs: [
           'O "lugar que mede o grau e faz na hora" é isto: as redes **JINS, Zoff e OWNDAYS** fazem exatamente esse serviço, e há loja aqui em Akihabara — a **JINS fica no Atré, colado na saída da estação**, e a **OWNDAYS na Chūō-dōri**. Levem o óculos atual para calibrar.',
-          'A jogada: façam o exame **agora**, escolham a armação, e deixem fazendo: usem a espera no que ficou pela metade no bairro (o Yodobashi, do outro lado da estação, vai até as 22h). Retirem ~18:45 e sigam para o jantar de óculos novo.',
+          'A jogada: façam o exame **agora**, escolham a armação, e deixem fazendo: usem a espera no que ficou pela metade no bairro (o Yodobashi, do outro lado da estação, vai até as 22h). Retirem ~19:00 e sigam para o jantar de óculos novo.',
           'Grau muito alto pode pedir lente fina (custo extra) ou uns dias de espera — por isso este stop está no dia 20: sobra viagem inteira para retirar. **Plano B:** as três redes têm lojas em Shinjuku, perto do hotel, abertas até ~21h — o botão Navegar acha a mais próxima de onde estiverem.',
         ],
         mapQuery: 'JINS Atre Akihabara',
       },
       {
         id: 'd19-jantar',
-        time: '19:00',
+        time: '19:15',
         timeLabel: 'jantar',
         kind: 'food',
         name: 'Jantar',
