@@ -99,6 +99,16 @@ export interface Leg {
   alight?: string;
   /** sentido/destino como aparece no painel */
   direction?: string;
+  /**
+   * A entrada exata, escrita como o Google Maps acha ('浅草駅 1番出口',
+   * '日暮里駅 西口'). Vence o texto de `board` no botão de navegar: sem ela,
+   * "Shinjuku" vira a estação inteira e o Google leva a qualquer entrada.
+   */
+  boardPoint?: string;
+  /** a saída exata ao descer, no mesmo formato de `boardPoint` */
+  alightPoint?: string;
+  /** passo a passo dentro da estação: placa, cor, plataforma, saída */
+  steps?: string[];
   minutes: number;
   cost?: string;
   note?: string;
