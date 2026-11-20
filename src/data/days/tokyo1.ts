@@ -707,6 +707,20 @@ export const tokyo1Days: Day[] = [
         mapQuery: 'Mitsukoshi Ginza depachika',
       },
       {
+        id: 'd21-oculos',
+        time: '12:40',
+        timeLabel: 'óculos',
+        kind: 'shopping',
+        name: 'Óculos de grau na JINS: exame agora, retirada no fim das compras',
+        jp: 'JINS',
+        facts: 'Exame **grátis, ~10–15 min** · armação + lentes desde **¥5.900–8.000** · pronto em **~1 h** · tax-free com passaporte',
+        paragraphs: [
+          'Ficou para hoje o que não deu no dia 20. A **JINS Loft Ginza** fica no **3º andar do prédio Belvia (Ginza 2-4-6)**, a 2 min da saída **A5** da estação Ginza e a uns 5 min a pé do Mitsukoshi, subindo a avenida Chūō. Se estiver cheia, a **JINS Yūrakuchō Marui (5º andar, Yūrakuchō 2-7-1)** fica do lado da Bic Camera, que já está no roteiro de hoje.',
+          'A jogada é a mesma: **exame primeiro**, escolham a armação, paguem e saiam para as compras com o recibo. Retirem por volta das **15:00**, antes de ir para o KITTE às 16:15. Levem o **passaporte** para o tax-free (só acima de ¥5.000 na mesma loja). Grau muito alto pode pedir lente fina, com custo extra ou alguns dias de espera; se for o caso, peçam para entregar até o dia 2/12, quando vocês voltam para Ginza.',
+        ],
+        mapQuery: 'JINS ロフト銀座店',
+      },
+      {
         id: 'd21-ginza',
         time: '13:00',
         timeLabel: 'compras',
