@@ -75,7 +75,7 @@ export const CHECKLIST: ChecklistItem[] = [
     id: 'redmagic',
     group: 'compras',
     title: 'RedMagic (celular gamer)',
-    subtitle: 'Dia 1º/12, junto com o iPhone · Bic Camera Yūrakuchō ou Yodobashi · **12 Pro se já tiver saído no Japão, senão 11S Pro** (¥149.800) · não abrir: lacrado e na mala de mão',
+    subtitle: 'Dia 1º/12, junto com o iPhone · Bic Camera Yūrakuchō ou Yodobashi · **12 Pro se já tiver saído no Japão, senão 11S Pro** (¥149.800) · pode usar, mas guardem caixa e recibo e levem na mala de mão',
   },
   {
     id: 'robo',
