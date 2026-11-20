@@ -136,8 +136,8 @@ export const SHOPPING_GUIDES: ShoppingGuide[] = [
       {
         type: 'bullets',
         items: [
-          '**Onde:** a **Bic Camera** vende o RedMagic (o 11 Pro está no site, biccamera.com) e a **Yodobashi** tem o 11S Pro. A Bic Camera Yūrakuchō fica a 5 min a pé de Ginza. Confiram o estoque no site ou liguem antes.',
-          '**Não abrir:** fica lacrado na caixa, com o recibo, **na mala de mão**. No sistema novo do tax-free, a alfândega de Haneda pode pedir para ver o aparelho antes de devolver os 10%.',
+          '**Onde:** a **Bic Camera Yūrakuchō** (ビックカメラ有楽町店, Yūrakuchō 1-11-1, 10:00–22:00, tel. 03-5221-1111) é uma das lojas que a REDMAGIC Japan anunciou com aparelho em exposição e à venda; fica a 5 min a pé de Ginza, ligada à estação Yūrakuchō pela saída **D4**. As outras são a Bic Camera **AKIBA** e a de **Ikebukuro**, e a Yodobashi tem o 11S Pro. O anúncio fala do 11 Pro: liguem antes para confirmar o **11S Pro** ("REDMAGIC 11S Pro no zaiko wa arimasu ka?"). Peçam a **versão japonesa**, com おサイフケータイ na caixa.',
+          '**Pode usar:** no sistema novo do tax-free, eletrônico pode ser aberto e usado no Japão (só consumível não pode). Guardem a **caixa com o IMEI e o recibo**, e levem o aparelho **na mala de mão**: a alfândega de Haneda pode pedir para ver antes de devolver os 10%. Bônus da versão japonesa (NX809J): tem **FeliCa**, então dá para pôr o **Suica no celular** assim que ligar.',
           '**Funciona no Brasil:** tem as bandas do 5G brasileiro (n78 e n28) e do 4G (B1, B3, B7, B28). Não tem selo da Anatel. Hoje celular importado com IMEI válido costuma funcionar, mas não há garantia de que continue.',
           '**Alfândega brasileira:** a cota é de **US$1.000 por pessoa**. iPhone e RedMagic juntos passam disso: declarem um em nome de cada um de vocês. O que passar da cota paga 50% sobre o excedente.',
         ],

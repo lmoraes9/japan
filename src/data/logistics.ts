@@ -39,10 +39,10 @@ export const ALERTS: InfoBlock[] = [
     ],
   },
   {
-    label: '3 · Eletrônicos da volta: lacrados e na mala de mão',
+    label: '3 · Eletrônicos da volta: com caixa e recibo, na mala de mão',
     tone: 'warn',
     paragraphs: [
-      'iPhone e RedMagic se compram no **dia 1º/12**, em Ginza, e **não se abrem**: caixa lacrada, recibo junto, mala de mão. A alfândega japonesa pode pedir para ver na inspeção do tax-free em Haneda, e a brasileira conta a cota de **US$1.000 por pessoa**, então cada um de vocês declara um aparelho.',
+      'iPhone e RedMagic se compram no **dia 1º/12**, em Ginza. **Podem abrir e usar**: no sistema de tax-free que vale desde 1º/11/2026, o imposto volta no aeroporto quando a alfândega confirma que o produto está saindo do Japão, e eletrônico, roupa e bolsa podem ser usados antes. O que **não** pode ser usado é o **consumível** (comida, bebida, cosmético): consumido no Japão, perde a devolução. Por isso: **guardem a caixa (com o IMEI) e o recibo**, levem o aparelho na mala de mão ou no bolso, e passem no **quiosque de tax-free antes de despachar as malas** em Haneda. A brasileira conta a cota de **US$1.000 por pessoa**, então cada um de vocês declara um aparelho.',
     ],
   },
 ];
