@@ -204,7 +204,8 @@ export const LEGS: Record<string, Leg[]> = {
   // ── 21 nov · Tsukiji, Ginza, Estação de Tóquio ─────────────────────
   'd21-tsukiji': [walk(10, 'para o sudoeste, atravessando a avenida Shin-Ōhashi-dōri. Vindo de Tsukiji, a entrada mais perto é a **中の御門 (Naka-no-gomon)**; a outra, o **大手門 (Ōtemon)**, fica do lado de Shiodome. As duas vendem o bilhete')],
   'd21-hamarikyu': [walk(15, 'pela saída Ōtemon, passando por Shiodome, até a Ginza 4-chōme: o Mitsukoshi é a esquina em frente ao relógio do Wakō, e o depachika é no subsolo')],
-  'd21-almoco-ginza': [walk(3, 'o quadrilátero é a avenida Chūō e as paralelas')],
+  'd21-almoco-ginza': [walk(5, 'do Mitsukoshi, subam a avenida Chūō para o norte até a Ginza 2-chōme; a JINS fica no 3º andar do prédio Belvia (銀座ベルビア館), perto da saída A5 da estação Ginza')],
+  'd21-oculos': [walk(3, 'de volta à avenida Chūō: o quadrilátero é ela e as paralelas. Retirada dos óculos por volta das 15:00')],
   'd21-ginza': [
     {
       mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Ginza (銀座)', boardPoint: '銀座駅',
