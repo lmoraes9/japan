@@ -33,10 +33,26 @@ export const START: Record<string, Leg[]> = {
   ],
   'd2026-11-19': [walk(12, 'do Kabukichō até a entrada sul da JR Shinjuku (pela Shinjuku-dōri); plataformas 1 e 2 (Shōnan-Shinjuku Line)')],
   'd2026-11-21': [
-    walk(8, 'do Kabukichō até a estação Shinjuku-sanchōme (entrada ao lado do Isetan)'),
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Shinjuku-sanchōme', direction: 'Ikebukuro', alight: 'Ginza', minutes: 16 },
-    { mode: 'metro', line: 'Hibiya Line', board: 'Ginza (troca pelo corredor, siga a placa 日比谷線)', direction: 'Kita-Senju', alight: 'Tsukiji, saída 1', minutes: 3, cost: '¥210 no total (o metrô cobra uma tarifa só)' },
-    walk(3, 'o mercado externo fica atrás do templo Hongan-ji, do outro lado da avenida'),
+    walk(8, 'do hotel para o sul pela Meiji-dōri até o cruzamento com a Shinjuku-dōri, na esquina do Isetan: a estação **Shinjuku-sanchōme**, a mesma de ontem'),
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Shinjuku-sanchōme (新宿三丁目)', boardPoint: '新宿三丁目駅',
+      direction: '池袋 Ikebukuro', alight: 'Ginza (銀座), 7ª parada', minutes: 16,
+      steps: [
+        'Escada com o círculo **vermelho M** (丸ノ内線), como ontem. Plataforma **池袋方面 (Ikebukuro)**.',
+        'Contem 7 paradas: Shinjuku-gyoemmae, Yotsuya-sanchōme, Yotsuya, Akasaka-mitsuke, Kokkai-gijidōmae, Kasumigaseki e **Ginza**. Desçam.',
+        '**Não saiam da estação.** Em Ginza, sigam as placas **cinza com H** (日比谷線 Hibiya Line). É um corredor de uns 3 a 5 minutos, sem passar catraca.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Hibiya Line (cinza, H)', board: 'Ginza, pelo corredor', direction: '北千住 Kita-Senju',
+      alight: 'Tsukiji (築地), 2ª parada, saída 1', alightPoint: '築地駅 1番出口', minutes: 3, cost: '¥210 no total (o metrô cobra uma tarifa só)',
+      steps: [
+        'Plataforma **北千住方面 (Kita-Senju)**. A do outro lado vai para Naka-Meguro: não peguem essa.',
+        'Contem Higashi-Ginza e **Tsukiji**, a 2ª. Desçam.',
+        'Sigam a placa amarela **1番出口 (saída 1) · 築地本願寺 Tsukiji Hongan-ji**.',
+      ],
+    },
+    walk(3, 'a saída 1 dá no **Tsukiji Hongan-ji**, o templo de pedra com cara de templo indiano. O mercado externo fica do outro lado da avenida, na diagonal: atravessem na faixa e entrem pelas vielas'),
   ],
   'd2026-11-22': [
     walk(10, 'do Kabukichō até a saída leste da JR Shinjuku'),
@@ -186,21 +202,49 @@ export const LEGS: Record<string, Leg[]> = {
   ],
 
   // ── 21 nov · Tsukiji, Ginza, Estação de Tóquio ─────────────────────
-  'd21-tsukiji': [walk(10, 'para o sul, atravessando a avenida; a entrada do jardim é o portão Ōtemon')],
+  'd21-tsukiji': [walk(10, 'para o sudoeste, atravessando a avenida Shin-Ōhashi-dōri. Vindo de Tsukiji, a entrada mais perto é a **中の御門 (Naka-no-gomon)**; a outra, o **大手門 (Ōtemon)**, fica do lado de Shiodome. As duas vendem o bilhete')],
   'd21-hamarikyu': [walk(15, 'pela saída Ōtemon, passando por Shiodome, até a Ginza 4-chōme: o Mitsukoshi é a esquina em frente ao relógio do Wakō, e o depachika é no subsolo')],
   'd21-almoco-ginza': [walk(3, 'o quadrilátero é a avenida Chūō e as paralelas')],
   'd21-ginza': [
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro', alight: 'Tokyo', minutes: 2, cost: '¥180', note: 'ou 15 min a pé pela Yūrakuchō, passando debaixo dos trilhos' },
-    walk(3, 'saída **Marunouchi sul**; o KITTE é o prédio branco em frente, ligado à estação. Terraço no 6º, e o Nemuro Hanamaru no 5º'),
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Ginza (銀座)', boardPoint: '銀座駅',
+      direction: '池袋 Ikebukuro', alight: 'Tokyo (東京), 1ª parada', alightPoint: 'KITTE丸の内', minutes: 2, cost: '¥180',
+      note: 'ou 15 min a pé pela Yūrakuchō, passando debaixo dos trilhos',
+      steps: [
+        'Em Ginza, desçam por qualquer entrada com o **M vermelho** (丸ノ内線). Plataforma **池袋方面 (Ikebukuro)**.',
+        'É só **1 parada**: desçam em **東京 Tokyo**.',
+        'Pelo subsolo, sigam as placas **KITTE / JPタワー**. O KITTE é ligado à estação por baixo, sem precisar sair na rua.',
+        'No KITTE: o **terraço é no 6º andar** (elevador no átrio central); o Nemuro Hanamaru fica no 5º.',
+      ],
+    },
   ],
   'd21-kitte': [walk(8, 'se forem à Ramen Street: atravessem a estação pela **passagem livre norte**, no nível da rua, do lado Marunouchi ao Yaesu — é grátis e não passa catraca. A Ramen Street fica no B1 do First Avenue, também fora das catracas')],
   'd21-jantar-estacao': [
-    { mode: 'train', line: 'JR Yamanote', board: 'Tokyo', direction: 'Shinagawa · Shibuya', alight: 'Ebisu', minutes: 20, cost: '¥253' },
-    walk(5, 'saída oeste; o Uchino Building fica na Ebisu-Nishi, e o bar é no 4º andar'),
+    walk(3, 'do KITTE, a entrada da JR mais perto é a **丸の内南口 (Marunouchi Sul)**, a cúpula do prédio de tijolo vermelho, bem ao lado. Se jantaram na Ramen Street, entrem pela catraca **八重洲中央口 (Yaesu Central)**, que fica ali mesmo'),
+    {
+      mode: 'train', line: 'JR Yamanote (verde-claro)', board: 'Tokyo (東京), catraca Marunouchi Sul', boardPoint: '東京駅 丸の内南口',
+      direction: '品川・渋谷方面 (Shinagawa/Shibuya)', alight: 'Ebisu (恵比寿), 10ª parada, saída oeste (西口)', alightPoint: '恵比寿駅 西口', minutes: 20, cost: '¥253',
+      steps: [
+        'Passada a catraca, sigam a placa **山手線 Yamanote** (verde-claro) e escolham a plataforma **品川・渋谷方面**. A Estação de Tóquio tem mais de 20 plataformas: só olhem a placa verde-clara.',
+        'São 10 paradas, uns 20 minutos. A 6ª é Shinagawa. Desçam em **恵比寿 Ebisu**.',
+        'Sigam a placa amarela **西口 West Exit**.',
+      ],
+    },
+    walk(5, 'saindo do 西口, o Uchino Building fica na Ebisu-Nishi, a poucas quadras; o bar é no 4º andar'),
   ],
   'd21-bar-triad': [
-    { mode: 'train', line: 'JR Yamanote', board: 'Ebisu', direction: 'Shibuya · Shinjuku', alight: 'Shinjuku', minutes: 11, cost: '¥199', note: 'passa da meia-noite? O último trem da Yamanote sai por volta de 00:30; depois disso é táxi (~¥2.500 até o Kabukichō)' },
-    walk(10, 'saída leste e pela Yasukuni-dōri até o Kabukichō'),
+    walk(5, 'de volta à estação Ebisu, entrada **西口 (oeste)**'),
+    {
+      mode: 'train', line: 'JR Yamanote (verde-claro)', board: 'Ebisu (恵比寿), saída oeste', boardPoint: '恵比寿駅 西口',
+      direction: '渋谷・新宿方面 (Shibuya/Shinjuku)', alight: 'Shinjuku (新宿), 4ª parada, saída leste (東口)', alightPoint: '新宿駅 東口', minutes: 11, cost: '¥199',
+      note: 'passa da meia-noite? O último trem da Yamanote sai por volta de 00:30; depois disso é táxi (~¥2.500 até o Kabukichō)',
+      steps: [
+        'Sigam a placa **山手線 Yamanote** (verde-claro), plataforma **渋谷・新宿方面**.',
+        'Contem Shibuya, Harajuku, Yoyogi e **Shinjuku**, a 4ª. Desçam.',
+        'Em Shinjuku, sigam **só** as placas amarelas **東口 East Exit**, como no dia 20.',
+      ],
+    },
+    walk(10, 'saindo do 東口, atravessem a praça e sigam em frente até a Yasukuni-dōri; do outro lado é o Kabukichō, e o hotel fica no lado leste, perto da Meiji-dōri'),
   ],
 
   // ── 22 nov · Meiji, Omotesandō, Shibuya ────────────────────────────
