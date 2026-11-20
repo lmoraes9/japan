@@ -1,3 +1,5 @@
+import { COMIDA_ITENS, type ComidaItem } from '@/data/comida';
+
 /** Contexto de cidade para buscas de lugares sugeridos (fotos/mapa por item) */
 
 const DAY_CITY: Record<string, string> = {
@@ -37,9 +39,29 @@ function cleanItemName(name: string): string {
     .trim();
 }
 
+const norm = (s: string) =>
+  cleanItemName(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+/** o item do catálogo de comida que corresponde a esta sugestão da parada */
+function itemDoCatalogo(itemName: string, stopId: string): ComidaItem | undefined {
+  const n = norm(itemName);
+  return COMIDA_ITENS.find((c) => c.stopId === stopId && (norm(c.nome).startsWith(n) || n.startsWith(norm(c.nome))));
+}
+
+/**
+ * Busca de mapa/fotos de uma sugestão. "Kissaten Tomorrow Tokyo" levava a
+ * outro café "Tomorrow" a 1h30 dali: por isso o nome em japonês e o bairro
+ * entram na busca sempre que se sabe.
+ */
 export function itemQuery(itemName: string, stopId: string, dayId: string): string {
   const city = STOP_CITY[stopId] ?? DAY_CITY[dayId] ?? 'Japan';
-  return `${cleanItemName(itemName)} ${city}`;
+  const c = itemDoCatalogo(itemName, stopId);
+  if (c?.busca) return c.busca;
+  // o bairro escrito no próprio nome ('Kikanbō (Kanda)') vence o da parada ('Akihabara e Kanda')
+  const doNome = /\(([^)]+)\)/.exec(c?.nome ?? itemName)?.[1];
+  const bairro = (doNome ?? c?.bairro ?? BAIRRO_DA_PARADA[stopId])?.split(/\s+e\s+|,/)[0].trim();
+  const nome = c?.jp ?? cleanItemName(itemName);
+  return [nome, bairro, city].filter(Boolean).join(' ');
 }
 
 export function itemPhotosUrl(itemName: string, stopId: string, dayId: string): string {
