@@ -12,6 +12,7 @@ import { PlanoChuva } from '@/components/PlanoChuva';
 import { LastReturn } from '@/components/LastReturn';
 import { HotelDaNoite } from '@/components/HotelDaNoite';
 import { LegsConnector } from '@/components/LegsConnector';
+import { SeguirDia } from '@/components/SeguirDia';
 import { legsFrom, legsToFirst } from '@/data/legs';
 import { stopsEmOrdem } from '@/lib/now';
 import { BASE_DA_ETAPA, baseDaManha, pontoDe, regiaoDoDia } from '@/lib/mapsLinks';
@@ -100,6 +101,8 @@ export default async function DayPage({
         <Footprints size={17} />
         Modo rua — uma parada por vez, em letra grande
       </Link>
+
+      <SeguirDia day={day} />
 
       <DayConditions date={day.date} stageId={day.stageId} />
       <DayReservas date={day.date} />

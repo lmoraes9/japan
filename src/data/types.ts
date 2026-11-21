@@ -83,7 +83,25 @@ export interface Stop {
   mapQuery?: string;
   /** id de um mapa ilustrado interativo em src/data/placeMaps.ts */
   placeMapId?: string;
+  /**
+   * Os pontos de detalhe dentro da parada, na ordem em que se anda: o
+   * pinheiro de 300 anos do Hamarikyū, a casa de chá, o portão. Alimentam o
+   * "Seguir o dia no Google Maps". Paradas com mapa ilustrado já usam os
+   * pontos do mapa e não precisam disto.
+   */
+  pontos?: PontoDetalhe[];
   coords?: { lat: number; lng: number };
+}
+
+/** um ponto dentro de uma parada, para seguir a pé */
+export interface PontoDetalhe {
+  name: string;
+  jp?: string;
+  /** como o Google Maps acha o ponto, de preferência em japonês ('浜離宮恩賜庭園 三百年の松') */
+  query: string;
+  coords?: { lat: number; lng: number };
+  /** uma linha: o que ver ali */
+  note?: string;
 }
 
 export type LegMode = 'walk' | 'train' | 'metro' | 'shinkansen' | 'bus' | 'tram' | 'ferry' | 'taxi' | 'cable' | 'plane';
