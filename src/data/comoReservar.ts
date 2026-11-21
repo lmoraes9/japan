@@ -156,7 +156,7 @@ export const GUIAS: Record<string, GuiaReserva> = {
     passos: [
       ...SMART_EX_PASSOS_BASE,
       'Em **Reservar**, escolham **Kyoto → Tóquio**, **1/12**, 2 adultos, o **Nozomi das 13:20**.',
-      'Peçam os assentos **A ou B**, do lado **esquerdo**: nesse sentido é o lado do Monte Fuji.',
+      'Peçam os assentos **D e E** (o **E** é a janela): no Tōkaidō Shinkansen as letras ficam sempre do mesmo lado do trem, e D/E é o lado do Monte Fuji nos dois sentidos. A e B ficam do lado do mar.',
       'Confirmem e **tirem um print** da tela que mostra como entrar na catraca.',
     ],
     links: [

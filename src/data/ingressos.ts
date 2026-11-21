@@ -60,7 +60,7 @@ export const INGRESSOS: Ingresso[] = [
     jp: 'のぞみ',
     status: 'na-hora',
     date: '2026-12-01',
-    action: 'Não precisa reservar agora. 1/12 é terça comum: o Nozomi tem carros sem reserva e o balcão vende até minutos antes. Reservem só se fizerem questão do lado do Fuji (assentos A ou B), e aí o Nozomi das 13:20.',
+    action: 'Não precisa reservar agora. 1/12 é terça comum: o Nozomi tem carros sem reserva e o balcão vende até minutos antes. Reservem só se fizerem questão do lado do Fuji (assentos **D ou E**; o E é a janela), e aí o Nozomi das 13:20.',
     when: 'Na hora, no balcão ou no Smart EX. Se reservarem antes, a troca de horário é grátis até poucos minutos antes da partida',
     where: 'SmartEX',
     url: 'https://smart-ex.jp/en/',
