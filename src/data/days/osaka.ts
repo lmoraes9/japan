@@ -153,9 +153,9 @@ export const osakaDays: Day[] = [
                 note: '11:00–22:30 · espetinhos empanados. **Regra sagrada: não molhar duas vezes no molho comunitário.** A placa está em toda parede.',
               },
               {
-                name: 'Takoyaki Wanaka ou Hanadako',
+                name: 'Takoyaki Wanaka (Sennichimae)',
                 specialty: true,
-                note: '10:00–23:00 · bolinho de polvo. Deixem esfriar 30 segundos ou vocês queimam o céu da boca — todo mundo queima.',
+                note: '10:00–23:00 · bolinho de polvo, na loja ao lado do Namba Grand Kagetsu (o Hanadako, que também é famoso, fica em Umeda, não aqui). Deixem esfriar 30 segundos ou vocês queimam o céu da boca — todo mundo queima.',
               },
               {
                 name: 'Okonomiyaki Mizuno',
