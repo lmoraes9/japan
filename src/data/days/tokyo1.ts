@@ -800,7 +800,7 @@ export const tokyo1Days: Day[] = [
               {
                 name: 'Nemuro Hanamaru — KITTE 5º andar',
                 specialty: true,
-                note: '11:00–22:00 · **o sushi de esteira que vale a pena**: kaiten de Hokkaidō, peixe muito acima da média para um giratório, ¥150–500 o par. Peguem senha na entrada. É descer do terraço do KITTE, onde vocês já vão estar.',
+                note: '11:00–22:00 · **o sushi de esteira que vale a pena** — atenção: na estação existe também um Hanamaru de sushi **em pé**; o de esteira é o do **KITTE, 5º andar** (回転寿司 根室花まる KITTE丸の内店) · kaiten de Hokkaidō, peixe muito acima da média para um giratório, ¥150–500 o par. Peguem senha na entrada. É descer do terraço do KITTE, onde vocês já vão estar.',
               },
               {
                 name: 'Tokyo Ramen Street — B1 do First Avenue',
@@ -809,7 +809,7 @@ export const tokyo1Days: Day[] = [
             ],
           },
         ],
-        mapQuery: 'Nemuro Hanamaru KITTE Marunouchi',
+        mapQuery: '回転寿司 根室花まる KITTE丸の内店',
       },
       {
         id: 'd21-bar-triad',

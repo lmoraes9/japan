@@ -257,7 +257,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     preco: '¥¥',
     local: true,
     plano: 'escolha',
-    busca: 'Nemuro Hanamaru KITTE Marunouchi',
+    busca: '回転寿司 根室花まる KITTE丸の内店',
     stopId: 'd21-jantar-estacao',
     nota: '11:00–22:00 · **o kaiten que vale a pena**: peixe de Hokkaidō muito acima da média de esteira, ¥150–500 o par. É só descer do terraço do KITTE, onde vocês já vão estar.',
   },
