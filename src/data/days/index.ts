@@ -6,6 +6,7 @@ import { koyasanDays } from './koyasan';
 import { kyotoDays } from './kyoto';
 import { tokyo2Days } from './tokyo2';
 import { COORDS } from '../coords';
+import { PONTOS } from '../pontos';
 
 /** Todos os dias em ordem, com coords injetadas nos stops */
 export const ALL_DAYS: Day[] = [
@@ -17,7 +18,11 @@ export const ALL_DAYS: Day[] = [
   ...tokyo2Days,
 ].map((day) => ({
   ...day,
-  stops: day.stops.map((s) => (COORDS[s.id] ? { ...s, coords: COORDS[s.id] } : s)),
+  stops: day.stops.map((s) => ({
+    ...s,
+    ...(COORDS[s.id] ? { coords: COORDS[s.id] } : {}),
+    ...(PONTOS[s.id] && !s.pontos ? { pontos: PONTOS[s.id] } : {}),
+  })),
 }));
 
 export const dayById = (id: string): Day | undefined =>

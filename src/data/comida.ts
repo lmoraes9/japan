@@ -613,7 +613,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
   },
   {
     id: 'takoyaki',
-    nome: 'Takoyaki Wanaka ou Hanadako',
+    nome: 'Takoyaki Wanaka (Sennichimae)',
     jp: 'たこ焼き',
     cat: 'chapa',
     estilo: ['takoyaki'],
@@ -622,7 +622,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     local: true,
     plano: 'marcado',
     stopId: 'd25-dotonbori',
-    nota: '10:00–23:00 · bolinho de polvo. Deixem esfriar 30 segundos ou vocês queimam o céu da boca — todo mundo queima.',
+    nota: '10:00–23:00 · bolinho de polvo, na loja ao lado do Namba Grand Kagetsu (o Hanadako, que também é famoso, fica em Umeda, não aqui). Deixem esfriar 30 segundos ou vocês queimam o céu da boca — todo mundo queima.',
   },
   {
     id: 'mizuno',
