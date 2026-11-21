@@ -2,6 +2,7 @@ import type { Day, Stop } from '@/data/types';
 import { placeMapByStopId } from '@/data/placeMaps';
 import { stopsEmOrdem } from '@/lib/now';
 import { pontoDe } from '@/lib/mapsLinks';
+import { legsFrom } from '@/data/legs';
 
 export interface PontoDoDia {
   nome: string;
@@ -69,4 +70,64 @@ export function caminhadas(pontos: string[]): string[] {
     links.push(`https://www.google.com/maps/dir/?${p}`);
   }
   return links;
+}
+
+export interface RotaDoDia {
+  /** 'Meiji Jingū → Omotesandō & Harajuku' */
+  titulo: string;
+  href: string;
+  pontos: number;
+}
+
+/** máximo de paradas intermediárias que o app do Google Maps aceita num link */
+const MAX_MEIO = 9;
+
+/**
+ * O dia como um caminho só no Google Maps: todas as paradas e pontos de
+ * detalhe em sequência, a pé. Onde o trecho entre duas paradas tem trem,
+ * metrô, ônibus ou balsa, a rota se divide ali (o Google Maps não faz
+ * várias paradas em transporte público). Cada pedaço leva até 11 pontos:
+ * saída, 9 no meio e chegada.
+ */
+export function rotasDoDia(day: Day): RotaDoDia[] {
+  const paradas = paradasDoDia(day);
+  // trechos contínuos a pé: [{nome da parada, destino}...]
+  const trechos: { nome: string; destino: string }[][] = [];
+  let atual: { nome: string; destino: string }[] = [];
+  paradas.forEach((p, i) => {
+    atual.push({ nome: p.stop.name, destino: p.destino });
+    for (const d of p.pontos) atual.push({ nome: p.stop.name, destino: d.destino });
+    const legs = legsFrom(p.stop.id);
+    const temConducao = legs?.some((l) => l.mode !== 'walk');
+    if (temConducao && i < paradas.length - 1) {
+      trechos.push(atual);
+      atual = [];
+    }
+  });
+  if (atual.length) trechos.push(atual);
+
+  const rotas: RotaDoDia[] = [];
+  for (const trecho of trechos) {
+    // tira repetições seguidas (a parada e o seu primeiro ponto no mesmo lugar)
+    const lista = trecho.filter((x, k) => k === 0 || x.destino !== trecho[k - 1].destino);
+    if (lista.length < 2) continue;
+    for (let i = 0; i < lista.length - 1; i += MAX_MEIO + 1) {
+      const pedaco = lista.slice(i, i + MAX_MEIO + 2);
+      if (pedaco.length < 2) break;
+      const p = new URLSearchParams({
+        api: '1',
+        origin: pedaco[0].destino,
+        destination: pedaco[pedaco.length - 1].destino,
+        travelmode: 'walking',
+      });
+      if (pedaco.length > 2) p.set('waypoints', pedaco.slice(1, -1).map((x) => x.destino).join('|'));
+      const nomes = [...new Set(pedaco.map((x) => x.nome))];
+      rotas.push({
+        titulo: nomes.length > 1 ? `${nomes[0]} → ${nomes[nomes.length - 1]}` : nomes[0],
+        href: `https://www.google.com/maps/dir/?${p}`,
+        pontos: pedaco.length,
+      });
+    }
+  }
+  return rotas;
 }
