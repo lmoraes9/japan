@@ -1,6 +1,7 @@
 import { Footprints, MapPinned, Navigation } from 'lucide-react';
 import type { Day } from '@/data/types';
-import { caminhadas, irAte, paradasDoDia } from '@/lib/seguirDia';
+import { caminhadas, irAte, paradasDoDia, rotasDoDia } from '@/lib/seguirDia';
+import { Route } from 'lucide-react';
 
 /**
  * O dia inteiro no Google Maps: cada parada com o seu "Ir" (rota saindo de
@@ -11,7 +12,39 @@ export function SeguirDia({ day }: { day: Day }) {
   const paradas = paradasDoDia(day);
   const totalPontos = paradas.reduce((n, p) => n + p.pontos.length, 0);
   if (!paradas.length) return null;
+  const rotas = rotasDoDia(day);
   return (
+    <>
+    {rotas.length > 0 && (
+      <section className="overflow-hidden rounded-2xl border border-accent/40 bg-accent-soft">
+        <div className="flex items-center gap-2.5 px-4 pt-3">
+          <Route size={18} className="shrink-0 text-accent" />
+          <span className="text-[14px] font-semibold">O dia como um caminho só no Google Maps</span>
+        </div>
+        <p className="px-4 pt-1 text-[12px] leading-snug text-muted">
+          Cada botão abre <strong className="text-foreground">uma rota a pé com todas as paradas e pontos em sequência</strong>. Onde o roteiro pega trem, metrô ou balsa, a rota se divide: depois da condução, abram a parte seguinte.
+        </p>
+        <ol className="space-y-1.5 px-4 pb-3 pt-2">
+          {rotas.map((r, i) => (
+            <li key={i}>
+              <a
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tappable flex items-center gap-2.5 rounded-xl bg-surface px-3 py-2.5"
+              >
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent font-mono text-[11px] font-semibold text-white">{i + 1}</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[13.5px] font-semibold leading-snug">{r.titulo}</span>
+                  <span className="block text-[11.5px] text-muted">{r.pontos} pontos, a pé</span>
+                </span>
+                <Navigation size={15} className="shrink-0 text-accent" />
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
     <details className="group overflow-hidden rounded-2xl border border-hairline bg-surface">
       <summary className="tappable flex cursor-pointer list-none items-center gap-2.5 px-4 py-3">
         <MapPinned size={18} className="shrink-0 text-accent" />
@@ -92,5 +125,6 @@ export function SeguirDia({ day }: { day: Day }) {
         </ol>
       </div>
     </details>
+    </>
   );
 }
