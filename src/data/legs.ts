@@ -55,27 +55,39 @@ export const START: Record<string, Leg[]> = {
     walk(3, 'a saída 1 dá no **Tsukiji Hongan-ji**, o templo de pedra com cara de templo indiano. O mercado externo fica do outro lado da avenida, na diagonal: atravessem na faixa e entrem pelas vielas'),
   ],
   'd2026-11-22': [
-    walk(10, 'do Kabukichō até a saída leste da JR Shinjuku'),
-    { mode: 'train', line: 'JR Yamanote', board: 'Shinjuku', direction: 'Shibuya · Shinagawa (sentido anti-horário)', alight: 'Harajuku, saída oeste (Meiji-jingū)', minutes: 4, cost: '¥155' },
-    walk(2, 'o grande torii fica na saída'),
+    walk(6, 'do hotel para o sul pela Meiji-dōri: a entrada **E1** da Shinjuku-sanchōme fica na própria Meiji-dōri, ainda do lado do Kabukichō. Hoje a linha é outra, a Fukutoshin, que corre embaixo da Meiji-dōri'),
+    {
+      mode: 'metro', line: 'Fukutoshin Line (marrom, F)', board: 'Shinjuku-sanchōme (新宿三丁目), entrada E1', boardPoint: '新宿三丁目駅 E1出口',
+      direction: '渋谷 Shibuya', alight: 'Meiji-jingūmae〈Harajuku〉 (明治神宮前〈原宿〉), saída 2', alightPoint: '明治神宮前駅 2番出口', minutes: 4, cost: '¥180',
+      note: 'é a mesma conta da JR Yamanote, mas sem atravessar a estação de Shinjuku',
+      steps: [
+        'Desçam pela E1 e sigam o círculo **marrom F** (副都心線). Não confundam com a Marunouchi (vermelha, M) dos outros dias nem com a Toei Shinjuku (verde, S).',
+        'Plataforma **渋谷方面 (Shibuya)**. O painel pode mostrar 横浜 ou 元町・中華街: tudo bem, o trem passa por Shibuya.',
+        'Desçam em **明治神宮前〈原宿〉 Meiji-jingūmae**: é a 2ª parada no trem local (a 1ª é Kita-sandō) e a 1ª no expresso (急行), que pula Kita-sandō. Leiam o nome na plataforma.',
+        'Sigam a placa amarela **2番出口 (saída 2) · JR原宿駅**, pela catraca 代々木公園方面.',
+      ],
+    },
+    walk(4, 'a saída 2 dá no cruzamento em frente à JR Harajuku. Andem com a estação à esquerda até a ponte **Jingūbashi**, sobre os trilhos: do outro lado está o torii de madeira, a entrada sul do santuário'),
   ],
   'd2026-11-23': [
-    walk(10, 'do Kabukichō até a saída leste da JR Shinjuku, só com a mochila: as malas grandes já foram de takuhaibin'),
-    { mode: 'train', line: 'JR Chūō (rápido)', board: 'Shinjuku, plataformas 7–8 (東京方面)', direction: 'Tokyo', alight: 'Tokyo (final)', minutes: 15, cost: '¥253' },
+    walk(10, 'do hotel até a JR Shinjuku pela saída **東口 (East Exit)**, o caminho da volta dos dias 20 e 21 ao contrário: atravessem a Yasukuni-dōri e a praça. Só com a mochila: as malas grandes já foram de takuhaibin. Saiam do hotel por volta das **05:55**: o 7-Eleven está marcado para 06:30 e o Nozomi não espera'),
+    {
+      mode: 'train', line: 'JR Chūō rápido (laranja)', board: 'Shinjuku (新宿), plataformas 7–8', boardPoint: '新宿駅 東口',
+      direction: '東京方面 (Tokyo)', alight: 'Tokyo (東京), fim da linha', minutes: 15, cost: '¥253',
+      steps: [
+        'Passem a Suica na catraca do **東口** e sigam a placa **中央線快速 Chūō Line (Rapid)**, laranja, plataformas **7・8 東京方面**. Qualquer trem laranja dali vai para Tokyo. A placa **中央・総武線各駅停車** (amarela) é outra linha: não sigam essa.',
+        'São 4 paradas: Yotsuya, Ochanomizu, Kanda e **Tokyo**, o fim da linha. Todo mundo desce.',
+        'Em Tokyo o trem chega no alto (3º andar), do lado **Marunouchi**, e o Shinkansen fica do outro lado da estação. Desçam até o **corredor central** e sigam as placas **東海道新幹線 Tōkaidō Shinkansen**. **Não passem nenhuma catraca de saída (出口)** no caminho.',
+      ],
+    },
   ],
   'd2026-11-24': [
-    walk(5, 'o hotel fica na frente da estação: entrem pela saída sul e sigam a placa JR 山陽線; plataforma 1'),
+    walk(5, 'o hotel fica na frente da estação: entrem pelo **南口 (South Exit)**, no prédio novo **minamoa**, subam ao **2º andar** e passem a Suica no **中央改札口 (catraca central)**. Lá dentro, sigam a placa **山陽線 Sanyō Line · 岩国方面**: plataforma **1** (confiram no painel)'),
   ],
   'd2026-11-25': [
-    walk(5, 'do hotel às catracas do Shinkansen (lado norte da estação), com a mochila; check-out feito'),
+    walk(5, 'check-out feito, só com a mochila (as malas grandes já foram para Kyoto). Entrem pela **saída sul (南口)** da estação, subam ao 2º andar e atravessem pela passagem livre norte–sul (南北自由通路) seguindo as placas **新幹線 Shinkansen**: as catracas do Shinkansen ficam do lado norte'),
   ],
   'd2026-11-26': [walk(4, 'do hotel ao Ibuki, para o lado da Nippombashi')],
-  'd26-cafe': [
-    walk(3, 'de volta à **Nippombashi** — é a estação da porta, não a Namba'),
-    { mode: 'metro', line: 'Sakaisuji Line (marrom)', board: 'Nippombashi', direction: 'Tenjimbashisuji 6-chōme', alight: 'Sakaisuji-Hommachi', minutes: 5 },
-    { mode: 'metro', line: 'Chūō Line (verde)', board: 'Sakaisuji-Hommachi', direction: 'Nagata · Gakken-Nara-Tomigaoka', alight: 'Tanimachi 4-chōme, saída 1-B', minutes: 3, cost: '¥240 no total' },
-    walk(12, 'reto até o portão Ōtemon, sobre o fosso'),
-  ],
   'd2026-11-27': [
     walk(1, 'a oração é no hondō do próprio templo — é só descer o corredor de meia'),
   ],
@@ -84,27 +96,84 @@ export const START: Record<string, Leg[]> = {
   ],
   'd2026-11-29': [walk(2, 'o 7-Eleven da esquina do hotel, na Kawaramachi')],
   'd2026-11-30': [
-    walk(6, 'subindo a Kawaramachi até a Oike-dōri: a estação **Kyoto-Shiyakusho-mae** (metrô Tōzai) fica na frente da prefeitura'),
-    { mode: 'metro', line: 'Tōzai Line', board: 'Kyoto-Shiyakusho-mae', direction: 'Uzumasa-Tenjingawa', alight: 'Karasuma-Oike', minutes: 2 },
-    { mode: 'metro', line: 'Karasuma Line', board: 'Karasuma-Oike (sigam a placa 烏丸線, baldeação no mesmo prédio)', direction: 'Takeda', alight: 'Kyoto', minutes: 6, cost: '¥260 no total' },
-    walk(6, 'a Kintetsu fica **no 2º andar**, do lado Hachijō (sul), logo abaixo do Shinkansen — atravessem a estação pela passagem livre. Plataformas 1 a 4, e as máquinas de assento reservado ficam ao lado da catraca'),
+    walk(6, 'subindo a Kawaramachi para o norte até a Oike-dōri: a estação **Kyoto-Shiyakusho-mae** (metrô Tōzai) fica embaixo, na frente da prefeitura'),
+    {
+      mode: 'metro', line: 'Tōzai Line (vermelho-alaranjado, T)', board: 'Kyoto-Shiyakusho-mae (京都市役所前)', boardPoint: '京都市役所前駅',
+      direction: '太秦天神川 Uzumasa-Tenjingawa', alight: 'Karasuma-Oike (烏丸御池), 1ª parada', minutes: 2,
+      steps: [
+        'Passem a Suica e escolham a plataforma **太秦天神川方面 (Uzumasa-Tenjingawa)**. A do outro lado vai para 六地蔵 Rokujizō: não peguem essa.',
+        'É **1 parada**: desçam em **烏丸御池 Karasuma-Oike**.',
+        '**Não saiam da estação.** Sigam as placas **烏丸線 Karasuma Line** (verde, K): a baldeação é no mesmo prédio, sem passar catraca.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Karasuma Line (verde, K)', board: 'Karasuma-Oike, pela baldeação', direction: '京都・竹田 Kyoto · Takeda',
+      alight: 'Kyoto (京都), 3ª parada', minutes: 6, cost: '¥260 no total',
+      steps: [
+        'Plataforma **京都・竹田方面 (Kyoto/Takeda)**. A do outro lado vai para 国際会館 Kokusaikaikan.',
+        'Contem Shijō, Gojō e **Kyoto**, a 3ª. Desçam.',
+        'O metrô fica no subsolo do lado norte (Karasuma). Passada a catraca, sigam as placas **近鉄線 Kintetsu**: ela fica do outro lado, no sul.',
+      ],
+    },
+    walk(6, 'a Kintetsu fica **no 2º andar**, do lado Hachijō (sul), logo abaixo do Shinkansen — subam e atravessem a estação pela passagem livre do 2º andar (南北自由通路), seguindo a placa 近鉄線. Plataformas 1 a 4, e as máquinas de assento reservado (特急券) ficam ao lado da catraca'),
   ],
   'd2026-12-01': [
     walk(6, 'check-out feito e as malas grandes já despachadas do hotel para Ginza; com as malas de mão, subam a Kawaramachi até a Oike-dōri: a estação **Kyoto-Shiyakusho-mae** (metrô Tōzai) fica na frente da prefeitura'),
-    { mode: 'metro', line: 'Tōzai Line', board: 'Kyoto-Shiyakusho-mae', direction: 'Uzumasa-Tenjingawa', alight: 'Karasuma-Oike', minutes: 2 },
-    { mode: 'metro', line: 'Karasuma Line', board: 'Karasuma-Oike (sigam a placa 烏丸線, baldeação no mesmo prédio)', direction: 'Takeda', alight: 'Kyoto', minutes: 6, cost: '¥260 no total' },
+    {
+      mode: 'metro', line: 'Tōzai Line (vermelho-alaranjado, T)', board: 'Kyoto-Shiyakusho-mae (京都市役所前)', boardPoint: '京都市役所前駅',
+      direction: '太秦天神川 Uzumasa-Tenjingawa', alight: 'Karasuma-Oike (烏丸御池), 1ª parada', minutes: 2,
+      steps: [
+        'Plataforma **太秦天神川方面 (Uzumasa-Tenjingawa)**, como no dia 30.',
+        '**1 parada**: desçam em **烏丸御池 Karasuma-Oike** e sigam as placas **烏丸線 Karasuma Line**, sem sair da estação.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Karasuma Line (verde, K)', board: 'Karasuma-Oike, pela baldeação', direction: '京都・竹田 Kyoto · Takeda',
+      alight: 'Kyoto (京都), 3ª parada', minutes: 6, cost: '¥260 no total',
+      steps: [
+        'Plataforma **京都・竹田方面**. Contem Shijō, Gojō e **Kyoto**, a 3ª.',
+        'Passada a catraca do metrô, sigam as placas **JR線 / 中央口 (Central)**: os armários ficam junto das catracas centrais da JR.',
+      ],
+    },
     walk(4, 'armários ao lado das catracas centrais: deixem as malas de mão aqui (¥400–700, moeda ou Suica) e guardem a chave/recibo'),
-    { mode: 'train', line: 'JR Nara Line (local, 普通)', board: 'Estação de Kyoto, plataformas 8 a 10', direction: 'Nara', alight: 'Tōfukuji (1ª parada)', minutes: 2, cost: '¥150', note: 'só o local para em Tōfukuji' },
-    walk(10, 'saindo, siga o fluxo para o sul até a ponte Gaun-kyō'),
+    {
+      mode: 'train', line: 'JR Nara Line', board: 'Estação de Kyoto, plataformas 8 a 10', boardPoint: '京都駅 中央口',
+      direction: '奈良方面 Nara', alight: 'Tōfukuji (東福寺), 1ª parada', alightPoint: 'JR東福寺駅', minutes: 2, cost: '¥150',
+      note: 'o local (普通) e a みやこ路快速 param os dois em Tōfukuji: é a 1ª parada de qualquer trem da Nara Line',
+      steps: [
+        'Pela catraca **中央口 (Central)**, sigam a placa **奈良線 Nara Line**, plataformas **8 a 10**. Ficam longe das catracas: contem uns 5 minutos andando dentro da estação.',
+        'No painel, o trem é da **奈良線** (destino 奈良, 宇治 ou 城陽). Confiram que 東福寺 está na lista de paradas.',
+        'É **1 parada, 2 minutos**: desçam em **東福寺 Tōfukuji**. A Keihan tem uma estação com o mesmo nome colada: é só sair pela catraca da JR.',
+      ],
+    },
+    walk(10, 'saindo, siga o fluxo para o sul pela rua em frente (Hommachi-dōri) até a ponte Gaun-kyō'),
   ],
   'd2026-12-02': [
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro', alight: 'Ochanomizu', minutes: 12, cost: '¥210', note: 'se pularem a manhã opcional, o dia começa direto no curry: da Ginza, a pé pelo subsolo até Hibiya e a Toei Mita até Jimbōchō, 2 paradas, sem baldeação' },
-    walk(5, 'saída Hijiribashi; o santuário fica subindo, atrás do Yushima Seidō'),
+    walk(8, 'do hotel até a saída **A13** da estação Ginza. No subsolo, sigam as placas **vermelhas M** (丸ノ内線): a Marunouchi passa do lado oeste de Ginza, é um corredor de uns 5 minutos'),
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Ginza (銀座), entrada A13', boardPoint: '銀座駅 A13出口',
+      direction: '池袋 Ikebukuro', alight: 'Ochanomizu (御茶ノ水), 4ª parada, saída 2', alightPoint: '御茶ノ水駅 2番出口', minutes: 12, cost: '¥210',
+      note: 'se pularem a manhã opcional, o dia começa direto no curry: de Ginza, a pé pelo subsolo até Hibiya, e a Toei Mita (azul, I) sentido 西高島平 até **Jimbōchō**, 2 paradas, sem baldeação',
+      steps: [
+        'Plataforma **池袋方面 (Ikebukuro)**, a mesma direção do dia 21.',
+        'Contem: Tokyo, Ōtemachi, Awajichō e **Ochanomizu**, a 4ª. Desçam.',
+        'Na Ochanomizu da Marunouchi cada sentido tem a sua catraca. Saiam pela **JR御茶ノ水駅方面** e sigam a placa amarela **2番出口 (saída 2)**. Não entrem na JR: o santuário fica deste lado do rio.',
+      ],
+    },
+    walk(6, 'saindo, sigam para o leste até o cruzamento da ponte Hijiribashi e subam a Hongō-dōri com o muro preto do **Yushima Seidō** à direita; o torii de pedra do santuário fica na própria Hongō-dōri, e o portão principal, uns 100 m para dentro'),
   ],
   'd2026-12-03': [
-    walk(3, 'saída A13 da Ginza, com o check-out já feito e as malas na recepção'),
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro (池袋)', alight: 'Shin-Ōtsuka (新大塚)', minutes: 17, cost: '¥210' },
-    walk(5, 'o Nakiryu fica uns 300 m ao norte da estação, numa rua residencial — sigam o mapa; cheguem às 7:30'),
+    walk(8, 'com o check-out já feito e as malas na recepção, até a saída **A13** da Ginza; no subsolo, as placas **vermelhas M** (丸ノ内線) levam ao lado oeste da estação, uns 5 min'),
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Ginza (銀座), entrada A13', boardPoint: '銀座駅 A13出口',
+      direction: '池袋 Ikebukuro', alight: 'Shin-Ōtsuka (新大塚), 8ª parada', alightPoint: '新大塚駅', minutes: 17, cost: '¥210',
+      steps: [
+        'Plataforma **池袋方面 (Ikebukuro)**, a mesma de ontem.',
+        'Contem 8 paradas: Tokyo, Ōtemachi, Awajichō, Ochanomizu, Hongō-sanchōme, Kōrakuen, Myōgadani e **Shin-Ōtsuka**. Desçam.',
+        'Em Shin-Ōtsuka cada sentido tem a sua catraca e a sua saída. Chegando deste lado, vocês saem pela **2番出口 (saída 2)**, do lado de Bunkyō.',
+      ],
+    },
+    walk(5, 'atravessem a avenida para o lado de **Minami-Ōtsuka (豊島区)**, onde fica a saída 1, e sigam o mapa: o Nakiryu fica uns 300 m adiante, numa rua residencial, térreo do prédio SKY南大塚. Cheguem às 7:30'),
   ],
 };
 
@@ -249,53 +318,125 @@ export const LEGS: Record<string, Leg[]> = {
   ],
 
   // ── 22 nov · Meiji, Omotesandō, Shibuya ────────────────────────────
-  'd22-meiji-jingu': [walk(5, 'de volta pelo torii, atravessa a rua da estação e a Omotesandō começa ali')],
-  'd22-omotesando': [walk(8, 'o Afuri fica numa transversal, perto da estação Harajuku')],
+  'd22-meiji-jingu': [walk(5, 'de volta pelo caminho de saibro até o torii sul e a ponte Jingūbashi: do outro lado, em frente à JR Harajuku, começa a **Omotesandō**, a avenida larga de zelkovas que desce para o sudeste')],
+  'd22-omotesando': [walk(8, 'o Afuri fica numa transversal, perto da estação Harajuku — sigam o mapa')],
   'd22-almoco': [
-    walk(8, 'até a estação Omote-sandō'),
-    { mode: 'metro', line: 'Ginza Line', board: 'Omote-sandō', direction: 'Asakusa', alight: 'Gaienmae, saída 4a', minutes: 2, cost: '¥180', note: 'ou 20 min a pé pela Aoyama-dōri' },
-    walk(5, 'a alameda começa na esquina do Itchome, é impossível errar'),
+    walk(8, 'descendo a Omotesandō até o cruzamento com a Aoyama-dōri: a estação **Omote-sandō** fica embaixo. Desçam por uma entrada com o **G laranja** (銀座線)'),
+    {
+      mode: 'metro', line: 'Ginza Line (laranja, G)', board: 'Omote-sandō (表参道)', boardPoint: '表参道駅',
+      direction: '浅草 Asakusa', alight: 'Gaienmae (外苑前), 1ª parada, saída 4a', alightPoint: '外苑前駅 4a出口', minutes: 2, cost: '¥180',
+      note: 'ou 20 min a pé pela Aoyama-dōri',
+      steps: [
+        'Plataforma **浅草方面 (Asakusa)**. Atenção: nela param **dois** trens, um de cada lado — o **laranja** da Ginza Line e o **roxo** da Hanzōmon (押上方面). Peguem o **laranja**.',
+        'É só **1 parada**: desçam em **外苑前 Gaienmae**.',
+        'Sigam a catraca **外苑いちょう並木方面** e a placa amarela **4a出口 (saída 4a)**.',
+      ],
+    },
+    walk(3, 'saindo da 4a, na Aoyama-dōri, a alameda de ginkgos sai da própria Aoyama-dōri, a poucos passos — é impossível errar: é a rua amarela'),
   ],
   'd22-gaien': [
-    walk(5, 'de volta à estação Gaienmae'),
-    { mode: 'metro', line: 'Ginza Line', board: 'Gaienmae', direction: 'Shibuya', alight: 'Shibuya (final)', minutes: 6, cost: '¥180' },
-    walk(7, 'saída Hachikō, atravessa o cruzamento e sobe a Center-gai; o PARCO fica no fim dela, à direita'),
+    walk(5, 'de volta pela alameda até a Aoyama-dōri e a entrada **4a** da Gaienmae'),
+    {
+      mode: 'metro', line: 'Ginza Line (laranja, G)', board: 'Gaienmae (外苑前), entrada 4a', boardPoint: '外苑前駅 4a出口',
+      direction: '渋谷 Shibuya', alight: 'Shibuya (渋谷), fim da linha, saída Hachikō (ハチ公口)', alightPoint: '渋谷駅 ハチ公口', minutes: 6, cost: '¥180',
+      steps: [
+        'Plataforma **渋谷方面 (Shibuya)**. Fiquem até o **fim da linha**: Omote-sandō e **Shibuya**, a 2ª.',
+        'Em Shibuya a Ginza Line chega no alto, no 3º andar, por cima da Meiji-dōri. Saiam pela catraca **渋谷スクランブルスクエア方面** (o lado da JR), **não** pela 明治通り方面, que leva à Hikarie.',
+        'Depois, sigam as placas amarelas **ハチ公口 Hachikō**, descendo até a rua. Saindo, a estátua do cachorro e o cruzamento estão na frente.',
+      ],
+    },
+    walk(7, 'atravessem o cruzamento na diagonal até a Center-gai (a rua que sai ao lado do prédio do Starbucks/Tsutaya) e subam por ela; no fim, virem à direita: o PARCO fica ali'),
   ],
-  'd22-parco': [walk(5, 'desce a Center-gai de volta; o cruzamento está no fim dela')],
-  'd22-cruzamento': [walk(5, 'o Mark City é o prédio colado à saída oeste da estação (o sushi fica no 4º)')],
+  'd22-parco': [walk(5, 'descendo a Center-gai de volta; o cruzamento está no fim dela')],
+  'd22-cruzamento': [walk(5, 'o **Mark City** é o prédio colado à estação, do lado oeste, onde chega a linha Inokashira. O sushi fica no **4º andar da East Mall** (マークシティ イースト 4F)')],
   'd22-jantar': [
-    { mode: 'train', line: 'JR Yamanote', board: 'Shibuya', direction: 'Shinjuku · Ikebukuro', alight: 'Shinjuku', minutes: 7, cost: '¥199' },
-    walk(10, 'saída leste e pela Yasukuni-dōri até o Kabukichō'),
+    walk(3, 'de dentro do Mark City, pelo **西口連絡通路** (a passagem do lado oeste), até a catraca **中央改札** da JR, no 3º andar'),
+    {
+      mode: 'train', line: 'JR Yamanote (verde-claro)', board: 'Shibuya (渋谷), catraca central', boardPoint: '渋谷駅',
+      direction: '新宿・池袋方面 (Shinjuku/Ikebukuro)', alight: 'Shinjuku (新宿), 3ª parada, saída leste (東口)', alightPoint: '新宿駅 東口', minutes: 7, cost: '¥199',
+      steps: [
+        'Sigam a placa **山手線 Yamanote** (verde-claro). Em Shibuya os **dois sentidos usam a mesma plataforma**, um de cada lado: leiam o painel e peguem o lado **新宿・池袋方面**. O outro vai para Ebisu e Shinagawa.',
+        'Contem Harajuku, Yoyogi e **Shinjuku**, a 3ª. Desçam.',
+        'Em Shinjuku, sigam **só** as placas amarelas **東口 East Exit**, como nos outros dias.',
+      ],
+    },
+    walk(10, 'saindo do 東口, atravessem a praça e sigam em frente até a Yasukuni-dōri; do outro lado é o Kabukichō, e o hotel fica no lado leste, perto da Meiji-dōri'),
   ],
 
   // ── 23 nov · Shinkansen e Hiroshima ────────────────────────────────
-  'd23-konbini': [walk(8, 'catracas do Tōkaidō Shinkansen, no lado **Yaesu**; plataformas 14 a 19, que ficam altas e longe — contem os 8 minutos. O **Ekibenya Matsuri** (5:30–22:00, 150 tipos de ekiben) fica **dentro das catracas**, na passagem central, entre as escadas das plataformas 5–6 e 7–8')],
+  'd23-konbini': [walk(8, 'ainda dentro das catracas da JR, pelo **corredor central** (中央通路), sigam as placas **東海道新幹線** até a catraca de baldeação **新幹線中央のりかえ口**, no lado **Yaesu**. Ali passem o mesmo cartão IC ligado ao Smart EX (ou insiram o bilhete, se for de papel). As plataformas 14 a 19 ficam altas e longe — contem os 8 minutos. O **Ekibenya Matsuri** (5:30–22:00, 150 tipos de ekiben) fica **antes** dessa catraca, na passagem central, entre as escadas das plataformas 5–6 e 7–8: comprem o ekiben antes de passar')],
   'd23-trem-hiroshima': [
-    { mode: 'shinkansen', line: 'Nozomi', board: 'Tokyo, plataforma indicada no bilhete (14–19)', direction: 'Hakata (博多)', alight: 'Hiroshima, plataforma 11 ou 12 (3º andar)', minutes: 235, cost: '¥19.800 reservado', note: 'número do carro está no bilhete; a fila é na marca do chão. Fuji do lado direito, uns 40 min depois de sair' },
-    walk(3, 'desça ao 2º andar e saia pelo 新幹線口 (o portão do Shinkansen, lado norte): o ekie é o shopping logo à frente, do lado leste do corredor'),
+    {
+      mode: 'shinkansen', line: 'Nozomi (のぞみ)', board: 'Tokyo (東京), plataforma do bilhete (14–19)',
+      direction: '博多 Hakata ou 広島 Hiroshima', alight: 'Hiroshima (広島), catraca do Shinkansen no 2º andar', alightPoint: '広島駅 新幹線口',
+      minutes: 235, cost: '¥19.800 reservado',
+      steps: [
+        'No painel, procurem **のぞみ** com o **número do trem** e o horário do bilhete (07:00). Os Nozomi daqui terminam em **博多 Hakata** ou **広島 Hiroshima**: os dois servem. Subam à plataforma que o painel indicar.',
+        'O **número do carro (号車)** está no bilhete ou no Smart EX; a fila é na marca do chão com esse número. Os assentos reservados de feriado lotam: entrem logo.',
+        'O Fuji aparece do **lado direito**, uns 40 min depois de sair, entre Odawara e Shizuoka: na fileira de dois, o assento **E** é a janela.',
+        'A parada antes de Hiroshima é Okayama ou Fukuyama: o anúncio em inglês avisa. Desçam, sigam as placas amarelas **出口 Exit**, desçam ao **2º andar** e passem a **catraca do Shinkansen** (o mesmo IC ou o bilhete).',
+      ],
+    },
+    walk(1, 'a **Pokémon Center** fica **ao lado da catraca do Shinkansen**, no 2º andar do **ekie** (lado norte da estação): saindo da catraca, é logo ali'),
   ],
   'd23-pokemon-center': [
-    walk(5, 'do ekie, desça para a saída sul: o APA fica na frente da estação, do lado da ponte Ekimae-Ōhashi'),
+    walk(5, 'do ekie, atravessem a estação pelo **corredor livre do 2º andar (南北自由通路)** até o lado sul, o prédio novo **minamoa**, e desçam à rua pelo **南口 (South Exit)**. O APA fica na frente da estação, para o lado da ponte **Ekimae-Ōhashi (駅前大橋)**'),
   ],
   'd23-chegada': [
-    walk(4, 'de volta à estação: o terminal do bonde fica no 2º andar do minamoa, no átrio em frente ao 中央口'),
-    { mode: 'tram', line: 'bonde 2 (plataforma D) ou 6 (plataforma C)', board: 'Hiroshima Station, terminal no 2º andar', direction: 'Miyajimaguchi (2) · Eba (6)', alight: 'Genbaku-Dōmu-mae', minutes: 15, cost: '¥240, paga ao descer · IC: encoste ao embarcar e ao descer', note: 'a linha 1 NÃO passa no Domo: ela vira para o sul em Kamiyachō' },
-    walk(8, 'o museu fica no fundo do parque, atravessando a ponte'),
+    walk(4, 'de volta à estação pelo **南口**: o bonde fica no **2º andar do minamoa**, no mesmo nível das catracas da JR. Subam e sigam as placas **路面電車 · 広電 Hiroden**'),
+    {
+      mode: 'tram', line: 'bonde 2 ou 6 (Hiroden)', board: 'Hiroshima Station (広島駅), 2º andar do minamoa', boardPoint: '広島駅 南口',
+      direction: '宮島口 Miyajimaguchi (2) · 江波 Eba (6)', alight: 'Genbaku-Dōmu-mae (原爆ドーム前)', minutes: 15,
+      cost: '¥240 · IC: encostem ao embarcar e ao descer',
+      note: 'a linha 1 NÃO passa no Domo: ela vira para o sul em Kamiyachō',
+      steps: [
+        'O terminal tem várias plataformas, cada uma com placa do número e destino. Procurem a do **2 宮島口** ou a do **6 江波**: os dois passam no Domo. **Não peguem o 1 (広島港 Hiroshima-kō) nem o 5**: eles viram para o sul antes.',
+        'Pagamento: desde julho de 2026 a Suica é encostada no leitor **ao embarcar e ao descer**, e dá para usar **qualquer porta**. Sem IC, paguem **¥240 em dinheiro ao descer**, na porta do motorista.',
+        'Desçam em **原爆ドーム前 Genbaku-Dōmu-mae**, uns 15 min: o painel dentro do bonde mostra o nome, e o Domo fica ao lado da parada.',
+      ],
+    },
+    walk(8, 'da parada, desçam ao longo do rio (元安川) para o sul, com o Domo atrás de vocês, e atravessem a ponte **元安橋 Motoyasu-bashi** para dentro do parque. Sigam o eixo do parque até o fundo: a entrada do museu é pelo **Prédio Leste (東館)**'),
   ],
   'd23-museu-paz': [walk(5, 'pelo eixo do parque: cenotáfio, chama, e a ponte até o Domo')],
   'd23-parque-domo': [walk(3, 'o Nagataya fica na rua ao lado do Domo')],
   'd23-okonomiyaki': [
-    walk(3, 'até a parada Genbaku-Dōmu-mae'),
-    { mode: 'tram', line: 'bonde 2 ou 6', board: 'Genbaku-Dōmu-mae', direction: 'Hiroshima Station (広島駅)', alight: 'Hiroshima Station (final)', minutes: 18, cost: '¥240', note: 'táxi ~¥1.500 se estiverem mortos' },
-    walk(5, 'até o hotel, saída sul'),
+    walk(3, 'até a parada **Genbaku-Dōmu-mae**, ao lado do Domo: para voltar, é a plataforma com a placa **広島駅方面 (Hiroshima Station)**'),
+    {
+      mode: 'tram', line: 'bonde 2 ou 6 (Hiroden)', board: 'Genbaku-Dōmu-mae (原爆ドーム前), plataforma 広島駅方面',
+      direction: '広島駅 Hiroshima Station', alight: 'Hiroshima Station (広島駅), fim da linha', alightPoint: '広島駅 南口',
+      minutes: 18, cost: '¥240', note: 'táxi ~¥1.500 se estiverem mortos',
+      steps: [
+        'Peguem qualquer bonde com letreiro **広島駅 Hiroshima Station**. Encostem a Suica ao entrar.',
+        'É o **fim da linha**: o bonde entra no 2º andar do **minamoa**. Encostem a Suica ao descer.',
+        'Desçam ao térreo e saiam pelo **南口 (South Exit)**: o hotel fica na frente, para o lado da ponte Ekimae-Ōhashi.',
+      ],
+    },
+    walk(5, 'do 南口 até o hotel, para o lado da ponte Ekimae-Ōhashi'),
   ],
 
   // ── 24 nov · Miyajima ──────────────────────────────────────────────
   'd24-ferry-miyajima': [
-    { mode: 'train', line: 'JR Sanyō Line', board: 'Hiroshima, plataforma 1 (pelo 中央口, no 2º andar)', direction: 'Iwakuni (岩国)', alight: 'Miyajimaguchi', minutes: 27, cost: '¥420' },
-    walk(6, 'saída única; a passagem subterrânea ao norte da estação leva direto ao terminal das balsas. Lá, placa vermelha à direita = balsa JR (a azul é a Matsudai)'),
-    { mode: 'ferry', line: 'balsa JR', board: 'Miyajimaguchi', alight: 'Miyajima', minutes: 10, cost: '¥200 + ¥100 de taxa de visitante, os dois descontados do IC na catraca', note: 'até as 16:10 a balsa faz a rota do torii (大鳥居便): fiquem no lado direito do convés' },
-    walk(14, 'pela orla, seguindo os cervos, até o santuário'),
+    {
+      mode: 'train', line: 'JR Sanyō Line (山陽本線)', board: 'Hiroshima (広島), plataforma 1, pelo 中央改札口 (2º andar)', boardPoint: '広島駅 南口',
+      direction: '岩国方面 (Iwakuni) · 宮島口 Miyajimaguchi', alight: 'Miyajimaguchi (宮島口)', alightPoint: '宮島口駅', minutes: 27, cost: '¥420',
+      steps: [
+        'Plataforma **1**, sentido **岩国方面**. Os trens para **岩国 Iwakuni**, **大竹 Ōtake** ou **徳山 Tokuyama** e o rápido **City Liner** param em Miyajimaguchi. Só não peguem um que termine em **五日市 Itsukaichi** ou **廿日市 Hatsukaichi**: esses param antes.',
+        'No trem local, Miyajimaguchi é a **9ª parada** (Shin-Hakushima, Yokogawa, Nishi-Hiroshima, Shin-Inokuchi, Itsukaichi, Hatsukaichi, Miyauchi-Kushido, Ajina e **Miyajimaguchi**); o City Liner pula algumas. Ouçam **宮島口** no anúncio.',
+        'Em Miyajimaguchi há uma catraca só: passem a Suica e saiam.',
+      ],
+    },
+    walk(6, 'saindo da estação, sigam as placas **Ferry**: a passagem subterrânea passa por baixo da avenida e leva direto ao terminal das balsas (宮島口旅客ターミナル). Lá, as duas companhias ficam lado a lado: placa vermelha = balsa **JR** (a azul é a Matsudai)'),
+    {
+      mode: 'ferry', line: 'balsa JR', board: 'Miyajimaguchi (宮島口), terminal das balsas, catraca da JR', boardPoint: '宮島口旅客ターミナル',
+      alight: 'Miyajima (宮島桟橋)', minutes: 10,
+      cost: '¥200 + ¥100 de taxa de visitante, os dois descontados do IC na catraca',
+      steps: [
+        'Na catraca da **JR** (não a da Matsudai), encostem a Suica: ela desconta **¥200 da balsa + ¥100 da taxa de visitante (宮島訪問税)** de uma vez. Não precisa comprar bilhete.',
+        'Até as 16:10 a balsa faz a rota do torii (**大鳥居便**): fiquem do **lado direito** do convés, de preferência do lado de fora.',
+        'Desembarcam pela mesma rampa por onde todos saem; o terminal de Miyajima tem uma saída só, para a orla.',
+      ],
+    },
+    walk(14, 'saindo do terminal de Miyajima, virem à **direita** e sigam pela orla, com os cervos, até o portão do santuário'),
   ],
   'd24-itsukushima': [walk(10, 'saindo pelo lado oposto da entrada, subida pelas escadas ao lado do pagode')],
   'd24-daishoin': [walk(12, 'descendo e seguindo o riacho para o vale dos bordos')],
@@ -309,68 +450,241 @@ export const LEGS: Record<string, Leg[]> = {
     walk(15, 'até a rua de comércio (Omotesandō)'),
   ],
   'd24-comer-miyajima': [
-    walk(10, 'até o píer'),
-    { mode: 'ferry', line: 'balsa JR', board: 'Miyajima', alight: 'Miyajimaguchi', minutes: 10, cost: '¥200' },
-    { mode: 'train', line: 'JR Sanyō Line', board: 'Miyajimaguchi', direction: 'Hiroshima (広島)', alight: 'Hiroshima', minutes: 27, cost: '¥420' },
-    walk(15, 'saída norte (Shinkansen), para o oeste ao longo da avenida; o jardim fica atrás do museu de arte'),
+    walk(10, 'de volta pela rua de comércio e pela orla até o terminal das balsas (宮島桟橋), o mesmo onde chegaram'),
+    {
+      mode: 'ferry', line: 'balsa JR', board: 'Miyajima (宮島桟橋), catraca da JR', alight: 'Miyajimaguchi (宮島口)', minutes: 10, cost: '¥200',
+      steps: [
+        'No terminal, a catraca da **JR** é a da placa vermelha. Encostem a Suica: na volta é só a tarifa, a taxa de visitante já foi cobrada na ida.',
+        'Para caber o Shukkei-en, a balsa é a das **15:00**.',
+        'Em Miyajimaguchi, a passagem subterrânea leva de volta à estação JR, do outro lado da avenida.',
+      ],
+    },
+    {
+      mode: 'train', line: 'JR Sanyō Line (山陽本線)', board: 'Miyajimaguchi (宮島口)', boardPoint: '宮島口駅',
+      direction: '広島方面 (Hiroshima)', alight: 'Hiroshima (広島), saída norte (新幹線口)', alightPoint: '広島駅 新幹線口', minutes: 27, cost: '¥420',
+      steps: [
+        'Passem a Suica e sigam a placa **広島方面 (Hiroshima)**. Todo trem desse sentido para em Hiroshima.',
+        'No trem local, Hiroshima é a **9ª parada**, uns 27 min. Ali desce quase todo mundo.',
+        'Subam ao corredor do 2º andar, passem o **中央改札口** e virem para o lado **北口 · 新幹線口 (norte)**, o lado do ekie. **Não saiam pelo 南口**, que é o lado do hotel.',
+      ],
+    },
+    walk(15, 'saindo pelo 新幹線口, para o oeste ao longo da avenida; o jardim fica colado ao museu de arte da província (広島県立美術館)'),
   ],
   'd24-shukkeien': [
-    { mode: 'tram', line: 'bonde 9', board: 'Shukkeien-mae', direction: 'Hatchōbori', alight: 'Hatchōbori (final)', minutes: 4, cost: '¥240', note: 'desde março de 2026 a linha 9 passa só a cada ~18 min; se não vier, são 15 min a pé' },
+    {
+      mode: 'tram', line: 'bonde 9 (Hiroden)', board: 'Shukkeien-mae (縮景園前)', direction: '八丁堀 Hatchōbori',
+      alight: 'Hatchōbori (八丁堀), fim da linha 9', minutes: 4, cost: '¥240',
+      note: 'desde março de 2026 a linha 9 passa só a cada ~18 min; se não vier, são 15 min a pé',
+      steps: [
+        'A parada fica na avenida perto da entrada do jardim. O 9 é um bonde pequeno que só faz **白島 Hakushima ↔ 八丁堀 Hatchōbori**: peguem o do sentido **八丁堀**.',
+        'Encostem a Suica ao subir e ao descer.',
+        'Desçam no **fim da linha, 八丁堀 Hatchōbori**.',
+      ],
+    },
     walk(5, 'o Bakudan-ya fica nas ruas atrás da Hondōri'),
   ],
   'd24-jantar': [
-    walk(5, 'até a parada Hatchōbori'),
-    { mode: 'tram', line: 'bonde 1, 2 ou 6', board: 'Hatchōbori', direction: 'Hiroshima Station (広島駅)', alight: 'Hiroshima Station (final)', minutes: 12, cost: '¥240', note: 'ou 20 min a pé pela avenida' },
-    walk(5, 'até o hotel, saída sul'),
+    walk(5, 'até a parada **Hatchōbori**, na avenida dos bondes (相生通り Aioi-dōri): é a plataforma com a placa **広島駅方面**'),
+    {
+      mode: 'tram', line: 'bonde 1, 2 ou 6 (Hiroden)', board: 'Hatchōbori (八丁堀), plataforma 広島駅方面', direction: '広島駅 Hiroshima Station',
+      alight: 'Hiroshima Station (広島駅), fim da linha', alightPoint: '広島駅 南口', minutes: 12, cost: '¥240', note: 'ou 20 min a pé pela avenida',
+      steps: [
+        'Peguem qualquer bonde com letreiro **広島駅 Hiroshima Station**. Encostem a Suica ao subir e ao descer.',
+        'É o **fim da linha**, no 2º andar do **minamoa**.',
+        'Desçam ao térreo e saiam pelo **南口 (South Exit)**: o hotel fica na frente.',
+      ],
+    },
+    walk(5, 'do 南口 até o hotel, para o lado da ponte Ekimae-Ōhashi'),
   ],
 
   // ── 25 nov · Kurashiki, Himeji, Osaka ──────────────────────────────
   'd25-trem-kurashiki': [
-    { mode: 'shinkansen', line: 'Sanyō Shinkansen (Nozomi, Sakura ou Hikari)', board: 'Hiroshima, plataformas 13–14 (3º andar, sentido Shin-Osaka)', direction: 'Shin-Osaka · Tokyo', alight: 'Okayama', minutes: 38, cost: '~¥6.000' },
-    { mode: 'train', line: 'JR Sanyō Line', board: 'Okayama: desça ao 2º andar, passe o portão de baldeação B (新幹線乗換口) e vá às plataformas 1–2, no térreo', direction: 'Fukuyama · Mihara', alight: 'Kurashiki (3ª parada)', minutes: 17, cost: '¥330' },
-    walk(12, 'a catraca é no 2º andar; os armários ficam no corredor, do lado da saída norte (ao lado da padaria Little Mermaid). Depois saída sul, e reto pela Kurashiki Chūō-dōri até o canal'),
+    {
+      mode: 'shinkansen', line: 'Sanyō Shinkansen (Nozomi, Sakura ou Hikari)', board: 'Hiroshima (広島), plataformas 13–14', boardPoint: '広島駅 新幹線改札',
+      direction: '新大阪・東京方面 (Shin-Osaka/Tokyo)', alight: 'Okayama (岡山)', minutes: 38, cost: '~¥6.000',
+      steps: [
+        'Passem o bilhete na catraca do **新幹線** e sigam a placa **13・14番線 新大阪・東京方面**. As plataformas 11 e 12 vão para Hakata: não subam nelas.',
+        'O painel mostra o horário e o número do carro; com assento reservado, esperem na marca do carro no chão.',
+        'Desçam em **岡山 Okayama** (~38 min). Fiquem atentos: o trem segue para Shin-Osaka.',
+      ],
+    },
+    {
+      mode: 'train', line: 'JR Sanyō Line (山陽線) ou Hakubi Line (伯備線), local', board: 'Okayama, plataformas 1–2', boardPoint: '岡山駅',
+      direction: '倉敷・福山方面 (Kurashiki/Fukuyama)', alight: 'Kurashiki (倉敷), 4ª parada', alightPoint: '倉敷駅 南口', minutes: 17, cost: '¥330',
+      steps: [
+        'Na plataforma, sigam a placa **在来線のりかえ (baldeação para as linhas comuns)** e desçam até a catraca de baldeação **新幹線乗換口**: o bilhete do Shinkansen fica nela, e daí vocês pagam com a Suica.',
+        'Sigam para as **plataformas 1–2 (山陽線 倉敷・福山方面 / 伯備線)**. Servem os dois: o local do Sanyō e o do Hakubi param em Kurashiki. **Não** peguem o 特急やくも (Yakumo), que cobra taxa extra.',
+        'Contem: Kitanagase, Niwase, Nakashō e **倉敷 Kurashiki**, a 4ª. Desçam.',
+        'Saiam pela placa amarela **南口 (saída sul)**, do lado do bairro Bikan.',
+      ],
+    },
+    walk(12, 'a catraca é no 2º andar; os armários ficam no corredor, do lado da saída norte (ao lado da padaria Little Mermaid). Depois **南口 (saída sul)**, e reto pela Kurashiki Chūō-dōri até o canal'),
   ],
   'd25-bikan': [walk(3, 'o museu é o prédio de colunas gregas na margem do canal')],
   'd25-ohara': [walk(3, 'o Tsurugata fica na beira do canal, a poucos passos do museu')],
   'd25-almoco-kurashiki': [walk(12, 'de volta pela mesma rua até a estação; pegar a mochila no armário')],
   'd25-trem-himeji': [
-    { mode: 'train', line: 'JR Sanyō Line', board: 'Kurashiki, plataforma 3', direction: 'Okayama', alight: 'Okayama', minutes: 17, cost: '¥330' },
-    { mode: 'shinkansen', line: 'Hikari ou Sakura (o Nozomi em regra não para em Himeji)', board: 'Okayama: 2º andar, portão de baldeação B, e plataformas 23–24 no 3º (sentido Shin-Osaka)', direction: 'Shin-Osaka · Tokyo', alight: 'Himeji (plataforma 11)', minutes: 20, cost: '~¥3.500' },
-    walk(18, 'do 3º andar desça ao 2º (portão de baldeação do Shinkansen) e ao 1º: saída pelo 中央改札 e pelo Himeji-jō-guchi (norte). Armários 24h na saída norte. Reto pela avenida Ōtemae; o castelo está no fim, à vista o tempo todo (ou ônibus circular ¥100 até Ōtemon)'),
+    {
+      mode: 'train', line: 'JR Sanyō Line (山陽線) ou Hakubi Line (伯備線), local', board: 'Kurashiki (倉敷)', boardPoint: '倉敷駅',
+      direction: '岡山方面 (Okayama)', alight: 'Okayama (岡山), 4ª parada', minutes: 17, cost: '¥330',
+      steps: [
+        'Passem a Suica e sigam a placa **岡山方面 (Okayama)**. Os trens do Sanyō e do Hakubi vão os dois para Okayama; o painel mostra 岡山.',
+        'Contem: Nakashō, Niwase, Kitanagase e **岡山 Okayama**, a 4ª (é o fim de quase todos). Desçam.',
+      ],
+    },
+    {
+      mode: 'shinkansen', line: 'Hikari ou Sakura (o Nozomi em regra não para em Himeji)', board: 'Okayama, plataformas 23–24', boardPoint: '岡山駅 新幹線乗換口',
+      direction: '新大阪・東京方面 (Shin-Osaka/Tokyo)', alight: 'Himeji (姫路), plataforma 11', alightPoint: '姫路駅 北口', minutes: 20, cost: '~¥3.500',
+      steps: [
+        'Em Okayama, sigam a placa **新幹線のりかえ** até a catraca de baldeação **新幹線乗換口**: passem a Suica e o bilhete do Shinkansen juntos (ou o QR do Smart EX).',
+        'Subam para as **plataformas 23–24, 新大阪・東京方面**. As 21–22 vão para Hiroshima.',
+        'Confiram no painel que o trem **para em 姫路 Himeji** (Hikari ou Sakura); são ~20 min.',
+        'Em Himeji, desçam ao **中央改札 (catraca central)** e sigam a placa amarela **北口 (saída norte) · 姫路城 Himeji-jō**.',
+      ],
+    },
+    walk(18, 'saindo pelo 北口, os armários 24h ficam na saída norte. Reto pela avenida Ōtemae; o castelo está no fim, à vista o tempo todo (ou ônibus circular ¥100 até Ōtemon)'),
   ],
-  'd25-himeji': [walk(15, 'de volta pela avenida até a estação; pegar a mochila')],
+  'd25-himeji': [walk(15, 'de volta pela avenida Ōtemae até o 北口 da estação; pegar a mochila no armário')],
   'd25-trem-osaka': [
-    { mode: 'train', line: 'JR Special Rapid (新快速)', board: 'Himeji, plataformas 5–6 (2º andar, pelo 中央改札)', direction: 'Osaka · Kyoto · Yasu', alight: 'Osaka', minutes: 60, cost: '¥1.520', note: 'sem reserva; entrem pela ponta do trem para achar lugar' },
-    { mode: 'metro', line: 'Midōsuji Line (vermelha)', board: 'Umeda, plataforma 1 — saiam da JR pela catraca 御堂筋口 e o metrô é logo ali, 2 min', direction: 'Tennōji · Nakamozu', alight: 'Namba', minutes: 8, cost: '¥240' },
-    walk(9, 'saída 16 e para o leste pela Sennichimae-dōri até o hotel; o Dōtonbori fica a poucos minutos dele'),
+    {
+      mode: 'train', line: 'JR Kobe Line · Special Rapid (新快速)', board: 'Himeji (姫路), catraca central', boardPoint: '姫路駅 中央改札',
+      direction: '大阪・京都方面 (Osaka/Kyoto)', alight: 'Osaka (大阪), 8ª parada', alightPoint: '大阪駅 御堂筋南口', minutes: 60, cost: '¥1.520',
+      note: 'sem reserva; entrem pela ponta do trem para achar lugar',
+      steps: [
+        'Passem a Suica no **中央改札** e sigam a placa **JR神戸線 大阪・京都方面**. O painel tem de dizer **新快速 (Special Rapid)**, em letras vermelhas ou laranja.',
+        'Evitem o carro com a placa **Aシート**: é assento pago à parte.',
+        'Paradas: Kakogawa, Nishi-Akashi, Akashi, Kobe, Sannomiya, Ashiya, Amagasaki e **大阪 Osaka**, a 8ª. Desçam.',
+        'Em Osaka, sigam as placas **御堂筋線 Midōsuji Line (vermelho, M)** e saiam pela catraca **御堂筋南口 (Midōsuji Sul)**: a entrada do metrô é logo ali, 2 min.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Midōsuji Line (vermelha, M)', board: 'Umeda (梅田), plataforma 1', boardPoint: '梅田駅 南改札',
+      direction: 'なんば・天王寺方面 (Namba/Tennōji)', alight: 'Namba (なんば), 4ª parada', minutes: 8,
+      steps: [
+        'Desçam pela entrada com o círculo **vermelho M** (御堂筋線) e passem a Suica. Plataforma **1, なんば・天王寺方面**.',
+        'Contem: Yodoyabashi, Hommachi, Shinsaibashi e **なんば Namba**, a 4ª. Desçam.',
+        '**Não saiam da estação**: sigam as placas **rosa com S** (千日前線 Sennichimae Line), uma troca curta, sem passar catraca.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Sennichimae Line (rosa, S)', board: 'Namba, pela baldeação', direction: '南巽 Minami-Tatsumi',
+      alight: 'Nippombashi (日本橋), 1ª parada, saída 2', alightPoint: '日本橋駅 2番出口', minutes: 3, cost: '¥240 no total (o metrô cobra uma tarifa só)',
+      note: 'ou de Namba a pé, uns 10 min para o leste, se a mochila deixar',
+      steps: [
+        'Plataforma **南巽方面 (Minami-Tatsumi)**. A do outro lado vai para Nodahanshin: não peguem essa.',
+        'É **1 parada**: desçam em **日本橋 Nippombashi**.',
+        'Sigam a placa amarela **2番出口 (saída 2)**. O hotel fica a 1 minuto dela.',
+      ],
+    },
+    walk(1, 'saindo da saída 2, o KOKO HOTEL fica logo ali (Sennichimae 1-3-7). O Dōtonbori fica a poucos minutos para o oeste'),
   ],
-  'd25-dotonbori': [walk(5, 'até o hotel')],
+  'd25-dotonbori': [walk(5, 'até o hotel, para o leste pelo Dōtonbori, no lado da Nippombashi')],
 
   // ── 26 nov · meia manhã de Osaka e a subida para Kōyasan ───────────
+  'd26-cafe': [
+    walk(3, 'de volta à **Nippombashi** — é a estação da porta, não a Namba'),
+    {
+      mode: 'metro', line: 'Sakaisuji Line (marrom, K)', board: 'Nippombashi (日本橋)', boardPoint: '日本橋駅',
+      direction: '天神橋筋六丁目方面 (Tenjimbashisuji 6-chōme)', alight: 'Sakaisuji-Hommachi (堺筋本町), 2ª parada', minutes: 5,
+      steps: [
+        'Desçam pela entrada com o **K marrom** (堺筋線). Na mesma estação passa a Sennichimae (rosa, S): não sigam essa.',
+        'Plataforma **天神橋筋六丁目方面**. O trem pode mostrar destinos da Hankyu (北千里, 高槻市…): todos servem.',
+        'Contem: Nagahoribashi e **堺筋本町 Sakaisuji-Hommachi**, a 2ª. Desçam e, **sem sair da estação**, sigam as placas **verdes com C** (中央線 Chūō Line).',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Chūō Line (verde, C)', board: 'Sakaisuji-Hommachi, pela baldeação', direction: '森ノ宮・長田方面 (Morinomiya/Nagata)',
+      alight: 'Tanimachi 4-chōme (谷町四丁目), 1ª parada, saída 9', alightPoint: '谷町四丁目駅 9号出口', minutes: 3, cost: '¥240 no total',
+      steps: [
+        'Plataforma **森ノ宮・長田方面**. A do outro lado vai para Hommachi e Cosmosquare.',
+        'É **1 parada**: desçam em **谷町四丁目 Tanimachi 4-chōme**.',
+        'Sigam a placa amarela **9番出口 (saída 9) · 大阪城 Osaka-jō**. Não usem as saídas da linha roxa (Tanimachi): saem mais longe.',
+      ],
+    },
+    walk(12, 'saindo da saída 9, para o leste pela avenida Chūō-ōdōri até o fosso e o portão Ōtemon (uns 7 min); dali até o torreão é mais um pouco'),
+  ],
   'd26-castelo-osaka': [
-    walk(12, 'saída pelo portão Ōtemon, até a estação Tanimachi 4-chōme'),
-    { mode: 'metro', line: 'Chūō Line (verde)', board: 'Tanimachi 4-chōme', direction: 'Cosmosquare', alight: 'Sakaisuji-Hommachi', minutes: 3 },
-    { mode: 'metro', line: 'Sakaisuji Line (marrom)', board: 'Sakaisuji-Hommachi', direction: 'Tengachaya', alight: 'Nippombashi, saída 10', minutes: 5, cost: '¥240 no total' },
-    walk(2, 'a galeria do Kuromon começa na saída'),
+    walk(12, 'saída pelo portão Ōtemon, até a estação Tanimachi 4-chōme, **saída 9**'),
+    {
+      mode: 'metro', line: 'Chūō Line (verde, C)', board: 'Tanimachi 4-chōme (谷町四丁目), saída 9', boardPoint: '谷町四丁目駅 9号出口',
+      direction: '本町・コスモスクエア方面 (Hommachi/Cosmosquare)', alight: 'Sakaisuji-Hommachi (堺筋本町), 1ª parada', minutes: 3,
+      steps: [
+        'Desçam pela saída 9 e sigam o **C verde** (中央線). Plataforma **本町・コスモスクエア方面**.',
+        'É **1 parada**: desçam em **堺筋本町 Sakaisuji-Hommachi** e, sem sair da estação, sigam as placas **marrons com K** (堺筋線).',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Sakaisuji Line (marrom, K)', board: 'Sakaisuji-Hommachi, pela baldeação', direction: '天下茶屋方面 (Tengachaya)',
+      alight: 'Nippombashi (日本橋), 2ª parada, saída 10', alightPoint: '日本橋駅 10番出口', minutes: 5, cost: '¥240 no total',
+      steps: [
+        'Plataforma **天下茶屋方面 (Tengachaya)**.',
+        'Contem: Nagahoribashi e **日本橋 Nippombashi**, a 2ª. Desçam.',
+        'Sigam a placa amarela **10番出口 (saída 10) · 黒門市場 Kuromon**.',
+      ],
+    },
+    walk(2, 'da saída 10, um pouco para o sul pela Sakaisuji: a galeria do Kuromon começa ali'),
   ],
   'd26-kuromon': [
     walk(4, 'pela galeria até o hotel, em Sennichimae — ele fica entre o Kuromon e a Namba'),
-    walk(8, 'do hotel para o oeste até a **Nankai Namba**, cujas plataformas ficam **no 3º andar do prédio da Takashimaya** — não confundir com a estação do metrô. O 7-Eleven e o balcão do 551 Hōrai ficam junto à catraca norte, no mesmo 3º andar'),
+    walk(8, 'do hotel para o oeste até a **Nankai Namba**, cujas plataformas ficam **no 3º andar do prédio da Takashimaya** — não confundir com a estação do metrô. Sigam as placas **南海電車**; o 7-Eleven fica no 2º andar, junto à **catraca central (中央改札)**'),
   ],
   'd26-konbini': [walk(2, 'suba um andar: as plataformas da linha Kōya ficam no 3º')],
   'd26-nankai': [
-    { mode: 'train', line: 'Nankai Kōya Line · 特急こうや ou 快速急行', board: 'Nankai Namba, 3º andar — **特急 nas plataformas 3 e 4**; o 快速急行 sai da 2, 3 ou 4', direction: 'Gokurakubashi (極楽橋)', alight: 'Gokurakubashi (final)', minutes: 85, cost: 'no passe', note: 'no 快速急行 pode ser preciso trocar em Hashimoto — o painel avisa' },
-    { mode: 'cable', line: 'funicular de Kōyasan (高野山ケーブル)', board: 'Gokurakubashi (mesma plataforma, siga a multidão)', direction: 'Kōyasan', alight: 'Estação de Kōyasan', minutes: 5, cost: 'no passe', note: 'rampa de 30 graus; fiquem em pé segurando ou sentem nos degraus' },
-    { mode: 'bus', line: 'Nankai Rinkan · linhas 21, 22, 23, 24, 41 ou 43', board: 'terminal na praça em frente à estação do funicular — os ônibus esperam a chegada', direction: 'Okunoin-mae (奥の院前)', alight: 'Senjuinbashi (千手院橋)', minutes: 11, cost: 'no passe', note: 'a estrada entre a estação e a cidade é **exclusiva de ônibus**: não dá para ir a pé. Senjuinbashi é o cruzamento do centro, com semáforo' },
+    {
+      mode: 'train', line: 'Nankai Kōya Line (南海高野線) · 特急こうや ou 快速急行', board: 'Nankai Namba, 3º andar — 特急 nas plataformas 3 e 4', boardPoint: '難波駅 南海',
+      direction: '極楽橋 Gokurakubashi', alight: 'Gokurakubashi (極楽橋), fim da linha', minutes: 85, cost: 'no passe',
+      note: 'no 快速急行 pode ser preciso trocar em Hashimoto — o painel avisa',
+      steps: [
+        'Passem o bilhete (ou o QR do bilhete digital) na catraca e procurem no painel **高野線 · 極楽橋**. As plataformas da linha Kōya são as de número baixo (1 a 4); as altas são da linha principal, para Wakayama e o aeroporto: não peguem essas.',
+        'Com o **特急こうや** (Kōya, todo reservado): o bilhete diz o **carro (号車) e o assento**. Esperem na marca do carro no chão da plataforma.',
+        'Sem o especial: peguem o **快速急行** que diga **極楽橋** no painel. Se ele disser **橋本 Hashimoto**, desçam em Hashimoto e passem para o trem **極楽橋行き** que espera na estação.',
+        'Fiquem até o **fim da linha, 極楽橋 Gokurakubashi**. Os últimos 20 min são de curvas e túneis na montanha.',
+      ],
+    },
+    {
+      mode: 'cable', line: 'funicular de Kōyasan (高野山ケーブル)', board: 'Gokurakubashi, na própria estação', boardPoint: '極楽橋駅',
+      direction: '高野山 Kōyasan', alight: 'Estação de Kōyasan (高野山駅)', alightPoint: '高野山駅', minutes: 5, cost: 'no passe',
+      note: 'rampa de 30 graus; fiquem em pé segurando ou sentem nos degraus',
+      steps: [
+        'Sem sair da estação, sigam a placa **ケーブルカー Cable Car** e a multidão: o funicular sai combinado com o trem.',
+        'O bilhete passa de novo na catraca do funicular. Subida de 5 min até **高野山駅**.',
+      ],
+    },
+    {
+      mode: 'bus', line: 'Nankai Rinkan (南海りんかんバス)', board: 'Kōyasan Station, ponto 2 (2番のりば)', boardPoint: '高野山駅前 バス停',
+      direction: '奥の院前 Okunoin-mae ou 奥の院口 Okunoin-guchi', alight: 'Senjuinbashi (千手院橋)', alightPoint: '千手院橋 バス停', minutes: 11, cost: 'no passe',
+      note: 'a estrada entre a estação e a cidade é **exclusiva de ônibus**: não dá para ir a pé. Senjuinbashi é o cruzamento do centro, com semáforo',
+      steps: [
+        'Saindo do funicular, os ônibus esperam na praça em frente. Procurem o **2番のりば**, com os ônibus para **奥の院前 / 奥の院口**: todos passam pelo centro.',
+        'Entrem pela porta do meio e mostrem o passe ao motorista **ao descer**.',
+        'O painel e a voz anunciam as paradas; desçam em **千手院橋 Senjuinbashi**, o cruzamento com semáforo.',
+      ],
+    },
     walk(2, 'o Fumon-in fica a dois minutos da parada: no semáforo de Senjuinbashi, virem e procurem o portão do templo, o segundo à esquerda'),
   ],
   'd26-checkin-shukubo': [
-    { mode: 'bus', line: 'Nankai Rinkan (qualquer um sentido 奥の院前)', board: 'Senjuinbashi (千手院橋)', direction: 'Okunoin-mae (奥の院前)', alight: 'Ichinohashi-guchi (一の橋口)', minutes: 4, cost: 'no passe', note: 'a pé são 15 min para o leste pela rua principal, também bonito' },
+    {
+      mode: 'bus', line: 'Nankai Rinkan (qualquer um sentido 奥の院前)', board: 'Senjuinbashi (千手院橋)', boardPoint: '千手院橋 バス停',
+      direction: '奥の院前 Okunoin-mae', alight: 'Ichinohashi-guchi (一の橋口)', alightPoint: '一の橋口 バス停', minutes: 4, cost: 'no passe',
+      note: 'a pé são 15 min para o leste pela rua principal, também bonito',
+      steps: [
+        'No ponto, confiram o letreiro do ônibus: **奥の院前** (ou 奥の院口).',
+        'Desçam em **一の橋口 Ichinohashi-guchi**, mostrando o passe ao motorista.',
+      ],
+    },
     walk(2, 'até a ponte do Ichinohashi, onde começa o Okunoin'),
   ],
   'd26-okunoin': [
     walk(5, 'do mausoléu até o ponto de Okunoin-mae, pelo caminho novo (o curto)'),
-    { mode: 'bus', line: 'Nankai Rinkan (sentido 高野山駅)', board: 'Okunoin-mae (奥の院前)', direction: 'Kōyasan Station (高野山駅)', alight: 'Senjuinbashi (千手院橋)', minutes: 8, cost: 'no passe', note: 'ou os 2 km de volta pelo cemitério até o Ichinohashi e mais 15 min pela rua — mas o jantar é às 17:30' },
+    {
+      mode: 'bus', line: 'Nankai Rinkan (sentido 高野山駅)', board: 'Okunoin-mae (奥の院前)', boardPoint: '奥の院前 バス停',
+      direction: '高野山駅前 Kōyasan Station', alight: 'Senjuinbashi (千手院橋)', alightPoint: '千手院橋 バス停', minutes: 8, cost: 'no passe',
+      note: 'ou os 2 km de volta pelo cemitério até o Ichinohashi e mais 15 min pela rua — mas o jantar é às 17:30',
+      steps: [
+        'Okunoin-mae é o ponto final: todo ônibus que sai dali volta pelo centro. Confiram o letreiro **高野山駅前**.',
+        'Desçam em **千手院橋 Senjuinbashi**, o cruzamento com semáforo.',
+      ],
+    },
     walk(2, 'até o templo'),
   ],
   'd26-jantar-shojin': [
@@ -387,47 +701,124 @@ export const LEGS: Record<string, Leg[]> = {
   'd27-garan': [walk(5, 'para o leste pela rua principal: o portão do Kongōbu-ji fica logo ali')],
   'd27-kongobuji': [
     walk(5, 'de volta ao Fumon-in pela mochila, e até a parada Senjuinbashi'),
-    { mode: 'bus', line: 'Nankai Rinkan (qualquer um sentido 高野山駅)', board: 'Senjuinbashi (千手院橋)', direction: 'Kōyasan Station (高野山駅)', alight: 'Estação de Kōyasan (final)', minutes: 11, cost: 'no passe' },
+    {
+      mode: 'bus', line: 'Nankai Rinkan (qualquer um sentido 高野山駅)', board: 'Senjuinbashi (千手院橋)', boardPoint: '千手院橋 バス停',
+      direction: '高野山駅前 Kōyasan Station', alight: 'Estação de Kōyasan (final)', alightPoint: '高野山駅', minutes: 11, cost: 'no passe',
+      steps: [
+        'Fiquem no ponto do lado da rua cujo letreiro diz **高野山駅前方面**; o do outro lado vai para o Okunoin.',
+        'Vão até o **fim da linha, 高野山駅**, e mostrem o passe ao descer.',
+      ],
+    },
   ],
   'd27-descida': [
-    { mode: 'cable', line: 'funicular de Kōyasan', board: 'Estação de Kōyasan', direction: 'Gokurakubashi', alight: 'Gokurakubashi', minutes: 5, cost: 'no passe' },
-    { mode: 'train', line: 'Nankai Kōya Line', board: 'Gokurakubashi (mesma plataforma)', direction: 'Namba (なんば)', alight: 'Sumiyoshi-Higashi (住吉東)', minutes: 80, cost: 'no passe', note: 'quase sempre é preciso trocar em Hashimoto; Sumiyoshi-Higashi é parada de local, então pode haver mais uma troca para o local (普通) em Sakai-Higashi' },
+    {
+      mode: 'cable', line: 'funicular de Kōyasan (高野山ケーブル)', board: 'Estação de Kōyasan (高野山駅)', boardPoint: '高野山駅',
+      direction: '極楽橋 Gokurakubashi', alight: 'Gokurakubashi (極楽橋)', minutes: 5, cost: 'no passe',
+      steps: [
+        'Passem o passe na catraca: é a volta do bilhete. O funicular desce combinado com o trem.',
+      ],
+    },
+    {
+      mode: 'train', line: 'Nankai Kōya Line (南海高野線)', board: 'Gokurakubashi, sem sair da estação', boardPoint: '極楽橋駅',
+      direction: 'なんば Namba', alight: 'Sumiyoshi-Higashi (住吉東)', alightPoint: '住吉東駅', minutes: 80, cost: 'no passe',
+      note: '**o passe termina em Sumiyoshi-Higashi**: pela regra da Nankai, descer numa estação do meio encerra o bilhete, e o trecho seguinte até Namba se paga à parte, com a Suica',
+      steps: [
+        'Em Gokurakubashi, peguem o trem que estiver esperando: quase todos vão só até **橋本 Hashimoto**. O especial こうや cobra taxa à parte: não peguem.',
+        'Em **橋本 Hashimoto**, troquem para o **急行 ou 快速急行 なんば行き (para Namba)**; o painel da plataforma diz qual sai primeiro.',
+        'O expresso não para em Sumiyoshi-Higashi: desçam em **堺東 Sakai-Higashi** e troquem para o **各停 (local)** なんば行き.',
+        'Contem: Asakayama, Abikomae, Sawanochō e **住吉東 Sumiyoshi-Higashi**, a 4ª. Desçam e passem o passe na catraca de saída.',
+      ],
+    },
     walk(10, 'para o oeste até o santuário — por este lado se entra pelos fundos; a ponte curva vermelha, a Sorihashi, fica na entrada oeste'),
   ],
   'd27-sumiyoshi': [
     walk(10, 'de volta à estação Sumiyoshi-Higashi'),
-    { mode: 'train', line: 'Nankai Kōya Line', board: 'Sumiyoshi-Higashi', direction: 'Namba', alight: 'Nankai Namba (final)', minutes: 15, cost: 'no passe' },
+    {
+      mode: 'train', line: 'Nankai Kōya Line (南海高野線) · 各停 (local)', board: 'Sumiyoshi-Higashi (住吉東)', boardPoint: '住吉東駅',
+      direction: 'なんば Namba', alight: 'Nankai Namba (final)', alightPoint: '難波駅 南海', minutes: 15, cost: 'Suica (o passe acabou na ida)',
+      steps: [
+        'Passem a **Suica** na catraca (o passe já foi encerrado na chegada) e sigam a placa **なんば方面**.',
+        'Todo trem que para aqui vai até **なんば Namba**, o fim da linha.',
+        'Saiam pela catraca do 3º andar: a Takashimaya e o 551 ficam no mesmo prédio.',
+      ],
+    },
     walk(3, 'o balcão do 551 Hōrai fica na própria estação; a depachika da Takashimaya é no mesmo prédio'),
   ],
   'd27-almoco': [
-    walk(4, 'até a estação Namba do metrô, linha Midōsuji'),
-    { mode: 'metro', line: 'Midōsuji Line (vermelha)', board: 'Namba, plataforma 2', direction: 'Shin-Osaka · Senri-Chūō', alight: 'Umeda', minutes: 8, cost: '¥240' },
+    walk(4, 'da Nankai, saiam pela **catraca norte (北改札)** do 3º andar e desçam ao subsolo seguindo as placas **地下鉄 御堂筋線 (vermelho, M)**'),
+    {
+      mode: 'metro', line: 'Midōsuji Line (vermelha, M)', board: 'Namba (なんば), plataforma 2', boardPoint: 'なんば駅 御堂筋線',
+      direction: '梅田・新大阪方面 (Umeda/Shin-Osaka)', alight: 'Umeda (梅田), 4ª parada, catraca norte', alightPoint: '梅田駅 北改札', minutes: 8, cost: '¥240',
+      steps: [
+        'Passem a Suica e escolham a plataforma **2, 梅田・新大阪方面**. A 1 vai para Tennōji.',
+        'Contem: Shinsaibashi, Hommachi, Yodoyabashi e **梅田 Umeda**, a 4ª. Desçam.',
+        'Sigam a placa **北改札 (catraca norte) · 阪急線 Hankyu**.',
+      ],
+    },
     walk(6, 'saiam pela catraca **norte** e sigam a placa 阪急電車: o Hankyu é outro prédio, e as plataformas da linha Kyoto ficam no 3º andar'),
   ],
   'd27-trem-kyoto': [
-    { mode: 'train', line: 'Hankyu Kyoto Line · limited express (特急)', board: 'Osaka-Umeda (Hankyu), 3º andar — linha Kyoto nas **plataformas 1, 2 e 3**', direction: 'Kyoto-Kawaramachi (京都河原町)', alight: 'Kyoto-Kawaramachi (final)', minutes: 45, cost: '¥410', note: 'sem reserva e sem taxa extra; o limited express é o mais rápido e passa a cada 10 min' },
-    walk(7, 'apesar do nome, o hotel não é na esquina de Shijō: ele fica na **Kawaramachi, abaixo de Sanjō** (Yamazaki-chō). Da saída 3 ou 10, subam a Kawaramachi para o norte. As malas do takuhaibin devem estar na recepção'),
+    {
+      mode: 'train', line: 'Hankyu Kyoto Line · limited express (特急)', board: 'Osaka-Umeda (Hankyu), 3º andar — linha Kyoto nas **plataformas 1, 2 e 3**', boardPoint: '大阪梅田駅 阪急',
+      direction: '京都河原町 Kyoto-Kawaramachi', alight: 'Kyoto-Kawaramachi (final), saída 6', alightPoint: '京都河原町駅 6番出口', minutes: 45, cost: '¥410',
+      note: 'sem reserva e sem taxa extra; o limited express é o mais rápido e passa a cada 10 min',
+      steps: [
+        'Passem a Suica na catraca e sigam a placa **京都線 Kyoto Line**, plataformas **1 a 3**. As 4–9 vão para Takarazuka e Kobe: não peguem.',
+        'Peguem o **特急 (vermelho no painel)** para **京都河原町**. Só o carro **PRiVACE** tem assento pago à parte: entrem em qualquer outro.',
+        'Fiquem até o **fim da linha, 京都河原町**.',
+        'Sigam a placa amarela **6番出口 (saída 6)**, no canto noroeste do cruzamento Shijō-Kawaramachi.',
+      ],
+    },
+    walk(7, 'apesar do nome, o hotel não é na esquina de Shijō: ele fica na **Kawaramachi, abaixo de Sanjō** (Yamazaki-chō 240). Da saída 6, subam a Kawaramachi para o norte pela calçada oeste. As malas do takuhaibin devem estar na recepção'),
     walk(5, 'descendo a Kawaramachi de volta para o sul; a entrada leste do Nishiki é pela arcada Teramachi'),
   ],
   'd27-nishiki-rapido': [
-    walk(6, 'do Nishiki, pela Shijō-dōri para o leste e atravessando a ponte sobre o rio Kamo até a Keihan Gion-Shijō (entrada pela saída 3 ou 5)'),
-    { mode: 'train', line: 'Keihan Main Line — **普通 (local)**', board: 'Gion-Shijō, plataforma 2', direction: 'Yodoyabashi · Nakanoshima', alight: 'Fushimi-Inari', minutes: 10, cost: '¥220', note: 'peguem o **local**: nem o 特急 nem o 快速急行 param em Fushimi-Inari' },
-    walk(5, 'pela rua das barracas até o portão'),
+    walk(6, 'do Nishiki, pela Shijō-dōri para o leste e atravessando a ponte sobre o rio Kamo: a entrada da **Keihan Gion-Shijō** é logo depois da ponte'),
+    {
+      mode: 'train', line: 'Keihan Main Line — **普通 (local)**', board: 'Gion-Shijō (祇園四条), plataforma 2', boardPoint: '祇園四条駅',
+      direction: '淀屋橋・中之島方面 (Yodoyabashi/Nakanoshima)', alight: 'Fushimi-Inari (伏見稲荷), 5ª parada', alightPoint: '伏見稲荷駅', minutes: 10, cost: '¥220',
+      note: 'peguem o **local**: nem o 特急 nem o 快速急行 param em Fushimi-Inari',
+      steps: [
+        'Passem a Suica e desçam para a plataforma **2, 淀屋橋方面**. A 1 vai para Sanjō e Demachiyanagi.',
+        'Confiram no painel que é **普通 (local)**; o 特急 e o 快速急行 passam direto.',
+        'Contem: Kiyomizu-Gojō, Shichijō, Tōfukuji, Toba-kaidō e **伏見稲荷 Fushimi-Inari**, a 5ª. Desçam.',
+      ],
+    },
+    walk(5, 'saindo da estação, para o leste pela rua das barracas até o grande torii e o portão'),
   ],
   'd27-fushimi-inari': [
     walk(5, 'até a estação Fushimi-Inari da Keihan'),
-    { mode: 'train', line: 'Keihan Main Line — **普通 (local)**', board: 'Fushimi-Inari', direction: 'Yodoyabashi · Nakanoshima', alight: 'Fushimi-Momoyama (5ª parada)', minutes: 12, cost: '¥220', note: 'em Fushimi-Momoyama só param local, 準急 e 通勤準急 — nenhum expresso' },
-    walk(7, 'pela galeria Ōtesuji para o oeste e depois para o sul; o Torisei fica na rua das kuras, atrás da Yamamoto Honke'),
+    {
+      mode: 'train', line: 'Keihan Main Line — **普通 (local)**', board: 'Fushimi-Inari (伏見稲荷)', boardPoint: '伏見稲荷駅',
+      direction: '淀屋橋・中之島方面 (Yodoyabashi/Nakanoshima)', alight: 'Fushimi-Momoyama (伏見桃山), 5ª parada', alightPoint: '伏見桃山駅', minutes: 12, cost: '¥220',
+      note: 'em Fushimi-Momoyama só param local, 準急 e 通勤準急 — nenhum expresso',
+      steps: [
+        'Plataforma **淀屋橋方面** (para o sul). A do outro lado volta para Kyoto.',
+        'Peguem o **普通 (local)**.',
+        'Contem: Fukakusa, Fujinomori, Sumizome, Tambabashi e **伏見桃山 Fushimi-Momoyama**, a 5ª. Desçam.',
+      ],
+    },
+    walk(7, 'saindo da estação, a galeria Ōtesuji começa em frente: sigam por ela para o oeste e depois para o sul; o Torisei fica na rua das kuras, atrás da Yamamoto Honke'),
   ],
   'd27-jantar': [
     walk(7, 'de volta à Keihan Fushimi-Momoyama'),
-    { mode: 'train', line: 'Keihan Main Line (準急 ou local)', board: 'Fushimi-Momoyama', direction: 'Demachiyanagi · Sanjō', alight: 'Sanjō (京阪三条)', minutes: 22, cost: '¥280', note: 'desçam em **Sanjō**, não em Gion-Shijō: o Musashi e o hotel ficam na Kawaramachi logo abaixo da ponte Sanjō. Últimos trens 23:26 e 00:08; confirmar na placa, a Keihan mudou o horário em agosto' },
+    {
+      mode: 'train', line: 'Keihan Main Line (準急 ou local)', board: 'Fushimi-Momoyama (伏見桃山)', boardPoint: '伏見桃山駅',
+      direction: '三条・出町柳方面 (Sanjō/Demachiyanagi)', alight: 'Sanjō (三条), 11ª parada', alightPoint: '三条駅 京阪', minutes: 22, cost: '¥280',
+      note: 'desçam em **Sanjō**, não em Gion-Shijō: o Musashi e o hotel ficam na Kawaramachi logo abaixo da ponte Sanjō. Últimos trens 23:26 e 00:08; confirmar na placa, a Keihan mudou o horário em agosto',
+      steps: [
+        'Plataforma **三条・出町柳方面** (para o norte).',
+        'Peguem o primeiro que vier e diga 三条 ou 出町柳: todo trem que para aqui passa por Sanjō.',
+        'São 11 paradas; a 10ª é Gion-Shijō. Desçam na seguinte, **三条 Sanjō**.',
+        'Sigam a placa amarela de saída para **三条大橋 (ponte Sanjō)**.',
+      ],
+    },
     walk(5, 'saindo da Keihan Sanjō, atravessem a ponte Sanjō para o oeste: o Musashi é a esquina da Kawaramachi com a Sanjō, com a placa de sushi girando'),
   ],
   'd27-sushi-musashi': [walk(3, 'descendo a Kawaramachi uma quadra e meia para o sul, até o hotel')],
 
   // ── 28 nov · Higashiyama ───────────────────────────────────────────
-  'd28-kiyomizu': [walk(5, 'descendo pela ladeira das lojas (Matsubara-dōri); a Sannenzaka é a escada à direita')],
+  'd28-kiyomizu': [walk(5, 'descendo a ladeira das lojas (Matsubara-dōri); a Sannenzaka é a escada à direita')],
   'd28-sannenzaka': [walk(8, 'pela Ninenzaka e depois pelo Nene-no-michi; o Kōdai-ji fica no alto, à direita')],
   'd28-kodaiji': [
     walk(10, 'descendo até a Higashiōji-dōri, a avenida larga: táxi livre tem a luz vermelha 空車 no para-brisa'),
@@ -448,15 +839,41 @@ export const LEGS: Record<string, Leg[]> = {
   // ── 29 nov · Arashiyama, Kinkaku-ji ────────────────────────────────
   'd29-konbini': [
     walk(7, 'descendo a Kawaramachi para o sul até a Shijō; a Hankyu Kyoto-Kawaramachi é a estação subterrânea da esquina (entrem pela saída 3 ou 10)'),
-    { mode: 'train', line: 'Hankyu Kyoto Line', board: 'Kyoto-Kawaramachi', direction: 'Osaka-Umeda', alight: 'Ōmiya (阪急大宮)', minutes: 4, cost: '¥170', note: 'qualquer trem; são duas paradas' },
-    { mode: 'tram', line: 'Randen (Keifuku) Arashiyama Line', board: 'Shijō-Ōmiya', direction: 'Arashiyama', alight: 'Arashiyama (final)', minutes: 22, cost: '¥250', note: 'o bondinho de Kyoto; passa a cada ~10 min desde as 6h. A estação fica a 3 min do portão do Tenryū-ji' },
+    {
+      mode: 'train', line: 'Hankyu Kyoto Line (marrom)', board: 'Kyoto-Kawaramachi (京都河原町)', boardPoint: '京都河原町駅',
+      direction: '大阪梅田 Osaka-Umeda', alight: 'Ōmiya (大宮), 2ª parada', alightPoint: '阪急大宮駅', minutes: 4, cost: '¥170',
+      steps: [
+        'Kyoto-Kawaramachi é ponta de linha: **todos os trens** vão para 大阪梅田 e todos param em Ōmiya. Peguem o primeiro que sair.',
+        'Contem Karasuma e **大宮 Ōmiya**, a 2ª. Desçam.',
+        'Na catraca, sigam a placa **嵐電 Randen (四条大宮)**: a estação do bondinho fica na superfície, na própria esquina da Shijō com a Ōmiya.',
+      ],
+    },
+    {
+      mode: 'tram', line: 'Randen (Keifuku) Arashiyama Line', board: 'Shijō-Ōmiya (四条大宮)', boardPoint: '嵐電 四条大宮駅',
+      direction: '嵐山 Arashiyama', alight: 'Arashiyama (嵐山), fim da linha', alightPoint: '嵐電嵐山駅', minutes: 22, cost: '¥250',
+      note: 'o bondinho de Kyoto; passa a cada ~10 min desde as 6h. A estação fica a 3 min do portão do Tenryū-ji',
+      steps: [
+        'Shijō-Ōmiya também é ponta de linha: o bondinho roxo sai daqui e **todos vão a 嵐山 Arashiyama**.',
+        'Fiquem até o **fim da linha**. Na metade do caminho, em Katabiranotsuji, sai um ramal para Kitano: não desçam, o de vocês segue reto.',
+        'Em Arashiyama, saiam pela frente da estação para a rua principal: o portão do Tenryū-ji fica do outro lado, um pouco à direita.',
+      ],
+    },
     walk(8, 'pela lateral do Tenryū-ji até o portão norte; o bambuzal começa ali'),
   ],
   'd29-bambu': [walk(5, 'o portão norte do Tenryū-ji abre para dentro do bambuzal')],
   'd29-tenryuji': [walk(10, 'de volta ao bambuzal e subindo até o fim da trilha; a villa é o portão à direita')],
   'd29-okochi-sanso': [walk(5, 'de volta ao bambuzal: a estação **Torokko Arashiyama** (トロッコ嵐山) é a plataforma de madeira na beira da trilha. Estejam lá 10 min antes do trem das 11:05')],
   'd29-sagano': [
-    { mode: 'train', line: 'Sagano 5 · Sagano 6 (ida e volta)', board: 'Torokko Arashiyama', direction: 'Torokko Kameoka', alight: 'Torokko Arashiyama', minutes: 45, cost: '¥880 por trecho', note: 'ida 11:05 → 11:25, volta 11:30 → 11:50: em Kameoka são 5 min para embarcar no segundo trem' },
+    {
+      mode: 'train', line: 'Sagano 5 · Sagano 6 (ida e volta)', board: 'Torokko Arashiyama', boardPoint: 'トロッコ嵐山駅',
+      direction: 'Torokko Kameoka (トロッコ亀岡)', alight: 'Torokko Arashiyama', alightPoint: 'トロッコ嵐山駅', minutes: 45, cost: '¥880 por trecho',
+      note: 'ida 11:05 → 11:25, volta 11:30 → 11:50: em Kameoka são 5 min para embarcar no segundo trem',
+      steps: [
+        'Cada bilhete tem o **carro (号車)** e o **assento**: o da ida é o Sagano 5, o da volta o Sagano 6. Esperem na plataforma em frente ao número do carro.',
+        'Fiquem até **トロッコ亀岡 Torokko Kameoka**, o fim da linha (20 min).',
+        'Em Kameoka, **não saiam da estação**: procurem o carro do segundo bilhete no Sagano 6, que sai 5 min depois e volta até Torokko Arashiyama.',
+      ],
+    },
     walk(15, 'descendo pelo bambuzal e pela rua do Tenryū-ji até o rio; o Yoshimura fica na cabeceira norte da ponte Togetsukyō, com a varanda para o rio'),
   ],
   'd29-almoco': [
@@ -464,17 +881,35 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd29-kinkakuji': [walk(15, 'pela Kinukake-no-michi, a estrada em descida à esquerda da saída; ou ônibus 59, duas paradas')],
   'd29-ryoanji': [
-    walk(3, 'até a parada Ryōanji-mae, na frente do templo'),
-    { mode: 'bus', line: 'ônibus 59', board: 'Ryōanji-mae', direction: 'Sanjō-Keihan · Shijō-Kawaramachi', alight: 'Shijō-Kawaramachi', minutes: 40, cost: '¥230' },
-    walk(6, 'o Nishiki é a galeria coberta uma quadra ao norte da Shijō'),
+    walk(3, 'até a parada Ryōanji-mae, na frente do templo — a do lado com a placa 四条河原町・三条京阪 方面'),
+    {
+      mode: 'bus', line: 'ônibus 59 (市バス, verde)', board: 'Ryōanji-mae (竜安寺前)', boardPoint: '竜安寺前 バス停',
+      direction: '四条河原町・三条京阪 Shijō-Kawaramachi · Sanjō-Keihan', alight: 'Shijō-Kawaramachi (四条河原町)', alightPoint: '四条河原町 バス停', minutes: 40, cost: '¥230',
+      steps: [
+        'O painel da frente do ônibus diz **59 四条河原町・三条京阪**. Confiram o número antes de subir.',
+        '**Subam pela porta de trás ou do meio**, sem pagar. Nos ônibus comuns de Kyoto ainda é assim: entra atrás, paga e sai pela frente. (A cidade só planeja inverter para o fim de 2028; hoje, só os expressos turísticos EX são de entrar pela frente.)',
+        'Na descida, encostem a Suica no leitor ao lado do motorista: **¥230**, tarifa única. O painel e a voz anunciam a parada; um antes é 河原町三条 (Kawaramachi-Sanjō), a do hotel — desçam na seguinte, **四条河原町 Shijō-Kawaramachi**.',
+      ],
+    },
+    walk(6, 'o Nishiki é a galeria coberta uma quadra ao norte da Shijō: subam pela galeria Teramachi, a coberta, e virem à esquerda'),
   ],
   'd29-nishiki': [walk(6, 'saindo pelo lado leste do Nishiki, pela galeria Shinkyōgoku; a Urateramachi é a rua paralela')],
   'd29-jantar': [walk(4, 'subindo a Kawaramachi para o norte até o hotel, logo abaixo da Sanjō')],
 
   // ── 30 nov · Nara ──────────────────────────────────────────────────
   'd30-trem-nara': [
-    { mode: 'train', line: 'Kintetsu Limited Express (特急)', board: 'Kintetsu Kyoto, plataformas 1–4', direction: 'Kintetsu-Nara (近鉄奈良)', alight: 'Kintetsu-Nara (final)', minutes: 35, cost: '¥1.280 (¥760 + ¥520 do assento reservado)', note: 'comprem o assento na máquina ou no guichê; o expresso comum (急行) leva 45 min e não precisa de reserva' },
-    walk(8, 'sigam a placa 東大寺・奈良公園 até a rua e vão para o leste pela Noborioji-dōri, a avenida larga; os cervos aparecem na altura do Kōfuku-ji, à direita'),
+    {
+      mode: 'train', line: 'Kintetsu Limited Express (特急)', board: 'Kintetsu Kyoto, plataformas 1–4', boardPoint: '近鉄京都駅',
+      direction: '近鉄奈良 Kintetsu-Nara', alight: 'Kintetsu-Nara (final)', alightPoint: '近鉄奈良駅', minutes: 35, cost: '¥1.280 (¥760 + ¥520 do assento reservado)',
+      note: 'comprem o assento na máquina ou no guichê; o expresso comum (急行) leva 45 min e não precisa de reserva',
+      steps: [
+        'Na máquina ao lado da catraca, comprem o **特急券** (bilhete do assento) para **近鉄奈良**. A Suica paga a tarifa base na catraca; o 特急券 é o papel do assento, com carro e número.',
+        'No painel, o trem tem de dizer **奈良** (Nara). O 特急 que diz **橿原神宮前** (Kashihara-Jingū-mae) não vai a Nara: não peguem. No 急行, também só o que diz 奈良.',
+        'Fiquem até o **fim da linha**, **近鉄奈良 Kintetsu-Nara** (subterrânea).',
+        'Na saída, sigam as placas **東大寺・奈良公園 (Tōdai-ji / Parque)** e **登大路 Noborioji**: em cima fica a praça com o chafariz da estátua de Gyōki.',
+      ],
+    },
+    walk(8, 'da praça do Gyōki, para o leste pela Noborioji-dōri, a avenida larga em subida; os cervos aparecem na altura do Kōfuku-ji, à direita'),
   ],
   'd30-parque-nara': [walk(12, 'continuem pela Noborioji e virem à esquerda na rua das barracas: o portão Nandaimon aparece no fim dela')],
   'd30-todaiji': [walk(10, 'saindo pelo lado leste do salão, subida pela escada de pedra')],
@@ -488,10 +923,33 @@ export const LEGS: Record<string, Leg[]> = {
   'd30-almoco': [walk(5, 'subindo a rua para o leste: o Kōfuku-ji é o pátio aberto à direita, antes do parque')],
   'd30-kofukuji': [walk(8, 'descendo até o lago Sarusawa e continuando para o sul: Naramachi são as ruas de casas antigas atrás do lago')],
   'd30-naramachi': [
-    walk(10, 'até a estação Kintetsu-Nara'),
-    { mode: 'train', line: 'Kintetsu (特急 ou 急行)', board: 'Kintetsu-Nara', direction: 'Kyoto (京都)', alight: 'Kyoto (final)', minutes: 40, cost: '¥1.280 reservado · ¥760 no expresso comum', note: 'confiram que o trem vai a KYOTO: metade vai para Osaka-Namba' },
-    { mode: 'metro', line: 'Karasuma Line', board: 'Kyoto (metrô, lado norte da estação)', direction: 'Kokusaikaikan', alight: 'Karasuma-Oike', minutes: 6 },
-    { mode: 'metro', line: 'Tōzai Line', board: 'Karasuma-Oike (sigam a placa 東西線, baldeação no mesmo prédio)', direction: 'Rokujizō', alight: 'Kyoto-Shiyakusho-mae', minutes: 2, cost: '¥260 no total' },
+    walk(10, 'para o norte, de volta pelo lago Sarusawa e pela galeria Higashimuki até a estação Kintetsu-Nara, na praça do Gyōki'),
+    {
+      mode: 'train', line: 'Kintetsu (特急 ou 急行)', board: 'Kintetsu-Nara', boardPoint: '近鉄奈良駅',
+      direction: '京都 Kyoto', alight: 'Kyoto (final)', alightPoint: '近鉄京都駅', minutes: 40, cost: '¥1.280 reservado · ¥760 no expresso comum',
+      note: 'confiram que o trem vai a KYOTO: metade vai para Osaka-Namba',
+      steps: [
+        'Para o 特急, comprem o **特急券** na máquina antes da catraca, para **京都**.',
+        'No painel, só o trem que diz **京都** (Kyoto). Os que dizem 大阪難波 ou 神戸三宮 vão para Osaka: é a outra metade.',
+        'Fiquem até o **fim da linha**, **京都 Kyoto**. Na saída, sigam as placas **地下鉄 Subway** (烏丸線): o metrô fica no subsolo do lado norte, atravessando a estação.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Karasuma Line (verde, K)', board: 'Kyoto (metrô, lado norte da estação)', boardPoint: '京都駅 烏丸口',
+      direction: '国際会館 Kokusaikaikan', alight: 'Karasuma-Oike (烏丸御池), 3ª parada', minutes: 6,
+      steps: [
+        'Plataforma **国際会館方面 (Kokusaikaikan)**.',
+        'Contem Gojō, Shijō e **烏丸御池 Karasuma-Oike**, a 3ª. Desçam e sigam a placa **東西線 Tōzai Line**, sem sair da estação.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Tōzai Line (vermelho-alaranjado, T)', board: 'Karasuma-Oike, pela baldeação', direction: '六地蔵 Rokujizō',
+      alight: 'Kyoto-Shiyakusho-mae (京都市役所前), 1ª parada', alightPoint: '京都市役所前駅', minutes: 2, cost: '¥260 no total',
+      steps: [
+        'Plataforma **六地蔵方面 (Rokujizō)**. A do outro lado vai para Uzumasa-Tenjingawa.',
+        '**1 parada**: desçam em **京都市役所前 Kyoto-Shiyakusho-mae** e saiam para o lado da Kawaramachi-dōri.',
+      ],
+    },
     walk(6, 'descendo a Kawaramachi para o sul até o hotel, logo abaixo da Sanjō'),
   ],
 
@@ -504,25 +962,78 @@ export const LEGS: Record<string, Leg[]> = {
     walk(15, 'saindo pelo portão norte (Kitadaimon), para o nordeste até a saída **Hachijō** da Estação de Kyoto, a do Shinkansen'),
     walk(5, 'atravessem a estação pela passagem livre até os armários das catracas centrais: peguem as malas de mão — e então o Isetan (ekiben) ou o Ramen Kōji no 10º'),
   ],
-  'd01-almoco': [walk(6, 'catracas do Shinkansen, lado Hachijō (sul); plataformas 11 a 14. Cheguem 15 min antes')],
+  'd01-almoco': [walk(6, 'catracas do Shinkansen, lado Hachijō (sul); para Tóquio são as plataformas 11 e 12. Cheguem 15 min antes')],
   'd01-shinkansen': [
-    { mode: 'shinkansen', line: 'Nozomi', board: 'Kyoto, plataformas 11–12', direction: 'Tokyo (東京)', alight: 'Tokyo (final)', minutes: 135, cost: '¥14.200 reservado', note: 'Fuji do lado ESQUERDO nesse sentido, que é a janela **E** (A–C ficam sempre do lado do mar). Aparece uns 40 min antes de chegar' },
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Tokyo', direction: 'Ginza · Shinjuku', alight: 'Ginza', minutes: 2, cost: '¥180', note: 'ou táxi ~¥1.200 com as malas de mão' },
+    {
+      mode: 'shinkansen', line: 'Nozomi', board: 'Kyoto, plataformas 11–12 (東京方面)', boardPoint: '京都駅 新幹線八条口',
+      direction: '東京 Tokyo', alight: 'Tokyo (final)', minutes: 135, cost: '¥14.200 reservado',
+      note: 'Fuji do lado ESQUERDO nesse sentido, que é a janela **E** (A–C ficam sempre do lado do mar). Aparece uns 40 min antes de chegar',
+      steps: [
+        'Pela catraca do Shinkansen, sigam a placa **東京方面 (Tokyo)**: são as plataformas **11 e 12**, no 3º andar. As 13 e 14 vão para Shin-Osaka/Hakata.',
+        'No painel, achem **のぞみ** com o número do bilhete e a hora **13:20**. Esperem na marca do chão com o número do **carro (号車)** do bilhete.',
+        'Para o Fuji, o assento é **D ou E** (o E é a janela). As fileiras A–C ficam do lado do mar.',
+        'Em Tóquio, fim da linha: sigam as placas **丸ノ内線 Marunouchi Line** (círculo **vermelho M**). O metrô fica do outro lado, no lado Marunouchi — uns 10 minutos andando com as malas.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Tokyo (東京)', boardPoint: '東京駅 丸ノ内線',
+      direction: '荻窪 Ogikubo · Ginza · Shinjuku', alight: 'Ginza (銀座), 1ª parada, saída A13', alightPoint: '銀座駅 A13出口', minutes: 2, cost: '¥180',
+      note: 'ou táxi ~¥1.200 com as malas de mão',
+      steps: [
+        'Plataforma **銀座・新宿・荻窪方面 (Ginza/Ogikubo)**. A do outro lado vai para Ikebukuro.',
+        'É **1 parada**: desçam em **銀座 Ginza**.',
+        'Sigam a placa amarela **A13**: a saída do hotel, a 3 minutos.',
+      ],
+    },
     walk(5, 'check-in; as malas do takuhaibin chegam hoje ou amanhã'),
   ],
   'd01-checkin-compras': [
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Ginza', direction: 'Ikebukuro (池袋)', alight: 'Tokyo', minutes: 2, cost: '¥180' },
-    { mode: 'train', line: 'JR Yamanote', board: 'Tokyo, plataforma 4 (上野・池袋方面)', direction: 'Ueno · Ikebukuro', alight: 'Komagome (駒込), saída sul', minutes: 18, cost: '¥209' },
+    walk(3, 'de volta à saída A13 da Ginza'),
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Ginza (銀座), saída A13', boardPoint: '銀座駅 A13出口',
+      direction: '池袋 Ikebukuro', alight: 'Tokyo (東京), 1ª parada', minutes: 2, cost: '¥180',
+      steps: [
+        'Desçam pela A13 e sigam o **M vermelho** (丸ノ内線). Plataforma **池袋方面 (Ikebukuro)**.',
+        '**1 parada**: desçam em **東京 Tokyo**.',
+        'Saindo do metrô, sigam as placas **JR線**: a entrada da JR mais perto é a catraca **丸の内地下中央口**, no subsolo.',
+      ],
+    },
+    {
+      mode: 'train', line: 'JR Yamanote (verde-claro)', board: 'Tokyo, plataforma 4 (上野・池袋方面)', boardPoint: '東京駅 丸の内地下中央口',
+      direction: '上野・池袋方面 (Ueno/Ikebukuro)', alight: 'Komagome (駒込), 9ª parada, saída sul (南口)', alightPoint: '駒込駅 南口', minutes: 18, cost: '¥209',
+      steps: [
+        'Passada a catraca, sigam a placa **山手線 Yamanote** (verde-claro), **plataforma 4, 上野・池袋方面**. A 5 é a do sentido contrário (Shinagawa).',
+        'São 9 paradas: Kanda, Akihabara, Okachimachi, Ueno, Uguisudani, Nippori, Nishi-Nippori, Tabata e **駒込 Komagome**.',
+        'Sigam a placa amarela **南口 South Exit**.',
+      ],
+    },
     walk(7, 'da saída sul até o **portão principal (正門)**, na Hongō-dōri — é o que abre à noite. O portão Somei, mais perto da estação, só abre em algumas temporadas'),
   ],
   'd01-rikugien': [
-    walk(7, 'de volta à estação Komagome'),
-    { mode: 'train', line: 'JR Yamanote', board: 'Komagome', direction: 'Ikebukuro · Shinjuku', alight: 'Ikebukuro (3ª parada)', minutes: 8, cost: '¥199' },
-    walk(8, 'saída 35 (fica à direita ao passar a catraca, com escada rolante e elevador), depois a Sunshine 60-dōri reto; o Sunshine City é o complexo no fim. World Import Mart, 3º andar'),
+    walk(7, 'de volta pela Hongō-dōri à estação Komagome, saída sul'),
+    {
+      mode: 'train', line: 'JR Yamanote (verde-claro)', board: 'Komagome (駒込), saída sul', boardPoint: '駒込駅 南口',
+      direction: '池袋・新宿方面 (Ikebukuro/Shinjuku)', alight: 'Ikebukuro (池袋), 3ª parada', alightPoint: '池袋駅 35番出口', minutes: 8, cost: '¥199',
+      steps: [
+        'Sigam a placa **山手線 Yamanote**, plataforma **池袋・新宿方面**. A do outro lado vai para Tabata/Ueno.',
+        'Contem Sugamo, Ōtsuka e **池袋 Ikebukuro**, a 3ª. Desçam.',
+        'Saiam pelo lado **東口 (East)** e, no subsolo, sigam as placas **サンシャインシティ Sunshine City · 35番出口**. A saída 35 (com escada rolante e elevador) fica a uns 3 min da catraca.',
+      ],
+    },
+    walk(8, 'da saída 35, a Sunshine 60-dōri reto; o Sunshine City é o complexo no fim. World Import Mart, 3º andar'),
   ],
   'd01-gachapon-ikebukuro': [
     walk(6, 'pela passagem subterrânea do Sunshine City até a estação Higashi-Ikebukuro'),
-    { mode: 'metro', line: 'Yūrakuchō Line', board: 'Higashi-Ikebukuro (東池袋)', direction: 'Shin-Kiba (新木場)', alight: 'Ginza-itchōme (銀座一丁目)', minutes: 20, cost: '¥260', note: 'sem baldeação e sem voltar até a estação de Ikebukuro' },
+    {
+      mode: 'metro', line: 'Yūrakuchō Line (dourada, Y)', board: 'Higashi-Ikebukuro (東池袋)', boardPoint: '東池袋駅',
+      direction: '新木場 Shin-Kiba', alight: 'Ginza-itchōme (銀座一丁目), 9ª parada', minutes: 20, cost: '¥260',
+      note: 'sem baldeação e sem voltar até a estação de Ikebukuro',
+      steps: [
+        'Sigam o **Y dourado** (有楽町線). Plataforma **新木場方面 (Shin-Kiba)**. A do outro lado vai para Ikebukuro/Wakōshi.',
+        'São 9 paradas; a 8ª é Yūrakuchō. Desçam na seguinte, **銀座一丁目 Ginza-itchōme**.',
+        'Sigam as placas de saída para a **中央通り Chūō-dōri**.',
+      ],
+    },
     walk(5, 'pela Chūō-dōri para o sul até a Ginza 3-chōme e o hotel'),
   ],
 
@@ -530,21 +1041,75 @@ export const LEGS: Record<string, Leg[]> = {
   'd02-kanda-myojin': [walk(4, 'atravessando a rua para o sul: o muro preto do Yushima Seidō começa ali')],
   'd02-yushima-seido': [walk(14, 'pela ponte Hijiribashi, passando pela Nikolai-dō, e ladeira abaixo pela Yasukuni-dōri até Jimbōchō; o Bondy fica dentro de um pátio, entrada pela livraria')],
   'd02-jimbocho': [
-    { mode: 'metro', line: 'Hanzōmon Line', board: 'Jimbōchō', direction: 'Oshiage', alight: 'Mitsukoshimae, saída B6', minutes: 6, cost: '¥180' },
-    walk(2, 'a ponte é logo ao lado do Mitsukoshi'),
+    walk(3, 'de volta à Yasukuni-dōri: desçam por uma entrada da estação **Jimbōchō** com o **Z roxo** (半蔵門線)'),
+    {
+      mode: 'metro', line: 'Hanzōmon Line (roxa, Z)', board: 'Jimbōchō (神保町)', boardPoint: '神保町駅',
+      direction: '押上 Oshiage', alight: 'Mitsukoshimae (三越前), 2ª parada, saída B6', alightPoint: '三越前駅 B6出口', minutes: 6, cost: '¥180',
+      steps: [
+        'Em Jimbōchō a Hanzōmon divide a plataforma com a Toei Shinjuku (verde-claro, S). Confiram que o trem é o **roxo** e que o painel diz **押上方面 (Oshiage)**.',
+        'Contem Ōtemachi e **Mitsukoshimae**, a 2ª. Desçam.',
+        'Sigam a placa amarela **B6出口 (saída B6)**: ela sai na ponta norte da própria ponte Nihonbashi.',
+      ],
+    },
+    walk(1, 'a saída B6 dá no cruzamento 日本橋北詰, colado à ponte; o Mitsukoshi fica uma quadra para trás, na mesma avenida'),
   ],
   'd02-nihonbashi': [
-    { mode: 'metro', line: 'Ginza Line', board: 'Mitsukoshimae', direction: 'Asakusa', alight: 'Kanda', minutes: 2, cost: '¥180' },
-    { mode: 'train', line: 'JR Yamanote ou Keihin-Tōhoku', board: 'Kanda', direction: 'Ueno', alight: 'Akihabara, saída Electric Town', minutes: 2, cost: '¥155', note: 'ou 18 min a pé reto pela Chūō-dōri, que é a mesma rua' },
+    walk(3, 'do Mitsukoshi, desçam por uma entrada com o **G laranja** (銀座線) da estação Mitsukoshimae; o Mitsukoshi também tem acesso pelo subsolo'),
+    {
+      mode: 'metro', line: 'Ginza Line (laranja, G)', board: 'Mitsukoshimae (三越前)', boardPoint: '三越前駅',
+      direction: '浅草 Asakusa', alight: 'Kanda (神田), 1ª parada', minutes: 2, cost: '¥180',
+      steps: [
+        'Plataforma **浅草方面 (Asakusa)**. É só **1 parada**: desçam em **神田 Kanda**.',
+        'Em Kanda, sigam a placa **JR線 のりかえ** pela catraca **内神田方面**. Saindo do metrô, a catraca **北改札** da JR fica a uns 2 minutos.',
+      ],
+    },
+    {
+      mode: 'train', line: 'JR Yamanote (verde-claro)', board: 'Kanda (神田), catraca norte', boardPoint: '神田駅 北改札',
+      direction: '上野・池袋方面 (Ueno/Ikebukuro)', alight: 'Akihabara (秋葉原), 1ª parada, saída Shōwa-dōri (昭和通り口)', alightPoint: '秋葉原駅 昭和通り口', minutes: 2, cost: '¥155',
+      note: 'ou 18 min a pé reto pela Chūō-dōri, que é a mesma rua',
+      steps: [
+        'Sigam a placa **山手線 Yamanote** (verde-claro), plataforma **上野・池袋方面**. Durante o dia a Keihin-Tōhoku (azul) corre como rápido e **não para em Kanda**: peguem a verde-clara.',
+        'É só **1 parada**: desçam em **秋葉原 Akihabara**.',
+        'Sigam a placa amarela **昭和通り口 Shōwa-dōri**, e não a Electric Town: a primeira missão, a **Yodobashi**, é o prédio enorme bem na frente dessa saída.',
+      ],
+    },
   ],
   'd02-akihabara-missoes': [
-    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Akihabara, plataforma 6 — no **3º andar**, por cima das outras (千葉・船橋方面)', direction: 'Chiba', alight: 'Kinshichō', minutes: 5, cost: '¥199' },
-    { mode: 'metro', line: 'Hanzōmon Line', board: 'Kinshichō', direction: 'Oshiage', alight: 'Oshiage (Skytree-mae)', minutes: 3, cost: '¥180', note: 'isto é para a Skytree. Tokyo Tower: Hibiya Line até Kamiyachō. Prédio do Governo: Chūō até Shinjuku' },
-    walk(3, 'a torre é a saída da estação; bilheteria no 4º andar'),
+    walk(5, 'da Mandarake, de volta à estação pela entrada **電気街口 (Electric Town)**'),
+    {
+      mode: 'train', line: 'JR Sōbu local (amarelo)', board: 'Akihabara (秋葉原), entrada Electric Town', boardPoint: '秋葉原駅 電気街口',
+      direction: '千葉方面 (Chiba)', alight: 'Kinshichō (錦糸町), 3ª parada', minutes: 5, cost: '¥199',
+      steps: [
+        'Passada a catraca, sigam a placa **amarela 総武線** (Sōbu, local). As plataformas dela ficam no **3º andar**, por cima das outras.',
+        'Plataforma **6番線 · 千葉方面 (Chiba)**. A 5 vai para Ochanomizu e Shinjuku: não é essa.',
+        'Contem Asakusabashi, Ryōgoku e **Kinshichō**, a 3ª. Desçam.',
+        'Sigam as placas **半蔵門線 (Hanzōmon, roxo Z)**: é preciso sair da JR e entrar no metrô; ele fica do outro lado da rua, a uns 5 minutos.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Hanzōmon Line (roxa, Z)', board: 'Kinshichō (錦糸町)', boardPoint: '錦糸町駅',
+      direction: '押上 Oshiage', alight: 'Oshiage〈Skytree-mae〉 (押上〈スカイツリー前〉), 1ª parada', alightPoint: '押上駅', minutes: 3, cost: '¥180',
+      note: 'isto é para a Skytree. Tokyo Tower: Hibiya Line até Kamiyachō. Prédio do Governo: Chūō até Shinjuku',
+      steps: [
+        'Plataforma **押上方面 (Oshiage)**. Muitos trens seguem depois pela Tōbu: tudo bem, todos param em Oshiage.',
+        'É só **1 parada**. Desçam em **押上 Oshiage** e sigam as placas **東京スカイツリー Tokyo Skytree**: a estação é ligada por baixo ao complexo da torre.',
+      ],
+    },
+    walk(3, 'a torre é a saída da estação; a bilheteria do Tembo Deck fica no 4º andar'),
   ],
   'd02-ultima-vista': [
-    { mode: 'metro', line: 'Toei Asakusa Line', board: 'Oshiage', direction: 'Nishi-Magome · Haneda', alight: 'Higashi-Ginza', minutes: 20, cost: '¥280', note: 'da Skytree, direto. Da Tokyo Tower: Hibiya Line de Kamiyachō até Higashi-Ginza, 9 min' },
-    walk(1, 'saída **A1** (ou saída 6, se vierem pela Hibiya): a Iwate Ginga Plaza fica em frente ao Kabuki-za, no térreo do Nankai Tokyo Building'),
+    walk(3, 'da torre, de volta à estação Oshiage pelo mesmo caminho; desta vez sigam as placas do **都営浅草線 (Toei Asakusa, rosa A)**'),
+    {
+      mode: 'metro', line: 'Toei Asakusa Line (rosa, A)', board: 'Oshiage (押上)', boardPoint: '押上駅',
+      direction: '西馬込・羽田空港方面 (Nishi-Magome/Haneda)', alight: 'Higashi-Ginza (東銀座), 9ª parada, saída 6', alightPoint: '東銀座駅 6番出口', minutes: 20, cost: '¥280',
+      note: 'da Skytree, direto. Da Tokyo Tower: Hibiya Line de Kamiyachō até Higashi-Ginza, 9 min',
+      steps: [
+        'Plataforma **西馬込・羽田空港方面**. Muitos trens vêm da Keisei e seguem até Haneda: servem, **menos o エアポート快特** (Airport Kaitoku), que passa direto por Higashi-Ginza. Confiram no painel.',
+        'São 9 paradas, uns 20 minutos: Honjo-azumabashi, Asakusa, Kuramae, Asakusabashi, Higashi-nihombashi, Ningyōchō, Nihombashi, Takarachō e **東銀座 Higashi-Ginza**. Desçam.',
+        'Passem a catraca do Toei e sigam a placa amarela **6番出口 (saída 6)**. O subsolo depois da catraca é comum às duas linhas da estação.',
+      ],
+    },
+    walk(1, 'a saída 6 dá praticamente na porta: a Iwate Ginga Plaza fica no térreo do Nankai Tokyo Building, em frente ao Kabuki-za'),
   ],
   'd02-tekki': [walk(11, 'pela Harumi-dōri até a Ginza 4-chōme e além, passando pelo Kumamotokan (Ginza 5-3-16, perto da saída B9); o Bic Camera é o prédio grande de Yūrakuchō, do outro lado dos trilhos')],
   'd02-compras-finais': [walk(8, 'do Bic Camera Yūrakuchō, sigam os trilhos da JR no sentido de Shinbashi: o **OKUROJI** é a galeria debaixo dos arcos, e o Manten fica na loja **G24**. Cheguem às 20:20 — 15 min de atraso cancelam a mesa')],
@@ -553,30 +1118,81 @@ export const LEGS: Record<string, Leg[]> = {
 
   // ── 3 dez · volta ──────────────────────────────────────────────────
   'd03-nakiryu-senha': [
-    walk(5, 'senha na mão, café da manhã por perto e de volta à estação Shin-Ōtsuka por volta das 9:15'),
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Shin-Ōtsuka (新大塚)', direction: 'Ginza · Ogikubo', alight: 'Ochanomizu', minutes: 9, cost: '¥180' },
-    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Ochanomizu (JR, do outro lado da rua do metrô) — plataforma do 総武線 千葉方面', direction: 'Chiba (千葉)', alight: 'Kameido (亀戸)', minutes: 12, cost: '¥199' },
-    walk(4, 'uns 300 m para o sul, do outro lado da Keiyō-dōri, a avenida larga — sigam o mapa'),
+    walk(5, 'senha na mão, café da manhã por perto e de volta à estação Shin-Ōtsuka por volta das 9:15. Entrem pela **saída 1**, a do lado do Nakiryu (Minami-Ōtsuka): é a catraca do sentido Ginza'),
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Shin-Ōtsuka (新大塚), entrada 1', boardPoint: '新大塚駅 1番出口',
+      direction: '銀座・荻窪方面 (Ginza/Ogikubo)', alight: 'Ochanomizu (御茶ノ水), 4ª parada', minutes: 9, cost: '¥180',
+      steps: [
+        'Em Shin-Ōtsuka cada sentido tem a sua entrada. Antes de passar a catraca, a placa tem que dizer **銀座・荻窪方面**. Se disser 池袋方面, é a entrada do outro lado da avenida.',
+        'Contem Myōgadani, Kōrakuen, Hongō-sanchōme e **Ochanomizu**, a 4ª. Desçam.',
+        'Saiam pela catraca da plataforma e subam até a rua. A JR fica **do outro lado do rio**: atravessem a ponte **お茶の水橋 (Ochanomizu-bashi)** e, do outro lado da rua, entrem na JR pela catraca **お茶の水橋口**.',
+      ],
+    },
+    {
+      mode: 'train', line: 'JR Sōbu local (amarelo)', board: 'Ochanomizu (御茶ノ水), catraca Ochanomizu-bashi', boardPoint: '御茶ノ水駅 御茶ノ水橋口',
+      direction: '千葉方面 (Chiba)', alight: 'Kameido (亀戸), 5ª parada, saída norte (北口)', alightPoint: '亀戸駅 北口', minutes: 12, cost: '¥199',
+      steps: [
+        'Sigam a placa **amarela 総武線 各駅停車**, plataforma **千葉方面 (Chiba)**. Na mesma estação passa o Chūō rápido (laranja): não é esse.',
+        'Contem Akihabara, Asakusabashi, Ryōgoku, Kinshichō e **Kameido**, a 5ª. Desçam.',
+        'Sigam a placa amarela **北口 North Exit**.',
+      ],
+    },
+    walk(4, 'do 北口, uns 300 m até a Kameido 1-35-8, atravessando a Keiyō-dōri, a avenida larga — sigam o mapa'),
   ],
   'd03-sano-miso': [
-    walk(4, 'de volta à JR Kameido'),
-    { mode: 'train', line: 'JR Sōbu (local, amarelo)', board: 'Kameido', direction: 'Mitaka · Nakano (三鷹方面)', alight: 'Ochanomizu', minutes: 12, cost: '¥199' },
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Ochanomizu', direction: 'Ikebukuro (池袋)', alight: 'Shin-Ōtsuka (新大塚)', minutes: 9, cost: '¥180', note: 'saiam de Kameido até as 10:50 para chegar ao turno das 11:30' },
+    walk(4, 'de volta à JR Kameido, pelo **北口**'),
+    {
+      mode: 'train', line: 'JR Sōbu local (amarelo)', board: 'Kameido (亀戸), saída norte', boardPoint: '亀戸駅 北口',
+      direction: '三鷹方面 (Mitaka · Nakano)', alight: 'Ochanomizu (御茶ノ水), 5ª parada, catraca Ochanomizu-bashi', alightPoint: '御茶ノ水駅 御茶ノ水橋口', minutes: 12, cost: '¥199',
+      note: 'saiam de Kameido até as 10:50 para chegar ao turno das 11:30',
+      steps: [
+        'Plataforma **三鷹方面 (Mitaka)**, trem **amarelo**.',
+        'Contem Kinshichō, Ryōgoku, Asakusabashi, Akihabara e **Ochanomizu**, a 5ª. Desçam.',
+        'Saiam pela catraca **お茶の水橋口** e atravessem a ponte de volta para o lado do metrô.',
+      ],
+    },
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Ochanomizu (御茶ノ水), entrada do lado da JR', boardPoint: '御茶ノ水駅 2番出口',
+      direction: '池袋 Ikebukuro', alight: 'Shin-Ōtsuka (新大塚), 4ª parada', alightPoint: '新大塚駅', minutes: 9, cost: '¥180',
+      steps: [
+        'Aqui também cada sentido tem a sua catraca. Entrem pela **2番出口 (saída 2)**, a catraca **JR御茶ノ水駅方面**, que é a do sentido **池袋方面 (Ikebukuro)**. Confiram a placa antes de passar.',
+        'Contem Hongō-sanchōme, Kōrakuen, Myōgadani e **Shin-Ōtsuka**, a 4ª. Desçam.',
+        'Como de manhã, vocês saem do lado de Bunkyō (saída 2) e atravessam a avenida para Minami-Ōtsuka.',
+      ],
+    },
     walk(5, 'mesmo caminho da manhã'),
   ],
   'd03-nakiryu': [
-    walk(5, 'de volta à estação Shin-Ōtsuka'),
-    { mode: 'metro', line: 'Marunouchi Line', board: 'Shin-Ōtsuka (新大塚)', direction: 'Ginza · Ogikubo', alight: 'Ginza', minutes: 17, cost: '¥210' },
-    walk(3, 'saída A13 e o hotel; as malas esperam na recepção até as 15:30'),
+    walk(5, 'de volta à estação Shin-Ōtsuka, pela **saída 1**, a do lado do Nakiryu: é a do sentido Ginza'),
+    {
+      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Shin-Ōtsuka (新大塚), entrada 1', boardPoint: '新大塚駅 1番出口',
+      direction: '銀座・荻窪方面 (Ginza/Ogikubo)', alight: 'Ginza (銀座), 8ª parada, saída A13', alightPoint: '銀座駅 A13出口', minutes: 17, cost: '¥210',
+      steps: [
+        'Placa **銀座・荻窪方面**, como de manhã.',
+        'São 8 paradas: Myōgadani, Kōrakuen, Hongō-sanchōme, Ochanomizu, Awajichō, Ōtemachi, Tokyo e **Ginza**. Desçam.',
+        'Pelo subsolo, sigam a placa amarela **A13**, a mesma de manhã: uns 5 minutos de corredor.',
+      ],
+    },
+    walk(3, 'da A13 ao hotel; as malas esperam na recepção até as 15:30'),
   ],
   'd03-sair-hotel': [
     walk(4, 'com as malas até a estação Higashi-Ginza pela **saída A8**, que é a do hotel, ou táxi na porta (~¥7.000, 30 min)'),
-    { mode: 'train', line: 'Toei Asakusa Line → Keikyu (trem direto)', board: 'Higashi-Ginza, **plataforma 1** (B2), sentido Nishi-Magome · Haneda', direction: 'Haneda Airport (羽田空港第1・第2ターミナル)', alight: 'Haneda Airport Terminal 3', minutes: 40, cost: '¥620', note: 'a maioria dos trens da plataforma 1 só vai até Nishi-Magome. Esperem um **快特** ou **エアポート急行** com 羽田空港 no painel — o エアポート快特, que é o mais rápido, NÃO para em Higashi-Ginza' },
+    {
+      mode: 'train', line: 'Toei Asakusa Line (rosa, A) → Keikyu (trem direto)', board: 'Higashi-Ginza (東銀座), entrada A8, **plataforma 1**', boardPoint: '東銀座駅 A8出口',
+      direction: '羽田空港 Haneda Airport', alight: 'Haneda Airport Terminal 3 (羽田空港第3ターミナル)', alightPoint: '羽田空港第3ターミナル駅', minutes: 40, cost: '¥620',
+      note: 'a maioria dos trens da plataforma 1 só vai até Nishi-Magome. Esperem um **快特** ou **エアポート急行** com 羽田空港 no painel — o エアポート快特, que é o mais rápido, NÃO para em Higashi-Ginza',
+      steps: [
+        'Pela A8, sigam o **A rosa** (都営浅草線) até a **plataforma 1 · 西馬込・羽田空港方面**. A plataforma 2 vai para Oshiage: não é essa.',
+        'Só entrem num trem que diga **羽田空港** no painel. Se disser 西馬込, esperem o próximo.',
+        'Não precisa contar paradas: desçam em **羽田空港第3ターミナル (Terminal 3)**, a primeira estação do aeroporto. A seguinte é a dos terminais 1 e 2, doméstica: não desçam lá.',
+      ],
+    },
     walk(5, 'a catraca da Keikyu dá no **saguão de chegadas, 2º andar**: escada rolante para o **3º, partidas**. O voo é operado pela **American** — procurem o balcão dela no painel, não o da JAL'),
   ],
   'd03-haneda': [walk(10, 'check-in, despacho das malas, tax-free na alfândega se pedirem, imigração; a Royce\' é depois da imigração')],
   'd03-duty-free': [walk(10, 'até o portão indicado no cartão de embarque; os portões 140+ ficam longe, contem 15 min')],
   'd03-voo': [{ mode: 'plane', line: 'JL7014 · American', board: 'Haneda T3', alight: 'Dallas, depois Guarulhos', minutes: 720, note: 'conexão de 2h15 em Dallas: imigração americana, pegar e redespachar as malas, segurança de novo' }],
+
 };
 
 export const legsFrom = (stopId: string): Leg[] | undefined => LEGS[stopId];
