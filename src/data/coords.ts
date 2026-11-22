@@ -36,6 +36,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd21-bar-triad': { lat: 35.6485, lng: 139.7082 }, // Bar TRIAD, Ebisu-Nishi 1-4-1
   'd22-almoco': { lat: 35.673, lng: 139.7037 }, // Afuri Harajuku, Sendagaya 3-63-1
   'd22-gaien': { lat: 35.6745, lng: 139.7174 },
+  'd02-gaien': { lat: 35.6745, lng: 139.7174 },
   'd22-parco': { lat: 35.6619, lng: 139.6987 },
   'd22-cruzamento': { lat: 35.6595, lng: 139.7005 },
   'd22-jantar': { lat: 35.658, lng: 139.6994 }, // Shibuya Mark City
