@@ -18,7 +18,7 @@ export const hiroshimaDays: Day[] = [
     stops: [
       {
         id: 'd23-konbini',
-        time: '06:30',
+        time: '06:40',
         timeLabel: 'konbini',
         kind: 'food',
         name: '7-Eleven da estação — parada 2 de 4',
@@ -31,13 +31,15 @@ export const hiroshimaDays: Day[] = [
       },
       {
         id: 'd23-trem-hiroshima',
-        time: '07:00',
+        time: '07:12',
         timeLabel: 'trem',
         kind: 'transit',
-        name: 'Tóquio → Hiroshima',
-        facts: 'Nozomi · **3h50–4h** · ¥19.800 reservado · saída da Estação de Tóquio ou Shinagawa',
+        name: 'Tóquio → Hiroshima · Nozomi 9 (のぞみ9号)',
+        facts: '**Comprado:** sai **07:12**, chega **11:02** · **carro 3 (3号車), fileira 9, assentos A–C** (9-B e o vizinho) · ¥19.960 cada · **um bilhete de papel por pessoa** (passagem + Shinkansen juntos), que vale desde Shinjuku',
         paragraphs: [
-          'Comprem um **ekiben** na plataforma antes de embarcar — não é turismo, é o jeito certo de fazer. Do lado direito do trem, entre Odawara e Shizuoka (uns 40 min após a saída), o **Monte Fuji** aparece por cerca de 3 minutos. Em manhã seca de novembro, quase sempre limpo.',
+          '**O bilhete é a passagem desde Shinjuku.** Ele diz 東京(都区内), "área de Tóquio": vale a partir de qualquer estação JR dentro dos 23 bairros, Shinjuku incluída. Então **entrem na JR em Shinjuku com o bilhete**, não com a Suica: ponham o papel na catraca e peguem de volta do outro lado. Em Tokyo, na catraca do Shinkansen, o mesmo papel de novo; em Hiroshima, de novo na saída — aí a catraca fica com ele.',
+          '**Ekiben** (marmita de trem) se compra **antes** da catraca do Shinkansen, no Ekibenya Matsuri da passagem central. Comer no Shinkansen é normal.',
+          '**O Fuji:** os assentos de vocês são do lado A–C, o do mar, e o lado D–E estava todo vendido. Uns 40 min depois de sair (passando Odawara, rumo a Shin-Fuji), levantem e vão até o **corredor entre os carros (デッキ)**: a porta do lado direito tem janela, e o Fuji aparece por uns 3 minutos.',
         ],
         mapQuery: 'Tokyo Station Tokaido Shinkansen',
       },
