@@ -12,13 +12,27 @@ export const tokyo2Days: Day[] = [
       {
         label: 'A manhã é opcional — decidam na hora',
         tone: 'info',
-        text: 'O dia **começa de verdade no curry, às 11:00**. O que vem antes disso é um passeio curto de graça, para o caso de vocês acordarem com pique. Se não acordarem, durmam: é o décimo quinto dia de viagem, vocês têm mala para fechar e recibo para separar, e amanhã a manhã some no aeroporto por causa do reembolso do imposto. **Pular não custa nada ao roteiro.**',
+        text: 'O dia **começa de verdade no curry, às 11:00**. A manhã opcional agora abre com a **alameda de ginkgos do Gaien às 8h** (saiam do hotel às 7:35), que não deu tempo no dia 22, e segue de metrô direto para o Kanda Myōjin. O que vem antes do curry é um passeio curto de graça, para o caso de vocês acordarem com pique. Se não acordarem, durmam: é o décimo quinto dia de viagem, vocês têm mala para fechar e recibo para separar, e amanhã a manhã some no aeroporto por causa do reembolso do imposto. **Pular não custa nada ao roteiro.**',
       },
     ],
     stops: [
       {
+        id: 'd02-gaien',
+        time: '08:00',
+        timeLabel: 'opcional',
+        kind: 'sight',
+        name: 'Alameda de ginkgos do Gaien, de manhã cedo',
+        jp: '神宮外苑いちょう並木',
+        facts: '**Grátis · aberta sempre** · estação **Gaiemmae**, Ginza Line direto do hotel · 30–40 min bastam',
+        paragraphs: [
+          'A que não deu tempo no dia 22. Os 146 ginkgos do Gaien costumam ficar no auge entre o fim de novembro e o começo de dezembro, então hoje devem estar mais amarelos do que no dia 22, e às 8h a avenida ainda está vazia e com o sol baixo.',
+          'Andem a alameda inteira desde a avenida Aoyama, olhando para o prédio redondo do museu no fim: é a foto clássica. Daí a Ginza Line segue direto até Suehirochō, ao lado do Kanda Myōjin.',
+        ],
+        mapQuery: '神宮外苑いちょう並木',
+      },
+      {
         id: 'd02-kanda-myojin',
-        time: '09:15',
+        time: '09:25',
         timeLabel: 'opcional',
         kind: 'temple',
         name: 'Kanda Myōjin — o santuário que abençoa computador',

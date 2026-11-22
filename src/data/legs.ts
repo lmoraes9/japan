@@ -149,18 +149,18 @@ export const START: Record<string, Leg[]> = {
     walk(10, 'saindo, siga o fluxo para o sul pela rua em frente (Hommachi-dōri) até a ponte Gaun-kyō'),
   ],
   'd2026-12-02': [
-    walk(8, 'do hotel até a saída **A13** da estação Ginza. No subsolo, sigam as placas **vermelhas M** (丸ノ内線): a Marunouchi passa do lado oeste de Ginza, é um corredor de uns 5 minutos'),
+    walk(8, 'do hotel até a saída **A13** da estação Ginza. No subsolo, sigam as placas **laranja G** (銀座線 Ginza Line)'),
     {
-      mode: 'metro', line: 'Marunouchi Line (vermelha, M)', board: 'Ginza (銀座), entrada A13', boardPoint: '銀座駅 A13出口',
-      direction: '池袋 Ikebukuro', alight: 'Ochanomizu (御茶ノ水), 4ª parada, saída 2', alightPoint: '御茶ノ水駅 2番出口', minutes: 12, cost: '¥210',
+      mode: 'metro', line: 'Ginza Line (laranja, G)', board: 'Ginza (銀座), entrada A13', boardPoint: '銀座駅 A13出口',
+      direction: '渋谷 Shibuya', alight: 'Gaiemmae (外苑前), 6ª parada', alightPoint: '外苑前駅', minutes: 13, cost: '¥180',
       note: 'se pularem a manhã opcional, o dia começa direto no curry: de Ginza, a pé pelo subsolo até Hibiya, e a Toei Mita (azul, I) sentido 西高島平 até **Jimbōchō**, 2 paradas, sem baldeação',
       steps: [
-        'Plataforma **池袋方面 (Ikebukuro)**, a mesma direção do dia 21.',
-        'Contem: Tokyo, Ōtemachi, Awajichō e **Ochanomizu**, a 4ª. Desçam.',
-        'Na Ochanomizu da Marunouchi cada sentido tem a sua catraca. Saiam pela **JR御茶ノ水駅方面** e sigam a placa amarela **2番出口 (saída 2)**. Não entrem na JR: o santuário fica deste lado do rio.',
+        'Plataforma **渋谷方面 (Shibuya)**, o trem **laranja**.',
+        'Contem: Shimbashi, Toranomon, Tameike-sannō, Akasaka-mitsuke, Aoyama-itchōme e **Gaiemmae**, a 6ª. Desçam.',
+        'Sigam as placas amarelas para **いちょう並木 (alameda de ginkgos) / 神宮外苑**. Saindo na avenida Aoyama, a alameda começa a poucos passos, com as árvores dos dois lados.',
       ],
     },
-    walk(6, 'saindo, sigam para o leste até o cruzamento da ponte Hijiribashi e subam a Hongō-dōri com o muro preto do **Yushima Seidō** à direita; o torii de pedra do santuário fica na própria Hongō-dōri, e o portão principal, uns 100 m para dentro'),
+    walk(3, 'pela avenida Aoyama até a entrada da alameda (青山通り口). Daí é andar reto entre os ginkgos, na direção do prédio redondo do museu'),
   ],
   'd2026-12-03': [
     walk(8, 'com o check-out já feito e as malas na recepção, até a saída **A13** da Ginza; no subsolo, as placas **vermelhas M** (丸ノ内線) levam ao lado oeste da estação, uns 5 min'),
@@ -1038,6 +1038,18 @@ export const LEGS: Record<string, Leg[]> = {
   ],
 
   // ── 2 dez · Tóquio, último dia inteiro ─────────────────────────────
+  'd02-gaien': [
+    walk(8, 'voltem pela alameda até a avenida Aoyama e entrem de novo na estação **Gaiemmae**'),
+    {
+      mode: 'metro', line: 'Ginza Line (laranja, G)', board: 'Gaiemmae (外苑前)', boardPoint: '外苑前駅',
+      direction: '浅草 Asakusa', alight: 'Suehirochō (末広町), 11ª parada', alightPoint: '末広町駅', minutes: 22, cost: '¥210',
+      steps: [
+        'Plataforma **浅草方面 (Asakusa)**, o trem laranja.',
+        'São 11 paradas, uns 22 minutos, passando por Ginza, Nihombashi e Kanda. Desçam em **末広町 Suehirochō**, a parada depois de Kanda.',
+        'Saiam pelo lado de **秋葉原・外神田** e, na rua, usem o Maps até o Kanda Myōjin: uns 7 minutos subindo a ladeira para o oeste.',
+      ],
+    },
+  ],
   'd02-kanda-myojin': [walk(4, 'atravessando a rua para o sul: o muro preto do Yushima Seidō começa ali')],
   'd02-yushima-seido': [walk(14, 'pela ponte Hijiribashi, passando pela Nikolai-dō, e ladeira abaixo pela Yasukuni-dōri até Jimbōchō; o Bondy fica dentro de um pátio, entrada pela livraria')],
   'd02-jimbocho': [

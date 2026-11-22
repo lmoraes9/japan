@@ -273,4 +273,9 @@ export const PONTOS: Record<string, PontoDetalhe[]> = {
     { name: "Ginza Kumamotokan — a Maboroshi no Miso", jp: "銀座熊本館", query: "銀座熊本館", note: "Procurem o missô do Yamauchi Honten (liguem antes, 03-3572-1147)" },
     { name: "Bic Camera Yūrakuchō — o Oura Ring", jp: "ビックカメラ 有楽町店", query: "ビックカメラ 有楽町店", note: "Oura Ring tax-free e o que escapou em Akihabara" },
   ],
+  "d02-gaien": [
+    { name: "A entrada pela avenida Aoyama — a foto", jp: "いちょう並木 青山口", query: "神宮外苑いちょう並木 青山通り", note: "De costas para a avenida, olhando para o museu: é aí que o truque de perspectiva funciona" },
+    { name: "As barracas do Icho Matsuri", jp: "神宮外苑いちょう祭り", query: "神宮外苑いちょう祭り", note: "Yakisoba, jaga-batā, karaage, amazake quente — confirmem as datas de 2026" },
+    { name: "Seitoku Kinen Kaigakan, no fim da rua", jp: "聖徳記念絵画館", query: "聖徳記念絵画館", note: "O museu que a alameda empurra para longe; daqui se vê a ilusão ao contrário" },
+  ],
 };
