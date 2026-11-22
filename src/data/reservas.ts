@@ -145,7 +145,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     title: 'Nozomi Tóquio → Hiroshima',
     date: '2026-11-23',
     time: '07:00 · 3h50',
-    notes: 'Feriado nacional: os Nozomi só têm assento reservado. Lado direito para o Fuji (uns 40 min após a saída).',
+    notes: '**Comprado em 22/11 na JR Harajuku:** Nozomi 9, sai 07:12, chega 11:02 · carro 3, fileira 9 (assento 9-B e o vizinho) · ¥19.960 cada · bilhete de papel único (passagem + Shinkansen), vale desde Shinjuku: entrar na JR com ele, não com a Suica. Lado D–E (Fuji) estava esgotado.',
     hint: 'Número do trem, vagão e assentos (smartEX ou bilhete físico)',
   },
   {

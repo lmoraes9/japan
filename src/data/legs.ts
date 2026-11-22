@@ -70,12 +70,12 @@ export const START: Record<string, Leg[]> = {
     walk(4, 'a saída 2 dá no cruzamento em frente à JR Harajuku. Andem com a estação à esquerda até a ponte **Jingūbashi**, sobre os trilhos: do outro lado está o torii de madeira, a entrada sul do santuário'),
   ],
   'd2026-11-23': [
-    walk(10, 'do hotel até a JR Shinjuku pela saída **東口 (East Exit)**, o caminho da volta dos dias 20 e 21 ao contrário: atravessem a Yasukuni-dōri e a praça. Só com a mochila: as malas grandes já foram de takuhaibin. Saiam do hotel por volta das **05:55**: o 7-Eleven está marcado para 06:30 e o Nozomi não espera'),
+    walk(10, 'do hotel até a JR Shinjuku pela saída **東口 (East Exit)**, o caminho da volta dos dias 20 e 21 ao contrário: atravessem a Yasukuni-dōri e a praça. Só com a mochila: as malas grandes já foram de takuhaibin. Saiam do hotel até **06:10**: o Nozomi 9 sai às **07:12** e não espera. **Entrem na JR com o bilhete do Shinkansen**, não com a Suica: ele vale desde Shinjuku'),
     {
       mode: 'train', line: 'JR Chūō rápido (laranja)', board: 'Shinjuku (新宿), plataformas 7–8', boardPoint: '新宿駅 東口',
       direction: '東京方面 (Tokyo)', alight: 'Tokyo (東京), fim da linha', minutes: 15, cost: '¥253',
       steps: [
-        'Passem a Suica na catraca do **東口** e sigam a placa **中央線快速 Chūō Line (Rapid)**, laranja, plataformas **7・8 東京方面**. Qualquer trem laranja dali vai para Tokyo. A placa **中央・総武線各駅停車** (amarela) é outra linha: não sigam essa.',
+        'Na catraca do **東口**, **ponham o bilhete do Shinkansen** na fenda e peguem de volta do outro lado: ele vale desde Shinjuku (東京都区内), então não usem a Suica hoje. Sigam a placa **中央線快速 Chūō Line (Rapid)**, laranja, plataformas **7・8 東京方面**. Qualquer trem laranja dali vai para Tokyo. A placa **中央・総武線各駅停車** (amarela) é outra linha: não sigam essa.',
         'São 4 paradas: Yotsuya, Ochanomizu, Kanda e **Tokyo**, o fim da linha. Todo mundo desce.',
         'Em Tokyo o trem chega no alto (3º andar), do lado **Marunouchi**, e o Shinkansen fica do outro lado da estação. Desçam até o **corredor central** e sigam as placas **東海道新幹線 Tōkaidō Shinkansen**. **Não passem nenhuma catraca de saída (出口)** no caminho.',
       ],
@@ -364,16 +364,16 @@ export const LEGS: Record<string, Leg[]> = {
   ],
 
   // ── 23 nov · Shinkansen e Hiroshima ────────────────────────────────
-  'd23-konbini': [walk(8, 'ainda dentro das catracas da JR, pelo **corredor central** (中央通路), sigam as placas **東海道新幹線** até a catraca de baldeação **新幹線中央のりかえ口**, no lado **Yaesu**. Ali passem o mesmo cartão IC ligado ao Smart EX (ou insiram o bilhete, se for de papel). As plataformas 14 a 19 ficam altas e longe — contem os 8 minutos. O **Ekibenya Matsuri** (5:30–22:00, 150 tipos de ekiben) fica **antes** dessa catraca, na passagem central, entre as escadas das plataformas 5–6 e 7–8: comprem o ekiben antes de passar')],
+  'd23-konbini': [walk(8, 'ainda dentro das catracas da JR, pelo **corredor central** (中央通路), sigam as placas **東海道新幹線** até a catraca de baldeação **新幹線中央のりかえ口**, no lado **Yaesu**. Ali **ponham o bilhete de papel** na fenda e peguem de volta. As plataformas 14 a 19 ficam altas e longe — contem os 8 minutos. O **Ekibenya Matsuri** (5:30–22:00, 150 tipos de ekiben) fica **antes** dessa catraca, na passagem central, entre as escadas das plataformas 5–6 e 7–8: comprem o ekiben antes de passar')],
   'd23-trem-hiroshima': [
     {
-      mode: 'shinkansen', line: 'Nozomi (のぞみ)', board: 'Tokyo (東京), plataforma do bilhete (14–19)',
+      mode: 'shinkansen', line: 'Nozomi 9 (のぞみ9号) · 07:12', board: 'Tokyo (東京), plataforma do painel (14–19), carro 3',
       direction: '博多 Hakata ou 広島 Hiroshima', alight: 'Hiroshima (広島), catraca do Shinkansen no 2º andar', alightPoint: '広島駅 新幹線口',
-      minutes: 235, cost: '¥19.800 reservado',
+      minutes: 230, cost: '¥19.960 cada, já pago',
       steps: [
-        'No painel, procurem **のぞみ** com o **número do trem** e o horário do bilhete (07:00). Os Nozomi daqui terminam em **博多 Hakata** ou **広島 Hiroshima**: os dois servem. Subam à plataforma que o painel indicar.',
-        'O **número do carro (号車)** está no bilhete ou no Smart EX; a fila é na marca do chão com esse número. Os assentos reservados de feriado lotam: entrem logo.',
-        'O Fuji aparece do **lado direito**, uns 40 min depois de sair, entre Odawara e Shizuoka: na fileira de dois, o assento **E** é a janela.',
+        'No painel, procurem **のぞみ 9号**, **7:12**, destino **博多 Hakata**. Subam à plataforma que o painel indicar (14 a 19).',
+        'Na plataforma, andem até a marca do chão **3号車 (carro 3)**. O carro 3 fica perto da **ponta da frente do trem** (a do lado de Shinagawa, para onde o trem vai): sigam os números pintados no chão e as placas penduradas, e contem uns 3 minutos de caminhada pela plataforma. Fileira **9**, assentos **A–C**.',
+        'O Fuji fica do **lado direito**, o dos assentos D–E, que estavam esgotados: uns 40 min depois de sair, vão até a **porta do lado direito no corredor entre os carros (デッキ)** e olhem pela janela da porta.',
         'A parada antes de Hiroshima é Okayama ou Fukuyama: o anúncio em inglês avisa. Desçam, sigam as placas amarelas **出口 Exit**, desçam ao **2º andar** e passem a **catraca do Shinkansen** (o mesmo IC ou o bilhete).',
       ],
     },
