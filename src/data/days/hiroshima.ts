@@ -182,7 +182,7 @@ export const hiroshimaDays: Day[] = [
         paragraphs: [
           'Peguem o **ferry da JR** (não o da Matsudai): ele faz um desvio proposital para passar perto do torii na ida.',
         ],
-        mapQuery: 'Miyajimaguchi Station',
+        mapQuery: '広島駅 南口',
       },
       {
         id: 'd24-itsukushima',

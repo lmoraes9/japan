@@ -82,7 +82,7 @@ export const kyotoDays: Day[] = [
           'Ônibus até a estação de Kōyasan, funicular até Gokurakubashi, e o mesmo trem de ontem no sentido contrário — desta vez com a garganta aparecendo pela janela de baixo, que é melhor.',
           'O desvio pelo Sumiyoshi Taisha é **leve, não perrengue** — mas tem um detalhe: **o expresso não para em Sumiyoshi-Higashi**. Só o trem local (各停) para lá. Então é descer do expresso em **Sakai-Higashi**, atravessar a plataforma para um local no sentido Namba (de dia passa mais ou menos a cada 10 minutos) e descer quatro paradas depois. Da estação ao santuário são **5 minutos** — vocês entram pelo portão de trás. Meia hora lá dentro, de volta à mesma estação, e qualquer local leva a Namba em ~15 min. **Custo total do desvio: uns 50 a 60 minutos** sobre ir direto. Se a manhã em Kōyasan atrasar, pulem sem culpa: é olhar rápido e seguir, não é o programa do dia.',
         ],
-        mapQuery: 'Gokurakubashi Station',
+        mapQuery: '高野山駅',
       },
       {
         id: 'd27-sumiyoshi',
