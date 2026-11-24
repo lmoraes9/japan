@@ -52,9 +52,17 @@ export const PONTOS: Record<string, PontoDetalhe[]> = {
     { name: "Fossos do Castelo de Hiroshima", jp: "広島城", query: "広島城", note: "torreão fechado desde mar/2026; parque e fossos valem a caminhada" },
     { name: "Bakudan-ya", jp: "ばくだん屋 本店", query: "ばくだん屋 本店 広島", note: "tsukemen de Hiroshima: picante de 0 a 20, 2 já arde" },
   ],
+  "d25-ivy": [
+    { name: "Ivy Square", jp: "倉敷アイビースクエア", query: "倉敷アイビースクエア", note: "A fiação de tijolo de 1889; o pátio é aberto." },
+    { name: "Kurashiki Denim Street", jp: "倉敷デニムストリート", query: "倉敷デニムストリート", note: "Jeans de Kojima e o sorvete azul; abre ~10h." },
+  ],
+  "d25-shinsekai": [
+    { name: "Torre Tsūtenkaku", jp: "通天閣", query: "通天閣", note: "O centro do bairro; os letreiros gigantes ficam em volta." },
+    { name: "Jan-Jan Yokochō", jp: "ジャンジャン横丁", query: "ジャンジャン横丁", note: "Galeria estreita de kushikatsu, shōgi e lojinhas: posters e placas Shōwa." },
+    { name: "Kushikatsu Daruma, a loja original", jp: "串かつだるま 新世界総本店", query: "串かつだるま 新世界総本店", note: "De 1929. Não molhar duas vezes no molho." },
+  ],
   "d25-dotonbori": [
     { name: "Ponte Ebisu-bashi e o letreiro da Glico", jp: "戎橋・グリコサイン", query: "戎橋 グリコサイン 道頓堀", note: "Comecem aqui: a foto com a pose do homem correndo, braços para cima." },
-    { name: "Kushikatsu Daruma", jp: "串かつだるま 道頓堀店", query: "串かつだるま 道頓堀店", note: "Espetinho empanado. Não molhar duas vezes no molho." },
     { name: "Okonomiyaki Mizuno", jp: "お好み焼 美津の", query: "美津の 道頓堀", note: "Bib Gourmand, versão de Osaka. Fecha quinta; tem fila." },
     { name: "Hōzenji Yokochō e o Buda de musgo", jp: "法善寺横丁・水掛不動", query: "法善寺 水掛不動", note: "Viela de pedra a um quarteirão do neon; joguem água no Buda." },
     { name: "Takoyaki Wanaka", jp: "たこ焼道楽 わなか 千日前本店", query: "たこ焼道楽 わなか 千日前本店", note: "Bolinho de polvo ao lado do Namba Grand Kagetsu. Esperem esfriar." },

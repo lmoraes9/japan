@@ -520,9 +520,9 @@ export const LEGS: Record<string, Leg[]> = {
     },
     walk(12, 'a catraca é no 2º andar; os armários ficam no corredor, do lado da saída norte (ao lado da padaria Little Mermaid). Depois **南口 (saída sul)**, e reto pela Kurashiki Chūō-dōri até o canal'),
   ],
-  'd25-bikan': [walk(3, 'o museu é o prédio de colunas gregas na margem do canal')],
-  'd25-ohara': [walk(3, 'o Tsurugata fica na beira do canal, a poucos passos do museu')],
-  'd25-almoco-kurashiki': [walk(12, 'de volta pela mesma rua até a estação; pegar a mochila no armário')],
+  'd25-bikan': [walk(5, 'do canal, subam pela escadaria de pedra do **morro Tsurugata**, atrás da Honmachi: o torii do santuário aparece no topo')],
+  'd25-achi': [walk(10, 'desçam a escada e sigam a margem do canal para o sul, passando a ponte **Nakabashi**: a Denim Street fica na margem, e a Ivy Square (tijolo vermelho) logo depois, do outro lado da rua')],
+  'd25-ivy': [walk(15, 'às 10:30, de volta à estação pela rua coberta **Ebisu-dōri** (えびす通り商店街), para o norte; pegar a mochila no armário e entrar pela catraca do 2º andar')],
   'd25-trem-himeji': [
     {
       mode: 'train', line: 'JR Sanyō Line (山陽線) ou Hakubi Line (伯備線), local', board: 'Kurashiki (倉敷)', boardPoint: '倉敷駅',
@@ -542,9 +542,11 @@ export const LEGS: Record<string, Leg[]> = {
         'Em Himeji, desçam ao **中央改札 (catraca central)** e sigam a placa amarela **北口 (saída norte) · 姫路城 Himeji-jō**.',
       ],
     },
-    walk(18, 'saindo pelo 北口, os armários 24h ficam na saída norte. Reto pela avenida Ōtemae; o castelo está no fim, à vista o tempo todo (ou ônibus circular ¥100 até Ōtemon)'),
+    walk(3, 'saindo pelo 北口, os armários 24h ficam na própria saída norte: guardem a mochila. O almoço é aqui em volta, e o castelo já aparece no fim da avenida'),
   ],
-  'd25-himeji': [walk(15, 'de volta pela avenida Ōtemae até o 北口 da estação; pegar a mochila no armário')],
+  'd25-almoco-himeji': [walk(15, 'reto pela avenida **Ōtemae** (大手前通り) para o norte; o castelo está no fim, à vista o tempo todo (ou ônibus circular ¥100 até Ōtemon)')],
+  'd25-himeji': [walk(5, 'saindo do castelo, voltem ao portão **Ōtemon** e virem à esquerda (oeste) pela margem do fosso: a entrada do Kōko-en fica a uns 300 m')],
+  'd25-kokoen': [walk(20, 'de volta pelo fosso até a avenida Ōtemae e reto até o 北口 da estação; pegar a mochila no armário')],
   'd25-trem-osaka': [
     {
       mode: 'train', line: 'JR Kobe Line · Special Rapid (新快速)', board: 'Himeji (姫路), catraca central', boardPoint: '姫路駅 中央改札',
@@ -576,7 +578,30 @@ export const LEGS: Record<string, Leg[]> = {
         'Sigam a placa amarela **2番出口 (saída 2)**. O hotel fica a 1 minuto dela.',
       ],
     },
-    walk(1, 'saindo da saída 2, o KOKO HOTEL fica logo ali (Sennichimae 1-3-7). O Dōtonbori fica a poucos minutos para o oeste'),
+    walk(1, 'saindo da saída 2, o KOKO HOTEL fica logo ali (Sennichimae 1-3-7). Check-in, banho rápido, e de volta à mesma estação'),
+    {
+      mode: 'metro', line: 'Sakaisuji Line (marrom, K)', board: 'Nippombashi (日本橋)', boardPoint: '日本橋駅',
+      direction: '天下茶屋方面 (Tengachaya)', alight: 'Ebisuchō (恵美須町), 1ª parada, saída 3', alightPoint: '恵美須町駅 3番出口', minutes: 2, cost: '¥190',
+      note: 'ou a pé, uns 20 min para o sul pela Sakaisuji, passando pela Den Den Town',
+      steps: [
+        'Desçam pela entrada com o **K marrom** (堺筋線). A Sennichimae (rosa, S) passa na mesma estação: não é essa.',
+        'Plataforma **天下茶屋方面 (Tengachaya)**. É **1 parada**: desçam em **恵美須町 Ebisuchō**.',
+        'Sigam a placa amarela **3番出口 (saída 3) · 通天閣**. A torre aparece assim que vocês sobem.',
+      ],
+    },
+    walk(5, 'da saída 3, reto para o sul pela rua de letreiros até o pé do **Tsūtenkaku**; a Jan-Jan Yokochō e o Daruma original ficam do outro lado da torre, perto da estação Dōbutsuen-mae'),
+  ],
+  'd25-shinsekai': [
+    walk(6, 'de volta até a estação **Ebisuchō**, ao norte da torre'),
+    {
+      mode: 'metro', line: 'Sakaisuji Line (marrom, K)', board: 'Ebisuchō (恵美須町)', boardPoint: '恵美須町駅',
+      direction: '天神橋筋六丁目方面 (Tenjimbashisuji 6-chōme)', alight: 'Nippombashi (日本橋), 1ª parada', alightPoint: '日本橋駅 2番出口', minutes: 2, cost: '¥190',
+      steps: [
+        'Plataforma **天神橋筋六丁目方面**. Trens com destinos da Hankyu (北千里, 高槻市…) também servem.',
+        '**1 parada**: desçam em **日本橋 Nippombashi** e saiam pela **2番出口**, a do hotel.',
+      ],
+    },
+    walk(7, 'da saída 2, para o oeste pelo Dōtonbori até a ponte **Ebisu-bashi** e o letreiro da Glico'),
   ],
   'd25-dotonbori': [walk(5, 'até o hotel, para o leste pelo Dōtonbori, no lado da Nippombashi')],
 

@@ -274,22 +274,13 @@ export const INGRESSOS: Ingresso[] = [
 
   // ── Kurashiki, Himeji, Osaka ──
   {
-    id: 'ohara',
-    title: 'Museu Ōhara',
-    status: 'livre',
-    date: '2026-11-25',
-    action: 'Bilhete na porta.',
-    cost: '¥2.000',
-    stopId: 'd25-ohara',
-  },
-  {
     id: 'himeji',
     title: 'Castelo de Himeji',
     jp: '姫路城',
     status: 'na-hora',
     date: '2026-11-25',
-    action: 'Não precisa antes: o guichê vende no dia. O ingresso digital com horário (entrada 14:00) só pula a fila, que em fins de semana de outono passa de 40 min; numa quarta poupa uns 15.',
-    when: 'Abre 90 dias antes; em novembro escolham o horário certo (chegada ~13:55)',
+    action: 'Não precisa antes: o guichê vende no dia. O ingresso digital com horário (entrada 12:45–13:00) só pula a fila, que em fins de semana de outono passa de 40 min; numa quarta poupa uns 15.',
+    when: 'Abre 90 dias antes; em novembro escolham o horário certo (chegada ~12:45)',
     where: 'himejicastle-ticket.jp (oficial)',
     url: 'https://himejicastle-ticket.jp/',
     cost: '¥2.500 para estrangeiros desde 1º/3/2026 (¥2.600 com o Kōko-en)',

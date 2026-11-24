@@ -128,6 +128,7 @@ export const OSAKA: MapaEstacoes = {
   pontos: [
     // 25 nov
     { id: 'p-d25-dotonbori', nome: 'Dōtonbori', estacaoId: 'namba', dx: 44, dy: -36, stopId: 'd25-dotonbori' },
+    { id: 'p-d25-shinsekai', nome: 'Shinsekai · Daruma', estacaoId: 'nippombashi', dx: 30, dy: 56, stopId: 'd25-shinsekai' },
     // 26 nov
     { id: 'p-d26-castelo-osaka', nome: 'Castelo de Osaka', estacaoId: 'tanimachi4', dx: 34, dy: -40, stopId: 'd26-castelo-osaka' },
     { id: 'p-d26-kuromon', nome: 'Kuromon Ichiba', estacaoId: 'nippombashi', dx: 42, dy: 26, stopId: 'd26-kuromon' },

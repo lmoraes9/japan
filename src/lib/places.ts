@@ -24,7 +24,7 @@ const DAY_CITY: Record<string, string> = {
 /** paradas cuja cidade difere da cidade-base do dia */
 const STOP_CITY: Record<string, string> = {
   'd20-volta': 'Shinjuku Tokyo',
-  'd25-almoco-kurashiki': 'Kurashiki',
+  'd25-almoco-himeji': 'Himeji',
   'd01-checkin-compras': 'Ginza Tokyo',
   'd18-haneda': 'Haneda',
   'd03-haneda': 'Haneda',
@@ -97,7 +97,7 @@ const CIDADE_DO_DIA: Record<string, string> = {
 
 /** paradas cuja cidade difere da cidade-base do dia */
 const CIDADE_DA_PARADA: Record<string, string> = {
-  'd25-almoco-kurashiki': 'Kurashiki',
+  'd25-almoco-himeji': 'Himeji',
   'd26-jantar-shojin': 'Kōyasan',
   'd27-almoco': 'Osaka',
 };
@@ -150,7 +150,8 @@ const BAIRRO_DA_PARADA: Record<string, string> = {
   'd24-jantar': 'Centro de Hiroshima',
 
   // Okayama e Osaka
-  'd25-almoco-kurashiki': 'Bikan, em Kurashiki',
+  'd25-almoco-himeji': 'Estação de Himeji',
+  'd25-shinsekai': 'Shinsekai',
   'd25-dotonbori': 'Dōtonbori',
   'd26-cafe': 'Nippombashi',
   'd26-kuromon': 'Kuromon Ichiba',

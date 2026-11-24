@@ -416,7 +416,6 @@ export const JAPAN_CHAPTERS: LongChapter[] = [
       { label: 'Museu Nacional de Tóquio, de 1872', href: '/mais/historia/d19-museu-nacional' },
       { label: 'Ginza, o bairro que aprendeu a ser ocidental', href: '/mais/historia/d21-ginza' },
       { label: 'O aqueduto de Nanzen-ji, a modernidade em Kyoto', href: '/mais/historia/d28-nanzenji' },
-      { label: 'Museu Ōhara, em Kurashiki', href: '/roteiro/d2026-11-25#d25-ohara' },
     ],
   },
   // ───────────────────────────────────────────────────────────────────

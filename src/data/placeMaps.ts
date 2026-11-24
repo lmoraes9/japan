@@ -2724,7 +2724,7 @@ const kurashiki: PlaceMap = {
   subtitle: 'O canal dos armazéns, o museu grego e a fiação de tijolo, em três horas a pé',
   intro: [
     'O Bairro Bikan é um **canal de 500 metros** com salgueiros, armazéns brancos de telha preta e um museu com fachada de templo grego no meio. Tudo cabe numa manhã e se faz a pé, do norte para o sul, descendo o canal.',
-    'A ordem: **estação → subida ao Achi-jinja (vista) → museu Ōhara → o canal e os barcos → Ivy Square**, e de volta à estação pela rua coberta. Toquem nos pontos para ver o que é cada prédio.',
+    'A ordem do dia 25: **estação → o canal vazio → subida ao Achi-jinja (vista) → Ivy Square e a Denim Street**, e de volta à estação pela rua coberta. O museu e o barco ficaram fora; toquem nos pontos para ver o que é cada prédio.',
   ],
   viewBox: '0 0 360 620',
   scenery: [
@@ -2789,7 +2789,7 @@ const kurashiki: PlaceMap = {
       facts: '**09:00–17:00**, fecha 2ª · ¥2.000 · Monet, Gauguin, El Greco, Picasso, Pollock',
       paragraphs: [
         'Um templo grego entre armazéns japoneses. **Magosaburō Ōhara**, herdeiro da fiação, mandou o pintor amigo Torajirō Kojima à Europa nos anos 1920 com dinheiro para comprar o que quisesse; Kojima voltou com um **El Greco** (a Anunciação, comprada em Paris em 1922 numa loja), Monet, Gauguin e Matisse. O museu abriu em **1930**, o primeiro do Japão dedicado a arte ocidental, numa cidade de 30 mil habitantes.',
-        'É o museu que vocês veem no roteiro logo a seguir: o salão principal (os europeus), o anexo (arte japonesa moderna) e a ala de artesanato nos armazéns. A Anunciação de El Greco fica numa sala só dela.',
+        'Ficou fora do roteiro (o dia é ao ar livre), mas a fachada se vê do canal. Por dentro: o salão principal (os europeus), o anexo (arte japonesa moderna) e a ala de artesanato nos armazéns. A Anunciação de El Greco fica numa sala só dela.',
       ],
     },
     {

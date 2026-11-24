@@ -134,8 +134,10 @@ export const HIROSHIMA: MapaEstacoes = {
     { id: 'p-d24-jantar', nome: 'Jantar · Bakudan-ya', estacaoId: 'hatchobori', dx: 30, dy: 44, stopId: 'd24-jantar' },
     // 25 nov
     { id: 'p-d25-bikan', nome: 'Bikan', estacaoId: 'kurashiki', dx: 34, dy: -8, stopId: 'd25-bikan' },
-    { id: 'p-d25-ohara', nome: 'Museu Ōhara', estacaoId: 'kurashiki', dx: 94, dy: -8, stopId: 'd25-ohara' },
-    { id: 'p-d25-almoco-kurashiki', nome: 'Almoço · Kamoi', estacaoId: 'kurashiki', dx: 34, dy: 14, stopId: 'd25-almoco-kurashiki' },
+    { id: 'p-d25-achi', nome: 'Santuário Achi', estacaoId: 'kurashiki', dx: 94, dy: -8, stopId: 'd25-achi' },
+    { id: 'p-d25-ivy', nome: 'Ivy Square · Denim St.', estacaoId: 'kurashiki', dx: 34, dy: 14, stopId: 'd25-ivy' },
+    { id: 'p-d25-almoco-himeji', nome: 'Almoço · oden', estacaoId: 'himeji', dx: 40, dy: 14, stopId: 'd25-almoco-himeji' },
     { id: 'p-d25-himeji', nome: 'Castelo de Himeji', estacaoId: 'himeji', dx: 0, dy: -36, stopId: 'd25-himeji' },
+    { id: 'p-d25-kokoen', nome: 'Kōko-en', estacaoId: 'himeji', dx: -50, dy: -36, stopId: 'd25-kokoen', lado: 'l' },
   ],
 };
