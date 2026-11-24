@@ -153,8 +153,8 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     kind: 'trem',
     title: 'Sanyo Shinkansen Hiroshima → Okayama',
     date: '2026-11-25',
-    time: '07:20',
-    notes: 'Compre na estação, na hora (assento livre serve). Depois local até Kurashiki; às 10:45 para Himeji e, às 15:30, Osaka',
+    time: '08:22',
+    notes: 'Comprado: Nozomi 6, assento livre. Depois local até Kurashiki; ~11:15 para Himeji e ~16:00 para Osaka',
   },
   {
     id: 'trem-koyasan',

@@ -522,7 +522,7 @@ export const LEGS: Record<string, Leg[]> = {
   ],
   'd25-bikan': [walk(5, 'do canal, subam pela escadaria de pedra do **morro Tsurugata**, atrás da Honmachi: o torii do santuário aparece no topo')],
   'd25-achi': [walk(10, 'desçam a escada e sigam a margem do canal para o sul, passando a ponte **Nakabashi**: a Denim Street fica na margem, e a Ivy Square (tijolo vermelho) logo depois, do outro lado da rua')],
-  'd25-ivy': [walk(15, 'às 10:30, de volta à estação pela rua coberta **Ebisu-dōri** (えびす通り商店街), para o norte; pegar a mochila no armário e entrar pela catraca do 2º andar')],
+  'd25-ivy': [walk(15, 'às 11:00, de volta à estação pela rua coberta **Ebisu-dōri** (えびす通り商店街), para o norte; pegar a mochila no armário e entrar pela catraca do 2º andar')],
   'd25-trem-himeji': [
     {
       mode: 'train', line: 'JR Sanyō Line (山陽線) ou Hakubi Line (伯備線), local', board: 'Kurashiki (倉敷)', boardPoint: '倉敷駅',
