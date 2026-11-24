@@ -13,6 +13,11 @@ export const osakaDays: Day[] = [
     chips: ['história', 'unesco', 'castelo', 'jardim', 'kushikatsu'],
     notes: [
       {
+        label: '🎒 A mochila: 2 lockers, 4 momentos',
+        tone: 'warn',
+        text: '**1. GUARDAR (08:20, Kurashiki):** desceram do trem em Kurashiki → subam ao 2º andar, saiam pela catraca e, **antes de descer para a rua**, vão ao corredor do lado da **saída norte**, ao lado da padaria Little Mermaid: locker **grande (大型)**. Só depois saiam pela **saída sul (南口)** para o canal.\n\n**2. BUSCAR (10:30, Kurashiki):** saiam da Ivy Square às 10:30, voltem à estação e **peguem a mochila no mesmo locker** antes de passar a catraca para o trem das 10:45.\n\n**3. GUARDAR (11:45, Himeji):** desceram do Shinkansen em Himeji → saiam pela **catraca central (中央改札)** e sigam para o **北口 (saída norte)**: os lockers ficam ali. Guardem **antes do almoço**.\n\n**4. BUSCAR (~15:15, Himeji):** saindo do Kōko-en, voltem a pé até o **北口** e **peguem a mochila** antes de entrar para o trem das 15:30 para Osaka. Ela vai com vocês até o hotel.\n\nFotografem o número do locker e o recibo. Locker grande ~¥500–800: Suica na maioria, mas levem moedas de ¥100.',
+      },
+      {
         label: 'Plano novo: sem museu, saindo às 7h20',
         tone: 'ok',
         text: 'Saiu o Museu Ōhara (e não tem passeio de barco). Em Kurashiki fica só o que é ao ar livre: o canal vazio, o mirante do santuário Achi, a fiação de tijolo e a rua do jeans. O almoço passou para Himeji, entrou o jardim Kōko-en e a chegada a Osaka adiantou quase 2 horas, o que abre espaço para Shinsekai. Se cansarem, pulem Shinsekai e jantem direto em Dōtonbori.',
@@ -25,7 +30,7 @@ export const osakaDays: Day[] = [
         timeLabel: 'trem',
         kind: 'transit',
         name: 'Hiroshima → Okayama → Kurashiki',
-        facts: 'Sanyo Shinkansen **35 min** (assento livre serve, qualquer um que pare em Okayama) + JR local **17 min** · ~¥6.300 · chegada ~08:20 · guardem a mochila nos armários da estação',
+        facts: 'Sanyo Shinkansen **35 min** (assento livre serve, qualquer um que pare em Okayama) + JR local **17 min** · ~¥6.300 · chegada ~08:20 · 🎒 **AO DESCER EM KURASHIKI: GUARDAR A MOCHILA** no locker grande, corredor da saída norte, 2º andar, ao lado da padaria Little Mermaid. Só depois saiam pelo 南口',
         mapQuery: '広島駅 新幹線改札',
       },
       {
@@ -74,7 +79,7 @@ export const osakaDays: Day[] = [
         paragraphs: [
           'A **Ivy Square** é a antiga fiação de algodão Kurabō, de **1889**, em tijolo vermelho e coberta de hera. Fechou em 1973 e virou hotel e ateliês; o pátio interno é aberto e é o lugar mais bonito do bairro depois do canal.',
           'A **Kurashiki Denim Street (倉敷デニムストリート)**, na beira do canal, é a vitrine da região que é **a capital do jeans japonês**: lojas de denim artesanal de Kojima, chaveiros e bolsas de jeans e o **sorvete azul "de jeans"** (デニムソフト), que tem gosto de baunilha com soda. As lojas abrem por volta das 10h: deixem para o fim.',
-          'Às **10:30** voltem para a estação pela rua coberta Ebisu-dōri (12 min) e peguem a mochila no armário.',
+          '🎒 **ÀS 10:30: BUSCAR A MOCHILA.** Voltem para a estação pela rua coberta Ebisu-dōri (12 min), peguem a mochila no mesmo locker da saída norte e só então passem a catraca para o trem das 10:45.',
         ],
         mapQuery: '倉敷デニムストリート',
       },
@@ -84,7 +89,7 @@ export const osakaDays: Day[] = [
         timeLabel: 'trem',
         kind: 'transit',
         name: 'Kurashiki → Okayama → Himeji',
-        facts: 'Local **17 min** + Shinkansen **20 min** · ~¥3.900 · chegada ~11:45',
+        facts: 'Local **17 min** + Shinkansen **20 min** · ~¥3.900 · chegada ~11:45 · 🎒 **AO DESCER EM HIMEJI: GUARDAR A MOCHILA** no locker do 北口 (saída norte), antes do almoço',
         mapQuery: '倉敷駅',
       },
       {
@@ -152,7 +157,7 @@ export const osakaDays: Day[] = [
         paragraphs: [
           'São **nove jardins murados**, reconstruídos sobre as fundações das antigas residências dos samurais do castelo. Em fim de novembro os **bordos estão no auge**, e de vários pontos se vê o torreão branco por cima dos muros.',
           'Tem uma **casa de chá (Sōjuan)** com matcha e doce por uns ¥500, e um restaurante, o Kassui-ken, com vista para o lago das carpas.',
-          'Saindo, voltem pela avenida Ōtemae até a estação (15 min).',
+          '🎒 **ÀS ~15:00: BUSCAR A MOCHILA.** Saindo do jardim, voltem pela avenida Ōtemae até o **北口** da estação (15–20 min), peguem a mochila no locker e só então entrem para o trem das 15:30.',
         ],
         mapQuery: '好古園 姫路',
       },
@@ -162,7 +167,7 @@ export const osakaDays: Day[] = [
         timeLabel: 'trem',
         kind: 'transit',
         name: 'Himeji → Osaka → hotel',
-        facts: 'JR Special Rapid **60 min ¥1.520** (sem taxa de shinkansen) + metrô até Nippombashi · **check-in no KOKO HOTEL ~16:45**',
+        facts: 'JR Special Rapid **60 min ¥1.520** (sem taxa de shinkansen) + metrô até Nippombashi · **check-in no KOKO HOTEL ~16:45** · 🎒 **a mochila tem de estar com vocês** (pegaram no locker de Himeji?)',
         mapQuery: '姫路駅 中央改札',
       },
       {
