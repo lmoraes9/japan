@@ -101,9 +101,10 @@ export const PLANO_CHUVA: Record<string, PlanoChuva> = {
   'd2026-11-25': {
     impacto: 'medio',
     resumo: 'Kurashiki é canal e rua de pedra, bonita molhada; Himeji tem escada de madeira que escorrega e é ao ar livre até o torreão.',
-    mantem: 'Museu de Arte Ōhara (fechado), almoço, o trem, o jantar em Dōtonbori (as galerias são cobertas).',
+    mantem: 'O castelo (o torreão é coberto), o almoço, os trens, a Denim Street e o jantar em Shinsekai e Dōtonbori (as galerias são cobertas).',
     trocas: [
-      { sai: 'Passeio pelas margens do canal em Kurashiki', entra: 'o Ōhara por mais tempo e as lojas cobertas do Bikan' },
+      { sai: 'A subida ao santuário Achi (escada de pedra molhada)', entra: 'mais tempo nas lojas cobertas do Bikan e no pátio da Ivy Square' },
+      { sai: 'Jardim Kōko-en', entra: 'seguir direto para Osaka e chegar mais cedo a Shinsekai' },
     ],
     dica: 'Em Himeji, o torreão pede sapato na mão e a escada é íngreme: um par de meias secas na mochila resolve o dia.',
   },

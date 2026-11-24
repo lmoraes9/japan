@@ -77,8 +77,6 @@ export const COMIDA_COORDS: Record<string, { lat: number; lng: number }> = {
   'momiji-manju': { lat: 34.2975, lng: 132.3215 },
 
   // ── Kurashiki, Osaka, Kōyasan ──
-  kamoi: { lat: 34.595, lng: 133.7723 },
-  tsurugata: { lat: 34.5955, lng: 133.7717 },
   daruma: { lat: 34.6688, lng: 135.5025 },
   takoyaki: { lat: 34.6672, lng: 135.504 }, // Wanaka Sennichimae
   mizuno: { lat: 34.6686, lng: 135.504 },

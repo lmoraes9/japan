@@ -171,7 +171,7 @@ export const TRIP_EVENTS: TripEvent[] = [
   {
     id: 'checkout-hiroshima',
     label: 'Saída de Hiroshima → Kurashiki',
-    at: '2026-11-25T08:20:00+09:00',
+    at: '2026-11-25T07:20:00+09:00',
     kind: 'train',
     detail: 'Sanyo Shinkansen até Okayama + local',
   },

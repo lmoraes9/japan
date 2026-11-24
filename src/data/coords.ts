@@ -55,7 +55,11 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
 
   // ── Osaka ──
   'd25-bikan': { lat: 34.5951, lng: 133.7719 },
-  'd25-ohara': { lat: 34.5967, lng: 133.771 },
+  'd25-achi': { lat: 34.5966, lng: 133.7703 },
+  'd25-ivy': { lat: 34.5937, lng: 133.7733 },
+  'd25-almoco-himeji': { lat: 34.8282, lng: 134.6906 },
+  'd25-kokoen': { lat: 34.8371, lng: 134.6895 },
+  'd25-shinsekai': { lat: 34.6519, lng: 135.5059 },
   'd25-himeji': { lat: 34.8394, lng: 134.6939 },
   'd25-dotonbori': { lat: 34.6687, lng: 135.5013 },
   'd26-castelo-osaka': { lat: 34.6873, lng: 135.5262 },
