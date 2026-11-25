@@ -161,7 +161,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     kind: 'trem',
     title: 'Nankai · Kōyasan World Heritage Ticket',
     date: '2026-11-26',
-    time: 'partir de Namba até 13:30',
+    time: 'partir de Namba entre 11:30 e 12:00',
     notes: 'Ida e volta Namba–Kōyasan + funicular + 2 dias de ônibus na montanha. Só em papel, no balcão da Nankai Namba: ¥4.210, ou ~¥5.200 com assento do especial こうや na ida.',
     hint: 'Horário do 特急こうや escolhido e o número do assento',
   },
@@ -170,7 +170,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     kind: 'trem',
     title: 'Nozomi Kyoto → Tóquio',
     date: '2026-12-01',
-    time: '13:30 · 特急こうや · chegada ~15:20',
+    time: '11:30–12:00 · trem comum · chegada ~13:45',
     notes: 'Compre na hora (não precisa reservar). Fuji do lado esquerdo desta vez',
   },
 

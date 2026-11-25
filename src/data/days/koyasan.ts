@@ -16,7 +16,7 @@ export const koyasanDays: Day[] = [
       {
         label: 'Dia mais leve',
         tone: 'ok',
-        text: 'Cortados o **Castelo de Osaka** (depois do original de Himeji, a reconstrução de concreto não faz falta) e a **caminhada do Okunoin à tarde** (o tour noturno faz o mesmo caminho, com guia). Durmam mais: café às 9h, Kuromon às 10:30, trem especial こうや às 13:30. Em Kōyasan, check-in e descanso até o jantar.',
+        text: 'Cortados o **Castelo de Osaka** (depois do original de Himeji, a reconstrução de concreto não faz falta) e a **caminhada do Okunoin à tarde** (o tour noturno faz o mesmo caminho, com guia). Café às 9h, Kuromon às 10h, e **trem comum entre 11:30 e 12:00** — sem reserva, sai a cada ~30 min. Chegam ao templo ~13:45, com **2h45 de folga** até o fim do check-in. Deixam a mochila, dão uma volta, check-in às 15:00 e descanso até o jantar.',
       },
       {
         label: 'Okunoin à noite — o tour está reservado',
@@ -31,7 +31,7 @@ export const koyasanDays: Day[] = [
       {
         label: 'horário',
         tone: 'warn',
-        text: 'O check-in no Fumon-in é das **15:00 às 16:30** e o jantar sai por volta das **17:30**. Chegar depois disso não é atraso: é perder a refeição. Saiam de Namba **até as 13:30**.',
+        text: 'O check-in no Fumon-in é das **15:00 às 16:30** e o jantar sai por volta das **17:30**. Chegar depois disso não é atraso: é perder a refeição. Saiam de Namba **entre 11:30 e 12:00**: errando um trem, ainda sobra muito tempo.',
       },
       {
         label: 'frio',
@@ -71,21 +71,21 @@ export const koyasanDays: Day[] = [
       },
       {
         id: 'd26-kuromon',
-        time: '10:30',
+        time: '10:00',
         timeLabel: 'mercado',
         kind: 'food',
         name: 'Kuromon Ichiba — e o almoço é aqui',
         jp: '黒門市場',
         facts: 'Maioria **09:00–18:00** · 580 m de galeria coberta · Nippombashi Stn · 4 min a pé do hotel',
         paragraphs: [
-          'Mercado de rua desde cerca de 1822, hoje bem turístico mas ainda excelente: atum cortado na hora, uni, vieira grelhada, espetinho de wagyu, caranguejo, fugu na temporada. **Hoje ele é o almoço.** Comam pouco em cada banca e sigam andando; às ~12:30 voltem ao hotel para pegar a mochila.',
+          'Mercado de rua desde cerca de 1822, hoje bem turístico mas ainda excelente: atum cortado na hora, uni, vieira grelhada, espetinho de wagyu, caranguejo, fugu na temporada. **Hoje ele é o almoço.** Comam pouco em cada banca e sigam andando; às **~11:00** voltem ao hotel para pegar a mochila.',
           'Aproveitem para comer bem: o jantar de hoje é *shōjin ryōri*, a cozinha vegetariana dos monges. Sem carne, sem peixe, sem caldo de bonito, sem cebola nem alho. É delicioso e é pouco.',
         ],
         mapQuery: 'Kuromon Ichiba Market Osaka',
       },
       {
         id: 'd26-konbini',
-        time: '12:50',
+        time: '11:15',
         timeLabel: 'konbini',
         kind: 'food',
         name: '7-Eleven da Nankai Namba — o lanche do trem e a fome da noite',
@@ -98,12 +98,12 @@ export const koyasanDays: Day[] = [
       },
       {
         id: 'd26-nankai',
-        time: '13:30',
+        time: '11:30',
         timeLabel: 'trem',
         kind: 'transit',
         name: 'Namba → Kōyasan, pela Nankai',
         jp: '南海高野線',
-        facts: '**特急こうや das 13:30** (o das 10:00 é o anterior), chegada à estação de Kōyasan ~15:17, funicular incluído · + ônibus 11 min até Senjuinbashi · **comprem o assento de manhã**: o especial tem poucos lugares',
+        facts: '**Trem comum (快速急行 / 急行) entre 11:30 e 12:00**, sem reserva, um a cada ~30 min · ~1h40 até a estação de Kōyasan, funicular incluído · + ônibus 11 min até Senjuinbashi · chegada ao templo **~13:45**',
         paragraphs: [
           'Comprem no balcão da Nankai em Namba o **高野山・世界遺産きっぷ (Kōyasan World Heritage Ticket)**: ida e volta Namba–Kōyasan, o funicular e **dois dias de ônibus ilimitado na montanha**, tudo junto. Desde abril de 2026 só existe **em papel**, por **¥4.210** por pessoa (uns **¥5.200** com o assento do especial こうや na ida); a versão digital com QR deixou de ser vendida. **No Google Maps, o destino é 高野山駅** (e partida 南海なんば駅): "Koyasan" sozinho cai num bairro chamado Takayama, perto de Nara.',
           'O 特急こうや tem poucas partidas por dia e exige assento reservado. Se perderem, o **快速急行 (rapid express)** faz o mesmo trajeto em dez minutos a mais, sem reserva e sem custo extra — só confiram no painel se o trem vai até Gokurakubashi ou se é preciso trocar em Hashimoto.',
@@ -113,14 +113,14 @@ export const koyasanDays: Day[] = [
       },
       {
         id: 'd26-checkin-shukubo',
-        time: '15:30',
+        time: '13:45',
         timeLabel: 'templo',
         kind: 'hotel',
-        name: 'Check-in no shukubō',
+        name: 'Chegada ao Fumon-in: mochila na recepção, check-in às 15:00',
         jp: '宿坊',
         facts: 'Fumon-in (普門院) · check-in **15:00–16:30** · jantar **~17:30** e café **incluídos** · check-out **08:00–09:00** · banho comum · quarto de tatame',
         paragraphs: [
-          'Daqui até o jantar das 17:30 é **descanso**: quarto, chá, e o banho comunitário se já estiver aberto. Um shukubō não é hotel: é a hospedaria de um templo em funcionamento, e vocês entram no horário da casa. Tirem os sapatos na entrada, recebam o chá, e perguntem logo **quatro coisas**: a que horas é o jantar, a que horas abre o banho, a que horas é a oração da manhã, e — a que importa — **se aqui tem o *goma*, o ritual do fogo**, e a que horas. Nem todo templo de Kōyasan faz; o Ekō-in faz, e é a coisa que a Priscila lembra. Se aqui não tiver, dá para assistir ao de outro templo pagando à parte.',
+          '**Chegando antes das 15:00:** peçam para deixar a mochila — *チェックインまで荷物を預かってもらえますか？* (Chekku-in made nimotsu o azukatte moraemasu ka?). Até as 15:00, deem uma volta sem peso: a rua principal tem casas de chá e lojas de *goma-dōfu*, e o **Garan** (o pagode vermelho Konpon Daitō) fica a ~10 min a pé — se forem hoje, amanhã cedo sobra tempo. Às 15:00, check-in, e daí até o jantar das 17:30 é **descanso**: quarto, chá e o banho comunitário. Um shukubō não é hotel: é a hospedaria de um templo em funcionamento, e vocês entram no horário da casa. Tirem os sapatos na entrada, recebam o chá, e perguntem logo **quatro coisas**: a que horas é o jantar, a que horas abre o banho, a que horas é a oração da manhã, e — a que importa — **se aqui tem o *goma*, o ritual do fogo**, e a que horas. Nem todo templo de Kōyasan faz; o Ekō-in faz, e é a coisa que a Priscila lembra. Se aqui não tiver, dá para assistir ao de outro templo pagando à parte.',
           'O quarto é de tatame, com futon e uma mesa baixa, e as paredes são de papel — o silêncio ali é uma cortesia, não uma regra escrita. Quase sempre há aquecedor, mas o corredor é frio: é para isso que servem as meias grossas.',
         ],
         mapQuery: 'Fumonin Koyasan',
