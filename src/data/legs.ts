@@ -618,7 +618,7 @@ export const LEGS: Record<string, Leg[]> = {
       direction: '極楽橋 Gokurakubashi', alight: 'Gokurakubashi (極楽橋), fim da linha', minutes: 85, cost: 'no passe',
       note: 'no 快速急行 pode ser preciso trocar em Hashimoto — o painel avisa',
       steps: [
-        'Passem o bilhete (ou o QR do bilhete digital) na catraca e procurem no painel **高野線 · 極楽橋**. As plataformas da linha Kōya são as de número baixo (1 a 4); as altas são da linha principal, para Wakayama e o aeroporto: não peguem essas.',
+        'Enfiem o bilhete de papel na fenda da catraca (ele volta do outro lado: guardem) e procurem no painel **高野線 · 極楽橋**. As plataformas da linha Kōya são as de número baixo (1 a 4); as altas são da linha principal, para Wakayama e o aeroporto: não peguem essas.',
         'Com o **特急こうや** (Kōya, todo reservado): o bilhete diz o **carro (号車) e o assento**. Esperem na marca do carro no chão da plataforma.',
         'Sem o especial: peguem o **快速急行** que diga **極楽橋** no painel. Se ele disser **橋本 Hashimoto**, desçam em Hashimoto e passem para o trem **極楽橋行き** que espera na estação.',
         'Fiquem até o **fim da linha, 極楽橋 Gokurakubashi**. Os últimos 20 min são de curvas e túneis na montanha.',
