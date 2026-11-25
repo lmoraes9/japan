@@ -16,7 +16,7 @@ export const koyasanDays: Day[] = [
       {
         label: 'Dia mais leve',
         tone: 'ok',
-        text: 'Cortados o **Castelo de Osaka** (depois do original de Himeji, a reconstrução de concreto não faz falta) e a **caminhada do Okunoin à tarde** (o tour noturno faz o mesmo caminho, com guia). Durmam mais: café às 9h, Kuromon às 10:30, trem às 13:20. Em Kōyasan, check-in e descanso até o jantar.',
+        text: 'Cortados o **Castelo de Osaka** (depois do original de Himeji, a reconstrução de concreto não faz falta) e a **caminhada do Okunoin à tarde** (o tour noturno faz o mesmo caminho, com guia). Durmam mais: café às 9h, Kuromon às 10:30, trem especial こうや às 13:30. Em Kōyasan, check-in e descanso até o jantar.',
       },
       {
         label: 'Okunoin à noite — o tour está reservado',
@@ -98,14 +98,14 @@ export const koyasanDays: Day[] = [
       },
       {
         id: 'd26-nankai',
-        time: '13:20',
+        time: '13:30',
         timeLabel: 'trem',
         kind: 'transit',
         name: 'Namba → Kōyasan, pela Nankai',
         jp: '南海高野線',
-        facts: '**1h32** de especial こうや / **1h42** de快速急行 até a estação de Kōyasan, funicular incluído · + ônibus 10–15 min até a cidade',
+        facts: '**特急こうや das 13:30** (o das 10:00 é o anterior), chegada à estação de Kōyasan ~15:17, funicular incluído · + ônibus 11 min até Senjuinbashi · **comprem o assento de manhã**: o especial tem poucos lugares',
         paragraphs: [
-          'Comprem no balcão da Nankai em Namba o **高野山・世界遺産きっぷ (Kōyasan World Heritage Ticket)**: ida e volta Namba–Kōyasan, o funicular e **dois dias de ônibus ilimitado na montanha**, tudo junto. Em 2026 sai por **¥3.980** na versão digital (¥4.210 em papel) ou **¥4.910** com o assento do especial こうや na ida. A versão digital só pode ser comprada até as 15:00 do dia.',
+          'Comprem no balcão da Nankai em Namba o **高野山・世界遺産きっぷ (Kōyasan World Heritage Ticket)**: ida e volta Namba–Kōyasan, o funicular e **dois dias de ônibus ilimitado na montanha**, tudo junto. Desde abril de 2026 só existe **em papel**, por **¥4.210** por pessoa (uns **¥5.200** com o assento do especial こうや na ida); a versão digital com QR deixou de ser vendida. **No Google Maps, o destino é 高野山駅** (e partida 南海なんば駅): "Koyasan" sozinho cai num bairro chamado Takayama, perto de Nara.',
           'O 特急こうや tem poucas partidas por dia e exige assento reservado. Se perderem, o **快速急行 (rapid express)** faz o mesmo trajeto em dez minutos a mais, sem reserva e sem custo extra — só confiram no painel se o trem vai até Gokurakubashi ou se é preciso trocar em Hashimoto.',
           'A partir de Hashimoto o trem vira um brinquedo: duas carruagens numa linha de bitola estreita subindo uma garganta, com curvas tão fechadas que dá para ver a própria locomotiva pela janela. No fim, em Gokurakubashi, vocês trocam para o **funicular** — 5 minutos numa rampa de 30 graus — e depois um ônibus até a rua principal. Não se pode ir a pé do funicular à cidade: a estrada é proibida para pedestres.',
         ],
