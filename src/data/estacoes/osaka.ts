@@ -131,7 +131,7 @@ export const OSAKA: MapaEstacoes = {
     { id: 'p-d25-shinsekai', nome: 'Shinsekai · Daruma', estacaoId: 'nippombashi', dx: 30, dy: 56, stopId: 'd25-shinsekai' },
     // 26 nov
     { id: 'p-d26-kuromon', nome: 'Kuromon Ichiba', estacaoId: 'nippombashi', dx: 42, dy: 26, stopId: 'd26-kuromon' },
-    { id: 'p-d26-nankai', nome: 'Nankai → Kōyasan 13:30', estacaoId: 'nankai-namba', dx: 48, dy: 34, stopId: 'd26-nankai' },
+    { id: 'p-d26-nankai', nome: 'Nankai → Kōyasan 11:30', estacaoId: 'nankai-namba', dx: 48, dy: 34, stopId: 'd26-nankai' },
     { id: 'p-d26-checkin-shukubo', nome: 'Shukubō · check-in', estacaoId: 'senjuinbashi', dx: -36, dy: 40, stopId: 'd26-checkin-shukubo', lado: 'l' },
     { id: 'p-d26-okunoin-noite', nome: 'Okunoin (noite)', estacaoId: 'ichinohashi-guchi', dx: 34, dy: -20, stopId: 'd26-okunoin-noite' },
     // 27 nov
