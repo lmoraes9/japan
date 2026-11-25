@@ -67,17 +67,6 @@ export const PONTOS: Record<string, PontoDetalhe[]> = {
     { name: "Hōzenji Yokochō e o Buda de musgo", jp: "法善寺横丁・水掛不動", query: "法善寺 水掛不動", note: "Viela de pedra a um quarteirão do neon; joguem água no Buda." },
     { name: "Takoyaki Wanaka", jp: "たこ焼道楽 わなか 千日前本店", query: "たこ焼道楽 わなか 千日前本店", note: "Bolinho de polvo ao lado do Namba Grand Kagetsu. Esperem esfriar." },
   ],
-  "d26-okunoin": [
-    { name: "Ponte Ichinohashi", jp: "一の橋", query: "奥之院 一の橋", note: "A entrada certa: reverência antes de atravessar." },
-    { name: "Uesugi Kenshin", jp: "上杉謙信霊屋", query: "奥之院 上杉謙信霊屋", note: "O mausoléu do rival de Takeda, logo ao lado dele." },
-    { name: "Takeda Shingen", jp: "武田信玄・勝頼墓所", query: "奥之院 武田信玄 勝頼 墓所", note: "Os dois inimigos de uma vida, vizinhos aqui." },
-    { name: "Date Masamune", jp: "伊達政宗墓所", query: "奥之院 伊達政宗 墓所" },
-    { name: "Toyotomi Hideyoshi e família", jp: "豊臣家墓所", query: "奥之院 豊臣家墓所", note: "Os Toyotomi que os Tokugawa exterminaram." },
-    { name: "Oda Nobunaga", jp: "織田信長墓所", query: "奥之院 織田信長墓所", note: "Um túmulo surpreendentemente pequeno." },
-    { name: "Ponte Gobyō-bashi", jp: "御廟橋", query: "奥之院 御廟橋", note: "Daqui em diante: sem fotos, sem comer, sem beber." },
-    { name: "Tōrō-dō e o mausoléu de Kūkai", jp: "燈籠堂・弘法大師御廟", query: "奥之院 燈籠堂", note: "Dez mil lanternas; fecha às 17:00. Kūkai em meditação atrás." },
-    { name: "Túmulos de empresa, na volta", jp: "企業墓", query: "奥之院 新明和工業 ロケット", note: "Pelo caminho do Nakanohashi: o foguete, a xícara da UCC, os cupins." },
-  ],
   "d26-okunoin-noite": [
     { name: "Recepção Taira — retirar o passe", jp: "大楽", query: "高野山 大楽 オーサムツアーズ", note: "Até as 19:00, ao lado do Ekō-in. Sem o passe não entra." },
     { name: "Ponte Ichinohashi — saída do tour", jp: "一の橋", query: "奥之院 一の橋", note: "Ponto de encontro do guia, em frente ao mapa." },

@@ -62,7 +62,6 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd25-shinsekai': { lat: 34.6519, lng: 135.5059 },
   'd25-himeji': { lat: 34.8394, lng: 134.6939 },
   'd25-dotonbori': { lat: 34.6687, lng: 135.5013 },
-  'd26-castelo-osaka': { lat: 34.6873, lng: 135.5262 },
   'd26-kuromon': { lat: 34.6654, lng: 135.5062 },
 
   // ── Kyoto & Nara ──

@@ -113,7 +113,6 @@ export const PLANO_CHUVA: Record<string, PlanoChuva> = {
     resumo: 'Osaka de manhã perde o castelo ao ar livre; Kōyasan fica a 800 m, com máxima de 8–10 °C mesmo sem chuva, e o Okunoin à noite é o ponto delicado.',
     mantem: 'Kuromon (galeria coberta, almoço), o trem, o shukubō, o jantar dos monges.',
     trocas: [
-      { sai: 'Castelo de Osaka às 8:30 (parque aberto)', entra: 'só o museu dentro do torreão, ou nada: começar o dia pelo Kuromon e chegar a Kōyasan mais descansados' },
       { sai: 'Okunoin com chuva forte', entra: 'o tour noturno **sai com chuva fraca**, e só é cancelado com aviso severo, por e-mail, até 18:40 — com reembolso. Chuva forte sem aviso: o banho do shukubō e dormir cedo' },
     ],
     dica: 'Capa de chuva (não só guarda-chuva) para o Okunoin: o tour anda uns 90 min em fila indiana, e guarda-chuva na trilha atrapalha o vizinho.',

@@ -606,49 +606,7 @@ export const LEGS: Record<string, Leg[]> = {
   'd25-dotonbori': [walk(5, 'até o hotel, para o leste pelo Dōtonbori, no lado da Nippombashi')],
 
   // ── 26 nov · meia manhã de Osaka e a subida para Kōyasan ───────────
-  'd26-cafe': [
-    walk(3, 'de volta à **Nippombashi** — é a estação da porta, não a Namba'),
-    {
-      mode: 'metro', line: 'Sakaisuji Line (marrom, K)', board: 'Nippombashi (日本橋)', boardPoint: '日本橋駅',
-      direction: '天神橋筋六丁目方面 (Tenjimbashisuji 6-chōme)', alight: 'Sakaisuji-Hommachi (堺筋本町), 2ª parada', minutes: 5,
-      steps: [
-        'Desçam pela entrada com o **K marrom** (堺筋線). Na mesma estação passa a Sennichimae (rosa, S): não sigam essa.',
-        'Plataforma **天神橋筋六丁目方面**. O trem pode mostrar destinos da Hankyu (北千里, 高槻市…): todos servem.',
-        'Contem: Nagahoribashi e **堺筋本町 Sakaisuji-Hommachi**, a 2ª. Desçam e, **sem sair da estação**, sigam as placas **verdes com C** (中央線 Chūō Line).',
-      ],
-    },
-    {
-      mode: 'metro', line: 'Chūō Line (verde, C)', board: 'Sakaisuji-Hommachi, pela baldeação', direction: '森ノ宮・長田方面 (Morinomiya/Nagata)',
-      alight: 'Tanimachi 4-chōme (谷町四丁目), 1ª parada, saída 9', alightPoint: '谷町四丁目駅 9号出口', minutes: 3, cost: '¥240 no total',
-      steps: [
-        'Plataforma **森ノ宮・長田方面**. A do outro lado vai para Hommachi e Cosmosquare.',
-        'É **1 parada**: desçam em **谷町四丁目 Tanimachi 4-chōme**.',
-        'Sigam a placa amarela **9番出口 (saída 9) · 大阪城 Osaka-jō**. Não usem as saídas da linha roxa (Tanimachi): saem mais longe.',
-      ],
-    },
-    walk(12, 'saindo da saída 9, para o leste pela avenida Chūō-ōdōri até o fosso e o portão Ōtemon (uns 7 min); dali até o torreão é mais um pouco'),
-  ],
-  'd26-castelo-osaka': [
-    walk(12, 'saída pelo portão Ōtemon, até a estação Tanimachi 4-chōme, **saída 9**'),
-    {
-      mode: 'metro', line: 'Chūō Line (verde, C)', board: 'Tanimachi 4-chōme (谷町四丁目), saída 9', boardPoint: '谷町四丁目駅 9号出口',
-      direction: '本町・コスモスクエア方面 (Hommachi/Cosmosquare)', alight: 'Sakaisuji-Hommachi (堺筋本町), 1ª parada', minutes: 3,
-      steps: [
-        'Desçam pela saída 9 e sigam o **C verde** (中央線). Plataforma **本町・コスモスクエア方面**.',
-        'É **1 parada**: desçam em **堺筋本町 Sakaisuji-Hommachi** e, sem sair da estação, sigam as placas **marrons com K** (堺筋線).',
-      ],
-    },
-    {
-      mode: 'metro', line: 'Sakaisuji Line (marrom, K)', board: 'Sakaisuji-Hommachi, pela baldeação', direction: '天下茶屋方面 (Tengachaya)',
-      alight: 'Nippombashi (日本橋), 2ª parada, saída 10', alightPoint: '日本橋駅 10番出口', minutes: 5, cost: '¥240 no total',
-      steps: [
-        'Plataforma **天下茶屋方面 (Tengachaya)**.',
-        'Contem: Nagahoribashi e **日本橋 Nippombashi**, a 2ª. Desçam.',
-        'Sigam a placa amarela **10番出口 (saída 10) · 黒門市場 Kuromon**.',
-      ],
-    },
-    walk(2, 'da saída 10, um pouco para o sul pela Sakaisuji: a galeria do Kuromon começa ali'),
-  ],
+  'd26-cafe': [walk(5, 'do Ibuki até a galeria coberta do **Kuromon Ichiba**, perto da Nippombashi')],
   'd26-kuromon': [
     walk(4, 'pela galeria até o hotel, em Sennichimae — ele fica entre o Kuromon e a Namba'),
     walk(8, 'do hotel para o oeste até a **Nankai Namba**, cujas plataformas ficam **no 3º andar do prédio da Takashimaya** — não confundir com a estação do metrô. Sigam as placas **南海電車**; o 7-Eleven fica no 2º andar, junto à **catraca central (中央改札)**'),
@@ -686,31 +644,6 @@ export const LEGS: Record<string, Leg[]> = {
       ],
     },
     walk(2, 'o Fumon-in fica a dois minutos da parada: no semáforo de Senjuinbashi, virem e procurem o portão do templo, o segundo à esquerda'),
-  ],
-  'd26-checkin-shukubo': [
-    {
-      mode: 'bus', line: 'Nankai Rinkan (qualquer um sentido 奥の院前)', board: 'Senjuinbashi (千手院橋)', boardPoint: '千手院橋 バス停',
-      direction: '奥の院前 Okunoin-mae', alight: 'Ichinohashi-guchi (一の橋口)', alightPoint: '一の橋口 バス停', minutes: 4, cost: 'no passe',
-      note: 'a pé são 15 min para o leste pela rua principal, também bonito',
-      steps: [
-        'No ponto, confiram o letreiro do ônibus: **奥の院前** (ou 奥の院口).',
-        'Desçam em **一の橋口 Ichinohashi-guchi**, mostrando o passe ao motorista.',
-      ],
-    },
-    walk(2, 'até a ponte do Ichinohashi, onde começa o Okunoin'),
-  ],
-  'd26-okunoin': [
-    walk(5, 'do mausoléu até o ponto de Okunoin-mae, pelo caminho novo (o curto)'),
-    {
-      mode: 'bus', line: 'Nankai Rinkan (sentido 高野山駅)', board: 'Okunoin-mae (奥の院前)', boardPoint: '奥の院前 バス停',
-      direction: '高野山駅前 Kōyasan Station', alight: 'Senjuinbashi (千手院橋)', alightPoint: '千手院橋 バス停', minutes: 8, cost: 'no passe',
-      note: 'ou os 2 km de volta pelo cemitério até o Ichinohashi e mais 15 min pela rua — mas o jantar é às 17:30',
-      steps: [
-        'Okunoin-mae é o ponto final: todo ônibus que sai dali volta pelo centro. Confiram o letreiro **高野山駅前**.',
-        'Desçam em **千手院橋 Senjuinbashi**, o cruzamento com semáforo.',
-      ],
-    },
-    walk(2, 'até o templo'),
   ],
   'd26-jantar-shojin': [
     walk(10, 'para o leste pela rua principal até a recepção Taira, ao lado do Ekō-in, perto do Ichinohashi — saiam às 18:30, o passe tem de ser retirado até as 19:00. À noite o ônibus é raro; táxi só chamando pelo templo'),

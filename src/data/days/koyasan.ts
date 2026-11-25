@@ -9,10 +9,15 @@ export const koyasanDays: Day[] = [
     id: 'd2026-11-26',
     date: '2026-11-26',
     stageId: 'koyasan',
-    title: 'Meia manhã de Osaka e a subida para Kōyasan',
-    subtitle: 'O castelo, o mercado, e depois duas horas de trem montanha acima até dormir num templo.',
-    chips: ['castelo', 'mercado', 'trem de montanha', 'shukubō'],
+    title: 'Manhã leve em Osaka e a subida para Kōyasan',
+    subtitle: 'Dormir mais, o mercado, e depois duas horas de trem montanha acima até dormir num templo.',
+    chips: ['mercado', 'trem de montanha', 'shukubō'],
     notes: [
+      {
+        label: 'Dia mais leve',
+        tone: 'ok',
+        text: 'Cortados o **Castelo de Osaka** (depois do original de Himeji, a reconstrução de concreto não faz falta) e a **caminhada do Okunoin à tarde** (o tour noturno faz o mesmo caminho, com guia). Durmam mais: café às 9h, Kuromon às 10:30, trem às 13:20. Em Kōyasan, check-in e descanso até o jantar.',
+      },
       {
         label: 'Okunoin à noite — o tour está reservado',
         tone: 'warn',
@@ -42,16 +47,16 @@ export const koyasanDays: Day[] = [
     stops: [
       {
         id: 'd26-cafe',
-        time: '07:20',
+        time: '09:00',
         timeLabel: 'café',
         kind: 'food',
         name: 'Café da manhã no Ibuki, um kissaten de Osaka',
         jp: '伊吹珈琲店',
-        facts: 'A ~4 min a pé do hotel, perto da Nippombashi · torrada grossa e café de coador · **saiam às 07:55** para o castelo · horário a confirmar no Google Maps na noite do dia 25',
+        facts: 'A ~4 min a pé do hotel, perto da Nippombashi · torrada grossa e café de coador · sem pressa: o Kuromon fica a 5 min a pé',
         paragraphs: [
           'É o café da família do **Marufuku**, o kissaten clássico mais famoso de Osaka. A casa do Kuromon abriu em 1982 como Marufuku e virou Ibuki com o filho do fundador. É o café da manhã de Osaka de verdade: café forte de coador, torrada grossa com manteiga, ovo, balcão antigo.',
-          'Peçam pouco: **o almoço é o Kuromon, às 11:00**, e é lá que se come de verdade hoje.',
-          'Um guia antigo diz que abre às **7:00 nos dias úteis** (26/11 é quinta), mas não há confirmação recente. Se estiver fechado ou com fila, o plano B é o konbini do caminho: onigiri e café em 10 minutos, e o dia não atrasa.',
+          'Peçam pouco: **o almoço é o Kuromon, logo depois**, e é lá que se come de verdade hoje.',
+          'Se estiver fechado ou com fila, o plano B é o konbini do caminho: onigiri e café em 10 minutos.',
         ],
         eat: [
           {
@@ -65,37 +70,15 @@ export const koyasanDays: Day[] = [
         mapQuery: '伊吹珈琲店 大阪 日本橋',
       },
       {
-        id: 'd26-castelo-osaka',
-        placeMapId: 'castelo-osaka',
-        time: '08:30',
-        timeLabel: 'castelo',
-        kind: 'sight',
-        name: 'Castelo de Osaka',
-        jp: '大阪城',
-        facts: 'Parque e fossos **24h, grátis** · torreão **09:00–17:00**, ¥1.200 · hoje vocês têm **2h**, não o dia inteiro',
-        paragraphs: [
-          'Chegando às 08:30 vocês pegam os fossos e as muralhas na melhor luz do dia e sem ninguém, e a bilheteria do torreão abre às 09:00. Subam, deem a volta no jardim Nishinomaru (¥200, com bordo em novembro) e **saiam às 10:30** — hoje o dia tem hora marcada mais adiante.',
-          'Sejamos honestos: o torreão atual é de **1931**, de concreto, com elevador. Mas as muralhas e os fossos são originais do século XVII, e há pedras de **mais de 100 toneladas** na base do portão Sakuramon, arrastadas de ilhas do Mar Interior por corda e tronco.',
-        ],
-        history: {
-          paragraphs: [
-            'Toyotomi Hideyoshi — o camponês que virou o homem mais poderoso do Japão — mandou construir em **1583** o maior castelo que o país já tinha visto, deliberadamente maior que qualquer coisa que os Oda tivessem feito. Ele morreu em 1598 deixando um filho de cinco anos.',
-            'Tokugawa Ieyasu esperou. Em 1614 e 1615, nos **cercos de inverno e de verão de Osaka**, ele destruiu os Toyotomi. A parte mais famosa: no cerco de inverno, Ieyasu negociou uma trégua cuja condição era aterrar o fosso externo — e então mandou aterrar o interno também, alegando má interpretação. No verão seguinte, o castelo sem fossos caiu em dias. O herdeiro e a mãe se suicidaram. Começaram 250 anos de paz Tokugawa.',
-            'Os Tokugawa reconstruíram tudo nos anos 1620, **por cima** das ruínas de Hideyoshi, com muralhas ainda mais altas — o que existe hoje é literalmente o castelo Tokugawa em cima do castelo Toyotomi. O torreão deles foi atingido por um raio em 1665 e queimou. Ficou sem torre por 266 anos, até 1931, quando a população de Osaka doou o dinheiro da reconstrução em seis meses.',
-          ],
-        },
-        mapQuery: 'Osaka Castle',
-      },
-      {
         id: 'd26-kuromon',
-        time: '11:00',
+        time: '10:30',
         timeLabel: 'mercado',
         kind: 'food',
         name: 'Kuromon Ichiba — e o almoço é aqui',
         jp: '黒門市場',
         facts: 'Maioria **09:00–18:00** · 580 m de galeria coberta · Nippombashi Stn · 4 min a pé do hotel',
         paragraphs: [
-          'Mercado de rua desde cerca de 1822, hoje bem turístico mas ainda excelente: atum cortado na hora, uni, vieira grelhada, espetinho de wagyu, caranguejo, fugu na temporada. **Hoje ele é o almoço** — o restaurante de sushi sentado não cabe mais no dia. Comam pouco em cada banca e sigam andando.',
+          'Mercado de rua desde cerca de 1822, hoje bem turístico mas ainda excelente: atum cortado na hora, uni, vieira grelhada, espetinho de wagyu, caranguejo, fugu na temporada. **Hoje ele é o almoço.** Comam pouco em cada banca e sigam andando; às ~12:30 voltem ao hotel para pegar a mochila.',
           'Aproveitem para comer bem: o jantar de hoje é *shōjin ryōri*, a cozinha vegetariana dos monges. Sem carne, sem peixe, sem caldo de bonito, sem cebola nem alho. É delicioso e é pouco.',
         ],
         mapQuery: 'Kuromon Ichiba Market Osaka',
@@ -137,32 +120,10 @@ export const koyasanDays: Day[] = [
         jp: '宿坊',
         facts: 'Fumon-in (普門院) · check-in **15:00–16:30** · jantar **~17:30** e café **incluídos** · check-out **08:00–09:00** · banho comum · quarto de tatame',
         paragraphs: [
-          'Um shukubō não é hotel: é a hospedaria de um templo em funcionamento, e vocês entram no horário da casa. Tirem os sapatos na entrada, recebam o chá, e perguntem logo **quatro coisas**: a que horas é o jantar, a que horas abre o banho, a que horas é a oração da manhã, e — a que importa — **se aqui tem o *goma*, o ritual do fogo**, e a que horas. Nem todo templo de Kōyasan faz; o Ekō-in faz, e é a coisa que a Priscila lembra. Se aqui não tiver, dá para assistir ao de outro templo pagando à parte.',
+          'Daqui até o jantar das 17:30 é **descanso**: quarto, chá, e o banho comunitário se já estiver aberto. Um shukubō não é hotel: é a hospedaria de um templo em funcionamento, e vocês entram no horário da casa. Tirem os sapatos na entrada, recebam o chá, e perguntem logo **quatro coisas**: a que horas é o jantar, a que horas abre o banho, a que horas é a oração da manhã, e — a que importa — **se aqui tem o *goma*, o ritual do fogo**, e a que horas. Nem todo templo de Kōyasan faz; o Ekō-in faz, e é a coisa que a Priscila lembra. Se aqui não tiver, dá para assistir ao de outro templo pagando à parte.',
           'O quarto é de tatame, com futon e uma mesa baixa, e as paredes são de papel — o silêncio ali é uma cortesia, não uma regra escrita. Quase sempre há aquecedor, mas o corredor é frio: é para isso que servem as meias grossas.',
         ],
         mapQuery: 'Fumonin Koyasan',
-      },
-      {
-        id: 'd26-okunoin',
-        time: '16:00',
-        timeLabel: 'cemitério',
-        kind: 'temple',
-        name: 'Okunoin, no fim da tarde',
-        jp: '奥之院',
-        facts: '**24h · grátis** · 2 km do Ichinohashi até o mausoléu · pôr do sol **~16:50** · o Tōrō-dō fecha às 17:00, o caminho não fecha nunca',
-        paragraphs: [
-          'Entrem pelo **Ichinohashi**, a primeira ponte — não pelo estacionamento do meio, que corta a metade mais bonita. A tradição manda fazer uma reverência antes de atravessar, porque a partir dali você é hóspede de Kūkai.',
-          'São dois quilômetros sob cedros de quarenta metros e **mais de 200 mil túmulos**. Perto do fim está a **Ponte Gobyō-bashi**, onde acabam as fotos: dali em diante não se fotografa, não se come e não se bebe. Do outro lado ficam o **Tōrō-dō**, o Salão das Lanternas, com dez mil lanternas acesas — duas delas, dizem, desde o século XI — e, atrás, o mausoléu onde Kūkai continua em meditação.',
-          'Vão até o fim agora, com a luz que ainda houver, e **voltem devagar**. Ou usem o ônibus até Okunoin-mae para ganhar tempo e caminhem só a parte final.',
-        ],
-        history: {
-          paragraphs: [
-            'Estão aqui, a cem metros uns dos outros, **Oda Nobunaga** e os monges do Monte Hiei que ele mandou queimar vivos; **Toyotomi Hideyoshi** e os Toyotomi que os Tokugawa exterminaram; **Date Masamune**, **Takeda Shingen** e **Uesugi Kenshin**, que passaram a vida se enfrentando. Perto de Kūkai, a disputa acaba.',
-            'E há os túmulos que ninguém espera. Uma empresa de dedetização ergueu um memorial **aos cupins que matou**. A UCC pôs uma xícara de café gigante. Há um monumento aos mortos **dos dois lados** da guerra do Pacífico, inclusive os inimigos — uma ideia que, em 1945, era quase escandalosa. E há um foguete da Shinmeiwa.',
-            'Duas vezes por dia, às 6h e às 10h30, monges levam refeição até a porta do mausoléu. Chama-se *shōjingu*. Isso não foi interrompido em **mais de mil anos**.',
-          ],
-        },
-        mapQuery: 'Okunoin Ichinohashi Koyasan',
       },
       {
         id: 'd26-jantar-shojin',

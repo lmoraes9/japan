@@ -287,14 +287,6 @@ export const INGRESSOS: Ingresso[] = [
     note: 'Dia 25 é quarta: a fila é menor, mas o QR ainda poupa 15 min. Em dias de lotação o castelo distribui senhas com horário para o torreão.',
     stopId: 'd25-himeji',
   },
-  {
-    id: 'osaka',
-    title: 'Castelo de Osaka',
-    status: 'livre',
-    date: '2026-11-26',
-    action: 'Castelo ¥1.200 na porta (fila de 15 min às 9h, mais tarde 40).',
-    stopId: 'd26-castelo-osaka',
-  },
 
   // ── Kyoto e Nara ──
   {
