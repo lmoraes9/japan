@@ -170,7 +170,7 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     kind: 'trem',
     title: 'Nozomi Kyoto → Tóquio',
     date: '2026-12-01',
-    time: '13:20 · 2h15',
+    time: '13:30 · 特急こうや · chegada ~15:20',
     notes: 'Compre na hora (não precisa reservar). Fuji do lado esquerdo desta vez',
   },
 
