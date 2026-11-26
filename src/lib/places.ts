@@ -159,10 +159,10 @@ const BAIRRO_DA_PARADA: Record<string, string> = {
   'd27-almoco': 'Namba',
 
   // Kyoto e Nara
-  'd27-nishiki-rapido': 'Nishiki',
   'd27-jantar': 'Fushimi',
   'd27-sushi-musashi': 'Kawaramachi-Sanjō',
   'd29-jantar': 'Kawaramachi-Sanjō',
+  'd29-nishiki': 'Nishiki',
   'd28-sannenzaka': 'Higashiyama',
   'd28-almoco': 'Higashiyama',
   'd28-gion': 'Gion e Pontochō',

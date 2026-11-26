@@ -11,7 +11,7 @@ export const kyotoDays: Day[] = [
     date: '2026-11-27',
     stageId: 'kyoto',
     title: 'A manhã no Garan, a descida, e Fushimi Inari ao anoitecer',
-    subtitle: 'Oração às 6h, o coração de Kōyasan antes do meio-dia, e o portal de dez mil torii quando todo mundo está indo embora.',
+    subtitle: 'Oração às 6h30, o coração de Kōyasan antes do meio-dia, descanso no hotel, e o portal de dez mil torii quando todo mundo está indo embora.',
     chips: ['oração', 'pagode', 'santuário', 'torii'],
     notes: [
       {
@@ -72,42 +72,20 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd27-descida',
-        time: '11:15',
+        time: '11:00',
         timeLabel: 'descida',
         kind: 'transit',
-        name: 'Kōyasan → Sumiyoshi, de volta pela Nankai',
+        name: 'Kōyasan → Namba, de volta pela Nankai',
         jp: '南海高野線',
-        facts: 'Ônibus + funicular ~25 min · expresso até **Sakai-Higashi** ~1h · troca para o local, **4 paradas** até Sumiyoshi-Higashi · o santuário fica a **5 min** do portão de trás · tudo dentro do passe',
+        facts: 'Ônibus + funicular ~25 min · trem até **Namba** ~1h30 (troca em Hashimoto) · **tudo dentro do bilhete de volta** · chegada ~13:15',
         paragraphs: [
-          'Ônibus até a estação de Kōyasan, funicular até Gokurakubashi, e o mesmo trem de ontem no sentido contrário — desta vez com a garganta aparecendo pela janela de baixo, que é melhor.',
-          'O desvio pelo Sumiyoshi Taisha é **leve, não perrengue** — mas tem um detalhe: **o expresso não para em Sumiyoshi-Higashi**. Só o trem local (各停) para lá. Então é descer do expresso em **Sakai-Higashi**, atravessar a plataforma para um local no sentido Namba (de dia passa mais ou menos a cada 10 minutos) e descer quatro paradas depois. Da estação ao santuário são **5 minutos** — vocês entram pelo portão de trás. Meia hora lá dentro, de volta à mesma estação, e qualquer local leva a Namba em ~15 min. **Custo total do desvio: uns 50 a 60 minutos** sobre ir direto. Se a manhã em Kōyasan atrasar, pulem sem culpa: é olhar rápido e seguir, não é o programa do dia.',
+          'Ônibus até a estação de Kōyasan, funicular até Gokurakubashi, e o mesmo trem de ontem no sentido contrário — desta vez com a garganta aparecendo pela janela de baixo, que é melhor. Sem desvio: direto até o fim da linha, **Namba**.',
         ],
         mapQuery: '高野山駅',
       },
       {
-        id: 'd27-sumiyoshi',
-        placeMapId: 'sumiyoshi',
-        time: '13:00',
-        timeLabel: 'santuário',
-        kind: 'temple',
-        name: 'Sumiyoshi Taisha',
-        jp: '住吉大社',
-        facts: '**06:00–17:00** · **grátis** · na própria linha Nankai Kōya, estação **Sumiyoshi-Higashi** + 10 min a pé',
-        paragraphs: [
-          'A última manhã de Osaka bem gasta. Um dos santuários mais antigos do Japão, e o mais estranho arquitetonicamente — de um jeito que só faz sentido quando alguém explica.',
-        ],
-        history: {
-          paragraphs: [
-            'O estilo daqui, o *sumiyoshi-zukuri*, é **anterior à chegada do budismo ao Japão**. Repare: telhado reto (não curvo), sem pintura vermelha, sem influência chinesa nenhuma. É o mais perto que existe de saber como era um santuário xintoísta antes de o continente influenciar qualquer coisa. Os prédios são reconstruídos periodicamente, sempre idênticos — o último de 1810.',
-            'As divindades daqui protegem os marinheiros, e o santuário era parada obrigatória das embaixadas japonesas que partiam para a China. A ponte arqueada de laca vermelha na entrada, a **Sorihashi**, é tão íngreme que atravessá-la é considerado um rito de purificação — a subida força você a se curvar.',
-            'E um detalhe recente, que fecha o círculo com o dia 25: foi **aqui** que, em março de 2024, levaram para purificação a **estátua do Coronel Sanders** que a torcida do Hanshin Tigers jogou no canal de Dōtonbori em 1985 e que passou 24 anos no fundo. Depois da cerimônia ela foi descartada — não havia mais o que salvar. A história completa está na parada do Dōtonbori.',
-          ],
-        },
-        mapQuery: 'Sumiyoshi Taisha Osaka',
-      },
-      {
         id: 'd27-almoco',
-        time: '14:15',
+        time: '13:15',
         timeLabel: 'almoço',
         kind: 'food',
         name: 'Almoço de estação, em Namba',
@@ -135,43 +113,20 @@ export const kyotoDays: Day[] = [
       },
       {
         id: 'd27-trem-kyoto',
-        time: '14:45',
+        time: '13:45',
         timeLabel: 'trem',
         kind: 'transit',
         name: 'Namba → Kyoto e check-in',
         facts: 'Midōsuji até Umeda **8 min** + **Hankyu Kyoto Line** até Kawaramachi **45 min, ¥410** · total ~1h · desce a 7 min do hotel',
         paragraphs: [
           'Atenção que o caminho mudou: como vocês estão em **Namba** e não em Osaka/Umeda, o JR Special Rapid deixa de ser o melhor. Peguem o **Midōsuji** até Umeda e ali o **Hankyu Kyoto Line** (limited express) até **Kyoto-Kawaramachi** — a 7 min a pé do hotel, que apesar do nome fica na Kawaramachi abaixo de Sanjō. Sem baldeação de mala, sem subir para a Estação de Kyoto e voltar.',
-          'As malas grandes que saíram de Tóquio no dia 23 devem estar na recepção. Confiram na chegada.',
+          'As malas grandes que saíram de Tóquio no dia 23 devem estar na recepção. Confiram na chegada. Depois do check-in (~15:00), **descansem até as 15:40**: daí saem para o Fushimi Inari.',
         ],
         mapQuery: 'Hankyu Osaka-Umeda Station',
       },
       {
-        id: 'd27-nishiki-rapido',
-        time: '15:45',
-        timeLabel: 'mercado',
-        kind: 'food',
-        name: 'Nishiki, já que ele é na esquina',
-        jp: '錦市場',
-        facts: '**09:00–18:00**, lojas fecham escalonado · 400 m cobertos · **6 min a pé do hotel**',
-        paragraphs: [
-          'Meia hora só, de passagem, para saber o que tem. O Nishiki fica a seis minutos do hotel de vocês e **no domingo dia 29 ele estará fechando quando vocês chegarem lá** — então esta é a boa oportunidade de andar nele com as bancas abertas.',
-        ],
-        mapQuery: 'Nishiki Market Kyoto',
-        eat: [
-          {
-            label: 'Para provar andando',
-            items: [
-              { name: 'Tako tamago', note: 'polvinho baby recheado com um ovo de codorna inteiro na cabeça. Estranho, doce, ótimo.', specialty: true },
-              { name: 'Tsukemono', note: 'os picles de Kyoto são uma arte local; peça para provar antes de comprar.' },
-              { name: 'Soymilk donut', note: 'da Konnamonja — sai quente da fritadeira.' },
-            ],
-          },
-        ],
-      },
-      {
         id: 'd27-fushimi-inari',
-        time: '16:35',
+        time: '16:05',
         timeLabel: 'santuário',
         kind: 'temple',
         name: 'Fushimi Inari Taisha',

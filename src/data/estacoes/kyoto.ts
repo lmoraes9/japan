@@ -173,7 +173,6 @@ export const KYOTO: MapaEstacoes = {
   ],
   pontos: [
     // 27 nov
-    { id: 'p-d27-nishiki-rapido', nome: 'Nishiki, rápido', estacaoId: 'kawaramachi', dx: -50, dy: -10, stopId: 'd27-nishiki-rapido', lado: 'l' },
     { id: 'p-d27-fushimi-inari', nome: 'Fushimi Inari', estacaoId: 'fushimi-inari', dx: 46, dy: -26, stopId: 'd27-fushimi-inari' },
     { id: 'p-d27-jantar', nome: 'Saquê · Torisei, numa kura', estacaoId: 'fushimi-momoyama', dx: 46, dy: 24, stopId: 'd27-jantar' },
     { id: 'p-d27-sushi-musashi', nome: 'Sushi no Musashi', estacaoId: 'sanjo', dx: -40, dy: -32, stopId: 'd27-sushi-musashi', lado: 'l' },
