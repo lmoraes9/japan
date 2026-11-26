@@ -646,10 +646,10 @@ export const LEGS: Record<string, Leg[]> = {
     walk(2, 'o Fumon-in fica a dois minutos da parada: no semáforo de Senjuinbashi, virem e procurem o portão do templo, o segundo à esquerda'),
   ],
   'd26-jantar-shojin': [
-    walk(10, 'para o leste pela rua principal até a recepção Taira, ao lado do Ekō-in, perto do Ichinohashi — saiam às 18:30, o passe tem de ser retirado até as 19:00. À noite o ônibus é raro; táxi só chamando pelo templo'),
+    walk(15, 'às ~18:40, saindo pela **portinha dos fundos ao lado do portão principal** (o portão grande fecha às 17:00), para o leste pela rua principal até o **ponto de encontro escrito no Tour Pass** (o check-in no TAIRA, ao lado do Ekō-in, já tem de ter sido feito à tarde). À noite o ônibus é raro e táxi quase não há'),
   ],
   'd26-okunoin-noite': [
-    walk(15, 'o tour termina no Gobyō e o ônibus grátis devolve o grupo perto do Ekō-in; dali, 15 min para o oeste pela rua principal até o Fumon-in'),
+    walk(15, 'o tour termina ~20:45 perto do Ekō-in; dali, 15 min para o oeste pela rua principal até o Fumon-in, **direto**: o templo fecha de vez às **21:00** (entrem pela portinha dos fundos)'),
   ],
 
   // ── 27 nov · Kōyasan de manhã, Sumiyoshi no caminho, Kyoto à noite ──

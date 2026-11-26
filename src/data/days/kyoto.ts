@@ -28,15 +28,15 @@ export const kyotoDays: Day[] = [
     stops: [
       {
         id: 'd27-gongyo',
-        time: '06:00',
+        time: '06:30',
         timeLabel: 'oração',
         kind: 'temple',
         name: 'Asa-gongyō — a oração da manhã',
         jp: '朝勤行',
-        facts: 'Normalmente **06:00 ou 06:30** no hondō · 30–40 min · **grátis e opcional** — mas é para isto que se dorme num templo',
+        facts: '**06:30–07:10** no salão principal do Fumon-in · **cheguem às 06:25** · grátis · **sem yukata** (roupa normal) · **sem fotos** · café às **07:10**, logo depois',
         paragraphs: [
           'Faz frio, ainda está escuro, e é o melhor momento da estadia. Vocês sentam no fundo do salão principal enquanto os monges recitam — sutras em japonês antigo, sino, incenso, e a luz entrando devagar. Não é preciso fazer nada além de estar ali.',
-          'Alguns templos de Kōyasan seguem a oração com o **goma**, o ritual do fogo do Shingon: o monge acende uma fogueira no altar e vai jogando tabuinhas de cedro com pedidos escritos, enquanto recita. As chamas sobem quase até o teto. **É a coisa que a Priscila lembra do Ekō-in** — pergunte na recepção na chegada se aqui tem, e a que horas.',
+          'Ao entrar no salão: tirem o chapéu, **mãos juntas no peito (gasshō)** e uma reverência; se houver o pó de incenso (*zukō*) na entrada, uma pitada esfregada nas mãos. Depois do café, arrumem a mochila: o **check-out é às 9:00**. Na saída, peçam para deixar a mochila na recepção até as ~10:45 — *荷物を預かってもらえますか？* (Nimotsu o azukatte moraemasu ka?) — e vão ao Garan sem peso.',
         ],
         mapQuery: 'Fumonin Koyasan',
       },
@@ -47,7 +47,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Danjō Garan e o Konpon Daitō',
         jp: '壇上伽藍・根本大塔',
-        facts: 'Pátio **24h, grátis** · interior do Daitō **08:30–17:00**, ¥500 · o templo fica a 10 min a pé',
+        facts: 'Pátio **24h, grátis** · interior do Daitō **08:30–17:00**, ¥500 (**20% de desconto mostrando o bilhete 高野山・世界遺産きっぷ**) · a 10 min a pé do Fumon-in',
         paragraphs: [
           'Este é o lugar que Kūkai desenhou primeiro, em 819: não um templo, mas um **mandala construído em tamanho real**. As construções estão dispostas no chão como as figuras de um diagrama sagrado, e quem anda entre elas está atravessando o mandala.',
           'O **Konpon Daitō** é a torre vermelha de 48 metros que vocês viram na foto. Por dentro, as colunas são pintadas como bodhisattvas e no centro está o Buda Dainichi cercado por outros quatro — de modo que **a estatuária inteira forma um mandala tridimensional**. É a única coisa dessas no mundo. Vale os ¥500.',
@@ -62,7 +62,7 @@ export const kyotoDays: Day[] = [
         kind: 'temple',
         name: 'Kongōbu-ji e o jardim de pedras',
         jp: '金剛峯寺',
-        facts: '**08:30–17:00** · ¥1.000 · **chá e biscoito de arroz inclusos** no salão dos fundos · 5 min do Garan',
+        facts: '**08:30–17:00** · ¥1.000 (**20% de desconto com o bilhete 高野山・世界遺産きっぷ**) · **chá e biscoito de arroz inclusos** no salão dos fundos · 5 min do Garan',
         paragraphs: [
           'A sede de todo o budismo Shingon — 3.600 templos no Japão respondem a esta casa. Por dentro é um palácio de painéis dourados; numa das salas, o **Yanagi-no-ma**, o senhor Toyotomi Hidetsugu foi obrigado a cometer seppuku em 1595 por ordem do próprio tio, Hideyoshi.',
           'Nos fundos está o **Banryūtei**, o maior jardim de pedras do Japão: 140 granitos de Shikoku dispostos como dois dragões emergindo de um mar de areia branca, guardando o pavilhão. Vá até o fim do corredor — **o chá está incluído no ingresso** e servem numa sala grande de tatame, onde dá para sentar e olhar o jardim sem pressa.',

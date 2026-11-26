@@ -21,7 +21,17 @@ export const koyasanDays: Day[] = [
       {
         label: 'Okunoin à noite — o tour está reservado',
         tone: 'warn',
-        text: 'O **tour noturno do Okunoin já está reservado** (Awesome Tours, voucher RZ260913CQ7084-1, 2 adultos): **retirar o passe na recepção "Taira", 734 Koyasan, ATÉ as 19:00** — sem o passe não entra. O Taira fica perto da ponte Ichinohashi, a entrada do cemitério, a poucos minutos a pé do Fumon-in. Jantar às 17:30 é para dar tempo: **saiam do shukubō às 18:30**, porque táxi na montanha para às 17:00 e ninguém vem buscar. **Lanterna e flash são proibidos** — o caminho é iluminado só pelas lanternas de pedra, e é assim que ele deve ser visto. Casaco pesado, luvas, gorro (mínima entre 0 e −3 °C); capa de chuva se estiver ameaçando, porque com chuva fraca o tour sai mesmo. Voucher no celular, nome da reserva na ponta da língua: Leonardo Moraes.',
+        text: 'O **tour noturno do Okunoin já está reservado** (Awesome Tours, pedido **RZ260913CQ7084**, 2 adultos, nome Moraes). **Check-in no balcão da Awesome Tours dentro do café 大楽 TAIRA** (734 Koyasan, ao lado do Ekō-in, 10–15 min a pé para o leste do Fumon-in): **das 13:00 às 17:00** (recomendado, com bebida quente grátis). **Das 17:00 às 18:30 o balcão fecha**; reabre só das **18:30 às 18:55**, lotado e sem brinde. No check-in vocês recebem o **参加証 (Tour Pass)** com **o horário e o ponto de encontro**: não percam. O tour sai **entre 19:00 e 19:15** e dura ~90 min. Mostrar o e-mail das instruções no TAIRA dá desconto nas lembranças. **Lanterna e flash são proibidos** — o caminho é iluminado só pelas lanternas de pedra, e é assim que ele deve ser visto. Casaco pesado, luvas, gorro (mínima entre 0 e −3 °C); capa de chuva se estiver ameaçando, porque com chuva fraca o tour sai mesmo. Voucher no celular, nome da reserva na ponta da língua: Leonardo Moraes.',
+      },
+      {
+        label: 'Fumon-in: horários e regras',
+        tone: 'warn',
+        text: '**Jantar 17:30** (um funcionário chama no quarto) · **banho 16:30–21:30** · **portão principal fecha às 17:00**: depois, saiam e entrem pela **portinha dos fundos, ao lado do portão** · **fechamento total às 21:00** — depois disso não se entra · o **futon é arrumado durante o jantar** · **oração 6:30–7:10** no salão principal (cheguem 6:25) · **café 7:10** · **check-out 9:00**. Recepção: ramal **15 ou 10** (depois das 20:00, emergência **13**). Wi-Fi **koyafumon66_5** ou **koyafumon66_2.4**, senha **6480211608**.',
+      },
+      {
+        label: 'roupa',
+        tone: 'warn',
+        text: 'O **yukata é só para dentro do templo** (quarto, banho, jantar). **Roupa normal** na oração da manhã, no salão principal, no Garan e no **Okunoin**: nada de ombros de fora, short ou minissaia — no Okunoin eles pedem para cobrir ou não entrar. **Sem fotos dentro do salão principal.** Para o tour: casaco pesado, gorro, luvas, sapato fechado.',
       },
       {
         label: 'malas',
@@ -118,9 +128,9 @@ export const koyasanDays: Day[] = [
         kind: 'hotel',
         name: 'Chegada ao Fumon-in: mochila na recepção, check-in às 15:00',
         jp: '宿坊',
-        facts: 'Fumon-in (普門院) · check-in **15:00–16:30** · jantar **~17:30** e café **incluídos** · check-out **08:00–09:00** · banho comum · quarto de tatame',
+        facts: 'Fumon-in (普門院) · check-in **15:00–16:30** · **antes, ou logo depois: check-in do tour no TAIRA (13:00–17:00)** · jantar **17:30** e café **incluídos** · check-out **9:00** · banho 16:30–21:30 · quarto de tatame',
         paragraphs: [
-          '**Chegando antes das 15:00:** peçam para deixar a mochila — *チェックインまで荷物を預かってもらえますか？* (Chekku-in made nimotsu o azukatte moraemasu ka?). Até as 15:00, deem uma volta sem peso: a rua principal tem casas de chá e lojas de *goma-dōfu*, e o **Garan** (o pagode vermelho Konpon Daitō) fica a ~10 min a pé — se forem hoje, amanhã cedo sobra tempo. Às 15:00, check-in, e daí até o jantar das 17:30 é **descanso**: quarto, chá e o banho comunitário. Um shukubō não é hotel: é a hospedaria de um templo em funcionamento, e vocês entram no horário da casa. Tirem os sapatos na entrada, recebam o chá, e perguntem logo **quatro coisas**: a que horas é o jantar, a que horas abre o banho, a que horas é a oração da manhã, e — a que importa — **se aqui tem o *goma*, o ritual do fogo**, e a que horas. Nem todo templo de Kōyasan faz; o Ekō-in faz, e é a coisa que a Priscila lembra. Se aqui não tiver, dá para assistir ao de outro templo pagando à parte.',
+          '**Chegando antes das 15:00:** peçam para deixar a mochila — *チェックインまで荷物を預かってもらえますか？* (Chekku-in made nimotsu o azukatte moraemasu ka?). Até as 15:00, deem uma volta sem peso: a rua principal tem casas de chá e lojas de *goma-dōfu*, e o **Garan** (o pagode vermelho Konpon Daitō) fica a ~10 min a pé — se forem hoje, amanhã cedo sobra tempo. Às 15:00, check-in, e daí até o jantar das 17:30 é **descanso**: quarto, chá e o banho comunitário. Um shukubō não é hotel: é a hospedaria de um templo em funcionamento, e vocês entram no horário da casa. Tirem os sapatos na entrada, recebam o chá, e é isso. Os horários da casa estão no aviso **Fumon-in: horários e regras**, no topo do dia. Vale ver com luz o **jardim**, desenhado por **Kobori Enshū** (o mestre do chá do século XVII), dito o mais bonito de Kōyasan, e o **teto do salão principal**, com o brasão dos Tokugawa: o salão é um mausoléu dos Tokugawa reaproveitado depois do incêndio de 1888, por isso lembra o Tōshōgū de Nikkō.',
           'O quarto é de tatame, com futon e uma mesa baixa, e as paredes são de papel — o silêncio ali é uma cortesia, não uma regra escrita. Quase sempre há aquecedor, mas o corredor é frio: é para isso que servem as meias grossas.',
         ],
         mapQuery: 'Fumonin Koyasan',
@@ -147,13 +157,13 @@ export const koyasanDays: Day[] = [
         kind: 'temple',
         name: 'Okunoin no escuro — a parte que importa',
         jp: '奥之院ナイトツアー',
-        facts: '**Reservado: Awesome Tours**, passe na recepção Taira até 19:00, saída 19:00, ~90 min · lanterna e flash proibidos · por conta própria também é grátis e aberto · o ponto é o café **Taira**, colado ao Ekō-in, e o tour **aceita quem não está hospedado lá**',
+        facts: '**Reservado: Awesome Tours** · **check-in no TAIRA das 13:00 às 17:00** (fecha 17:00–18:30) · **saiam do Fumon-in às ~18:40 pela portinha dos fundos**, para o ponto escrito no Tour Pass · saída **19:00–19:15**, ~90 min, termina ~20:45 · **voltem direto: o templo fecha às 21:00** · lanterna e flash proibidos',
         paragraphs: [
           'Se vocês fizerem uma coisa só em Kōyasan, é esta. O caminho tem lanternas de pedra acesas de ponta a ponta, a neblina desce entre os cedros e não há mais ninguém. É completamente diferente do mesmo caminho de dia.',
           'O tour noturno é o do **Ekō-in** — onde a Priscila ficou da outra vez — mas quem opera é a AWESOME TOURS, e a reserva é à parte, no site deles (night.koyasan-okunoin.com), inclusive para hóspede do próprio Ekō-in. **Qualquer templo serve** (só Renge-in e Sainan-in não podem, pelo horário do jantar). O ponto de encontro é o balcão dentro do café **TAIRA**, colado ao Ekō-in; o jantar das 17:30 termina lá pelas 18:30, dá tempo. Vale muito: o guia conta quem está enterrado em cada canto, e isso é metade do lugar.',
           'Por conta própria também funciona. Levem lanterna, casaco pesado e paciência para o frio. E não saiam do caminho principal.',
         ],
-        mapQuery: 'Ekoin Koyasan',
+        mapQuery: '大楽 TAIRA 高野山',
       },
     ],
   },
