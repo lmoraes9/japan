@@ -138,7 +138,6 @@ export const OSAKA: MapaEstacoes = {
     { id: 'p-d27-gongyo', nome: 'Oração das 6h', estacaoId: 'senjuinbashi', dx: -62, dy: -4, stopId: 'd27-gongyo', lado: 'l' },
     { id: 'p-d27-garan', nome: 'Garan', estacaoId: 'kondo-mae', dx: -22, dy: -38, stopId: 'd27-garan', lado: 'l' },
     { id: 'p-d27-kongobuji', nome: 'Kongōbu-ji', estacaoId: 'kondo-mae', dx: 30, dy: -38, stopId: 'd27-kongobuji' },
-    { id: 'p-d27-sumiyoshi', nome: 'Sumiyoshi Taisha', estacaoId: 'sumiyoshi-higashi', dx: 42, dy: -20, stopId: 'd27-sumiyoshi' },
     { id: 'p-d27-almoco', nome: '551 Hōrai · butaman', estacaoId: 'nankai-namba', dx: 52, dy: 6, stopId: 'd27-almoco' },
     { id: 'p-d27-trem-kyoto', nome: 'Hankyu → Kyoto 14:45', estacaoId: 'umeda', dx: 46, dy: 32, stopId: 'd27-trem-kyoto' },
     { id: 'p-d26-konbini', nome: '7-Eleven · lanche do trem', estacaoId: 'nankai-namba', dx: 56, dy: -22, stopId: 'd26-konbini' },

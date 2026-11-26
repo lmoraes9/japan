@@ -65,7 +65,6 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd26-kuromon': { lat: 34.6654, lng: 135.5062 },
 
   // ── Kyoto & Nara ──
-  'd27-sumiyoshi': { lat: 34.6124, lng: 135.4932 },
   'd27-fushimi-inari': { lat: 34.9671, lng: 135.7727 },
   'd27-jantar': { lat: 34.9311, lng: 135.7621 }, // Torisei Honten, Fushimi
   'd27-sushi-musashi': { lat: 35.0089, lng: 135.7688 }, // Sushi no Musashi Sanjō Honten

@@ -122,7 +122,6 @@ export const PLANO_CHUVA: Record<string, PlanoChuva> = {
     resumo: 'Kongōbu-ji é todo coberto e a descida da montanha é de trem; o que sofre é o Garan e o Fushimi Inari ao entardecer.',
     mantem: 'Kongōbu-ji e o jardim de pedras (visto da varanda), Namba, o saquê, o sushi no balcão.',
     trocas: [
-      { sai: 'Sumiyoshi Taisha (já era opcional)', entra: 'cortar sem culpa: é o primeiro item a cair' },
       { sai: 'Nishiki rápido às 15:45', entra: 'cortar também — o dia 29 termina nele' },
     ],
     dica: 'O Fushimi Inari com chuva fina tem menos gente, e os torii cobrem boa parte do caminho. Só não subam o monte inteiro: o Yotsutsuji já é o que importa.',

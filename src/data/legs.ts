@@ -652,7 +652,7 @@ export const LEGS: Record<string, Leg[]> = {
     walk(15, 'o tour termina ~20:45 perto do Ekō-in; dali, 15 min para o oeste pela rua principal até o Fumon-in, **direto**: o templo fecha de vez às **21:00** (entrem pela portinha dos fundos)'),
   ],
 
-  // ── 27 nov · Kōyasan de manhã, Sumiyoshi no caminho, Kyoto à noite ──
+  // ── 27 nov · Kōyasan de manhã, descida direta, Kyoto à noite ──
   'd27-gongyo': [
     walk(12, 'café da manhã no próprio templo; depois a pé para o oeste, passando pelo Kongōbu-ji, até o Danjō Garan'),
   ],
@@ -678,26 +678,12 @@ export const LEGS: Record<string, Leg[]> = {
     },
     {
       mode: 'train', line: 'Nankai Kōya Line (南海高野線)', board: 'Gokurakubashi, sem sair da estação', boardPoint: '極楽橋駅',
-      direction: 'なんば Namba', alight: 'Sumiyoshi-Higashi (住吉東)', alightPoint: '住吉東駅', minutes: 80, cost: 'no passe',
-      note: '**o passe termina em Sumiyoshi-Higashi**: pela regra da Nankai, descer numa estação do meio encerra o bilhete, e o trecho seguinte até Namba se paga à parte, com a Suica',
+      direction: 'なんば Namba', alight: 'Nankai Namba (なんば), fim da linha', alightPoint: '難波駅 南海', minutes: 90, cost: 'no bilhete de volta',
+      note: 'não desçam no meio do caminho: pela regra do bilhete, sair numa estação intermediária encerra a volta',
       steps: [
-        'Em Gokurakubashi, peguem o trem que estiver esperando: quase todos vão só até **橋本 Hashimoto**. O especial こうや cobra taxa à parte: não peguem.',
-        'Em **橋本 Hashimoto**, troquem para o **急行 ou 快速急行 なんば行き (para Namba)**; o painel da plataforma diz qual sai primeiro.',
-        'O expresso não para em Sumiyoshi-Higashi: desçam em **堺東 Sakai-Higashi** e troquem para o **各停 (local)** なんば行き.',
-        'Contem: Asakayama, Abikomae, Sawanochō e **住吉東 Sumiyoshi-Higashi**, a 4ª. Desçam e passem o passe na catraca de saída.',
-      ],
-    },
-    walk(10, 'para o oeste até o santuário — por este lado se entra pelos fundos; a ponte curva vermelha, a Sorihashi, fica na entrada oeste'),
-  ],
-  'd27-sumiyoshi': [
-    walk(10, 'de volta à estação Sumiyoshi-Higashi'),
-    {
-      mode: 'train', line: 'Nankai Kōya Line (南海高野線) · 各停 (local)', board: 'Sumiyoshi-Higashi (住吉東)', boardPoint: '住吉東駅',
-      direction: 'なんば Namba', alight: 'Nankai Namba (final)', alightPoint: '難波駅 南海', minutes: 15, cost: 'Suica (o passe acabou na ida)',
-      steps: [
-        'Passem a **Suica** na catraca (o passe já foi encerrado na chegada) e sigam a placa **なんば方面**.',
-        'Todo trem que para aqui vai até **なんば Namba**, o fim da linha.',
-        'Saiam pela catraca do 3º andar: a Takashimaya e o 551 ficam no mesmo prédio.',
+        'Enfiem o **bilhete de volta (難波 行き)** na catraca do funicular. Em Gokurakubashi, peguem o trem que estiver esperando: quase todos vão só até **橋本 Hashimoto**. O especial こうや cobra taxa à parte: não peguem.',
+        'Em **橋本 Hashimoto**, troquem na mesma estação para o **急行 ou 快速急行 なんば行き (para Namba)**; o painel da plataforma diz qual sai primeiro.',
+        'Fiquem até o **fim da linha, なんば Namba**. A catraca fica com o bilhete.',
       ],
     },
     walk(3, 'o balcão do 551 Hōrai fica na própria estação; a depachika da Takashimaya é no mesmo prédio'),
@@ -728,10 +714,7 @@ export const LEGS: Record<string, Leg[]> = {
       ],
     },
     walk(7, 'apesar do nome, o hotel não é na esquina de Shijō: ele fica na **Kawaramachi, abaixo de Sanjō** (Yamazaki-chō 240). Da saída 6, subam a Kawaramachi para o norte pela calçada oeste. As malas do takuhaibin devem estar na recepção'),
-    walk(5, 'descendo a Kawaramachi de volta para o sul; a entrada leste do Nishiki é pela arcada Teramachi'),
-  ],
-  'd27-nishiki-rapido': [
-    walk(6, 'do Nishiki, pela Shijō-dōri para o leste e atravessando a ponte sobre o rio Kamo: a entrada da **Keihan Gion-Shijō** é logo depois da ponte'),
+    walk(12, 'às ~15:40, do hotel para o sul pela Kawaramachi até a Shijō-dōri e para o leste, atravessando a ponte sobre o rio Kamo: a entrada da **Keihan Gion-Shijō** é logo depois da ponte'),
     {
       mode: 'train', line: 'Keihan Main Line — **普通 (local)**', board: 'Gion-Shijō (祇園四条), plataforma 2', boardPoint: '祇園四条駅',
       direction: '淀屋橋・中之島方面 (Yodoyabashi/Nakanoshima)', alight: 'Fushimi-Inari (伏見稲荷), 5ª parada', alightPoint: '伏見稲荷駅', minutes: 10, cost: '¥220',

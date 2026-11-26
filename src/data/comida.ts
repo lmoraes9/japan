@@ -942,8 +942,8 @@ export const COMIDA_ITENS: ComidaItem[] = [
     formato: ['mercado', 'de pé'],
     preco: '¥',
     plano: 'marcado',
-    stopId: 'd27-nishiki-rapido',
-    nota: '09:00–18:00, lojas fecham escalonado · 400 m cobertos a **6 min do hotel**. Meia hora de passagem na sexta, porque no domingo 29 ele já estará fechando quando vocês chegarem.',
+    stopId: 'd29-nishiki',
+    nota: '09:00–18:00, lojas fecham escalonado · 400 m cobertos a **6 min do hotel**. No domingo 29 as lojas já estarão fechando quando vocês passarem: se der, deem uma volta antes, numa manhã qualquer, porque fica perto do hotel.',
   },
   {
     id: 'depachika-ginza',
@@ -1089,7 +1089,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     local: true,
     busca: 'tako tamago Nishiki Market Kyoto',
     plano: 'escolha',
-    stopId: 'd27-nishiki-rapido',
+    stopId: 'd29-nishiki',
     nota: 'Polvinho baby recheado com um **ovo de codorna inteiro na cabeça**, glaceado e servido no palito. Estranho, doce, ótimo.',
   },
   {
@@ -1103,7 +1103,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     local: true,
     busca: 'tsukemono Nishiki Market Kyoto',
     plano: 'escolha',
-    stopId: 'd27-nishiki-rapido',
+    stopId: 'd29-nishiki',
     nota: 'Os picles de Kyoto são uma arte local — a cidade não tem mar e conservou tudo que pôde. Peçam para provar antes de comprar; eles oferecem.',
   },
   {
@@ -1115,7 +1115,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     preco: '¥',
     busca: 'Konnamonja Nishiki Market donut',
     plano: 'escolha',
-    stopId: 'd27-nishiki-rapido',
+    stopId: 'd29-nishiki',
     nota: 'Sai quente da fritadeira, no meio da galeria. Um por pessoa e sigam andando.',
   },
   {
