@@ -425,10 +425,18 @@ function Carteira({ reservas }: { reservas: Reserva[] }) {
   );
 }
 
-type Filtro = 'faltam' | 'feitas' | 'todas';
+type Filtro = 'faltam' | 'feitas' | 'todas' | 'passadas';
 
 export default function ReservasPage() {
-  const reservas = useReservas();
+  const todas = useReservas();
+  // o que já passou some da lista (fica só no chip "Passadas"); a data é a de Tóquio
+  const [hoje, setHoje] = useState('');
+  useEffect(() => {
+    setHoje(new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo' }).format(new Date()));
+  }, []);
+  const passou = (r: Reserva) => hoje !== '' && (r.dateEnd ?? r.date) < hoje;
+  const passadas = todas.filter(passou);
+  const reservas = todas.filter((r) => !passou(r));
   const marcar = useMarcarFeita(reservas);
   const [adding, setAdding] = useState(false);
   const [filtro, setFiltro] = useState<Filtro>('faltam');
@@ -441,10 +449,11 @@ export default function ReservasPage() {
   const contam = reservas.length - naHoraPendentes;
 
   const lista = useMemo(() => {
+    if (filtro === 'passadas') return [...passadas].sort((a, b) => (b.dateEnd ?? b.date).localeCompare(a.dateEnd ?? a.date));
     const base = filtro === 'faltam' ? reservas.filter((r) => !r.done) : filtro === 'feitas' ? reservas.filter((r) => r.done) : reservas;
     if (filtro !== 'faltam') return base;
     return [...base].sort((a, b) => ORDEM[prioridadeDe(a)] - ORDEM[prioridadeDe(b)] || porUrgencia(a, b));
-  }, [reservas, filtro]);
+  }, [reservas, passadas, filtro]);
 
   const porTier = (t: Prioridade) => reservas.filter((r) => !r.done && prioridadeDe(r) === t).length;
 
@@ -452,7 +461,7 @@ export default function ReservasPage() {
   useEffect(() => {
     const id = decodeURIComponent(window.location.hash.slice(1));
     if (!id) return;
-    setFiltro('todas');
+    setFiltro(todas.some((r) => r.id === id && passou(r)) ? 'passadas' : 'todas');
     setAlvo(id);
     const t = setTimeout(() => document.getElementById(id)?.scrollIntoView({ block: 'start' }), 120);
     return () => clearTimeout(t);
@@ -462,6 +471,7 @@ export default function ReservasPage() {
     { k: 'faltam', label: 'Pendentes', n: pendentes },
     { k: 'feitas', label: 'Já reservadas', n: feitas },
     { k: 'todas', label: 'Todas', n: reservas.length },
+    { k: 'passadas', label: 'Passadas', n: passadas.length },
   ];
 
   return (
@@ -530,7 +540,7 @@ export default function ReservasPage() {
 
       {lista.length === 0 && (
         <p className="rounded-2xl border border-hairline bg-surface p-5 text-center text-[13px] text-muted">
-          {filtro === 'faltam' ? 'Tudo feito. Boa viagem!' : 'Nada marcado como feito ainda.'}
+          {filtro === 'faltam' ? 'Tudo feito. Boa viagem!' : filtro === 'passadas' ? 'Nada passou ainda.' : 'Nada marcado como feito ainda.'}
         </p>
       )}
 
