@@ -92,7 +92,8 @@ export const START: Record<string, Leg[]> = {
     walk(1, 'a oração é no hondō do próprio templo — é só descer o corredor de meia'),
   ],
   'd2026-11-28': [
-    { mode: 'taxi', board: 'na porta do hotel', alight: 'Kiyomizu-dera (清水寺)', minutes: 12, cost: '~¥1.500', note: 'às 5h45 é o jeito certo; ônibus 206 (parada D2 da estação) só começa perto das 6h' },
+    { mode: 'taxi', board: 'na porta do hotel, às 09:15', alight: 'Ginkaku-ji (銀閣寺)', minutes: 15, cost: '~¥1.800', note: 'no sábado de pico o ônibus leva 40–50 min; o táxi deixa no pé da rua do templo' },
+    walk(5, 'subindo a rua das lojas até o portão'),
   ],
   'd2026-11-29': [walk(2, 'o 7-Eleven da esquina do hotel, na Kawaramachi')],
   'd2026-11-30': [
@@ -759,21 +760,26 @@ export const LEGS: Record<string, Leg[]> = {
   'd27-sushi-musashi': [walk(3, 'descendo a Kawaramachi uma quadra e meia para o sul, até o hotel')],
 
   // ── 28 nov · Higashiyama ───────────────────────────────────────────
-  'd28-kiyomizu': [walk(5, 'descendo a ladeira das lojas (Matsubara-dōri); a Sannenzaka é a escada à direita')],
-  'd28-sannenzaka': [walk(8, 'pela Ninenzaka e depois pelo Nene-no-michi; o Kōdai-ji fica no alto, à direita')],
-  'd28-kodaiji': [
-    walk(10, 'descendo até a Higashiōji-dōri, a avenida larga: táxi livre tem a luz vermelha 空車 no para-brisa'),
-    { mode: 'taxi', board: 'na Higashiōji-dōri, perto do Yasaka', alight: 'Ginkaku-ji (銀閣寺)', minutes: 15, cost: '~¥1.800', note: 'num sábado de pico o ônibus 203 leva 40–50 min e passa lotado; o táxi deixa vocês no pé da rua do templo' },
-    walk(5, 'subindo a rua das lojas até o portão'),
-  ],
   'd28-ginkakuji': [walk(5, 'descendo a rua do templo: o Omen fica na entrada norte do caminho, a poucos passos do canal')],
   'd28-almoco': [walk(2, 'o caminho começa ali, ao longo do canal')],
   'd28-filosofo': [walk(30, 'o caminho inteiro para o sul, 2 km ao longo do canal; termina nas costas do Nanzen-ji')],
-  'd28-nanzenji': [walk(8, 'para o norte pela rua atrás do aqueduto')],
-  'd28-eikando': [
-    walk(4, 'até a avenida em frente ao Eikan-dō, onde passam os táxis'),
-    { mode: 'taxi', board: 'na saída do Eikan-dō', alight: 'Hanamikōji, Gion (花見小路)', minutes: 15, cost: '~¥1.500', note: 'às 17h de sábado o ônibus 5 vem lotado e desce até a Kawaramachi, do outro lado do rio — seriam mais 10 min voltando a pé' },
+  'd28-nanzenji': [
+    walk(5, 'saindo pelo túnel de tijolos sob o aqueduto (Nejirimanpo) até a estação **Keage (蹴上)** do metrô Tōzai'),
+    {
+      mode: 'metro', line: 'Tōzai Line (verde-claro, T)', board: 'Keage (蹴上)', boardPoint: '蹴上駅',
+      direction: '太秦天神川方面 (Uzumasa-Tenjingawa)', alight: 'Sanjō Keihan (三条京阪), 2ª parada', alightPoint: '三条京阪駅', minutes: 4, cost: '¥220',
+      steps: [
+        'Plataforma **太秦天神川方面**, para o oeste. A outra vai para Rokujizō.',
+        'Contem: Higashiyama e **三条京阪 Sanjō Keihan**, a 2ª. Desçam e saiam para a Sanjō-dōri.',
+      ],
+    },
+    walk(8, 'atravessando a ponte Sanjō para o oeste e descendo a Kawaramachi até o hotel'),
   ],
+  'd28-descanso': [
+    { mode: 'taxi', board: 'na porta do hotel, às 15:30', alight: 'Kōdai-ji (高台寺)', minutes: 10, cost: '~¥1.200', note: 'ou 25 min a pé, por Gion e o parque Maruyama' },
+  ],
+  'd28-kodaiji': [walk(5, 'descendo pelo Nene-no-michi até a Ninenzaka, e dela a escada da Sannenzaka')],
+  'd28-sannenzaka': [walk(12, 'descendo pelo Yasaka-dōri até a Higashiōji e o santuário Yasaka; a Hanamikōji é logo depois, em Gion')],
   'd28-kitagawa': [walk(5, 'pela Hanamikōji de volta à Shijō-dōri: o Izuu fica em Gion Shinchi, ao norte da Shijō; Pontochō é do outro lado da ponte')],
   'd28-gion': [walk(15, 'a pé mesmo: pela Shijō-dōri para o oeste, atravessando a ponte, e na Kawaramachi virem à direita (norte) até o hotel, entre a Shijō e a Sanjō. Não depende de ônibus nenhum')],
 

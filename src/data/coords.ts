@@ -69,13 +69,12 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd27-jantar': { lat: 34.9311, lng: 135.7621 }, // Torisei Honten, Fushimi
   'd27-sushi-musashi': { lat: 35.0089, lng: 135.7688 }, // Sushi no Musashi Sanjō Honten
   'd26-konbini': { lat: 34.6633, lng: 135.5027 }, // 7-Eleven Nankai Namba, 2F
-  'd28-kiyomizu': { lat: 34.9949, lng: 135.785 },
   'd28-sannenzaka': { lat: 34.9966, lng: 135.781 },
   'd28-kodaiji': { lat: 35.0007, lng: 135.781 },
   'd28-ginkakuji': { lat: 35.027, lng: 135.7982 },
   'd28-filosofo': { lat: 35.0192, lng: 135.7955 },
   'd28-nanzenji': { lat: 35.0116, lng: 135.7943 },
-  'd28-eikando': { lat: 35.0146, lng: 135.7942 },
+  'd28-descanso': { lat: 35.0072, lng: 135.7689 },
   'd28-kitagawa': { lat: 35.0027, lng: 135.7765 }, // Gion Kitagawa Hanbee, Hanamikōji
   'd28-gion': { lat: 35.0037, lng: 135.771 },
   'd29-bambu': { lat: 35.017, lng: 135.671 },
