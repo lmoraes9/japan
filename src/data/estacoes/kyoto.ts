@@ -177,14 +177,12 @@ export const KYOTO: MapaEstacoes = {
     { id: 'p-d27-jantar', nome: 'Saquê · Torisei, numa kura', estacaoId: 'fushimi-momoyama', dx: 46, dy: 24, stopId: 'd27-jantar' },
     { id: 'p-d27-sushi-musashi', nome: 'Sushi no Musashi', estacaoId: 'sanjo', dx: -40, dy: -32, stopId: 'd27-sushi-musashi', lado: 'l' },
     // 28 nov
-    { id: 'p-d28-kiyomizu', nome: 'Kiyomizu-dera', estacaoId: 'kiyomizu-michi', dx: 36, dy: -26, stopId: 'd28-kiyomizu' },
     { id: 'p-d28-sannenzaka', nome: 'Sannenzaka', estacaoId: 'kiyomizu-michi', dx: 30, dy: 36, stopId: 'd28-sannenzaka' },
     { id: 'p-d28-kodaiji', nome: 'Kōdai-ji', estacaoId: 'gion-bus', dx: 30, dy: 42, stopId: 'd28-kodaiji' },
     { id: 'p-d28-ginkakuji', nome: 'Ginkaku-ji', estacaoId: 'ginkakuji-michi', dx: -40, dy: -32, stopId: 'd28-ginkakuji', lado: 'l' },
     { id: 'p-d28-filosofo', nome: 'Caminho do Filósofo', estacaoId: 'ginkakuji-michi', dx: -46, dy: -2, stopId: 'd28-filosofo', lado: 'l' },
     { id: 'p-d28-almoco', nome: 'Almoço · Omen', estacaoId: 'ginkakuji-michi', dx: -40, dy: 28, stopId: 'd28-almoco', lado: 'l' },
     { id: 'p-d28-nanzenji', nome: 'Nanzen-ji', estacaoId: 'nanzenji-michi', dx: -42, dy: -22, stopId: 'd28-nanzenji', lado: 'l' },
-    { id: 'p-d28-eikando', nome: 'Eikan-dō', estacaoId: 'nanzenji-michi', dx: -46, dy: 10, stopId: 'd28-eikando', lado: 'l' },
     { id: 'p-d28-kitagawa', nome: 'Chá · Kitagawa Hanbee', estacaoId: 'gion-bus', dx: 44, dy: -40, stopId: 'd28-kitagawa' },
     { id: 'p-d28-gion', nome: 'Gion & Pontochō', estacaoId: 'gion-shijo', dx: 24, dy: -30, stopId: 'd28-gion' },
     // 29 nov

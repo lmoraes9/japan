@@ -114,12 +114,6 @@ export const PONTOS: Record<string, PontoDetalhe[]> = {
     { name: "Jardim do Hōjō", jp: "方丈庭園", query: "南禅寺 方丈庭園", note: "O jardim seco do Hōjō, ingresso à parte." },
     { name: "Aqueduto Suirokaku", jp: "水路閣", query: "南禅寺 水路閣", note: "Tijolo vermelho de 1890 atrás do templo, ainda levando a água do lago Biwa." },
   ],
-  "d28-eikando": [
-    { name: "Mikaeri Amida, no Amida-dō", jp: "阿弥陀堂 · みかえり阿弥陀", query: "永観堂 阿弥陀堂", note: "O Buda que olha para trás. O rosto só aparece pela direita." },
-    { name: "Corredor Garyū-rō", jp: "臥龍廊", query: "永観堂 臥龍廊", note: "O corredor coberto que sobe a encosta como um dragão." },
-    { name: "Pagode Tahōtō", jp: "多宝塔", query: "永観堂 多宝塔", note: "No alto do morro, com Kyoto inteira embaixo." },
-    { name: "Lago Hōjō-ike", jp: "放生池", query: "永観堂 放生池", note: "O bordo refletido na água, com o pagode lá em cima." },
-  ],
   "d28-gion": [
     { name: "Hanamikōji", jp: "花見小路", query: "花見小路通 祇園", note: "Saindo do chá. Nas vielas privadas ao sul, nada de fotos (multa de ¥10.000)." },
     { name: "Izuu", jp: "いづう", query: "いづう 祇園", note: "Saba-sugata-zushi na casa de 1781. Fecha às terças." },

@@ -1101,7 +1101,7 @@ const nara: PlaceMap = {
 const higashiyama: PlaceMap = {
   id: 'higashiyama',
   coverHotspotId: 'kiyomizu',
-  stopId: 'd28-kiyomizu',
+  stopId: 'd28-sannenzaka',
   dayId: 'd2026-11-28',
   title: 'Higashiyama',
   jp: '東山',

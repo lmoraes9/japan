@@ -1474,7 +1474,7 @@ export const COMIDA_ITENS: ComidaItem[] = [
     plano: 'escolha',
     stopId: 'd28-sannenzaka',
     busca: 'Arabica Kyoto Higashiyama',
-    nota: 'Debaixo do pagode de Yasaka, entre as ladeiras e o Kōdai-ji. Abre às **09:00**, na hora em que vocês passam. Latte, e o matcha latte também. A fila cresce depois das 10.',
+    nota: 'Debaixo do pagode de Yasaka, entre as ladeiras e o Kōdai-ji. Fecha por volta das 18:00: passem às 16:45, a caminho do chá. Latte, e o matcha latte também.',
   },
 ];
 

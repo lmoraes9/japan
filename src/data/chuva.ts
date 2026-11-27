@@ -128,8 +128,8 @@ export const PLANO_CHUVA: Record<string, PlanoChuva> = {
   },
   'd2026-11-28': {
     impacto: 'medio',
-    resumo: 'Higashiyama a pé é longo e ao ar livre; mas Eikan-dō é todo de corredores cobertos e o chá de Gion é o fim do dia.',
-    mantem: 'Kiyomizu às 6h (a chuva espanta a fila), Eikan-dō, o chá no Kitagawa Hanbee, Gion à noite.',
+    resumo: 'Previsão: chuva de manhã (60–70%), melhorando à tarde (40–50%) e seca à noite. A manhã é a parte ao ar livre.',
+    mantem: 'Ginkaku-ji (o musgo fica mais bonito molhado), o almoço no Omen, a pausa no hotel, o chá no Kitagawa Hanbee, Gion à noite.',
     trocas: [
       { sai: 'Caminho do Filósofo (12:30)', entra: 'táxi do Ginkaku-ji ao Nanzen-ji; o caminho, com chuva, é 2 km de poça' },
       { sai: 'Sannenzaka e Ninenzaka a passo normal', entra: 'ir devagar: a pedra molhada escorrega, e a lenda do azar de quem tropeça ali passa a ser literal' },

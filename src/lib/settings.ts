@@ -53,7 +53,7 @@ export function effectiveRate(s: {
 }): { rate: number; source: 'manual' | 'api' | 'fallback' } {
   if (s.rateOverride) return { rate: s.rateOverride, source: 'manual' };
   if (s.cachedRate) return { rate: s.cachedRate.rate, source: 'api' };
-  return { rate: 0.036, source: 'fallback' };
+  return { rate: 0.0354, source: 'fallback' };
 }
 
 export function jpyToBrl(

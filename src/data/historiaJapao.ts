@@ -169,7 +169,6 @@ export const JAPAN_CHAPTERS: LongChapter[] = [
     ],
     noRoteiro: [
       { label: 'Fushimi Inari, fundado em 711', href: '/mais/historia/d27-fushimi-inari' },
-      { label: 'Kiyomizu-dera, de 778', href: '/mais/historia/d28-kiyomizu' },
       { label: 'Sanjūsangen-dō, as mil estátuas de 1164', href: '/roteiro/d2026-12-01#d01-sanjusangendo' },
       { label: 'Itsukushima, o santuário de Kiyomori', href: '/mais/historia/d24-itsukushima' },
       { label: 'Arashiyama, as villas de fim de semana da corte', href: '/mais/historia/d29-bambu' },

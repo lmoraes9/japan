@@ -339,11 +339,11 @@ export const INGRESSOS: Ingresso[] = [
   },
   {
     id: 'iluminacoes',
-    title: 'Iluminações noturnas: Eikan-dō e Kōdai-ji',
-    status: 'chegar-cedo',
+    title: 'Kōdai-ji (de dia e iluminação)',
+    status: 'na-hora',
     date: '2026-11-28',
-    action: 'Ingresso separado pago na entrada (Eikan-dō ¥700, 17:30–21:00; Kōdai-ji ¥600, até 22:00). Sem reserva. A fila do Eikan-dō começa às 17:00; cheguem 17:15 ou depois das 19:30.',
-    stopId: 'd28-eikando',
+    action: 'Ingresso na porta, ¥600. Às 15:45 ainda é o horário diurno; a iluminação noturna (ingresso à parte) começa ao escurecer. Sem reserva.',
+    stopId: 'd28-kodaiji',
   },
   {
     id: 'okochi',
