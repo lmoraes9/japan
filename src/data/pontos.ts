@@ -120,11 +120,6 @@ export const PONTOS: Record<string, PontoDetalhe[]> = {
     { name: "Gion Tanto", jp: "祇園 たんと", query: "祇園たんと", note: "Okonomiyaki e izakaya, informal. Fecha às quartas." },
     { name: "Pontochō", jp: "先斗町", query: "先斗町 京都", note: "Do outro lado do rio Kamo: 500 m de viela, várias casas com menu em inglês." },
   ],
-  "d29-ryoanji": [
-    { name: "O jardim de pedras", jp: "石庭", query: "龍安寺 石庭", note: "Quinze pedras e sempre uma escondida. Sentem-se na varanda por 15 minutos." },
-    { name: "A bacia Tsukubai", jp: "知足の蹲踞", query: "龍安寺 知足の蹲踞", note: "Nos fundos: 吾唯足知, \"eu apenas sei o que basta\"." },
-    { name: "Lago Kyōyōchi", jp: "鏡容池", query: "龍安寺 鏡容池", note: "O lago do século XII que quase ninguém visita." },
-  ],
   "d29-nishiki": [
     { name: "Entrada oeste do Nishiki", jp: "錦市場", query: "錦市場 高倉通", note: "O começo da galeria: tsukemono, yuba, dashimaki, fu." },
     { name: "Aritsugu", jp: "有次", query: "錦市場 有次", note: "As facas desde 1560, perto da ponta leste." },
@@ -178,12 +173,6 @@ export const PONTOS: Record<string, PontoDetalhe[]> = {
     { name: "A Kannon central", jp: "中尊 千手観音坐像", query: "三十三間堂 中尊 千手観音坐像", note: "A grande Kannon sentada no meio do salão." },
     { name: "As 28 divindades guardiãs", jp: "二十八部衆", query: "三十三間堂 二十八部衆", note: "Na frente das Kannon, com o realismo de tirar o fôlego." },
     { name: "A varanda oeste do tōshiya", jp: "通し矢 西縁", query: "三十三間堂 通し矢", note: "Do lado de fora: os 120 m sob o beiral onde se atirava por 24 horas." },
-  ],
-  "d01-toji": [
-    { name: "Kōdō, o mandala em 3D", jp: "講堂", query: "東寺 講堂", note: "Primeiro: as 21 estátuas do Shingon postas de pé." },
-    { name: "Kondō", jp: "金堂", query: "東寺 金堂", note: "O salão do Buda da Medicina." },
-    { name: "Pagode de cinco andares", jp: "五重塔", query: "東寺 五重塔", note: "55 m, de 1644, a torre de madeira mais alta do Japão. Visto de fora." },
-    { name: "Lago Hyōtan-ike", jp: "瓢箪池", query: "東寺 瓢箪池", note: "O lago com os bordos na frente do pagode: a foto." },
   ],
   "d01-almoco": [
     { name: "Isetan, o depachika", jp: "ジェイアール京都伊勢丹 地下", query: "ジェイアール京都伊勢丹", note: "B1/B2: um ekiben para o trem, se preferirem comer a bordo." },

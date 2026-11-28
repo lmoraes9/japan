@@ -96,8 +96,16 @@ export const START: Record<string, Leg[]> = {
     walk(5, 'subindo a rua das lojas até o portão'),
   ],
   'd2026-11-29': [
-    { mode: 'taxi', board: 'na porta do hotel, às 08:00', alight: 'Kiyomizu-dera (清水寺)', minutes: 12, cost: '~¥1.500', note: 'peçam "Kiyomizu-dera"; o táxi sobe a Gojōzaka até o estacionamento, a 5 min do portão' },
-    walk(5, 'subindo a Kiyomizu-zaka até o portão vermelho Niōmon'),
+    walk(7, 'do hotel para o **sul** pela Kawaramachi até o cruzamento com a Shijō. O ponto de ônibus **四条河原町 (Shijō-Kawaramachi)** dos ônibus para o norte fica na calçada **leste** da Kawaramachi, na frente da Takashimaya — procurem a placa com **12** e **59** e "金閣寺"'),
+    {
+      mode: 'bus', line: 'ônibus 12 ou 59 (市バス)', board: 'Shijō-Kawaramachi (四条河原町)', boardPoint: '四条河原町 バス停',
+      direction: '金閣寺・立命館大学方面', alight: 'Kinkakuji-michi (金閣寺道)', alightPoint: '金閣寺道 バス停', minutes: 45, cost: '¥230',
+      steps: [
+        'O painel da frente tem de dizer **12** ou **59** e **金閣寺**. Subam pela **porta de trás ou do meio**.',
+        'O painel e a voz anunciam as paradas; desçam em **金閣寺道 (Kinkakuji-michi)**. Na saída, encostem a Suica no leitor ao lado do motorista (¥230).',
+      ],
+    },
+    walk(7, 'do ponto, sigam a placa 金閣寺 para o norte, pela rua que sobe até o portão'),
   ],
   'd2026-11-30': [
     walk(6, 'subindo a Kawaramachi para o norte até a Oike-dōri: a estação **Kyoto-Shiyakusho-mae** (metrô Tōzai) fica embaixo, na frente da prefeitura'),
@@ -122,35 +130,8 @@ export const START: Record<string, Leg[]> = {
     walk(6, 'a Kintetsu fica **no 2º andar**, do lado Hachijō (sul), logo abaixo do Shinkansen — subam e atravessem a estação pela passagem livre do 2º andar (南北自由通路), seguindo a placa 近鉄線. Plataformas 1 a 4, e as máquinas de assento reservado (特急券) ficam ao lado da catraca'),
   ],
   'd2026-12-01': [
-    walk(6, 'check-out feito e as malas grandes já despachadas do hotel para Ginza; com as malas de mão, subam a Kawaramachi até a Oike-dōri: a estação **Kyoto-Shiyakusho-mae** (metrô Tōzai) fica na frente da prefeitura'),
-    {
-      mode: 'metro', line: 'Tōzai Line (vermelho-alaranjado, T)', board: 'Kyoto-Shiyakusho-mae (京都市役所前)', boardPoint: '京都市役所前駅',
-      direction: '太秦天神川 Uzumasa-Tenjingawa', alight: 'Karasuma-Oike (烏丸御池), 1ª parada', minutes: 2,
-      steps: [
-        'Plataforma **太秦天神川方面 (Uzumasa-Tenjingawa)**, como no dia 30.',
-        '**1 parada**: desçam em **烏丸御池 Karasuma-Oike** e sigam as placas **烏丸線 Karasuma Line**, sem sair da estação.',
-      ],
-    },
-    {
-      mode: 'metro', line: 'Karasuma Line (verde, K)', board: 'Karasuma-Oike, pela baldeação', direction: '京都・竹田 Kyoto · Takeda',
-      alight: 'Kyoto (京都), 3ª parada', minutes: 6, cost: '¥260 no total',
-      steps: [
-        'Plataforma **京都・竹田方面**. Contem Shijō, Gojō e **Kyoto**, a 3ª.',
-        'Passada a catraca do metrô, sigam as placas **JR線 / 中央口 (Central)**: os armários ficam junto das catracas centrais da JR.',
-      ],
-    },
-    walk(4, 'armários ao lado das catracas centrais: deixem as malas de mão aqui (¥400–700, moeda ou Suica) e guardem a chave/recibo'),
-    {
-      mode: 'train', line: 'JR Nara Line', board: 'Estação de Kyoto, plataformas 8 a 10', boardPoint: '京都駅 中央口',
-      direction: '奈良方面 Nara', alight: 'Tōfukuji (東福寺), 1ª parada', alightPoint: 'JR東福寺駅', minutes: 2, cost: '¥150',
-      note: 'o local (普通) e a みやこ路快速 param os dois em Tōfukuji: é a 1ª parada de qualquer trem da Nara Line',
-      steps: [
-        'Pela catraca **中央口 (Central)**, sigam a placa **奈良線 Nara Line**, plataformas **8 a 10**. Ficam longe das catracas: contem uns 5 minutos andando dentro da estação.',
-        'No painel, o trem é da **奈良線** (destino 奈良, 宇治 ou 城陽). Confiram que 東福寺 está na lista de paradas.',
-        'É **1 parada, 2 minutos**: desçam em **東福寺 Tōfukuji**. A Keihan tem uma estação com o mesmo nome colada: é só sair pela catraca da JR.',
-      ],
-    },
-    walk(10, 'saindo, siga o fluxo para o sul pela rua em frente (Hommachi-dōri) até a ponte Gaun-kyō'),
+    { mode: 'taxi', board: 'na porta do hotel, às 07:15 (check-out feito, malas de mão na recepção)', alight: 'Kiyomizu-dera (清水寺)', minutes: 12, cost: '~¥1.500', note: 'o táxi sobe a Gojōzaka até o estacionamento do templo' },
+    walk(5, 'subindo a **Kiyomizu-zaka (清水坂)** até o portão vermelho **Niōmon**'),
   ],
   'd2026-12-02': [
     walk(8, 'do hotel até a saída **A13** da estação Ginza. No subsolo, sigam as placas **laranja G** (銀座線 Ginza Line)'),
@@ -781,33 +762,32 @@ export const LEGS: Record<string, Leg[]> = {
   'd28-descanso': [
     { mode: 'taxi', board: 'na porta do hotel, às 15:30', alight: 'Kōdai-ji (高台寺)', minutes: 10, cost: '~¥1.200', note: 'ou 25 min a pé, por Gion e o parque Maruyama' },
   ],
-  'd28-kodaiji': [walk(5, 'descendo pelo Nene-no-michi até a Ninenzaka, e dela a escada da Sannenzaka')],
-  'd28-sannenzaka': [walk(12, 'descendo pelo Yasaka-dōri até a Higashiōji e o santuário Yasaka; a Hanamikōji é logo depois, em Gion')],
-  'd28-kitagawa': [walk(5, 'pela Hanamikōji de volta à Shijō-dōri: o Izuu fica em Gion Shinchi, ao norte da Shijō; Pontochō é do outro lado da ponte')],
-  'd28-gion': [walk(15, 'a pé mesmo: pela Shijō-dōri para o oeste, atravessando a ponte, e na Kawaramachi virem à direita (norte) até o hotel, entre a Shijō e a Sanjō. Não depende de ônibus nenhum')],
+  'd28-kodaiji': [
+    walk(4, 'saindo pelo portão do Kōdai-ji, desçam a escadaria larga de pedra até a **Nene-no-Michi (ねねの道)**, a alameda de pedra. Virem à **esquerda (sul)**'),
+    walk(6, 'no fim da Nene-no-Michi, sigam em frente pela rua estreita de casas de madeira com degraus: é a **Ninenzaka (二年坂)**. Ela termina numa escadaria larga: **subindo à esquerda é a Sannenzaka (三年坂)**, rumo ao Kiyomizu. A foto do pagode é na rua que sai **à direita, descendo**: a **Yasaka-dōri (八坂通)**'),
+  ],
+  'd28-sannenzaka': [
+    walk(5, 'desçam a **Yasaka-dōri (八坂通)** inteira, passando ao lado do pagode, até a avenida larga **Higashiōji-dōri (東大路通)**'),
+    walk(8, 'na Higashiōji, virem à **direita (norte)** e subam pela calçada até o portão laranja do **santuário Yasaka (八坂神社)**, no cruzamento com a **Shijō-dōri (四条通)**'),
+    walk(3, 'virem à **esquerda (oeste)** na Shijō-dōri: a **2ª rua à esquerda**, com o muro vermelho da casa de chá Ichiriki na esquina, é a **Hanamikōji (花見小路)**. Entrem nela, para o sul: o Kitagawa Hanbee fica nessa rua, à mão (confiram o número no Maps: **祇園 北川半兵衛**)'),
+  ],
+  'd28-kitagawa': [
+    walk(2, 'voltem pela Hanamikōji para o **norte** até a Shijō-dōri e atravessem a avenida, continuando em frente pela Hanamikōji do outro lado'),
+    walk(3, 'na 2ª esquina, a **Shinbashi-dōri (新橋通)**, virem à **esquerda (oeste)**: em 2 min aparecem o canal e a pontinha de pedra **Tatsumi-bashi (巽橋)**'),
+  ],
+  'd28-shirakawa': [
+    walk(4, 'sigam o canal para o **sudoeste** pela **Shirakawa-minami-dōri (白川南通)**, a rua dos salgueiros, até sair de novo na **Shijō-dōri**'),
+    walk(5, 'virem à **direita (oeste)** na Shijō e atravessem a ponte grande **Shijō-Ōhashi (四条大橋)** sobre o rio Kamo. Logo depois da ponte, a **1ª viela estreita à direita** é **Pontochō (先斗町)**'),
+  ],
+  'd28-gion': [walk(10, 'sigam Pontochō inteira para o **norte**: ela termina na **Sanjō-dōri**. Ali virem à **esquerda (oeste)** até a Kawaramachi e à **esquerda** de novo (sul): o hotel fica logo abaixo da Sanjō')],
 
   // ── 29 nov · Arashiyama, Kinkaku-ji ────────────────────────────────
-  'd29-kiyomizu': [
-    walk(10, 'descendo pela Gojōzaka até a avenida Higashiōji-dōri, onde passam os táxis'),
-    { mode: 'taxi', board: 'Higashiōji-dōri, no pé da Gojōzaka', alight: 'Kinkaku-ji (金閣寺)', minutes: 28, cost: '~¥3.000–3.500', note: 'num domingo de pico o ônibus leva 50–70 min' },
+  'd29-kinkakuji': [walk(20, 'saindo do Kinkaku-ji, voltem ao ponto Kinkakuji-michi e sigam para o **sul** pela avenida **Nishiōji-dōri (西大路通)**; na altura da Imadegawa-dōri virem à **esquerda (leste)**: o portão do Kitano Tenmangū fica a 5 min. Ou ônibus 101/102/204/205 duas paradas até Kitano-Hakubaichō')],
+  'd29-descanso': [walk(5, 'subindo as galerias para o norte até a Sanjō, e a Kawaramachi até o hotel')],
+  'd29-kitano': [
+    { mode: 'taxi', board: 'na frente do portão do Kitano Tenmangū (Imadegawa-dōri)', alight: 'Mercado Nishiki, entrada leste (Teramachi)', minutes: 20, cost: '~¥2.000', note: 'de ônibus: no Maps coloquem 錦市場; num domingo de pico costuma dar 35–45 min com 1 troca' },
   ],
-  'd29-kinkakuji': [walk(15, 'pela Kinukake-no-michi, a estrada em descida à esquerda da saída; ou ônibus 59, duas paradas')],
-  'd29-ryoanji': [walk(5, 'pelo lago Kyōyōchi até o Seigen-in, dentro do terreno do templo')],
-  'd29-almoco': [
-    walk(5, 'até a parada Ryōanji-mae, na frente do templo — a do lado com a placa 四条河原町・三条京阪 方面'),
-    {
-      mode: 'bus', line: 'ônibus 59 (市バス, verde)', board: 'Ryōanji-mae (竜安寺前)', boardPoint: '竜安寺前 バス停',
-      direction: '四条河原町・三条京阪 Shijō-Kawaramachi · Sanjō-Keihan', alight: 'Shijō-Kawaramachi (四条河原町)', alightPoint: '四条河原町 バス停', minutes: 40, cost: '¥230',
-      steps: [
-        'O painel da frente do ônibus diz **59 四条河原町・三条京阪**. Confiram o número antes de subir.',
-        '**Subam pela porta de trás ou do meio**, sem pagar. Nos ônibus comuns de Kyoto ainda é assim: entra atrás, paga e sai pela frente. (A cidade só planeja inverter para o fim de 2028; hoje, só os expressos turísticos EX são de entrar pela frente.)',
-        'Na descida, encostem a Suica no leitor ao lado do motorista: **¥230**, tarifa única. O painel e a voz anunciam a parada; um antes é 河原町三条 (Kawaramachi-Sanjō), a do hotel — desçam na seguinte, **四条河原町 Shijō-Kawaramachi**.',
-      ],
-    },
-    walk(8, 'subindo a Kawaramachi até o hotel'),
-  ],
-  'd29-descanso': [walk(8, 'do hotel para o sul pela Kawaramachi e pela galeria coberta Teramachi; o Nishiki é a galeria que cruza à direita')],
-  'd29-nishiki': [walk(6, 'saindo pelo lado leste do Nishiki, pela galeria Shinkyōgoku; a Urateramachi é a rua paralela')],
+  'd29-nishiki': [walk(2, 'no fim leste do Nishiki, a galeria coberta que cruza é a **Teramachi (寺町京極)**; a **Shinkyōgoku (新京極)** é a paralela, um quarteirão a leste')],
   'd29-jantar': [walk(4, 'subindo a Kawaramachi para o norte até o hotel, logo abaixo da Sanjō')],
 
   // ── 30 nov · Nara ──────────────────────────────────────────────────
@@ -868,13 +848,30 @@ export const LEGS: Record<string, Leg[]> = {
   ],
 
   // ── 1 dez · Tōfuku-ji e o Shinkansen ───────────────────────────────
-  'd01-tofukuji': [walk(20, 'para o norte pela Higashiōji-dōri; o Sanjūsangen-dō fica atrás do Museu Nacional. Táxi ~¥1.000 se estiverem cansados')],
-  'd01-sanjusangendo': [
-    { mode: 'taxi', board: 'na porta do Sanjūsangen-dō', alight: 'Tō-ji, portão leste Keigamon (東寺 慶賀門)', minutes: 12, cost: '~¥1.500', note: 'de ônibus seria baldeação na Estação de Kyoto; o táxi leva direto' },
+  'd01-kiyomizu': [walk(5, 'de volta pelo portão Niōmon e descendo a **Kiyomizu-zaka**; ~150 m abaixo, a escadaria de pedra **à direita** é a **Sannenzaka (三年坂 / 産寧坂)**')],
+  'd01-ladeiras': [
+    { mode: 'taxi', board: 'Higashiōji-dōri, no pé da Yasaka-dōri', alight: 'Sanjūsangen-dō (三十三間堂)', minutes: 8, cost: '~¥1.000', note: 'a pé são ~25 min para o sul pela Higashiōji' },
   ],
-  'd01-toji': [
-    walk(15, 'saindo pelo portão norte (Kitadaimon), para o nordeste até a saída **Hachijō** da Estação de Kyoto, a do Shinkansen'),
-    walk(5, 'atravessem a estação pela passagem livre até os armários das catracas centrais: peguem as malas de mão — e então o Isetan (ekiben) ou o Ramen Kōji no 10º'),
+  'd01-tofukuji': [
+    walk(10, 'de volta à estação **Keihan Tōfukuji (東福寺)**'),
+    {
+      mode: 'train', line: 'Keihan Main Line (qualquer trem que pare)', board: 'Tōfukuji (東福寺)', boardPoint: '東福寺駅',
+      direction: '三条・出町柳方面 (Sanjō/Demachiyanagi)', alight: 'Sanjō (三条), 4ª parada', alightPoint: '三条駅 京阪', minutes: 10, cost: '¥220',
+      steps: ['Plataforma **三条・出町柳方面** (para o norte).', 'Contem: Shichijō, Kiyomizu-Gojō, Gion-Shijō e **三条 Sanjō**, a 4ª.'],
+    },
+    walk(8, 'atravessando a ponte Sanjō para o oeste e descendo a Kawaramachi até o hotel'),
+  ],
+  'd01-sanjusangendo': [
+    walk(8, 'saindo do portão sul, para o **oeste** pela **Shichijō-dōri (七条通)** até a ponte sobre o rio Kamo: a estação **Keihan Shichijō (七条)** fica embaixo, antes da ponte'),
+    {
+      mode: 'train', line: 'Keihan Main Line — 普通 (local)', board: 'Shichijō (七条)', boardPoint: '七条駅 京阪',
+      direction: '淀屋橋方面 (Yodoyabashi)', alight: 'Tōfukuji (東福寺), 1ª parada', alightPoint: '東福寺駅', minutes: 3, cost: '¥220',
+      steps: ['Plataforma **淀屋橋方面** (para o sul). Peguem o **普通 (local)**: o 特急 passa direto.', '**1 parada**: 東福寺 Tōfukuji.'],
+    },
+    walk(10, 'saindo da estação, para o **sudeste** seguindo as placas 東福寺; a ponte Tsūten-kyō fica dentro do templo'),
+  ],
+  'd01-malas': [
+    { mode: 'taxi', board: 'na porta do hotel, com as malas', alight: 'Estação de Kyoto, lado Hachijō (八条口)', minutes: 15, cost: '~¥1.500', note: 'peçam 八条口 (Hachijō-guchi): é o lado do Shinkansen' },
   ],
   'd01-almoco': [walk(6, 'catracas do Shinkansen, lado Hachijō (sul); para Tóquio são as plataformas 11 e 12. Cheguem 15 min antes')],
   'd01-shinkansen': [
