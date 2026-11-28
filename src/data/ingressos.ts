@@ -290,22 +290,6 @@ export const INGRESSOS: Ingresso[] = [
 
   // ── Kyoto e Nara ──
   {
-    id: 'torokko',
-    opensAt: '2026-10-29T00:00:00+09:00',
-    checklistItemId: 'reserva-torokko',
-    title: 'Trem Sagano (Torokko) — ida e volta',
-    jp: '嵯峨野トロッコ列車',
-    status: 'obrigatorio',
-    date: '2026-11-29',
-    action: 'Dois bilhetes por pessoa: **Sagano 5** (Torokko Arashiyama 11:05 → Kameoka) e **Sagano 6** (Kameoka 11:30 → Torokko Arashiyama). Novembro esgota rápido, e este é o último outono dos vagões atuais.',
-    when: 'A venda **já abriu**: 29/10 à 0:00 de Tóquio (28/10, meio-dia em Brasília). Cancelamento grátis até a véspera',
-    where: 'site oficial de reservas (ars-saganokanko.triplabo.jp, link na página oficial) · cadastro grátis + cartão',
-    url: 'https://www.sagano-kanko.co.jp/en/',
-    cost: '¥880 por trecho · ¥3.520 o casal, ida e volta',
-    note: 'A venda é **só online**: os guias que falam em "guichê da JR a partir das 10h" estão desatualizados. Dá para escolher vagão e assento — o 5º ("Rich") é o aberto. Cancelamento grátis até a véspera. Se esgotar, sobra a venda do dia na estação (de pé, depois que os sentados acabam).',
-    stopId: 'd29-sagano',
-  },
-  {
     id: 'tofukuji',
     title: 'Tōfuku-ji no pico de novembro',
     jp: '東福寺',
@@ -344,15 +328,6 @@ export const INGRESSOS: Ingresso[] = [
     date: '2026-11-28',
     action: 'Ingresso na porta, ¥600. Às 15:45 ainda é o horário diurno; a iluminação noturna (ingresso à parte) começa ao escurecer. Sem reserva.',
     stopId: 'd28-kodaiji',
-  },
-  {
-    id: 'okochi',
-    title: 'Ōkōchi Sansō',
-    status: 'livre',
-    date: '2026-11-29',
-    action: 'Bilhete na porta, com o matcha e o doce incluídos.',
-    cost: '¥1.000',
-    stopId: 'd29-okochi-sanso',
   },
   {
     id: 'nara',

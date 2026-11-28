@@ -166,8 +166,7 @@ const BAIRRO_DA_PARADA: Record<string, string> = {
   'd28-sannenzaka': 'Higashiyama',
   'd28-almoco': 'Higashiyama',
   'd28-gion': 'Gion e Pontochō',
-  'd29-konbini': 'Arashiyama',
-  'd29-almoco': 'Arashiyama',
+  'd29-almoco': 'Ryōan-ji',
   'd30-almoco': 'Nara',
   'd01-almoco': 'Estação de Kyoto',
 };

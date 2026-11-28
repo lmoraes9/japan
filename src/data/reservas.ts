@@ -190,14 +190,6 @@ export const RESERVA_SEEDS: ReservaSeed[] = [
     done: true,
   },
   {
-    id: 'ingresso-torokko',
-    kind: 'ingresso',
-    title: 'Trem Sagano (Torokko) · ida e volta',
-    date: '2026-11-29',
-    time: 'Sagano 5 às 11:05 (Torokko Arashiyama → Kameoka) · Sagano 6 às 11:30 (volta)',
-    notes: 'Venda só online, abre 29/10 à 0:00 de Tóquio (28/10, 12:00 em Brasília) · 2 adultos × 2 trechos, ¥880 cada'
-  },
-  {
     id: 'ingresso-museu-paz',
     kind: 'ingresso',
     title: 'Museu Memorial da Paz · Hiroshima',
