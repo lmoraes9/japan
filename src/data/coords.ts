@@ -74,6 +74,7 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd28-ginkakuji': { lat: 35.027, lng: 135.7982 },
   'd28-filosofo': { lat: 35.0192, lng: 135.7955 },
   'd28-nanzenji': { lat: 35.0116, lng: 135.7943 },
+  'd02-ippodo': { lat: 35.6774, lng: 139.7614 },
   'd01-kiyomizu': { lat: 34.9949, lng: 135.785 },
   'd01-ladeiras': { lat: 34.9985, lng: 135.7795 },
   'd01-malas': { lat: 35.0072, lng: 135.7689 },

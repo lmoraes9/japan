@@ -96,16 +96,8 @@ export const START: Record<string, Leg[]> = {
     walk(5, 'subindo a rua das lojas até o portão'),
   ],
   'd2026-11-29': [
-    walk(7, 'do hotel para o **sul** pela Kawaramachi até o cruzamento com a Shijō. O ponto de ônibus **四条河原町 (Shijō-Kawaramachi)** dos ônibus para o norte fica na calçada **leste** da Kawaramachi, na frente da Takashimaya — procurem a placa com **12** e **59** e "金閣寺"'),
-    {
-      mode: 'bus', line: 'ônibus 12 ou 59 (市バス)', board: 'Shijō-Kawaramachi (四条河原町)', boardPoint: '四条河原町 バス停',
-      direction: '金閣寺・立命館大学方面', alight: 'Kinkakuji-michi (金閣寺道)', alightPoint: '金閣寺道 バス停', minutes: 45, cost: '¥230',
-      steps: [
-        'O painel da frente tem de dizer **12** ou **59** e **金閣寺**. Subam pela **porta de trás ou do meio**.',
-        'O painel e a voz anunciam as paradas; desçam em **金閣寺道 (Kinkakuji-michi)**. Na saída, encostem a Suica no leitor ao lado do motorista (¥230).',
-      ],
-    },
-    walk(7, 'do ponto, sigam a placa 金閣寺 para o norte, pela rua que sobe até o portão'),
+    { mode: 'taxi', board: 'na porta do hotel (ou Uber), às 09:30', alight: 'Kinkaku-ji (金閣寺)', minutes: 25, cost: '~¥2.500–3.000', note: 'o jeito sem susto: no Uber/GO coloquem 金閣寺. Plano B, mais barato: ônibus 12 ou 59 da Shijō-Kawaramachi, direto, ~45 min, ¥230 (passo a passo no aviso do dia)' },
+    walk(5, 'do ponto de desembarque, sigam a placa 金閣寺 até o portão'),
   ],
   'd2026-11-30': [
     walk(6, 'subindo a Kawaramachi para o norte até a Oike-dōri: a estação **Kyoto-Shiyakusho-mae** (metrô Tōzai) fica embaixo, na frente da prefeitura'),
@@ -1034,7 +1026,8 @@ export const LEGS: Record<string, Leg[]> = {
     },
     walk(1, 'a saída 6 dá praticamente na porta: a Iwate Ginga Plaza fica no térreo do Nankai Tokyo Building, em frente ao Kabuki-za'),
   ],
-  'd02-tekki': [walk(11, 'pela Harumi-dōri até a Ginza 4-chōme e além, passando pelo Kumamotokan (Ginza 5-3-16, perto da saída B9); o Bic Camera é o prédio grande de Yūrakuchō, do outro lado dos trilhos')],
+  'd02-tekki': [walk(13, 'pela **Harumi-dōri** para o oeste, passando a Ginza 4-chōme e o Kumamotokan (Ginza 5-3-16, perto da saída B9), até passar por baixo dos trilhos em Yūrakuchō; do outro lado, à direita, na **Hibiya-dōri**, fica o **Kokusai Building (国際ビル)**: o Ippodo é no térreo')],
+  'd02-ippodo': [walk(3, 'de volta para Yūrakuchō: o Bic Camera é o prédio grande ao lado da estação')],
   'd02-compras-finais': [walk(8, 'do Bic Camera Yūrakuchō, sigam os trilhos da JR no sentido de Shinbashi: o **OKUROJI** é a galeria debaixo dos arcos, e o Manten fica na loja **G24**. Cheguem às 20:20 — 15 min de atraso cancelam a mesa')],
   'd02-jantar-despedida': [walk(17, 'pela Harumi-dōri para o leste, cruzando a Chūō-dōri no cruzamento de Ginza 4-chōme (Wakō) e depois a Shōwa-dōri; a loja fica na **Ginza 3-15-10**, logo ao norte da Harumi-dōri, a 2 min da estação Higashi-Ginza (o caminho passa perto do hotel: a loja fica uns 5 min depois dele). De táxi são 5 min — mostrem o endereço 中央区銀座3-15-10')],
   'd02-konbini': [walk(5, 'de volta para o oeste, atravessando a Shōwa-dōri: o hotel fica na **Ginza 3-8-4** (Sotetsu Fresa Inn Ginza Sanchome). Arrumar as malas hoje, amanhã não vai dar tempo')],
