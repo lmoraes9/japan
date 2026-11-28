@@ -74,14 +74,16 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd28-ginkakuji': { lat: 35.027, lng: 135.7982 },
   'd28-filosofo': { lat: 35.0192, lng: 135.7955 },
   'd28-nanzenji': { lat: 35.0116, lng: 135.7943 },
-  'd29-kiyomizu': { lat: 34.9949, lng: 135.785 },
-  'd29-almoco': { lat: 35.0337, lng: 135.7182 },
+  'd01-kiyomizu': { lat: 34.9949, lng: 135.785 },
+  'd01-ladeiras': { lat: 34.9985, lng: 135.7795 },
+  'd01-malas': { lat: 35.0072, lng: 135.7689 },
+  'd28-shirakawa': { lat: 35.0052, lng: 135.7744 },
+  'd29-kitano': { lat: 35.0312, lng: 135.7351 },
   'd29-descanso': { lat: 35.0072, lng: 135.7689 },
   'd28-descanso': { lat: 35.0072, lng: 135.7689 },
   'd28-kitagawa': { lat: 35.0027, lng: 135.7765 }, // Gion Kitagawa Hanbee, Hanamikōji
   'd28-gion': { lat: 35.0037, lng: 135.771 },
   'd29-kinkakuji': { lat: 35.0394, lng: 135.7292 },
-  'd29-ryoanji': { lat: 35.0345, lng: 135.7183 },
   'd29-nishiki': { lat: 35.005, lng: 135.7649 },
   'd30-parque-nara': { lat: 34.6851, lng: 135.843 },
   'd30-todaiji': { lat: 34.689, lng: 135.8398 },
@@ -92,7 +94,6 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd30-naramachi': { lat: 34.6788, lng: 135.8306 },
   'd01-tofukuji': { lat: 34.9764, lng: 135.774 },
   'd01-sanjusangendo': { lat: 34.988, lng: 135.7715 },
-  'd01-toji': { lat: 34.9808, lng: 135.7478 }, // Tō-ji, Kondō / Kōdō
   'd01-checkin-compras': { lat: 35.6719, lng: 139.7677 }, // Sotetsu Fresa Inn Ginza 3-chōme
   'd01-rikugien': { lat: 35.7324, lng: 139.7484 }, // Rikugien, portão principal (正門), Hongō-dōri
   'd01-gachapon-ikebukuro': { lat: 35.729, lng: 139.719 }, // Sunshine City World Import Mart
