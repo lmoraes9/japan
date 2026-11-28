@@ -222,8 +222,22 @@ export const tokyo2Days: Day[] = [
         mapQuery: 'Iwate Ginga Plaza Ginza',
       },
       {
-        id: 'd02-compras-finais',
+        id: 'd02-ippodo',
         time: '18:15',
+        timeLabel: 'chá',
+        kind: 'food',
+        name: 'Ippodo Tokyo — o chá de Kyoto para levar',
+        jp: '一保堂茶舗 東京丸の内店',
+        facts: 'Marunouchi 3-1-1, **térreo do Kokusai Building (国際ビル)**, na Hibiya-dōri · ~3 min da estação Yūrakuchō · horário: confirmem no Maps (costuma fechar por volta das 19:00)',
+        paragraphs: [
+          'A filial de Tóquio da casa de chá de Kyoto de **1717**. Mesmos chás, mesmo preço: **matcha** a partir de ~¥1.000–2.000 a lata pequena, **sencha** e **hōjicha** em pacotes. Os atendentes deixam provar e explicam a diferença. Peçam latas e pacotes **lacrados**, que é o que passa sem problema na alfândega.',
+          '**Plano B, a 1 minuto da Iwate Ginga Plaza:** o **Jugetsudo (寿月堂)**, no 5º andar da **Kabuki-za Tower**, do outro lado da rua: chá do Maruyama Nori, de 1854, em latas lindas de presente.',
+        ],
+        mapQuery: '一保堂茶舗 東京丸の内店',
+      },
+      {
+        id: 'd02-compras-finais',
+        time: '18:45',
         timeLabel: 'compras',
         kind: 'shopping',
         name: 'Última varredura em Ginza — e o Oura Ring',

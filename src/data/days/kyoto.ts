@@ -449,7 +449,12 @@ export const kyotoDays: Day[] = [
       {
         label: 'Plano novo',
         tone: 'ok',
-        text: 'Sem Arashiyama e sem Ryōan-ji, e o **Kiyomizu foi para terça de manhã**, quando está muito mais vazio que num domingo e fica no caminho da estação. Hoje: acordar ~8h, **um ônibus só** até o Kinkaku-ji, almoço comendo pelo Nishiki, tarde livre.',
+        text: 'Sem Arashiyama e sem Ryōan-ji, e o **Kiyomizu foi para terça de manhã**, quando está muito mais vazio que num domingo e fica no caminho da estação. Hoje: acordar ~8h, **táxi** até o Kinkaku-ji, almoço comendo pelo Nishiki, tarde livre.',
+      },
+      {
+        label: 'Plano B para o Kinkaku-ji: o ônibus, passo a passo',
+        tone: 'info',
+        text: 'Não há trem perto do Kinkaku-ji: a estação mais próxima fica a 20 min a pé. O ônibus é **direto, sem troca**: no ponto **四条河原町 (Shijō-Kawaramachi)**, calçada **leste** da Kawaramachi, na frente da Takashimaya, peguem o **12** ou o **59** (o número e 金閣寺 aparecem no painel da frente). **Entrem pela porta de trás ou do meio**, sentem, e acompanhem o painel com o nome das paradas (também em inglês). Desçam em **金閣寺道 (Kinkakuji-michi)**, ~45 min. **Na saída, pela porta da frente**, encostem a Suica no leitor ao lado do motorista: ¥230. No Google Maps, com o destino 金閣寺, ele mostra o ônibus e avisa onde descer.',
       },
       {
         label: 'Nishiki no domingo',
