@@ -120,22 +120,6 @@ export const PONTOS: Record<string, PontoDetalhe[]> = {
     { name: "Gion Tanto", jp: "祇園 たんと", query: "祇園たんと", note: "Okonomiyaki e izakaya, informal. Fecha às quartas." },
     { name: "Pontochō", jp: "先斗町", query: "先斗町 京都", note: "Do outro lado do rio Kamo: 500 m de viela, várias casas com menu em inglês." },
   ],
-  "d29-tenryuji": [
-    { name: "Jardim Sōgenchi", jp: "曹源池庭園", query: "天龍寺 曹源池庭園", note: "O jardim de Musō Soseki, intacto há quase 700 anos." },
-    { name: "Varanda do Grande Hōjō", jp: "大方丈", query: "天龍寺 大方丈", note: "Daqui se vê a paisagem emprestada: as montanhas de Arashiyama em vermelho." },
-    { name: "Shigetsu", jp: "篩月", query: "天龍寺 篩月", note: "O shōjin ryōri dos monges, dentro do templo (11:00–14:00)." },
-    { name: "Portão norte, para o bambuzal", jp: "北門", query: "天龍寺 北門", note: "A saída que dá no bambuzal, a caminho do Ōkōchi Sansō." },
-  ],
-  "d29-okochi-sanso": [
-    { name: "Jibutsu-dō", jp: "持仏堂", query: "大河内山荘 持仏堂", note: "O primeiro prédio, onde o ator meditava e lia roteiros entre as filmagens." },
-    { name: "Daijō-kaku", jp: "大乗閣", query: "大河内山荘 大乗閣", note: "A casa principal, misturando vários estilos de arquitetura japonesa." },
-    { name: "Mirante no alto da trilha", jp: "大河内山荘庭園", query: "大河内山荘庭園", note: "Vista do desfiladeiro do Hozu e da cidade." },
-    { name: "Matcha e doce", jp: "お茶席", query: "大河内山荘 お茶席", note: "Incluídos no ingresso, no fim da trilha." },
-  ],
-  "d29-almoco": [
-    { name: "Arashiyama Yoshimura", jp: "嵐山よしむら", query: "嵐山よしむら", note: "Soba com vista da ponte. Peguem senha." },
-    { name: "Hatoya, a loja da ponte", jp: "八十八良葉舎 嵐山", query: "八十八良葉舎 嵐山 渡月橋", note: "O latte de matcha em camadas, a 1 min da Togetsukyō." },
-  ],
   "d29-ryoanji": [
     { name: "O jardim de pedras", jp: "石庭", query: "龍安寺 石庭", note: "Quinze pedras e sempre uma escondida. Sentem-se na varanda por 15 minutos." },
     { name: "A bacia Tsukubai", jp: "知足の蹲踞", query: "龍安寺 知足の蹲踞", note: "Nos fundos: 吾唯足知, \"eu apenas sei o que basta\"." },

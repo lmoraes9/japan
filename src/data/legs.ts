@@ -95,7 +95,10 @@ export const START: Record<string, Leg[]> = {
     { mode: 'taxi', board: 'na porta do hotel, às 09:15', alight: 'Ginkaku-ji (銀閣寺)', minutes: 15, cost: '~¥1.800', note: 'no sábado de pico o ônibus leva 40–50 min; o táxi deixa no pé da rua do templo' },
     walk(5, 'subindo a rua das lojas até o portão'),
   ],
-  'd2026-11-29': [walk(2, 'o 7-Eleven da esquina do hotel, na Kawaramachi')],
+  'd2026-11-29': [
+    { mode: 'taxi', board: 'na porta do hotel, às 08:00', alight: 'Kiyomizu-dera (清水寺)', minutes: 12, cost: '~¥1.500', note: 'peçam "Kiyomizu-dera"; o táxi sobe a Gojōzaka até o estacionamento, a 5 min do portão' },
+    walk(5, 'subindo a Kiyomizu-zaka até o portão vermelho Niōmon'),
+  ],
   'd2026-11-30': [
     walk(6, 'subindo a Kawaramachi para o norte até a Oike-dōri: a estação **Kyoto-Shiyakusho-mae** (metrô Tōzai) fica embaixo, na frente da prefeitura'),
     {
@@ -784,51 +787,14 @@ export const LEGS: Record<string, Leg[]> = {
   'd28-gion': [walk(15, 'a pé mesmo: pela Shijō-dōri para o oeste, atravessando a ponte, e na Kawaramachi virem à direita (norte) até o hotel, entre a Shijō e a Sanjō. Não depende de ônibus nenhum')],
 
   // ── 29 nov · Arashiyama, Kinkaku-ji ────────────────────────────────
-  'd29-konbini': [
-    walk(7, 'descendo a Kawaramachi para o sul até a Shijō; a Hankyu Kyoto-Kawaramachi é a estação subterrânea da esquina (entrem pela saída 3 ou 10)'),
-    {
-      mode: 'train', line: 'Hankyu Kyoto Line (marrom)', board: 'Kyoto-Kawaramachi (京都河原町)', boardPoint: '京都河原町駅',
-      direction: '大阪梅田 Osaka-Umeda', alight: 'Ōmiya (大宮), 2ª parada', alightPoint: '阪急大宮駅', minutes: 4, cost: '¥170',
-      steps: [
-        'Kyoto-Kawaramachi é ponta de linha: **todos os trens** vão para 大阪梅田 e todos param em Ōmiya. Peguem o primeiro que sair.',
-        'Contem Karasuma e **大宮 Ōmiya**, a 2ª. Desçam.',
-        'Na catraca, sigam a placa **嵐電 Randen (四条大宮)**: a estação do bondinho fica na superfície, na própria esquina da Shijō com a Ōmiya.',
-      ],
-    },
-    {
-      mode: 'tram', line: 'Randen (Keifuku) Arashiyama Line', board: 'Shijō-Ōmiya (四条大宮)', boardPoint: '嵐電 四条大宮駅',
-      direction: '嵐山 Arashiyama', alight: 'Arashiyama (嵐山), fim da linha', alightPoint: '嵐電嵐山駅', minutes: 22, cost: '¥250',
-      note: 'o bondinho de Kyoto; passa a cada ~10 min desde as 6h. A estação fica a 3 min do portão do Tenryū-ji',
-      steps: [
-        'Shijō-Ōmiya também é ponta de linha: o bondinho roxo sai daqui e **todos vão a 嵐山 Arashiyama**.',
-        'Fiquem até o **fim da linha**. Na metade do caminho, em Katabiranotsuji, sai um ramal para Kitano: não desçam, o de vocês segue reto.',
-        'Em Arashiyama, saiam pela frente da estação para a rua principal: o portão do Tenryū-ji fica do outro lado, um pouco à direita.',
-      ],
-    },
-    walk(8, 'pela lateral do Tenryū-ji até o portão norte; o bambuzal começa ali'),
-  ],
-  'd29-bambu': [walk(5, 'o portão norte do Tenryū-ji abre para dentro do bambuzal')],
-  'd29-tenryuji': [walk(10, 'de volta ao bambuzal e subindo até o fim da trilha; a villa é o portão à direita')],
-  'd29-okochi-sanso': [walk(5, 'de volta ao bambuzal: a estação **Torokko Arashiyama** (トロッコ嵐山) é a plataforma de madeira na beira da trilha. Estejam lá 10 min antes do trem das 11:05')],
-  'd29-sagano': [
-    {
-      mode: 'train', line: 'Sagano 5 · Sagano 6 (ida e volta)', board: 'Torokko Arashiyama', boardPoint: 'トロッコ嵐山駅',
-      direction: 'Torokko Kameoka (トロッコ亀岡)', alight: 'Torokko Arashiyama', alightPoint: 'トロッコ嵐山駅', minutes: 45, cost: '¥880 por trecho',
-      note: 'ida 11:05 → 11:25, volta 11:30 → 11:50: em Kameoka são 5 min para embarcar no segundo trem',
-      steps: [
-        'Cada bilhete tem o **carro (号車)** e o **assento**: o da ida é o Sagano 5, o da volta o Sagano 6. Esperem na plataforma em frente ao número do carro.',
-        'Fiquem até **トロッコ亀岡 Torokko Kameoka**, o fim da linha (20 min).',
-        'Em Kameoka, **não saiam da estação**: procurem o carro do segundo bilhete no Sagano 6, que sai 5 min depois e volta até Torokko Arashiyama.',
-      ],
-    },
-    walk(15, 'descendo pelo bambuzal e pela rua do Tenryū-ji até o rio; o Yoshimura fica na cabeceira norte da ponte Togetsukyō, com a varanda para o rio'),
-  ],
-  'd29-almoco': [
-    { mode: 'taxi', board: 'ponto de táxi na frente da estação Randen Arashiyama', alight: 'Kinkaku-ji (金閣寺)', minutes: 20, cost: '~¥2.500', note: 'o jeito que poupa uma hora. Alternativa: bonde Randen até Kitano-Hakubaichō (troca em Katabiranotsuji, 25 min ¥250) e ônibus 205 até Kinkakuji-michi' },
+  'd29-kiyomizu': [
+    walk(10, 'descendo pela Gojōzaka até a avenida Higashiōji-dōri, onde passam os táxis'),
+    { mode: 'taxi', board: 'Higashiōji-dōri, no pé da Gojōzaka', alight: 'Kinkaku-ji (金閣寺)', minutes: 28, cost: '~¥3.000–3.500', note: 'num domingo de pico o ônibus leva 50–70 min' },
   ],
   'd29-kinkakuji': [walk(15, 'pela Kinukake-no-michi, a estrada em descida à esquerda da saída; ou ônibus 59, duas paradas')],
-  'd29-ryoanji': [
-    walk(3, 'até a parada Ryōanji-mae, na frente do templo — a do lado com a placa 四条河原町・三条京阪 方面'),
+  'd29-ryoanji': [walk(5, 'pelo lago Kyōyōchi até o Seigen-in, dentro do terreno do templo')],
+  'd29-almoco': [
+    walk(5, 'até a parada Ryōanji-mae, na frente do templo — a do lado com a placa 四条河原町・三条京阪 方面'),
     {
       mode: 'bus', line: 'ônibus 59 (市バス, verde)', board: 'Ryōanji-mae (竜安寺前)', boardPoint: '竜安寺前 バス停',
       direction: '四条河原町・三条京阪 Shijō-Kawaramachi · Sanjō-Keihan', alight: 'Shijō-Kawaramachi (四条河原町)', alightPoint: '四条河原町 バス停', minutes: 40, cost: '¥230',
@@ -838,8 +804,9 @@ export const LEGS: Record<string, Leg[]> = {
         'Na descida, encostem a Suica no leitor ao lado do motorista: **¥230**, tarifa única. O painel e a voz anunciam a parada; um antes é 河原町三条 (Kawaramachi-Sanjō), a do hotel — desçam na seguinte, **四条河原町 Shijō-Kawaramachi**.',
       ],
     },
-    walk(6, 'o Nishiki é a galeria coberta uma quadra ao norte da Shijō: subam pela galeria Teramachi, a coberta, e virem à esquerda'),
+    walk(8, 'subindo a Kawaramachi até o hotel'),
   ],
+  'd29-descanso': [walk(8, 'do hotel para o sul pela Kawaramachi e pela galeria coberta Teramachi; o Nishiki é a galeria que cruza à direita')],
   'd29-nishiki': [walk(6, 'saindo pelo lado leste do Nishiki, pela galeria Shinkyōgoku; a Urateramachi é a rua paralela')],
   'd29-jantar': [walk(4, 'subindo a Kawaramachi para o norte até o hotel, logo abaixo da Sanjō')],
 

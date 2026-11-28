@@ -186,11 +186,6 @@ export const KYOTO: MapaEstacoes = {
     { id: 'p-d28-kitagawa', nome: 'Chá · Kitagawa Hanbee', estacaoId: 'gion-bus', dx: 44, dy: -40, stopId: 'd28-kitagawa' },
     { id: 'p-d28-gion', nome: 'Gion & Pontochō', estacaoId: 'gion-shijo', dx: 24, dy: -30, stopId: 'd28-gion' },
     // 29 nov
-    { id: 'p-d29-bambu', nome: 'Bambuzal', estacaoId: 'saga-arashiyama', dx: 36, dy: -42, stopId: 'd29-bambu' },
-    { id: 'p-d29-tenryuji', nome: 'Tenryū-ji', estacaoId: 'hankyu-arashiyama', dx: 54, dy: -20, stopId: 'd29-tenryuji' },
-    { id: 'p-d29-okochi-sanso', nome: 'Ōkōchi Sansō', estacaoId: 'saga-arashiyama', dx: -30, dy: -42, stopId: 'd29-okochi-sanso', lado: 'l' },
-    { id: 'p-d29-sagano', nome: 'Trem Sagano', estacaoId: 'saga-arashiyama', dx: -36, dy: -12, stopId: 'd29-sagano', lado: 'l' },
-    { id: 'p-d29-almoco', nome: 'Almoço · Yoshimura', estacaoId: 'randen-arashiyama', dx: 30, dy: 66, stopId: 'd29-almoco' },
     { id: 'p-d29-kinkakuji', nome: 'Kinkaku-ji', estacaoId: 'kinkakuji-michi', dx: 32, dy: -32, stopId: 'd29-kinkakuji' },
     { id: 'p-d29-ryoanji', nome: 'Ryōan-ji', estacaoId: 'ryoanji-mae', dx: -22, dy: -32, stopId: 'd29-ryoanji', lado: 'l' },
     { id: 'p-d29-nishiki', nome: 'Mercado Nishiki', estacaoId: 'shijo', dx: -42, dy: -32, stopId: 'd29-nishiki', lado: 'l' },

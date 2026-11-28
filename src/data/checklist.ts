@@ -180,13 +180,6 @@ export const CHECKLIST: ChecklistItem[] = [
     subtitle: 'Reservado em 1/11 pelo TableCheck (UFR7CG): sábado 28/11 às 18:00, 2 pessoas',
   },
   {
-    id: 'reserva-torokko',
-    dueAt: '2026-11-15T23:59:00-03:00',
-    group: 'pretrip',
-    title: 'Reservar o trem Sagano (Torokko), ida e volta',
-    subtitle: 'A venda **já abriu** (28/10, meio-dia em Brasília) · Sagano 5 às 11:05 e Sagano 6 às 11:30 do dia 29/11 · só online, esgota rápido · cancelamento grátis até a véspera',
-  },
-  {
     id: 'reserva-shinkansen',
     dueAt: '2026-11-15T23:59:00-03:00',
     group: 'pretrip',

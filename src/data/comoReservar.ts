@@ -84,7 +84,6 @@ export interface GuiaReserva {
 /** Quais reservas fecham cada item da checklist: o item só marca quando todas estão feitas */
 export const CHECKLIST_DAS_RESERVAS: Record<string, string[]> = {
   'reserva-shinkansen': ['trem-nozomi-hiroshima'],
-  'reserva-torokko': ['ingresso-torokko'],
   'reserva-omakase': ['mesa-omakase'],
   'reserva-museu-paz': ['ingresso-museu-paz'],
   'reserva-rikugien': ['ingresso-rikugien'],

@@ -92,9 +92,7 @@ export const COMIDA_COORDS: Record<string, { lat: number; lng: number }> = {
   'gion-tanto': { lat: 35.0035, lng: 135.7752 },
   pontocho: { lat: 35.006, lng: 135.771 },
   omen: { lat: 35.0244, lng: 135.7935 },
-  yoshimura: { lat: 35.013, lng: 135.6775 },
   okutan: { lat: 35.011, lng: 135.7935 },
-  shigetsu: { lat: 35.0158, lng: 135.6737 },
   nishiki: { lat: 35.005, lng: 135.7649 },
   'tako-tamago': { lat: 35.005, lng: 135.7649 },
   tsukemono: { lat: 35.005, lng: 135.7649 },
@@ -109,7 +107,6 @@ export const COMIDA_COORDS: Record<string, { lat: number; lng: number }> = {
   'onimaru-kawaramachi': { lat: 35.008, lng: 135.769 },
   karafuneya: { lat: 35.0083, lng: 135.7688 },
   'arabica-higashiyama': { lat: 34.999, lng: 135.78 },
-  'hatoya-arashiyama': { lat: 35.0128, lng: 135.6785 },
 
   // ── Nara ──
   kakinoha: { lat: 34.6825, lng: 135.83 },

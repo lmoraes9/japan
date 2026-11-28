@@ -372,7 +372,7 @@ export const PLACE_HISTORIES: Record<string, PlaceHistory> = {
       'Os torii são doações: cada empresa ou pessoa que tem um pedido atendido paga um torii com o nome gravado atrás, de ¥400.000 o pequeno a ¥1,3 milhão o grande, e as fileiras se renovam quando a madeira apodrece, a cada dez anos. O costume começou no período Edo e há hoje uns 10.000 torii na montanha, com 800 no trecho duplo do Senbon Torii. A subida ao cume, 233 m, leva duas horas e passa por milhares de altares particulares de pedra, os *otsuka*, cada um com o nome de uma família e um Inari próprio. É o lugar mais visitado de Kyoto e, de tarde, quando as excursões descem, o mais bonito para subir.',
     ],
   },
-  'd28-kiyomizu': {
+  'd29-kiyomizu': {
     title: 'Kiyomizu-dera',
     jp: '清水寺',
     paragraphs: [

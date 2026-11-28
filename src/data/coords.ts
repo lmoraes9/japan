@@ -74,13 +74,12 @@ export const COORDS: Record<string, { lat: number; lng: number }> = {
   'd28-ginkakuji': { lat: 35.027, lng: 135.7982 },
   'd28-filosofo': { lat: 35.0192, lng: 135.7955 },
   'd28-nanzenji': { lat: 35.0116, lng: 135.7943 },
+  'd29-kiyomizu': { lat: 34.9949, lng: 135.785 },
+  'd29-almoco': { lat: 35.0337, lng: 135.7182 },
+  'd29-descanso': { lat: 35.0072, lng: 135.7689 },
   'd28-descanso': { lat: 35.0072, lng: 135.7689 },
   'd28-kitagawa': { lat: 35.0027, lng: 135.7765 }, // Gion Kitagawa Hanbee, Hanamikōji
   'd28-gion': { lat: 35.0037, lng: 135.771 },
-  'd29-bambu': { lat: 35.017, lng: 135.671 },
-  'd29-tenryuji': { lat: 35.0158, lng: 135.6737 },
-  'd29-okochi-sanso': { lat: 35.0168, lng: 135.6694 },
-  'd29-sagano': { lat: 35.0171, lng: 135.6702 }, // estação Torokko Arashiyama
   'd29-kinkakuji': { lat: 35.0394, lng: 135.7292 },
   'd29-ryoanji': { lat: 35.0345, lng: 135.7183 },
   'd29-nishiki': { lat: 35.005, lng: 135.7649 },
